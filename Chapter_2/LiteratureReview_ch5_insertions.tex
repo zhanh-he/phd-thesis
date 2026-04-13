@@ -1,0 +1,30 @@
+% Suggested insertions for LiteratureReview.tex to reduce repetition in Chapter 5.
+
+% ----------------------------------------------------------------------
+% Insertion A
+% Place in Section "Feature Representations", inside
+% \subsection{Audio representations}, after the paragraph ending with
+% "Chapter~\ref{ch:audiodyn} compares perceptual loudness features with standard log Mel features in a multi-task setting."
+% ----------------------------------------------------------------------
+
+\paragraph{Bark-scale specific loudness as a compact front-end.}
+For the score-dynamics task studied later in Chapter~\ref{ch:audiodyn}, we use Bark-scale specific loudness (BSSL) rather than a generic spectral representation. BSSL groups energy into perceptually motivated critical bands and provides a compact $22 \times T$ representation at the temporal resolution used for beat tracking. This compactness matters in joint dynamics-and-metre modeling because the system must preserve sharp temporal cues for beat localization while also spanning phrase-level context for dynamics. In practice, the reduced frequency dimension makes long-context modeling substantially cheaper than with a standard 128-bin log-Mel front-end.
+
+% ----------------------------------------------------------------------
+% Insertion B
+% Place in Section "Thread B: Score Dynamics Estimation", inside
+% \subsection{Joint estimation and multi-task learning}, after the
+% paragraph ending with "Chapter~\ref{ch:audiodyn} adopts this view."
+% ----------------------------------------------------------------------
+
+\paragraph{Beat-synchronous score dynamics as a joint prediction problem.}
+A practical formulation is to predict four aligned targets from the same audio stream: dynamic levels, dynamic change points, beats, and downbeats. Dynamic levels and change points encode the score-facing content, while beats and downbeats provide the metrical coordinate needed to place these labels on a symbolic score. This design supports two use cases. When a reliable beat grid is available from a score, the dynamic labels can be attached directly to that grid. When no score is available, the model can first estimate the metrical structure and then place the dynamics labels on its own predicted beat sequence.
+
+% ----------------------------------------------------------------------
+% Insertion C
+% Place in Section "Datasets, Evaluation, and Reproducibility Constraints",
+% after the dataset table or near the MazurkaBL discussion.
+% ----------------------------------------------------------------------
+
+\paragraph{MazurkaBL as the central benchmark for Thread B.}
+MazurkaBL is especially important for this thesis because it provides score-aligned beat times together with verified expressive markings. For Chapter~\ref{ch:audiodyn}, this means that both dynamic labels and change points can be evaluated on a musically meaningful beat grid instead of raw frame time. The dataset therefore serves not only as a source of labels but also as a concrete example of why beat-synchronous score dynamics is a useful representation. At the same time, its annotation style is strongly beat-aligned and repertoire-specific, which should be kept in mind when interpreting generalization.

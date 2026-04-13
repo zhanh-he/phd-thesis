@@ -1,0 +1,318 @@
+\begin{table}[t]
+\centering
+\caption{Representative datasets relevant to expressive label recovery in this thesis.}
+\label{tab:dataset_comparison}
+% \tiny
+% \scriptsize                        % 控制字体, 把字体切到 LaTeX 预定义的小字号
+\setlength{\tabcolsep}{1.8pt}          % 控制表格列与列之间的左右留白
+\fontsize{9pt}{8pt}\selectfont       % 直接设置字体大小和行高
+\renewcommand{\arraystretch}{1.2}    % 控制表格行高倍率
+
+\begin{tabularx}{\textwidth}{
+l l
+c c c c c
+c c c c
+}
+\toprule
+\multirow{2}{*}{\textbf{Dataset}} &
+\multirow{2}{*}{\textbf{Instr.}} &
+\multicolumn{5}{c}{\textbf{Statistic}} &
+\multicolumn{4}{c}{\textbf{Modality}} \\
+\cmidrule(lr){3-7} \cmidrule(lr){8-11}
+&
+& \textbf{Hours}
+& \makecell{\textbf{Perfor-}\\\textbf{mance}}
+& \makecell{\textbf{Perfor-}\\\textbf{mers}}
+& \makecell{\textbf{Compo-}\\\textbf{sitions}}
+& \makecell{\textbf{Compo-}\\\textbf{sers}}
+& \textbf{MIDI}
+& \makecell{\textbf{MIDI}\\\textbf{Velo.}}
+& \textbf{Score}
+& \makecell{\textbf{Score}\\\textbf{Dyn.}} \\
+\midrule
+
+\addlinespace[2pt]
+ATEPP \cite{zhang2022atepp}
+& piano
+& 1007
+& 11742
+& 49
+& 1580
+& 25
+& \cmark
+& \cmark
+& \cmark\ 43\%
+& \warn\ 43\% \\
+\addlinespace[4pt]
+\multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\warn\ Audio is from YouTube URLs -- availability may vary; score-dynamics labels are not explicitly curated.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+ASAP \cite{foscarin2020asap}
+& piano
+& 92
+& 1068
+& n/a.
+& 222
+& 15
+& \cmark
+& \cmark
+& \warn
+& \warn \\
+\addlinespace[4pt]
+\multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\warn\ Scores are aligned for synchronization research; expressive markings are not fully verified.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+Maestro \cite{hawthorne2019maestro}
+& piano
+& 172
+& 1276
+& 205
+& 864
+& 60
+& \cmark
+& \cmark
+& \xmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ High-quality piano dataset from the Piano-e-Competition, recorded on Yamaha Disklavier pianos.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+SMD \cite{smd}
+& piano
+& 4.7
+& 50
+& n/a.
+& 50
+& 11
+& \cmark
+& \cmark
+& \xmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ Often used for cross-dataset evaluation of models trained on MAESTRO; also recorded on Yamaha Disklavier pianos.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+MAPS \cite{maps}
+& piano\tablefootnote{Statistics are computed only on the ENSTDkAm and ENSTDkCl subsets (solo piano recordings).}
+& 17.9
+& 270
+& n/a.
+& 208
+& n/a.
+& \cmark
+& \cmark
+& \xmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ Often used for cross-dataset evaluation of models trained on MAESTRO; also recorded on Yamaha Disklavier pianos.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+MazurkaBL \cite{kosta2018mazurkabl}
+& piano
+& 110
+& 2000
+& 135
+& 44
+& 1
+& \xmark
+& \xmark
+& \cmark
+& \cmark \\
+\addlinespace[4pt]
+\multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ Copyright: audio is from CD - allows research, not commercial.}\\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+MSMD \cite{dorfer2018msmd}
+& piano
+& 15
+& 479
+& n/a.
+& 479
+& 53
+& \cmark
+& \xmark
+& \cmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\warn\ Synthesized audio; MIDI is derived from digital scores rather than human performance.} \\
+\addlinespace[2pt]
+\midrule
+
+% \addlinespace[2pt]
+% MTD
+% & orchestra (4)
+% & 5
+% & 2067
+% & n/a.
+% & 2067
+% & 54
+% & \cmark
+% & \xmark
+% & \cmark
+% & \cmark \\
+% \addlinespace[4pt]
+% \multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+% {\hspace{1em}\warn\ Monophonic performance style limits direct comparison with polyphonic piano settings.} \\
+% \addlinespace[2pt]
+% \midrule
+
+% \addlinespace[2pt]
+% SAX
+% & saxophone
+% & 11
+% & 1026
+% & unknown
+% & 1026
+% & 1
+% & \xmark
+% & \xmark
+% & \cmark
+% & \cmark \\
+% \addlinespace[2pt]
+% \midrule
+
+\addlinespace[2pt]
+GuitarSet \cite{xi2018guitarset}
+& guitar
+& 3.0
+& 360
+& 6
+& 30
+& n/a.
+& \cmark
+& \xmark
+& \xmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ Good quality electric guitar dataset.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+GOAT \cite{loth2025goat}
+& guitar
+& 5.9
+& 172
+& n/a.
+& n/a.
+& n/a.
+& \cmark
+& \xmark
+& \cmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ Usage may still be constrained by copyright or redistribution terms.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+GAPS \cite{riley2024gaps}
+& guitar
+& 14.1
+& 300
+& 205
+& 300
+& 93
+& \cmark
+& \xmark
+& \cmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\warn\ Audio is collected from YouTube URLs, so long-term availability may vary.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+MusicNet \cite{thickstun2017musicnet}
+& ensemble
+& 34.1
+& 330
+& n/a.
+& 121
+& 10
+& \cmark
+& \warn
+& \xmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ Classical multi-instrument recordings; note labels are aligned from score via DTW; reference MIDI is available; \warn\ alignment noise exists; velocity is score-derived and not performance control.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+MID-FiLD \cite{ryu2024midfild}
+& ensemble
+& n/a.
+& 4477
+& n/a
+& 4477
+& n/a.
+& \cmark
+& \cmark
+& \xmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{11}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\warn\ Synthesized audio; MIDI is derived from digital scores rather than human performance.} \\
+\addlinespace[2pt]
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+
+% Loudness to Internsity Table
+\begin{table*}[h!]
+\centering
+\caption{Illustrative correspondences between score-dynamics vocabulary and loudness-related scales. These values are reader-oriented anchors rather than deterministic conversions from notation to acoustics. Phons and sones are referenced from~\cite{backus1977acoustical}; the dB values at different pitches are read from representative equal-loudness contours. $C_8, C_6, C_4, C2$ correspond to 4186, 1046, 261.6, and 65.4 Hz respectively.}
+\label{tab:dynamics_symbols}
+\setlength{\tabcolsep}{2.4pt}
+\fontsize{11pt}{11pt}\selectfont
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llll cccc}
+\toprule
+\textbf{Meaning} &
+\textbf{Symbols} &
+\textbf{Phons} &
+\textbf{Sones} &
+\makecell{\textbf{4186 Hz} \\ \textbf{intensity}} &
+\makecell{\textbf{1046 Hz} \\ \textbf{intensity}} &
+\makecell{\textbf{261.6 Hz} \\ \textbf{intensity}} &
+\makecell{\textbf{65.4 Hz} \\ \textbf{intensity}} \\
+\midrule
+threshold of pain    & \textbf{ffff/sf} & 120 & 128 & 105.5 dB & 120 dB & 120 dB & 126.5 dB \\
+yelling              & \textbf{fff}   & 100 & 64  & 89.5 dB  & 100 dB & 99 dB  & 107.5 dB \\
+very loud            & \textbf{ff}    & 90  & 32  & 80 dB    & 90 dB  & 86.5 dB & 98.5 dB \\
+loud                 & \textbf{f}     & 80  & 16  & 70.3 dB  & 80 dB  & 76 dB  & 90 dB \\
+normal speaking      & \textbf{mf--mp}& 70  & 8   & 61 dB    & 70 dB  & 66 dB  & 81.5 dB \\
+soft                 & \textbf{p}     & 60  & 4   & 51 dB    & 60 dB  & 57.5 dB & 74 dB \\
+almost a whisper     & \textbf{pp}    & 50  & 2   & 42.5 dB  & 50 dB  & 48 dB  & 65 dB \\
+whispering           & \textbf{ppp}   & 40  & 1   & 32.5 dB  & 40 dB  & 39.5 dB & 58 dB \\
+threshold of hearing & \textbf{pppp/sp} & 0   & 0   & -4.5 dB  & 0 dB   & 10 dB  & 35 dB \\
+\bottomrule
+\end{tabular}
+\end{table*}

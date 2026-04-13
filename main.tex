@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTE: THIS IS A ROUGH TEMPLATE THAT WILL MOST LIKELY NEED CHANGES TO
+% CONFORM TO YOUR INDIVIDUAL SITUATION
+% THERE IS NO GUARANTEE OF ACCURACY OR COMPLETENESS TO THE TEMPLATE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,a4paper,twoside,openright,final,titlepage]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{layout}
+\usepackage{lscape}
+\usepackage{xfrac}
+\usepackage{tabularx}
+\usepackage{rotating}
+\usepackage{longtable}
+\usepackage{makecell}
+
+\usepackage{multirow}
+\usepackage{bm} % for bold math symbols (incl. Greek letters) with \bm{}
+\usepackage{booktabs}
+
+%\usepackage{todonotes}
+\usepackage[colorlinks=true,
+							citecolor=black,
+							linkcolor=black,
+							urlcolor=red,
+							linktocpage=true,
+							hyperfootnotes=false]{hyperref}
+
+\usepackage[square,numbers,sort&compress]{natbib}
+\setlength\bibhang{.3in}
+
+% --------------------- Table in Ch2 ---------------------
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{tablefootnote}
+\usepackage{xcolor}
+\usepackage{pifont}
+
+\newcommand{\cmark}{\textcolor{green!50!black}{\ding{51}}}
+\newcommand{\xmark}{\textcolor{red!70!black}{\ding{55}}}
+\newcommand{\warn}{\textcolor{orange!90!black}{$\blacktriangle$}}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+% --------------------- Table in Ch2 ---------------------
+
+\usepackage{lineno}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{microtype}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage[labelfont=bf,font=small]{caption}
+
+% For electronic submission use:
+\usepackage[inner=3cm,outer=3cm,top=2cm,bottom=2cm]{geometry}
+% For printing use:
+% \usepackage[inner=4cm,outer=2cm,top=2cm=bottom=2cm]{geometry}
+
+
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\thechapter. #1 }}{}}
+\renewcommand{\sectionmark}[1]{}
+\fancyhf{}
+\fancyhead[RO]{\bfseries\rightmark}
+\fancyhead[LE]{\bfseries\leftmark}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+
+\newcommand\frontmatter{\pagenumbering{roman}}
+\newcommand\mainmatter{\cleardoublepage\pagenumbering{arabic}}
+
+\newenvironment{chapabstract}{%
+	\begin{center}%
+		\singlespacing
+		\bfseries ABSTRACT
+	\end{center}}%
+	
+\begin{document}
+	\hypersetup{pageanchor=false}
+	
+%	\layout
+	\begin{titlepage}
+		\centering
+		\vfill
+		\textit{This thesis is presented for the degree of Doctor of Philosophy of The University of Western Australia}\\
+		\vskip 1cm
+		{\bfseries\Large
+				Recovering Musical Dynamics for Expressive Automatic Music Transcription \\}
+		
+		\vskip1.5cm
+		
+		\includegraphics[width=.40\linewidth]{UWA_new}
+		\vskip 2cm	
+		Zhanhong HE\\
+		B.Sc. in FieldA; B.Sc. in FieldB; M.Sc in FieldC \\
+		February 2016\\
+		\vskip .5cm
+		Department of Electrical, Electronic and Computer Engineering\\
+		Electrical Engineering\\
+		% 2026\\
+%% 		\vskip 1.5cm
+% 		\textbf{Supervisors:} 
+% 		    Dr. FirstName LastName (Coordinating)\\
+% 			Prof. Dr. FirstName LastName\\
+% 			Prof. Dr. FirstName LastName\\
+% 			Prof. Dr. FirstName LastName\\
+	\end{titlepage}
+	%\maketitle
+	\frontmatter
+%	\linenumbers
+	\clearpage
+	\thispagestyle{empty}
+	\phantom{a}
+	\vfill
+	\vfill
+    
+	\include{Declaration/declaration}
+
+    
+	\begin{abstract}
+		"Recover dynamics as a first-class target in AMT by (i) completing symbolic MIDI velocity, (ii) refining AMT velocity with a score-informed correction module, and (iii) transcribing score-level dynamics jointly with metrical structure, then integrating these into an expressive-data curation pipeline."
+
+		Automatic music transcription has achieved significant progress in note transcription. Yet note events alone do not provide enough expressiveness. This thesis establishes musical dynamics as the primary target for expressive AMT, treating note-level MIDI velocity and score-level dynamics as complementary representations. To this end, we propose a unified label-recovery framework evaluated across three practical settings. 
+        
+        First, for symbolic velocity completion, we infer missing velocities in flat MIDI files without altering note timing. We achieve this using an attention U-Net inspired by the image colorization, combined with a feature sparsity-aware loss, validating its impact through objective metrics and human listening tests.
+		
+		Second, we refine audio-based velocity estimation using musical scores as a structural prior. We propose a lightweight score-informed Transformer that achieves leading performance on piano datasets, demonstrating strong robustness to audio-score misalignment.
+        
+        Third, we predict beat-synchronous score dynamics directly from audio. By utilizing perceptually grounded loudness features and multitask network, this joint estimation approach produces practical dynamics that can be seamlessly integrated into existing scores.
+
+        Finally, we extend our velocity estimation framework beyond the piano. To overcome the scarcity of non-piano MIDI velocity labels, we employ differentiable neural proxies of soundfonts. This enables supervised model training on synthesised audio, successfully bypassing the need for ground-truth MIDI velocity data.
+	\end{abstract}
+	
+	\include{Acknowledgments/acknowledgements}
+	
+    \include{Declaration/author_declaration}
+    
+	\setcounter{tocdepth}{2}
+	\tableofcontents
+	\listoffigures
+	\listoftables
+	\mainmatter
+	\hypersetup{pageanchor=true}
+	\raggedbottom
+	\include{Chapter_1/Intro}
+	\include{Chapter_2/Background}
+	\include{Chapter_3/Chap3}
+	\include{Chapter_4/Chap4}
+	\include{Chapter_5/Chap5}
+	\include{Chapter_6/Chap6}
+	\include{Chapter_7/Conclusion}
+
+\cleardoublepage
+\renewcommand{\bibname}{Reference}
+\bibliographystyle{IEEEbib}
+\bibliography{reference}
+\end{document}

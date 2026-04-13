@@ -1,0 +1,1133 @@
+\chapter{Beyond Piano: Cross-Instrument MIDI Velocity Estimation with Differentiable Proxies of Sound Synthesizers}
+\label{ch:beyondpiano}
+
+\section{Introduction and Scope}
+
+MIDI velocity is a compact control signal for musical dynamics.
+It affects note intensity.
+It also affects attack shape and timbral evolution.
+Reliable note-level velocity estimates are useful for expressive rendering, performance analysis, pedagogy, score-informed transcription, and dataset refinement \cite{kim2023scoreinf,kim2024unet,hawthorne2019maestro}.
+
+Recent progress has been strongest for piano.
+The reason is practical.
+Piano datasets such as MAESTRO provide aligned audio and performance MIDI with note-level velocities \cite{hawthorne2019maestro}.
+This makes supervised learning possible.
+Outside piano the situation is different.
+Many corpora provide audio and aligned symbolic notes.
+Few provide trustworthy note-level velocity labels for every note.
+Recent surveys of multimodal performance datasets also show that modalities and annotations are reported unevenly across corpora, and dynamics labels are much less standardized than audio, score, or alignment information \cite{emerson2025multimodal}.
+
+This chapter studies the label-scarce regime.
+We assume that performance audio and aligned note events are available for the target instrument.
+We do not assume that note-level velocity labels are available.
+This is the regime encountered for solo guitar, violin, and many other acoustic instruments.
+The central question is how to estimate note-wise dynamics when the latent variable of interest is available in piano MIDI, but not in the target-domain recordings themselves.
+
+A natural response is analysis by synthesis.
+A front-end model predicts note-wise velocities.
+A back-end renderer transforms them into sound or note-level dynamic descriptors.
+The prediction is then trained from a reconstruction objective.
+Differentiable synthesis has made this idea practical in many audio settings \cite{engel2020ddsp,renault2022diffpiano,renault2023ddsp_piano,jonason2024guitar}.
+A second line of work learns neural surrogates of black-box synthesizers so that optimization can still pass through a non-differentiable renderer \cite{barkan2023is2,combes2025neural,yang2023whitebox}.
+This chapter does not claim novelty in attaching a differentiable backend.
+Its contribution is more specific.
+It studies which supervision interface is better matched to cross-instrument velocity estimation under label scarcity.
+
+We use the term \emph{DiffSynth} for a differentiable waveform synthesizer.
+We use the term \emph{DiffProxy} for a differentiable surrogate of a black-box renderer.
+Our main DiffProxy is an instrument-specific Neural SoundFont Proxy.
+It is trained on offline renders from a SoundFont program.
+It does not reconstruct the waveform sample by sample.
+Instead it predicts note-wise dynamic descriptors that emphasize attack and intensity cues.
+This choice is deliberate.
+Our target is note-level dynamics.
+It is not full audio fidelity.
+Real recordings differ from synthetic renders in timbre, articulation, microphone response, room acoustics, and post-processing.
+A waveform loss may therefore optimize the wrong details.
+A note-wise dynamic loss is often closer to the latent variable we want to recover.
+
+This chapter expands the conference paper version in four ways.
+First, it makes the operational definition of cross-instrument velocity explicit.
+Second, it broadens the related-work discussion to include differentiable synthesis, neural synthesizer proxies, expressive performance rendering, and emerging symbolic dynamics resources.
+Third, it adds diagnostic protocols for the proxy, including monotonic sweep tests, synthetic velocity recovery, polyphonic stress tests, and cross-soundfont checks.
+Fourth, it lays out a more complete experimental design and reporting template for the final thesis results.
+
+\section{Operational Problem Formulation}
+
+\subsection{Source and target domains}
+
+Let the source domain be a labeled piano corpus
+\begin{equation}
+\mathcal{D}_{\mathrm{s}} = \{(a_j, S_j, \mathbf{v}_j)\}_{j=1}^{M_{\mathrm{s}}},
+\label{eq:source_domain}
+\end{equation}
+where $a_j$ is the performance audio, $S_j$ is the aligned symbolic conditioning, and $\mathbf{v}_j$ is the note-wise velocity vector.
+Let the target domain be an unlabeled or weakly labeled corpus
+\begin{equation}
+\mathcal{D}_{\mathrm{t}} = \{(a_j, S_j)\}_{j=1}^{M_{\mathrm{t}}},
+\label{eq:target_domain}
+\end{equation}
+where aligned note events are available but note-level velocities are missing.
+The goal is to estimate a velocity vector
+\begin{equation}
+\hat{\mathbf{v}}_j = [\hat{v}_{j,1}, \ldots, \hat{v}_{j,N_j}]^\top \in [0,1]^{N_j}
+\end{equation}
+for each target recording.
+
+The symbolic conditioning $S_j$ contains aligned note events
+\begin{equation}
+E_j = \{e_n\}_{n=1}^{N_j},
+\qquad
+e_n = (p_n, t_n, \ell_n),
+\label{eq:note_event_no_velo}
+\end{equation}
+where $p_n$ is MIDI pitch, $t_n$ is onset time, and $\ell_n$ is note duration.
+When a velocity vector $\mathbf{v}$ is inserted into the event list, we write the full event representation as
+\begin{equation}
+E_{j,\mathbf{v}} = \{(p_n, t_n, \ell_n, v_n)\}_{n=1}^{N_j}.
+\label{eq:note_event_with_velo}
+\end{equation}
+
+\subsection{Velocity as a latent and renderer-relative variable}
+
+For piano with captured MIDI, note velocity is directly observed.
+For many non-piano acoustic recordings, however, there is no canonical ground-truth MIDI velocity attached to the performance.
+This point is important.
+For guitar, violin, and voice-like instruments, the real performance is produced by a richer physical control process than a single onset scalar.
+Pluck force, bow speed, bow pressure, contact point, articulation, and continuous timbral change all contribute.
+A one-dimensional MIDI velocity is therefore not a universal physical truth.
+
+In this chapter we adopt an operational definition.
+For a target instrument $i$, let $R_i$ be a renderer with a note-wise velocity control.
+The desired latent variable is the velocity vector that best matches the observed performance dynamics under that renderer in a chosen analysis space:
+\begin{equation}
+\mathbf{v}^{\star}
+=
+\arg\min_{\mathbf{v} \in [0,1]^{N_j}}
+d_Z\!\left(
+F(R_i(E_{j,\mathbf{v}}), E_j),
+F(a_j, E_j)
+\right),
+\label{eq:latent_velocity_definition}
+\end{equation}
+where $F$ is a note-wise feature extractor and $d_Z$ is a distance in that feature space.
+This definition is renderer-relative.
+It does not claim that $\mathbf{v}^{\star}$ equals the performer's physical gesture.
+It claims that $\mathbf{v}^{\star}$ is a useful note-wise dynamics coordinate for analysis, resynthesis, and transfer under the chosen synthesis chain.
+
+This viewpoint resolves a common ambiguity in cross-instrument velocity estimation.
+The goal is not to infer an impossible hidden sensor measurement from historical audio.
+The goal is to recover a compact note-wise dynamic control that is faithful to the observed performance in a task-relevant space.
+
+\subsection{Why cross-instrument transfer is difficult}
+
+The cross-instrument setting introduces several difficulties.
+
+First, the label regime changes.
+Piano offers paired audio and note velocities.
+Most other instruments do not.
+Source-domain supervision is therefore strong, while target-domain supervision is weak or indirect.
+
+Second, the meaning of velocity changes across instruments.
+In piano, onset energy and hammer-string interaction are tightly linked to velocity.
+In guitar, pluck style and string resonance complicate the mapping.
+In violin, onset intensity is only part of the story because within-note bow control remains important.
+A naive source-only model therefore transfers poorly.
+
+Third, waveform mismatch is severe.
+Even when score alignment is reliable, a real recording and a synthetic render differ in timbre, room response, microphone placement, post-processing, and noise floor.
+A waveform loss can be dominated by nuisance mismatch instead of velocity-relevant structure.
+
+Fourth, note interactions matter.
+Polyphony, overlapping harmonics, sympathetic resonance, and release tails can obscure note-wise dynamics.
+A note cannot be analyzed in isolation.
+This is one reason why both the proxy and the downstream estimator must model event context.
+
+Fifth, alignment quality matters.
+This chapter assumes a score-informed setting with aligned notes.
+Velocity estimation error will grow when onset times or note durations are wrong.
+The chapter therefore does not solve blind transcription and velocity estimation jointly.
+It assumes that note events are already aligned well enough for note-wise analysis.
+
+\section{Related Work}
+
+\subsection{Piano velocity estimation and score-informed dynamics modeling}
+
+Recent work has shown that note-level velocity estimation is feasible for piano when aligned velocity labels are available.
+Kim \emph{et al.} introduced a score-informed system that uses FiLM conditioning to improve note-wise velocity prediction from audio \cite{kim2023scoreinf}.
+Kim and Serra later proposed a U-Net-based model with attention and FiLM for piano velocity estimation \cite{kim2024unet}.
+These studies are important because they establish both the task and the value of score information.
+They also highlight a strong asymmetry between piano and other instruments.
+The progress depends on datasets with synchronized audio and reliable note velocities, especially MAESTRO \cite{hawthorne2019maestro}.
+
+A broader line of work studies expressive performance rendering rather than inverse estimation.
+These methods generate expressive timing and dynamics from scores.
+Examples include low-informed and unpaired rendering setups for piano \cite{renault2023unpaired} and more integrated score-to-expressive-audio systems \cite{tang2025integrated}.
+This literature is relevant because it treats note dynamics as a central variable.
+However, it addresses the forward problem.
+Our chapter studies the inverse problem.
+We start from real audio and aligned notes.
+We seek note-wise dynamics controls that explain the performance.
+
+\subsection{Differentiable synthesis and inverse audio tasks}
+
+Differentiable digital signal processing provides a flexible route for embedding synthesis inside end-to-end learning \cite{engel2020ddsp}.
+The same idea has been extended to piano through differentiable physical and neural synthesizers \cite{renault2022diffpiano,renault2023ddsp_piano}.
+For guitar, DDSP-based waveform synthesis from string-wise MIDI has also been demonstrated \cite{jonason2024guitar}.
+These models show that gradients through waveform rendering can support learning and control.
+
+For our purposes, the key lesson is not only that differentiable synthesis is possible.
+The key lesson is that it requires a matched control interface.
+A piano differentiable synthesizer expects piano-specific controls such as note activation, pedal state, or voice assignment.
+A guitar differentiable synthesizer expects string-wise trajectories.
+Such models are valuable when they exist and align well with the target instrument.
+They are harder to deploy as a general cross-instrument solution.
+
+\subsection{Black-box synthesizers, proxies, and parameter inference}
+
+When a synthesizer is a black box, gradients are not directly available.
+One response is to build a differentiable proxy.
+Barkan \emph{et al.} proposed InverSynth II, which learns a differentiable synthesizer proxy for sound matching and combines it with self-supervised finetuning \cite{barkan2023is2}.
+Combes \emph{et al.} later studied neural proxies that map presets to perceptual audio embeddings for black-box software synthesizers \cite{combes2025neural}.
+These works are closely related in spirit.
+They show that surrogate models can bridge a non-differentiable renderer and gradient-based optimization.
+
+Another response is to differentiate the synthesizer itself when white-box access is available.
+Yang \emph{et al.} explored direct differentiation for white-box audio synthesizer programs and parameter search \cite{yang2023whitebox}.
+This direction is powerful but assumes access to the synthesis internals.
+Our setting is more pragmatic.
+Many musical workflows already rely on SoundFonts and commodity renderers.
+These are easy to deploy.
+They are also non-differentiable in practice.
+This makes the proxy route attractive.
+
+\subsection{Datasets and the annotation gap beyond piano}
+
+MAESTRO remains a key source of aligned piano audio and note velocities \cite{hawthorne2019maestro}.
+Saarland Music Data provides additional aligned piano material \cite{mueller2011smd}.
+For guitar, GuitarSet and GAPS offer score or tablature aligned material that is useful for symbolic statistics and realism sampling \cite{xi2018guitarset,riley2024gaps}.
+The Fran\c{c}ois Leduc dataset provides 78 solo guitar audio-MIDI pairs and is a practical target-domain benchmark \cite{francoisleduc_zenodo,riley2024hrguitar}.
+For violin, the MTG violin corpus released with high-resolution violin transcription contains more than 34 hours of score-aligned solo violin recordings \cite{tamer2023violin}.
+
+At the symbolic level, new resources show strong interest in performance dynamics.
+MID-FiLD is a dedicated MIDI dataset for fine-level dynamics control \cite{ryu2024midfild}.
+GigaMIDI extends the scale of symbolic expressive performance resources to more than 1.4 million unique MIDI files and emphasizes expressive cues such as timing and velocity variation \cite{lee2025gigamidi}.
+These datasets are valuable.
+However, they do not remove the central difficulty of this chapter.
+They do not provide a general solution for paired real audio, aligned notes, and note-level target-domain velocities across instruments.
+
+\section{Proposed Framework}
+
+\subsection{Overview and route taxonomy}
+
+We compare four routes for score-informed velocity estimation.
+The routes are standardized so that the effect of the supervision interface can be isolated.
+Table~\ref{tab:ch6_routes} summarizes the terminology used throughout the chapter.
+
+\begin{table}[t]
+\centering
+\caption{Standardized route names used throughout this chapter.}
+\label{tab:ch6_routes}
+\small
+\begin{tabular}{ll}
+\hline
+Route & Description \\
+\hline
+I & Note-wise parameter extraction \\
+II & Score-informed velocity estimation \\
+III & Score-informed velocity estimation + DiffSynth \\
+IV & Score-informed velocity estimation + DiffProxy \\
+\hline
+\end{tabular}
+\end{table}
+
+Route I performs direct note-wise inversion without learning a sequence model.
+Route II is the supervised source-domain baseline.
+Route III adapts the estimator through a frozen differentiable waveform synthesizer.
+Route IV adapts the estimator through a frozen differentiable proxy of a black-box SoundFont renderer.
+Routes III and IV should not be read as a novelty hierarchy.
+The chapter compares two supervision interfaces.
+When a matched DiffSynth exists, Route III is a natural choice.
+When only a black-box renderer is practical, or when waveform mismatch is too strong, Route IV is the portable alternative.
+
+\subsection{Note-wise dynamics targets}
+
+A full waveform target is unnecessarily strict for our goal.
+We care about note-level dynamics.
+We therefore define a note-wise target extractor
+\begin{equation}
+F(x,E) = Z \in \mathbb{R}^{N_{\max} \times D},
+\label{eq:feature_extractor}
+\end{equation}
+where the $n$th row $z_n$ summarizes the dynamics of note $n$ in audio $x$ given aligned events $E$.
+In the main configuration $D=2$.
+The target contains a pitch-conditioned harmonic energy term and an onset flux term.
+
+Let $X(k,r)$ be the magnitude STFT of $x$ with FFT size $2048$ and hop size $256$.
+Let $f(p_n)$ denote the fundamental frequency implied by MIDI pitch $p_n$.
+Let $\mathcal{H}_n$ be the first few harmonics that fall below Nyquist.
+Let $\mathcal{B}(f)$ denote a narrow band around frequency $f$.
+Let $\mathcal{T}_n$ be a short analysis window after the note onset.
+The harmonic-energy target is
+\begin{equation}
+z_{n,1}
+=
+\log\!\left(
+1 + \frac{1}{|\mathcal{T}_n|}
+\sum_{r \in \mathcal{T}_n}
+\sum_{h \in \mathcal{H}_n}
+\sum_{k \in \mathcal{B}(h f(p_n))}
+|X(k,r)|^2
+\right).
+\label{eq:harmonic_energy}
+\end{equation}
+In the main configuration we use the first five harmonics, a bandwidth of one bin on each side, and a $120$ ms window after onset.
+
+The onset-flux target measures positive spectral change around the note onset.
+Let $\mathcal{O}_n$ denote an onset-centered window.
+We define
+\begin{equation}
+z_{n,2}
+=
+\log\!\left(
+1 + \frac{1}{|\mathcal{O}_n|}
+\sum_{r \in \mathcal{O}_n}
+\sum_{k}
+\left[|X(k,r)| - |X(k,r-1)|\right]_+
+\right),
+\label{eq:onset_flux}
+\end{equation}
+where $[u]_+ = \max(u,0)$.
+In the main configuration $\mathcal{O}_n$ spans $20$ ms before onset and $80$ ms after onset.
+
+The resulting note descriptor is
+\begin{equation}
+z_n = [z_{n,1}, z_{n,2}]^\top .
+\label{eq:note_feature_vector}
+\end{equation}
+
+This descriptor is intentionally narrow.
+It does not claim to model full loudness perception.
+It focuses on local note-wise cues that are strongly influenced by velocity in many synthesis chains.
+The design follows two principles.
+First, the features should be computed from aligned notes so that supervision remains note specific even under polyphony.
+Second, the features should emphasize early note energy and attack behavior, because these are usually more velocity dependent than long-range sustain or room reverb.
+
+The same idea can be extended.
+For example, one may add a harmonic-to-broadband ratio, a local spectral-centroid term, or a note-wise decay slope.
+The main study keeps $D=2$ to keep the proxy compact and easier to diagnose.
+
+\subsection{DiffProxy of a black-box SoundFont renderer}
+
+For each target instrument $i$, let $R_i$ be a black-box SoundFont renderer.
+In our implementation $R_i$ is realized with FluidSynth and an SF2 program \cite{fluidsynth}.
+We train a neural proxy $P_{\theta_i}$ to approximate the composed mapping
+\begin{equation}
+P_{\theta_i}(E) \approx F(R_i(E), E).
+\label{eq:proxy_definition}
+\end{equation}
+The goal is not waveform imitation.
+The goal is note-level dynamics imitation.
+
+Each note event in a fixed-length segment is represented by pitch and a continuous control vector
+\begin{equation}
+c_n = [t_n/T,\; \ell_n/T,\; v_n]^\top.
+\label{eq:continuous_note_vector}
+\end{equation}
+Pitch is embedded through a learnable lookup table.
+The continuous vector is linearly projected.
+We also add a learnable onset projection that acts as a note-time positional encoding.
+The resulting note tokens are passed through a Transformer encoder.
+A note-wise multilayer perceptron then predicts the target vector $\hat{z}_n \in \mathbb{R}^{D}$ for each valid note.
+
+For batching, each segment is padded to $N_{\max}$ notes and a mask $m_n \in \{0,1\}$ is used to ignore padding.
+The proxy is trained with a masked Smooth-$L_1$ objective
+\begin{equation}
+\mathcal{L}_{\mathrm{dp}}
+=
+\frac{1}{\sum_{n=1}^{N_{\max}} m_n}
+\sum_{n=1}^{N_{\max}} m_n \, \rho(\hat{z}_n - z_n),
+\label{eq:proxy_loss}
+\end{equation}
+where $\rho(\cdot)$ denotes the element-wise Smooth-$L_1$ penalty.
+Teacher renders are generated offline.
+Proxy training therefore operates on cached tensors and remains lightweight.
+
+This design has two practical advantages.
+First, it decouples teacher rendering from training.
+The expensive or non-differentiable renderer is used only once during data export.
+Second, it yields a backend whose gradients are defined directly with respect to the note-wise variable of interest.
+
+\subsection{Score-informed velocity estimator}
+
+Our main estimator is denoted \emph{Score-Inf VeloEst}.
+It receives performance audio and aligned symbolic conditioning.
+Its role is to predict a note-wise velocity vector.
+The stable implementation follows a two-stage design.
+
+The first stage is an acoustic adapter.
+It predicts a coarse velocity representation from the audio.
+The second stage is a score-informed note editor.
+It extracts one token per aligned note onset and refines the coarse estimate with note context from the score.
+Each note token may include pitch embedding, time embedding, the coarse acoustic velocity at the aligned onset, and optional symbolic features such as note activity or local frame context.
+A lightweight Transformer processes these note tokens and predicts a correction $\Delta_n$.
+The final note velocity is
+\begin{equation}
+\hat{v}_n = \operatorname{clip}\!\left(v_n^{(0)} + \alpha \tanh(\Delta_n),\, 0,\, 1\right),
+\label{eq:velocity_editor}
+\end{equation}
+where $v_n^{(0)}$ is the coarse estimate and $\alpha$ controls the correction range.
+
+When direct velocity labels are available, the estimator is trained with a supervised objective
+\begin{equation}
+\mathcal{L}_{\mathrm{sup}}
+=
+\lambda_{\mathrm{act}} \mathcal{L}_{\mathrm{act}}
++
+\lambda_{\mathrm{velo}} \mathcal{L}_{\mathrm{velo}}.
+\label{eq:supervised_generic}
+\end{equation}
+In the stable piano implementation, $\mathcal{L}_{\mathrm{act}}$ is a frame or onset activity term and $\mathcal{L}_{\mathrm{velo}}$ is an onset-masked velocity regression term.
+This formulation is intentionally generic.
+The central comparison in this chapter is not about the exact front-end architecture.
+It is about the supervision interface used during target-domain adaptation.
+
+\subsection{Route I: note-wise parameter extraction}
+
+Before training a sequence model, we consider a direct inversion baseline.
+Given aligned note events $E$ and performance audio $a$, we compute
+\begin{equation}
+Z^{\mathrm{audio}} = F(a,E).
+\label{eq:audio_note_features}
+\end{equation}
+For each note, we then estimate velocity by matching the observed feature vector to a precomputed template curve
+\begin{equation}
+\hat{v}_n
+=
+\arg\min_{v \in \mathcal{V}}
+d_Z\!\left(
+\psi_i(p_n,\ell_n,v),
+z_n^{\mathrm{audio}}
+\right),
+\label{eq:route1}
+\end{equation}
+where $\mathcal{V}$ is a discrete velocity grid and $\psi_i$ is a single-note template obtained either from the black-box renderer or from a frozen DiffProxy.
+This route requires no model training.
+It is useful because it reveals how much information is already present in local note-wise cues.
+Its weakness is that it ignores sequence context and note interactions.
+
+\subsection{Route III: DiffSynth-guided adaptation}
+
+Let $D_i$ denote a matched differentiable waveform synthesizer for instrument $i$.
+Let $\Xi(S)$ denote the synthesizer inputs derived from the aligned score.
+The estimator predicts a velocity vector $\hat{\mathbf{v}}$.
+The DiffSynth renders audio
+\begin{equation}
+\tilde{a} = D_i(\Xi(S), \hat{\mathbf{v}}).
+\label{eq:diffsynth_render}
+\end{equation}
+The adaptation loss is then
+\begin{equation}
+\mathcal{L}_{\mathrm{ds}}
+=
+d_A(\tilde{a}, a),
+\label{eq:diffsynth_loss}
+\end{equation}
+where $d_A$ is a differentiable audio-domain distance such as a multi-scale STFT loss.
+
+This route exposes the front end to rich waveform gradients.
+It is powerful when three conditions hold.
+A matched differentiable synthesizer must exist.
+Its control interface must align with the instrument.
+Its waveform statistics must not be too far from the real recordings.
+These conditions are realistic for some instruments and much harder for others.
+
+\subsection{Route IV: DiffProxy-guided adaptation}
+
+Route IV replaces waveform-space supervision with a frozen DiffProxy.
+Given aligned notes $E$ and real audio $a$, we compute the target feature tensor
+\begin{equation}
+Z^{\mathrm{audio}} = F(a,E).
+\end{equation}
+The estimator predicts $\hat{\mathbf{v}}$.
+These values are inserted into the event list and passed through the proxy:
+\begin{equation}
+\tilde{Z} = P_{\theta_i}(E_{\hat{\mathbf{v}}}).
+\label{eq:proxy_render}
+\end{equation}
+The adaptation loss is
+\begin{equation}
+\mathcal{L}_{\mathrm{dp\text{-}guided}}
+=
+\frac{1}{\sum_{n=1}^{N_{\max}} m_n}
+\sum_{n=1}^{N_{\max}} m_n \, \rho(\tilde{z}_n - z_n^{\mathrm{audio}}).
+\label{eq:proxy_guided_loss}
+\end{equation}
+
+A weak prior can be added to prevent collapse to nearly constant velocities:
+\begin{equation}
+\mathcal{L}_{\mathrm{prior}}
+=
+(\bar{v} - \mu)^2
++
+\max\!\left(0, \sigma_{\min}^2 - \operatorname{Var}(\hat{\mathbf{v}})\right).
+\label{eq:prior_loss}
+\end{equation}
+Here $\bar{v}$ is the mean predicted velocity, $\mu$ is a desired operating point, and $\sigma_{\min}^2$ enforces a minimum variance.
+The overall training objective is
+\begin{equation}
+\mathcal{L}
+=
+\lambda_{\mathrm{sup}} \mathcal{L}_{\mathrm{sup}}
++
+\lambda_{\mathrm{ds}} \mathcal{L}_{\mathrm{ds}}
++
+\lambda_{\mathrm{dp}} \mathcal{L}_{\mathrm{dp\text{-}guided}}
++
+\lambda_{\mathrm{prior}} \mathcal{L}_{\mathrm{prior}}.
+\label{eq:overall_loss}
+\end{equation}
+Only the terms relevant to the active route are used.
+
+\subsection{Why feature-level proxy supervision can be better matched to the task}
+
+The main thesis claim is task specific.
+It is not that feature-space losses are universally better than waveform losses.
+It is that they can be better matched to cross-instrument note-dynamics estimation under mismatch.
+
+For Route III, the gradient that reaches the predicted velocities has the form
+\begin{equation}
+\nabla_{\hat{\mathbf{v}}} \mathcal{L}_{\mathrm{ds}}
+=
+J_{D_i}(\hat{\mathbf{v}})^\top
+\nabla_{\tilde{a}} d_A(\tilde{a}, a),
+\label{eq:audio_gradient}
+\end{equation}
+where $J_{D_i}$ is the Jacobian of the differentiable synthesizer with respect to the velocity controls.
+This gradient contains information about velocity.
+It also contains pressure from every mismatch between $\tilde{a}$ and $a$.
+If the synthesizer timbre or room response is poorly matched, the gradient may devote too much capacity to nuisance compensation.
+
+For Route IV, the gradient has the form
+\begin{equation}
+\nabla_{\hat{\mathbf{v}}} \mathcal{L}_{\mathrm{dp\text{-}guided}}
+=
+J_{P_{\theta_i}}(\hat{\mathbf{v}})^\top
+\nabla_{\tilde{Z}} d_Z(\tilde{Z}, Z^{\mathrm{audio}}).
+\label{eq:proxy_gradient}
+\end{equation}
+Here the optimization happens in a lower-dimensional note-wise dynamics space.
+The supervision bandwidth is narrower.
+Some nuisance dimensions are intentionally removed.
+This can improve transfer when the latent variable of interest is note-wise dynamics rather than full resynthesis.
+
+There is also a practical advantage.
+Once trained, the DiffProxy only requires the note events.
+It does not depend on a waveform synthesizer that must match the instrument-specific control interface.
+This makes it easier to deploy across instruments for which a SoundFont exists but a matched differentiable waveform model does not.
+
+\section{Synthetic Teacher Data and Proxy Validation}
+
+\subsection{Teacher renderer configuration}
+
+Each instrument proxy is paired with one SoundFont program.
+Teacher audio is generated offline with a black-box renderer $R_i$.
+In the current system $R_i$ is instantiated with FluidSynth \cite{fluidsynth}.
+We fix the SoundFont file, bank, program, global gain, and polyphony settings.
+We disable chorus and reverb.
+We send all-notes-off before each segment.
+We flush a short silent buffer.
+We apply a short fade-out at the end of the export.
+These details reduce state leakage across segments and improve determinism.
+
+The black-box nature of the renderer matters.
+A SoundFont may contain sample switching, velocity layers, filtering rules, envelope behavior, and additional processing that is not friendly to direct automatic differentiation.
+The proxy learns from actual renders.
+It does not rely on incomplete metadata alone.
+When SoundFont zone metadata is available, however, it can still help guide data sampling around velocity boundaries.
+
+\subsection{Coverage and realism sampling}
+
+Teacher segments are sampled from a mixture distribution
+\begin{equation}
+E \sim \alpha \, p_{\mathrm{cov}}(E) + (1-\alpha)\, p_{\mathrm{real}}(E),
+\label{eq:sampler_mixture}
+\end{equation}
+where $p_{\mathrm{cov}}$ is a coverage sampler and $p_{\mathrm{real}}$ is a realism sampler.
+
+The coverage sampler is designed for function approximation.
+It draws note sequences that span the playable pitch range, onset densities, chord sizes, note durations, and velocity levels of interest.
+It is especially important near SoundFont layer boundaries.
+To improve coverage of these boundaries, velocity is sampled from a mixture
+\begin{equation}
+p(v)
+=
+\beta_{\mathrm{uni}} p_{\mathrm{uni}}(v)
++
+\beta_{\mathrm{bdry}} p_{\mathrm{bdry}}(v)
++
+\beta_{\mathrm{ext}} p_{\mathrm{ext}}(v),
+\label{eq:velocity_mixture}
+\end{equation}
+where $p_{\mathrm{uni}}$ is uniform over $[0,1]$, $p_{\mathrm{bdry}}$ concentrates mass around known or estimated velocity split points, and $p_{\mathrm{ext}}$ emphasizes values near $0$ and $1$.
+This helps the proxy see both smooth regions and abrupt response changes.
+
+The realism sampler is designed for target relevance.
+It draws pitches, note durations, inter-onset intervals, and chord-size statistics from empirical histograms computed on aligned symbolic corpora.
+For piano we use MAESTRO and SMD \cite{hawthorne2019maestro,mueller2011smd}.
+For guitar we use GuitarSet and GAPS \cite{xi2018guitarset,riley2024gaps}.
+For violin we use aligned symbolic material available through the MTG violin pipeline \cite{tamer2023violin}.
+Velocity is still sampled with the stratified scheme in Eq.~\eqref{eq:velocity_mixture}, because reliable target-domain velocity histograms are usually unavailable.
+
+The main study treats coverage sampling as the default.
+Realism sampling is used as an ablation.
+This is intentional.
+A proxy that only sees realistic data may interpolate well inside the observed regime but fail near the layer transitions that matter for optimization.
+A proxy that only sees coverage data may ignore real-world note statistics.
+The mixture in Eq.~\eqref{eq:sampler_mixture} trades off these two needs.
+
+\subsection{Export filtering and caching}
+
+After rendering, we reject pathological segments with simple audio checks.
+A segment is kept only if its RMS energy lies inside a preset range, its absolute peak is below a clipping threshold, and a sufficient fraction of its notes produce measurable onset energy.
+Accepted segments are converted into cached tensors that include padded pitch, padded continuous note controls, a note mask, and the note-wise target tensor $Z$.
+Training and validation caches are exported with different random seeds to reduce leakage.
+
+Offline caching is more than an engineering convenience.
+It makes the teacher supervision reproducible.
+It also allows the proxy training loop to be fast and stable.
+This is important when the final thesis includes many ablations over instruments, feature definitions, and sampling policies.
+
+\subsection{Held-out feature error}
+
+The first proxy diagnostic is held-out feature error.
+On an independently exported validation set we report per-feature and aggregate mean absolute error under the note mask.
+This answers a basic question.
+Can the proxy reproduce the rendered note-wise dynamics targets on data that it did not see during training?
+
+Held-out error alone is not enough.
+A proxy may achieve low average error but still have poor local gradients.
+This is a central reason why additional diagnostics are needed.
+
+\subsection{Monotonic sweep test}
+
+The second diagnostic checks whether the proxy preserves an approximately monotone relation between velocity and dynamic output.
+We fix pitch, onset, and duration.
+We then sweep velocity over a dense grid $\{v_k\}_{k=1}^{K}$ and inspect the predicted harmonic-energy curve.
+For note $n$, a monotonicity violation occurs when
+\begin{equation}
+\mathbb{I}_{n,k}
+=
+\mathbb{I}\!\left[
+\hat{z}_{n,1}(v_{k+1}) < \hat{z}_{n,1}(v_k) - \epsilon
+\right],
+\label{eq:mono_indicator}
+\end{equation}
+where $\epsilon$ is a small tolerance.
+The violation rate is
+\begin{equation}
+r_{\mathrm{mono}}
+=
+\frac{1}{N(K-1)}
+\sum_{n=1}^{N}
+\sum_{k=1}^{K-1}
+\mathbb{I}_{n,k}.
+\label{eq:mono_rate}
+\end{equation}
+
+This test is simple but important.
+A proxy with frequent inversions may still fit average training data.
+It is much less useful for gradient-based velocity optimization.
+The sweep test therefore checks a functional property, not only a regression metric.
+
+\subsection{Synthetic velocity recovery test}
+
+The third diagnostic measures whether the frozen proxy can support inverse optimization.
+We render synthetic segments with known ground-truth velocities $\mathbf{v}^{\mathrm{gt}}$ and compute their target features
+\begin{equation}
+Z^{\mathrm{gt}} = F(R_i(E_{\mathbf{v}^{\mathrm{gt}}}), E).
+\end{equation}
+We then freeze the proxy and recover velocities by gradient descent:
+\begin{equation}
+\hat{\mathbf{v}}^{\mathrm{rec}}
+=
+\arg\min_{\mathbf{v} \in [0,1]^N}
+d_Z\!\left(P_{\theta_i}(E_{\mathbf{v}}), Z^{\mathrm{gt}}\right).
+\label{eq:recovery_objective}
+\end{equation}
+The recovery error is
+\begin{equation}
+\operatorname{MAE}_{\mathrm{rec}}
+=
+\frac{1}{N}
+\|\hat{\mathbf{v}}^{\mathrm{rec}} - \mathbf{v}^{\mathrm{gt}}\|_1 .
+\label{eq:recovery_mae}
+\end{equation}
+
+This diagnostic is more relevant than teacher-set loss alone.
+The final target-domain training loop also relies on gradients through the proxy.
+If synthetic recovery already fails, target-domain adaptation is unlikely to be stable.
+
+\subsection{Polyphonic stress test}
+
+The fourth diagnostic is a polyphonic stress test.
+The concern is that note-wise feature extraction becomes harder under denser polyphony.
+Harmonic overlap and onset masking can increase.
+We therefore evaluate the proxy on segments whose chord sizes, overlap rates, or onset densities are larger than those seen during training.
+Let $\operatorname{MAE}_{\mathrm{base}}$ be the base recovery error and $\operatorname{MAE}_{\mathrm{poly}}$ be the error under denser polyphony.
+We summarize the degradation by
+\begin{equation}
+\Delta_{\mathrm{poly}}
+=
+\frac{\operatorname{MAE}_{\mathrm{poly}} - \operatorname{MAE}_{\mathrm{base}}}
+{\operatorname{MAE}_{\mathrm{base}} + \varepsilon},
+\label{eq:poly_stress}
+\end{equation}
+where $\varepsilon$ avoids division by zero.
+
+This test is important for thesis-scale reporting because SoundFont proxies that look reliable on isolated notes can fail under dense chords.
+For piano this stress mostly concerns overlapping harmonics and release tails.
+For guitar it concerns string resonance and repeated plucks.
+For violin it concerns overlapping bowed tones and less percussive note starts.
+
+\subsection{Cross-soundfont generalization}
+
+A fifth optional diagnostic checks whether a proxy learns only one specific SoundFont or captures a broader instrument-family trend.
+We train the proxy on one SoundFont and then test feature prediction or synthetic recovery on alternative SoundFonts from the same family.
+Strong zero-shot performance is not required.
+The point is diagnostic.
+If performance collapses completely, then the proxy may have learned asset-specific artifacts rather than a transferable dynamics relation.
+
+This test is especially relevant when multiple SoundFonts are available for the same instrument.
+It can also support the later analysis of real-data transfer.
+A proxy that generalizes modestly across related SoundFonts is more likely to survive the gap between a single synthetic asset and real recordings.
+
+\section{Experimental Design for Cross-Instrument Transfer}
+
+\subsection{Datasets}
+
+Table~\ref{tab:ch6_datasets} summarizes the main corpora used in the current study.
+MAESTRO serves as the labeled piano source domain \cite{hawthorne2019maestro}.
+The Fran\c{c}ois Leduc dataset is a practical guitar benchmark with paired audio and MIDI \cite{francoisleduc_zenodo,riley2024hrguitar}.
+The MTG violin corpus provides a larger target domain with aligned solo violin recordings \cite{tamer2023violin}.
+
+\begin{table}[t]
+\centering
+\caption{Main corpora used in the current study. Counts refer to aligned performances or recordings.}
+\label{tab:ch6_datasets}
+\small
+\begin{tabular}{llll}
+\hline
+Instrument & Dataset & Role & Size \\
+\hline
+Piano & MAESTRO V3 & source & 1,276 recordings, 198.7 h \\
+Guitar & Fran\c{c}ois Leduc & target & 78 recordings, about 4 h \\
+Violin & MTG violin corpus & target & 1,021 recordings, 34.4 h \\
+\hline
+\end{tabular}
+\end{table}
+
+MID-FiLD and GigaMIDI are not used as the main transfer benchmarks in the present chapter.
+They are instead treated as related symbolic resources \cite{ryu2024midfild,lee2025gigamidi}.
+MID-FiLD provides curated fine-level dynamics targets in MIDI.
+GigaMIDI provides large-scale expressive symbolic material.
+Both are valuable for future pretraining or prior modeling.
+Neither directly solves the paired audio-plus-aligned-notes target setting studied here.
+
+\subsection{SoundFont assets and renderer choices}
+
+For DiffProxy experiments we pair each instrument with one primary SoundFont.
+Table~\ref{tab:ch6_soundfonts} lists the assets used in the current configuration.
+These assets are chosen for practicality and coverage.
+They do not claim to be perfect matches to the real recordings.
+
+\begin{table}[t]
+\centering
+\caption{Primary SoundFonts used for DiffProxy training.}
+\label{tab:ch6_soundfonts}
+\small
+\begin{tabular}{lll}
+\hline
+Instrument & SoundFont & License or source \\
+\hline
+Piano & Salamander Grand Piano & FreePats, CC BY 3.0 \\
+Guitar & Spanish Classical Guitar & FreePats, CC0 1.0 \\
+Violin & Arianna's Violin & public-domain distribution \\
+\hline
+\end{tabular}
+\end{table}
+
+The SoundFont choice matters.
+A closer asset should reduce mismatch.
+A less suitable asset can still be useful for synthetic diagnostics but may transfer poorly to real data.
+The thesis therefore treats SoundFont choice as a first-class experimental factor rather than a fixed implementation detail.
+
+\subsection{Training protocols}
+
+Route I requires no learned model.
+Route II is the supervised source-domain baseline.
+It is also the pretraining stage for later transfer.
+Routes III and IV freeze their backends and update only the score-informed estimator parameters during adaptation.
+This isolates the effect of the supervision interface.
+
+The default training schedule is as follows.
+First, pretrain Score-Inf VeloEst on labeled piano data.
+Second, train an instrument-specific DiffProxy on synthetic SoundFont data for each target instrument.
+Third, adapt the piano-pretrained estimator to the target instrument using either Route III or Route IV.
+When a small labeled target subset exists, the supervised term in Eq.~\eqref{eq:overall_loss} can be mixed with the adaptation loss.
+When no target labels exist, adaptation relies only on DiffSynth or DiffProxy guidance and the weak prior.
+
+This design produces a clean comparison.
+Route II tests source-only transfer.
+Route III tests audio-domain self-supervision through a matched differentiable synthesizer.
+Route IV tests feature-domain self-supervision through a SoundFont proxy.
+
+\subsection{Evaluation metrics}
+
+For piano with known note velocities, direct error can be reported with
+\begin{equation}
+\operatorname{MAE}_{\mathrm{velo}}
+=
+\frac{1}{N}
+\sum_{n=1}^{N}
+|\hat{v}_n - v_n^{\mathrm{gt}}|.
+\label{eq:velocity_mae}
+\end{equation}
+This is the cleanest metric when labels exist.
+
+For non-piano real recordings, note-level velocity labels are usually unavailable.
+We therefore evaluate the faithfulness of the reconstructed dynamic contour.
+Given aligned notes and estimated velocities, we render proxy audio or proxy features and compare them to the real performance in a loudness-oriented space.
+Standard spectral distances are not ideal here because they over-penalize unavoidable timbre mismatch.
+Instead we use specific loudness features derived from the Bark scale, following the Zwicker loudness framework \cite{iso5321,zwicker2007}.
+Let $l_b(t)$ denote the specific loudness in Bark band $b$ at time $t$.
+The total loudness is
+\begin{equation}
+L_{\mathrm{total}}(t) = \sum_{b=1}^{24} l_b(t).
+\label{eq:bstl}
+\end{equation}
+
+We report two time-series agreement measures.
+The first uses the vector of specific loudnesses across Bark bands, denoted BSSL.
+The second uses the total loudness curve, denoted BSTL.
+For both we use Pearson correlation as the primary metric:
+\begin{equation}
+r(\mathbf{x},\mathbf{y})
+=
+\frac{
+\sum_i (x_i-\bar{x})(y_i-\bar{y})
+}{
+\sqrt{
+\sum_i (x_i-\bar{x})^2
+\sum_i (y_i-\bar{y})^2
+}
+}.
+\label{eq:pearson}
+\end{equation}
+Pearson correlation is attractive because it is invariant to affine scaling of the overall level.
+This is desirable when the real recording and the proxy renderer differ in global gain.
+
+In addition to task metrics, we also carry over the proxy diagnostics from the previous section.
+A transfer method that gives good target-domain loudness correlation but relies on a non-monotone or fragile proxy is not fully satisfactory.
+The thesis should therefore report both end-task performance and proxy readiness.
+
+\subsection{Planned ablations}
+
+The final thesis experiments will examine several ablations.
+
+One ablation compares coverage sampling and realism sampling during DiffProxy training.
+A second ablation varies the target descriptor, for example by adding a third note-wise feature.
+A third ablation compares SoundFont choices within the same instrument family.
+A fourth ablation measures the effect of the anti-collapse prior in Eq.~\eqref{eq:prior_loss}.
+A fifth ablation compares Route III and Route IV under controlled mismatch, for example by convolving the synthetic renders with room responses or changing the microphone equalization of the evaluation data.
+
+These ablations are important because the central claim of the chapter is conditional.
+DiffProxy should be most helpful when waveform supervision is poorly matched or unavailable.
+The ablations are designed to test exactly this condition.
+
+\section{Planned Result Reporting and Hypotheses}
+
+\subsection{Hypotheses}
+
+Because the final target-domain experiments are still running, this section records the hypotheses and reporting template rather than numerical claims.
+
+\textbf{H1.} Route IV should outperform Route I and source-only Route II on real target-domain recordings when direct velocity labels are absent.
+
+\textbf{H2.} Route IV should be competitive with Route III under strong timbre or recording mismatch, and it should remain usable on instruments for which a matched DiffSynth is unavailable.
+
+\textbf{H3.} Boundary-aware coverage sampling should improve sweep monotonicity and synthetic velocity recovery relative to realism-only proxy training.
+
+\textbf{H4.} Polyphonic stress tests should expose larger degradations for note-isolated or poorly sampled proxies than for context-aware Transformer proxies trained on dense synthetic mixtures.
+
+These hypotheses are specific enough to be falsifiable.
+They also match the chapter's actual claim.
+The goal is not to prove that SoundFonts are faithful physical models.
+The goal is to test whether a feature-level differentiable proxy of a practical renderer is a good supervision interface for label-scarce transfer.
+
+\subsection{Reporting templates}
+
+Tables~\ref{tab:ch6_proxy_template} and \ref{tab:ch6_transfer_template} define the reporting structure that will be used once the final runs are complete.
+The numerical entries are intentionally left blank at this stage.
+
+\begin{table}[t]
+\centering
+\caption{Template for DiffProxy diagnostics on held-out synthetic data. The final thesis will fill these entries after the proxy runs are complete.}
+\label{tab:ch6_proxy_template}
+\small
+\begin{tabular}{lcccc}
+\hline
+Instrument & Note MAE & Mono. rate & Rec. MAE & Poly. stress \\
+\hline
+Piano & --- & --- & --- & --- \\
+Guitar & --- & --- & --- & --- \\
+Violin & --- & --- & --- & --- \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Template for target-domain transfer results. The final thesis will report one such table per instrument and per evaluation split.}
+\label{tab:ch6_transfer_template}
+\small
+\begin{tabular}{lccc}
+\hline
+Method & $\operatorname{MAE}_{\mathrm{velo}}$ & $r_{\mathrm{BSSL}}$ & $r_{\mathrm{BSTL}}$ \\
+\hline
+Route I: parameter extraction & --- & --- & --- \\
+Route II: source-only VeloEst & --- & --- & --- \\
+Route III: VeloEst + DiffSynth & --- & --- & --- \\
+Route IV: VeloEst + DiffProxy & --- & --- & --- \\
+\hline
+\end{tabular}
+\end{table}
+
+The final chapter should also report mean and standard deviation across seeds, per-piece medians, and confidence intervals where possible.
+This is especially important for small target datasets such as solo-guitar corpora.
+A few favorable examples are not enough.
+The thesis should show robustness across pieces and recording conditions.
+
+\section{Discussion}
+
+\subsection{What the method estimates}
+
+The proposed system estimates a renderer-relative note-wise dynamics variable.
+This distinction is essential.
+For piano, the estimated variable often aligns closely with performance MIDI velocity.
+For other instruments, it is better interpreted as a latent control that best matches the observed dynamics under the chosen renderer and feature extractor.
+This makes the estimate useful for resynthesis, retrieval, comparison, and dataset refinement.
+It does not make it a direct sensor measurement of human gesture.
+
+This operational view is a strength and a limitation.
+It is a strength because it makes the task well defined in settings where direct labels do not exist.
+It is a limitation because the inferred control can depend on the renderer family and the chosen feature space.
+
+\subsection{When DiffSynth should be preferred}
+
+DiffProxy is not a universal replacement for DiffSynth.
+When a matched differentiable waveform synthesizer exists, has a faithful control interface, and is acoustically close to the target recordings, waveform supervision can provide richer gradients.
+This is especially plausible for instruments such as piano, where note onsets and resonance can be modeled with well-studied differentiable structures \cite{renault2022diffpiano,renault2023ddsp_piano}.
+
+Our claim is narrower.
+In many cross-instrument settings, a matched DiffSynth is unavailable, expensive to train, or awkward to align with the symbolic representation at hand.
+A black-box SoundFont is much easier to obtain.
+In that regime, a note-wise proxy that keeps only the subset of synthesized behavior most related to velocity can be the more useful engineering choice.
+
+\subsection{Renderer mismatch remains the main limitation}
+
+The strongest limitation of the framework is renderer mismatch.
+A SoundFont approximates an instrument family.
+It does not replicate the full recording chain.
+Differences in microphone response, room acoustics, player technique, articulation, and post-processing remain.
+This is the main reason why synthetic diagnostics can look strong while real-data gains stay moderate.
+
+This limitation does not invalidate the approach.
+It clarifies its scope.
+The chapter does not argue that SoundFonts are faithful physical models of real performance.
+It argues that they are a cheap, portable, and scalable source of structured supervision when direct note-level labels are absent.
+That is a narrower claim.
+It is also a more realistic one.
+
+\subsection{One scalar is only a partial control for many instruments}
+
+A second limitation is representational.
+A single note-wise scalar cannot capture all expressive variation for many instruments.
+Violin dynamics depend on within-note bow control.
+Guitar timbre depends on pluck position, angle, and string interaction.
+Breath and embouchure matter for winds.
+A one-dimensional note-wise velocity is therefore only a coarse dynamics coordinate.
+
+This limitation is acceptable in the present chapter because it matches the available supervision interface and the practical goal of note-level loudness control.
+It also points to a clear extension.
+Future work should generalize DiffProxy from a scalar velocity control to a multi-parameter expressive representation that includes articulation, brightness, vibrato, or note-wise envelopes.
+
+\subsection{Alignment quality and feature design are coupled}
+
+The feature extractor $F$ relies on aligned notes.
+If onsets are late or early, onset flux becomes less reliable.
+If note durations are badly aligned, harmonic windows can include the wrong sustain region.
+The success of DiffProxy-guided adaptation therefore depends on the upstream alignment pipeline.
+
+Feature design is also coupled to instrument family.
+The current two-dimensional descriptor is a good first compromise.
+It focuses on early energy and onset behavior.
+For violin-like instruments, later sustain descriptors may become more informative.
+For guitar, a brightness term or a harmonic-to-broadband ratio may help distinguish velocity from noise or string buzz.
+This suggests that the feature extractor should eventually become mildly instrument aware rather than completely fixed.
+
+\subsection{Why the diagnostic suite matters}
+
+Average regression error is not enough for a proxy that will be used inside gradient-based optimization.
+Monotonicity sweeps test whether the local velocity relation is sensible.
+Synthetic recovery tests whether the gradients are useful in practice.
+Polyphonic stress tests reveal whether note interactions break the abstraction.
+Cross-soundfont checks test whether the proxy only memorizes one asset.
+
+These diagnostics matter because they convert an intuitive claim into falsifiable engineering criteria.
+A proxy should not be accepted merely because its training loss is low.
+It should be accepted because it behaves like a usable differentiable supervision interface.
+
+\section{Conclusion}
+
+This chapter presented a unified framework for cross-instrument MIDI velocity estimation under label scarcity.
+The key idea is to compare two differentiable supervision interfaces.
+One interface uses a matched differentiable waveform synthesizer.
+The other uses a differentiable proxy of a practical black-box SoundFont renderer.
+
+The proposed Neural SoundFont Proxy predicts note-wise dynamics targets rather than full waveforms.
+This design keeps supervision concentrated on attack and intensity cues that are more directly related to velocity.
+It also makes the approach portable across instruments for which a SoundFont exists but a matched DiffSynth does not.
+
+The main message is therefore task specific.
+In cross-instrument velocity estimation, the best supervision interface is not always the most physically detailed one.
+When labels are scarce and waveform mismatch is large, a compact feature-level proxy of a practical renderer can be the better tool.
+The final thesis results will test this claim quantitatively with the reporting templates and diagnostic protocols defined in this chapter.
+
+\begin{thebibliography}{99}
+
+\bibitem{kim2023scoreinf}
+H.~Kim, M.~Miron, and X.~Serra,
+``Score-Informed MIDI Velocity Estimation for Piano Performance by FiLM Conditioning,''
+in \emph{Proc. Sound and Music Computing Conf.}, 2023, pp.~139--147.
+
+\bibitem{kim2024unet}
+H.~Kim and X.~Serra,
+``A Method for MIDI Velocity Estimation for Piano Performance by a U-Net With Attention and FiLM,''
+in \emph{Proc. Int. Society for Music Information Retrieval Conf.}, 2024, pp.~304--310.
+
+\bibitem{hawthorne2019maestro}
+C.~Hawthorne \emph{et al.},
+``Enabling Factorized Piano Music Modeling and Generation with the MAESTRO Dataset,''
+in \emph{Proc. Int. Conf. on Learning Representations}, 2019.
+
+\bibitem{emerson2025multimodal}
+K.~Emerson and P.~M.~C. Harrison,
+``Multimodal Datasets for Studying Expert Performances of Musical Scores,''
+\emph{Transactions of the International Society for Music Information Retrieval},
+vol.~8, no.~1, pp.~400--428, 2025.
+
+\bibitem{engel2020ddsp}
+J.~Engel, L.~Hantrakul, C.~Gu, and A.~Roberts,
+``DDSP: Differentiable Digital Signal Processing,''
+in \emph{Proc. Int. Conf. on Learning Representations}, 2020.
+
+\bibitem{renault2022diffpiano}
+L.~Renault, R.~Mignot, and A.~Roebel,
+``Differentiable Piano Model for MIDI-to-Audio Performance Synthesis,''
+in \emph{Proc. Int. Conf. on Digital Audio Effects}, 2022.
+
+\bibitem{renault2023ddsp_piano}
+L.~Renault, R.~Mignot, and A.~Roebel,
+``DDSP-Piano: A Neural Sound Synthesizer Informed by Instrument Knowledge,''
+\emph{Journal of the Audio Engineering Society},
+vol.~71, no.~9, pp.~552--565, 2023.
+
+\bibitem{jonason2024guitar}
+N.~Jonason, L.~Juvela, B.~L.~T. Sturm, and J.~Yamagishi,
+``DDSP-Based Neural Waveform Synthesis of Polyphonic Acoustic Guitar Performance from String-Wise MIDI Input,''
+in \emph{Proc. Int. Conf. on Digital Audio Effects}, 2024.
+
+\bibitem{barkan2023is2}
+O.~Barkan, S.~Shvartzman, N.~Uzrad, M.~Laufer, A.~Elharar, and N.~Koenigstein,
+``InverSynth II: Sound Matching via Self-Supervised Synthesizer-Proxy and Inference-Time Finetuning,''
+in \emph{Proc. Int. Society for Music Information Retrieval Conf.}, 2023, pp.~642--648.
+
+\bibitem{combes2025neural}
+P.~Combes, S.~Weinzierl, and K.~Obermayer,
+``Neural Proxies for Sound Synthesizers: Learning Perceptually Informed Preset Representations,''
+arXiv:2509.07635, 2025.
+
+\bibitem{yang2023whitebox}
+Y.~Yang, Z.~Jin, C.~Barnes, and A.~Finkelstein,
+``White Box Search over Audio Synthesizer Parameters,''
+in \emph{Proc. Int. Society for Music Information Retrieval Conf.}, 2023.
+
+\bibitem{renault2023unpaired}
+L.~Renault, R.~Mignot, and A.~Roebel,
+``Expressive Piano Performance Rendering from Unpaired Data,''
+in \emph{Proc. Int. Conf. on Digital Audio Effects}, 2023, pp.~355--358.
+
+\bibitem{tang2025integrated}
+J.~Tang, E.~Cooper, X.~Wang, J.~Yamagishi, and G.~Fazekas,
+``Towards An Integrated Approach for Expressive Piano Performance Synthesis from Music Scores,''
+in \emph{Proc. IEEE Int. Conf. on Acoustics, Speech, and Signal Processing}, 2025, pp.~1--5.
+
+\bibitem{mueller2011smd}
+M.~M{\"u}ller, V.~Konz, W.~Bogler, and V.~Arifi-M{\"u}ller,
+``Saarland Music Data (SMD),''
+in \emph{Late Breaking and Demo Session of the Int. Society for Music Information Retrieval Conf.}, 2011.
+
+\bibitem{xi2018guitarset}
+Q.~Xi, R.~M. Bittner, J.~Pauwels, X.~Ye, and J.~P. Bello,
+``GuitarSet: A Dataset for Guitar Transcription,''
+in \emph{Proc. Int. Society for Music Information Retrieval Conf.}, 2018.
+
+\bibitem{riley2024gaps}
+X.~Riley, Z.~Guo, D.~Edwards, and S.~Dixon,
+``GAPS: A Large and Diverse Classical Guitar Dataset and Benchmark Transcription Model,''
+arXiv:2408.08653, 2024.
+
+\bibitem{francoisleduc_zenodo}
+D.~Edwards, X.~Riley, and S.~Dixon,
+``The Fran\c{c}ois Leduc Dataset,''
+Zenodo, 2024.
+
+\bibitem{riley2024hrguitar}
+X.~Riley, D.~Edwards, and S.~Dixon,
+``High-Resolution Guitar Transcription via Domain Adaptation,''
+in \emph{Proc. IEEE Int. Conf. on Acoustics, Speech, and Signal Processing}, 2024, pp.~1051--1055.
+
+\bibitem{tamer2023violin}
+N.~C. Tamer, Y.~\"Ozer, M.~M{\"u}ller, and X.~Serra,
+``High-Resolution Violin Transcription Using Weak Labels,''
+in \emph{Proc. Int. Society for Music Information Retrieval Conf.}, 2023, pp.~223--230.
+
+\bibitem{ryu2024midfild}
+J.~Ryu, S.~Rhyu, H.-G. Yoon, E.~Kim, J.~Y. Yang, and T.~Kim,
+``MID-FiLD: MIDI Dataset for Fine-Level Dynamics,''
+in \emph{Proc. AAAI Conf. on Artificial Intelligence},
+vol.~38, no.~1, pp.~222--230, 2024.
+
+\bibitem{lee2025gigamidi}
+K.~J.~M. Lee, J.~Ens, S.~Adkins, P.~Sarmento, M.~Barthet, and P.~Pasquier,
+``The GigaMIDI Dataset with Features for Expressive Music Performance Detection,''
+\emph{Transactions of the International Society for Music Information Retrieval},
+vol.~8, no.~1, pp.~1--19, 2025.
+
+\bibitem{fluidsynth}
+FluidSynth Project,
+``FluidSynth: A Real-Time SoundFont Synthesizer,''
+available online: fluidsynth.org.
+
+\bibitem{iso5321}
+International Organization for Standardization,
+``ISO 532-1:2017 Acoustics -- Methods for Calculating Loudness -- Part 1: Zwicker Method,''
+2017.
+
+\bibitem{zwicker2007}
+E.~Zwicker and H.~Fastl,
+\emph{Psychoacoustics: Facts and Models},
+3rd ed.
+Berlin, Germany: Springer, 2007.
+
+\end{thebibliography}

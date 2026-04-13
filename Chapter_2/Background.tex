@@ -1,0 +1,918 @@
+% Requires packages: graphicx, booktabs, tabularx
+\chapter{Background and Related Work}
+\label{ch:background}
+
+This chapter provides the shared foundations for the dissertation. It is not a warehouse of citations. Its task is to define the objects, coordinates, and validity conditions that recur across the later chapters. The chapter therefore focuses on what must be stable across the thesis even though the method chapters are not stages of one end-to-end pipeline.
+
+Section~\ref{sec:bg:dynamics} operationalises musical dynamics across physical sound level, perceived loudness, MIDI velocity, and score-level symbols. Section~\ref{sec:bg:foundations} summarises the deep-learning and MIR ideas that recur across the thesis. Section~\ref{sec:bg:repr} describes the audio, MIDI, and score representations together with the required alignment assumptions. Sections~\ref{sec:bg:threadA} and \ref{sec:bg:threadB} review the two main literature threads of the dissertation: note-level MIDI velocity recovery and beat-synchronous score-dynamics recovery. Section~\ref{sec:bg:common_arch} highlights the reusable method families that recur across chapters. Section~\ref{sec:bg:dataeval} summarises datasets, evaluation, and reproducibility constraints. The chapter ends by converting the literature gaps into explicit thesis requirements.
+
+\section{Musical Dynamics}
+\label{sec:bg:dynamics}
+
+The word \emph{dynamics} is used in several related but non-identical ways across music theory, performance research, and MIR. That distinction is not a terminological luxury. It determines what target is being estimated, what evidence is relevant, and what evaluation is legitimate.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Chapter_2/figures/dynamics_layers_v1.jpg}
+  \caption{Layered view of dynamics used in this thesis. Physical sound level, perceived loudness, MIDI velocity, and score dynamics are linked but not interchangeable. Each transition is many-to-many or instrument-specific.}
+  \label{fig:bg_dynamics_layers}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Three dynamics representations that recur throughout this thesis.}
+\label{tab:bg_dynamics_compare}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{l l X X}
+\toprule
+\textbf{Representation} & \textbf{Temporal anchor} & \textbf{Main strength} & \textbf{Main limitation} \\
+\midrule
+Audio loudness & frame-wise / continuous & Closest to what is directly observable from audio and closest to perceived intensity & Entangled with timbre, pitch, room acoustics, recording chain, and instrument-specific response \\
+MIDI velocity & note onset & Precise, machine-readable, and editable in symbolic performance workflows & Acts as a control proxy, not a universal loudness scale; not directly comparable across instruments or renderers \\
+Score dynamics & beat / phrase level & Human-readable, musically interpretable, and naturally attached to score structure & Relative, sparse, context-dependent, and expensive to verify at scale \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{From physical sound level to symbolic dynamics}
+\label{sec:bg:dynamics:layers}
+
+A useful starting distinction is between \emph{physical intensity}, \emph{perceived loudness}, \emph{performance control}, and \emph{score notation}. Physical measurements such as sound-pressure level in decibels describe the signal. Human listeners do not hear decibels directly. They hear loudness, which depends on frequency content, masking, and temporal integration \cite{psychoacoustics,zwicker1999psychoacoustics}. MIDI velocity describes a control quantity at note onset. In acoustic piano settings it is best interpreted as a proxy for performer action rather than as a universal loudness unit \cite{goebl2003role,dan2006psy}. Score dynamics such as \textit{pp}, \textit{mf}, \textit{f}, or a hairpin do something else again. They encode relative musical intention in context \cite{kosta2014dynpiano,kosta2016mapping}.
+
+This layered view has an important methodological consequence. There is no single exact lookup table that converts score dynamics, loudness, and MIDI velocity into one another. Nominal mappings are convenient for notation software and rendering systems, but they remain conventions. They should not be mistaken for measurement standards. This point is central to the whole dissertation because each chapter targets a different layer of the same broader expressive problem.
+
+\subsection{Dynamics Roles in Music Performance}
+\label{sec:bg:dynamics:musical}
+
+Dynamics is not only a change in intensity. In performance and analysis, it shapes phrase direction, marks local accent, balances melody against accompaniment, projects cadential arrival, and articulates formal contrast. A dynamic marking in a score therefore functions less like a fixed physical instruction and more like an underdetermined musical cue. Its realization depends on texture, register, instrumentation, style, performer choice, and room response. A system may estimate intensity-related evidence correctly while still failing to produce a musically plausible symbolic label.
+
+Performance research also reminds us that dynamics does not act alone. Louder attacks can change timbral brightness. Local accent can be projected by both intensity and timing. Phrase endings often coordinate dynamics and tempo together. The present thesis does not model all expressive dimensions jointly. Nevertheless, it treats the dynamics targets studied later as proxies for a richer interpretive process rather than as self-sufficient physical quantities.
+
+
+\subsection{Dynamics in audio}
+\label{sec:bg:dynamics:audio}
+
+In audio, dynamics is commonly discussed through loudness. Loudness is perceptual rather than purely physical. It is not identical to waveform amplitude, instantaneous pressure, or sound-pressure level. Psychoacoustic models distinguish physical intensity from perceived loudness and account for effects such as frequency-dependent hearing sensitivity, critical-band interaction, masking, and temporal integration \cite{psychoacoustics,zwicker1999psychoacoustics}. For a thesis that moves repeatedly between audio, MIDI, and score, this distinction is not optional. A model trained directly on raw energy can easily mistake a timbral redistribution of spectral energy for a genuine change in perceived intensity.
+
+For this reason, dynamics analysis often benefits from perceptually informed front-ends. Loudness-inspired features aim to approximate human intensity perception more directly than generic spectral magnitudes. Recent work on vocal dynamics has shown that loudness-oriented representations can be competitive with, and in some cases superior to, more standard features in dynamics-related tasks \cite{narang2022analysis,narang2024automatic}. This observation motivates the Bark-scale specific loudness front-end used later in the audio-only score-dynamics thread of the thesis.
+
+% Suggested figure here: equal-loudness contours across frequency, labelled in phons.
+\subsubsection{From intensity and sound pressure to dB, phon, and sone}
+
+The physical starting point is sound intensity, that is, acoustic power per unit area. If $I$ denotes intensity and $I_0$ a reference intensity, the corresponding intensity level in decibels is
+\begin{equation}
+L_I = 10\log_{10}\!\left(\frac{I}{I_0}\right).
+\label{eq:bg:intensity_db}
+\end{equation}
+In practice, audio and psychoacoustic work more often uses sound-pressure level (SPL), since pressure is easier to measure than power. If $p$ denotes the root-mean-square sound pressure and $p_0=20\,\mu\mathrm{Pa}$ the reference pressure in air, then
+\begin{equation}
+L_p = 20\log_{10}\!\left(\frac{p}{p_0}\right).
+\label{eq:bg:spl_db}
+\end{equation}
+The logarithmic form matters. A decibel is a ratio measure, not a linear quantity. As a result, decibel values are compact and convenient, but they are not themselves a perceptual loudness scale, and they cannot be linearly added across components in the way one would add physical powers or perceptual magnitudes \cite{Backus77,psychoacoustics}.
+
+The next step is to distinguish level from sensation. Equal-loudness contours, first measured systematically by Fletcher and Munson and later standardized in updated forms, show that the SPL needed for a sound to be heard as equally loud depends strongly on frequency \cite{Backus77,zwicker1999psychoacoustics}. The ear is most sensitive roughly in the 2--5\,kHz region and less sensitive at very low and very high frequencies. This is why two tones with the same SPL can still be heard as unequally loud. The unit \emph{phon} expresses this loudness \emph{level}: a sound has loudness level $L_N$ phons if it is judged as loud as a 1\,kHz pure tone at $L_N$\,dB SPL. Thus, phons are anchored to the 1\,kHz reference and inherit the frequency dependence of the equal-loudness contours.
+
+Phon, however, is still a level scale. It tells us where a sound sits relative to the 1\,kHz reference, but it is not yet a ratio scale of perceived magnitude. That is the role of the \emph{sone}. The conventional anchor is that a 1\,kHz tone at 40\,dB SPL has a loudness of 1 sone. Above 40 phons, each increase of 10 phons corresponds approximately to a doubling of loudness in sones. Historically, this idea is often connected to Stevens' power law,
+\begin{equation}
+\Psi = \frac{1}{15.849}\left(\frac{I}{I_0}\right)^{0.3},
+\label{eq:bg:stevens_power}
+\end{equation}
+where $\Psi$ denotes loudness in sones and $I_0$ is the reference intensity \cite{Backus77}. In MIR implementations, however, the more practical route is usually to go through loudness level in phons and then convert to sones. A widely used piecewise approximation is
+\begin{equation}
+S(L_N)=
+\begin{cases}
+2^{(L_N-40)/10}, & L_N \ge 40,\\[4pt]
+(L_N/40)^{2.642}, & L_N < 40,
+\end{cases}
+\label{eq:bg:sone_from_phon}
+\end{equation}
+which is the form adopted in the Pampalk and Kosta line of work and also used in later singing-voice dynamics studies \cite{bladon1981vowel,kosta2017thesis,narang2024automatic}. Equation~\eqref{eq:bg:sone_from_phon} is the most direct answer to where the unit \emph{sone} comes from in the present thesis: it is a ratio-like perceptual scale derived from loudness level, itself defined by equal-loudness relations.
+
+One detail is worth making explicit because it often causes confusion in thesis writing. The mapping from dB-SPL to phon is frequency dependent and is typically obtained from equal-loudness contours or a standard-based loudness model; it is not a single universal closed-form equation. By contrast, once the loudness level $L_N$ is known, the conversion from phon to sone in Equation~\eqref{eq:bg:sone_from_phon} is straightforward.
+
+% Suggested figure here: Bark scale against Hz, with critical-band widths and an asymmetric spreading function.
+\subsubsection{Critical bands, the Bark scale, and why masking enters the model}
+
+If the goal were only to measure physical level, Equations~\eqref{eq:bg:intensity_db} and \eqref{eq:bg:spl_db} would be sufficient. They are not sufficient for perceived loudness in music. Complex tones, chords, and singing voices distribute energy across harmonics and formants, and the auditory system does not process each FFT bin independently. Instead, energy is integrated and competed within auditory filters whose bandwidth changes with frequency. This is the psychoacoustic basis of the \emph{critical band} and of the Bark scale \cite{zwicker1999psychoacoustics,psychoacoustics}.
+
+The Bark coordinate $z$ is a perceptual frequency axis intended to approximate critical-band rate. A common analytic approximation is
+\begin{equation}
+z(f) = 13\arctan(0.76 f_{\mathrm{kHz}}) + 3.5\arctan\!\left(\frac{f_{\mathrm{kHz}}^2}{7.5^2}\right),
+\label{eq:bg:bark_mapping}
+\end{equation}
+where $f_{\mathrm{kHz}}$ is frequency measured in kHz \cite{pampalk2002content,pampalk2004exploring,zwicker1999psychoacoustics}. The important idea is not the exact closed form but the auditory geometry it encodes: below roughly 500\,Hz the Bark scale is close to linear, while above that region it becomes increasingly compressed. In other words, equal distances on the Bark axis are meant to approximate equal auditory distances rather than equal physical distances in Hz.
+
+This matters because loudness depends on how energy is distributed across critical bands. If additional energy is packed into the same critical band, the perceived increase in loudness is limited. If the bandwidth extends beyond the critical band, loudness grows more strongly. This is the basis of spectral loudness summation. The same logic explains why spectral masking must be modelled: a strong component in one band can partially suppress the audibility of nearby components, especially on the higher-frequency side. Lower bands generally mask higher bands more strongly than the other way round \cite{zwicker1999psychoacoustics,psychoacoustics}.
+
+Pampalk-style MIR front-ends make this idea operational in three stages. First, the short-time spectrum is weighted by an outer- and middle-ear transfer approximation, often the Terhardt weighting function,
+\begin{equation}
+A_{\mathrm{dB}}(f_{\mathrm{kHz}})
+= -3.64 f_{\mathrm{kHz}}^{-0.8}
++ 6.5\exp\!\left[-0.6(f_{\mathrm{kHz}}-3.3)^2\right]
+- 10^{-3} f_{\mathrm{kHz}}^{4},
+\label{eq:bg:terhardt}
+\end{equation}
+which downweights very low and very high frequencies while emphasizing the region around 3--4\,kHz where hearing is most sensitive \cite{terhardt1979outerear,pampalk2002content}. If $P(k,t)$ is a power spectrogram, this yields a weighted spectrum
+\begin{equation}
+P_W(k,t)=P(k,t)\,10^{A_{\mathrm{dB}}(f_k)/10}.
+\label{eq:bg:weighted_power}
+\end{equation}
+Second, the weighted spectrum is grouped into Bark bands,
+\begin{equation}
+E_b(t)=\sum_{k\in\mathcal{B}_b} P_W(k,t),
+\label{eq:bg:bark_band_energy}
+\end{equation}
+where $\mathcal{B}_b$ denotes the set of FFT bins that fall into the $b$th Bark band.
+
+Third, masking is modelled by a spreading function over Bark distance. A common formulation following Schroeder et al. is
+\begin{equation}
+G(\Delta z)=15.81 + 7.5(\Delta z+0.474) - 17.5\sqrt{1+(\Delta z+0.474)^2},
+\label{eq:bg:spreading_function}
+\end{equation}
+with $\Delta z = z_j-z_i$ in Bark \cite{schroeder1979masking,pampalk2002content}. After conversion from decibels to linear weights, this gives a spread excitation pattern such as
+\begin{equation}
+\widetilde{E}_b(t)=\sum_{i=1}^{B} E_i(t)\,10^{G(b-i)/10}.
+\label{eq:bg:spread_excitation}
+\end{equation}
+The exact discretization varies slightly across implementations, but the conceptual point is stable: loudness should not be modelled as a naive sum of independent narrowband energies. It should reflect auditory interaction across neighbouring critical bands.
+
+% Suggested figure here: specific loudness pattern N'(z) over Bark, with total loudness shown as area under the curve.
+\subsubsection{What Bark-scale specific loudness is, and how it differs from Bark-scale total loudness}
+
+Once a Bark-domain excitation pattern has been corrected for outer-ear response and spectral spreading, it is converted into a perceptual loudness quantity. In Zwicker's terminology, this is \emph{specific loudness}: the loudness contributed by each auditory-frequency position as a function of critical-band rate. In continuous form, it is written as $N'(z,t)$ and has units of sone per Bark. In the discrete MIR setting used in this thesis, we work with a sampled version $N'_b(t)$, one value per Bark band. The resulting time--frequency matrix is what we call \emph{Bark-scale specific loudness} (BSSL).
+
+Conceptually, the final conversion is still the same dB/phon/sone chain described above. Let $L_N(b,t)$ denote the loudness level in phons associated with the $b$th Bark band at time $t$. Then the Bark-scale specific loudness is
+\begin{equation}
+N'_b(t)=
+\begin{cases}
+2^{(L_N(b,t)-40)/10}, & L_N(b,t) \ge 40,\\[4pt]
+\left(L_N(b,t)/40\right)^{2.642}, & L_N(b,t) < 40.
+\end{cases}
+\label{eq:bg:bssl_specific_loudness}
+\end{equation}
+In implementation-oriented descriptions, one sometimes sees the last step written directly as a mapping from a calibrated Bark-band dB quantity to sones. That is a coding shorthand. Conceptually, the meaning remains the same: BSSL is the \emph{distribution} of perceived loudness across the Bark axis after auditory weighting and masking.
+
+This also clarifies the relation between \emph{Bark-scale specific loudness} and \emph{Bark-scale total loudness}. Specific loudness keeps the spectral distribution. Total loudness collapses that distribution to a single time-varying scalar by integrating over the Bark axis:
+\begin{equation}
+N_{\mathrm{tot}}(t)=\int_{0}^{24} N'(z,t)\,dz.
+\label{eq:bg:total_loudness_cont}
+\end{equation}
+In a discrete Bark-band representation, this becomes
+\begin{equation}
+N_{\mathrm{tot}}(t)\approx \sum_{b=1}^{B} N'_b(t)\,\Delta z_b,
+\label{eq:bg:total_loudness_disc}
+\end{equation}
+which reduces to a simple sum when each band is treated as one Bark-wide for practical purposes. This is the quantity returned as total loudness in Pampalk's \texttt{ma\_sone} documentation \cite{pampalk2004toolbox}. It is extremely useful when one wants a single loudness curve over time, for example for visualization, smoothing, or change-point analysis. However, it discards where that loudness sits in the auditory spectrum.
+
+That distinction is decisive for this thesis. Two passages can have similar total loudness $N_{\mathrm{tot}}(t)$ and still differ substantially in register, masking structure, and spectral balance. A scalar loudness curve would treat them as nearly equivalent; a BSSL matrix would not. The full BSSL representation therefore preserves the spectral-envelope information that remains perceptually relevant for musical dynamics. This is why the later audio-only score-dynamics chapter uses the Bark-wise matrix as input, while total loudness is retained mainly as a descriptive summary.
+
+The broader methodological point is now clear. dB provides a compact physical level measure. Phon corrects that level for frequency-dependent hearing sensitivity. Sone provides a ratio-like perceptual magnitude scale. Bark provides the perceptual frequency coordinate on which loudness is distributed. BSSL combines these ideas into a representation that is closer to what a listener hears than either raw amplitude or an unconstrained spectral magnitude. For a thesis concerned with the gap between score markings and perceived intensity, that is precisely the right conceptual object.
+
+% Suggested figure here: specific loudness pattern N'(z) over Bark, with total loudness shown as area under the curve.
+\subsubsection{Other Audio Representations Related to Loudness}
+
+
+Table~\ref{tab:dynamics_symbols} should therefore be read only as an orienting comparison between notation and perceptual scales. It does \emph{not} imply that score symbols map to fixed physical values in real performance.
+
+\subsection{Dynamics in music score}
+\label{sec:bg:dynamics:score}
+
+In Western notation, score dynamics is represented by a small symbolic vocabulary. Static levels include \textit{pp}, \textit{p}, \textit{mf}, and \textit{f}. Gradual transitions include \textit{crescendo} and \textit{diminuendo}. These symbols do not encode fixed decibel values. They encode musical intent. Their realization depends on texture, register, phrasing, repertoire, performer style, and instrument response \cite{kosta2014dynpiano,kosta2016mapping}. This context dependence is precisely why score dynamics remains musically meaningful, but it is also why large-scale annotation and evaluation are difficult.
+
+In this thesis, score dynamics is treated as a beat-synchronous symbolic target. This does not claim that all dynamic markings must occur on beats in music generally. It reflects a practical interface used by the available datasets and by the task formulation of Chapter~5. A beat-synchronous interface makes score dynamics easier to evaluate, easier to align, and easier to write back to a symbolic score.
+
+
+
+\begin{table*}[h!]
+\centering
+\caption{Illustrative correspondences between score-dynamics vocabulary and loudness-related scales. These values are reader-oriented anchors rather than deterministic conversions from notation to acoustics. Phons and sones are referenced from~\cite{backus1977acoustical}; the dB values at different pitches are read from representative equal-loudness contours.}
+\label{tab:dynamics_symbols}
+\setlength{\tabcolsep}{4pt}
+\fontsize{11pt}{11pt}\selectfont
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llll}
+\toprule
+\textbf{Meaning} &
+\textbf{Symbols} &
+\textbf{Phons} &
+\textbf{Sones} \\
+\midrule
+threshold of pain & \textbf{ffff/sf} & 120 & 128 \\
+yelling & \textbf{fff} & 100 & 64 \\
+very loud & \textbf{ff} & 90 & 32 \\
+loud & \textbf{f} & 80 & 16 \\
+normal speaking & \textbf{mf--mp} & 70 & 8 \\
+soft & \textbf{p} & 60 & 4 \\
+almost a whisper & \textbf{pp} & 50 & 2 \\
+whispering & \textbf{ppp} & 40 & 1 \\
+threshold of hear & \textbf{pppp/sp} & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+\begin{table*}[h!]
+\centering
+\scriptsize
+\caption{Illustrative correspondences between score-dynamics vocabulary and MIDI velocity scales, collected from popular music software documentation, source code, and peer-reviewed comparison studies. (The table is not intended to be exhaustive or normative. It is meant to illustrate the many-to-many nature of the mapping between score symbols and MIDI velocity values, which motivates the thesis's layered view of dynamics and its focus on bridging rather than collapsing different representations.)}
+\setlength{\tabcolsep}{2.4pt}
+\fontsize{11}{11pt}\selectfont
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llccccc}
+\toprule
+Dynamic &
+Meaning &
+\makecell{Logic Pro\cite{logicpro-stepinput}} &
+\makecell{MuseScore\cite{musescore-dynamic-source}} &
+\makecell{Sibelius\cite{sibelius7sounds}} &
+\makecell{Finale\cite{palamara2020dynamic}} &
+\makecell{Dorico\cite{palamara2020dynamic}} \\
+\midrule
+ffff & threshold of pain    & --  & 127 & --  & 127 & 123 \\
+fff  & yelling              & 127 & 126 & 127 & 114 & 119 \\
+ff   & very loud            & 112 & 112 & 113 & 101 & 101 \\
+f    & loud                 & 96  & 96  & 98  & 88  & 89  \\
+mf   & normal speaking      & 80  & 80  & 84  & 75  & 77  \\
+mp   & normal speaking      & 64  & 64  & 71  & 62  & 61  \\
+p    & soft                 & 48  & 49  & 61  & 49  & 46  \\
+pp   & almost a whisper     & 32  & 33  & 39  & 36  & 25  \\
+ppp  & whispering           & 16  & 16  & 20  & 23  & 14  \\
+pppp & threshold of hear    & --  & 10  & --  & 10  & 5   \\
+\bottomrule
+\end{tabular}
+\label{tab:dyn_midi_main}
+\\[0.5ex]
+\parbox{0.98\textwidth}{\footnotesize
+\textit{Notes.}
+(1) Logic Pro current official documentation states that score dynamics are visual only and do not affect playback; the values in the Logic column are Apple's documented \emph{step-input} velocity buttons rather than score-playback dynamics~\cite{logicpro-dynamics-visual,logicpro-stepinput}.
+(2) For Finale and Dorico, this table uses the peer-reviewed comparison in~\cite{palamara2020dynamic}; in the official documentation checked for this survey, Finale exposes configurable minimum velocities for dynamic placement, and Dorico exposes playback interpretation options, but I did not locate a vendor-published per-symbol default table.
+}
+\end{table*}
+
+\begin{table}[h!]
+\centering
+\scriptsize
+\caption{Scalar-based dynamic defaults in LilyPond and music21. LilyPond stores fractions rather than raw MIDI velocities. The LilyPond integer column is a rounded comparison-only rescaling to 127. music21 explicitly uses \texttt{int(volumeScalar*127)} for MusicXML export.}
+\setlength{\tabcolsep}{2.4pt}
+\fontsize{11}{11pt}\selectfont
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lcccc}
+\toprule
+Dynamic &
+\makecell{LilyPond\\scalar~\cite{lilypond-midi-doc}}       &
+\makecell{LilyPond\\rounded velo~\cite{lilypond-midi-doc}} &
+\makecell{music21\\scalar\cite{music21-dynamics-source}}   &
+\makecell{music21\\rounded velo~\cite{music21-dynamics-source}} \\
+\midrule
+sf   & 1.00 & 127 & -- & --    \\
+ffff & 0.92 & 117 & 0.95 & 120 \\
+fff  & 0.85 & 108 & 0.90 & 114 \\
+ff   & 0.80 & 102 & 0.85 & 107 \\
+fp   & --   & --  & 0.75 & 95  \\
+f    & 0.75 & 95  & 0.70 & 88  \\
+mf   & 0.68 & 86  & 0.55 & 69  \\
+mp   & 0.61 & 77  & 0.45 & 57  \\
+p    & 0.55 & 70  & 0.35 & 44  \\
+pp   & 0.49 & 62  & 0.25 & 31  \\
+ppp  & 0.42 & 53  & 0.15 & 19  \\
+pppp & 0.34 & 43  & 0.10 & 12  \\
+\bottomrule
+\end{tabular}
+\label{tab:dyn_scalar}
+\end{table}
+
+\subsection{Dynamics in MIDI}
+\label{sec:bg:dynamics:midi}
+
+MIDI velocity is a note-level control parameter attached to note onset. It is often interpreted informally as strike intensity. That is useful, but it should not be conflated with perceived loudness. The mapping from velocity to loudness depends on the instrument mechanism, the sensor calibration, the capture device, and the renderer or recording chain \cite{goebl2003role,dan2006psy,kosta2014dynpiano}. For this reason, the thesis treats MIDI velocity primarily as an \emph{action proxy}. It still remains highly valuable because it is precise, editable, and available on instrumented pianos such as Yamaha Disklavier systems \cite{hawthorne2019maestro}.
+
+This thesis uses MIDI velocity in three ways. In Chapter~3, it is the direct target of symbolic completion. In Chapter~4, it is the target of score-informed refinement from audio. In Chapter~6, it is the target of an exploratory beyond-piano study in which direct labels are scarce and proxy supervision becomes necessary.
+
+
+\section{Bridging the gap between Dynamics representations}
+\label{sec:bg:dynamics:bridge}
+
+\textbf{Why MIDI velocity and score dynamics belong to one thesis:} The two symbolic forms of dynamics solve different problems. MIDI velocity is the natural target for expressive rendering and production workflows. Score dynamics is the natural target for human-readable analysis, notation, and educational feedback. A thesis restricted to only one of them would miss an important part of expressive AMT. By studying both, the dissertation can ask a larger question: how should dynamics be recovered when the available supervision ranges from note-level performance control to weak score-level symbols?
+
+\textbf{Why we cannot directly convert MIDI velocity to Dynamic symbols?}
+
+\subsection{Dynamics depend on musical instruments}
+\label{sec:bg:dynamics:piano}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.99\linewidth]{Chapter_2/figures/soundfont_piano.png}
+  \caption{The soundfont analysis of Salamander Grand Piano and Yamaha Disklavier Pro Piano.}
+  \label{fig:bg_instruments_sone}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.99\linewidth]{Chapter_2/figures/soundfont_guitar.png}
+  \caption{The soundfont analysis of Spanish Classical Guitar and Violin LDK.}
+  \label{fig:bg_instruments_guitar}
+\end{figure}
+
+The piano gives this thesis both its main opportunity and its main caution. It is an attractive instrument for dynamics research because note onset is linked to a relatively clear control variable. Piano-performance research often distinguishes between measuring the produced sound and measuring how the sound is produced \cite{goebl2003role}. Within that logic, hammer velocity, MIDI velocity, and resulting loudness are tightly related even though they are not identical. This is one reason why reliable note-level velocity learning is currently concentrated on piano datasets.
+
+At the same time, piano mechanics warn against naive equivalence claims. Even within piano, the relation between MIDI velocity and radiated sound level is non-linear and varies with pitch, touch, instrument, and reproduction chain \cite{goebl2003role}. A note can be louder in the recording because of instrument response, registration, resonance, microphone placement, or rendering conditions rather than because the abstract symbolic velocity is universally \emph{higher}. MIDI velocity is therefore best understood as a useful proxy for performer action at note onset, not as a complete theory of loudness.
+
+\subsection{Human Perceptional Loudness}
+
+The human ear does not hear MIDI velocity or decibels directly. It hears loudness, which depends on frequency content, masking, and temporal integration \cite{psychoacoustics,zwicker1999psychoacoustics}. This is why the thesis uses perceptually informed front-ends such as Bark-scale specific loudness for audio-based score-dynamics recovery. It is also why the thesis treats score dynamics as a musically underdetermined cue rather than as a fixed physical instruction.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.99\linewidth]{Chapter_2/figures/equal_loudness_curve.png}
+  \caption{Equal loudness contours comparing ISO226:2003 (red) and the measurements of Robinson and Dadson in the mid 1950s~\cite{equal_loudness}.}
+  \label{fig:bg_equal_loudness}
+\end{figure}
+
+
+\subsection{Recurring cues and local interpretive events}
+\label{sec:bg:dynamics:schemata}
+
+A further distinction from expressive-performance research is valuable here. Some dynamics behaviours are recurrent. They reflect shared schemata such as phrase arches, cadential tapering, local metrical emphasis, or conventional voice balance. Other behaviours are more local and piece-specific. They arise from unusual harmony, texture change, registral surprise, or editorial notation choices. Learning systems can often absorb recurrent cues more readily than these local interpretive events \cite{cancinoChacon2018computational}.
+
+This distinction helps explain why dynamics recovery is inherently uneven across targets. Note-level velocity recovery can track local control values even when their larger symbolic interpretation is unclear. Score-dynamics recovery instead asks for a musically summarized label stream and therefore confronts interpretive ambiguity more directly. This is one reason why the score-facing thread of the thesis requires its own review logic.
+
+\section{Deep Learning and MIR Foundations}
+\label{sec:bg:foundations}
+
+\subsection{Recent Progress in AMT and the need for expressive targets}
+\label{sec:bg:foundations:performance}
+
+Recent AMT systems are shown as below:
+
+\begin{table*}[t]
+\centering
+
+\setlength{\tabcolsep}{2.4pt}
+\fontsize{10pt}{11pt}\selectfont
+\renewcommand{\arraystretch}{1.2}
+
+\begin{tabular}{
+>{\centering\arraybackslash}m{3.0cm}
+>{\centering\arraybackslash}m{1.7cm}
+>{\centering\arraybackslash}m{2.2cm}
+>{\centering\arraybackslash}m{1.2cm}
+>{\centering\arraybackslash}m{1.1cm}
+>{\centering\arraybackslash}m{1.5cm}
+>{\centering\arraybackslash}m{2.0cm}
+}
+\toprule
+Method & Publication & Model & \makecell{F1 \\ frame} & \makecell{F1 \\ note} & \makecell{F1 \\ note\&off} & \makecell{F1 \\ note\&off\&velo} \\
+\midrule
+
+\multicolumn{7}{c}{\textbf{MAPS (piano)}} \\
+\midrule
+OaF \cite{hawthorne2018onsets} & \shortstack{ISMIR \\ 2018} & CRNN & 78.30 & 82.29 & 50.22 & 35.39 \\
+Wu et al. \cite{wu2019semantic} & \shortstack{ICASSP \\ 2019} & CNN & 86.73 & -- & -- & -- \\
+ADSR \cite{kelz2019adsr} & \shortstack{ICASSP \\ 2019} & CNN + HMM & 77.16 & 81.38 & 56.08 & -- \\
+hFT-Trans \cite{toyama2023hft} & \shortstack{ISMIR \\ 2023} & Transformer & 82.89 & 85.14 & 66.34 & 48.20 \\
+\midrule
+
+\multicolumn{7}{c}{\textbf{MAESTRO (piano)}} \\
+\midrule
+OaF$^\dagger$ \cite{hawthorne2018onsets,hawthorne2019maestro} & \shortstack{ISMIR \\ 2018} & CRNN & 87.82 & 94.93 & 79.65 & 76.05 \\
+HPT$^\dagger$ \cite{kong2021hpt} & \shortstack{TASLP \\ 2021} & CRNN & 90.15 & 96.77 & 84.45 & 83.02 \\
+Semi-CRFs$^\dagger$ \cite{yan2021semicrf} & \shortstack{NeurIPS \\ 2021} & CRNN + Semi-CRF & 91.11 & 96.51 & 88.72 & 87.75 \\
+Seq2Seq$^\ddagger$ \cite{hawthorne2021trans,toyama2023hft} & \shortstack{ISMIR \\ 2021} & Transformer & -- & 96.01 & 83.94 & 82.75 \\
+HPT-T$^\ddagger$ \cite{kong2021hpt,toyama2023hft} & \shortstack{TASLP \\ 2021} & CRNN & 90.09 & 96.77 & 83.20 & 81.90 \\
+HPPNet-sp$^\ddagger$ \cite{wei2022hppnet,toyama2023hft} & \shortstack{ISMIR \\ 2022} & CRNN & 93.15 & 97.18 & 83.80 & 82.24 \\
+hFT-Trans$^\ddagger$ \cite{toyama2023hft} & \shortstack{ISMIR \\ 2023} & Transformer & 93.24 & 97.44 & 90.53 & 89.48 \\
+Transkun v2$^\ddagger$ \cite{yan2024semicrf} & \shortstack{ISMIR \\ 2024} & Transformer + Semi-CRF & 95.35 & 98.32 & 93.48 & 92.94 \\
+\midrule
+
+\multicolumn{7}{c}{\textbf{MusicNet (multi-instrument)}} \\
+\midrule
+Wu et al. \cite{wu2019semantic} & \shortstack{ICASSP \\ 2019} & CNN & 73.70 & -- & -- & -- \\
+ReconVAT \cite{cheuk2021reconvat,gardner2022mt3} & \shortstack{ACM MM \\ 2021} & U-Net & 48.0 & 29.0 & 11.0 & -- \\
+MT3 \cite{gardner2022mt3} & \shortstack{ICLR \\ 2022} & Transformer & 68.0 & 50.0 & 33.0 & -- \\
+PerceiverTF$^\S$ \cite{lu2023perceivertf} & \shortstack{ICASSP \\ 2023} & Perceiver + Transformer & 63.7 & 46.1 & 29.0 & -- \\
+PF2N$^\S$ \cite{kim2025pf2n} & \shortstack{Mathematics \\ 2025} & Perceiver + PF2N & 64.5 & 47.5 & 30.7 & -- \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5ex}
+\parbox{0.98\linewidth}{\footnotesize
+$^\dagger$ Historical MAESTRO results reported on the earlier MAESTRO split/re-evaluation used by HPT and Semi-CRF papers. \\
+$^\ddagger$ Results reported directly on MAESTRO v3.0.0 or re-tabulated on MAESTRO v3.0.0 by later papers. \\
+$^\S$ PF2N evaluates multi-instrument settings with an additional requirement that the predicted instrument label match the ground truth. These rows are therefore not directly comparable to the original instrument-agnostic MT3 MusicNet scores.
+}
+\label{tab:amt_sota}
+\end{table*}
+
+
+\subsection{Performance research as a precursor to expressive MIR}
+\label{sec:bg:foundations:performance}
+
+Expressive MIR inherits many of its core questions from music performance research. Long before deep-learning AMT, performance studies had already shown that phrase structure, meter, local accent, and instrumental constraints shape both timing and dynamics \cite{goebl2003role,cancinoChacon2018computational}. This older literature matters because it clarifies that expressive labels are not decorative metadata attached to a note list. They are traces of interpretation. As a result, expressive AMT must confront questions of target definition, representational choice, and evaluation legitimacy that are already familiar in performance science.
+
+
+\subsection{From note transcription to expressive transcription}
+\label{sec:bg:foundations:evolution}
+
+Classical AMT focused on pitch estimation and note boundary detection. Deep-learning AMT expanded this to high-resolution piano transcription, event-based transcription, and increasingly robust note modelling across datasets \cite{amt2019ov,hawthorne2018onsets,hawthorne2021trans,kong2021hpt,toyama2023hft,yan2021semicrf,yan2024semicrf}. This evolution matters for the present thesis because dynamics recovery does not start from zero. It builds on a field that can already recover a large part of the note structure reliably, especially for piano. The remaining gap is that expressive targets are still much less mature than note targets.
+
+Seen from this perspective, expressive AMT is not a separate field detached from AMT. It is the next layer of symbolic recovery once note content and timing become reasonably stable. The thesis therefore positions its contributions as extensions of AMT toward expressive and editable symbolic outputs rather than as alternatives to note transcription.
+
+\subsection{Common neural architectures in MIR}
+\label{sec:bg:foundations:architectures}
+
+Several neural architecture families recur across MIR and across this thesis. Convolutional neural networks are effective for local time--frequency pattern extraction. They remain a strong default when the task depends on local spectral cues or sparse spatial structure. Transformer models use self-attention to model longer-range dependencies and have become increasingly important for AMT and beat tracking \cite{vas2017attn,hawthorne2021trans,toyama2023hft,foscarin2024beat}. Conformer-style models combine self-attention with convolution and are attractive when both local detail and wider context matter \cite{gulati2020conformer}.
+
+For this thesis, the main issue is not textbook taxonomy. It is \emph{inductive bias}. Sparse symbolic matrices invite U-Net-like locality. Event-level correction invites token-based representations and attention over note events. Phrase-level score dynamics invites perceptual front-ends and long temporal context. The architecture choices made later are therefore motivated by the structure of the target rather than by model fashion.
+
+\subsection{Multi-task learning, negative transfer, and mixture-of-experts}
+\label{sec:bg:foundations:mtl}
+
+Multi-task learning is attractive when several outputs share information. In MIR, it can reduce duplicate computation and encourage a common representation. However, it can also cause negative transfer when tasks prefer different acoustic cues or different temporal context. This risk is especially important for Chapter~5, where dynamic estimation and beat tracking must coexist in one model. Mixture-of-experts methods address this by combining shared representation learning with task-specific routing \cite{ma2018mmoe}. The MMoE decoder used later in Chapter~5 follows precisely this logic.
+
+\subsection{Multi-scale modelling and long-context design}
+\label{sec:bg:foundations:multiscale}
+
+Many music tasks are inherently multi-scale. Note onset detection needs fine temporal resolution. Phrase-level dynamics needs longer context. Beat and downbeat tracking lie somewhere in between. A single temporal scale is rarely optimal for all of them. Multi-scale architectures address this by providing parallel or hierarchical pathways with different effective receptive fields \cite{li2023frame}. In the present thesis, this principle appears most directly in Chapter~5, but the broader idea also motivates segment-length design choices in Chapter~3 and the residual late-correction principle in Chapter~4.
+
+\section{Representations and Alignment Across Audio, MIDI, and Score}
+\label{sec:bg:repr}
+
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.99\linewidth]{Chapter_2/figures/representation_chain.png}
+%   \caption{Shared representation logic of the thesis. Different chapters start from different inputs, use different forms of structural support, and target different dynamics representations. The figure makes the transition from modality to output interface explicit.}
+%   \label{fig:bg_representation_chain}
+% \end{figure}
+
+\subsection{Audio representations}
+\label{sec:bg:repr:audio}
+
+Most transcription systems operate on time--frequency representations. Common choices include magnitude spectrograms, log-Mel spectrograms, and variants of constant-Q or perceptual front-ends \cite{amt2019ov}. Log-Mel remains a strong general-purpose choice because it supports both pitch-related and onset-related modelling. However, it is not necessarily the best inductive bias for loudness-oriented tasks. For dynamics estimation, perceptually grounded features may reduce the gap between physical signal variation and perceived intensity. This motivates the comparison between log-Mel and Bark-scale specific loudness in Chapter~5.
+
+\subsection{Symbolic and score representations}
+\label{sec:bg:repr:symbolic}
+
+The thesis uses two main symbolic interfaces. For note-level tasks, MIDI is often rasterized into piano-roll-like matrices indexed by pitch and time. Onset rolls, frame rolls, and velocity rolls provide a convenient representation for sparse note events and are especially suitable for 2D models \cite{he2025filling}. For score-informed tasks, symbolic note information can also be represented as tokens carrying time, pitch, note state, and optionally score-derived attributes \cite{kim2023score}. These tokenized representations become more natural when the model acts on note events rather than on dense frame grids.
+
+For score-level tasks, the score provides a different representational interface. Beats and downbeats form a musically meaningful coordinate system. Dynamic symbols can then be attached to this coordinate system as sparse, interpretable labels. Chapter~5 adopts exactly this beat-synchronous interface.
+
+\subsection{Temporal units}
+\label{sec:bg:repr:units}
+
+The same acoustic event can be indexed in several ways. That choice is not neutral. It determines what is being predicted and how the prediction should be evaluated.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.98\linewidth]{Chapter_2/figures/temporal_units.png}
+  \caption{Temporal units that recur across the thesis. Audio frames support fine acoustic evidence. Note onsets and note events support control-level modelling. Beats and downbeats provide score-facing coordinates. Phrase spans capture longer interpretive context.}
+  \label{fig:bg_temporal_units}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Temporal units that recur across the thesis.}
+\label{tab:bg_temporal_units}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Unit} & \textbf{Where it appears} & \textbf{Why it matters} \\
+\midrule
+Frame & audio loudness and acoustic features & Captures fine temporal evidence but is too dense for many score-facing targets \\
+Note onset & MIDI velocity and AMT outputs & Natural coordinate for action-level intensity control \\
+Note event & symbolic completion and correction & Supports note-wise masking, correction, and editable symbolic output \\
+Beat & score dynamics and metrical tracking & Main coordinate for human-readable dynamic labels \\
+Downbeat & score dynamics and phrase context & Anchors bar-level organization and change-point interpretation \\
+Phrase / segment & expressive interpretation & Explains longer contextual shaping that cannot be reduced to isolated notes \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Alignment, priors, and validity}
+\label{sec:bg:repr:alignment}
+
+Alignment is not a minor preprocessing detail. It determines what the supervision actually means and whether evaluation is legitimate. For note-level velocity estimation, note onsets and offsets must be aligned with either the audio or the reference score. Instrumented piano datasets provide this directly through synchronized audio--MIDI capture \cite{hawthorne2019maestro}. In score-informed settings, the aligned score supplies the note events that should receive velocity values. This makes note-level masked evaluation possible.
+
+For score dynamics, the critical coordinate is the beat grid. Beat-level alignment may come from a reference score, from manual annotations, or from the model itself. This alignment is essential because score dynamics is rarely meaningful as an unconstrained frame-wise label stream. It becomes interpretable once mapped to beats, bars, and phrase-level change points.
+
+The thesis also uses the notion of a \emph{prior} in a broader sense. In Chapter~4, the prior is an aligned score that stabilizes note-level correction. In Chapter~5, the prior is the metrical coordinate system that makes score-facing labels meaningful. In Chapter~6, the prior takes a different form: differentiable MIDI-to-audio synthesis provides an indirect route from predicted control values back to the observed signal. These are different mechanisms, but they all serve the same purpose. They inject structure into an otherwise underdetermined dynamics problem.
+
+\section{Thread A: Note-Level MIDI Velocity Recovery}
+\label{sec:bg:threadA}
+
+\subsection{Expressive rendering and humanisation}
+\label{sec:bg:threadA:rendering}
+
+Expressive performance rendering aims to generate expressive control signals from symbolic input. Many systems predict timing, dynamics, and sometimes articulation jointly \cite{jeong2019virtuosonet,borovik2023scoreperformer}. These models are important because they show that expressive performance can be learned from symbolic structure. At the same time, they reveal a practical limitation for the present thesis. Joint expressive rendering may alter more than the user wants. In production or corpus-upgrading settings, the desired operation is often narrower: preserve the notes and timing, and recover only the missing dynamics layer. This narrower, controllable objective is the entry point for Chapter~3.
+
+\subsection{Symbolic velocity completion and prediction}
+\label{sec:bg:threadA:symbolic}
+
+Symbolic velocity completion assumes that the note sequence is already known and that the missing variable is note-level velocity. Early work used rule-based or statistical approaches \cite{berndt2010modelling}. More recent work formulates the task with deep learning, including convolutional autoencoders and sequence-to-sequence models with attention \cite{kuo2021velocity,kim2023piano}. Diffusion-based note-intensity estimation has also been explored in related score-informed settings \cite{kim2023diffvel}.
+
+A central challenge is the sparsity of symbolic piano-roll data. Dense frame grids contain large silent regions. A model that treats all cells equally can waste much of its capacity. This is one reason why the image-like formulation of Chapter~3 is attractive. It allows sparse note structure to be processed with U-Net-style locality while still supporting wider context.
+
+\subsection{Audio-driven velocity estimation within AMT}
+\label{sec:bg:threadA:amt}
+
+Velocity recovery from audio has become increasingly feasible for piano because large aligned datasets exist with sensor-recorded note velocities \cite{hawthorne2019maestro}. Representative velocity-enabled AMT systems include OaF, HPT, hFT-Trans, and event-based models \cite{hawthorne2018onsets,hawthorne2021trans,kong2021hpt,toyama2023hft,yan2021semicrf,yan2024semicrf}. Related work also studies robustness, semi-supervised learning, and parameter-efficient piano transcription \cite{maman2022general,edwards2024general,strahl2024semi,wei2022hppnet,wang2025multitask}.
+
+Despite strong progress, note-level velocity remains more fragile than note pitch and onset estimation. Domain shift in piano timbre, microphone placement, room acoustics, and recording chain degrades the mapping from acoustic evidence to velocity more severely than the mapping from acoustic evidence to pitch. This fragility is one of the main motivations for the score-informed correction strategy of Chapter~4.
+
+\subsection{Score-informed MIDI velocity estimation and correction}
+\label{sec:bg:threadA:scoreinf}
+
+Score-informed velocity estimation assumes that an aligned score is available together with performance audio. Historically, this line of work developed partly because early AMT systems focused on notes and offered limited support for reliable velocity estimation \cite{amt2013ov}. Early systems used hand-designed measurements or parametric estimation strategies \cite{dan2006psy,goebl2003role,szeto2005finding,ewert2011est}. Later work introduced restricted Boltzmann machines, score-informed non-negative matrix factorization, diffusion-based note-level estimation, and FiLM-conditioned deep models \cite{van2014pred,jeong2017note,jeong2018timbre,kim2023diffvel,kim2023score,kim2024method,simonetta2022acoustics}.
+
+A key pattern in this literature is \emph{feature fusion}. Score information is injected into the acoustic model during feature extraction. This can improve accuracy, but it also ties the score-informed method tightly to a particular backbone. The present thesis instead emphasizes \emph{late correction}. A correction module can attach to an existing AMT system and refine its velocity estimate while leaving the backbone largely unchanged. This is the design stance developed in Chapter~4.
+
+\subsection{Piano bias and the beyond-piano problem}
+\label{sec:bg:threadA:beyond}
+
+Reliable velocity supervision is still strongly piano-centric. Instrumented pianos make note-level velocity available at scale, but comparable datasets for other instruments are scarce. This creates both a training bias and an evaluation bias. Transfer beyond piano must therefore confront two bottlenecks: missing labels and instrument-dependent mappings between performer action, timbre, and loudness.
+
+The important point is that beyond-piano failure is not only ordinary domain shift. It is a measurement problem. Outside piano, even defining what a ``ground-truth'' note-level control signal should be can be difficult. This distinction is essential for the honest positioning of Chapter~6.
+
+\subsection{Cross-instrument velocity estimation with proxy supervision}
+\label{sec:bg:threadA:proxy}
+
+When true note-level velocity labels are unavailable, one route is to supervise the predicted control indirectly through audio reconstruction. Differentiable MIDI-to-audio synthesis, including DDSP-style systems, makes this increasingly plausible because a model can be penalized after its predicted velocities are rendered back to sound \cite{engel2020ddsp}. The appeal is clear. It turns a missing-label problem into a proxy-supervision problem.
+
+The danger is equally clear. A proxy objective can reward compatibility with the synthesizer more than compatibility with real instrumental control. Reconstruction error is therefore not the same thing as accurate velocity recovery. Chapter~6 adopts this route explicitly as an exploratory study. Its value lies in opening the beyond-piano question honestly, not in claiming that proxy supervision has already replaced true labels.
+
+\section{Thread B: Beat-Synchronous Score-Dynamics Recovery}
+\label{sec:bg:threadB}
+
+\subsection{From performed loudness to score dynamics}
+\label{sec:bg:threadB:loudness}
+
+Computational modelling of dynamics has a long history in expressive performance research \cite{cancinoChacon2018computational}. Rather than focusing only on note-level control, this line of work studies how performed loudness relates to symbolic dynamic markings and phrase structure. Kosta and collaborators showed both the usefulness and the ambiguity of this relationship \cite{kosta2014dynpiano,kosta2016mapping,kosta2018mazurkabl}. Other work has further analysed dynamic principles in piano performance \cite{jones2023probingdyn}.
+
+From a machine-learning perspective, score-dynamics recovery can be framed as classification or structured sequence labelling. The input is audio. The output is a sequence of dynamic symbols or dynamic regimes. In the MazurkaBL line of work, the performed-loudness side of this mapping is typically extracted through sone-based psychoacoustic processing rather than raw amplitude, precisely because the target concerns perceived intensity rather than unweighted energy \cite{kosta2017thesis}. The challenge is that these labels are sparse, relative, and musically contextual rather than physically absolute. This is one reason why a beat-synchronous formulation is more natural than direct frame-wise regression of continuous loudness.
+
+\subsection{Change points and dynamic segmentation}
+\label{sec:bg:threadB:changepoints}
+
+Dynamic markings rarely behave as independent frame labels. They form local regimes that persist over spans of music, and musical meaning often lies in the transitions between those regimes. Change-point detection therefore plays an important role. It supports segmentation, interpretation, and the recovery of phrase-level dynamic structure \cite{kosta2018mazurkabl,kosta2017thesis}. In Chapter~5, change points are estimated jointly with dynamic levels so that a score-facing output includes both local states and their transitions.
+
+\subsection{Beat and downbeat tracking as structural coordinates}
+\label{sec:bg:threadB:metrical}
+
+Beat and downbeat tracking has a mature literature. Earlier systems often relied on convolutional features followed by probabilistic post-processing such as dynamic Bayesian networks \cite{bock2020deconstruct,zhao2022beat}. More recent systems use stronger deep encoders and can reduce reliance on heavy post-processing \cite{foscarin2024beat}. For this thesis, beat and downbeat tracking is not only a useful auxiliary task. It is the coordinate system that makes score dynamics interpretable, comparable, and writable back to a score.
+
+\subsection{Joint estimation and multi-task learning}
+\label{sec:bg:threadB:joint}
+
+Dynamics estimation and metrical estimation are closely related but not identical. Dynamic labels are easier to interpret on a beat grid, yet beat tracking itself needs precise temporal localization that differs from the longer context required for phrase-level dynamics. This mismatch creates an ideal test case for multi-scale and multi-task design. Shared encoders can capture common information, but negative transfer must be controlled. Mixture-of-experts style decoders are therefore well motivated for this thread \cite{ma2018mmoe}. Chapter~5 adopts exactly this view by combining a multi-scale encoder with task-aware routing.
+
+\section{Common Architecture for AMT and Related Tasks}
+\label{sec:bg:common_arch}
+
+The later chapters use different architectures, but they draw from a relatively small set of reusable design ideas.
+
+\subsection{Sparse 2D modelling with U-Net and attention}
+\label{sec:bg:common_arch:unet}
+
+When symbolic music is rasterized as piano-roll matrices, the resulting representation is sparse but still has local spatial structure. U-Net-style architectures are well suited to this combination because they preserve fine local detail through skip connections while aggregating larger context through the encoder--decoder path. Windowed attention can then be added to improve feature aggregation without the full cost of global attention \cite{shen2023linear,chen2022hts}. This toolbox underlies Chapter~3.
+
+\subsection{Token-based correction modules}
+\label{sec:bg:common_arch:tokens}
+
+When note events are already known, a dense frame representation is not always the most efficient interface. A note-token representation can focus modelling capacity on the events that actually require correction. This principle is especially suitable for late correction, where the aim is to adjust a preliminary estimate rather than to solve transcription end to end. It underlies the score-informed Transformer module of Chapter~4.
+
+\subsection{Perceptual front-ends and long-context audio modelling}
+\label{sec:bg:common_arch:perceptual}
+
+For score-dynamics recovery, the relevant signal is closer to perceived loudness than to raw pitch content alone. Perceptual front-ends such as Bark-scale specific loudness preserve not only a scalar loudness trajectory but also the Bark-wise distribution of loudness across the spectrum. They can therefore provide a better inductive bias and can also reduce model size by compressing the frequency dimension. This compactness is not only an implementation detail. It enables substantially longer audio segments, which are crucial for phrase-level context in Chapter~5.
+
+\subsection{MMoE and task-aware routing}
+\label{sec:bg:common_arch:mmoe}
+
+Shared representations are useful across related tasks, but they are not sufficient when tasks prefer different temporal or acoustic cues. MMoE provides a practical compromise between full parameter sharing and fully separate models \cite{ma2018mmoe}. It lets tasks draw differently from a shared expert pool. This principle is central to the multi-task audio-only model of Chapter~5 and is conceptually aligned with the thesis-level idea of modular expressive label recovery.
+
+\subsection{Differentiable synthesis and proxy losses}
+\label{sec:bg:common_arch:proxy}
+
+Proxy supervision becomes relevant when the target control parameter is musically meaningful but rarely labeled. Differentiable synthesis provides one route. A network predicts control values, those values are rendered back to audio through a differentiable synthesizer, and losses are applied in the signal domain. In a DDSP-style setting, this can provide regression pressure even when direct control annotations are absent \cite{engel2020ddsp}.
+
+For expressive AMT, this strategy is attractive but delicate. It makes missing-label learning possible, yet it also ties the learning signal to the adequacy of the synthesizer. The thesis therefore treats proxy losses as a method family with explicit limits, not as a universal substitute for true note-level control labels.
+
+\section{Datasets, Evaluation, and Reproducibility Constraints}
+\label{sec:bg:dataeval}
+
+\begin{table}[h]
+\centering
+\caption{Representative datasets relevant to expressive label recovery in this thesis.}
+\label{tab:dataset_comparison}
+
+\setlength{\tabcolsep}{2.4pt}
+\fontsize{11pt}{11pt}\selectfont
+\renewcommand{\arraystretch}{1.2}
+
+\begin{tabularx}{\textwidth}{
+l l
+c c c
+c c c c
+}
+\toprule
+\multirow{2}{*}{\textbf{Dataset}} &
+\multirow{2}{*}{\textbf{Instr.}} &
+\multicolumn{3}{c}{\textbf{Statistic}} &
+\multicolumn{4}{c}{\textbf{Modality}} \\
+\cmidrule(lr){3-5} \cmidrule(lr){6-9}
+&
+& \textbf{Hours}
+& \makecell{\textbf{Perfor-}\\\textbf{mance}}
+& \makecell{\textbf{Compos-}\\\textbf{itions}}
+& \textbf{MIDI}
+& \makecell{\textbf{Velo.}}
+& \textbf{Score}
+& \makecell{\textbf{Dyn.}} \\
+\midrule
+
+\addlinespace[2pt]
+ATEPP \cite{zhang2022atepp}
+& piano
+& 1007
+& 11742
+& 1580
+& \cmark
+& \cmark
+& \cmark\ 43\%
+& \warn\ 43\% \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\warn\ Audio is from YouTube URLs (avail. vary); score dynamics are not explicitly verified.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+ASAP \cite{foscarin2020asap}
+& piano
+& 92
+& 1068
+& 222
+& \cmark
+& \cmark
+& \cmark
+& \warn \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\warn\ Score dynamics (and other expressive markings) are not verified.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+MAESTRO v3 \cite{hawthorne2019maestro}
+& piano
+& 172
+& 1276
+& 864
+& \cmark
+& \cmark
+& \xmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ High-quality piano dataset, recorded on Yamaha Disklavier pianos.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+SMD v2 \cite{smd}
+& piano
+& 4.7
+& 50
+& 50
+& \cmark
+& \cmark
+& \xmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ Often used for cross-dataset evaluation; recorded on Yamaha Disklavier pianos.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+MAPS \cite{maps}
+& piano$^\dagger$ 
+& 17.9
+& 270
+& 208
+& \cmark
+& \cmark
+& \xmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em} $^\dagger$ Statistics are computed only on the ENSTDkAm and ENSTDkCl subsets (solo piano), recorded on Yamaha Disklavier pianos.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+MazurkaBL \cite{kosta2018mazurkabl}
+& piano
+& 110
+& 2000
+& 44
+& \xmark
+& \xmark
+& \cmark
+& \cmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ Dynamics and Expressive labels are explicitly verified. All Chopin compositions.}\\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+Vienna4x22 \cite{goebl1999vienna4x22}
+& piano
+& 2.3
+& 88
+& 4
+& \cmark
+& \cmark
+& \cmark
+& \cmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark Contains 4 compositions from Chopin, Schubert and Mozart, each 22 performances.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+Batik-plays-Moz.~\cite{hu2023batik}
+& piano
+& 3.7
+& 36
+& 36
+& \cmark
+& \cmark
+& \cmark
+& \cmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark Contains 12 Mozart sonatas represented as 36 movement-level score--performance pairs. The public repository provides MIDI, MusicXML scores, and match files; corresponding audio recordings are commercially available rather than distributed in the repository. The current GitHub README reports a total duration of 223.28\,min (3.72\,h).} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+MSMD \cite{dorfer2018msmd}
+& piano
+& 15
+& 479
+& 479
+& \cmark
+& \xmark
+& \cmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\warn\ Synthesized audio; MIDI is derived from digital scores rather than human performance.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+GuitarSet \cite{xi2018guitarset}
+& guitar
+& 3.0
+& 360
+& 30
+& \cmark
+& \xmark
+& \xmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ Good quality electric guitar dataset.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+GOAT \cite{loth2025goat}
+& guitar
+& 5.9
+& 172
+& n/a.
+& \cmark
+& \xmark
+& \cmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ Usage may still be constrained by copyright or redistribution terms.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+GAPS \cite{riley2024gaps}
+& guitar
+& 14.1
+& 300
+& 300
+& \cmark
+& \xmark
+& \cmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\warn\ Audio is collected from YouTube URLs (availability may vary).} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+MusicNet \cite{thickstun2017musicnet}
+& ensemble
+& 34.1
+& 330
+& 121
+& \cmark
+& \warn
+& \xmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\cmark\ Classical multi-instrument recordings; note labels are aligned from score via DTW; reference MIDI is available; \warn\ alignment noise exists; velocity is score-derived and not performance control.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+MID-FiLD \cite{ryu2024midfild}
+& ensemble
+& n/a.
+& 4477
+& 4477
+& \cmark
+& \cmark
+& \xmark
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\warn\ Synthesized audio; MIDI is derived from digital scores rather than human performance.} \\
+\addlinespace[2pt]
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Dataset modalities and what each chapter can learn}
+\label{sec:bg:dataeval:modalities}
+
+The thesis relies on datasets with very different modality combinations. Audio--MIDI datasets such as MAESTRO support supervised note-level velocity learning. Cross-dataset piano corpora such as SMD and MAPS stress generalization under changed recording conditions. Score-aligned corpora such as MazurkaBL support score-facing dynamics research because they provide beat-level structure and expressive annotations. Other datasets are valuable but incomplete for the present thesis because they may lack reliable note-level velocity, verified score dynamics, or stable redistribution conditions.
+
+These modality differences are not an implementation detail. They determine which claim can be made at all. Chapter~3 needs reliable symbolic velocity targets. Chapter~4 additionally needs an aligned score. Chapter~5 needs score-facing dynamics with metrical structure. Chapter~6 needs candidate non-piano corpora, but cannot assume direct velocity supervision of MAESTRO quality.
+
+\subsection{Evaluation for MIDI velocity}
+\label{sec:bg:dataeval:velocity}
+
+Velocity should be evaluated at note level rather than by naive frame-wise error. Otherwise, long sustained notes dominate the metric. Standard statistics include mean absolute error and related dispersion measures \cite{kuo2021velocity,kim2024method}. However, numerical accuracy alone is not sufficient. A model can achieve a decent average error while producing over-smoothed or mechanically centered dynamics. Distribution-sensitive measures, visual inspection, and listening tests therefore play an important complementary role. This is especially evident in Chapter~3, where perceptual differences are not always fully captured by raw error.
+
+Cross-dataset evaluation is also essential. Piano type, velocity calibration, microphone placement, and room acoustics all affect the mapping from performance action to recorded signal. A model that performs well only on the training dataset does not yet solve expressive AMT in a practical sense.
+
+\subsection{Evaluation for score dynamics}
+\label{sec:bg:dataeval:scoredyn}
+
+Score dynamics is usually evaluated as classification on a musically meaningful grid. F1 score is common because the class distribution is imbalanced and because some symbols occur much less frequently than others \cite{kosta2017thesis}. In the present thesis, beat-synchronous evaluation is especially important because it avoids arbitrary frame-level tolerance choices and aligns the prediction target with how the annotations are actually used in music notation.
+
+Evaluation remains inherently limited by label ambiguity. Different editors or annotators may disagree on dynamic markings. Different editions of the same piece may contain different expressive symbols. This does not invalidate the task, but it does mean that score-dynamics performance must be interpreted with awareness of the annotation convention behind the dataset.
+
+\subsection{Evaluation under proxy supervision}
+\label{sec:bg:dataeval:proxy}
+
+When direct note-level velocity labels are absent, evaluation becomes weaker and must be stated more carefully. Audio reconstruction error after differentiable synthesis is informative, but it is not equivalent to accurate velocity recovery. A proxy-supervised study should therefore separate three questions. Does the synthesized audio become more plausible? Do the predicted control values display musically reasonable distributions and relative trends? Does any anchor subset with stronger labels show positive transfer?
+
+This evaluation logic is directly relevant to Chapter~6. The contribution of that chapter is exploratory because the supervision and evaluation are weaker than in the piano chapters. Making that weakness explicit strengthens the thesis. It does not weaken it.
+
+\subsection{Reproducibility, alignment quality, and licensing}
+\label{sec:bg:dataeval:repro}
+
+Expressive AMT research is strongly constrained by data quality and licensing. Many scores are copyrighted. Many recordings cannot be redistributed freely. Some datasets rely on external URLs or derived alignments whose long-term availability is uncertain. Alignment quality is another major factor. A method may fail not because the dynamics model is poor, but because the score or beat alignment is noisy.
+
+For this reason, reproducible expressive AMT research should document preprocessing, alignment assumptions, train/validation/test protocols, and all modality constraints clearly. The later thesis chapters follow this principle, and the final conclusion of the dissertation treats these constraints as design considerations rather than afterthoughts.
+
+\section{Summary of Gaps and Thesis Requirements}
+\label{sec:bg:summary}
+
+The literature reviewed above motivates six thesis requirements.
+
+\begin{itemize}
+    \item \textbf{R1 Preserve note content and timing while recovering dynamics.} Many expressive systems modify several performance dimensions jointly. The present thesis instead treats dynamics as a refinement or annotation layer. This requirement is most visible in Chapters~3, 4, and 6.
+
+    \item \textbf{R2 Support heterogeneous data-availability settings.} Real corpora differ widely in what is available: symbolic MIDI only, audio plus aligned score, audio only, or audio with only proxy supervision. This requirement motivates the overall design of Chapters~3--6.
+
+    \item \textbf{R3 Respect representation differences explicitly.} Loudness, MIDI velocity, and score dynamics are linked but not identical. The target representation must therefore be chosen deliberately and defended in each chapter. This requirement spans the whole thesis.
+
+    \item \textbf{R4 Use musically meaningful coordinates for score-level outputs.} Score dynamics should not be treated as an arbitrary frame-wise label stream. It should be expressed on a beat-synchronous interface that supports interpretation, evaluation, and symbolic writing. This requirement motivates Chapter~5.
+
+    \item \textbf{R5 Evaluate with both numerical and musical evidence.} Objective metrics are necessary but not always sufficient. Listening tests, qualitative inspection, distributional behaviour, and cross-dataset evaluation remain important. This requirement is visible in Chapters~3, 5, and 6.
+
+    \item \textbf{R6 Treat beyond-piano transfer as a supervision problem rather than ordinary domain shift.} Once true note-level velocity labels disappear, proxy supervision may be necessary, but its claims must remain limitation-aware. This requirement motivates the explicit exploratory framing of Chapter~6.
+\end{itemize}
+
+Together, these requirements define the dissertation stance. The next chapters respond to them under deliberately different assumptions rather than as stages of one pipeline. Chapter~3 studies symbolic-only note-level recovery. Chapter~4 studies score-informed note-level refinement from audio. Chapter~5 studies audio-only recovery of beat-synchronous score dynamics. Chapter~6 probes beyond-piano note-level recovery when direct labels are no longer available.
