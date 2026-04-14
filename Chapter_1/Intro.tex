@@ -14,45 +14,92 @@
   }%
 }
 
-A structurally perfect sequence of notes is only the foundation of a musical performance. When musicians receive a composed score, they do not merely execute a rigid sequence of instructions. They interpret the piece and bring it to life. A central dimension of this interpretation is musical dynamics. This involves the deliberate shaping of loudness over individual notes, phrases, and larger formal units. Dynamics conveys emotional nuance. It balances voices inside a texture and shapes the direction of a phrase. It is often the clearest signal that separates a convincing human performance from a flat mechanical rendering.
+A structurally correct sequence of notes is only the foundation of a musical performance. When performers receive a composed score, they do not merely execute a rigid sequence of instructions. They interpret the piece and bring it to expressiveness. A central dimension of this interpretation is musical dynamics. This involves the deliberate shaping of loudness over individual notes, phrases, and larger formal units. Dynamics conveys emotional nuance. It balances voices inside a texture and shapes the direction of a phrase. It is often the clearest signal that separates a convincing human performance from a flat mechanical rendering.
 
-In the digital domain, musical performance is commonly represented in two complementary symbolic forms. The first is MIDI, where note events are paired with note-level control parameters such as velocity. MIDI velocity records the action intensity at note onset. It is precise, machine-readable, and directly editable. The second is the music score, where dynamics is represented by human-readable markings such as \textit{pp}, \textit{p}, \textit{mf}, \textit{f}, \textit{crescendo}, and \textit{diminuendo}. These markings are less precise as physical measurements, but they communicate musical intent on a musically meaningful metrical grid. Modern music workflows need both representations. MIDI supports production, rendering, and downstream learning. Scores remain the standard interface for analysis, education, and communication between musicians.
+Msical performance is commonly represented in two complementary symbolic forms. The first is MIDI, where note events are paired with note-level control parameters such as velocity. MIDI velocity records the action intensity at note onset. It is precise, machine-readable, and directly editable, mostly comes from the sensor physical measures. The second is the music score, where dynamics is represented by human-readable markings such as \textit{pp}, \textit{p}, \textit{mf}, \textit{f}, \textit{ff}. These markings are relative, context-dependent, and less precise as physical measurements, but they communicate musical intent on a musically meaningful metrical grid. 
 
-Automatic Music Transcription (AMT) aims to bridge acoustic performance and symbolic music representations. Driven by deep learning and large-scale datasets \cite{hawthorne2019maestro}, recent AMT systems can transcribe note events with high accuracy. They can increasingly recover note-level velocity as well \cite{hawthorne2018onsets,kong2021hpt,toyama2023hft}. Yet this progress remains asymmetric \cite{amt2019ov}. The field is highly proficient at recovering what notes are played and when they occur. It is much less mature at recovering how loud those notes are played in terms of the dynamics shaping.
+Automatic Music Transcription (AMT) aims to bridge human performance audio and symbolic music representations, including MIDI and scores. Driven by deep learning and large aligned datasets \cite{hawthorne2019maestro}, recent AMT systems can transcribe note events with high accuracy. Yet this progress remains asymmetric \cite{amt2019ov}. The field is proficient at recovering what notes are played and when they occur. It is much less mature at recovering how loud those notes are played in terms of the dynamics shaping and other expressive dimensions, as depicted in Figure~\ref{fig:intro_expressive_amt}
 
-This thesis takes the stance that dynamics should be treated as a first-class target in expressive AMT. A structurally correct transcription without dynamics is still limited for many real applications. It often defaults to flat note intensity. It does not support expressive rendering. It is also insufficient for performance feedback, expressive analysis, or the curation of performance-ready symbolic corpora. At the same time, this thesis does not attempt full expressive performance modelling. It focuses on dynamics because dynamics is the most practically editable and perceptually salient expressive dimension, and because it can be recovered while preserving the original note content and note timing.
+This thesis posits that dynamics is a foundational component of expressive AMT. While music expression is multifaceted, dynamics represents the most perceptually salient and practically essential dimension. Unlike a standard transcription that yields flat intensities, a dynamics-aware approach enables expressive rendering and high-quality symbolic corpora curation. By focusing on the robust recovery of score dynamics and MIDI velocity, this work provides a critical layer of musical information.
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{Chapter_1/figures/AMT.png}
+  \caption{The general architecture of an AMT system, illustrating the transformation of raw acoustic audio into foundational note events and expressive dynamic information. The pipeline results are MIDI data and musical scores.}
+  \label{fig:intro_expressive_amt}
+\end{figure}
 
 \section{Motivation}
 \label{sec:motivation}
 
-Transcribing correct pitches and timing is only the foundational step of AMT. To recover the complete musical intent, dynamics must be treated as a first-class transcription target. This thesis is driven by a critical need: recovering musically interpretable dynamics from existing corpora to produce expressive, editable symbolic representations. This goal addresses three practical challenges:
+Transcribing correct pitches and timing is only the foundational step of AMT. Incorporating dynamics into transcription results significantly enhances their capacity to carry expressive intent, taking the form of MIDI velocity or score dynamics. This is not only a technical improvement. Transitioning toward such expressive AMT unlocks significant practical benefits, as outlined below:
 
-\textbf{MIDI production and expressive rendering.} 
-MIDI is the dominant representation in digital music production. It supports efficient editing and flexible rendering. Yet, a vast amount of software-generated MIDI is created via step input or quantization, leaving velocity at a lifeless, default constant. Manual velocity editing is time-consuming and delicate. Creators often want to preserve their composed notes and timing; they simply need to inject human-like expression. This motivates symbolic-only velocity completion as a separable, essential layer for realistic music rendering.
+\paragraph{MIDI production and expressive rendering.} 
+MIDI is the dominant representation in digital music production, supporting efficient editing and flexible rendering. Yet, much software-generated MIDI is created via step input and quantisation, leaving expressive parameters at a lifeless, default constant. Among these, MIDI velocity is one of the most accessible control variables for shaping note intensity and expressive contour \cite{dan2006psy,palamara2020dynamic}. Creators often want to preserve their composed notes and timing. To inject human-like expression, they simply need to adjust velocity values. Still, manual editing is time-consuming and delicate. Developing automated methods for velocity completion becomes an essential step for realistic rendering.
 
-\textbf{Music education and performance feedback.} 
-Dynamics is a fundamental pedagogical dimension. Teachers rely on it to shape phrases, highlight accents, and balance voices. In music education, a basic score is often available alongside a student's audio performance. However, existing audio-only AMT systems struggle to leverage this prior score information. Developing lightweight, score-informed correction mechanisms is crucial. Reliable dynamics estimates finally enable automatic feedback systems to evaluate performances far beyond mere pitch and timing \cite{kim2022piano}.
+\paragraph{Music education and performance feedback.} 
+Score dynamics is also a core pedagogical dimension. In automatic piano performance assessment, dynamics is routinely treated alongside pitch, timing, and rhythm as one of the salient components of performance quality and feedback \cite{kim2022piano}. More recent work on query-based music coaching likewise emphasises that useful educational feedback needs interpretable information about expressive shaping, not only note correctness \cite{zhang2025llaqo,park2025dynvisual}. In many educational scenarios, a reference score is already available together with a student performance audio. This makes score-informed dynamics estimation especially attractive, because the symbolic prior can stabilise the prediction while keeping the feedback musically meaningful.
 
-\textbf{Expressive data curation and semantic transcription.} 
-Many large-scale music archives provide aligned audio and symbolic content. However, expressive labels are consistently missing. Velocities are flattened; score dynamic markings are absent or unreliable. This severely limits the value of these corpora for performance analysis and machine learning. Furthermore, a deep semantic gap exists between physical machine measurements (MIDI velocity) and subjective human cognition (score dynamics). Bridging this gap—and extending it beyond the piano—is imperative. Recovering these missing dimensions upgrades static archives into richly expressive, performance-ready datasets.
+\paragraph{Expressive data curation by enhancing existing archives.}
+A third motivation comes from data curation. Many large-scale music archives provide aligned audio and symbolic content (MIDI sequences or digital scores). However, expressive labels are consistently missing. Velocities are often flattened to a default value, and score dynamic markings are absent or unreliable, limiting the utility of these corpora for downstream applications. Furthermore, a deep semantic gap exists between physical machine measurements (MIDI velocity) and subjective human cognition (score dynamics). Bridging this gap and recovering these missing dimensions is imperative to upgrade static archives into richly expressive datasets.
 
-Driven by these challenges, this research develops a comprehensive label-recovery framework. By advancing from note-level velocity estimation to beat-level score dynamics transcription, this thesis elevates AMT from a mere structural transcription tool into a complete pipeline for expressive musical curation.
+By contrast, recollecting new datasets from scratch is a costly process constrained by audio-to-score synchronisation challenges, required musical expertise, and copyright restrictions \cite{li2019urmp,foscarin2020asap,morsi2022bottlenecks}. Therefore, this thesis treats \emph{label recovery} as a scalable, principled strategy. By retroactively estimating missing dynamics on existing corpora, we entirely bypass acquisition bottlenecks and annotation ambiguities, unlocking a vast, previously untapped resource for data-driven music research.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\linewidth]{Chapter_1/figures/ExpressiveAMT.jpg}
-  \caption{Shared problem space of the thesis. The dissertation studies dynamics across three linked but non-identical representations: acoustic evidence in audio, note-level performance control in MIDI velocity, and score-facing symbolic intention in notated dynamics.}
-  \label{fig:intro_expressive_amt}
-\end{figure}
+\section{Dynamics as a Target in Expressive AMT}
+\label{sec:intro:why_dynamics}
 
+Expressive AMT extends beyond recovering mere pitch and onset/offset boundaries to capture the full aspects of a human performance. A comprehensive expressive transcription can be conceptually divided into three primary layers:
+\begin{itemize}
+\item \textbf{Timing Layer:} Captures the temporal elasticity of a performance, encompassing macro-level tempo variations, beat tracking, inter-onset intervals (IOI), and micro-level articulation.
+\item \textbf{Dynamic Layer:} Represents the intensity and energy of the musical execution, bridging physical machine measurements (e.g., MIDI velocity) with semantic cognitive notations (e.g., score dynamic markings).
+\item \textbf{Control Layer:} Includes instrument-specific techniques and acoustic modifiers, such as sustain pedaling, vibrato, reverberation, and amplifier configurations.
+\end{itemize}
+While all three layers are essential for a complete computational understanding of performance, this thesis isolates the \textbf{Dynamic Layer} as its primary expressive target. This focus does not imply that timing or control parameters are secondary. Rather, dynamics is chosen as the foundational step for moving AMT beyond note content for three distinct reasons:
+
+\paragraph{Perceptual salience.}
+Dynamics is one of the most immediately audible dimensions of expressive performance. Listeners often perceive phrase direction, accent, and balance through intensity change before they perceive subtler aspects such as pedaling or micro-timing. A transcription that omits dynamics therefore omits a central part of musical meaning.
+
+\paragraph{Symbolic editability.}
+Compared to complex continuous controls like overdrive (electric guitar) or pedaling (piano), dynamics offers an exceptionally tractable and editable symbolic representation. MIDI velocity serves as a universal, loudness control parameter for all instrumentsin digital audio workstations (DAWs), while score dynamics provide a standard notational device for composition, pedagogy, and performance analysis. This dual nature makes dynamics a robust bridge between low-level MIR outputs and high-level musical practice.
+
+\paragraph{Recoverability across realistic data conditions.}
+Many expressive targets require fine-grained, instrument-specific mechanisms, particularly within the Control Layer. They are entirely absent or poorly labeled in existing large-scale music datasets. Dynamics, while challenging to estimate accurately, remains highly recoverable across various practical paradigms. It therefore provides a scalable entry point for advancing expressive AMT without being immediately bottlenecked by instrument-specific data scarcity.
+
+\section{Two Complementary Forms of Dynamics}
+\label{sec:intro:two_forms}
+Having established dynamics as our primary expressive target, we clarify its two complementary symbolic forms within this thesis, as summerized in Table \ref{tab:intro_two_forms}.
+
+\begin{table}[b]
+\centering
+\caption{Two complementary forms of dynamics that recur throughout this thesis.}
+\label{tab:intro_two_forms}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{llll}
+\toprule
+\textbf{Representation} & \textbf{Nature} & \textbf{Temporal Anchor} & \textbf{Primary Carrier} \\
+\midrule
+MIDI velocity & \makecell[l]{Physical\\measurement} & \makecell[l]{Note-level: isolated value\\at each note} & \makecell[l]{DAWs, electronic\\instruments (synthesisers)} \\
+Score dynamics & \makecell[l]{Subjective\\intention} & \makecell[l]{Metrical-level: shared value\\in a beat/phrase} & \makecell[l]{Digital sheet music,\\human performers} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{MIDI velocity.}
+Originating from the physical sensors of electronic keyboards and pianos, MIDI velocity is a machine-centric measurement of physical intensity. To say it operates as a "note-level" parameter means that every music note from a discrete key strike is assigned an independent, static integer representing its initial strike force. This strict per-note measurement dictates that velocity functions as a discrete loudness control parameter. It is highly granular and absolute within its own scale, yet the resulting loudness highly depends on the acoustic environment and the specific instrument being played. Because MIDI velocity is necessary for MIDI-to-audio playback in DAWs and synthesizers, a common default is set to 64 when it is missing.
+
+\paragraph{Score dynamics.}
+Score dynamics represents the subjective cognitive intention of the composer or performer. Instead of attaching to isolated notes, markings like \textit{p} or \textit{crescendo} are conceptually anchored to the underlying metrical structure, acting as shared values across a specific beat or an entire phrase. This segment-level instruction provides a holistic perception of intensity while leaving room for free human interpretation. Because it is structurally aware and musically meaningful, score dynamics is the ideal target for pedagogical feedback and score analysis. In symbolic environments, the default assumption is often that missing score dynamics should be filled with \textit{mf} (mezzo-forte), which is the neutral middle ground of human perceptual loudness.
+
+Crucially, these two representations are not equivalent. A subjective score dynamic cannot be naively mapped to a fixed MIDI velocity, which is a one-to-many problem that Chapter 2 Section~\ref{sec:bg:dynamics:bridge} explains in detail. Still, both forms describe musical loudness. Recovering these missing labels is the central goal of this thesis.
 
 \section{Research Gap and Thesis Stance}
 \label{sec:intro:gap_stance}
 
-In many realistic corpora, some symbolic information is already available, but the expressive layer is incomplete. A MIDI file may contain correct note pitches and timings while leaving all velocities at a default constant. An aligned score may exist for a recording, but its dynamics may be sparse or unavailable. A performance recording may exist without either reliable velocity labels or score-level dynamic annotations. These are not unusual corner cases. They are common in digital production, music pedagogy, online music archives, and dataset construction.
+The practical settings above point to a broader methodological problem. In many realistic corpora, some symbolic information is already available, but the expressive layer is incomplete. A MIDI file may contain correct note pitches and timings while leaving all velocities at a default constant. An aligned score may exist for a recording, but its dynamics may be sparse or unavailable. A performance recording may exist without either reliable velocity labels or score-level dynamic annotations. These are not unusual corner cases. They are common in digital production, music pedagogy, online music archives, and dataset construction.
 
-The difficulty of this family of problems can be summarized in four gaps.
+The difficulty of this family of problems can be summarised in four gaps.
 
 \paragraph{Representation mismatch.}
 Audio loudness, MIDI velocity, and score dynamics are related, but they are not identical. Loudness is a perceptual phenomenon. MIDI velocity is a note-level control signal. Score dynamics is a symbolic and context-dependent notation of musical intention. A method that moves from one layer to another must therefore solve more than a simple label conversion.
@@ -70,58 +117,12 @@ This thesis studies that family of problems through a unified \emph{label-recove
 
 This stance is especially important for a paper-based dissertation. The thesis does not claim one mature end-to-end pipeline. The chapters are stand-alone studies with different assumptions, datasets, and outputs. Their unity is conceptual rather than architectural. Each chapter asks how a musically interpretable dynamics label can be recovered under a particular supervision bottleneck. Chapters~3--5 form the core scenario arc of the thesis. Chapter~6 is a deliberate exploratory extension that probes the beyond-piano frontier when direct velocity labels are unavailable.
 
-\section{Dynamics as a Target in Expressive AMT}
-\label{sec:intro:why_dynamics}
-
-Dynamics is chosen as the first expressive target for three reasons.
-
-\paragraph{Perceptual salience.}
-Dynamics is one of the most immediately audible dimensions of expressive performance. Listeners often perceive phrase direction, accent, and balance through intensity change before they perceive subtler aspects such as pedaling or micro-timing. A transcription that omits dynamics therefore omits a central part of musical meaning.
-
-\paragraph{Symbolic editability.}
-Dynamics is also one of the easiest expressive dimensions to edit in symbolic workflows. MIDI velocity is a standard control parameter in digital audio workstations. Score dynamics is a standard notational device in composition, pedagogy, and analysis. This makes dynamics an unusually strong bridge between MIR outputs and real musical practice.
-
-\paragraph{Recoverability across realistic data conditions.}
-Some expressive targets require fine control of instrument-specific mechanisms that are poorly labeled in current corpora. Dynamics is difficult, but it remains recoverable in several useful settings: symbolic-only completion, score-informed refinement, score-facing transcription from audio, and weakly supervised exploratory transfer beyond piano. This makes it an especially strong first target for a thesis that aims to move expressive AMT beyond note content alone.
-
-This focus does not imply that articulation, pedaling, timbre, or micro-timing are unimportant. They matter deeply. The present claim is narrower. Dynamics is the first expressive target because it is simultaneously audible, editable, and recoverable across multiple realistic data conditions.
-
-\section{Two Complementary Forms of Dynamics}
-\label{sec:intro:two_forms}
-
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{Chapter_1/figures/Overview.jpg}
   \caption{Shared problem space of the thesis. The dissertation studies dynamics across three linked but non-identical representations: acoustic evidence in audio, note-level performance control in MIDI velocity, and score-facing symbolic intention in notated dynamics.}
   \label{fig:intro_overview}
 \end{figure}
-
-The thesis studies two complementary symbolic forms of musical dynamics. They are closely related, but they operate at different musical interfaces.
-
-\begin{table}[t]
-\centering
-\caption{Two symbolic forms of dynamics that recur throughout this thesis.}
-\label{tab:intro_two_forms}
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.15}
-\begin{tabularx}{\textwidth}{l l X X}
-\toprule
-\textbf{Representation} & \textbf{Temporal anchor} & \textbf{Main strength} & \textbf{Main limitation} \\
-\midrule
-MIDI velocity & note onset & Precise, machine-readable, and directly editable for expressive rendering and production workflows & Acts as a note-level control proxy rather than a universal loudness unit; not directly comparable across instruments or renderers \\
-Score dynamics & beat / phrase level & Human-readable, musically interpretable, and naturally attached to score structure & Relative, sparse, context-dependent, and expensive to annotate at scale \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\paragraph{MIDI velocity.}
-MIDI velocity is a note-level control parameter. It is precise, compact, and useful in production workflows. It is the right target when the goal is expressive rendering, note-level editing, or post-processing of existing MIDI. For these reasons, it is the direct target of Chapters~3, 4, and the exploratory Chapter~6.
-
-\paragraph{Score dynamics.}
-Score dynamics is a human-readable symbolic layer. It represents dynamic intention on a musically structured grid through markings such as \textit{p}, \textit{mf}, \textit{f}, \textit{crescendo}, and \textit{diminuendo}. It is the right target when the goal is score augmentation, pedagogical feedback, or musically interpretable score-facing transcription. For these reasons, it is the direct target of Chapter~5.
-
-The unity of the thesis does not come from forcing all expressive information into one output format. It comes from treating both note-level velocity and score-level dynamics as legitimate targets inside one broader family of label-recovery problems.
 
 \section{Unified Thesis Question and Three Core Scenarios}
 \label{sec:intro:question}
@@ -180,7 +181,7 @@ The main scope and assumptions are as follows.
 
     \item \textbf{Out-of-scope factors.} The thesis does not attempt full modelling of articulation, pedal, timbre, or micro-timing, except when these factors provide indirect context for dynamics recovery.
 
-    \item \textbf{Beyond piano.} Extending velocity estimation beyond piano is recognized as an important direction because piano-centric datasets create a real bias in expressive AMT. However, large-scale non-piano score-dynamics transcription with human labels remains outside the present thesis scope.
+    \item \textbf{Beyond piano.} Extending velocity estimation beyond piano is recognised as an important direction because piano-centric datasets create a real bias in expressive AMT. However, large-scale non-piano score-dynamics transcription with human labels remains outside the present thesis scope.
 \end{itemize}
 
 \section{Main Contributions}
@@ -189,9 +190,9 @@ The main scope and assumptions are as follows.
 The main contributions of this thesis are as follows.
 
 \begin{itemize}
-    \item \textbf{A thesis-level formulation of dynamics-oriented label recovery.} The dissertation argues that dynamics should be treated as a first-class target in expressive AMT and organizes the problem around heterogeneous supervision regimes rather than one ideal dataset.
+    \item \textbf{A thesis-level formulation of dynamics-oriented label recovery.} The dissertation argues that dynamics should be treated as a first-class target in expressive AMT and organises the problem around heterogeneous supervision regimes rather than one ideal dataset.
 
-    \item \textbf{A symbolic-only method for note-level velocity completion.} Chapter~3 reformulates MIDI velocity completion as an image-colorization problem on sparse piano-roll representations. It introduces a U-Net with window attention and a sparsity-aware loss, and shows gains in both objective metrics and listening tests \cite{he2025filling}.
+    \item \textbf{A symbolic-only method for note-level velocity completion.} Chapter~3 reformulates MIDI velocity completion as an image-colorisation problem on sparse piano-roll representations. It introduces a U-Net with window attention and a sparsity-aware loss, and shows gains in both objective metrics and listening tests \cite{he2025filling}.
 
     \item \textbf{A modular score-informed correction strategy for AMT velocity estimation.} Chapter~4 introduces a lightweight Transformer correction module that refines AMT-estimated velocity using an aligned score. The design goal is portability across existing AMT backbones rather than a fully bespoke score-informed system.
 
@@ -206,19 +207,19 @@ This thesis contains three core paper-based method chapters. Chapter~\ref{ch:vel
 
 Chapter~6 is different in status. It is a thesis-oriented exploratory chapter rather than a claim of a mature end-to-end system. Its role is to confront the strongest limitation exposed by the earlier chapters: the concentration of reliable note-level velocity labels on piano.
 
-\section{Thesis Organization}
-\label{sec:intro:organization}
+\section{Thesis Organisation}
+\label{sec:intro:organisation}
 
 % \begin{figure}[t]
 %   \centering
 %   \IncludeGraphicsOrPlaceholder[width=0.98\linewidth]{fig_v4_chapter_map.png}
-%   \caption{High-level organization of the thesis. Chapters~3--5 form the core scenario arc. Chapter~6 is an exploratory beyond-piano branch. Chapter~7 synthesizes the findings and states the remaining limitations.}
+%   \caption{High-level organisation of the thesis. Chapters~3--5 form the core scenario arc. Chapter~6 is an exploratory beyond-piano branch. Chapter~7 synthesises the findings and states the remaining limitations.}
 %   \label{fig:intro_chapter_map}
 % \end{figure}
 
-The remainder of the thesis is organized as follows.
+The remainder of the thesis is organised as follows.
 
-\textbf{Chapter~2} establishes the shared conceptual system of the dissertation. It defines what dynamics means across audio, MIDI, and score. It reviews the two main literature threads of the thesis. It also summarizes datasets, evaluation strategies, and the thesis requirements that motivate the later chapters.
+\textbf{Chapter~2} establishes the shared conceptual system of the dissertation. It defines what dynamics means across audio, MIDI, and score. It reviews the two main literature threads of the thesis. It also summarises datasets, evaluation strategies, and the thesis requirements that motivate the later chapters.
 
 \textbf{Chapter~3} addresses Scenario~S1. It studies symbolic-only MIDI velocity completion. It shows that note-level dynamics can be recovered as a controllable post-processing layer while keeping the original note content and timing fixed.
 
@@ -228,4 +229,4 @@ The remainder of the thesis is organized as follows.
 
 \textbf{Chapter~6} extends the note-level velocity thread beyond piano. It studies cross-instrument MIDI velocity estimation with proxy supervision. The chapter is framed explicitly as exploratory because the supervision problem changes once direct velocity labels disappear.
 
-\textbf{Chapter~7} revisits the unified thesis question, synthesizes the findings across the four studies, states the limitations clearly, and outlines future directions for expressive AMT.
+\textbf{Chapter~7} revisits the unified thesis question, synthesises the findings across the four studies, states the limitations clearly, and outlines future directions for expressive AMT.

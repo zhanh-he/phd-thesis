@@ -434,9 +434,9 @@ For this reason, the Transformer becomes the main correction module in the remai
 We next compare the Transformer-based correction strategy with existing score-informed systems and representative AMT models on the SMD dataset.
 To keep the comparison fair, all models follow the same training protocol and use only the MAESTRO training split for learning.
 Following the generalization analysis above, we use onset $+$ frame for all proposed Transformer-based variants.
-Table~\ref{tab:scoreinf_smd} summarizes the results.
+Table~\ref{tab:scoreinf_smd} summarizes the results. Specifically, Recall$_{10\%}$ results of hFT-Transformer and Transkun v2 are obtained from the MIREX2024: Polyphonic Transcription challenge.\footnote{\url{https://music-ir.org/mirex/wiki/2024:Polyphonic_Transcription_Results}}
 
-\begin{table}[t]
+\begin{table}[b]
     \centering
     \setlength{\tabcolsep}{4pt}
     \small
@@ -465,7 +465,7 @@ Table~\ref{tab:scoreinf_smd} summarizes the results.
     Transkun v2~\cite{yan2024semicrf} & 13.3 & 11.9 & \textbf{82.1\%} & 13.6M \\
     \bottomrule
     \end{tabular}
-    \caption{Comparison on the SMD dataset. All models are trained only on the MAESTRO training split. Recall$_{10\%}$ results of hFT-Transformer and Transkun v2 are obtained from the MIREX2024: Polyphonic Transcription challenge.\tablefootnote{\url{https://music-ir.org/mirex/wiki/2024:Polyphonic_Transcription_Results}}}
+    \caption{Comparison on the SMD dataset. All models are trained only on the MAESTRO training split.}
     \label{tab:scoreinf_smd}
 \end{table}
 

@@ -6,7 +6,7 @@
 MIDI velocity is a compact control signal for musical dynamics.
 It affects note intensity.
 It also affects attack shape and timbral evolution.
-Reliable note-level velocity estimates are useful for expressive rendering, performance analysis, pedagogy, score-informed transcription, and dataset refinement \cite{kim2023scoreinf,kim2024unet,hawthorne2019maestro}.
+Reliable note-level velocity estimates are useful for expressive rendering, performance analysis, pedagogy, score-informed transcription, and dataset refinement \cite{kim2023score,kim2024method,hawthorne2019maestro}.
 
 Recent progress has been strongest for piano.
 The reason is practical.
@@ -154,8 +154,8 @@ It assumes that note events are already aligned well enough for note-wise analys
 \subsection{Piano velocity estimation and score-informed dynamics modeling}
 
 Recent work has shown that note-level velocity estimation is feasible for piano when aligned velocity labels are available.
-Kim \emph{et al.} introduced a score-informed system that uses FiLM conditioning to improve note-wise velocity prediction from audio \cite{kim2023scoreinf}.
-Kim and Serra later proposed a U-Net-based model with attention and FiLM for piano velocity estimation \cite{kim2024unet}.
+Kim \emph{et al.} introduced a score-informed system that uses FiLM conditioning to improve note-wise velocity prediction from audio \cite{kim2023score}.
+Kim and Serra later proposed a U-Net-based model with attention and FiLM for piano velocity estimation \cite{kim2024method}.
 These studies are important because they establish both the task and the value of score information.
 They also highlight a strong asymmetry between piano and other instruments.
 The progress depends on datasets with synchronized audio and reliable note velocities, especially MAESTRO \cite{hawthorne2019maestro}.
@@ -204,9 +204,9 @@ This makes the proxy route attractive.
 \subsection{Datasets and the annotation gap beyond piano}
 
 MAESTRO remains a key source of aligned piano audio and note velocities \cite{hawthorne2019maestro}.
-Saarland Music Data provides additional aligned piano material \cite{mueller2011smd}.
+Saarland Music Data provides additional aligned piano material \cite{smd}.
 For guitar, GuitarSet and GAPS offer score or tablature aligned material that is useful for symbolic statistics and realism sampling \cite{xi2018guitarset,riley2024gaps}.
-The Fran\c{c}ois Leduc dataset provides 78 solo guitar audio-MIDI pairs and is a practical target-domain benchmark \cite{francoisleduc_zenodo,riley2024hrguitar}.
+The Fran\c{c}ois Leduc dataset provides 78 solo guitar audio-MIDI pairs and is a practical target-domain benchmark \cite{francoisleduc_zenodo,riley2024high}.
 For violin, the MTG violin corpus released with high-resolution violin transcription contains more than 34 hours of score-aligned solo violin recordings \cite{tamer2023violin}.
 
 At the symbolic level, new resources show strong interest in performance dynamics.
@@ -574,7 +574,7 @@ This helps the proxy see both smooth regions and abrupt response changes.
 
 The realism sampler is designed for target relevance.
 It draws pitches, note durations, inter-onset intervals, and chord-size statistics from empirical histograms computed on aligned symbolic corpora.
-For piano we use MAESTRO and SMD \cite{hawthorne2019maestro,mueller2011smd}.
+For piano we use MAESTRO and SMD \cite{hawthorne2019maestro,smd}.
 For guitar we use GuitarSet and GAPS \cite{xi2018guitarset,riley2024gaps}.
 For violin we use aligned symbolic material available through the MTG violin pipeline \cite{tamer2023violin}.
 Velocity is still sampled with the stratified scheme in Eq.~\eqref{eq:velocity_mixture}, because reliable target-domain velocity histograms are usually unavailable.
@@ -708,7 +708,7 @@ A proxy that generalizes modestly across related SoundFonts is more likely to su
 
 Table~\ref{tab:ch6_datasets} summarizes the main corpora used in the current study.
 MAESTRO serves as the labeled piano source domain \cite{hawthorne2019maestro}.
-The Fran\c{c}ois Leduc dataset is a practical guitar benchmark with paired audio and MIDI \cite{francoisleduc_zenodo,riley2024hrguitar}.
+The Fran\c{c}ois Leduc dataset is a practical guitar benchmark with paired audio and MIDI \cite{francoisleduc_zenodo,riley2024high}.
 The MTG violin corpus provides a larger target domain with aligned solo violin recordings \cite{tamer2023violin}.
 
 \begin{table}[t]
@@ -799,7 +799,7 @@ For non-piano real recordings, note-level velocity labels are usually unavailabl
 We therefore evaluate the faithfulness of the reconstructed dynamic contour.
 Given aligned notes and estimated velocities, we render proxy audio or proxy features and compare them to the real performance in a loudness-oriented space.
 Standard spectral distances are not ideal here because they over-penalize unavoidable timbre mismatch.
-Instead we use specific loudness features derived from the Bark scale, following the Zwicker loudness framework \cite{iso5321,zwicker2007}.
+Instead we use specific loudness features derived from the Bark scale, following the Zwicker loudness framework \cite{iso5321,psychoacoustics}.
 Let $l_b(t)$ denote the specific loudness in Bark band $b$ at time $t$.
 The total loudness is
 \begin{equation}
@@ -1003,131 +1003,5 @@ In cross-instrument velocity estimation, the best supervision interface is not a
 When labels are scarce and waveform mismatch is large, a compact feature-level proxy of a practical renderer can be the better tool.
 The final thesis results will test this claim quantitatively with the reporting templates and diagnostic protocols defined in this chapter.
 
-\begin{thebibliography}{99}
-
-\bibitem{kim2023scoreinf}
-H.~Kim, M.~Miron, and X.~Serra,
-``Score-Informed MIDI Velocity Estimation for Piano Performance by FiLM Conditioning,''
-in \emph{Proc. Sound and Music Computing Conf.}, 2023, pp.~139--147.
-
-\bibitem{kim2024unet}
-H.~Kim and X.~Serra,
-``A Method for MIDI Velocity Estimation for Piano Performance by a U-Net With Attention and FiLM,''
-in \emph{Proc. Int. Society for Music Information Retrieval Conf.}, 2024, pp.~304--310.
-
-\bibitem{hawthorne2019maestro}
-C.~Hawthorne \emph{et al.},
-``Enabling Factorized Piano Music Modeling and Generation with the MAESTRO Dataset,''
-in \emph{Proc. Int. Conf. on Learning Representations}, 2019.
-
-\bibitem{emerson2025multimodal}
-K.~Emerson and P.~M.~C. Harrison,
-``Multimodal Datasets for Studying Expert Performances of Musical Scores,''
-\emph{Transactions of the International Society for Music Information Retrieval},
-vol.~8, no.~1, pp.~400--428, 2025.
-
-\bibitem{engel2020ddsp}
-J.~Engel, L.~Hantrakul, C.~Gu, and A.~Roberts,
-``DDSP: Differentiable Digital Signal Processing,''
-in \emph{Proc. Int. Conf. on Learning Representations}, 2020.
-
-\bibitem{renault2022diffpiano}
-L.~Renault, R.~Mignot, and A.~Roebel,
-``Differentiable Piano Model for MIDI-to-Audio Performance Synthesis,''
-in \emph{Proc. Int. Conf. on Digital Audio Effects}, 2022.
-
-\bibitem{renault2023ddsp_piano}
-L.~Renault, R.~Mignot, and A.~Roebel,
-``DDSP-Piano: A Neural Sound Synthesizer Informed by Instrument Knowledge,''
-\emph{Journal of the Audio Engineering Society},
-vol.~71, no.~9, pp.~552--565, 2023.
-
-\bibitem{jonason2024guitar}
-N.~Jonason, L.~Juvela, B.~L.~T. Sturm, and J.~Yamagishi,
-``DDSP-Based Neural Waveform Synthesis of Polyphonic Acoustic Guitar Performance from String-Wise MIDI Input,''
-in \emph{Proc. Int. Conf. on Digital Audio Effects}, 2024.
-
-\bibitem{barkan2023is2}
-O.~Barkan, S.~Shvartzman, N.~Uzrad, M.~Laufer, A.~Elharar, and N.~Koenigstein,
-``InverSynth II: Sound Matching via Self-Supervised Synthesizer-Proxy and Inference-Time Finetuning,''
-in \emph{Proc. Int. Society for Music Information Retrieval Conf.}, 2023, pp.~642--648.
-
-\bibitem{combes2025neural}
-P.~Combes, S.~Weinzierl, and K.~Obermayer,
-``Neural Proxies for Sound Synthesizers: Learning Perceptually Informed Preset Representations,''
-arXiv:2509.07635, 2025.
-
-\bibitem{yang2023whitebox}
-Y.~Yang, Z.~Jin, C.~Barnes, and A.~Finkelstein,
-``White Box Search over Audio Synthesizer Parameters,''
-in \emph{Proc. Int. Society for Music Information Retrieval Conf.}, 2023.
-
-\bibitem{renault2023unpaired}
-L.~Renault, R.~Mignot, and A.~Roebel,
-``Expressive Piano Performance Rendering from Unpaired Data,''
-in \emph{Proc. Int. Conf. on Digital Audio Effects}, 2023, pp.~355--358.
-
-\bibitem{tang2025integrated}
-J.~Tang, E.~Cooper, X.~Wang, J.~Yamagishi, and G.~Fazekas,
-``Towards An Integrated Approach for Expressive Piano Performance Synthesis from Music Scores,''
-in \emph{Proc. IEEE Int. Conf. on Acoustics, Speech, and Signal Processing}, 2025, pp.~1--5.
-
-\bibitem{mueller2011smd}
-M.~M{\"u}ller, V.~Konz, W.~Bogler, and V.~Arifi-M{\"u}ller,
-``Saarland Music Data (SMD),''
-in \emph{Late Breaking and Demo Session of the Int. Society for Music Information Retrieval Conf.}, 2011.
-
-\bibitem{xi2018guitarset}
-Q.~Xi, R.~M. Bittner, J.~Pauwels, X.~Ye, and J.~P. Bello,
-``GuitarSet: A Dataset for Guitar Transcription,''
-in \emph{Proc. Int. Society for Music Information Retrieval Conf.}, 2018.
-
-\bibitem{riley2024gaps}
-X.~Riley, Z.~Guo, D.~Edwards, and S.~Dixon,
-``GAPS: A Large and Diverse Classical Guitar Dataset and Benchmark Transcription Model,''
-arXiv:2408.08653, 2024.
-
-\bibitem{francoisleduc_zenodo}
-D.~Edwards, X.~Riley, and S.~Dixon,
-``The Fran\c{c}ois Leduc Dataset,''
-Zenodo, 2024.
-
-\bibitem{riley2024hrguitar}
-X.~Riley, D.~Edwards, and S.~Dixon,
-``High-Resolution Guitar Transcription via Domain Adaptation,''
-in \emph{Proc. IEEE Int. Conf. on Acoustics, Speech, and Signal Processing}, 2024, pp.~1051--1055.
-
-\bibitem{tamer2023violin}
-N.~C. Tamer, Y.~\"Ozer, M.~M{\"u}ller, and X.~Serra,
-``High-Resolution Violin Transcription Using Weak Labels,''
-in \emph{Proc. Int. Society for Music Information Retrieval Conf.}, 2023, pp.~223--230.
-
-\bibitem{ryu2024midfild}
-J.~Ryu, S.~Rhyu, H.-G. Yoon, E.~Kim, J.~Y. Yang, and T.~Kim,
-``MID-FiLD: MIDI Dataset for Fine-Level Dynamics,''
-in \emph{Proc. AAAI Conf. on Artificial Intelligence},
-vol.~38, no.~1, pp.~222--230, 2024.
-
-\bibitem{lee2025gigamidi}
-K.~J.~M. Lee, J.~Ens, S.~Adkins, P.~Sarmento, M.~Barthet, and P.~Pasquier,
-``The GigaMIDI Dataset with Features for Expressive Music Performance Detection,''
-\emph{Transactions of the International Society for Music Information Retrieval},
-vol.~8, no.~1, pp.~1--19, 2025.
-
-\bibitem{fluidsynth}
-FluidSynth Project,
-``FluidSynth: A Real-Time SoundFont Synthesizer,''
-available online: fluidsynth.org.
-
-\bibitem{iso5321}
-International Organization for Standardization,
-``ISO 532-1:2017 Acoustics -- Methods for Calculating Loudness -- Part 1: Zwicker Method,''
-2017.
-
-\bibitem{zwicker2007}
-E.~Zwicker and H.~Fastl,
-\emph{Psychoacoustics: Facts and Models},
-3rd ed.
-Berlin, Germany: Springer, 2007.
-
-\end{thebibliography}
+% References consolidated into reference.bib.
+% This chapter now expects the master document to load the shared bibliography.
