@@ -71,16 +71,16 @@ In practice, audio and psychoacoustic work more often uses sound-pressure level 
 L_p = 20\log_{10}\!\left(\frac{p}{p_0}\right).
 \label{eq:bg:spl_db}
 \end{equation}
-The logarithmic form matters. A decibel is a ratio measure, not a linear quantity. As a result, decibel values are compact and convenient, but they are not themselves a perceptual loudness scale, and they cannot be linearly added across components in the way one would add physical powers or perceptual magnitudes \cite{Backus77,psychoacoustics}.
+The logarithmic form matters. A decibel is a ratio measure, not a linear quantity. As a result, decibel values are compact and convenient, but they are not themselves a perceptual loudness scale, and they cannot be linearly added across components in the way one would add physical powers or perceptual magnitudes \cite{backus1977acoustical,psychoacoustics}.
 
-The next step is to distinguish level from sensation. Equal-loudness contours, first measured systematically by Fletcher and Munson and later standardized in updated forms, show that the SPL needed for a sound to be heard as equally loud depends strongly on frequency \cite{Backus77,zwicker1999psychoacoustics}. The ear is most sensitive roughly in the 2--5\,kHz region and less sensitive at very low and very high frequencies. This is why two tones with the same SPL can still be heard as unequally loud. The unit \emph{phon} expresses this loudness \emph{level}: a sound has loudness level $L_N$ phons if it is judged as loud as a 1\,kHz pure tone at $L_N$\,dB SPL. Thus, phons are anchored to the 1\,kHz reference and inherit the frequency dependence of the equal-loudness contours.
+The next step is to distinguish level from sensation. Equal-loudness contours, first measured systematically by Fletcher and Munson and later standardized in updated forms, show that the SPL needed for a sound to be heard as equally loud depends strongly on frequency \cite{backus1977acoustical,zwicker1999psychoacoustics}. The ear is most sensitive roughly in the 2--5\,kHz region and less sensitive at very low and very high frequencies. This is why two tones with the same SPL can still be heard as unequally loud. The unit \emph{phon} expresses this loudness \emph{level}: a sound has loudness level $L_N$ phons if it is judged as loud as a 1\,kHz pure tone at $L_N$\,dB SPL. Thus, phons are anchored to the 1\,kHz reference and inherit the frequency dependence of the equal-loudness contours.
 
 Phon, however, is still a level scale. It tells us where a sound sits relative to the 1\,kHz reference, but it is not yet a ratio scale of perceived magnitude. That is the role of the \emph{sone}. The conventional anchor is that a 1\,kHz tone at 40\,dB SPL has a loudness of 1 sone. Above 40 phons, each increase of 10 phons corresponds approximately to a doubling of loudness in sones. Historically, this idea is often connected to Stevens' power law,
 \begin{equation}
 \Psi = \frac{1}{15.849}\left(\frac{I}{I_0}\right)^{0.3},
 \label{eq:bg:stevens_power}
 \end{equation}
-where $\Psi$ denotes loudness in sones and $I_0$ is the reference intensity \cite{Backus77}. In MIR implementations, however, the more practical route is usually to go through loudness level in phons and then convert to sones. A widely used piecewise approximation is
+where $\Psi$ denotes loudness in sones and $I_0$ is the reference intensity \cite{backus1977acoustical}. In MIR implementations, however, the more practical route is usually to go through loudness level in phons and then convert to sones. A widely used piecewise approximation is
 \begin{equation}
 S(L_N)=
 \begin{cases}
@@ -188,7 +188,7 @@ In this thesis, score dynamics is treated as a beat-synchronous symbolic target.
 
 \begin{table*}[h!]
 \centering
-\caption{Illustrative correspondences between score-dynamics vocabulary and loudness-related scales. These values are reader-oriented anchors rather than deterministic conversions from notation to acoustics. Phons and sones are referenced from~\cite{backus1977acoustical}; the dB values at different pitches are read from representative equal-loudness contours.}
+\caption[Score-dynamics vocabulary and loudness-related scales]{Illustrative correspondences between score-dynamics vocabulary and loudness-related scales. These values are reader-oriented anchors rather than deterministic conversions from notation to acoustics.}
 \label{tab:dynamics_symbols}
 \setlength{\tabcolsep}{4pt}
 \fontsize{11pt}{11pt}\selectfont
@@ -217,7 +217,7 @@ threshold of hear & \textbf{pppp/sp} & 0 & 0 \\
 \begin{table*}[h!]
 \centering
 \scriptsize
-\caption{Illustrative correspondences between score-dynamics vocabulary and MIDI velocity scales, collected from popular music software documentation, source code, and peer-reviewed comparison studies. (The table is not intended to be exhaustive or normative. It is meant to illustrate the many-to-many nature of the mapping between score symbols and MIDI velocity values, which motivates the thesis's layered view of dynamics and its focus on bridging rather than collapsing different representations.)}
+\caption[Score-dynamics vocabulary and MIDI velocity scales]{Illustrative correspondences between score-dynamics vocabulary and MIDI velocity scales from representative software documentation, source code, and comparison studies.}
 \setlength{\tabcolsep}{2.4pt}
 \fontsize{11}{11pt}\selectfont
 \renewcommand{\arraystretch}{1.2}
@@ -255,7 +255,7 @@ pppp & threshold of hear    & --  & 10  & --  & 10  & 5   \\
 \begin{table}[h!]
 \centering
 \scriptsize
-\caption{Scalar-based dynamic defaults in LilyPond and music21. LilyPond stores fractions rather than raw MIDI velocities. The LilyPond integer column is a rounded comparison-only rescaling to 127. music21 explicitly uses \texttt{int(volumeScalar*127)} for MusicXML export.}
+\caption[Scalar-based dynamic defaults in LilyPond and music21]{Scalar-based dynamic defaults in LilyPond and music21. LilyPond stores fractions rather than raw MIDI velocities, and the LilyPond integer column is a rounded comparison-only rescaling to 127.}
 \setlength{\tabcolsep}{2.4pt}
 \fontsize{11}{11pt}\selectfont
 \renewcommand{\arraystretch}{1.2}
@@ -327,7 +327,7 @@ The human ear does not hear MIDI velocity or decibels directly. It hears loudnes
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.99\linewidth]{Chapter_2/figures/equal_loudness_curve.png}
-  \caption{Equal loudness contours comparing ISO226:2003 (red) and the measurements of Robinson and Dadson in the mid 1950s~\cite{equal_loudness}.}
+  \caption{Equal loudness contours comparing ISO226:2003 (red) and the measurements of Robinson and Dadson in the mid 1950s (black) \cite{equal_loudness}.}
   \label{fig:bg_equal_loudness}
 \end{figure}
 
@@ -403,12 +403,13 @@ $^\dagger$ Historical MAESTRO results reported on the earlier MAESTRO split/re-e
 $^\ddagger$ Results reported directly on MAESTRO v3.0.0 or re-tabulated on MAESTRO v3.0.0 by later papers. \\
 $^\S$ PF2N evaluates multi-instrument settings with an additional requirement that the predicted instrument label match the ground truth. These rows are therefore not directly comparable to the original instrument-agnostic MT3 MusicNet scores.
 }
+\caption{Representative AMT results across MAPS, MAESTRO, and MusicNet, showing that velocity-aware transcription remains substantially harder than note transcription.}
 \label{tab:amt_sota}
 \end{table*}
 
 
 \subsection{Performance research as a precursor to expressive MIR}
-\label{sec:bg:foundations:performance}
+\label{sec:bg:foundations:precursor}
 
 Expressive MIR inherits many of its core questions from music performance research. Long before deep-learning AMT, performance studies had already shown that phrase structure, meter, local accent, and instrumental constraints shape both timing and dynamics \cite{goebl2003role,cancinoChacon2018computational}. This older literature matters because it clarifies that expressive labels are not decorative metadata attached to a note list. They are traces of interpretation. As a result, expressive AMT must confront questions of target definition, representational choice, and evaluation legitimacy that are already familiar in performance science.
 
@@ -807,6 +808,22 @@ GOAT \cite{loth2025goat}
 \addlinespace[4pt]
 \multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
 {\hspace{1em}\cmark\ Usage may still be constrained by copyright or redistribution terms.} \\
+\addlinespace[2pt]
+\midrule
+
+\addlinespace[2pt]
+\makecell[l]{Fran\c{c}ois\\Leduc} \cite{francoisleduc_zenodo}
+& guitar
+& 4.0
+& 78
+& n/a.
+& \cmark
+& \xmark
+& \warn
+& \xmark \\
+\addlinespace[4pt]
+\multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
+{\hspace{1em}\warn\ By request only; released files include audio--MIDI pairs, but not the original scores.} \\
 \addlinespace[2pt]
 \midrule
 

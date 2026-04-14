@@ -126,15 +126,14 @@
 
     
 	\begin{abstract}
-		"Recover dynamics as a first-class target in AMT by (i) completing symbolic MIDI velocity, (ii) refining AMT velocity with a score-informed correction module, and (iii) transcribing score-level dynamics jointly with metrical structure, then integrating these into an expressive-data curation pipeline."
 
 		Automatic music transcription has achieved significant progress in note transcription. Yet note events alone do not provide enough expressiveness. This thesis establishes musical dynamics as the primary target for expressive AMT, treating note-level MIDI velocity and score-level dynamics as complementary representations. To this end, we propose a unified label-recovery framework evaluated across three practical settings. 
         
-        First, for symbolic velocity completion, we infer missing velocities in flat MIDI files without altering note timing. We achieve this using an attention U-Net inspired by the image colorization, combined with a feature sparsity-aware loss, validating its impact through objective metrics and human listening tests.
+        For symbolic velocity completion, we infer missing velocities in flat MIDI files without altering note timing. We achieve this using an attention U-Net inspired by the image colorization, combined with a feature sparsity-aware loss, validating its impact through objective metrics and human listening tests.
 		
-		Second, we refine audio-based velocity estimation using musical scores as a structural prior. We propose a lightweight score-informed Transformer that achieves leading performance on piano datasets, demonstrating strong robustness to audio-score misalignment.
+		We refine audio-based velocity estimation using musical scores as a structural prior. We propose a lightweight score-informed Transformer that achieves leading performance on piano datasets, demonstrating strong robustness to audio-score misalignment.
         
-        Third, we predict beat-synchronous score dynamics directly from audio. By utilizing perceptually grounded loudness features and multitask network, this joint estimation approach produces practical dynamics that can be seamlessly integrated into existing scores.
+        We predict beat-synchronous score dynamics directly from audio. By utilizing perceptually grounded loudness features and multitask network, this joint estimation approach produces practical dynamics that can be seamlessly integrated into existing scores.
 
         Finally, we extend our velocity estimation framework beyond the piano. To overcome the scarcity of non-piano MIDI velocity labels, we employ differentiable neural proxies of soundfonts. This enables supervised model training on synthesised audio, successfully bypassing the need for ground-truth MIDI velocity data.
 	\end{abstract}
