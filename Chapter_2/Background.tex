@@ -39,7 +39,7 @@ Score dynamics & beat / phrase level & Human-readable, musically interpretable, 
 \subsection{From physical sound level to symbolic dynamics}
 \label{sec:bg:dynamics:layers}
 
-A useful starting distinction is between \emph{physical intensity}, \emph{perceived loudness}, \emph{performance control}, and \emph{score notation}. Physical measurements such as sound-pressure level in decibels describe the signal. Human listeners do not hear decibels directly. They hear loudness, which depends on frequency content, masking, and temporal integration \cite{psychoacoustics,zwicker1999psychoacoustics}. MIDI velocity describes a control quantity at note onset. In acoustic piano settings it is best interpreted as a proxy for performer action rather than as a universal loudness unit \cite{goebl2003role,dan2006psy}. Score dynamics such as \textit{pp}, \textit{mf}, \textit{f}, or a hairpin do something else again. They encode relative musical intention in context \cite{kosta2014dynpiano,kosta2016mapping}.
+A useful starting distinction is between \emph{physical intensity}, \emph{perceived loudness}, \emph{performance control}, and \emph{score notation}. Physical measurements such as sound-pressure level in decibels describe the signal. Human listeners do not hear decibels directly. They hear loudness, which depends on frequency content, masking, and temporal integration \cite{zwicker2007psychoacoustics,zwicker1999psychoacoustics}. MIDI velocity describes a control quantity at note onset. In acoustic piano settings it is best interpreted as a proxy for performer action rather than as a universal loudness unit \cite{goebl2003role,dan2006psy}. Score dynamics such as \textit{pp}, \textit{mf}, \textit{f}, or a hairpin do something else again. They encode relative musical intention in context \cite{kosta2014dynpiano,kosta2016mapping}.
 
 This layered view has an important methodological consequence. There is no single exact lookup table that converts score dynamics, loudness, and MIDI velocity into one another. Nominal mappings are convenient for notation software and rendering systems, but they remain conventions. They should not be mistaken for measurement standards. This point is central to the whole dissertation because each chapter targets a different layer of the same broader expressive problem.
 
@@ -53,129 +53,183 @@ Performance research also reminds us that dynamics does not act alone. Louder at
 
 \subsection{Dynamics in audio}
 \label{sec:bg:dynamics:audio}
+In audio, musical dynamics are most naturally discussed through loudness, a psychoacoustic quantity. It is shaped not only by physical intensity or sound-pressure level but also by frequency-dependent hearing sensitivity, critical-band interaction, masking, and temporal integration \cite{zwicker2007psychoacoustics}. This distinction matters throughout the thesis because the audio layer must later be related to MIDI and score. A frame with greater broadband energy is not necessarily perceived as dynamically stronger if the change is mainly timbral or spectrally redistributed.
 
-In audio, dynamics is commonly discussed through loudness. Loudness is perceptual rather than purely physical. It is not identical to waveform amplitude, instantaneous pressure, or sound-pressure level. Psychoacoustic models distinguish physical intensity from perceived loudness and account for effects such as frequency-dependent hearing sensitivity, critical-band interaction, masking, and temporal integration \cite{psychoacoustics,zwicker1999psychoacoustics}. For a thesis that moves repeatedly between audio, MIDI, and score, this distinction is not optional. A model trained directly on raw energy can easily mistake a timbral redistribution of spectral energy for a genuine change in perceived intensity.
+For this reason, dynamics analysis in audio benefits from perceptually informed input features. Loudness-inspired features aim to approximate human intensity perception more directly than generic spectral magnitudes or raw energy measures. Recent singing-voice studies show that loudness-oriented and Bark-based representations are superior to conventional log-Mel features for dynamics-related estimation tasks \cite{narang2022analysis,narang2024automatic}. This motivates the Bark-scale representation used later in the audio-only score dynamics component of this thesis.
 
-For this reason, dynamics analysis often benefits from perceptually informed front-ends. Loudness-inspired features aim to approximate human intensity perception more directly than generic spectral magnitudes. Recent work on vocal dynamics has shown that loudness-oriented representations can be competitive with, and in some cases superior to, more standard features in dynamics-related tasks \cite{narang2022analysis,narang2024automatic}. This observation motivates the Bark-scale specific loudness front-end used later in the audio-only score-dynamics thread of the thesis.
+\subsubsection{From intensity and sound pressure to perceived loudness}
 
-% Suggested figure here: equal-loudness contours across frequency, labelled in phons.
-\subsubsection{From intensity and sound pressure to dB, phon, and sone}
-
-The physical starting point is sound intensity, that is, acoustic power per unit area. If $I$ denotes intensity and $I_0$ a reference intensity, the corresponding intensity level in decibels is
+The physical starting point is sound intensity, which measures the acoustic power per unit area. Let $I$ denote the intensity measured in $\mathrm{W/m^2}$. Using a reference intensity $I_0$ near the threshold of hearing at 1\,kHz (commonly $I_0=10^{-12}\,\mathrm{W/m^2}$), the corresponding intensity level $L_I$ is expressed in decibels (dB) as
 \begin{equation}
 L_I = 10\log_{10}\!\left(\frac{I}{I_0}\right).
 \label{eq:bg:intensity_db}
 \end{equation}
-In practice, audio and psychoacoustic work more often uses sound-pressure level (SPL), since pressure is easier to measure than power. If $p$ denotes the root-mean-square sound pressure and $p_0=20\,\mu\mathrm{Pa}$ the reference pressure in air, then
+For example, if $I = 10^{-8}\,\mathrm{W/m^2}$, then $I/I_0 = 10^4$ and $L_I = 40$\,dB. In practice, audio measurements more frequently use sound-pressure level (SPL) instead of intensity level, since pressure variations are what microphones actually capture. Let $p$ denote the root-mean-square (RMS) sound pressure measured in pascals ($\mathrm{Pa}=\mathrm{N/m^2}$) and $p_0 = 20\,\mu\mathrm{Pa}$ be the reference pressure in air; the corresponding SPL $L_p$ is similarly expressed in decibels:
 \begin{equation}
 L_p = 20\log_{10}\!\left(\frac{p}{p_0}\right).
 \label{eq:bg:spl_db}
 \end{equation}
-The logarithmic form matters. A decibel is a ratio measure, not a linear quantity. As a result, decibel values are compact and convenient, but they are not themselves a perceptual loudness scale, and they cannot be linearly added across components in the way one would add physical powers or perceptual magnitudes \cite{backus1977acoustical,psychoacoustics}.
+The logarithmic nature of the decibel scale is highly practical, as human loudness perception scales logarithmically with sound energy rather than linearly. However, decibel levels do not represent an actual perceptual scale. For instance, a 60\,dB tone at 100\,Hz does not sound as loud as a 60\,dB tone at 1\,kHz, because human hearing sensitivity varies dramatically across frequencies. To address this discrepancy, equal-loudness contours were established through pioneering psychoacoustic experiments by Fletcher and Munson \cite{fletcher1933loudness}, refined by Robinson and Dadson \cite{robinson1956equal_loudness}, and now standardised in ISO~226:2003 \cite{iso2262003}, as illustrated in Figure~\ref{fig:bg_equal_loudness}. These contours map the sound pressure level (SPL) required across various frequencies to maintain a constant perceived loudness relative to a 1\,kHz reference tone. From these contours, loudness level can be quantified in a unit called the \emph{phon}.
 
-The next step is to distinguish level from sensation. Equal-loudness contours, first measured systematically by Fletcher and Munson and later standardized in updated forms, show that the SPL needed for a sound to be heard as equally loud depends strongly on frequency \cite{backus1977acoustical,zwicker1999psychoacoustics}. The ear is most sensitive roughly in the 2--5\,kHz region and less sensitive at very low and very high frequencies. This is why two tones with the same SPL can still be heard as unequally loud. The unit \emph{phon} expresses this loudness \emph{level}: a sound has loudness level $L_N$ phons if it is judged as loud as a 1\,kHz pure tone at $L_N$\,dB SPL. Thus, phons are anchored to the 1\,kHz reference and inherit the frequency dependence of the equal-loudness contours.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.8\linewidth]{Chapter_2/figures/equal_loudness_curve.png}
+    \caption{Equal-loudness contours comparing the Robinson and Dadson determinations in 1956 (black lines) with the revised ISO~226:2003 standard (red lines). Each contour connects frequency--SPL pairs perceived as equally loud. The label on each contour indicates its loudness level in phons, which corresponds to the SPL of an equally loud 1\,kHz pure tone. The dashed lines represent the minimum threshold of hearing \cite{equal_loudness}.}
+  \label{fig:bg_equal_loudness}
+\end{figure}
 
-Phon, however, is still a level scale. It tells us where a sound sits relative to the 1\,kHz reference, but it is not yet a ratio scale of perceived magnitude. That is the role of the \emph{sone}. The conventional anchor is that a 1\,kHz tone at 40\,dB SPL has a loudness of 1 sone. Above 40 phons, each increase of 10 phons corresponds approximately to a doubling of loudness in sones. Historically, this idea is often connected to Stevens' power law,
+In loudness-related analysis, the \emph{phon} is still not the most convenient end point because it does not provide a linear scale of subjective loudness. A sound of 80 phons is not perceived as twice as loud as one of 40 phons. A more useful perceptual unit is the \emph{sone}, which is designed such that its value is linearly proportional to perceived loudness. A sound of 2 sones is perceived as twice loudness of 1 sones. In practice, there are two common routes to obtain sone values. The first is to convert the loudness level in phons into sones. Table~\ref{tab:dynamics_symbols_phons_sones} gives a few illustrative anchor pairs, while intermediate values are typically obtained by the standard approximation (where the unit of $L_N$ is phons):
 \begin{equation}
-\Psi = \frac{1}{15.849}\left(\frac{I}{I_0}\right)^{0.3},
-\label{eq:bg:stevens_power}
-\end{equation}
-where $\Psi$ denotes loudness in sones and $I_0$ is the reference intensity \cite{backus1977acoustical}. In MIR implementations, however, the more practical route is usually to go through loudness level in phons and then convert to sones. A widely used piecewise approximation is
-\begin{equation}
-S(L_N)=
+S =
 \begin{cases}
 2^{(L_N-40)/10}, & L_N \ge 40,\\[4pt]
-(L_N/40)^{2.642}, & L_N < 40,
+(L_N/40)^{2.642}, & L_N < 40.
 \end{cases}
-\label{eq:bg:sone_from_phon}
+\label{eq:bg:phon_to_sone}
 \end{equation}
-which is the form adopted in the Pampalk and Kosta line of work and also used in later singing-voice dynamics studies \cite{bladon1981vowel,kosta2017thesis,narang2024automatic}. Equation~\eqref{eq:bg:sone_from_phon} is the most direct answer to where the unit \emph{sone} comes from in the present thesis: it is a ratio-like perceptual scale derived from loudness level, itself defined by equal-loudness relations.
+The second route is to approximate perceived loudness directly from physical intensity via Stevens' power law, bypassing the need to read $L_N$ from equal-loudness contours:
+\begin{equation}
+S = \frac{1}{15.849}\left(\frac{I}{I_0}\right)^{0.3},
+\label{eq:bg:stevens_power}
+\end{equation}
+where $S$ denotes loudness in sones \cite{backus1977acoustical}. In MIR practice, the first route is usually preferable because frequency dependence has already been made explicit through equal-loudness contours and can later be refined further by critical-band modelling.
 
-One detail is worth making explicit because it often causes confusion in thesis writing. The mapping from dB-SPL to phon is frequency dependent and is typically obtained from equal-loudness contours or a standard-based loudness model; it is not a single universal closed-form equation. By contrast, once the loudness level $L_N$ is known, the conversion from phon to sone in Equation~\eqref{eq:bg:sone_from_phon} is straightforward.
+\subsubsection{Bark-scale and critical bands}
 
-% Suggested figure here: Bark scale against Hz, with critical-band widths and an asymmetric spreading function.
-\subsubsection{Critical bands, the Bark scale, and why masking enters the model}
+The pure-tone framework above explains how physical level relates to perceived loudness for isolated tones. For musical audio, however, it is not sufficient to treat each FFT bin as an independent loudness event. Singing, piano, and polyphonic textures distribute energy across harmonics, formants, accompaniment, and transients, and the auditory system integrates nearby components within auditory filters whose bandwidth varies with frequency. This is the psychoacoustic motivation for \emph{critical bands} \cite{zwicker1999psychoacoustics}.
 
-If the goal were only to measure physical level, Equations~\eqref{eq:bg:intensity_db} and \eqref{eq:bg:spl_db} would be sufficient. They are not sufficient for perceived loudness in music. Complex tones, chords, and singing voices distribute energy across harmonics and formants, and the auditory system does not process each FFT bin independently. Instead, energy is integrated and competed within auditory filters whose bandwidth changes with frequency. This is the psychoacoustic basis of the \emph{critical band} and of the Bark scale \cite{zwicker1999psychoacoustics,psychoacoustics}.
+The audible frequency range is conventionally organized into 24 critical bands indexed by the Bark scale, a psychoacoustic concept originally proposed by Zwicker in 1961 \cite{zwicker1961subdivision}. Table~\ref{tab:bark_table} shows the approximate relation between Bark index, frequency, and bandwidth. The important point is that Bark is a perceptual frequency coordinate rather than a loudness value: low-frequency bands are relatively narrow in Hz, whereas higher-frequency bands become progressively broader.
 
-The Bark coordinate $z$ is a perceptual frequency axis intended to approximate critical-band rate. A common analytic approximation is
+\begin{table*}[t]
+    \centering
+    \caption{Approximate relation between critical-band rate in Bark and frequency in Hz. The full psychoacoustic scale spans 24 critical bands.}
+    \label{tab:bark_table}
+    \setlength{\tabcolsep}{3pt}
+    \fontsize{9pt}{12pt}\selectfont
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{ccc|ccc||ccc}
+        \hline
+        \makecell[c]{\textbf{Critical}\\\textbf{band rate}\\\textbf{$z$ [Bark]}} &
+        \makecell[c]{\textbf{Frequency}\\\textbf{$f$ [Hz]}} &
+        \makecell[c]{\textbf{$\Delta f$}\\\textbf{[Hz]}} &
+        \makecell[c]{\textbf{Critical}\\\textbf{band rate}\\\textbf{$z$ [Bark]}} &
+        \makecell[c]{\textbf{Frequency}\\\textbf{$f$ [Hz]}} &
+        \makecell[c]{\textbf{$\Delta f$}\\\textbf{[Hz]}} &
+        \makecell[c]{\textbf{Critical}\\\textbf{band rate}\\\textbf{$z$ [Bark]}} &
+        \makecell[c]{\textbf{Frequency}\\\textbf{$f$ [Hz]}} &
+        \makecell[c]{\textbf{$\Delta f$}\\\textbf{[Hz]}} \\
+        \hline
+        0 & 0    & 100 & 9  & 1080  & 190 & 18 & 4400  & 900  \\
+        1 & 100  & 100 & 10 & 1270  & 210 & 19 & 5300  & 1100 \\
+        2 & 200  & 100 & 11 & 1480  & 240 & 20 & 6400  & 1300 \\
+        3 & 300  & 100 & 12 & 1720  & 280 & 21 & 7700  & 1800 \\
+        4 & 400  & 110 & 13 & 2000  & 320 & 22 & 9500  & 2500 \\
+        5 & 510  & 120 & 14 & 2320  & 380 & 23 & 12000 & 3500 \\
+        6 & 630  & 140 & 15 & 2700  & 450 & 24 & 15500 & --   \\
+        7 & 770  & 150 & 16 & 3150  & 550 &    &       &      \\
+        8 & 920  & 160 & 17 & 3700  & 700 &    &       &      \\
+        \hline
+    \end{tabular}
+\end{table*}
+
+A common analytic approximation from physical frequency $f$ in kHz to Bark rate $z$ is
 \begin{equation}
 z(f) = 13\arctan(0.76 f_{\mathrm{kHz}}) + 3.5\arctan\!\left(\frac{f_{\mathrm{kHz}}^2}{7.5^2}\right),
 \label{eq:bg:bark_mapping}
 \end{equation}
-where $f_{\mathrm{kHz}}$ is frequency measured in kHz \cite{pampalk2002content,pampalk2004exploring,zwicker1999psychoacoustics}. The important idea is not the exact closed form but the auditory geometry it encodes: below roughly 500\,Hz the Bark scale is close to linear, while above that region it becomes increasingly compressed. In other words, equal distances on the Bark axis are meant to approximate equal auditory distances rather than equal physical distances in Hz.
+where $f_{\mathrm{kHz}}$ denotes frequency in kHz \cite{pampalk2002content,pampalk2004exploring,zwicker1999psychoacoustics}. This equation defines the Bark coordinate itself. It does not yet compute loudness. 
 
-This matters because loudness depends on how energy is distributed across critical bands. If additional energy is packed into the same critical band, the perceived increase in loudness is limited. If the bandwidth extends beyond the critical band, loudness grows more strongly. This is the basis of spectral loudness summation. The same logic explains why spectral masking must be modelled: a strong component in one band can partially suppress the audibility of nearby components, especially on the higher-frequency side. Lower bands generally mask higher bands more strongly than the other way round \cite{zwicker1999psychoacoustics,psychoacoustics}.
+Once this mapping is available, a linear-frequency spectrogram can be regrouped into Bark bands. If $P(k,t)$ denotes the power at frequency bin $k$ and frame $t$, and $\mathcal{B}_b$ is the set of bins whose center frequencies fall into Bark band $b$, then the Bark spectrogram is
+\begin{equation}
+P_{\mathrm{Bark}}(b,t) = \sum_{k \in \mathcal{B}_b} P(k,t),
+\qquad
+\mathcal{B}_b = \{k \mid z_b \le z(f_k) < z_{b+1}\}.
+\label{eq:bg:bark_spectrogram}
+\end{equation}
+This step changes the spectral coordinate system from Hz to critical-band rate. The actual loudness model is introduced in the next subsection, where auditory weighting, spectral spreading, and nonlinear conversion are applied to obtain specific loudness.
 
-Pampalk-style MIR front-ends make this idea operational in three stages. First, the short-time spectrum is weighted by an outer- and middle-ear transfer approximation, often the Terhardt weighting function,
-\begin{equation}
-A_{\mathrm{dB}}(f_{\mathrm{kHz}})
-= -3.64 f_{\mathrm{kHz}}^{-0.8}
-+ 6.5\exp\!\left[-0.6(f_{\mathrm{kHz}}-3.3)^2\right]
-- 10^{-3} f_{\mathrm{kHz}}^{4},
-\label{eq:bg:terhardt}
-\end{equation}
-which downweights very low and very high frequencies while emphasizing the region around 3--4\,kHz where hearing is most sensitive \cite{terhardt1979outerear,pampalk2002content}. If $P(k,t)$ is a power spectrogram, this yields a weighted spectrum
-\begin{equation}
-P_W(k,t)=P(k,t)\,10^{A_{\mathrm{dB}}(f_k)/10}.
-\label{eq:bg:weighted_power}
-\end{equation}
-Second, the weighted spectrum is grouped into Bark bands,
-\begin{equation}
-E_b(t)=\sum_{k\in\mathcal{B}_b} P_W(k,t),
-\label{eq:bg:bark_band_energy}
-\end{equation}
-where $\mathcal{B}_b$ denotes the set of FFT bins that fall into the $b$th Bark band.
+\subsubsection{Bark-scale specific loudness and total loudness}
+Among psychoacoustic-informed audio representations, Bark-scale specific loudness (BSSL) is designed to represent how perceived loudness is distributed across auditory critical bands, as human perception of loudness is more sensitive to certain frequency bands \cite{zwicker1999psychoacoustics,zwicker2007psychoacoustics}. Because it preserves both spectral location and perceptual magnitude, BSSL is well suited to dynamics-related MIR tasks \cite{narang2024automatic,he2026dynest}.
 
-Third, masking is modelled by a spreading function over Bark distance. A common formulation following Schroeder et al. is
+While several standardized BSSL extraction methods exist, such as DIN 45631/A1:2010 \cite{din45631a1_2010} and ISO 532-1:2017 \cite{iso532_1_2017}, they are primarily optimized for industrial noise assessment and assume stationary sound profiles. In MIR, however, music signals are typically highly polyphonic with negligible background noise. Therefore, the implementation proposed by Pampalk et al. \cite{pampalk2002content, pampalk2004exploring} is widely adopted. The extraction pipeline is defined as follows.
+
+First, the audio is converted to mono, peak-normalised to $-1\,\mathrm{dBFS}$, and resampled to $f_s=22.05\,\mathrm{kHz}$, which preserves sufficient spectral information for MIR tasks. A short-time Fourier transform (STFT) then yields the complex spectrogram $X(k,t)$, where $t$ denotes the frame index and $k$ the frequency-bin index. Then, the power spectrogram $P(k,t)$ is formed using window-energy normalization, and subsequently converted to the decibel scale:
 \begin{equation}
-G(\Delta z)=15.81 + 7.5(\Delta z+0.474) - 17.5\sqrt{1+(\Delta z+0.474)^2},
+P(k,t)=\frac{|X(k,t)|^2}{(\sum_{n=0}^{N-1} w[n])^2},
+\end{equation}
+\begin{equation}
+P_{\mathrm{dB}}(k, t) = \max(0, 10 \log_{10}(P(k, t))).
+\end{equation}
+To approximate the frequency response of the human outer and middle ear, Terhardt's weighting function $W_{\mathrm{dB}}(f_k)$ \cite{terhardt1979outerear} is applied. This weighting is designed on the power scale (unit is decibel), where $f_k$ denotes the center frequency  (in $\mathrm{kHz}$) of the $k$-th bin:
+\begin{equation}
+W_{\mathrm{dB}}(f_k) = -3.64\,f_k^{-0.8} + 6.5\,e^{-0.6\,(f_k-3.3)^2} - 10^{-3}\,f_k^{4},
+\end{equation}
+\begin{equation}
+P_W(k,t)=P_{dB}(k,t) \cdot W_{dB}(f_k).
+\end{equation}
+The weighted power spectrogram $P_W(k,t)$ is then mapped to the Bark scale \cite{zwicker1999psychoacoustics}. Given the $11.05$ kHz Nyquist frequency and the band ranges detailed in Table~\ref{tab:bark_table}, a total of 22 Bark bands are used. Letting the band index be $b \in \{1,\ldots,22\}$, the Bark spectrogram is defined as:
+\begin{equation}
+B(b,t) = \sum_{k \in \text{Band}b} P_W(k, t).
+\end{equation}
+Taking account the spectral masking over Bark bands, where a loud sound makes weaker sounds at nearby frequencies harder to preceive, the spreading function $G(\Delta)$ by Schoroeder et al.\cite{schroeder1979masking} is applied:
+\begin{equation}
+G(\Delta)=15.81 + 7.5(\Delta +0.474) - 17.5\sqrt{1+(\Delta +0.474)^2},
 \label{eq:bg:spreading_function}
 \end{equation}
-with $\Delta z = z_j-z_i$ in Bark \cite{schroeder1979masking,pampalk2002content}. After conversion from decibels to linear weights, this gives a spread excitation pattern such as
 \begin{equation}
-\widetilde{E}_b(t)=\sum_{i=1}^{B} E_i(t)\,10^{G(b-i)/10}.
-\label{eq:bg:spread_excitation}
+\widetilde{B}_i(t) = \sum_{i,j=1}^{22} B_i(t) \cdot G(i-j),
 \end{equation}
-The exact discretization varies slightly across implementations, but the conceptual point is stable: loudness should not be modelled as a naive sum of independent narrowband energies. It should reflect auditory interaction across neighbouring critical bands.
+where $\Delta = i-j$ represents the distance between Bark bands. This step reflects a fundamental psychoacoustic principle: loudness perception should not a naive sum of independent narrowband energies, but involves auditory interaction across neighboring critical bands.
 
-% Suggested figure here: specific loudness pattern N'(z) over Bark, with total loudness shown as area under the curve.
-\subsubsection{What Bark-scale specific loudness is, and how it differs from Bark-scale total loudness}
-
-Once a Bark-domain excitation pattern has been corrected for outer-ear response and spectral spreading, it is converted into a perceptual loudness quantity. In Zwicker's terminology, this is \emph{specific loudness}: the loudness contributed by each auditory-frequency position as a function of critical-band rate. In continuous form, it is written as $N'(z,t)$ and has units of sone per Bark. In the discrete MIR setting used in this thesis, we work with a sampled version $N'_b(t)$, one value per Bark band. The resulting time--frequency matrix is what we call \emph{Bark-scale specific loudness} (BSSL).
-
-Conceptually, the final conversion is still the same dB/phon/sone chain described above. Let $L_N(b,t)$ denote the loudness level in phons associated with the $b$th Bark band at time $t$. Then the Bark-scale specific loudness is
+Once the Bark-scale excitation is adjusted for the human ears response and spectral spreading, it is converted into a perceptual metric known as \emph{specific loudness}. Following Zwicker's 1999 method \cite{zwicker1999psychoacoustics}, the \emph{specific loudness} is derived by substituting the band-wise Bark excitation $\widetilde{B}(b,t)$ for the pure-tone loudness $L_N$ in Equation~\ref{eq:bg:phon_to_sone}. This yields the BSSL, formally denoted as $N'(b,t)$. Representing the perceived loudness (in sones) for each band $b$ at time $t$, $N'(b,t)$ is defined as:
 \begin{equation}
-N'_b(t)=
+N'(b,t)=
 \begin{cases}
-2^{(L_N(b,t)-40)/10}, & L_N(b,t) \ge 40,\\[4pt]
-\left(L_N(b,t)/40\right)^{2.642}, & L_N(b,t) < 40.
+2^{(\widetilde{B}(b,t)-40)/10}, & B_{\mathrm{dB}}(b,t)\ge40\\[4pt]
+(\widetilde{B}(b,t)/40)^{2.642}, & otherwise.
 \end{cases}
-\label{eq:bg:bssl_specific_loudness}
 \end{equation}
-In implementation-oriented descriptions, one sometimes sees the last step written directly as a mapping from a calibrated Bark-band dB quantity to sones. That is a coding shorthand. Conceptually, the meaning remains the same: BSSL is the \emph{distribution} of perceived loudness across the Bark axis after auditory weighting and masking.
-
-This also clarifies the relation between \emph{Bark-scale specific loudness} and \emph{Bark-scale total loudness}. Specific loudness keeps the spectral distribution. Total loudness collapses that distribution to a single time-varying scalar by integrating over the Bark axis:
+The resulting BSSL, $N'(b,t)$, is a 22-dimensional time-frequency representation of perceived loudness. The corresponding Bark-scale total loudness (BSTL), denoted as $N_{tot}(t)$, collapses the frequency-resolved representation into a single time-varying scalar by integrating over the Bark axis:
 \begin{equation}
-N_{\mathrm{tot}}(t)=\int_{0}^{24} N'(z,t)\,dz.
+N_{\mathrm{tot}}(t)=\int_{0}^{22} N'(z,t)\,dz.
 \label{eq:bg:total_loudness_cont}
 \end{equation}
-In a discrete Bark-band representation, this becomes
-\begin{equation}
-N_{\mathrm{tot}}(t)\approx \sum_{b=1}^{B} N'_b(t)\,\Delta z_b,
-\label{eq:bg:total_loudness_disc}
-\end{equation}
-which reduces to a simple sum when each band is treated as one Bark-wide for practical purposes. This is the quantity returned as total loudness in Pampalk's \texttt{ma\_sone} documentation \cite{pampalk2004toolbox}. It is extremely useful when one wants a single loudness curve over time, for example for visualization, smoothing, or change-point analysis. However, it discards where that loudness sits in the auditory spectrum.
+In other words, BSSL preserves where loudness is located in the auditory spectrum, whereas BSTL retains only the overall perceptual magnitude at each time frame. The two representations are therefore complementary: BSTL is appropriate when a compact loudness curve is sufficient, while BSSL is preferable when the spectral distribution of loudness is expected to carry musically relevant information.
 
-That distinction is decisive for this thesis. Two passages can have similar total loudness $N_{\mathrm{tot}}(t)$ and still differ substantially in register, masking structure, and spectral balance. A scalar loudness curve would treat them as nearly equivalent; a BSSL matrix would not. The full BSSL representation therefore preserves the spectral-envelope information that remains perceptually relevant for musical dynamics. This is why the later audio-only score-dynamics chapter uses the Bark-wise matrix as input, while total loudness is retained mainly as a descriptive summary.
-
-The broader methodological point is now clear. dB provides a compact physical level measure. Phon corrects that level for frequency-dependent hearing sensitivity. Sone provides a ratio-like perceptual magnitude scale. Bark provides the perceptual frequency coordinate on which loudness is distributed. BSSL combines these ideas into a representation that is closer to what a listener hears than either raw amplitude or an unconstrained spectral magnitude. For a thesis concerned with the gap between score markings and perceived intensity, that is precisely the right conceptual object.
-
-% Suggested figure here: specific loudness pattern N'(z) over Bark, with total loudness shown as area under the curve.
 \subsubsection{Other Audio Representations Related to Loudness}
+Besides explicit loudness measures, MIR commonly uses spectral representations
+that preserve energy information in a more distributed form. The simplest of
+these is short-time RMS energy, which summarizes the average signal power
+within each analysis frame. RMS is useful as a baseline for tracking local
+intensity changes, but it reduces the spectrum to a single value and therefore
+cannot reflect how perceived loudness is also influenced by spectral balance,
+masking, and timbre. Two vocal passages may have similar RMS energy while
+still sounding different in intensity because their energy is distributed
+differently across frequency.
 
+For this reason, Mel-based representations are often more informative. A Mel
+spectrogram groups spectral energy into perceptually motivated frequency
+bands, so each frame retains not only how much energy is present but also
+where that energy lies in the spectrum. This is particularly relevant for
+singing voice, where changes in vocal effort, resonance, register, or phonation
+often affect the spectral envelope as much as the overall level. A log-Mel
+spectrogram applies logarithmic compression to these Mel-band energies. This
+reduces the dominance of very large amplitudes, makes the representation more
+stable across a wide dynamic range, and brings it closer to the nonlinear way
+in which intensity is perceived. In practice, linear Mel features preserve
+sub-band energy more directly, while log-Mel features are often preferred when
+robustness and perceptual relevance are more important.
 
-Table~\ref{tab:dynamics_symbols} should therefore be read only as an orienting comparison between notation and perceptual scales. It does \emph{not} imply that score symbols map to fixed physical values in real performance.
+Compact cepstral features such as MFCCs and BFCCs are derived from log
+filterbank energies on the Mel and Bark scales, respectively. They are useful
+when a lower-dimensional representation is needed, but the compression also
+removes some band-wise detail that may be useful for fine-grained dynamics
+analysis. By contrast, the Constant-Q Transform (CQT), which is common in
+automatic music transcription, is designed primarily for pitch and harmonic
+structure using geometrically spaced frequency bins. It is therefore highly
+effective for note-related tasks, but less directly aligned with loudness
+analysis, since its design emphasizes pitch resolution rather than perceptual
+energy distribution.
 
 \subsection{Dynamics in music score}
 \label{sec:bg:dynamics:score}
@@ -188,8 +242,8 @@ In this thesis, score dynamics is treated as a beat-synchronous symbolic target.
 
 \begin{table*}[h!]
 \centering
-\caption[Score-dynamics vocabulary and loudness-related scales]{Illustrative correspondences between score-dynamics vocabulary and loudness-related scales. These values are reader-oriented anchors rather than deterministic conversions from notation to acoustics.}
-\label{tab:dynamics_symbols}
+\caption[Score-dynamics vocabulary and loudness-related scales]{Illustrative correspondences between score-dynamics vocabulary and loudness-related scales. Phons and sones conversion is referenced from~\cite{backus1977acoustical}.}
+\label{tab:dynamics_symbols_phons_sones}
 \setlength{\tabcolsep}{4pt}
 \fontsize{11pt}{11pt}\selectfont
 \renewcommand{\arraystretch}{1.2}
@@ -322,15 +376,7 @@ At the same time, piano mechanics warn against naive equivalence claims. Even wi
 
 \subsection{Human Perceptional Loudness}
 
-The human ear does not hear MIDI velocity or decibels directly. It hears loudness, which depends on frequency content, masking, and temporal integration \cite{psychoacoustics,zwicker1999psychoacoustics}. This is why the thesis uses perceptually informed front-ends such as Bark-scale specific loudness for audio-based score-dynamics recovery. It is also why the thesis treats score dynamics as a musically underdetermined cue rather than as a fixed physical instruction.
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.99\linewidth]{Chapter_2/figures/equal_loudness_curve.png}
-  \caption{Equal loudness contours comparing ISO226:2003 (red) and the measurements of Robinson and Dadson in the mid 1950s (black) \cite{equal_loudness}.}
-  \label{fig:bg_equal_loudness}
-\end{figure}
-
+The human ear does not hear MIDI velocity or decibels directly. It hears loudness, which depends on frequency content, masking, and temporal integration \cite{zwicker1999psychoacoustics}. This is why the thesis uses perceptually informed front-ends such as Bark-scale specific loudness for audio-based score-dynamics recovery. It is also why the thesis treats score dynamics as a musically underdetermined cue rather than as a fixed physical instruction.
 
 \subsection{Recurring cues and local interpretive events}
 \label{sec:bg:dynamics:schemata}

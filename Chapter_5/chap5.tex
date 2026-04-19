@@ -35,11 +35,7 @@ More specifically, the dynamic-level target is formulated as a six-class frame-w
 
 \begin{figure}[t]
   \centering
-  \IfFileExists{Chapter_5/figures/p1.png}{%
-    \includegraphics[width=0.95\textwidth]{Chapter_5/figures/p1.png}%
-  }{%
-    \fbox{\parbox{0.92\textwidth}{\vspace{4.8cm}\centering\textit{Placeholder for workflow figure from the ICASSP paper. Replace with \texttt{Chapter\_5/figures/p1.png}.}\vspace{4.8cm}}}%
-  }
+  \includegraphics[width=0.95\textwidth]{Chapter_5/figures/p1.png}
   \caption{Workflow for adding dynamic markings to an AMT-transcribed score from audio. The highlighted region (90--105 s of Chopin Mazurka Op.~6 No.~1) shows a case study. Dynamic markings are aligned with the musical beat grid, and a change point indicates a contextual shift in the dynamic levels.}
   \label{fig:audiodyn_workflow}
 \end{figure}
@@ -49,68 +45,33 @@ This task directly matches the role assigned to Chapter~5 in the thesis plan: sc
 \section{Perceptually Grounded Features and Multi-Scale Backbone}
 \label{sec:audiodyn_features}
 
-\subsection{Bark-scale specific loudness}
-\label{ssec:audiodyn_bssl}
+\subsection{Audio feature representations}
+\label{ssec:audiodyn_features}
 
-Chapter~\ref{ch:background} established the psychoacoustic chain behind BSSL: physical level is measured in dB, frequency-dependent loudness level is expressed in phons, perceptual magnitude is expressed in sones, and the spectral distribution of that perceptual magnitude is organized on the Bark scale rather than on raw FFT bins. For the present chapter, the important point is that BSSL is not merely a compressed spectrogram. It is a sampled representation of \emph{specific loudness} across auditory critical bands, and therefore explicitly models the fact that neighbouring spectral components interact through critical-band integration and spectral masking \cite{zwicker1999psychoacoustics,pampalk2002content,kosta2017thesis}. The conceptual motivation is given in Chapter~\ref{ch:background}; here we restate the operational part of that formulation because it directly determines the front-end used by the model.
+Log-Mel spectrograms serve as the standard input representation in many modern MIR systems, providing a natural baseline for both dynamics estimation and beat/downbeat tracking tasks. To ensure a fair comparison with advanced beat tracking models \cite{zhao2022beat, foscarin2024beat}, their widely standardised audio preprocessing configuration is adopted throughout this chapter. Specifically, the audio is downmixed to mono and resampled to 22.05~kHz. A Hann-windowed STFT is then applied using a window length of 1024 and a hop size of 441 samples, followed by a projection onto 128 Mel bands. This yields a precise frame rate of 50~fps. Under this setting, the log-Mel input is represented as $\mathbf{X}_{\mathrm{Mel}} \in \mathbb{R}^{128 \times T}$, where $T$ denotes the number of temporal frames after feature extraction.
 
-In continuous psychoacoustic notation, specific loudness is written as $N'(z,t)$, where $z$ denotes critical-band rate in Bark. In the discrete MIR front-end used here, we work with Bark-wise samples $N'_b(t)$, one value per auditory band. As recalled from Chapter~\ref{ch:background}, the Bark coordinate is obtained from physical frequency $f$ through a mapping such as
-\begin{equation}
-z(f)=13\arctan(0.76 f_{\mathrm{kHz}})+3.5\arctan\!\left(\frac{f_{\mathrm{kHz}}^2}{7.5^2}\right),
-\label{eq:audiodyn_bark_mapping}
-\end{equation}
-where $f_{\mathrm{kHz}}$ denotes frequency in kHz \cite{pampalk2002content,pampalk2004exploring,zwicker1999psychoacoustics}. This reparameterization matters because loudness summation is constrained by critical-band structure: energy falling inside the same auditory band does not contribute independently, and a strong component can partially mask nearby components.
+Recent studies have started to question whether log-Mel features are the most suitable representation for musical dynamics. Narang et al. \cite{narang2024automatic} compared log-Mel and Bark-scale loudness-based features for singing voice dynamics estimation and reported that Bark-scale features consistently outperformed log-Mel inputs. This observation is particularly relevant to the present study because score dynamics are closer to perceived intensity than to raw spectral energy. For piano dynamics, this motivation is also consistent with the use of specific loudness in earlier studies on performed dynamics \cite{kosta2016mapping}. BSSL represents loudness over auditory critical bands, and therefore keeps the perceptual distribution of intensity across frequency regions. This makes it more informative than a single integrated loudness curve, while being more compact and perceptually aligned than a high-dimensional spectral magnitude representation.
 
-Operationally, the short-time power spectrum $P(k,t)$ is first weighted by an outer- and middle-ear transfer approximation, then grouped into Bark bands, and finally passed through a spreading operation that models spectral masking across neighbouring bands. Writing $A_{\mathrm{dB}}(f)$ for the auditory weighting term and $G(\cdot)$ for the spreading function, the front-end can be summarized as
-\begin{equation}
-E_b(t)=\sum_{k\in\mathcal{B}_b} P(k,t)\,10^{A_{\mathrm{dB}}(f_k)/10},
-\qquad
-\widetilde{E}_b(t)=\sum_{i=1}^{B} E_i(t)\,10^{G(b-i)/10},
-\label{eq:audiodyn_spread}
-\end{equation}
-where $\mathcal{B}_b$ is the set of FFT bins associated with Bark band $b$ \cite{terhardt1979outerear,schroeder1979masking,pampalk2002content}. This is the implementation-facing version of the argument made in Chapter~\ref{ch:background}: if score dynamics is linked to perceived intensity, then the front-end should not treat each narrowband magnitude as perceptually independent. The weighting and spreading stages yield a Bark-domain excitation pattern that is closer to human loudness perception than raw spectral magnitude alone.
-
-The resulting Bark-domain excitation is then converted from loudness level to sones. Using the same phon-to-sone mapping introduced in Chapter~\ref{ch:background} (cf. Eq.~\eqref{eq:bg:sone_from_phon}), the specific loudness in band $b$ at frame $t$ is
-\begin{equation}
-N'_b(t)=
-\begin{cases}
-2^{(L_N(b,t)-40)/10}, & L_N(b,t)\ge 40,\\[4pt]
-\left(L_N(b,t)/40\right)^{2.642}, & L_N(b,t)<40,
-\end{cases}
-\label{eq:audiodyn_specific_loudness}
-\end{equation}
-where $L_N(b,t)$ denotes the Bark-band loudness level in phons \cite{bladon1981vowel,kosta2017thesis,narang2024automatic}. The matrix $\mathbf{X}=[N'_b(t)]$ is what we call BSSL in this chapter. By contrast, Bark-scale total loudness would collapse this distribution to a single scalar,
-\begin{equation}
-N_{\mathrm{tot}}(t)\approx \sum_{b=1}^{B} N'_b(t)\,\Delta z_b,
-\label{eq:audiodyn_total_loudness}
-\end{equation}
-which corresponds to the relation between specific loudness and total loudness already discussed conceptually in Chapter~\ref{ch:background}. That scalar is useful for visualization, smoothing, or change-point inspection, but it is not used as model input here. For score-dynamics estimation it matters not only how much loudness is present overall, but also how that loudness is distributed across register and spectral balance. Two excerpts can have similar total loudness and still differ substantially in the Bark-wise pattern that a listener hears.
-
-Bark-scale features are therefore a natural fit for the present task. While log-Mel spectrograms remain dominant in modern deep learning pipelines, the effectiveness of Bark-based representations is supported by extensive research. For instance, recent work has demonstrated that Bark-scale cepstral coefficients can improve speaker recognition under short-duration constraints \cite{zi2024bgcc}, and a high-resolution variant of BSSL has shown performance gains over log-Mel inputs for vocal dynamics estimation \cite{narang2024automatic}. Given the growing evidence supporting Bark-scale features, coupled with BSSL's established success in previous piano dynamics research \cite{kosta2016mapping}, we adopt it as the foundational feature for this work.
-
-The primary challenge was the implementation of the BSSL extractor. Standardized toolboxes like MOSQITO \cite{san2021mosqito}, while compliant with ISO 532-1:2017, are designed for robust sound-quality assessment and therefore mandate a 48~kHz sampling rate with constrained STFT parameters. Since most music and piano recordings are encoded at 44.1~kHz, using MOSQITO would require upsampling, which is computationally expensive and can introduce interpolation artifacts. We therefore implemented a custom BSSL extractor in PyTorch by reproducing the \texttt{ma\_sone} function from the widely used Music Analysis MATLAB toolbox by Pampalk \cite{pampalk2004toolbox}, which is based on the algorithmic chain proposed in \cite{pampalk2002content}. This implementation gives the parameter flexibility needed for fair and efficient experimentation.
-
-The feature extraction pipeline begins by converting audio to mono and peak-normalizing it to $-1$~dBFS. To ensure compatibility with a recent state-of-the-art beat tracking model \cite{foscarin2024beat}, the audio is resampled to 22.05~kHz, and a short-time Fourier transform is computed using a Hann window of length 1024 and a frame rate of 50~fps. The resulting power spectrogram is then transformed into BSSL through the psychoacoustic stages summarized above: outer- and middle-ear weighting, grouping into critical bands, spectral spreading, and nonlinear mapping to the perceptual \textit{sone} scale. This yields the final input feature matrix $\mathbf{X} \in \mathbb{R}^{22 \times T}$, where $T$ is the number of frames. The choice of 22 Bark bands is determined by the 11.025~kHz Nyquist frequency, which fully covers the 22nd Bark band. While integrated loudness is convenient for visualization, the full $22 \times T$ BSSL matrix is used as model input in order to preserve the Bark-wise specific-loudness structure motivated in Chapter~\ref{ch:background}.
+A core challenge was the implementation of the BSSL extractor. MOSQITO \cite{san2021mosqito} provides an ISO~532-1:2017-compliant pipeline \cite{iso532_1_2017} appropriate for vocal settings \cite{narang2024automatic}, but its 48~kHz-oriented workflow is overly constrained. This is unsuitable here because the MazurkaBL dataset is natively 44.1~kHz, while the baselines for comparison are all processed under a 22.05~kHz, 50~fps feature configuration. Using MOSQITO would require an additional resampling (44.1 kHz to 48 kHz) and different FFT parameters, making the feature comparison unbalanced and less efficient. We instead implemented a custom BSSL extractor in PyTorch by reproducing the \texttt{ma\_sone} function from Pampalk's Music Analysis MATLAB toolbox \cite{pampalk2004toolbox}, following the algorithmic chain in \cite{pampalk2002content}. The mathematical formulation of this extractor is given in Chapter~\ref{ch:background}. Using the same STFT parameters as the log-Mel input, the BSSL extractor produces $\mathbf{X}_{\mathrm{BSSL}} \in \mathbb{R}^{22 \times T}$. We use the full BSSL matrix rather than compressing it into the BSTL, because the latter would discard the frequency-band structure that may carry useful timbral and register-dependent cues for piano dynamics.
 
 \subsection{Shared multi-scale encoder}
 \label{ssec:audiodyn_encoder}
+A central modeling challenge is the conflict between the temporal context and frame-level precision required by the four tasks. While metrical tasks (beats and downbeats) rely on high temporal resolution to localize sharp transients \cite{bock2020deconstruct}, dynamics-related tasks (dynamics and change points) depend on the surrounding phrase, local contrast, register, and relative loudness context \cite{narang2024automatic}, thereby requiring extended context lengths and stable spectral features. We therefore adapt the multi-scale network of \cite{li2023frame} as the shared encoder. Since this architecture was originally designed for playing techniques spanning different temporal scales, it is exceptionally well-equipped to resolve the competing receptive-field requirements of our four tasks.
 
-A central modeling challenge is that the four tasks do not require the same temporal context. Dynamic estimation requires a large temporal receptive field \cite{narang2024automatic}, whereas beat and downbeat tracking require high temporal resolution to localize transient onsets \cite{bock2020deconstruct}. To reconcile these conflicting requirements, we adapt the multi-scale network of \cite{li2023frame} as a shared encoder.
+As shown in Fig.~\ref{fig:audiodyn_model}, given an $F \times T$ time--frequency feature, where $F$ is the number of frequency bands and $T$ is the number of time frames, the encoder first applies 2D batch normalization and then forms three temporal branches at resolutions $T$, $T/s$, and $T/s^{2}$, where $s$ denotes the temporal scaling factor. The full-resolution branch preserves frame-level timing evidence, the middle branch provides an intermediate representation, and the coarsest branch gives the largest effective receptive field. Following \cite{li2023frame}, residual blocks are used for local feature extraction, while self-attention blocks are applied to strengthen long-range temporal modeling. After multi-scale fusion, the encoder outputs a shared latent sequence $\mathbf{Z} \in \mathbb{R}^{T \times 8}$, which is then passed to the MMoE decoder and task-specific heads.
 
-Given an $F \times T$ time--frequency feature as input, the feature map is first normalized with 2D batch normalization. The encoder then processes three parallel branches at temporal resolutions $T$, $T/s$, and $T/s^{2}$, where the scaling factor $s$ controls the amount of downsampling and upsampling. Each branch is built from residual blocks and self-attention blocks following \cite{li2023frame}. In contrast to the original single-task formulation, we treat $s$ as a tunable hyperparameter and let the encoder output a shared latent sequence $\mathbf{Z} \in \mathbb{R}^{T \times 8}$ for subsequent multi-task decoding.
+Unlike the reference architecture which fixes the scaling factor to 3 \cite{li2023frame}, we treat $s$ as a tunable hyperparameter to explicitly control the trade-off between temporal precision and contextual abstraction. If $s$ is too small, the three branches become insufficiently differentiated and the encoder behaves close to a single-resolution model with redundant side branches. If $s$ is too large, the coarsest branch provides stronger context but may over-compress information that is still useful for event localization. Under our 50~fps feature rate, the empirically best value $s=5$ means that the coarsest branch operates at approximately 2~fps, giving the attention blocks a substantially longer temporal view while the full-rate branch still preserves 20~ms frame-level timing. The ablation study in Section~\ref{ssec:audiodyn_ablation} discusses this effect in more detail.
+
+The feature choice also interacts with the model design. Using 22-band BSSL instead of 128-bin log-Mel reduces the frequency dimension entering the convolutional encoder, lowering memory usage and making longer segments feasible. This allows the model to capture phrase-level dynamics while remaining compact, as further confirmed in Section~\ref{ssec:audiodyn_ablation} Ablation Study.
 
 \begin{figure}[t]
   \centering
-  \IfFileExists{Chapter_5/figures/p2.png}{%
-    \includegraphics[width=\textwidth]{Chapter_5/figures/p2.png}%
-  }{%
-    \fbox{\parbox{0.95\textwidth}{\vspace{4.4cm}\centering\textit{Placeholder for architecture figure from the ICASSP paper. Replace with \texttt{Chapter\_5/figures/p2.png}.}\vspace{4.4cm}}}%
-  }
-  \caption{Architecture of the proposed multi-task framework. A three-branch multi-scale network encodes either log-Mel or BSSL input. Branches operate at lengths $T$, $T/s$, and $T/s^{2}$, with outputs a latent sequence of shape $T\times8$. An 8-expert MMoE with four gates forms task-specific features, followed by linear heads to output four distinct targets. The scaling factor $s$ is a tunable hyperparameter.}
+  \includegraphics[width=0.9\textwidth]{Chapter_5/figures/p2.png}
+  \caption{Architecture of the proposed multi-task framework. A three-branch multi-scale network encodes either log-Mel or BSSL input at temporal resolutions $T$, $T/s$, and $T/s^{2}$, producing a latent sequence of shape $T\times8$. An 8-expert MMoE with four gates forms task-specific features, followed by linear heads for the four targets. The scaling factor $s$ is a tunable hyperparameter.}
   \label{fig:audiodyn_model}
 \end{figure}
 
-The use of BSSL is especially important in this architecture because input dimensionality directly affects parameter count. The compact 22-band input permits substantially longer audio segments than a 128-bin log-Mel front-end, which is important for phrase-level dynamic context and is later confirmed by the ablation study.
+
 
 \section{Joint Estimation with Task-Aware Decoding}
 \label{sec:audiodyn_mtl}
@@ -134,7 +95,7 @@ Here, $\mathbf{e}_{i,t}$ is the output of expert $i$ at time step $t$. Repeating
 \subsection{Task-specific post-processing}
 \label{ssec:audiodyn_post}
 
-The model outputs frame-wise probabilities, which are converted into discrete musical events through tailored post-processing. For beat and downbeat detection, we adopt the post-processing procedure from \cite{foscarin2024beat}: probabilities are thresholded at 50\%, and peak picking is applied within a 70~ms neighborhood ($\pm 3$ frames at 50~fps). For dynamic markings, the dynamic level at each detected beat is determined by taking the \texttt{argmax} of the class probabilities at that frame.
+The model outputs frame-wise probabilities, which are converted into discrete musical events through tailored post-processing. For beat and downbeat detection, we adopt the post-processing procedure from \cite{foscarin2024beat}: probabilities are thresholded at 50\%, and peak picking is applied within a 7-frame local neighborhood (radius 3 at 50~fps). For dynamic markings, the dynamic level at each beat is determined by taking the \texttt{argmax} of the class probabilities at that frame. When an external beat grid is available, this sampling step is performed on that grid; otherwise, the model's own beat predictions are used, which gives the fully end-to-end mode considered in this chapter.
 
 Change points are determined in two stages. First, we identify all frames whose change-point probability exceeds 75\%. Second, we snap each candidate to the nearest detected beat. This beat-snapping step is motivated by the annotation style of MazurkaBL, where dynamic markings are beat-aligned rather than freely placed in continuous time \cite{kosta2018mazurkabl}. The step also keeps evaluation consistent with prior work \cite{kosta2017thesis}.
 
@@ -150,7 +111,41 @@ Training uses a composite multi-task objective,
 \mathcal{L}_{\mathrm{Dbt}}.
 \label{eq:audiodyn_loss}
 \end{equation}
-For the binary targets (change points, beats, and downbeats), we use the shift-tolerant weighted binary cross-entropy proposed in \cite{foscarin2024beat}. This loss addresses two difficulties at once: the target sequences are extremely sparse, and the annotations can contain small timing imprecision. For the multiclass dynamic-level target, we use standard cross-entropy masked by the ground-truth beat positions. This mask imposes a data-driven prior that reflects the annotation style of MazurkaBL, namely that dynamic markings occur only on beats, and suppresses spurious inter-beat fluctuations.
+
+The dynamic head is trained with beat-masked cross-entropy. Let $\mathbf{d}_t \in \mathbb{R}^{C}$ denote the dynamic logits at frame $t$, let $c_t \in \{1,\ldots,C\}$ denote the reference class, and let $m_t^{\mathrm{beat}} \in \{0,1\}$ be a mask that is one only at annotated beat frames. Then
+\begin{equation}
+\mathcal{L}_{\mathrm{Dyn}}
+=
+\sum_{t=1}^{T}
+m_t^{\mathrm{beat}}\,\mathrm{CE}(\mathbf{d}_t,c_t).
+\label{eq:audiodyn_dyn_loss}
+\end{equation}
+In other words, only beat-aligned frames contribute to the dynamic loss, while inter-beat frames are ignored. This directly reflects the annotation style of MazurkaBL and prevents the dynamic head from learning spurious inter-beat fluctuations between neighbouring beats.
+
+For the three binary tasks, i.e., change points, beats, and downbeats, we adopt the shift-tolerant weighted BCE from Beat This \cite{foscarin2024beat}. We first write the weighted BCE in the familiar form
+\begin{equation}
+\mathrm{BCE}_{\alpha}(y,\hat{y}) = -\alpha y\log \hat{y} -(1-y)\log(1-\hat{y}),
+\label{eq:audiodyn_bce_component}
+\end{equation}
+where $\alpha$ is the positive-class weight. For each binary task $k \in \{\mathrm{CPt},\mathrm{Beat},\mathrm{Dbt}\}$, let $y_t^{(k)} \in \{0,1\}$ and $\hat{y}_t^{(k)} \in (0,1)$ denote the target and predicted probability at frame $t$, and let $\mathcal{P}_{r}(\cdot)$ denote one-dimensional max-pooling over a temporal radius $r$. The shift-tolerant loss is written as
+\begin{align}
+\mathcal{L}_{k}^{+}
+&=
+\sum_{t=1}^{T}
+y_t^{(k)}\,\mathrm{BCE}_{\alpha_k}\!\left(1,\mathcal{P}_{3}(\hat{\mathbf{y}}^{(k)})_t\right),
+\label{eq:audiodyn_shift_bce_pos}\\
+\mathcal{L}_{k}^{-}
+&=
+\sum_{t=1}^{T}
+\left(1-\mathcal{P}_{6}(\mathbf{y}^{(k)})_t\right)
+\mathrm{BCE}_{\alpha_k}\!\left(0,\mathcal{P}_{3}(\hat{\mathbf{y}}^{(k)})_t\right),
+\label{eq:audiodyn_shift_bce_neg}\\
+\mathcal{L}_{k}
+&=
+\mathcal{L}_{k}^{+}+\mathcal{L}_{k}^{-}.
+\label{eq:audiodyn_shift_bce}
+\end{align}
+The positive term applies BCE to the local maximum prediction within a 7-frame neighborhood, so a small temporal shift around the annotation is tolerated. The negative term applies BCE only outside a wider exclusion zone created by $\mathcal{P}_{6}(\mathbf{y}^{(k)})$, so frames close to a positive label are not penalized as hard negatives. This design is useful for beat-like targets because the positive frames are extremely sparse and the annotations are not perfectly precise at frame level. In implementation, the same loss is applied on logits for numerical stability.
 
 \section{Experimental Setup}
 \label{sec:audiodyn_exp}
@@ -160,64 +155,100 @@ For the binary targets (change points, beats, and downbeats), we use the shift-t
 
 We use the MazurkaBL dataset \cite{kosta2018mazurkabl}, a score-aligned corpus of 2{,}098 solo piano recordings covering 44 Chopin Mazurkas. After excluding two mazurkas with irregular dynamics annotations (M06-4 and M63-2), 1{,}999 recordings are used. Although newer datasets such as EME33 \cite{hung2024eme33} exist, MazurkaBL remains the largest publicly available resource for studying notated dynamics against performed loudness from audio. Its provision of score-aligned beat times and verified expressive markings makes it particularly suitable for the task of beat-synchronous score-dynamics transcription.
 
-We use 5-fold cross-validation stratified by mazurka. For each fold, the model is trained for 120 epochs, and the best checkpoint is selected on the validation set using F1 score. Optimization uses AdamW with learning rate $3 \times 10^{-4}$, batch size 10, and fixed random seed 86.
+We use 5-fold cross-validation stratified at the mazurka-opus level. This split is deliberately piece-aware: performances of the same mazurka do not appear in both training and test folds. Given the limited size of the corpus, this provides a data-efficient way to test generalization to unseen pieces within MazurkaBL, while avoiding the overly optimistic estimates that can arise when different performances of the same work leak across splits. For each fold, the model is trained for 120 epochs, and the best checkpoint is selected on the validation set using F1 score. Optimization uses AdamW with learning rate $3 \times 10^{-4}$, batch size 10, and fixed random seed 86.
 
 During training, audio is sliced into 60-second segments with 50\% overlap. No overlap is used at evaluation time. Both BSSL and log-Mel features are extracted with the same STFT configuration to ensure identical temporal resolution. The empirically optimal temporal scaling factor is $s=5$. The model predicts six dynamic classes: one \textit{blank} class and the five annotated dynamic levels \textit{pp}, \textit{p}, \textit{mf}, \textit{f}, and \textit{ff}. On an NVIDIA RTX~3090 (24~GiB), a full 5-fold run requires approximately 20 hours, with peak GPU memory usage around 4~GiB.
+
+Beyond this in-domain test, Section~\ref{ssec:audiodyn_cross_dataset} reports a cross-dataset evaluation on the Vienna4x22 dataset \cite{goebl1999vienna4x22}, where models trained on MazurkaBL are applied without fine-tuning.
 
 \subsection{Baselines}
 \label{ssec:audiodyn_baselines}
 
-We compare the proposed model against both single-task baselines and task-specific baselines.
+We compare the proposed model against both single-task baselines and task-specific baselines. These baselines are intentionally heterogeneous: some address only dynamics or change points, while others address only beats and downbeats. Accordingly, the dashes in Table~\ref{tab:audiodyn_main_results} indicate tasks that a baseline does not support, rather than experiments that were omitted.
 
 \paragraph{Single-task multi-scale network.}
-We establish single-task baselines by adapting the multi-scale network from \cite{li2023frame}, integrating its public implementation into our data pipeline, and training one independent model per target. Each single-task model uses the corresponding task-specific loss from the multi-task objective, with scaling factor $s=5$.
+We establish single-task baselines by adapting the multi-scale network from \cite{li2023frame}, integrating its public implementation into our data pipeline, and training one independent model per target. Each single-task model keeps the same feature extraction, audio segmentation, encoder depth, optimizer, and post-processing settings as the proposed system, and differs only in that it solves one target at a time instead of learning all four jointly. Each model uses the corresponding task-specific loss from the multi-task objective, with scaling factor $s=5$. The parameter count reported in Table~\ref{tab:audiodyn_main_results} is therefore for one single-task model instance; solving the four tasks independently would require four such models.
 
 \paragraph{Dynamic and change-point baselines.}
-For dynamics and change points, we report published results from representative methods in \cite{kosta2017thesis}, namely the Artificial Neural Network (ANN) for dynamics and the Pruned Exact Linear Time (PELT) algorithm for change-point detection. These methods are tuning-intensive and not end-to-end, so we report their published scores rather than re-implementing them.
+For dynamics and change points, we report published results from representative methods in \cite{kosta2017thesis}, namely the Artificial Neural Network (ANN) for dynamics and the Pruned Exact Linear Time (PELT) algorithm for change-point detection. These baselines address only their own target and are not trained jointly with metrical estimation. They are also tuning-intensive and not end-to-end, so a faithful re-implementation would introduce many secondary design choices unrelated to the main contribution of this chapter. We therefore report their published scores directly, as in the ICASSP paper.
 
 \paragraph{Beat and downbeat baselines.}
-For beats and downbeats, we include the time-convolutional network with dynamic Bayesian network post-processing \cite{bock2020deconstruct} and the recent state-of-the-art transformer model Beat This \cite{foscarin2024beat}. Both models are retrained from scratch on MazurkaBL using their public code and the same 5-fold protocol as ours.
+For beats and downbeats, we include the time-convolutional network with dynamic Bayesian network post-processing \cite{bock2020deconstruct} and the recent state-of-the-art transformer model Beat This \cite{foscarin2024beat}. Both are joint beat/downbeat systems and therefore populate only the beat-related columns in Table~\ref{tab:audiodyn_main_results}. We retrain them from scratch on MazurkaBL using their public implementations and the same 5-fold protocol as ours. To avoid turning these baselines into modified systems, we preserve their original log-Mel front-end and task formulation.
+
+Finally, the rows marked \textit{w/o.\ BSSL} in Table~\ref{tab:audiodyn_main_results} are not additional baselines from the literature. They are feature-control variants of our own architectures in which the 22-band BSSL input is replaced with a 128-bin log-Mel input under otherwise matched settings. This isolates the effect of the front-end from the effect of the model architecture.
 
 \subsection{Evaluation metrics}
 \label{ssec:audiodyn_metrics}
 
-All four tasks are evaluated using F1 score. For beat and downbeat tracking, we report F1 with a $\pm 70$~ms tolerance, following \cite{bock2020deconstruct,foscarin2024beat}. Dynamics and change points follow the evaluation protocol of \cite{kosta2017thesis}. For dynamics, the continuous dynamic-level output is sampled at each ground-truth beat location, discretized into score markings, and evaluated using macro-averaged F1 over the five dynamic classes \textit{pp}, \textit{p}, \textit{mf}, \textit{f}, and \textit{ff}, excluding the \textit{blank} class. For change points, predictions are snapped to the nearest ground-truth beat before F1 evaluation. This turns both dynamics and change-point evaluation into a beat-wise comparison on a musically meaningful grid.
+All four tasks are evaluated using F1 score. In its standard form,
+\begin{align}
+P &= \frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FP}},
+\label{eq:audiodyn_precision}\\
+R &= \frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FN}},
+\label{eq:audiodyn_recall}\\
+F_{1} &= \frac{2PR}{P+R}.
+\label{eq:audiodyn_f1}
+\end{align}
+Here, $\mathrm{TP}$, $\mathrm{FP}$, and $\mathrm{FN}$ denote true positives, false positives, and false negatives, respectively.
+
+For beat and downbeat tracking, the evaluation is event-based rather than frame-based. In other words, beats and downbeats are treated as binary time-stamped events, not as continuous labeled regions. We therefore count matches by one-to-one event alignment: a predicted beat or downbeat is a true positive only if it can be matched to an unmatched reference event within a $\pm 70$~ms window; otherwise it is a false positive, and any unmatched reference event becomes a false negative. We keep this $\pm 70$~ms tolerance because it is the standard F1 setting used by recent beat-tracking work and by \texttt{mir\_eval}, which makes the present results directly comparable with the literature \cite{raffel2014mireval,bock2020deconstruct,foscarin2024beat}. It should therefore be read as an evaluation convention rather than a musically fundamental constant.
+
+Dynamics and change points follow the evaluation protocol of \cite{kosta2017thesis}. For dynamics, the frame-wise output of the dynamic head is sampled at each ground-truth beat location and then discretized into score labels. This turns the problem into beat-wise multi-class classification on the same metrical grid as the annotations. Let $\mathcal{C}=\{\textit{pp},\textit{p},\textit{mf},\textit{f},\textit{ff}\}$ denote the five musically meaningful classes, excluding the \textit{blank} class. We compute class-wise F1 as
+\begin{equation}
+F_{1,c}
+=
+\frac{2\,\mathrm{TP}_{c}}{2\,\mathrm{TP}_{c}+\mathrm{FP}_{c}+\mathrm{FN}_{c}},
+\qquad c \in \mathcal{C},
+\label{eq:audiodyn_classwise_f1}
+\end{equation}
+and report the macro-average
+\begin{equation}
+F_{1}^{\mathrm{Dyn}}
+=
+\frac{1}{|\mathcal{C}|}
+\sum_{c\in\mathcal{C}} F_{1,c}.
+\label{eq:audiodyn_macro_f1}
+\end{equation}
+The \textit{blank} class is excluded because it only covers the region before the first annotated marking and is not itself a score-dynamics symbol.
+
+For change points, the predicted times are first snapped to the nearest ground-truth beat before evaluation. The task then reduces to binary classification on beat indices: a predicted change point is counted as correct only if its snapped beat index exactly matches a reference change-point index. Since both dynamics and change points are evaluated on the same beat grid as the annotations, no additional timing tolerance is required for these two tasks.
 
 \section{Results, Case Study, and Discussion}
 \label{sec:audiodyn_results}
-
-\begin{table}[t]
-\centering
-\caption{Performance comparison of the proposed model against all baselines. Per-task F1 scores (\%) are reported as mean $\pm$ standard deviations over 5-fold cross-validation. PELT is an algorithmic method with no trainable parameters, while ANN did not report this attribute. The best score in each column is highlighted in bold.}
-\label{tab:audiodyn_main_results}
-\begingroup
-\fontsize{10pt}{10pt}\selectfont
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{l l c c c c r}
-\toprule
-Method & Feature & Dynamic & Change Point & Beat & Downbeat & \# Params \\
-\midrule
-ANN \cite{kosta2017thesis} & BSSL & 29.4 & -- & -- & -- & n/a \\
-PELT \cite{kosta2017thesis} & BSSL & -- & 10.8 & -- & -- & n/a \\
-TCN+DBN \cite{bock2020deconstruct} & log-Mel & -- & -- & $60.9 \pm 1.8$ & $30.4 \pm 1.3$ & 0.1 M \\
-Beat This \cite{foscarin2024beat} & log-Mel & -- & -- & $80.5 \pm 2.7$ & $52.8 \pm 6.2$ & 20.3 M \\
-\midrule
-Single-task Multi-scale & BSSL & $50.6 \pm 10.1$ & $21.0 \pm 9.9$ & $84.0 \pm 1.5$ & $45.0 \pm 1.7$ & 0.4 M \\
-\quad w/o. BSSL & log-Mel & $50.4 \pm 11.1$ & $17.5 \pm 5.4$ & $83.8 \pm 1.8$ & $54.7 \pm 7.5$ & 13.3 M \\
-\midrule
-Multi-task Multi-scale & BSSL & \textbf{$54.4 \pm 8.9$} & \textbf{$26.1 \pm 9.7$} & \textbf{$84.1 \pm 1.3$} & $55.2 \pm 4.2$ & 0.5 M \\
-\quad w/o. BSSL & log-Mel & $50.8 \pm 10.9$ & $23.1 \pm 6.1$ & $83.7 \pm 1.7$ & \textbf{$58.5 \pm 6.2$} & 14.7 M \\
-\bottomrule
-\end{tabular}
-
-\endgroup
-\end{table}
 
 \subsection{Main results}
 \label{ssec:audiodyn_mainres}
 
 Table~\ref{tab:audiodyn_main_results} shows that the proposed multi-task framework gives the strongest overall results on MazurkaBL. With BSSL input, it achieves the best scores for dynamics, change points, and beats, while the log-Mel variant of the same framework achieves the best downbeat F1. The BSSL configuration is therefore the best overall trade-off, and it is the configuration adopted as the main system in this chapter.
+
+\begin{table}[h]
+\centering
+\caption{Performance comparison of the proposed model against all baselines on the MazurkaBL dataset. Per-task F1 scores (\%) are reported as mean $\pm$ standard deviations over 5-fold cross-validation. PELT is an algorithmic method with no trainable parameters, while ANN did not report this attribute. The single-task parameter count is reported per model instance. The best score is highlighted in bold, and the second-best is underlined.}
+\label{tab:audiodyn_main_results}
+\fontsize{10pt}{12pt}\selectfont
+\setlength{\tabcolsep}{2.6pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{l|l|ccccc}
+\toprule
+\multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Method}}}
+& \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Feature}}}
+& \multicolumn{5}{c}{\textbf{MazurkaBL dataset}} \\
+\cmidrule(l){3-7}
+& & \textbf{Dyn. F1} & \textbf{CPt. F1} & \textbf{Beat F1} & \textbf{Dbt. F1} & \textbf{Params} \\
+\midrule
+ANN \cite{kosta2017thesis} & BSSL & 29.4 & -- & -- & -- & n/a \\
+PELT \cite{kosta2017thesis} & BSSL & -- & 10.8 & -- & -- & n/a \\
+TCN+DBN \cite{bock2020deconstruct} & log-Mel & -- & -- & 60.9 $\pm$ 1.8 & 30.4 $\pm$ 1.3 & 0.1 M \\
+Beat This \cite{foscarin2024beat} & log-Mel & -- & -- & 80.5 $\pm$ 2.7 & 52.8 $\pm$ 6.2 & 20.3 M \\
+\midrule
+Single-task Multiscale \quad & BSSL & 50.6 $\pm$ 10.1 & 21.0 $\pm$ 9.9 & \underline{84.0 $\pm$ 1.5} & 45.0 $\pm$ 1.7 & 0.4 M \\
+\quad w/o. BSSL & log-Mel & 50.4 $\pm$ 11.1 & 17.5 $\pm$ 5.4 & 83.8 $\pm$ 1.8 & 54.7 $\pm$ 7.5 & 13.3 M \\
+\midrule
+Multitask Multiscale & BSSL & \textbf{54.4 $\pm$ 8.9} & \textbf{26.1 $\pm$ 9.7} & \textbf{84.1 $\pm$ 1.3} & \underline{55.2 $\pm$ 4.2} & 0.5 M \\
+\quad w/o. BSSL & log-Mel & \underline{50.8 $\pm$ 10.9} & \underline{23.1 $\pm$ 6.1} & 83.7 $\pm$ 1.7 & \textbf{58.5 $\pm$ 6.2} & 14.7 M \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 The multi-task formulation is consistently better than the corresponding single-task counterpart under the same BSSL front-end. Relative to the single-task BSSL model, the proposed multi-task model improves dynamic F1 by 3.8 points, change-point F1 by 5.1 points, beat F1 by 0.1 points, and downbeat F1 by 10.2 points. These gains indicate that joint learning is useful rather than harmful in this setting, provided that the shared representation is combined with task-aware decoding.
 
@@ -225,41 +256,81 @@ The feature comparison also reveals an important trade-off. BSSL is better for d
 
 This result should not be read as a dimensionality effect alone. In the terms of Chapter~\ref{ch:background}, BSSL preserves the Bark-wise distribution of specific loudness after auditory weighting and masking, whereas a scalar loudness curve would discard that structure and a conventional log-Mel spectrogram does not encode it explicitly. The gains in dynamic and change-point prediction are therefore consistent with the thesis-level claim that score-dynamics recovery benefits from a representation closer to perceived loudness than to raw spectral magnitude.
 
-\begin{table}[t]
-\centering
-\caption{Ablation study of the multi-task network with BSSL features. Per-task F1 scores (\%, mean over 5 folds) and their arithmetic average are reported.}
-\label{tab:audiodyn_ablation}
-\begingroup
-\fontsize{9pt}{11pt}\selectfont
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.0}
-\begin{tabular}{l c c c c c}
-\toprule
-Setting & Dyn F1 & CPt F1 & Bt F1 & Dbt F1 & Average \\
-\midrule
-Proposed & \textbf{54.4} & \textbf{26.1} & \textbf{84.1} & \textbf{55.2} & \textbf{55.0} \\
-\quad w/o. MMoE & 52.8 & 22.0 & 82.9 & 51.8 & 52.4 \\
-\quad w/o. Temp. Scal. & 50.5 & 13.3 & 80.3 & 41.9 & 46.5 \\
-\quad w/o. Data Augm. & 50.5 & 19.6 & 83.2 & 51.7 & 51.2 \\
-\quad uses 30s Segment & 49.1 & 19.2 & 83.4 & 52.7 & 51.1 \\
-\bottomrule
-\end{tabular}
-\endgroup
-\end{table}
 
 \subsection{Ablation study}
 \label{ssec:audiodyn_ablation}
 
-To validate the design choices, we conduct four ablations against the full BSSL model: removing MMoE, disabling temporal scaling by setting $s=1$, removing overlap-based data augmentation, and shortening the audio segment from 60 seconds to 30 seconds. Table~\ref{tab:audiodyn_ablation} shows that all four choices matter. The largest drop is caused by removing temporal scaling, which confirms that the task combination genuinely benefits from multi-scale context. Removing MMoE also causes a clear degradation, which supports the claim that task-aware routing mitigates negative transfer.
+To validate the design choices of the proposed model, we conduct an extended ablation study against the full BSSL configuration. The full model uses the MMoE decoder, temporal scaling with $s=5$, data augmentation, and 60-second audio segments. Table~\ref{tab:audiodyn_ablation} evaluates the architecture across three dimensions: the removal of key model components, the variation of the temporal scaling factor $s$, and the adjustment of the input audio segment length. This organisation is deliberate because it directly reflects our core modeling hypothesis. Since macro-structural dynamics and metrical beats/downbeats inherently prefer conflicting temporal contexts, temporal scaling and audio segment length act as the primary mechanisms to resolve this tension, making their analysis critical.
 
-The 60-second input length is especially important for the dynamics-related tasks. Compared with the 30-second setting, the full model improves dynamic F1 from 49.1 to 54.4 and change-point F1 from 19.2 to 26.1. This supports the main modeling intuition of the chapter: phrase-level dynamic context extends well beyond the shorter windows commonly used in beat tracking.
+\begin{table}[h]
+\centering
+\caption{Ablation study of the multitask multiscale network with BSSL as input. Per-task F1 scores (\%, mean over 5 folds) and their arithmetic average are reported. The full model uses MMoE, temporal scaling $s=5$, 60-second audio segments, and data augmentation. The best score is highlighted in bold, and the second-best is underlined.}
+\label{tab:audiodyn_ablation}
+\fontsize{10pt}{12pt}\selectfont
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{l|ccccc}
+\toprule
+\multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Setting}}}
+& \multicolumn{5}{c}{\textbf{MazurkaBL dataset}} \\
+\cmidrule(l){2-6}
+& \textbf{Dyn. F1} & \textbf{CPt. F1} & \textbf{Beat F1} & \textbf{Dbt. F1} & \textbf{Average} \\
+\midrule
+Multitask Multiscale Network (s=5, 60s) \quad & \underline{54.4} & \underline{26.1} & \textbf{84.1} & \textbf{55.2} & \textbf{55.0} \\
+\quad w/o. MMoE & 52.8 & 22.0 & 82.9 & 51.8 & 52.4 \\
+\quad w/o. Data Augmentation & 50.5 & 19.6 & 83.2 & 51.7 & 51.2 \\
+\quad w/o. Temporal Scaling (s=1) & 50.5 & 13.3 & 80.3 & 41.9 & 46.5 \\
+\quad uses Temporal Scaling s=3 & 51.1 & \underline{26.1} & \textbf{84.1} & \underline{54.3} & 53.9 \\
+\quad uses Temporal Scaling s=7 & 54.0 & 25.8 & \underline{83.8} & 53.8 & \underline{54.4} \\
+\quad uses Temporal Scaling s=9 & 52.7 & 25.4 & 83.2 & 50.3 & 52.9 \\
+\quad uses 120s Audio Segment & 52.3 & 25.9 & 81.1 & 46.8 & 51.5 \\
+\quad uses 90s Audio Segment & \textbf{56.8} & \textbf{27.8} & 82.9 & 46.6 & 54.2 \\
+\quad uses 30s Audio Segment (as in \cite{foscarin2024beat})& 49.1 & 19.2 & 83.4 & 52.7 & 51.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\subsection{Case study and interpretability}
-\label{ssec:audiodyn_case}
+The component ablations show that all major parts of the model contribute to the final performance, but not in the same way. The most diagnostic result is the removal of temporal scaling. Setting $s=1$ reduces the average F1 from 55.0 to 46.5, with particularly large drops in change-point F1 and downbeat F1. This indicates that the performance gain does not merely come from using a deeper convolutional encoder, but from exposing the downstream tasks to genuinely different temporal resolutions. Removing MMoE also degrades all four tasks, supporting the view that the four heads have different preference on the same shared latent. The overlap-based data augmentation gives a further improvement, which is expected for this dataset because change points and downbeats are sparse events. Overlapping audio segments increase the chance that such events appear in varied local contexts during training.
 
-Figure~\ref{fig:audiodyn_workflow} illustrates how the model output can be turned into score-level annotations. The highlighted excerpt shows a piecewise-constant dynamic trajectory aligned to beat positions, while a detected change point marks a contextual shift between local dynamic regimes. This qualitative example is important because the objective of the chapter is not continuous loudness tracking for its own sake. The aim is to produce labels that can be written back onto a score or compared on a common beat grid across performances.
+The temporal-scaling results give a detailed view of the multi-scale encoder. The reference architecture of \cite{li2023frame} uses a scaling factor of 3, but this value is not optimal for our tasks combination. With $s=3$, beat F1 and change-point F1 remain strong, but the average score is lower than the full model. Increasing the factor to $s=5$ gives the best overall balance. A slightly larger value, $s=7$, remains competitive and gives the second-best average score, but further increasing the factor to $s=9$ causes a clear degradation, especially for downbeats. This pattern suggests that the model needs a sufficiently coarse branch to capture long-range dynamic context, but excessive temporal compression begins to remove information that cannot be fully recovered for event localization. The best value is therefore not simply the largest receptive field, but the best compromise between contextual abstraction and temporal precision.
 
-This beat-synchronous interface also improves interpretability. Dynamic levels provide a compact symbolic summary, while change points explain where that summary changes. Beats and downbeats make the output musically navigable. Together, the four targets form a practical bridge between raw audio and human-readable score annotations.
+The segment-length results further support this interpretation. The 30-second setting is included because it is a common choice in beat/downbeat tracking systems, including Beat This \cite{foscarin2024beat}. It performs reasonably well for beat and downbeat tracking, but is clearly weaker for dynamics and change points. Moving from 30 seconds to 60 seconds improves dynamic F1 from 49.1 to 54.4 and change-point F1 from 19.2 to 26.1, confirming that dynamics-related targets benefit from musical context beyond the short excerpts typically used for metrical tracking. However, the trend is not monotonic. The 90-second setting achieves the best dynamic and change-point F1 scores, but its downbeat F1 drops sharply, reducing the overall average. The 120-second setting is worse than 60 seconds on all four tasks. These results show that longer audio context is helpful for dynamics, but only up to the point where the joint model can still maintain stable event localization. We therefore use 60-second segments as the default setting, not because it maximizes every individual task, but because it gives the best multi-task trade-off across dynamics, change points, beats, and downbeats.
+
+\subsection{Cross-dataset evaluation}
+\label{ssec:audiodyn_cross_dataset}
+
+The 5-fold MazurkaBL evaluation already gives a partial test of generalization, because the folds are piece-disjoint and the model is always evaluated on unseen mazurkas within the same corpus. However, it remains an in-domain setting: performer pool, recording conditions, repertoire family, and annotation conventions are all inherited from MazurkaBL. We therefore add a stricter cross-dataset experiment based on the Vienna 4x22 Piano Corpus \cite{goebl1999vienna4x22}.
+
+\begin{table}[h]
+\centering
+\caption{Cross-dataset evaluation on a Vienna4x22-based test set. Models are trained on MazurkaBL and applied to Vienna4x22 without fine-tuning. Only dynamic F1 is reported because the external set currently provides dynamic annotations only. Replace the placeholder values with the final measurements.}
+\label{tab:audiodyn_main_results}
+\fontsize{10pt}{12pt}\selectfont
+\setlength{\tabcolsep}{2.6pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{l|l|cccc}
+\toprule
+\multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Method}}}
+& \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Feature}}}
+& \multicolumn{4}{c}{\textbf{Vienna 4x22 dataset}} \\
+\cmidrule(l){3-6}
+& & \textbf{Dyn. F1} & \textbf{CPt. F1} & \textbf{Beat F1} & \textbf{Dbt. F1} \\
+\midrule
+TCN+DBN \cite{bock2020deconstruct} & log-Mel & -- & -- & 60.9 $\pm$ 1.8 & 30.4 $\pm$ 1.3 \\
+Beat This \cite{foscarin2024beat} & log-Mel & -- & -- & 80.5 $\pm$ 2.7 & 52.8 $\pm$ 6.2 \\
+\midrule
+Single-task Multiscale \quad & BSSL & 50.6 $\pm$ 10.1 & 21.0 $\pm$ 9.9 & 84.0 $\pm$ 1.5 & 45.0 $\pm$ 1.7 \\
+\quad w/o. BSSL & log-Mel & 50.4 $\pm$ 11.1 & 17.5 $\pm$ 5.4 & 83.8 $\pm$ 1.8 & 54.7 $\pm$ 7.5 \\
+\midrule
+Multitask Multiscale & BSSL & \textbf{54.4 $\pm$ 8.9} & \textbf{26.1 $\pm$ 9.7} & \textbf{84.1 $\pm$ 1.3} & 55.2 $\pm$ 4.2 \\
+\quad w/o. BSSL & log-Mel & 50.8 $\pm$ 10.9 & 23.1 $\pm$ 6.1 & 83.7 $\pm$ 1.7 & \textbf{58.5 $\pm$ 6.2} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Vienna4x22 contains 22 performances by professional pianists of four classical piano excerpts. For the present experiment, we use a Vienna4x22 subset for which compatible dynamic labels are available and map those labels to the same score-dynamics vocabulary used in this chapter. The model is trained on MazurkaBL and evaluated on Vienna4x22 without fine-tuning. Because this external set currently provides dynamic annotations but not the full four-target annotation suite, Table~\ref{tab:audiodyn_cross_dataset} reports dynamic F1 only.
+
+This experiment complements the 5-fold MazurkaBL study in an important way. The in-domain folds ask whether the model generalizes to unseen pieces under the same corpus design. The Vienna4x22 test asks whether the learned notion of score dynamics transfers to new performers, new excerpts, and a different recording setup. A performance drop is therefore expected, but a stable non-trivial F1 on Vienna4x22 would provide stronger evidence that the model is learning score-facing dynamic structure rather than merely fitting corpus-specific loudness patterns.
 
 \subsection{Discussion: why score dynamics is not a relabelled MIDI velocity problem}
 \label{ssec:audiodyn_discussion}

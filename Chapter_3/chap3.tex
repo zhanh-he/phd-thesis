@@ -311,16 +311,15 @@ ConvAE \cite{kuo2021velocity} (re-implemented) & 12.5 & 258.1 & 9.6 & 58.5\% & 9
 \end{tabular}
 \end{table}
 
+The metric behavior warrants some discussion. When the predictions are visualized, as in Figure~\ref{fig:velcomp_visual}, two patterns become clear. First, accuracy metrics such as MAE, MSE, \(SD_{\mathrm{ae}}\), and Recall\textsubscript{10\%} usually distinguish the models well, but there are cases in which they fail to reflect perceptual differences. The Chopin Op.~10 No.~4 excerpt is one such example, where a mid-range local optimum produces superficially acceptable error values. Second, \(SD_{\mathrm{velo}}\) is especially informative because it reflects the dispersion of predicted velocities around their mean. Higher values tend to reveal clearer differentiation between the hands and therefore a more human-like intensity profile.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \begin{center}
-\includegraphics[width=\columnwidth]{Chapter_3/figures/p4v1.png}
+\includegraphics[width=\columnwidth]{Chapter_3/figures/p4.png}
 \caption{Comparison of human-performed velocity with ConvAE and U-Net predictions. The U-Net result is more human-like than ConvAE, but for Chopin Op.~10 No.~4 the standard accuracy metrics do not fully reflect this difference.}
 \label{fig:velcomp_visual}
 \end{center}
 \end{figure}
-
-The metric behavior warrants some discussion. When the predictions are visualized, as in Figure~\ref{fig:velcomp_visual}, two patterns become clear. First, accuracy metrics such as MAE, MSE, \(SD_{\mathrm{ae}}\), and Recall\textsubscript{10\%} usually distinguish the models well, but there are cases in which they fail to reflect perceptual differences. The Chopin Op.~10 No.~4 excerpt is one such example, where a mid-range local optimum produces superficially acceptable error values. Second, \(SD_{\mathrm{velo}}\) is especially informative because it reflects the dispersion of predicted velocities around their mean. Higher values tend to reveal clearer differentiation between the hands and therefore a more human-like intensity profile.
 
 
 \section{Ablation Summary}
@@ -399,7 +398,7 @@ To render the MIDI as faithfully as possible, we calibrated the PianoTeq~8 dynam
 Calibration compared momentary loudness correlation and loudness range, following BS.1770/EBU R128.
 The results in Table~\ref{tab:velcomp_pianoteq} show that a dynamics setting of 60~dB best matched the original recordings, and this setting was used for all listening-test stimuli.
 
-\begin{table}[t]
+\begin{table}[h]
 \centering
 % \scriptsize                        % 控制字体, 把字体切到 LaTeX 预定义的小字号
 \setlength{\tabcolsep}{7pt}          % 控制表格列与列之间的左右留白
@@ -430,7 +429,7 @@ In each trial, the audio rendered from the human-performed MIDI served as the fi
 Following a MUSHRA-inspired reference-based procedure \cite{series2014mursha}, participants rated each processed stimulus independently on a continuous 0--5 scale, where the labeled intervals corresponded to ``bad'', ``poor'', ``fair'', ``good'', and ``excellent'' similarity.
 The final scores were averaged across listeners to obtain MOS, and 95\% confidence intervals were computed for reporting.
 
-\begin{table}[t]
+\begin{table}[h]
 \centering
 \caption{Listening-test results. MOS values with 95\% confidence intervals are reported. ``Most seen'' composers include \{Chopin, Bach, Beethoven\}; ``less seen'' composers include \{Rachmaninoff, Haydn, Mozart\}; and ``unseen'' composers include \{Bart\'ok, Ravel\}.}
 \label{tab:velcomp_mos}

@@ -181,7 +181,7 @@ For a fair comparison, all baselines use the same log-Mel spectrogram input with
 This yields an input tensor of size $1001\times229$.
 The velocity branch outputs a preliminary velocity map $\hat{\mathbf{V}}_0\in[0,1]^{T\times P}$.
 
-\begin{figure}[t]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.85\textwidth]{Chapter_4/figures/p3v1.jpg}
 \caption{Velocity Estimation Branch in High resolution piano transcription (HPT) system \cite{kong2021hpt}.}
@@ -436,7 +436,7 @@ To keep the comparison fair, all models follow the same training protocol and us
 Following the generalization analysis above, we use onset $+$ frame for all proposed Transformer-based variants.
 Table~\ref{tab:scoreinf_smd} summarizes the results. Specifically, Recall$_{10\%}$ results of hFT-Transformer and Transkun v2 are obtained from the MIREX2024: Polyphonic Transcription challenge.\footnote{\url{https://music-ir.org/mirex/wiki/2024:Polyphonic_Transcription_Results}}
 
-\begin{table}[b]
+\begin{table}[h!]
     \centering
     \setlength{\tabcolsep}{4pt}
     \small
