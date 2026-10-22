@@ -1,0 +1,739 @@
+[
+  {
+    "sha": "22b4db68389b9825ba88b197a93929a9e7be4847",
+    "node_id": "C_kwDORZMogtoAKDIyYjRkYjY4Mzg5Yjk4MjViYTg4YjE5N2E5MzkyOWE5ZTdiZTQ4NDc",
+    "commit": {
+      "author": {
+        "name": "zhanh-he",
+        "email": "narcolehitl@gmail.com",
+        "date": "2026-03-19T14:54:23Z"
+      },
+      "committer": {
+        "name": "zhanh-he",
+        "email": "narcolehitl@gmail.com",
+        "date": "2026-03-19T14:54:23Z"
+      },
+      "message": "Merge branch 'main' of git_zhanh:zhanh-he/score-informed-amt",
+      "tree": {
+        "sha": "249dd14e3f96ecd5cc9b7be7c598e7c379a5276f",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/249dd14e3f96ecd5cc9b7be7c598e7c379a5276f"
+      },
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/commits/22b4db68389b9825ba88b197a93929a9e7be4847",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/22b4db68389b9825ba88b197a93929a9e7be4847",
+    "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/22b4db68389b9825ba88b197a93929a9e7be4847",
+    "comments_url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/22b4db68389b9825ba88b197a93929a9e7be4847/comments",
+    "author": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "747ff5d5272be09dbd9f46c44c48dddb52652a23",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/747ff5d5272be09dbd9f46c44c48dddb52652a23",
+        "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/747ff5d5272be09dbd9f46c44c48dddb52652a23"
+      },
+      {
+        "sha": "bc542435cab05415876af7114b612d6dbfc2e1fc",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/bc542435cab05415876af7114b612d6dbfc2e1fc",
+        "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/bc542435cab05415876af7114b612d6dbfc2e1fc"
+      }
+    ]
+  },
+  {
+    "sha": "747ff5d5272be09dbd9f46c44c48dddb52652a23",
+    "node_id": "C_kwDORZMogtoAKDc0N2ZmNWQ1MjcyYmUwOWRiZDlmNDZjNDRjNDhkZGRiNTI2NTJhMjM",
+    "commit": {
+      "author": {
+        "name": "zhanh-he",
+        "email": "narcolehitl@gmail.com",
+        "date": "2026-03-19T14:52:46Z"
+      },
+      "committer": {
+        "name": "zhanh-he",
+        "email": "narcolehitl@gmail.com",
+        "date": "2026-03-19T14:52:46Z"
+      },
+      "message": "add my phd thesis eval metrics (not reported in paper)",
+      "tree": {
+        "sha": "9fb4b85c92691329c1af250f2d74ddecdb8fc387",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/9fb4b85c92691329c1af250f2d74ddecdb8fc387"
+      },
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/commits/747ff5d5272be09dbd9f46c44c48dddb52652a23",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/747ff5d5272be09dbd9f46c44c48dddb52652a23",
+    "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/747ff5d5272be09dbd9f46c44c48dddb52652a23",
+    "comments_url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/747ff5d5272be09dbd9f46c44c48dddb52652a23/comments",
+    "author": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5124c2a3a20925aab981cd048ceae0e8cf219090",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/5124c2a3a20925aab981cd048ceae0e8cf219090",
+        "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/5124c2a3a20925aab981cd048ceae0e8cf219090"
+      }
+    ]
+  },
+  {
+    "sha": "bc542435cab05415876af7114b612d6dbfc2e1fc",
+    "node_id": "C_kwDORZMogtoAKGJjNTQyNDM1Y2FiMDU0MTU4NzZhZjcxMTRiNjEyZDZkYmZjMmUxZmM",
+    "commit": {
+      "author": {
+        "name": "zhanh",
+        "email": "49585967+zhanh-he@users.noreply.github.com",
+        "date": "2026-03-14T19:01:39Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-03-14T19:01:39Z"
+      },
+      "message": "Revise README for clarity and contact information\n\nImproved clarity in README.",
+      "tree": {
+        "sha": "f8c66bdc6616aaebc32ea7846f1ab96feb410465",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/f8c66bdc6616aaebc32ea7846f1ab96feb410465"
+      },
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/commits/bc542435cab05415876af7114b612d6dbfc2e1fc",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJptbCTCRC1aQ7uu5UhlAAASZIQAD6y4WS6nYkfpnVPWNcLD9aZ\n20+b4Mihe5Bw49GumvZw4hBhN7mcSsC4RU9wFfBt9A9T2NvNwMtKg6PYdIUsordI\n/8qU4lmFtvUpQDTNBf2n7I2L6s+XK0mDOvMk1rHqwXE6iXySqY8e6AgO6offAtQL\n7ly/1Gp7xdh8bvEqA1Zw8tIw4n1VLhhQivYRRgfDmrh4ZXrfi6yQM1uWNQb9dXrh\nhP9R8yDDVZnZEcXbdoqHl4dVXE+U4eXrrMpWU5VN/HPPVNB5dqazP13Bmw3rfPGc\nJg1uvCKRwobdgGaDIY89JyNgNOXx9G7pKUmq6fBtUmU+EL0NFjF4bsbM7Q95XKuD\n2bykN3pPyyli4uIjkjtorkliWLkgl76vTPB/b9gJiRu4IPF/UX8Flp0UN3WF+nuY\nevUmULJau0ZSD37VdRuS3nBTQq+KKIPlvY5WgkdMxJMUgFXuWvc7j4icB6xBwT4g\nmDoqx2ov3gt4xoZygSa2v3m5n4wWGAShAC5wc/vcpGvizc2dmO05gfgH9roQOLy7\nXaWcqvqYYyL0dX5PL/hLEE38r3i2PdAX8Tk8DjMhbp1ossmqdIb4foZidjVdkEdw\nVsku17UbnnmGBh5Rse9Kj0KxHOg0NaSQ87xtLqwEXrbsX4sQqDbqKsKusui4TvIc\nZC0luo6lY8TeImpXvcag\n=a1Lk\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree f8c66bdc6616aaebc32ea7846f1ab96feb410465\nparent 5124c2a3a20925aab981cd048ceae0e8cf219090\nauthor zhanh <49585967+zhanh-he@users.noreply.github.com> 1773514899 +0800\ncommitter GitHub <noreply@github.com> 1773514899 +0800\n\nRevise README for clarity and contact information\n\nImproved clarity in README.",
+        "verified_at": "2026-03-14T19:01:39Z"
+      }
+    },
+    "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/bc542435cab05415876af7114b612d6dbfc2e1fc",
+    "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/bc542435cab05415876af7114b612d6dbfc2e1fc",
+    "comments_url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/bc542435cab05415876af7114b612d6dbfc2e1fc/comments",
+    "author": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5124c2a3a20925aab981cd048ceae0e8cf219090",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/5124c2a3a20925aab981cd048ceae0e8cf219090",
+        "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/5124c2a3a20925aab981cd048ceae0e8cf219090"
+      }
+    ]
+  },
+  {
+    "sha": "5124c2a3a20925aab981cd048ceae0e8cf219090",
+    "node_id": "C_kwDORZMogtoAKDUxMjRjMmEzYTIwOTI1YWFiOTgxY2QwNDhjZWFlMGU4Y2YyMTkwOTA",
+    "commit": {
+      "author": {
+        "name": "zhanh-he",
+        "email": "narcolehitl@gmail.com",
+        "date": "2026-03-11T11:53:31Z"
+      },
+      "committer": {
+        "name": "zhanh-he",
+        "email": "narcolehitl@gmail.com",
+        "date": "2026-03-11T11:56:47Z"
+      },
+      "message": "add unaligned evaluation",
+      "tree": {
+        "sha": "934e5a311e539485de311ff5fad6e2f7ecffeec3",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/934e5a311e539485de311ff5fad6e2f7ecffeec3"
+      },
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/commits/5124c2a3a20925aab981cd048ceae0e8cf219090",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/5124c2a3a20925aab981cd048ceae0e8cf219090",
+    "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/5124c2a3a20925aab981cd048ceae0e8cf219090",
+    "comments_url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/5124c2a3a20925aab981cd048ceae0e8cf219090/comments",
+    "author": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "264f7fa13cd10312ce556c67fb019d0b1cddc345",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/264f7fa13cd10312ce556c67fb019d0b1cddc345",
+        "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/264f7fa13cd10312ce556c67fb019d0b1cddc345"
+      }
+    ]
+  },
+  {
+    "sha": "264f7fa13cd10312ce556c67fb019d0b1cddc345",
+    "node_id": "C_kwDORZMogtoAKDI2NGY3ZmExM2NkMTAzMTJjZTU1NmM2N2ZiMDE5ZDBiMWNkZGMzNDU",
+    "commit": {
+      "author": {
+        "name": "zhanh",
+        "email": "49585967+zhanh-he@users.noreply.github.com",
+        "date": "2026-03-02T19:05:42Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-03-02T19:05:42Z"
+      },
+      "message": "ADd paper link",
+      "tree": {
+        "sha": "985b57de93553b8d0bcc75755dcb3d04e84ae47d",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/985b57de93553b8d0bcc75755dcb3d04e84ae47d"
+      },
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/commits/264f7fa13cd10312ce556c67fb019d0b1cddc345",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJppd+GCRC1aQ7uu5UhlAAAwlIQAGGcC0+6cw28PwF0hZ7kXEjs\n6f5qG8x0qux25L7WsMfJpwvDL9CBRoxz5/oOj7Xf3Y0Y0bwYZMkpdXZrUapNR0OS\nT58L1Jnopp7WkP6f10fYPajfF5rz4g9irj0K729NdTV69rSv0mW5tlpSWZ6b9w8R\nxnCLuEpeoerjTtEueP0aOAADXPXnsx7x8OB861LdlqwWhNe+0MnnJTs3uTw6ilyc\nUppwdkWYFihNZNsM/vOB0xEqVfH/+gtVb7Ft/nBQmxHNrueAIGractK2wI5ws+/o\nageVyLVVClCLsfZP8oq6rQVei1Bd+Yt1cX5Kr/GU4cW+m2iD/iYa0MluKTFv1tiF\nvKgoITY/vifLE+Uj9o6CSCz8uu54s1uQOAXVovhfxoy6omyEv8PmWvnF+9ff63Fx\nyobKtj3UEDc6iJjCc+5LmXRosW7nLiWQ57uf8YpqDvxllLbyatX75+8PIJWuaPQC\nZVESE6UUv2GPuBWgFuiGTYnYOdeIoumbx+0vgPzDoKGQ6cB77lUfGD2w46j5FvGF\nMFIg2nAPi7aAUZ9xvmYDGRQ6VCZscbA+ficISq8FILWXLUJEaRx3wF3pHXaYWw4C\nVfjUVdJSISrC2JBZTrZBxwJk2C5A0LqOynWHOP+ON18ri+nPafdtus6lfAMIm+J5\nIfu6K1VuEetMS8lA4euz\n=Im9M\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 985b57de93553b8d0bcc75755dcb3d04e84ae47d\nparent bd1eef2ced64c750451a3451869ad1fa75c14dac\nauthor zhanh <49585967+zhanh-he@users.noreply.github.com> 1772478342 +0800\ncommitter GitHub <noreply@github.com> 1772478342 +0800\n\nADd paper link",
+        "verified_at": "2026-03-02T19:05:42Z"
+      }
+    },
+    "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/264f7fa13cd10312ce556c67fb019d0b1cddc345",
+    "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/264f7fa13cd10312ce556c67fb019d0b1cddc345",
+    "comments_url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/264f7fa13cd10312ce556c67fb019d0b1cddc345/comments",
+    "author": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "bd1eef2ced64c750451a3451869ad1fa75c14dac",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/bd1eef2ced64c750451a3451869ad1fa75c14dac",
+        "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/bd1eef2ced64c750451a3451869ad1fa75c14dac"
+      }
+    ]
+  },
+  {
+    "sha": "bd1eef2ced64c750451a3451869ad1fa75c14dac",
+    "node_id": "C_kwDORZMogtoAKGJkMWVlZjJjZWQ2NGM3NTA0NTFhMzQ1MTg2OWFkMWZhNzVjMTRkYWM",
+    "commit": {
+      "author": {
+        "name": "zhanh",
+        "email": "49585967+zhanh-he@users.noreply.github.com",
+        "date": "2026-03-02T19:05:22Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-03-02T19:05:22Z"
+      },
+      "message": "Add paper link",
+      "tree": {
+        "sha": "85bd4819197856c9332d95c6cfc50d94022aa246",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/85bd4819197856c9332d95c6cfc50d94022aa246"
+      },
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/commits/bd1eef2ced64c750451a3451869ad1fa75c14dac",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJppd9yCRC1aQ7uu5UhlAAAT+QQAFYN3RpO2OSiZ4f9CpCrAqzR\nE/CoBwVQyqj1xHDgdHeA2WUfP9dPiP31W+QCwJqDGDv85Filx3GsJmJRdzA3U3qi\nVcmYxEIEeHlrRmqWQ4UdIaOrx4kF8kzJudBL9VofP+8t1qccrgoVpuT7Cr5OJRxU\nnViiLeevRt1r2+3VeqCPF/KpfQOQKvpsQyAoqpsYw0bGwy8nhbkakxa78d6B1oJW\npQJHwzynSvYWJJSB//bgPdLREGaprdkvOB/v4UnN0I2Q6cSVvKsgNd3roLhYp6EC\nIB8JFCBiuxNBweFMEvPzR5s5QQzN6YfEHECsz56f+vY2J5u2nUsg85NZrLHQ5E/C\ntt7fSVit4Wx0AOR7AAsPvPqCEooZU7aUezAPJfhu02OAEp4nRzBY041doMbxnd2l\nkuwTS/7hKn45AtSXlyXKcGmrL7Ex9eZraSXAuxOWP4N7TD6uni/YloueLcfTiYuR\nzbMc54RKDRQHcDR+9+JGeaANaqly9hyvOK7sstn0J66RHaL2XDwRJgV07sH7ZIZL\nhl75u5WXIBtqyC/zUJnLaal4kQKgyiIOWITEpgua4vOyIrO23yHc+ClL241Jsow9\nhbsYui3BDv10VRWt1F4Y4sJbDRp6YGKvtXJ/7ASpVyAMyRgKBMrk0mQzeP+R0543\nU/OryKYsUePhE+weVhxS\n=nFyl\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 85bd4819197856c9332d95c6cfc50d94022aa246\nparent ff8f6b564fc41f1b928d44cb456800fe3b4ec742\nauthor zhanh <49585967+zhanh-he@users.noreply.github.com> 1772478322 +0800\ncommitter GitHub <noreply@github.com> 1772478322 +0800\n\nAdd paper link",
+        "verified_at": "2026-03-02T19:05:23Z"
+      }
+    },
+    "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/bd1eef2ced64c750451a3451869ad1fa75c14dac",
+    "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/bd1eef2ced64c750451a3451869ad1fa75c14dac",
+    "comments_url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/bd1eef2ced64c750451a3451869ad1fa75c14dac/comments",
+    "author": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ff8f6b564fc41f1b928d44cb456800fe3b4ec742",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/ff8f6b564fc41f1b928d44cb456800fe3b4ec742",
+        "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/ff8f6b564fc41f1b928d44cb456800fe3b4ec742"
+      }
+    ]
+  },
+  {
+    "sha": "ff8f6b564fc41f1b928d44cb456800fe3b4ec742",
+    "node_id": "C_kwDORZMogtoAKGZmOGY2YjU2NGZjNDFmMWI5MjhkNDRjYjQ1NjgwMGZlM2I0ZWM3NDI",
+    "commit": {
+      "author": {
+        "name": "zhanh-he",
+        "email": "narcolehitl@gmail.com",
+        "date": "2026-02-27T16:32:10Z"
+      },
+      "committer": {
+        "name": "zhanh-he",
+        "email": "narcolehitl@gmail.com",
+        "date": "2026-02-27T16:32:10Z"
+      },
+      "message": "update Readme",
+      "tree": {
+        "sha": "72092b1417f87769bdc1a5b2944253082c080757",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/72092b1417f87769bdc1a5b2944253082c080757"
+      },
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/commits/ff8f6b564fc41f1b928d44cb456800fe3b4ec742",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/ff8f6b564fc41f1b928d44cb456800fe3b4ec742",
+    "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/ff8f6b564fc41f1b928d44cb456800fe3b4ec742",
+    "comments_url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/ff8f6b564fc41f1b928d44cb456800fe3b4ec742/comments",
+    "author": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b48cd6141c1a742716504ce1b846dabe428e7de3",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/b48cd6141c1a742716504ce1b846dabe428e7de3",
+        "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/b48cd6141c1a742716504ce1b846dabe428e7de3"
+      }
+    ]
+  },
+  {
+    "sha": "b48cd6141c1a742716504ce1b846dabe428e7de3",
+    "node_id": "C_kwDORZMogtoAKGI0OGNkNjE0MWMxYTc0MjcxNjUwNGNlMWI4NDZkYWJlNDI4ZTdkZTM",
+    "commit": {
+      "author": {
+        "name": "zhanh-he",
+        "email": "narcolehitl@gmail.com",
+        "date": "2026-02-27T16:11:52Z"
+      },
+      "committer": {
+        "name": "zhanh-he",
+        "email": "narcolehitl@gmail.com",
+        "date": "2026-02-27T16:16:08Z"
+      },
+      "message": "Initial commit",
+      "tree": {
+        "sha": "aa3ba09f55378bd93e223fede0c76b75f8f64032",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/aa3ba09f55378bd93e223fede0c76b75f8f64032"
+      },
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/commits/b48cd6141c1a742716504ce1b846dabe428e7de3",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/b48cd6141c1a742716504ce1b846dabe428e7de3",
+    "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/b48cd6141c1a742716504ce1b846dabe428e7de3",
+    "comments_url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/b48cd6141c1a742716504ce1b846dabe428e7de3/comments",
+    "author": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "57ce3f4f8372f6f4ceeadf50a1519c33a5dd2112",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/57ce3f4f8372f6f4ceeadf50a1519c33a5dd2112",
+        "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/57ce3f4f8372f6f4ceeadf50a1519c33a5dd2112"
+      }
+    ]
+  },
+  {
+    "sha": "57ce3f4f8372f6f4ceeadf50a1519c33a5dd2112",
+    "node_id": "C_kwDORZMogtoAKDU3Y2UzZjRmODM3MmY2ZjRjZWVhZGY1MGExNTE5YzMzYTVkZDIxMTI",
+    "commit": {
+      "author": {
+        "name": "zhanh",
+        "email": "49585967+zhanh-he@users.noreply.github.com",
+        "date": "2026-02-26T05:42:36Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-02-26T05:42:36Z"
+      },
+      "message": "Initial commit",
+      "tree": {
+        "sha": "ae019e928cbfceeb188c8f39ba5d0f4fe19c3493",
+        "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/ae019e928cbfceeb188c8f39ba5d0f4fe19c3493"
+      },
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/commits/57ce3f4f8372f6f4ceeadf50a1519c33a5dd2112",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpn91MCRC1aQ7uu5UhlAAAFGMQAAhVNa3WRga01iUra/jeQrHv\npEQPqexBJI5YTUTHotmTNZmTzCY/6bxoJzY/l4uu4VNF6dtPiZg5tHjaZ1ZDUgCq\nqhpIcjO2oehrC5A8rGv7rG5bnteT6he1Gni1GZYTn/TTmA2bMqn8K/w4kVplMB9b\nElrXGJzKeBfE4VLj2pd2ccw+s4H4YRcwewpdMWp4uTe3qBJZjK++MzF61AnHRIb0\nSrEqR0lBfu2lfYB3iBDUrIPJCGty2PT7/k3tlsbVQhLqLKRSeoB/ADLA2OXRr1G6\nkx21wLwfSj0z0fkmGgP0nhanjqCaXd5uQAZePksVtvji/ZKtBzQmcgKRl4ZxiXoG\nQMBjzZ6QItsi6r94ZDYtQJsv5yHihDChedxrrVnCQ4VD8W3fuRJkPHlrt+2UCoZR\n3381CQMXeGq5I82DICjmZEeqVkp01/C8aN3sMe+Mq8UKXV9B8Xh+lczQqZIjXZK6\nxMFNZIWU1/Z753/yFJBqTeGyX/G2y9F8BWLVIlCHx/r1Ryx8KSnLMW4g8kDbRNhl\nkJtgy1w3nFlyUQ5ErjIV/wu4CQNH7lVrVNoRkLVxtGCinPZ1zIvsib2dQzoiT4f3\ncRWobeuR1PyInSIFxzAMgT1YVrPHI8/PMzTp4c5LMsQMPWY0SDIYDvS0TZPTjwOh\nniI+U2hNF0Eu8PXGyQ1z\n=3H+k\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ae019e928cbfceeb188c8f39ba5d0f4fe19c3493\nauthor zhanh <49585967+zhanh-he@users.noreply.github.com> 1772084556 +0800\ncommitter GitHub <noreply@github.com> 1772084556 +0800\n\nInitial commit",
+        "verified_at": "2026-02-26T05:42:37Z"
+      }
+    },
+    "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/57ce3f4f8372f6f4ceeadf50a1519c33a5dd2112",
+    "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/57ce3f4f8372f6f4ceeadf50a1519c33a5dd2112",
+    "comments_url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/57ce3f4f8372f6f4ceeadf50a1519c33a5dd2112/comments",
+    "author": {
+      "login": "zhanh-he",
+      "id": 49585967,
+      "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zhanh-he",
+      "html_url": "https://github.com/zhanh-he",
+      "followers_url": "https://api.github.com/users/zhanh-he/followers",
+      "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+      "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+      "repos_url": "https://api.github.com/users/zhanh-he/repos",
+      "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": []
+  }
+]

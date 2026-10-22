@@ -1,0 +1,30 @@
+{
+  "repo": "zhanh-he/midi-velocity-colorizer",
+  "sha": "53e1b950a89fc5915f07703a228986ff00b64a83",
+  "commit": {
+    "author": {
+      "name": "zhanh",
+      "email": "49585967+zhanh-he@users.noreply.github.com",
+      "date": "2025-12-01T14:07:49Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2025-12-01T14:07:49Z"
+    },
+    "message": "Fix formatting and punctuation in README.md",
+    "tree": {
+      "sha": "5953e1be72ba1b767de5e88117db4e69bb7001c2",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/5953e1be72ba1b767de5e88117db4e69bb7001c2"
+    },
+    "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/commits/53e1b950a89fc5915f07703a228986ff00b64a83",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpLaE1CRC1aQ7uu5UhlAAAwAMQAHBgtrscXxhy41QEfymZURqc\n1BQIpxjuz20sN6bevg/8Z5RcFnGmSFpHOdz/Ncv+i8ZCxKdVTG7NWfMVDz3NC0a6\n47TEQMIlKH15UlmEOY1BuPBzNbVYFegM76yv/9w/1jW32Q+hEkPy1IGi/Ozg+el6\n0uWPVmLBoM8DCP8zsare5ZSfqHRQ5kydVBLo0KhHf0l7Fg9L6LXxrLl1KOIVOFuq\nF9c930AP24gWrN0HcWQt/sjESH6xVP8VbbbzTjtWrhBcM0/zMiOKVpQ8LwpT1g++\n953LwilG/gYqcF+UNRjkrrS44r1NRUvoLqs8j51Dh4zYQKhdxnZCasSddIoKkozH\n10mIGESC85R4rI2BDvv85BN+rTEFzCfFcI1aKqSovbf2qtCizJXpq0EF92Gi5AdL\n34qTVpngcarg7qkW6JPoG6wYdQY9YkLfmJ1cLIsLC0czA63bVyBOSH8ES8sAzgO+\nAH+e8RLtL0VfxvA81ZEt5j24h4j9H3hGTvnnU54Ghl/ue7zt7bAPaLuAAX21Rfbl\nL8D0/49j6epZImvWcR/4ELmmp+EjQEuK0SKgHYbxL9JDlbXxzB5WsftFXXs8ut7y\ntdIgYbkfd09RC/iYJmh48L9binj0rb9TBOYXfLNh4tLpK/LJBMAZFY9TO3j1A087\nssDUl8ElKosa3fZqeRL3\n=KUIA\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 5953e1be72ba1b767de5e88117db4e69bb7001c2\nparent 7af59541ae0963e7b54347a31c660b73b1ed4de2\nauthor zhanh <49585967+zhanh-he@users.noreply.github.com> 1764598069 +0800\ncommitter GitHub <noreply@github.com> 1764598069 +0800\n\nFix formatting and punctuation in README.md",
+      "verified_at": "2025-12-01T14:07:49Z"
+    }
+  }
+}

@@ -1,0 +1,979 @@
+{
+  "sha": "53e1b950a89fc5915f07703a228986ff00b64a83",
+  "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/53e1b950a89fc5915f07703a228986ff00b64a83",
+  "tree": [
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e259d42c996742e9e3cba14c677129b2c1b6311",
+      "size": 7048,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/0e259d42c996742e9e3cba14c677129b2c1b6311"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dcf93d7b140da144564d18c07b862d0c30fb82b4",
+      "size": 5183,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/dcf93d7b140da144564d18c07b862d0c30fb82b4"
+    },
+    {
+      "path": "compare",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8853b53925f41a5545eb0cbae1bb9dd24cecff3d",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/8853b53925f41a5545eb0cbae1bb9dd24cecff3d"
+    },
+    {
+      "path": "compare/Flat_model",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "75a25b30e0d90a9a2ea5fbbda2a4db0f6b1ada40",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/75a25b30e0d90a9a2ea5fbbda2a4db0f6b1ada40"
+    },
+    {
+      "path": "compare/Flat_model/conf",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a50244ed33925bf22793f4ddc0b206b7651f4c0c",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/a50244ed33925bf22793f4ddc0b206b7651f4c0c"
+    },
+    {
+      "path": "compare/Flat_model/conf/config.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd00679ae7b5a8fd2fc52272af440a90bf586ef0",
+      "size": 1917,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/bd00679ae7b5a8fd2fc52272af440a90bf586ef0"
+    },
+    {
+      "path": "compare/Flat_model/flat_evaluation.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bfd3356e2e85af3aac65458d82d5a0008cec63b1",
+      "size": 5208,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/bfd3356e2e85af3aac65458d82d5a0008cec63b1"
+    },
+    {
+      "path": "compare/Flat_model/flat_model.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1420d0ec3b79e1e35b9c0c15f013595a0fdb5a44",
+      "size": 5303,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/1420d0ec3b79e1e35b9c0c15f013595a0fdb5a44"
+    },
+    {
+      "path": "compare/Flat_model/main",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "73c724631bf8f6bea700213dbd01eb2b6eb1bfe1",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/73c724631bf8f6bea700213dbd01eb2b6eb1bfe1"
+    },
+    {
+      "path": "compare/Flat_model/main/dataloaders.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b5a9012fcf72c0c06ea7316676595400dbd9f94",
+      "size": 7822,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/2b5a9012fcf72c0c06ea7316676595400dbd9f94"
+    },
+    {
+      "path": "compare/Flat_model/main/matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "715f6d2ae5f98ee45e4f136e6196b58c6468c447",
+      "size": 5419,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/715f6d2ae5f98ee45e4f136e6196b58c6468c447"
+    },
+    {
+      "path": "compare/Flat_model/main/utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a6d4dc9e34e47fe2b64afcd762aaf2af2e80085",
+      "size": 11146,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/8a6d4dc9e34e47fe2b64afcd762aaf2af2e80085"
+    },
+    {
+      "path": "compare/Kim2023_model",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "eb50299e8cb64403584bceb3f1dcd81d1f52688d",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/eb50299e8cb64403584bceb3f1dcd81d1f52688d"
+    },
+    {
+      "path": "compare/Kim2023_model/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db8975401dd16d3a715173cb0e3deedadc2f8990",
+      "size": 2395,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/db8975401dd16d3a715173cb0e3deedadc2f8990"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "75060a15f77b5ea175668e6274a4d9001f2b1ae3",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/75060a15f77b5ea175668e6274a4d9001f2b1ae3"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/Program.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bbc6d8e18d7877325030cd6944a239bff188a470",
+      "size": 4552,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/bbc6d8e18d7877325030cd6944a239bff188a470"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0557a86a36591de87cefba83580a6990d49d41f1",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/0557a86a36591de87cefba83580a6990d49d41f1"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0f73fd16f32ce18adbf4d46f130ab5caa7ab0fe0",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/0f73fd16f32ce18adbf4d46f130ab5caa7ab0fe0"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug/net8.0",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "05b297e7bbe51137df407df3d5e1b1a6de4d0b4f",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/05b297e7bbe51137df407df3d5e1b1a6de4d0b4f"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug/net8.0/NAudio.Asio.dll",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "761ec14c1aa7fa12827d4eb9f075f00b5f1ed809",
+      "size": 34304,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/761ec14c1aa7fa12827d4eb9f075f00b5f1ed809"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug/net8.0/NAudio.Core.dll",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "254cd2c5fae24f4b91c64ff035947cf680811404",
+      "size": 187904,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/254cd2c5fae24f4b91c64ff035947cf680811404"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug/net8.0/NAudio.Midi.dll",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5dcc0594fa37d193d6abf306f2a614b6033adb8",
+      "size": 46592,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/c5dcc0594fa37d193d6abf306f2a614b6033adb8"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug/net8.0/NAudio.Wasapi.dll",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a28f8ca44291cfa03112264ffb9a3502f64864a0",
+      "size": 179200,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/a28f8ca44291cfa03112264ffb9a3502f64864a0"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug/net8.0/NAudio.WinMM.dll",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62668f763e4dd80f2fb4845bd9ca10a7247af829",
+      "size": 57344,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/62668f763e4dd80f2fb4845bd9ca10a7247af829"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug/net8.0/NAudio.dll",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "631aac322a15fb0c5ccbba92648668cf433f5a34",
+      "size": 7680,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/631aac322a15fb0c5ccbba92648668cf433f5a34"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug/net8.0/dataset",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3027ad4e7e57e8a462781f8c2998767af14da402",
+      "size": 72520,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/3027ad4e7e57e8a462781f8c2998767af14da402"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug/net8.0/dataset.deps.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b71f162aa443dea0e655f205f2f99c7522f7a7f",
+      "size": 5849,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/5b71f162aa443dea0e655f205f2f99c7522f7a7f"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug/net8.0/dataset.dll",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f21fa9012f805ea5375415866572d846eb393bc",
+      "size": 7168,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/9f21fa9012f805ea5375415866572d846eb393bc"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug/net8.0/dataset.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01bf215bc1f1f149a3f26e7633f0f6352b647841",
+      "size": 11852,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/01bf215bc1f1f149a3f26e7633f0f6352b647841"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/bin/Debug/net8.0/dataset.runtimeconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "becfaeac95a0a28c70ce619e835f5322a54d3426",
+      "size": 257,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/becfaeac95a0a28c70ce619e835f5322a54d3426"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/dataset.csproj",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb68bd927e4851fedf07add2c9c6b6728a2497e6",
+      "size": 342,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/bb68bd927e4851fedf07add2c9c6b6728a2497e6"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7ca9f2bc0bc0201464166780e6041c24e6e8670b",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/7ca9f2bc0bc0201464166780e6041c24e6e8670b"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "261be2d30563f19e36bbca518cb26b5959dfe078",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/261be2d30563f19e36bbca518cb26b5959dfe078"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e42e0fc6dae0df6333ffdc9d5de62388ebec2700",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/e42e0fc6dae0df6333ffdc9d5de62388ebec2700"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/apphost",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3027ad4e7e57e8a462781f8c2998767af14da402",
+      "size": 72520,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/3027ad4e7e57e8a462781f8c2998767af14da402"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/dataset.AssemblyInfo.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0287bd9ee40ca1495597330d73efb88b9217b5a",
+      "size": 932,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/c0287bd9ee40ca1495597330d73efb88b9217b5a"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/dataset.AssemblyInfoInputs.cache",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff262bdcea2015fc2e43d4b12e1ded58ae88137c",
+      "size": 65,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/ff262bdcea2015fc2e43d4b12e1ded58ae88137c"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/dataset.GeneratedMSBuildEditorConfig.editorconfig",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77c2227422d2a3ab31d02f8c3a4e025b4f967514",
+      "size": 620,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/77c2227422d2a3ab31d02f8c3a4e025b4f967514"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/dataset.GlobalUsings.g.cs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8578f3d03de56aa5afbb2e6a3f0a9055b075f7fd",
+      "size": 287,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/8578f3d03de56aa5afbb2e6a3f0a9055b075f7fd"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/dataset.assets.cache",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "837e4fe62451277976c354ca506fd8905bc038d1",
+      "size": 6411,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/837e4fe62451277976c354ca506fd8905bc038d1"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/dataset.csproj.AssemblyReference.cache",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "352ce9a50b60c30b6d32c81e42154db4f1d3da23",
+      "size": 2480,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/352ce9a50b60c30b6d32c81e42154db4f1d3da23"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/dataset.csproj.CoreCompileInputs.cache",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "789b7614522b675a4ed57283d15895ba89e2f803",
+      "size": 65,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/789b7614522b675a4ed57283d15895ba89e2f803"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/dataset.csproj.FileListAbsolute.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9385beabb9c240a0fd54104d4b434ef134b1f68",
+      "size": 5015,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/e9385beabb9c240a0fd54104d4b434ef134b1f68"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/dataset.csproj.Up2Date",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/dataset.dll",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f21fa9012f805ea5375415866572d846eb393bc",
+      "size": 7168,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/9f21fa9012f805ea5375415866572d846eb393bc"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/dataset.genruntimeconfig.cache",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b95afd2aada1932b98af45585223b653a3dd641",
+      "size": 65,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/9b95afd2aada1932b98af45585223b653a3dd641"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/dataset.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01bf215bc1f1f149a3f26e7633f0f6352b647841",
+      "size": 11852,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/01bf215bc1f1f149a3f26e7633f0f6352b647841"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/ref",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "20c852196851e6b8442ae07b75c3b6a08720197c",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/20c852196851e6b8442ae07b75c3b6a08720197c"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/ref/dataset.dll",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f0dc890888929464f773edcd3d5f56cd2de084d",
+      "size": 5120,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/3f0dc890888929464f773edcd3d5f56cd2de084d"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/refint",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "20c852196851e6b8442ae07b75c3b6a08720197c",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/20c852196851e6b8442ae07b75c3b6a08720197c"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/Debug/net8.0/refint/dataset.dll",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f0dc890888929464f773edcd3d5f56cd2de084d",
+      "size": 5120,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/3f0dc890888929464f773edcd3d5f56cd2de084d"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/dataset.csproj.nuget.dgspec.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61265061af8d60ffa7ab40d76aa4467afa861107",
+      "size": 2231,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/61265061af8d60ffa7ab40d76aa4467afa861107"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/dataset.csproj.nuget.g.props",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "209c2c61fb0ce2d96f999b00df94837be2dc02f8",
+      "size": 1113,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/209c2c61fb0ce2d96f999b00df94837be2dc02f8"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/dataset.csproj.nuget.g.targets",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3dc06ef3cc4057524bf5d2cd49936dff789cebe8",
+      "size": 149,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/3dc06ef3cc4057524bf5d2cd49936dff789cebe8"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/project.assets.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f2c5790862c033082934ed7c958773724040e10",
+      "size": 18959,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/1f2c5790862c033082934ed7c958773724040e10"
+    },
+    {
+      "path": "compare/Kim2023_model/convert_MIDI2CSV/obj/project.nuget.cache",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df3816a30cd24c7fd529749290780d3946526ec1",
+      "size": 1216,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/df3816a30cd24c7fd529749290780d3946526ec1"
+    },
+    {
+      "path": "compare/Kim2023_model/data_processing.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9960bd212f6cd5b109e99c257a4f5bba94a75d20",
+      "size": 16213,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/9960bd212f6cd5b109e99c257a4f5bba94a75d20"
+    },
+    {
+      "path": "compare/Kim2023_model/environment.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a363a7971ee929d88c6edd0d60018e434509dbe",
+      "size": 3606,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/3a363a7971ee929d88c6edd0d60018e434509dbe"
+    },
+    {
+      "path": "compare/Kim2023_model/saved_models",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "93d12e42650f1b5f5341e206de13f891cd52c94f",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/93d12e42650f1b5f5341e206de13f891cd52c94f"
+    },
+    {
+      "path": "compare/Kim2023_model/saved_models/mvi-v2-2023-07-20_13-00_56-h4-e5-mse_cosine_loss-alpha0.15-m0.60-LSTM-luong_attention-MAESTRO.h5",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7f37b423b6a8282cea3975e33f8dc0f658c0006",
+      "size": 82152,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/c7f37b423b6a8282cea3975e33f8dc0f658c0006"
+    },
+    {
+      "path": "compare/Kim2023_model/seq2seq_evaluation_maestro.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee2499ab7c706566f7c3f6eb3653fb2a382cc4df",
+      "size": 23698,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/ee2499ab7c706566f7c3f6eb3653fb2a382cc4df"
+    },
+    {
+      "path": "compare/Kim2023_model/seq2seq_evaluation_smd.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3cf3a35d798ebadeca13dea6ac6561c6e5c1a4ea",
+      "size": 23650,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/3cf3a35d798ebadeca13dea6ac6561c6e5c1a4ea"
+    },
+    {
+      "path": "conf",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c89b3c77d55022577970774bf27514c6f4efbed7",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/c89b3c77d55022577970774bf27514c6f4efbed7"
+    },
+    {
+      "path": "conf/config.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "09217ac02e4b0515c2ccf60286de16526a6194a4",
+      "size": 5454,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/09217ac02e4b0515c2ccf60286de16526a6194a4"
+    },
+    {
+      "path": "conf/environment.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5f78963468fec63131aa341183c2027d51362e9",
+      "size": 7059,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/d5f78963468fec63131aa341183c2027d51362e9"
+    },
+    {
+      "path": "evaluation.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f47fb0fd54c7dfd62b0698572bd8ae26bfc5782",
+      "size": 29557,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/6f47fb0fd54c7dfd62b0698572bd8ae26bfc5782"
+    },
+    {
+      "path": "images",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4adac439e7dbd7fffdf228a722d60a8aa1e40c6e",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/4adac439e7dbd7fffdf228a722d60a8aa1e40c6e"
+    },
+    {
+      "path": "images/p1.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a22db6966fc7475b5b7ce8c9745d201d71a451ae",
+      "size": 394906,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/a22db6966fc7475b5b7ce8c9745d201d71a451ae"
+    },
+    {
+      "path": "images/p2.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15fb328a254f333c731cd9309c8c30a81a4c3ecb",
+      "size": 483598,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/15fb328a254f333c731cd9309c8c30a81a4c3ecb"
+    },
+    {
+      "path": "images/p4.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db0097163d23de4bd3e18743cfef47032863d727",
+      "size": 971636,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/db0097163d23de4bd3e18743cfef47032863d727"
+    },
+    {
+      "path": "interface.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51bb5d7c02de61033c043bb631d83bfbcfd44fbc",
+      "size": 2351200,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/51bb5d7c02de61033c043bb631d83bfbcfd44fbc"
+    },
+    {
+      "path": "main",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ebd547987d65343fb2d28bf1303d3a257734f011",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/ebd547987d65343fb2d28bf1303d3a257734f011"
+    },
+    {
+      "path": "main/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21937ad1d1fc426f049a53e9fcf40f94ba324ca1",
+      "size": 155,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/21937ad1d1fc426f049a53e9fcf40f94ba324ca1"
+    },
+    {
+      "path": "main/dataloaders.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4ffac527fbb8b22fd642a9570304f51b320ff3c",
+      "size": 8969,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/c4ffac527fbb8b22fd642a9570304f51b320ff3c"
+    },
+    {
+      "path": "main/interface.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1fb0e9535b575919c8e7a73bb193a5606e9cc2d8",
+      "size": 40686,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/1fb0e9535b575919c8e7a73bb193a5606e9cc2d8"
+    },
+    {
+      "path": "main/loss.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0f3bfcf234b85d55eb7dff85a7dbbc524088c52",
+      "size": 5342,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/e0f3bfcf234b85d55eb7dff85a7dbbc524088c52"
+    },
+    {
+      "path": "main/matrix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b19f287a25779db9ffb0e2ca1275783dc03f732f",
+      "size": 5396,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/b19f287a25779db9ffb0e2ca1275783dc03f732f"
+    },
+    {
+      "path": "main/models.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7d88067e0c59727cb04298ca099ed5f7b329ce2",
+      "size": 16806,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/c7d88067e0c59727cb04298ca099ed5f7b329ce2"
+    },
+    {
+      "path": "main/utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c365ecc16a1ef96469a2787ae1df183791e6295",
+      "size": 10610,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/5c365ecc16a1ef96469a2787ae1df183791e6295"
+    },
+    {
+      "path": "results",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "754968d8db7a57d4b8f1f56f7950a38be2c364f1",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/754968d8db7a57d4b8f1f56f7950a38be2c364f1"
+    },
+    {
+      "path": "results/checkpoints",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "79e74b33cc74d7404f05b263037757b56dcfd33d",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/79e74b33cc74d7404f05b263037757b56dcfd33d"
+    },
+    {
+      "path": "results/checkpoints/ConvAE-t10-CombLoss",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "53fc2870f92bab5c8068bbf6d05f5069359fd22f",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/53fc2870f92bab5c8068bbf6d05f5069359fd22f"
+    },
+    {
+      "path": "results/checkpoints/ConvAE-t10-CombLoss/place_ckpt_here.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "results/checkpoints/UNet-t10-attn2-CombLoss",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "53fc2870f92bab5c8068bbf6d05f5069359fd22f",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/53fc2870f92bab5c8068bbf6d05f5069359fd22f"
+    },
+    {
+      "path": "results/checkpoints/UNet-t10-attn2-CombLoss/place_ckpt_here.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "results/interface_midi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a3a067c5283f473756ba174e752e4c9b48d35a8b",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/a3a067c5283f473756ba174e752e4c9b48d35a8b"
+    },
+    {
+      "path": "results/interface_midi/ConvAE",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "794500b17548ff03cb2140cf2a08bb6831dd953f",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/794500b17548ff03cb2140cf2a08bb6831dd953f"
+    },
+    {
+      "path": "results/interface_midi/ConvAE/ConvAE_0_Bach_BWV849-02_36_41.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d4f6dca499f335be8db4223dd00b071f35e83a9",
+      "size": 540,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/8d4f6dca499f335be8db4223dd00b071f35e83a9"
+    },
+    {
+      "path": "results/interface_midi/ConvAE/ConvAE_0_Beetoven_Op031No2-01_26_31.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6c9e89f056dd73dbb606392efcc3c4a5277cdbe",
+      "size": 1002,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/e6c9e89f056dd73dbb606392efcc3c4a5277cdbe"
+    },
+    {
+      "path": "results/interface_midi/ConvAE/ConvAE_0_Chopin_Op010-04_1_4.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42e5b382ded3117266496330e93f011ba3e83588",
+      "size": 1027,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/42e5b382ded3117266496330e93f011ba3e83588"
+    },
+    {
+      "path": "results/interface_midi/ConvAE/ConvAE_1_Haydn_Hob017No4_7_12.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6eabefd64c2ce6e7378d291bbf4543e07697c0a",
+      "size": 885,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/b6eabefd64c2ce6e7378d291bbf4543e07697c0a"
+    },
+    {
+      "path": "results/interface_midi/ConvAE/ConvAE_1_Mozart_KV265_355_405.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d20e4ac0a4af4a9724e16c849062e334c9852805",
+      "size": 1116,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/d20e4ac0a4af4a9724e16c849062e334c9852805"
+    },
+    {
+      "path": "results/interface_midi/ConvAE/ConvAE_1_Rachman_OP036-02_96_101.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e75cfc0e431fa9bdef27a4f2cce31d12ea0906d",
+      "size": 2415,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/2e75cfc0e431fa9bdef27a4f2cce31d12ea0906d"
+    },
+    {
+      "path": "results/interface_midi/ConvAE/ConvAE_2_Bartok_SZ080-03_102_107.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "527a6978f6418b6d89561dde7d2a3a829c079c54",
+      "size": 2639,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/527a6978f6418b6d89561dde7d2a3a829c079c54"
+    },
+    {
+      "path": "results/interface_midi/ConvAE/ConvAE_2_Ravel_JeuxDEau_22_27.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "efa28208ac09839d4da293a970164dea64f262fc",
+      "size": 2316,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/efa28208ac09839d4da293a970164dea64f262fc"
+    },
+    {
+      "path": "results/interface_midi/Flat",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2bcb794ba15a0ad0b0676d7e18a013f2031e6d83",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/2bcb794ba15a0ad0b0676d7e18a013f2031e6d83"
+    },
+    {
+      "path": "results/interface_midi/Flat/Flat_0_Bach_BWV849-02_36_41.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4529838301271a4ef544173b925c48ec7315af7",
+      "size": 540,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/d4529838301271a4ef544173b925c48ec7315af7"
+    },
+    {
+      "path": "results/interface_midi/Flat/Flat_0_Beetoven_Op031No2-01_26_31.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ccbc034e20be4ca3caf91a8b8801bdb6cbb0925a",
+      "size": 1002,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/ccbc034e20be4ca3caf91a8b8801bdb6cbb0925a"
+    },
+    {
+      "path": "results/interface_midi/Flat/Flat_0_Chopin_Op010-04_1_4.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8eb503ceb5945036aba947e5b7ddbb7dc1e3e1ed",
+      "size": 1024,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/8eb503ceb5945036aba947e5b7ddbb7dc1e3e1ed"
+    },
+    {
+      "path": "results/interface_midi/Flat/Flat_1_Haydn_Hob017No4_7_12.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bcfc69523c3f546db8823d794f2fa34af0a78dfb",
+      "size": 885,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/bcfc69523c3f546db8823d794f2fa34af0a78dfb"
+    },
+    {
+      "path": "results/interface_midi/Flat/Flat_1_Mozart_KV265_355_405.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "776f9ca20ed3bb324911ebe7fedf2872f0cbee2f",
+      "size": 1116,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/776f9ca20ed3bb324911ebe7fedf2872f0cbee2f"
+    },
+    {
+      "path": "results/interface_midi/Flat/Flat_1_Rachman_OP036-02_96_101.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ac2eaa58cfcbc5debf3db937128e953f0c0383a",
+      "size": 2415,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/0ac2eaa58cfcbc5debf3db937128e953f0c0383a"
+    },
+    {
+      "path": "results/interface_midi/Flat/Flat_2_Bartok_SZ080-03_102_107.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7c7e4de3ae8e37ac4d506a7f666699daefacd37",
+      "size": 2647,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/c7c7e4de3ae8e37ac4d506a7f666699daefacd37"
+    },
+    {
+      "path": "results/interface_midi/Flat/Flat_2_Ravel_JeuxDEau_22_27.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15a72c2d7dc7491be3edd552cadfd8e47970c881",
+      "size": 2316,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/15a72c2d7dc7491be3edd552cadfd8e47970c881"
+    },
+    {
+      "path": "results/interface_midi/Human",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7e09e2bef9bd33de8600ca7d6cc1f3b62c5595ea",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/7e09e2bef9bd33de8600ca7d6cc1f3b62c5595ea"
+    },
+    {
+      "path": "results/interface_midi/Human/0_Bach_BWV849-02_36_41.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa756e65dde9c98558761c6380b52a398c7d5602",
+      "size": 535,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/aa756e65dde9c98558761c6380b52a398c7d5602"
+    },
+    {
+      "path": "results/interface_midi/Human/0_Beetoven_Op031No2-01_26_31.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "56b5694084c5608744f0eb11a2d8b5b1e2f31545",
+      "size": 997,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/56b5694084c5608744f0eb11a2d8b5b1e2f31545"
+    },
+    {
+      "path": "results/interface_midi/Human/0_Chopin_Op010-04_1_4.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18cb25ea538e48e5bba6bd57be2748e28bed06f8",
+      "size": 1019,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/18cb25ea538e48e5bba6bd57be2748e28bed06f8"
+    },
+    {
+      "path": "results/interface_midi/Human/1_Haydn_Hob017No4_7_12.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a01442cbd30aec4839c2cf948926bcc9292b8e19",
+      "size": 880,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/a01442cbd30aec4839c2cf948926bcc9292b8e19"
+    },
+    {
+      "path": "results/interface_midi/Human/1_Mozart_KV265_355_405.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b4c5b8b1a4fd76a19d364f18b421f1f3348fcce",
+      "size": 1111,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/6b4c5b8b1a4fd76a19d364f18b421f1f3348fcce"
+    },
+    {
+      "path": "results/interface_midi/Human/1_Rachman_OP036-02_96_101.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ef977bc95055640fd4ade5f6b3ff20e4d7c8ba8",
+      "size": 2410,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/0ef977bc95055640fd4ade5f6b3ff20e4d7c8ba8"
+    },
+    {
+      "path": "results/interface_midi/Human/2_Bartok_SZ080-03_102_107.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e1f18f6ba4c1a87347e7b4373dcfa9ecc8f2079",
+      "size": 2642,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/6e1f18f6ba4c1a87347e7b4373dcfa9ecc8f2079"
+    },
+    {
+      "path": "results/interface_midi/Human/2_Ravel_JeuxDEau_22_27.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f80df8eaf2fbab08d93f67739442a0462838d032",
+      "size": 2311,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/f80df8eaf2fbab08d93f67739442a0462838d032"
+    },
+    {
+      "path": "results/interface_midi/UNet",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "68b6bc4311bacab58d1dda6a3a3187e369134b5a",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/68b6bc4311bacab58d1dda6a3a3187e369134b5a"
+    },
+    {
+      "path": "results/interface_midi/UNet/UNet_0_Bach_BWV849-02_36_41.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e4f6b6e07d09bd50bb0d65b1b15ddedebc89f037",
+      "size": 540,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/e4f6b6e07d09bd50bb0d65b1b15ddedebc89f037"
+    },
+    {
+      "path": "results/interface_midi/UNet/UNet_0_Beetoven_Op031No2-01_26_31.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9f2c98ed8dcf4503ad870454d6023e4be5a55e1",
+      "size": 1002,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/c9f2c98ed8dcf4503ad870454d6023e4be5a55e1"
+    },
+    {
+      "path": "results/interface_midi/UNet/UNet_0_Chopin_Op010-04_1_4.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "76ce12acb73064e11e6f30b2d90f9fc002751374",
+      "size": 1027,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/76ce12acb73064e11e6f30b2d90f9fc002751374"
+    },
+    {
+      "path": "results/interface_midi/UNet/UNet_1_Haydn_Hob017No4_7_12.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "098e6053825b1618f1aecb87af74c2bd02e9be44",
+      "size": 885,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/098e6053825b1618f1aecb87af74c2bd02e9be44"
+    },
+    {
+      "path": "results/interface_midi/UNet/UNet_1_Mozart_KV265_355_405.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c07ce136c62a7fd7f45a541914322bff46f0aa14",
+      "size": 1116,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/c07ce136c62a7fd7f45a541914322bff46f0aa14"
+    },
+    {
+      "path": "results/interface_midi/UNet/UNet_1_Rachman_OP036-02_96_101.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0a8f8adb084ba84f4b9333941f59357e57c8f15",
+      "size": 2415,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/c0a8f8adb084ba84f4b9333941f59357e57c8f15"
+    },
+    {
+      "path": "results/interface_midi/UNet/UNet_2_Bartok_SZ080-03_102_107.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5956954eb9797705c2de114220e424c4fe149014",
+      "size": 2639,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/5956954eb9797705c2de114220e424c4fe149014"
+    },
+    {
+      "path": "results/interface_midi/UNet/UNet_2_Ravel_JeuxDEau_22_27.mid",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "65abdb7aa252ad8a86502869d15c1ab02ed1fb16",
+      "size": 2316,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/65abdb7aa252ad8a86502869d15c1ab02ed1fb16"
+    },
+    {
+      "path": "results/subjective_listening_audio",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "393389ecf4a848429c5da74cdcf452e8d3091669",
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/trees/393389ecf4a848429c5da74cdcf452e8d3091669"
+    },
+    {
+      "path": "results/subjective_listening_audio/place_midi_generated_audio_here.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "train.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7449c2bc7b07b4bb6f21b85c726951224581ebae",
+      "size": 4096,
+      "url": "https://api.github.com/repos/zhanh-he/midi-velocity-colorizer/git/blobs/7449c2bc7b07b4bb6f21b85c726951224581ebae"
+    }
+  ],
+  "truncated": false
+}

@@ -1,0 +1,821 @@
+{
+  "sha": "22b4db68389b9825ba88b197a93929a9e7be4847",
+  "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/22b4db68389b9825ba88b197a93929a9e7be4847",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b3b109eadf509307dc3b86f558a18eced1079bc",
+      "size": 51,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/4b3b109eadf509307dc3b86f558a18eced1079bc"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79b67641e0363d6794a4763766c33f14c76af27d",
+      "size": 1062,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/79b67641e0363d6794a4763766c33f14c76af27d"
+    },
+    {
+      "path": "Readme.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "726b2a40003efb29aaf5816315496780329d963d",
+      "size": 5008,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/726b2a40003efb29aaf5816315496780329d963d"
+    },
+    {
+      "path": "Test.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "032946d5dca1077ea15847b54f85772b17df1422",
+      "size": 40414,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/032946d5dca1077ea15847b54f85772b17df1422"
+    },
+    {
+      "path": "Test_unaligned.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64732403dd5f3defd3ac33b2afb4cc3e4bc653e2",
+      "size": 539462,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/64732403dd5f3defd3ac33b2afb4cc3e4bc653e2"
+    },
+    {
+      "path": "Train.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1f85e8337fed9582d43f00e4a94bea856b82e31",
+      "size": 1207901,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/e1f85e8337fed9582d43f00e4a94bea856b82e31"
+    },
+    {
+      "path": "benchmarks",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a67f22caf78cc0c814bab2a63a0ebe0111bd94ec",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/a67f22caf78cc0c814bab2a63a0ebe0111bd94ec"
+    },
+    {
+      "path": "benchmarks/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a70e1cb361bc7e590edeaae16f1fb67bd8964561",
+      "size": 2043,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/a70e1cb361bc7e590edeaae16f1fb67bd8964561"
+    },
+    {
+      "path": "benchmarks/Transkun",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1252e002b23b661b6b76c5f43e29f4fe2b87630e",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/1252e002b23b661b6b76c5f43e29f4fe2b87630e"
+    },
+    {
+      "path": "benchmarks/Transkun/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df2b510a134b0f8b9c5c6616bbac63c5be583958",
+      "size": 3090,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/df2b510a134b0f8b9c5c6616bbac63c5be583958"
+    },
+    {
+      "path": "benchmarks/Transkun/LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9b219d221b3b97cb706fb839c5c98bab6dc37fa",
+      "size": 1066,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/c9b219d221b3b97cb706fb839c5c98bab6dc37fa"
+    },
+    {
+      "path": "benchmarks/Transkun/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "853d62f905d9fcf34589d1f7aad80cad29a6f20b",
+      "size": 14268,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/853d62f905d9fcf34589d1f7aad80cad29a6f20b"
+    },
+    {
+      "path": "benchmarks/Transkun/assets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "411128ff41988db60e46983484cb79b490987caa",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/411128ff41988db60e46983484cb79b490987caa"
+    },
+    {
+      "path": "benchmarks/Transkun/assets/exampleDev.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d1767ddc5e0770a79f1fb178cc11bb3742fea44d",
+      "size": 139945,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/d1767ddc5e0770a79f1fb178cc11bb3742fea44d"
+    },
+    {
+      "path": "benchmarks/Transkun/requirements.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39d9e0989d68a673d9c2c01ee082cbd0cb67dacb",
+      "size": 127,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/39d9e0989d68a673d9c2c01ee082cbd0cb67dacb"
+    },
+    {
+      "path": "benchmarks/Transkun/setup.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44e3cda068c0c9951653638a88468a926d71482a",
+      "size": 1208,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/44e3cda068c0c9951653638a88468a926d71482a"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "44e99bc85fb6d3f72e102faf8e0bbed78d842b61",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/44e99bc85fb6d3f72e102faf8e0bbed78d842b61"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/CRF",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c31026b91fdb7c180b27561523278f856ac9a28f",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/c31026b91fdb7c180b27561523278f856ac9a28f"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/CRF/NeuralSemiCRFInterval.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3925ffec5e49dadd01e3d5564268dee3dd54b414",
+      "size": 16638,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/3925ffec5e49dadd01e3d5564268dee3dd54b414"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/CRF/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ad3e21074a5ff85b2509e24506b5413414c863b",
+      "size": 57,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/4ad3e21074a5ff85b2509e24506b5413414c863b"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/Data.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d20db39911ab54cbf4b01a75c4e26c98942be8aa",
+      "size": 32759,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/d20db39911ab54cbf4b01a75c4e26c98942be8aa"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/Evaluation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47ed432cf3e32fff9c7985f0c59acd4278e068af",
+      "size": 10043,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/47ed432cf3e32fff9c7985f0c59acd4278e068af"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/LayersTransformer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4528d2c3d91586850b262822bca25b767a6f941b",
+      "size": 26100,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/4528d2c3d91586850b262822bca25b767a6f941b"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/Layers_ablation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b09ea7fe762f7eb5c42c222029f277b41420c73",
+      "size": 6809,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/2b09ea7fe762f7eb5c42c222029f277b41420c73"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/ModelTransformer.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "532e8cb290ae91ec0aedf146a8e1599610ce61dd",
+      "size": 27691,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/532e8cb290ae91ec0aedf146a8e1599610ce61dd"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/Model_ablation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17e32314a1f15aaa288e237c8b58216de986eab1",
+      "size": 24438,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/17e32314a1f15aaa288e237c8b58216de986eab1"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/SyncBN.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5936a219f8068c49ffd6bdea631ed75eac6d354",
+      "size": 5673,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/b5936a219f8068c49ffd6bdea631ed75eac6d354"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/TrainUtil.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d05880425712af7045e7b13ee047ef86f78b0236",
+      "size": 9458,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/d05880425712af7045e7b13ee047ef86f78b0236"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/Util.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d26e1160d46822dcb64621dec53f149afc39ce6",
+      "size": 4447,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/6d26e1160d46822dcb64621dec53f149afc39ce6"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/computeMetrics.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e381075ff1724146d7a0aa04681a1664a2f59614",
+      "size": 6658,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/e381075ff1724146d7a0aa04681a1664a2f59614"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/createDatasetMaestro.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "136487bd101618a28a828acc5f47a5c306842aee",
+      "size": 1596,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/136487bd101618a28a828acc5f47a5c306842aee"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/crfMinimalExample.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b8334ad58ca31f2a4484d3721023537b891aba0",
+      "size": 811,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/8b8334ad58ca31f2a4484d3721023537b891aba0"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/plotDeviation.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2dd522d1c2c6ce4ddb8eef23029c137b042278c0",
+      "size": 2699,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/2dd522d1c2c6ce4ddb8eef23029c137b042278c0"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/pretrained",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e7b307a94475359dc199a3f595b7df1427b16202",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/e7b307a94475359dc199a3f595b7df1427b16202"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/pretrained/2.0.conf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a55c47b5c7be42e4e2f2b9382fbc0ced6cf6c6b1",
+      "size": 782,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/a55c47b5c7be42e4e2f2b9382fbc0ced6cf6c6b1"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/pretrained/2.0.pt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42183f2e0ce08017b74675a2ccf9f2e88732dfc9",
+      "size": 56408978,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/42183f2e0ce08017b74675a2ccf9f2e88732dfc9"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/pretrained/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/train.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9121b929183ea7c70e8114735d0d34e697d8a361",
+      "size": 15591,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/9121b929183ea7c70e8114735d0d34e697d8a361"
+    },
+    {
+      "path": "benchmarks/Transkun/transkun/transcribe.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ff45ba127ff7a9cb04d856ba6f4d745e3f9451c",
+      "size": 2974,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/1ff45ba127ff7a9cb04d856ba6f4d745e3f9451c"
+    },
+    {
+      "path": "benchmarks/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "727aa223bbd4036116f237a7904f885d90160fad",
+      "size": 71,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/727aa223bbd4036116f237a7904f885d90160fad"
+    },
+    {
+      "path": "benchmarks/kim_ismir2024",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fc2f40da6e230cee758662a3474ea047f9f20cd6",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/fc2f40da6e230cee758662a3474ea047f9f20cd6"
+    },
+    {
+      "path": "benchmarks/kim_ismir2024/LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de39109ead48e35472f4ac04fb151396b5be492b",
+      "size": 1082,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/de39109ead48e35472f4ac04fb151396b5be492b"
+    },
+    {
+      "path": "benchmarks/kim_ismir2024/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "824abfaf9f0b1c29e83672bfee1a3e171520b9a1",
+      "size": 727,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/824abfaf9f0b1c29e83672bfee1a3e171520b9a1"
+    },
+    {
+      "path": "benchmarks/kim_ismir2024/pretrained",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a84b89b21b0f36fb697161148c5e34c21bb7026f",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/a84b89b21b0f36fb697161148c5e34c21bb7026f"
+    },
+    {
+      "path": "benchmarks/kim_ismir2024/pretrained/FiLMUNetPretrained+frame",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "53a6eec9c24feb513ff7a90cd83de2e714ed760e",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/53a6eec9c24feb513ff7a90cd83de2e714ed760e"
+    },
+    {
+      "path": "benchmarks/kim_ismir2024/pretrained/FiLMUNetPretrained+frame/1000000_iterations.pth.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0efc69d1a5df338d1ac21f58449d8535db5f694a",
+      "size": 440,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/0efc69d1a5df338d1ac21f58449d8535db5f694a"
+    },
+    {
+      "path": "benchmarks/kim_ismir2024/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ddf0f43bd989e6e0b0ba3b6989b7814dd1050eb9",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/ddf0f43bd989e6e0b0ba3b6989b7814dd1050eb9"
+    },
+    {
+      "path": "benchmarks/kim_ismir2024/src/audio_transforms.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "533eed2f529b3bce92eb8cf0464fede381345efc",
+      "size": 9613,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/533eed2f529b3bce92eb8cf0464fede381345efc"
+    },
+    {
+      "path": "benchmarks/kim_ismir2024/src/config.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2a64c449f1dcda287e6049c03e3507ea22c6b80",
+      "size": 1189,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/b2a64c449f1dcda287e6049c03e3507ea22c6b80"
+    },
+    {
+      "path": "benchmarks/kim_ismir2024/src/model.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "45945f61581bfa74d9b26ed00963c0090e9ac774",
+      "size": 4855,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/45945f61581bfa74d9b26ed00963c0090e9ac774"
+    },
+    {
+      "path": "benchmarks/kim_ismir2024/src/sub_models.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "8c831dba02fb574a1273104d5b6c35338f093e0c",
+      "size": 23625,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/8c831dba02fb574a1273104d5b6c35338f093e0c"
+    },
+    {
+      "path": "benchmarks/model_FilmUnet.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6069b4206f9d0dd027120c3c230e3313ce6e1e58",
+      "size": 4259,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/6069b4206f9d0dd027120c3c230e3313ce6e1e58"
+    },
+    {
+      "path": "benchmarks/model_TransKun.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7a7d2380c121783873baf81c447f9cba113af6e",
+      "size": 8445,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/c7a7d2380c121783873baf81c447f9cba113af6e"
+    },
+    {
+      "path": "benchmarks/p2.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9077bceac9d80a67611dcae162f351a767e2cda5",
+      "size": 272157,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/9077bceac9d80a67611dcae162f351a767e2cda5"
+    },
+    {
+      "path": "environment.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df03d16f4db804611edcfe1182e11f657b021852",
+      "size": 6593,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/df03d16f4db804611edcfe1182e11f657b021852"
+    },
+    {
+      "path": "pytorch",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f97b89ac8bea12a6121600016aad37fc5cdec3ed",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/f97b89ac8bea12a6121600016aad37fc5cdec3ed"
+    },
+    {
+      "path": "pytorch/calculate_scores.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f4d8c60eae9876860e4a7bcae820eb145dfd697",
+      "size": 22309,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/8f4d8c60eae9876860e4a7bcae820eb145dfd697"
+    },
+    {
+      "path": "pytorch/calculate_scores_unaligned.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7a37acee34bec6fc9edd61b5055d39cb66affb6",
+      "size": 22216,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/f7a37acee34bec6fc9edd61b5055d39cb66affb6"
+    },
+    {
+      "path": "pytorch/config",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ff963a1e32b33004e3d48647a11e05c3f3f6275c",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/ff963a1e32b33004e3d48647a11e05c3f3f6275c"
+    },
+    {
+      "path": "pytorch/config/config.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e511fab1d9dff6ba30e9ab23085d88cc40cdc60",
+      "size": 3300,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/1e511fab1d9dff6ba30e9ab23085d88cc40cdc60"
+    },
+    {
+      "path": "pytorch/config/dual_gated.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3e78565144e48ccd2288d24f60cd7f18e1fa10f",
+      "size": 89,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/b3e78565144e48ccd2288d24f60cd7f18e1fa10f"
+    },
+    {
+      "path": "pytorch/config/note_editor.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dda7b16dc61f38fb596e95a2268293937a1a2107",
+      "size": 147,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/dda7b16dc61f38fb596e95a2268293937a1a2107"
+    },
+    {
+      "path": "pytorch/config/scrr.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd6a8cea7dd16393ed62ba53f4c40b37065e3919",
+      "size": 157,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/dd6a8cea7dd16393ed62ba53f4c40b37065e3919"
+    },
+    {
+      "path": "pytorch/data_generator.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "258c3a972551e3d1746ff8e8cbddc862d8159bd8",
+      "size": 27138,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/258c3a972551e3d1746ff8e8cbddc862d8159bd8"
+    },
+    {
+      "path": "pytorch/evaluate.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a5cf1079220e5a16e2365f8b55a81d06a0259fe",
+      "size": 4555,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/6a5cf1079220e5a16e2365f8b55a81d06a0259fe"
+    },
+    {
+      "path": "pytorch/feature_extractor.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b4d512c53cc402a491b7533a600105e4c35d756",
+      "size": 19449,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/9b4d512c53cc402a491b7533a600105e4c35d756"
+    },
+    {
+      "path": "pytorch/inference.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d64e8d10ec6e57ddcb5447ac43e12a844768ec2",
+      "size": 37317,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/0d64e8d10ec6e57ddcb5447ac43e12a844768ec2"
+    },
+    {
+      "path": "pytorch/losses.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f336e02146b7abf72c367fd8e86691aba1292262",
+      "size": 3956,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/f336e02146b7abf72c367fd8e86691aba1292262"
+    },
+    {
+      "path": "pytorch/model",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f8e18aa00e0ba5425096b96bec80b8f219d8dc50",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/f8e18aa00e0ba5425096b96bec80b8f219d8dc50"
+    },
+    {
+      "path": "pytorch/model/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b16e6cc0c083771a6965c32d3df94fa19dd9716",
+      "size": 344,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/0b16e6cc0c083771a6965c32d3df94fa19dd9716"
+    },
+    {
+      "path": "pytorch/model/base.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "377d945809809159d9f7c5fdad237e937c6a454f",
+      "size": 3997,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/377d945809809159d9f7c5fdad237e937c6a454f"
+    },
+    {
+      "path": "pytorch/model/dynest_adapter.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c104b7a72a31ba126c09d4867303ff5ca7ae9ba8",
+      "size": 12602,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/c104b7a72a31ba126c09d4867303ff5ca7ae9ba8"
+    },
+    {
+      "path": "pytorch/model/hppnet_adapter.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a27cafef7775b5be474649a4bb1015b4ea21af5f",
+      "size": 9947,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/a27cafef7775b5be474649a4bb1015b4ea21af5f"
+    },
+    {
+      "path": "pytorch/model/hpt_adapter.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae2bcda5597412f4cc3d124d5dc4c8078886a52b",
+      "size": 8488,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/ae2bcda5597412f4cc3d124d5dc4c8078886a52b"
+    },
+    {
+      "path": "pytorch/model/model_registry.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a67d47613b0fd2f6d78356f3393df1e724ed0907",
+      "size": 655,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/a67d47613b0fd2f6d78356f3393df1e724ed0907"
+    },
+    {
+      "path": "pytorch/piano_vad.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd1f9e71124780ca9d8a07f5a4a22856648a5f30",
+      "size": 7758,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/fd1f9e71124780ca9d8a07f5a4a22856648a5f30"
+    },
+    {
+      "path": "pytorch/pytorch_utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1df8cad120ec4b4784fb2918076075845d8525f4",
+      "size": 6457,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/1df8cad120ec4b4784fb2918076075845d8525f4"
+    },
+    {
+      "path": "pytorch/score_inf",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "872b388575ab935b4272556f76e6173d26f82a6f",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/872b388575ab935b4272556f76e6173d26f82a6f"
+    },
+    {
+      "path": "pytorch/score_inf/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44a1b286a699ef81cd771d0656c5c105df8f05a7",
+      "size": 569,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/44a1b286a699ef81cd771d0656c5c105df8f05a7"
+    },
+    {
+      "path": "pytorch/score_inf/io_types.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0013c6f24d2c63e00ca9035dc070b532e6462f6",
+      "size": 1189,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/b0013c6f24d2c63e00ca9035dc070b532e6462f6"
+    },
+    {
+      "path": "pytorch/score_inf/method_bilstm.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "557c78d34137b5581f115bf1ac6e0d7c0292094c",
+      "size": 3178,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/557c78d34137b5581f115bf1ac6e0d7c0292094c"
+    },
+    {
+      "path": "pytorch/score_inf/method_dual_gated.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15779574de4084d14ee3cd045dc8f3388ebc84a5",
+      "size": 2956,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/15779574de4084d14ee3cd045dc8f3388ebc84a5"
+    },
+    {
+      "path": "pytorch/score_inf/method_identity.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "63eb34651bd5d66653cc017e817b57f2622e17aa",
+      "size": 648,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/63eb34651bd5d66653cc017e817b57f2622e17aa"
+    },
+    {
+      "path": "pytorch/score_inf/method_note_editor.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ea435a53a96533723bdddcd95a28bb3cb6ad012",
+      "size": 8547,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/2ea435a53a96533723bdddcd95a28bb3cb6ad012"
+    },
+    {
+      "path": "pytorch/score_inf/method_scrr.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a38b47cebaca85c3e6182625dd36d6849bebfa0",
+      "size": 4231,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/4a38b47cebaca85c3e6182625dd36d6849bebfa0"
+    },
+    {
+      "path": "pytorch/score_inf/registry.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de345799c08e8e4f4f3e9bbe45e745688505a47b",
+      "size": 811,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/de345799c08e8e4f4f3e9bbe45e745688505a47b"
+    },
+    {
+      "path": "pytorch/score_inf/utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a26da9e6671869630bc59985948850403d2ebb3",
+      "size": 1057,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/9a26da9e6671869630bc59985948850403d2ebb3"
+    },
+    {
+      "path": "pytorch/score_inf/wrapper.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc2c7e98a254c59b6894463d2351fa522e622bb4",
+      "size": 2523,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/dc2c7e98a254c59b6894463d2351fa522e622bb4"
+    },
+    {
+      "path": "pytorch/train_score_inf.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d200b990262582db0eee09781b7e2f2429718d60",
+      "size": 17128,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/d200b990262582db0eee09781b7e2f2429718d60"
+    },
+    {
+      "path": "pytorch/train_score_inf_dual.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aefa53c36281071166c3ec1b3a261c2304452c8b",
+      "size": 13782,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/aefa53c36281071166c3ec1b3a261c2304452c8b"
+    },
+    {
+      "path": "pytorch/utilities.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66afa66d06387fb0def77187d01780b863e2555e",
+      "size": 55189,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/66afa66d06387fb0def77187d01780b863e2555e"
+    },
+    {
+      "path": "run_scripts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d17b11f1cffc9f9114afbe5d4a68f323d96d5c14",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/d17b11f1cffc9f9114afbe5d4a68f323d96d5c14"
+    },
+    {
+      "path": "run_scripts/clean_apple.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4533324654bf0b987956b9f0d45c6e0ee582b1f",
+      "size": 1005,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/d4533324654bf0b987956b9f0d45c6e0ee582b1f"
+    },
+    {
+      "path": "run_scripts/kaya_hpt_eval_smd.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "3d2d973132d883830759136ba41983fdef6d2038",
+      "size": 4955,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/3d2d973132d883830759136ba41983fdef6d2038"
+    },
+    {
+      "path": "run_scripts/kaya_hpt_note_editor_ablation.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "6362538ebd0506079d8f640f3960d3cb4486f2af",
+      "size": 6391,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/6362538ebd0506079d8f640f3960d3cb4486f2af"
+    },
+    {
+      "path": "run_scripts/kaya_hpt_note_train.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0c7ab0451f272fa4023c19cd0e48a24738ba008",
+      "size": 2764,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/f0c7ab0451f272fa4023c19cd0e48a24738ba008"
+    },
+    {
+      "path": "run_scripts/kaya_hpt_scrr_train.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d1bb7a7705190460d512d5b4043830624986557",
+      "size": 3500,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/0d1bb7a7705190460d512d5b4043830624986557"
+    },
+    {
+      "path": "run_scripts/kaya_hpt_train.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26368d1bb6397cbbb6d48b81aade65a96bfda033",
+      "size": 3440,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/26368d1bb6397cbbb6d48b81aade65a96bfda033"
+    },
+    {
+      "path": "run_scripts/local_train.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbcc927dc0a0472368f4edeac220406af92c5298",
+      "size": 1960,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/fbcc927dc0a0472368f4edeac220406af92c5298"
+    },
+    {
+      "path": "workspaces",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4ab5abff0fb2e43f4473665642608db5c71c1507",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/4ab5abff0fb2e43f4473665642608db5c71c1507"
+    },
+    {
+      "path": "workspaces/checkpoints",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "76ef5ab6e5265d32753175b9833631c61dea7f4e",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/76ef5ab6e5265d32753175b9833631c61dea7f4e"
+    },
+    {
+      "path": "workspaces/checkpoints/hpt+onset+frame+score_note_editor",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "aa57bb126b84a276f5763888887a808a5c2ed56c",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/aa57bb126b84a276f5763888887a808a5c2ed56c"
+    },
+    {
+      "path": "workspaces/checkpoints/hpt+onset+frame+score_note_editor/100000_iterations.pth",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8590148dc95dd9667321bfde808421c8051ca0e",
+      "size": 20762154,
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/blobs/e8590148dc95dd9667321bfde808421c8051ca0e"
+    }
+  ],
+  "truncated": false
+}

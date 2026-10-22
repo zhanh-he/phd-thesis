@@ -1,0 +1,153 @@
+[
+  {
+    "path": "Readme.md",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/Readme.md",
+    "sha256": "c57f95d1bc516f84dcc6779c2970d969efe80dd6a6b1cda041beb7d3f970893c",
+    "bytes": 5008
+  },
+  {
+    "path": "pytorch/train_score_inf.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/train_score_inf.py",
+    "sha256": "35a361ccac6b45b8ab1bc56ef51c298c7611f326ca892d5fdc9357018ce4ace1",
+    "bytes": 17128
+  },
+  {
+    "path": "pytorch/config/config.yaml",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/config/config.yaml",
+    "sha256": "a0e8ea869d73afcfaf9e5eece567d182e95d467482c1f0ae402a1ed516e45da4",
+    "bytes": 3300
+  },
+  {
+    "path": "pytorch/config/note_editor.yaml",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/config/note_editor.yaml",
+    "sha256": "8bde6b9dc143f478ee2765327fb8277eaa442ce50f79b83bce807250239b8808",
+    "bytes": 147
+  },
+  {
+    "path": "pytorch/model/base.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/model/base.py",
+    "sha256": "07e80f19688f57a97be94510577ae8cae248efc0eb9ef0a80a13ed6a30becaef",
+    "bytes": 3997
+  },
+  {
+    "path": "pytorch/model/hpt_adapter.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/model/hpt_adapter.py",
+    "sha256": "384f2ccd917a39034e143d17d452d0ce4214f2c7c3d214bff1079fe798eeb2c6",
+    "bytes": 8488
+  },
+  {
+    "path": "pytorch/model/hppnet_adapter.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/model/hppnet_adapter.py",
+    "sha256": "6e060842470ea4f6da33afd2e5d3c75194ad586208eb614ffd4138fd38dbb7b0",
+    "bytes": 9947
+  },
+  {
+    "path": "pytorch/model/dynest_adapter.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/model/dynest_adapter.py",
+    "sha256": "dd53c428a55e8173aa122f6b3931e741085c84d73be5b08107bdfe487d4a4cca",
+    "bytes": 12602
+  },
+  {
+    "path": "pytorch/score_inf/wrapper.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/score_inf/wrapper.py",
+    "sha256": "956844f04d6259b147c3ffe880a9889eb961212ef0fc766465f93de75ca31b93",
+    "bytes": 2523
+  },
+  {
+    "path": "pytorch/score_inf/method_note_editor.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/score_inf/method_note_editor.py",
+    "sha256": "45dac62375dce9d309cd2e4b9c60bc71d6e8b937b77d264494a21c1c3a1a9a5e",
+    "bytes": 8547
+  },
+  {
+    "path": "pytorch/score_inf/method_bilstm.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/score_inf/method_bilstm.py",
+    "sha256": "d705b7be8adaa340e58a4d36afb3b8a6b77a65b03081a985ac21b7d4f1acd618",
+    "bytes": 3178
+  },
+  {
+    "path": "pytorch/losses.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/losses.py",
+    "sha256": "1b175855aac157bfe143284e0139cf841f7dc4bc0f67826c681f02caef1d4d4d",
+    "bytes": 3956
+  },
+  {
+    "path": "pytorch/evaluate.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/evaluate.py",
+    "sha256": "f0449f58532d038edad24bea43444cf49abdfb4ec8f006a7c6491a7e6b26a514",
+    "bytes": 4555
+  },
+  {
+    "path": "pytorch/data_generator.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/data_generator.py",
+    "sha256": "7428a9b70c30be460b3b5ec76998dc48907b5954a1f4f77b991d2677665f07a9",
+    "bytes": 27138
+  },
+  {
+    "path": "pytorch/calculate_scores.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/calculate_scores.py",
+    "sha256": "b35296e48f1c736b8b8bb792c3f4d2c2d03150ff60074872c4d89417863a90ac",
+    "bytes": 22309
+  },
+  {
+    "path": "run_scripts/local_train.sh",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/run_scripts/local_train.sh",
+    "sha256": "3bea0bb35cde273d7b12546dd7c1bff7982e5afe83b01428235acb3d83c85a67",
+    "bytes": 1960
+  },
+  {
+    "path": "run_scripts/kaya_hpt_note_train.sh",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/run_scripts/kaya_hpt_note_train.sh",
+    "sha256": "bdf954d998a5ff109b4e71c5dc406284f537253d335208555526995fdd53eeff",
+    "bytes": 2764
+  },
+  {
+    "path": "run_scripts/kaya_hpt_note_editor_ablation.sh",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/run_scripts/kaya_hpt_note_editor_ablation.sh",
+    "sha256": "2eeb6fd2304b27f5e54fc72f73bfd8d78db587836758c58cee9037d8530905ce",
+    "bytes": 6391
+  },
+  {
+    "path": "run_scripts/kaya_hpt_train.sh",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/run_scripts/kaya_hpt_train.sh",
+    "sha256": "57ed07adcce762c0e8ed7a057b0aaad86ee78a7515a24edf9768ca6cbf5a1063",
+    "bytes": 3440
+  },
+  {
+    "path": "Test.ipynb",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/Test.ipynb",
+    "sha256": "3e662dadba2a8e6b111e93db1810208fb743bdc67713d480084e0727a64cc9ad",
+    "bytes": 40414
+  },
+  {
+    "path": "Train.ipynb",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/Train.ipynb",
+    "sha256": "b98968b359aca07e2b0716b564091b0927638a13b3c707afa83b081f1323ed9d",
+    "bytes": 1207901,
+    "retained": "Train_code_cells.txt only; embedded image outputs omitted"
+  },
+  {
+    "path": "pytorch/inference.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/inference.py",
+    "sha256": "3c5f5daf821f1fdc97636ba1d831637cf015525dee88861d1a7cb94eb6f64d00",
+    "bytes": 37317
+  },
+  {
+    "path": "pytorch/feature_extractor.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/feature_extractor.py",
+    "sha256": "3428c6daf00d7df5cc60a211f84ecbef5a4a1c1fcc02844cc56869df839d6c63",
+    "bytes": 19449
+  },
+  {
+    "path": "pytorch/model/__init__.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/model/__init__.py",
+    "sha256": "3c200da8964ce06b1ac296c971c75c3bdd79c8c45e77950987192a5243507b75",
+    "bytes": 344
+  },
+  {
+    "path": "pytorch/score_inf/method_identity.py",
+    "url": "https://raw.githubusercontent.com/zhanh-he/score-informed-amt/22b4db68389b9825ba88b197a93929a9e7be4847/pytorch/score_inf/method_identity.py",
+    "sha256": "1e38959569df0cb8da607a898fe881d08128981c7dcd07831995c793eb93aa30",
+    "bytes": 648
+  }
+]

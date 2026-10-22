@@ -1,0 +1,13 @@
+{
+  "commit": "b80be9b355dd28c2a710a3839f63dbbf6d4a9471",
+  "notebook_sha256": "295aa1288f1ffae987c10d64c3928f9bbe00cc338858916e6540bec2e1efe61c",
+  "saved_stdout_metric_dicts": 100,
+  "saved_per_fold_metric_values": 200,
+  "groups_including_coarse": 40,
+  "complete_five_fold_groups": true,
+  "table_primary_entries": 32,
+  "table_entries_matching_per_metric_max": 32,
+  "table_entries_matching_stated_rule": 22,
+  "missing_raw_predictions": true,
+  "interpretation": "Arithmetic aggregation of saved rounded notebook stdout; not F1 recomputation or inference; v0 run identity unconfirmed."
+}

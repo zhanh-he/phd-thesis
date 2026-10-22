@@ -1,0 +1,74 @@
+{
+  "repository": "https://github.com/zhanh-he/piano-dynamic-estimation",
+  "commit": "b80be9b355dd28c2a710a3839f63dbbf6d4a9471",
+  "retrieval_date": "2026-10-22",
+  "method": "GitHub API tree plus raw small files, read-only, no repository scripts executed",
+  "files": [
+    {
+      "path": "eval_and_benchmarks/CrossEval.ipynb",
+      "sha256": "295aa1288f1ffae987c10d64c3928f9bbe00cc338858916e6540bec2e1efe61c",
+      "bytes": 76040,
+      "source_url": "https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/eval_and_benchmarks/CrossEval.ipynb"
+    },
+    {
+      "path": "eval_and_benchmarks/CrossEval_README.md",
+      "sha256": "505bde990f40fc522f6cbc5742f56fc48d4433a9970690730dd273a692f416c2",
+      "bytes": 3859,
+      "source_url": "https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/eval_and_benchmarks/CrossEval_README.md"
+    },
+    {
+      "path": "pytorch/evaluator.py",
+      "sha256": "6bc03020016b258baa29d4daf3cbb4268f47e78da493bebb60126ec9d3ae1b98",
+      "bytes": 13733,
+      "source_url": "https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/pytorch/evaluator.py"
+    },
+    {
+      "path": "pytorch/final_evaluation.py",
+      "sha256": "3122068bff9cb7e8d84326efc502ce8e7a9b66e00fdecf4ac335a5404650c05d",
+      "bytes": 14109,
+      "source_url": "https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/pytorch/final_evaluation.py"
+    },
+    {
+      "path": "pytorch/losses.py",
+      "sha256": "6b4b9bfae502954f35502f0c770085892917cbaf11d82f6dcd6bbc44799dba58",
+      "bytes": 8939,
+      "source_url": "https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/pytorch/losses.py"
+    },
+    {
+      "path": "pytorch/models_audioCNN.py",
+      "sha256": "8f8ecdba1837746b3e54351fa29766f8dfdd0056cda7158cf3d05c383942b075",
+      "bytes": 16296,
+      "source_url": "https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/pytorch/models_audioCNN.py"
+    },
+    {
+      "path": "pytorch/post_processor/beat_postproc.py",
+      "sha256": "ae553ec1a6fa9080413aa8f4507e9e80bf8842ec7214194b7fd4122154262e5a",
+      "bytes": 9058,
+      "source_url": "https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/pytorch/post_processor/beat_postproc.py"
+    },
+    {
+      "path": "pytorch/config.yaml",
+      "sha256": "76a1690f585106f023af1345139513205d6b1f408530349a6897c5062c2285a5",
+      "bytes": 6059,
+      "source_url": "https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/pytorch/config.yaml"
+    },
+    {
+      "path": "README.md",
+      "sha256": "594af48bf279b63dba61dcb75dd9287b54a897da2642270ad2b3008a9a7f9a01",
+      "bytes": 9424,
+      "source_url": "https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/README.md"
+    },
+    {
+      "path": "pytorch/inference.py",
+      "sha256": "2080a9b2299ffcbc0970425dce43583acc1ee41822e60fcc2521d286ba26b77e",
+      "bytes": 18857,
+      "source_url": "https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/pytorch/inference.py"
+    },
+    {
+      "path": "pytorch/post_processor/dynamic_postproc.py",
+      "sha256": "c257ffc443658379bd79be20007d641f2fe02808cc468039bb1d6683c5e9268e",
+      "bytes": 2808,
+      "source_url": "https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/pytorch/post_processor/dynamic_postproc.py"
+    }
+  ]
+}

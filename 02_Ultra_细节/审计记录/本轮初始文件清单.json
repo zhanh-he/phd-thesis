@@ -1,0 +1,123 @@
+[
+  {
+    "file": "Zhanhong_He_PhD_Thesis_v0.pdf",
+    "pages": 154,
+    "sha256": "3479394740921480c1325c70cc343eaea9e5d09df174be449415a9c8dacb4798"
+  },
+  {
+    "file": "Z_He_PhD_Thesis.pdf",
+    "pages": 154,
+    "sha256": "cbfcfca09364f85a7f6fcef186114054bfa8c494a87d26271091911a9064de07"
+  },
+  {
+    "file": "main.pdf",
+    "pages": 154,
+    "sha256": "45948164a8396ce9e84adaaa9d66e54d0afbda2f9a81d40823b335046cf379eb"
+  },
+  {
+    "file": "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf",
+    "pages": 4,
+    "sha256": "8a9412c1401a41a5b4f82865faf759f255a20f03cf7997d92be0278a3a582e78"
+  },
+  {
+    "file": "Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf",
+    "pages": 4,
+    "sha256": "c9d8a2a843e3c9cd167e751ed0dec8f7cd7ca757a6a8fabea2abc747b1c61020"
+  },
+  {
+    "file": "01_中文导读/01_答辩的五个要点.md",
+    "sha256": "c9afa8c706c06cdcee7f38cf4ba9547e0c6fbae4536b38fac9c105c3ef944595"
+  },
+  {
+    "file": "01_中文导读/03_答辩速查与术语.md",
+    "sha256": "c491a478c6881b51e1ba42f139dbfa8d962c1f1df8719db7e586b1bea02893ed"
+  },
+  {
+    "file": "01_中文导读/00_从这里开始.md",
+    "sha256": "63e5f75f726ee4b88355dfaf3f49151989a082ecbcc16e9d7b793a83a4c0434f"
+  },
+  {
+    "file": "01_中文导读/02_三个需要核查的问题.md",
+    "sha256": "e2d9f07977b4fe99308b7b1bb0b6d0825bafae42430025056900a9f3d45a2185"
+  },
+  {
+    "file": "02_Ultra_细节/给导读的更新建议.md",
+    "sha256": "bfee863b6cfd05e226b1b71424f6b862ce566d528d239404d1d59c06c0394da7"
+  },
+  {
+    "file": "02_Ultra_细节/ULTRA_PROMPT.md",
+    "sha256": "cafe3011a5cd09f3007e8746bd1aa1177fcb0734834eab82045b9e82ce01c559"
+  },
+  {
+    "file": "02_Ultra_细节/交付清单.json",
+    "sha256": "f013f3425c4bcca07677333a53cefe68e3a27893d7ef41f389fa7dd9ff0e3be3"
+  },
+  {
+    "file": "02_Ultra_细节/README.md",
+    "sha256": "34a1b0fe48df5f0c7c6225024e4ed5f8287944b707d8a31a7b32b2b0db0ee199"
+  },
+  {
+    "file": "02_Ultra_细节/00_证据与状态索引.md",
+    "sha256": "424a9b63c02579bbb0bf4efaa761c366e8aff69df163d5e53a26b604ecb98af1"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/R1_COMPLETE_ISSUE_INVENTORY.md",
+    "sha256": "6758accd915a09aac557e747d8b230d826be57f2a7a68acb03abb33baf10c20a"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md",
+    "sha256": "0f2581e44c0670c71a1dda7b5dd4e2d0a1735a7eb3c4565fc605201d4da3e9f0"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/SOURCE_MANIFEST.json",
+    "sha256": "aeec65eadb4fc4f94dd77922d5ed4bf26a81aea31f4f1b1e8e5c4504c4e83e17"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/CHANGELOG.md",
+    "sha256": "27319ad30047c16334620207cd9f89a88e32822253db290e11a6a09dda2fd899"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/START_HERE.md",
+    "sha256": "d937f24927f05e16a2ecdc4ae9ae933017538a06fa7428b3c5bee6f475f136ff"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/VALIDATION.md",
+    "sha256": "88d5b81f67794c863bc47eb9e93ff6eb1f89739d4224952793d3db8de0723a2b"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/TODAY_DEFENCE_BRIEF.md",
+    "sha256": "d5983a2fe82c498d4a69634cf1c4895a3877da42e830673d7c5e2db7cabf0e9a"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/ULTRA_EXECUTION_PROMPT.txt",
+    "sha256": "7242ff0eb2e534f2f617435917739607e2b93efbf6fcb2677d4845dee5c2a043"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/THESIS_REVISION_BLUEPRINT.md",
+    "sha256": "ceaa16c3e5226ee4b19193e6b10d527d66497c654adc59674ff5690fd983d2e7"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/READING_COVERAGE.md",
+    "sha256": "b923f121d0566f1c13a90b00d037d76398c90829106960e73c946784ff89f6af"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/COMBINED_RESPONSE_REVISION_MATRIX.md",
+    "sha256": "1206432e8ef7ece1af7bae8fd55ce4c33e09a9e626896c68aa1da4426cfa3a80"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/R2_COMPLETE_ISSUE_INVENTORY.md",
+    "sha256": "68b5fedcf06d354b3b51acdeb8a612900c5236d2cd28b6a1b023109124d0defb"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/appendix/VERIFICATION_GAPS.md",
+    "sha256": "b5ca541867207b11d21e5587fad2b5d6ce535cb48a6e2126d4b2d8ba3ce7960e"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/appendix/PDF_VERSION_DIFFERENCES.json",
+    "sha256": "ab24baf2ad02f6ebba9759f4d4e233ac9f22924c8391bdcdb9a0094dfc29cc34"
+  },
+  {
+    "file": "02_Ultra_细节/blueprint_snapshot/appendix/ISSUES.json",
+    "sha256": "6733958d3205e97c4721b9df90bdb0452855adf569dea08d8c4b2f905d5d27ff"
+  }
+]

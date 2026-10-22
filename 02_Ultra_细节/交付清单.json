@@ -1,0 +1,259 @@
+{
+  "artifact": "Chinese readability layer and Ultra detail handoff",
+  "created_date": "2026-10-22",
+  "project_root": "/Users/jollibear/Documents/PhD_Thesis_Source_20261022",
+  "commit": "7e319875a8b1e9fc8f6a0afa4dc4417b03212226",
+  "primary_pdf": "Zhanhong_He_PhD_Thesis_v0.pdf",
+  "snapshot_source": "/Users/jollibear/Documents/PhD_Defence_Blueprint_20261022",
+  "snapshot_files_identical": 15,
+  "original_tracked_files_verified": 76,
+  "all_original_tracked_hashes_unchanged": true,
+  "tracked_git_status_porcelain": "",
+  "new_notes_local_only": true,
+  "ultra_started": false,
+  "thesis_edited": false,
+  "experiments_run": false,
+  "committed": false,
+  "pushed": false,
+  "library_id_recorded_in_delivery_response": true,
+  "relative_markdown_links_checked": 41,
+  "reader_main_chinese_character_count": 2032,
+  "created_files": [
+    "01_中文导读/00_从这里开始.md",
+    "01_中文导读/01_答辩的五个要点.md",
+    "01_中文导读/02_三个需要核查的问题.md",
+    "01_中文导读/03_答辩速查与术语.md",
+    "02_Ultra_细节/00_证据与状态索引.md",
+    "02_Ultra_细节/README.md",
+    "02_Ultra_细节/ULTRA_PROMPT.md",
+    "02_Ultra_细节/blueprint_snapshot/CHANGELOG.md",
+    "02_Ultra_细节/blueprint_snapshot/COMBINED_RESPONSE_REVISION_MATRIX.md",
+    "02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md",
+    "02_Ultra_细节/blueprint_snapshot/R1_COMPLETE_ISSUE_INVENTORY.md",
+    "02_Ultra_细节/blueprint_snapshot/R2_COMPLETE_ISSUE_INVENTORY.md",
+    "02_Ultra_细节/blueprint_snapshot/READING_COVERAGE.md",
+    "02_Ultra_细节/blueprint_snapshot/SOURCE_MANIFEST.json",
+    "02_Ultra_细节/blueprint_snapshot/START_HERE.md",
+    "02_Ultra_细节/blueprint_snapshot/THESIS_REVISION_BLUEPRINT.md",
+    "02_Ultra_细节/blueprint_snapshot/TODAY_DEFENCE_BRIEF.md",
+    "02_Ultra_细节/blueprint_snapshot/ULTRA_EXECUTION_PROMPT.txt",
+    "02_Ultra_细节/blueprint_snapshot/VALIDATION.md",
+    "02_Ultra_细节/blueprint_snapshot/appendix/ISSUES.json",
+    "02_Ultra_细节/blueprint_snapshot/appendix/PDF_VERSION_DIFFERENCES.json",
+    "02_Ultra_细节/blueprint_snapshot/appendix/VERIFICATION_GAPS.md",
+    "02_Ultra_细节/给导读的更新建议.md"
+  ],
+  "preexisting_identical_files": [],
+  "files": [
+    {
+      "path": "01_中文导读/00_从这里开始.md",
+      "bytes": 2424,
+      "sha256": "63e5f75f726ee4b88355dfaf3f49151989a082ecbcc16e9d7b793a83a4c0434f"
+    },
+    {
+      "path": "01_中文导读/01_答辩的五个要点.md",
+      "bytes": 8219,
+      "sha256": "c9afa8c706c06cdcee7f38cf4ba9547e0c6fbae4536b38fac9c105c3ef944595"
+    },
+    {
+      "path": "01_中文导读/02_三个需要核查的问题.md",
+      "bytes": 4307,
+      "sha256": "e2d9f07977b4fe99308b7b1bb0b6d0825bafae42430025056900a9f3d45a2185"
+    },
+    {
+      "path": "01_中文导读/03_答辩速查与术语.md",
+      "bytes": 4172,
+      "sha256": "c491a478c6881b51e1ba42f139dbfa8d962c1f1df8719db7e586b1bea02893ed"
+    },
+    {
+      "path": "02_Ultra_细节/00_证据与状态索引.md",
+      "bytes": 5836,
+      "sha256": "424a9b63c02579bbb0bf4efaa761c366e8aff69df163d5e53a26b604ecb98af1"
+    },
+    {
+      "path": "02_Ultra_细节/README.md",
+      "bytes": 2040,
+      "sha256": "34a1b0fe48df5f0c7c6225024e4ed5f8287944b707d8a31a7b32b2b0db0ee199"
+    },
+    {
+      "path": "02_Ultra_细节/ULTRA_PROMPT.md",
+      "bytes": 6300,
+      "sha256": "cafe3011a5cd09f3007e8746bd1aa1177fcb0734834eab82045b9e82ce01c559"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/CHANGELOG.md",
+      "bytes": 671,
+      "sha256": "27319ad30047c16334620207cd9f89a88e32822253db290e11a6a09dda2fd899"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/COMBINED_RESPONSE_REVISION_MATRIX.md",
+      "bytes": 12645,
+      "sha256": "1206432e8ef7ece1af7bae8fd55ce4c33e09a9e626896c68aa1da4426cfa3a80"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md",
+      "bytes": 28351,
+      "sha256": "0f2581e44c0670c71a1dda7b5dd4e2d0a1735a7eb3c4565fc605201d4da3e9f0"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/R1_COMPLETE_ISSUE_INVENTORY.md",
+      "bytes": 15694,
+      "sha256": "6758accd915a09aac557e747d8b230d826be57f2a7a68acb03abb33baf10c20a"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/R2_COMPLETE_ISSUE_INVENTORY.md",
+      "bytes": 2983,
+      "sha256": "68b5fedcf06d354b3b51acdeb8a612900c5236d2cd28b6a1b023109124d0defb"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/READING_COVERAGE.md",
+      "bytes": 3302,
+      "sha256": "b923f121d0566f1c13a90b00d037d76398c90829106960e73c946784ff89f6af"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/SOURCE_MANIFEST.json",
+      "bytes": 27844,
+      "sha256": "aeec65eadb4fc4f94dd77922d5ed4bf26a81aea31f4f1b1e8e5c4504c4e83e17"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/START_HERE.md",
+      "bytes": 3491,
+      "sha256": "d937f24927f05e16a2ecdc4ae9ae933017538a06fa7428b3c5bee6f475f136ff"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/THESIS_REVISION_BLUEPRINT.md",
+      "bytes": 5737,
+      "sha256": "ceaa16c3e5226ee4b19193e6b10d527d66497c654adc59674ff5690fd983d2e7"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/TODAY_DEFENCE_BRIEF.md",
+      "bytes": 4517,
+      "sha256": "d5983a2fe82c498d4a69634cf1c4895a3877da42e830673d7c5e2db7cabf0e9a"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/ULTRA_EXECUTION_PROMPT.txt",
+      "bytes": 7242,
+      "sha256": "7242ff0eb2e534f2f617435917739607e2b93efbf6fcb2677d4845dee5c2a043"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/VALIDATION.md",
+      "bytes": 812,
+      "sha256": "88d5b81f67794c863bc47eb9e93ff6eb1f89739d4224952793d3db8de0723a2b"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/appendix/ISSUES.json",
+      "bytes": 17964,
+      "sha256": "6733958d3205e97c4721b9df90bdb0452855adf569dea08d8c4b2f905d5d27ff"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/appendix/PDF_VERSION_DIFFERENCES.json",
+      "bytes": 762,
+      "sha256": "ab24baf2ad02f6ebba9759f4d4e233ac9f22924c8391bdcdb9a0094dfc29cc34"
+    },
+    {
+      "path": "02_Ultra_细节/blueprint_snapshot/appendix/VERIFICATION_GAPS.md",
+      "bytes": 2661,
+      "sha256": "b5ca541867207b11d21e5587fad2b5d6ce535cb48a6e2126d4b2d8ba3ce7960e"
+    },
+    {
+      "path": "02_Ultra_细节/给导读的更新建议.md",
+      "bytes": 739,
+      "sha256": "bfee863b6cfd05e226b1b71424f6b862ce566d528d239404d1d59c06c0394da7"
+    }
+  ],
+  "original_tracked_sha256_after": {
+    ".DS_Store": "43eaec0531556e12e22ac41882ee6db3429cf1e880f2c9d4525d8d9f5b601a5f",
+    ".claude/FULL_THESIS_PROOFREAD.md": "310f31985dee73c5859c4387f580d2f95afae26f17ef0ef45f98ea87bfb4829a",
+    ".claude/REFERENCES_REVIEW.md": "e3849bc9c2e70c8a4b60027848cd211d717a19ef2253eff7cdde1c483b96af01",
+    ".claude/THESIS_REVIEW.md": "35dc65963413a8fe33c0031f305f18469a88c44de0db605bd23310a4b1122d34",
+    ".claude/merge_paragraphs.py": "6e81229016b012477fb040b5a6c36dcf3986d4fabd0b0d0ed1b6faa1dd58f4f6",
+    ".claude/settings.local.json": "761ecbdb6c4f54165c3bcbd1186d37c6c248bb1372c6dc57e6b9fd7721c552da",
+    ".claude/thesis_reference_complete_no_ack.patch": "39e2dabd4106c68f62884473b25aa76800398b78b7f649580600e2b693d6a3f7",
+    ".vscode/extensions.json": "21469d7436aef9508ad652ae8b5c878076209399937af00d81551a940d04b486",
+    "Abbreviations/abbreviation.tex": "a5774d564dcf3ca8ba3cfbd80eebf4018c8b30989b0f6ae39810c525f095173d",
+    "Acknowledgments/PPT_plan.md": "b71932403f79f1a032ff5cf796a2cd6d52ffd921f738e45a33f1fe466e02e69a",
+    "Acknowledgments/acknowledgements.tex": "cd26f714612dce13d34f3a7061d672363dbb001dffe41648dbdc71203e7e51f6",
+    "Chapter_1/.DS_Store": "32e334afa64e7745b2c5f5562f1682ec3adca68ccbf5205cd617cb9551943ebd",
+    "Chapter_1/Intro.tex": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359",
+    "Chapter_1/figures/AMT.png": "89a57d783a7828516d8057f77621cf5590e213100df647c190d9f7bf1ff2d26c",
+    "Chapter_1/figures/ExpressiveAMT.jpg": "77e4fec8c0ffd20fc3f86622017f1a7054c92f4a44ddbd44695ded16c2f3cc23",
+    "Chapter_1/figures/Overview.jpg": "98c3f404f16099cdfb0252182a6df9615543aaf6bab7318e3a9f5e18930ffaee",
+    "Chapter_2/.DS_Store": "8fdb5a129a7545a231a7dd2830a32b752c08ba6233e687c6ad02bdaed25aa4fb",
+    "Chapter_2/Background.tex": "3e06f2725ca4dd33c2ea72ada1a8b8de60063433dba7eb8954e88556f637584c",
+    "Chapter_2/figures/.DS_Store": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+    "Chapter_2/figures/dynamics_layers.png": "141e1c8f6ba8f9d4775cea8c4ca9144a78e28deca751446c01e17a6c3e9009f4",
+    "Chapter_2/figures/dynamics_layers_v1.jpg": "a203c678b4e4b59f5233517714ef94421de83acd0326f1f6e2988e8f2358f432",
+    "Chapter_2/figures/equal_loudness_curve.png": "cea7845a9ec8add1281e65f24c90a4dad906769aa5dc9d5f2a26a39943e88066",
+    "Chapter_2/figures/instruments_sone.jpg": "6917b8c2a3fab60055cfdd4ca20506327b7eed359ccd4ad3908529832fc4baf2",
+    "Chapter_2/figures/representation_chain.png": "d60a09beec8b67ebf2d5cb8b19cfa8b6fa94cbdc573f2f57d02006d509d83465",
+    "Chapter_2/figures/soundfont_guitar.png": "654161fbe58899bc49c8a1eb45a13f3b4130a4582adb3ff71ccae85a161e117c",
+    "Chapter_2/figures/soundfont_piano.png": "62189fb2d823c869e60654b3fbe3bf8e124deb8017f0001e1ec1e60c4b2dbe41",
+    "Chapter_2/figures/temporal_units.png": "d116d8a51e845257dfe3e630a4dcbd7abd2fb1280c12d803030a1fdb714690cd",
+    "Chapter_2/figures/temporal_units_bk.png": "50b16b0efd2ef164d54c8254f9a39db2646c96993aa654eb973a34e8dd2fb6d4",
+    "Chapter_3/.DS_Store": "4f97976b04addb2a1683b01926bdff4350855ddf4feb0ffa51b0d079709ee0f5",
+    "Chapter_3/chap3.tex": "41b1b4894aa389c07db6f92c4685ed4087a712d88caf94b02ff673aaa0fb230d",
+    "Chapter_3/figures/p1.png": "4900f8007affb0a0a25dfbbde01d1143da5c36d1c6bc65ed739081365c9a1927",
+    "Chapter_3/figures/p2.png": "807aa6ef84babfa7a5b1265b096cc437410edd0b5b4026d05d054874555f3806",
+    "Chapter_3/figures/p3.png": "fcb2dc71d133b3d2c46954f2efbb0d06786a7b64e2807b0a1417472e159053d9",
+    "Chapter_3/figures/p4.png": "e0e01ee5def760c402d7c19f2c12d57695ff6795c3c6b862bd18c07150bfb2e8",
+    "Chapter_3/figures/p4v1.png": "69620b5400665d665df1a86e64cd68b29d63398281deac9db5a6f3f2b37a9360",
+    "Chapter_4/.DS_Store": "34d79f168448c074d5f556a671003b857701fc9d62eb4c2ea4ec8ec2ed1a02a9",
+    "Chapter_4/chap4.tex": "822d3a1ed0d16d74873e1c8c94833ba8ed02c9a401aaa19dd0201ab7dd005c0c",
+    "Chapter_4/figures/.DS_Store": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+    "Chapter_4/figures/p1.jpg": "89284a99a7889bf3dbbea59fa19753aa92ecb452bcb40ef7ea74ba5b196cab64",
+    "Chapter_4/figures/p1thesis.jpg": "ea5ba25512c4389f985e853f1901dead63e10d71849b55fcaa4b1d8eaf073f3b",
+    "Chapter_4/figures/p2.jpg": "8482724fcaba997bec50c7d2a037edcaf84d2c982b54ffbdb679392a1b5dbd25",
+    "Chapter_4/figures/p3.jpg": "cdeca9c3f8b70cc898b46c15b7a01ce22034e7907cc0b01d543638ab163e3557",
+    "Chapter_4/figures/p3v1.jpg": "f8b317fd9f28b09a15647d208986a9ea3792956113b1b705af34edf8c8f59dbf",
+    "Chapter_4/figures/p4.jpg": "0a8f2c5d9d015dad7d2518524393ff58a42941f2bc540cc3d9784771c832a65f",
+    "Chapter_4/figures/p4thesis.jpg": "4a21e169939922e74da8a152d920a0013390c7d2cce8d72790d9ed3e674beaaf",
+    "Chapter_4/figures/p5.jpg": "799eda25984498e6f7a899e86c9e53028f92b5c993f4206b6aa1bf866f8f3c82",
+    "Chapter_4/figures/p5thesis.png": "543dc742a6211232c60a7c208c4e5d191e58e09fefbfbc2c92a00ae5d73a34e1",
+    "Chapter_4/figures/p5v1.jpg": "5e6a3e94ebe622ff71c2f64a8ffbb329e58137146eaa25aef53794e239a24e67",
+    "Chapter_4/figures/p5v2.jpg": "789ecc02f0cafd710d78d36250f07ac83804c925a5b1e98a8b231b8f4dc90045",
+    "Chapter_4/figures/p6thesis.jpg": "d54ddeacd5da944a50b143c3f4a0386488daf07914accdc3dbf93a0e010e66b8",
+    "Chapter_5/.DS_Store": "eac518e4055024ed5b1f0936b093dd7668a929b4799691f74a4b256ab1ac256b",
+    "Chapter_5/chap5.tex": "2e97917030af3ff5cb4d2da3adc05b41864ec5d6f070ca64b14a60d2346d5647",
+    "Chapter_5/figures/p1.png": "fd3f6d390c181579c55ad63222101d548a9d0ea82e50942086160104ad1ac8ff",
+    "Chapter_5/figures/p2.png": "b10793be83704a0b00490d38e85415cfddd11f2dafb4a80a48b16ef9851281c2",
+    "Chapter_5/figures/p2paper.png": "d86752add3b36ef07287c0c378de8c90bf8babed62cc9bcc48940401df8c39c3",
+    "Chapter_6/.DS_Store": "6fed08fd7b23ec33a60e3d4238cec485b1f5e74b14e7e9500ebbb8cd0ba34116",
+    "Chapter_6/chap6.tex": "f11f90f83471df5f8cb572a0ba6d86329945119c83d37829aa6c9c6883c2fe78",
+    "Chapter_6/figures/.DS_Store": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+    "Chapter_6/figures/p1.jpg": "2935920deaf3af6425a6dfdc1d2b093dea6d0bac932488961d93da8dc1494934",
+    "Chapter_6/figures/p1v0.jpg": "5ab351ceb9aa356571911ecab31e5099bf707dd584d0a166438d552de3628ee6",
+    "Chapter_6/figures/p2.jpg": "b864871a546f12e6ae0aca29f4a62dc3e7352e34b7f123d7643d4bc029cc3fac",
+    "Chapter_6/figures/p2.png": "3b9e40f78a8293952cced7225d388960851160ace93752f9b3ada9de7983b886",
+    "Chapter_6/figures/p3.jpg": "4b70fb5466550575959241aae60e787d16874a664a1e5774cf224a3196a8b838",
+    "Chapter_7/Conclusion.tex": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f",
+    "Declaration/author_declaration.tex": "9d66129761a6d72b5370a489269dc61ea61d522107e1ec31e24370be32948063",
+    "Declaration/declaration.tex": "75f74772746be99da7fc9e67efcfa0408ca13e10bf58e4e3e8dc1d6e4d7d5b57",
+    "IEEEbib.bst": "7e6ca0c8b72158d504a12bb091f817c07032a021ba41ca783cca4c2dd80d570b",
+    "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf": "8a9412c1401a41a5b4f82865faf759f255a20f03cf7997d92be0278a3a582e78",
+    "Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf": "c9d8a2a843e3c9cd167e751ed0dec8f7cd7ca757a6a8fabea2abc747b1c61020",
+    "UWA_new.jpg": "ffe90f359933e66bbe3e1bf771dc0835101274b67475deb1d041f3149bc9c61b",
+    "Z_He_PhD_Thesis.pdf": "cbfcfca09364f85a7f6fcef186114054bfa8c494a87d26271091911a9064de07",
+    "Zhanhong_He_PhD_Thesis_v0.pdf": "3479394740921480c1325c70cc343eaea9e5d09df174be449415a9c8dacb4798",
+    "clean_tex.sh": "7c5873b7f57b474f3ff040fa63278d74baba66216b97a97429ecb3b89df191fc",
+    "main.pdf": "45948164a8396ce9e84adaaa9d66e54d0afbda2f9a81d40823b335046cf379eb",
+    "main.tex": "2d126ced4b31cf105f8662620a3000d9ff4530eda483f63b103ddf75689f014d",
+    "reference.bib": "276379f97acb557446c77af112c11b5f8aea695bdbb9c9b45a169a2e39641b18"
+  },
+  "manifest_note": "This manifest excludes its own hash. ZIP identity is reported in delivery, avoiding recursive hashes.",
+  "editorial_revision": 2,
+  "editorial_changes": [
+    "MIDI velocity clarified as MIDI力度值 / 音符级MIDI控制值, not physical playing force",
+    "downbeat translated as 小节首拍",
+    "Renderer matching described as optimisation target, not universal success",
+    "Four reader files reread; light Chinese wording simplification"
+  ],
+  "library_file_id": "libfile_02c22cc8ae40819181a588b62b683c15",
+  "editorial_changed_files": [
+    "01_中文导读/00_从这里开始.md",
+    "01_中文导读/01_答辩的五个要点.md",
+    "01_中文导读/02_三个需要核查的问题.md",
+    "01_中文导读/03_答辩速查与术语.md",
+    "02_Ultra_细节/00_证据与状态索引.md",
+    "02_Ultra_细节/ULTRA_PROMPT.md"
+  ]
+}

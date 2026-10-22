@@ -1,0 +1,530 @@
+{
+  "head": "7e319875a8b1e9fc8f6a0afa4dc4417b03212226",
+  "baseline_matches": true,
+  "tracked_count": 76,
+  "tracked_diff_vs_head": [],
+  "original_file_changes": [
+    "02_Ultra_细节/给导读的更新建议.md"
+  ],
+  "unexpected_original_changes": [],
+  "suggestion_template_preserved": true,
+  "required_missing": [],
+  "review_ids_43_unique_complete": true,
+  "review_field_missing": {},
+  "broken_local_links": [],
+  "original_hash_checks": [
+    {
+      "file": "Zhanhong_He_PhD_Thesis_v0.pdf",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "Z_He_PhD_Thesis.pdf",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "main.pdf",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "01_中文导读/01_答辩的五个要点.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "01_中文导读/03_答辩速查与术语.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "01_中文导读/00_从这里开始.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "01_中文导读/02_三个需要核查的问题.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/给导读的更新建议.md",
+      "unchanged": false,
+      "permitted_update": true
+    },
+    {
+      "file": "02_Ultra_细节/ULTRA_PROMPT.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/交付清单.json",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/README.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/00_证据与状态索引.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/R1_COMPLETE_ISSUE_INVENTORY.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/SOURCE_MANIFEST.json",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/CHANGELOG.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/START_HERE.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/VALIDATION.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/TODAY_DEFENCE_BRIEF.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/ULTRA_EXECUTION_PROMPT.txt",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/THESIS_REVISION_BLUEPRINT.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/READING_COVERAGE.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/COMBINED_RESPONSE_REVISION_MATRIX.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/R2_COMPLETE_ISSUE_INVENTORY.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/appendix/VERIFICATION_GAPS.md",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/appendix/PDF_VERSION_DIFFERENCES.json",
+      "unchanged": true,
+      "permitted_update": false
+    },
+    {
+      "file": "02_Ultra_细节/blueprint_snapshot/appendix/ISSUES.json",
+      "unchanged": true,
+      "permitted_update": false
+    }
+  ],
+  "current_deliverables": [
+    {
+      "file": "给导读的更新建议.md",
+      "bytes": 9362,
+      "sha256": "a47f0931d294984b2b26a3893ce6e851d3930149f8a930bffa094e5c457d9023"
+    },
+    {
+      "file": "ULTRA_PROMPT.md",
+      "bytes": 6300,
+      "sha256": "cafe3011a5cd09f3007e8746bd1aa1177fcb0734834eab82045b9e82ce01c559"
+    },
+    {
+      "file": "本轮结果_README.md",
+      "bytes": 8911,
+      "sha256": "7ffe161af849f60a84b14c0d6bde660b3501101eb58eedebed8db9dea11e1077"
+    },
+    {
+      "file": "关键核查与证据.md",
+      "bytes": 40182,
+      "sha256": "e4b4f6eddf2d5df6083d0edb45407fe3cc93cd23cf0ba341d175d4ce4a5ac19b"
+    },
+    {
+      "file": "交付清单.json",
+      "bytes": 15254,
+      "sha256": "f013f3425c4bcca07677333a53cefe68e3a27893d7ef41f389fa7dd9ff0e3be3"
+    },
+    {
+      "file": "README.md",
+      "bytes": 2040,
+      "sha256": "34a1b0fe48df5f0c7c6225024e4ed5f8287944b707d8a31a7b32b2b0db0ee199"
+    },
+    {
+      "file": "00_证据与状态索引.md",
+      "bytes": 5836,
+      "sha256": "424a9b63c02579bbb0bf4efaa761c366e8aff69df163d5e53a26b604ecb98af1"
+    },
+    {
+      "file": "答辩详细准备.md",
+      "bytes": 39420,
+      "sha256": "5cc63f423e2e3ab9e67de5c7f8d658b0945581c55fa5b0b676081645d5911c80"
+    },
+    {
+      "file": "全部评审意见与回应.md",
+      "bytes": 65803,
+      "sha256": "5bd69988816f30764860e135b7f8d2037aa83578ec04120969f9e765a2710165"
+    },
+    {
+      "file": "论文修改方案与英文替换稿.md",
+      "bytes": 76740,
+      "sha256": "9f58fb2b4c1a28a7b8818bec7a3f20fc53cba4ff35dd624b1174d039ae7abcf9"
+    },
+    {
+      "file": "审计记录/验收脚本.py",
+      "bytes": 4088,
+      "sha256": "13e1a655791ea557a7e4e70e74c68067ce4cb7ddbb3928c3c6b7e60fb48a06c3"
+    },
+    {
+      "file": "审计记录/给导读的更新建议_原模板_20261022.md",
+      "bytes": 739,
+      "sha256": "bfee863b6cfd05e226b1b71424f6b862ce566d528d239404d1d59c06c0394da7"
+    },
+    {
+      "file": "审计记录/公开代码来源与Ch3对照.md",
+      "bytes": 5221,
+      "sha256": "2cf92fb64a1cdeada460959a1e202dffe0ed15a9e811dcc68ad0a3808370e8b6"
+    },
+    {
+      "file": "审计记录/本轮初始文件清单.json",
+      "bytes": 4539,
+      "sha256": "2bab4201a4e3cca19907c0ebba56b777638459672f3e84e94a0d2f4a68376b49"
+    },
+    {
+      "file": "Ch5_现有输出汇总/all_fold_summary.csv",
+      "bytes": 5845,
+      "sha256": "e45bc48b3173e7fe222a6f613c1e51a9e01caecb7315c78d7706e612d320c1f9"
+    },
+    {
+      "file": "Ch5_现有输出汇总/extract_and_summarise.py",
+      "bytes": 8959,
+      "sha256": "6b9d86b181ee81581d6c0528ad53bdf570140c04e9358d078e97b5f57b05f1eb"
+    },
+    {
+      "file": "Ch5_现有输出汇总/saved_per_fold_metrics.csv",
+      "bytes": 17037,
+      "sha256": "27339931ba32043f4b1d1291db9036603ce74682295ae9c14fb4a4ae527b7b72"
+    },
+    {
+      "file": "Ch5_现有输出汇总/README.md",
+      "bytes": 8694,
+      "sha256": "90f57cd5cb3deb2238a8eda3f0d7181bb0ccef0f6763dea18ed1eb539bb8b7d7"
+    },
+    {
+      "file": "Ch5_现有输出汇总/saved_checkpoint_records.csv",
+      "bytes": 13172,
+      "sha256": "92c292a125f45a0df750db2b1fb1cfe6de5fbe0c688ca5984bcde15f5af408b9"
+    },
+    {
+      "file": "Ch5_现有输出汇总/validation.json",
+      "bytes": 594,
+      "sha256": "6a89a694b3fc3e1278ce3532f249d9a273b48339ca15b480749057aaec6b6127"
+    },
+    {
+      "file": "Ch5_现有输出汇总/v0_table5_4_comparison.csv",
+      "bytes": 2744,
+      "sha256": "2c341e66bf2099bec2296a7eba6da0668544f42fa3f269400acc4d5b74f22d1f"
+    },
+    {
+      "file": "审计记录/公开源码_Ch3_53e1b950/本地快照清单.json",
+      "bytes": 708,
+      "sha256": "ff56c73481e2f2831887fe0a9c21a209935e0e92a43410ef72334324017ff2be"
+    },
+    {
+      "file": "审计记录/公开源码_Ch3_53e1b950/commit.json",
+      "bytes": 2064,
+      "sha256": "2bfc0d23f4a6069400d870793418908f1ab469a8d9af195cf5d31d5fc2f3a8ae"
+    },
+    {
+      "file": "审计记录/公开源码_Ch3_53e1b950/train.py",
+      "bytes": 4096,
+      "sha256": "4800c990499f7f9960a544c7db501f251278568fb9e3fc3fa437dcc79bcc1377"
+    },
+    {
+      "file": "审计记录/公开源码_Ch3_53e1b950/tree.json",
+      "bytes": 41120,
+      "sha256": "86e39e35f3f220b9f6fa45f32e1c70f54aeaaf9de899251cffc02e7aa55e52a8"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/LICENSE",
+      "bytes": 1062,
+      "sha256": "c03fca589185aa742189abd0e38758e1058167541288c98216b62bb6037335f6"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/Test_text_cells.txt",
+      "bytes": 30223,
+      "sha256": "bb7d3e4472a3564cf873d14805d352c4de62df5b5dfd3f82e0c552b733a35c21"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/retrieval_manifest.json",
+      "bytes": 7471,
+      "sha256": "91c00af6377fc364351e1dd595788c49ce5a50f6115e477505b199caccc93847"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/commits_listing.json",
+      "bytes": 39981,
+      "sha256": "8af3f3a825b149064d2903f78585b624c83093c921e1443e47e8d6ff794689fb"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/Train_code_cells.txt",
+      "bytes": 1429,
+      "sha256": "6ee0b8c2bee1fa3218bb9d71b5c83f048fc7a70c221ab715013247d9ea39262d"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/Readme.md",
+      "bytes": 5008,
+      "sha256": "c57f95d1bc516f84dcc6779c2970d969efe80dd6a6b1cda041beb7d3f970893c"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/commit.json",
+      "bytes": 6887,
+      "sha256": "ebe33f081d92a48a62c641c227679ba0afac90bd91774630936bec72dc2d6e98"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/PINNED_COMMIT.txt",
+      "bytes": 41,
+      "sha256": "45c5b46ae8cfb5cee7c68a2e6ad09aa3572858ed929175b94f0b659529c95db5"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/snapshot_manifest.json",
+      "bytes": 5450,
+      "sha256": "ee7c312d6ca7e5bb60546bb7c5897ac250cb924ba115ff5a2df06959828b9855"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/Test.ipynb",
+      "bytes": 40414,
+      "sha256": "3e662dadba2a8e6b111e93db1810208fb743bdc67713d480084e0727a64cc9ad"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/tree.json",
+      "bytes": 31963,
+      "sha256": "b16fd769f1487ce1e7c35cc09d0fc063bb1770e37be9aed047bb82f6998b6f93"
+    },
+    {
+      "file": "审计记录/公开源码_Ch3_53e1b950/main/models.py",
+      "bytes": 16806,
+      "sha256": "86fea13bdaa000cdd853a4e136e42b10b77f3a89319bc63a624e6e233f6aa702"
+    },
+    {
+      "file": "审计记录/公开源码_Ch3_53e1b950/main/loss.py",
+      "bytes": 5342,
+      "sha256": "f77db31af2bf777697f4e66c740780907a5208e3d85be4530095a2d471d5b918"
+    },
+    {
+      "file": "审计记录/公开源码_Ch3_53e1b950/conf/config.yaml",
+      "bytes": 5454,
+      "sha256": "3a94aec9b7d048c52bdc88736c35c58fbc2673bf366be6d2a1289279a698b999"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/run_scripts/kaya_hpt_note_editor_ablation.sh",
+      "bytes": 6391,
+      "sha256": "2eeb6fd2304b27f5e54fc72f73bfd8d78db587836758c58cee9037d8530905ce"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/run_scripts/local_train.sh",
+      "bytes": 1960,
+      "sha256": "3bea0bb35cde273d7b12546dd7c1bff7982e5afe83b01428235acb3d83c85a67"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/run_scripts/kaya_hpt_train.sh",
+      "bytes": 3440,
+      "sha256": "57ed07adcce762c0e8ed7a057b0aaad86ee78a7515a24edf9768ca6cbf5a1063"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/run_scripts/kaya_hpt_note_train.sh",
+      "bytes": 2764,
+      "sha256": "bdf954d998a5ff109b4e71c5dc406284f537253d335208555526995fdd53eeff"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/train_score_inf.py",
+      "bytes": 17128,
+      "sha256": "35a361ccac6b45b8ab1bc56ef51c298c7611f326ca892d5fdc9357018ce4ace1"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/calculate_scores.py",
+      "bytes": 22309,
+      "sha256": "b35296e48f1c736b8b8bb792c3f4d2c2d03150ff60074872c4d89417863a90ac"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/feature_extractor.py",
+      "bytes": 19449,
+      "sha256": "3428c6daf00d7df5cc60a211f84ecbef5a4a1c1fcc02844cc56869df839d6c63"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/inference.py",
+      "bytes": 37317,
+      "sha256": "3c5f5daf821f1fdc97636ba1d831637cf015525dee88861d1a7cb94eb6f64d00"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/evaluate.py",
+      "bytes": 4555,
+      "sha256": "f0449f58532d038edad24bea43444cf49abdfb4ec8f006a7c6491a7e6b26a514"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/losses.py",
+      "bytes": 3956,
+      "sha256": "1b175855aac157bfe143284e0139cf841f7dc4bc0f67826c681f02caef1d4d4d"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/data_generator.py",
+      "bytes": 27138,
+      "sha256": "7428a9b70c30be460b3b5ec76998dc48907b5954a1f4f77b991d2677665f07a9"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/config/config.yaml",
+      "bytes": 3300,
+      "sha256": "a0e8ea869d73afcfaf9e5eece567d182e95d467482c1f0ae402a1ed516e45da4"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/config/note_editor.yaml",
+      "bytes": 147,
+      "sha256": "8bde6b9dc143f478ee2765327fb8277eaa442ce50f79b83bce807250239b8808"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/score_inf/wrapper.py",
+      "bytes": 2523,
+      "sha256": "956844f04d6259b147c3ffe880a9889eb961212ef0fc766465f93de75ca31b93"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/score_inf/method_bilstm.py",
+      "bytes": 3178,
+      "sha256": "d705b7be8adaa340e58a4d36afb3b8a6b77a65b03081a985ac21b7d4f1acd618"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/score_inf/method_note_editor.py",
+      "bytes": 8547,
+      "sha256": "45dac62375dce9d309cd2e4b9c60bc71d6e8b937b77d264494a21c1c3a1a9a5e"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/score_inf/method_identity.py",
+      "bytes": 648,
+      "sha256": "1e38959569df0cb8da607a898fe881d08128981c7dcd07831995c793eb93aa30"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/model/hpt_adapter.py",
+      "bytes": 8488,
+      "sha256": "384f2ccd917a39034e143d17d452d0ce4214f2c7c3d214bff1079fe798eeb2c6"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/model/__init__.py",
+      "bytes": 344,
+      "sha256": "3c200da8964ce06b1ac296c971c75c3bdd79c8c45e77950987192a5243507b75"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/model/hppnet_adapter.py",
+      "bytes": 9947,
+      "sha256": "6e060842470ea4f6da33afd2e5d3c75194ad586208eb614ffd4138fd38dbb7b0"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/model/dynest_adapter.py",
+      "bytes": 12602,
+      "sha256": "dd53c428a55e8173aa122f6b3931e741085c84d73be5b08107bdfe487d4a4cca"
+    },
+    {
+      "file": "审计记录/公开源码_Ch4_22b4db68/pytorch/model/base.py",
+      "bytes": 3997,
+      "sha256": "07e80f19688f57a97be94510577ae8cae248efc0eb9ef0a80a13ed6a30becaef"
+    },
+    {
+      "file": "Ch5_现有输出汇总/input_snapshot/README.md",
+      "bytes": 9424,
+      "sha256": "594af48bf279b63dba61dcb75dd9287b54a897da2642270ad2b3008a9a7f9a01"
+    },
+    {
+      "file": "Ch5_现有输出汇总/input_snapshot/manifest.json",
+      "bytes": 3705,
+      "sha256": "023c6f5aa0e24acd01cb1b742fe91944c9507630c814065996e1cb2d80e3adcc"
+    },
+    {
+      "file": "Ch5_现有输出汇总/input_snapshot/eval_and_benchmarks/CrossEval.ipynb",
+      "bytes": 76040,
+      "sha256": "295aa1288f1ffae987c10d64c3928f9bbe00cc338858916e6540bec2e1efe61c"
+    },
+    {
+      "file": "Ch5_现有输出汇总/input_snapshot/eval_and_benchmarks/CrossEval_README.md",
+      "bytes": 3859,
+      "sha256": "505bde990f40fc522f6cbc5742f56fc48d4433a9970690730dd273a692f416c2"
+    },
+    {
+      "file": "Ch5_现有输出汇总/input_snapshot/pytorch/config.yaml",
+      "bytes": 6059,
+      "sha256": "76a1690f585106f023af1345139513205d6b1f408530349a6897c5062c2285a5"
+    },
+    {
+      "file": "Ch5_现有输出汇总/input_snapshot/pytorch/final_evaluation.py",
+      "bytes": 14109,
+      "sha256": "3122068bff9cb7e8d84326efc502ce8e7a9b66e00fdecf4ac335a5404650c05d"
+    },
+    {
+      "file": "Ch5_现有输出汇总/input_snapshot/pytorch/inference.py",
+      "bytes": 18857,
+      "sha256": "2080a9b2299ffcbc0970425dce43583acc1ee41822e60fcc2521d286ba26b77e"
+    },
+    {
+      "file": "Ch5_现有输出汇总/input_snapshot/pytorch/losses.py",
+      "bytes": 8939,
+      "sha256": "6b4b9bfae502954f35502f0c770085892917cbaf11d82f6dcd6bbc44799dba58"
+    },
+    {
+      "file": "Ch5_现有输出汇总/input_snapshot/pytorch/evaluator.py",
+      "bytes": 13733,
+      "sha256": "6bc03020016b258baa29d4daf3cbb4268f47e78da493bebb60126ec9d3ae1b98"
+    },
+    {
+      "file": "Ch5_现有输出汇总/input_snapshot/pytorch/models_audioCNN.py",
+      "bytes": 16296,
+      "sha256": "8f8ecdba1837746b3e54351fa29766f8dfdd0056cda7158cf3d05c383942b075"
+    },
+    {
+      "file": "Ch5_现有输出汇总/input_snapshot/pytorch/post_processor/beat_postproc.py",
+      "bytes": 9058,
+      "sha256": "ae553ec1a6fa9080413aa8f4507e9e80bf8842ec7214194b7fd4122154262e5a"
+    },
+    {
+      "file": "Ch5_现有输出汇总/input_snapshot/pytorch/post_processor/dynamic_postproc.py",
+      "bytes": 2808,
+      "sha256": "c257ffc443658379bd79be20007d641f2fe02808cc468039bb1d6683c5e9268e"
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,106 @@
+{
+  "sha": "22b4db68389b9825ba88b197a93929a9e7be4847",
+  "node_id": "C_kwDORZMogtoAKDIyYjRkYjY4Mzg5Yjk4MjViYTg4YjE5N2E5MzkyOWE5ZTdiZTQ4NDc",
+  "commit": {
+    "author": {
+      "name": "zhanh-he",
+      "email": "narcolehitl@gmail.com",
+      "date": "2026-03-19T14:54:23Z"
+    },
+    "committer": {
+      "name": "zhanh-he",
+      "email": "narcolehitl@gmail.com",
+      "date": "2026-03-19T14:54:23Z"
+    },
+    "message": "Merge branch 'main' of git_zhanh:zhanh-he/score-informed-amt",
+    "tree": {
+      "sha": "249dd14e3f96ecd5cc9b7be7c598e7c379a5276f",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/trees/249dd14e3f96ecd5cc9b7be7c598e7c379a5276f"
+    },
+    "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/git/commits/22b4db68389b9825ba88b197a93929a9e7be4847",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/22b4db68389b9825ba88b197a93929a9e7be4847",
+  "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/22b4db68389b9825ba88b197a93929a9e7be4847",
+  "comments_url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/22b4db68389b9825ba88b197a93929a9e7be4847/comments",
+  "author": {
+    "login": "zhanh-he",
+    "id": 49585967,
+    "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/zhanh-he",
+    "html_url": "https://github.com/zhanh-he",
+    "followers_url": "https://api.github.com/users/zhanh-he/followers",
+    "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+    "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+    "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+    "repos_url": "https://api.github.com/users/zhanh-he/repos",
+    "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "zhanh-he",
+    "id": 49585967,
+    "node_id": "MDQ6VXNlcjQ5NTg1OTY3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/49585967?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/zhanh-he",
+    "html_url": "https://github.com/zhanh-he",
+    "followers_url": "https://api.github.com/users/zhanh-he/followers",
+    "following_url": "https://api.github.com/users/zhanh-he/following{/other_user}",
+    "gists_url": "https://api.github.com/users/zhanh-he/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/zhanh-he/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/zhanh-he/subscriptions",
+    "organizations_url": "https://api.github.com/users/zhanh-he/orgs",
+    "repos_url": "https://api.github.com/users/zhanh-he/repos",
+    "events_url": "https://api.github.com/users/zhanh-he/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/zhanh-he/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "747ff5d5272be09dbd9f46c44c48dddb52652a23",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/747ff5d5272be09dbd9f46c44c48dddb52652a23",
+      "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/747ff5d5272be09dbd9f46c44c48dddb52652a23"
+    },
+    {
+      "sha": "bc542435cab05415876af7114b612d6dbfc2e1fc",
+      "url": "https://api.github.com/repos/zhanh-he/score-informed-amt/commits/bc542435cab05415876af7114b612d6dbfc2e1fc",
+      "html_url": "https://github.com/zhanh-he/score-informed-amt/commit/bc542435cab05415876af7114b612d6dbfc2e1fc"
+    }
+  ],
+  "stats": {
+    "total": 7,
+    "additions": 4,
+    "deletions": 3
+  },
+  "files": [
+    {
+      "sha": "726b2a40003efb29aaf5816315496780329d963d",
+      "filename": "Readme.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "blob_url": "https://github.com/zhanh-he/score-informed-amt/blob/22b4db68389b9825ba88b197a93929a9e7be4847/Readme.md",
+      "raw_url": "https://github.com/zhanh-he/score-informed-amt/raw/22b4db68389b9825ba88b197a93929a9e7be4847/Readme.md",
+      "contents_url": "https://api.github.com/repos/zhanh-he/score-informed-amt/contents/Readme.md?ref=22b4db68389b9825ba88b197a93929a9e7be4847",
+      "patch": "@@ -15,8 +15,9 @@ It supports:\n You can find our paper results on our jupyter notebook:\n - [`Train.ipynb`](./Train.ipynb): Figure 2 is extracted from our [open-available wandb records](https://wandb.ai/zhanh-uwa/202602_smc?nw=nwuserzhanh).\n - [`Test.ipynb`](./Test.ipynb): Tables 1 and 2.\n+- [`Test_unaligned.ipynb`](./Test_unaligned.ipynb): Figure 6 Robustness Test.\n \n-The training takes 8~16 GiB GPU memory, inference takes less than 1 GiB. We only provided one pretrained checkpoint in this repo to keep space. For other settings/checkpoints, please train from scratch or try contacting us: zhanh.he.uwa@gmail.com.\n+The training takes 8~16 GiB GPU memory, inference takes less than 1 GiB. We only provided one pretrained checkpoint in this repo to keep space. For other settings/checkpoints, please train from scratch or try contacting me: zhanh.he.uwa@gmail.com.\n ## 1. Dataset Preparation\n Download datasets:\n - MAESTRO v3.0.0: https://magenta.tensorflow.org/datasets/maestro\n@@ -84,7 +85,7 @@ Method/input compatibility:\n - `bilstm`, `dual_gated`, `scrr`: legacy options, not used in our SMC paper.\n \n ## 5. Evaluation (Paper Tables 1&2)\n-Notebook path [`Test.ipynb`](./Test.ipynb). This files has recorded all results in our Paper.\n+All results of our paper has been recorded in [`Test.ipynb`](./Test.ipynb) and [`Test_unaligned.ipynb`](./Test_unaligned.ipynb).\n \n ## 6. Inference\n Script entry: `pytorch/inference.py`. Use this file to do inference on your own data, which expects paired audio+midi files with the same basename (e.g., `xxx.wav` + `xxx.mid`).\n@@ -103,4 +104,4 @@ Note: large benchmark checkpoints were removed from this repo to save GitHub spa\n \n Acknowledgment: \n - We thank Hyon Kim et al. (ISMIR 2024, FiLM-UNet) for sharing their code and pretrained checkpoints!\n-- We thank Yujia Yan et al. (ISMIR 2024, Transkun v2) for open-source their code and pretrained checkpoints!\n\\ No newline at end of file\n+- We thank Yujia Yan et al. (ISMIR 2024, Transkun v2) for open-source their code and pretrained checkpoints!"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+# Piano Dynamic Estimation
+This repo corresponding to our submitted paper to ICASSP2026.
+- Joint Estimation of Piano Dynamics and Metrical Structure with a Multi-task Multi-scale Network [[PDF]](https://www.arxiv.org/abs/2510.18190)
+
+Our proposed multitask model can estimate piano dynamics, change points, beats, and downbeats from audio. We are polishing our inference stage, about how to integrate with "High-resolution Piano Transcription (TASLP2021)" system, more AMT systems in progress.
+
+<p align="center">
+  <img src="./figures/1_user_case.jpg" alt="User case demo" width="720">
+  <br><em>Figure 1: User case demonstration.</em>
+</p>
+
+To use our model,
+
+1. [Setup python environment](#environment-setup)
+2. [Download our pretrain model](#download-our-pretrain-model)
+3. [Interface with our pretrained model](#interface-with-our-pretrained-model)
+
+We made a PyTorch implementation of Pampalk’s **PsychoFeatureExtractor**, to provide Bark-scale specific loudness (BSSL) senation based on "Zwicker 1999 method" (yielding a up to 24-dim feature). We found the BSSL outperformed the logMel in our tasks, with a 5x smaller feature size. Find more in
+- [PsychoFeatureExtractor](#psychofeatureextractor)
+
+If want to retrain the model or reproduce our paper results, continue the follow sections.
+
+4. [Download MazurkaBL Dataset](#mazurkabl-dataset)
+5. [Perform Data Preprocessing](#data-preprocessing)
+6. [Training and WandB Report](#training-and-wandb-report)
+
+You can check our training history in **WandB Report** and **Evaluation Results** on
+- [Evaluation (Ours and Baselines)](#evaluation-ours-and-baselines)
+
+## Environment Setup
+Create and activate Conda env with CPU-compatible PyTorch 2.2, then Add the pip-only packages.
+```
+conda create -n dynest python=3.10 numpy pandas h5py "pytorch=2.2.*" "torchaudio=2.2.*" -c pytorch -c conda-forge
+conda activate dynest
+pip install hydra-core omegaconf wandb einops librosa mido tqdm cython
+pip install "numpy<2"
+pip install seaborn
+pip install madmom
+```
+This environment is for `Ubuntu 22.04 + CUDA 12.2 + RTX3090 24GiB`. Basically it can support upper version, we also tested in `Macbook Pro M4` with the same environment, and `Ubuntu 22.04 + CUDA 12.8 + RTX5090 32GiB` using PyTorch 2.6.
+
+## Download our pretrain model
+Download our pretrained multi-task, multi-scale checkpoint from this repository and save it under a short local name. This is the model selected for real-world inference under our 5-fold protocol.
+
+```bash
+mkdir -p workspaces/checkpoints
+curl --fail --location \
+  'https://raw.githubusercontent.com/zhanh-he/piano-dynamic-estimation/3beac7a20ffb0607d57d93c095b00815cd146b88/workspaces/checkpoints/formal%20latent8%20mmoe8%205x5-sone-MultiTaskCNN-%5B%27dynamic%27%2C%20%27change_point%27%2C%20%27beat%27%2C%20%27downbeat%27%5D-fold0/epoch_96_valf1_0.53453.pth' \
+  --output workspaces/checkpoints/pretrained.pth
+```
+
+Expected SHA-256: `2094a56896b2f62b832253c17338908dfad041a72042c938e8afe9f37e43e453`. The same file is also included at [`workspaces/checkpoints/`](./workspaces/checkpoints/) when you clone this repository. More checkpoints (single-task and ablation variants) are available upon request or by following the training instructions below.
+
+## Interface with our pretrained model
+From the repository root, run inference on a WAV or MP3 file:
+
+```bash
+python pytorch/inference.py \
+  --ckpt workspaces/checkpoints/pretrained.pth \
+  --infer_audio /path/to/audio.wav
+```
+
+The command prints the path to an output H5 file containing the predictions. Use the predicted **dynamic markings** with an existing or AMT-transcribed score. For H5 input and a worked example, see [`Inference.ipynb`](./Inference.ipynb).
+
+## PsychoFeatureExtractor
+We implemented this PsychoFeatureExtractor in PyTorch framwork, according to the [Pampalk’s paper (2002)](https://ofai.at/papers/oefai-tr-2002-30.pdf) and [MATLAB Music Analysis Toolbox (2007)](https://www.pampalk.at/ma/documentation.html). This providing the BSSL in sones, and we compare our PsychoFeatureExtractor results with MoSQITo and MATLAB original, used their total loudness to visualize.
+
+<p align="center">
+  <img src="./figures/2_bssl_ntot.png" alt="User case demo" width="540">
+  <br><em>Figure 2: Bark-scale total loudness from different implementation.</em>
+</p>
+
+Our PyTorch implemented BSSL (max 24-dim) has the similar total loudness as in MATLAB 2007 version (max 24-dim), while the high-res variant BSSL (max 240-dim) used in paper 2024 provided slightly different total loudness. We use the original BSSL as the foundation of this project. Explore the Bark-scale feature (incl. high-res and different psychoacoustic masking functions)  is our future work. <br>
+
+**NOTE: The following section is for training & reproduce**
+
+## MazurkaBL Dataset
+
+To download the dataset, visit the github repo [MazurkaBL-master](https://github.com/katkost/MazurkaBL) to download the annotation files. You should request the author for the audio files. Place these dataset at our `workspaces/Dataset/` folder, and then doing the data cleanup we mentioned in **Data Preprocessing**.
+
+- OR, you can [download our cleanup data here [Link]](https://drive.google.com/file/d/1AmvuvzJmBWDYZsDupLReh_uyBcQwmAEj/view?usp=sharing), and then pack_h5 with any sample_rate.
+
+## Data Preprocessing
+
+There are some small problems we found in MazurkaBL dataset. We solved them with the following command. You can follow our [`Data_Preprocess.ipynb`](./Data_Preprocess.ipynb) to easily handle these, as well as packaged the audio into h5 files for a quick loading.
+ ```bash
+# start here if you download raw mazurkaBL
+python pytorch/data_preprocess.py --mode fix_problem  # <can skip>
+python pytorch/data_preprocess.py --mode cleanup_meta # <can skip>
+# start here if you download our cleanup data
+python pytorch/data_preprocess.py --mode pack_h5 --sample_rate 22050
+ ```
+
+Here is the problem we found:
+ 1) MazurkaBL-master `M41-1` has an error. Its performance ID (pid) `9070b-01`[wrong] should be corrected to `9070b-09`[correct]. 
+    Affected files:
+    - MazurkaBL-master/beat_time/M41-1beat_time.csv
+    - MazurkaBL-master/beat_dyn/M41-1beat_dynNORM.csv
+
+2) MazurkaBL `M06-4` and `M63-2` does not contain regular dynamic markings. We skip these two opus by setting the `dataset.exclude_opus` in the [`pytorch/config.yaml`](./pytorch/config.yaml) file.
+    ```python
+    dataset.exclude_opus:
+    - "M06-4"
+    - "M63-2"
+    ```
+3) Due to the annotation quality, some pids performance will raise up the gradient dramatically during the training. NOTE: this is train-stage ONLY.  You can skip this with `null` because it is a stable training trick. If set a enough epochs (e.g., 120 epochs), the training will converge, so you won't need this.
+
+    ```python
+    dataset.exclude_pids: # null # Optional: for a stable training
+    - "mazurka17-4/pid9058-13.h5"
+    - "mazurka33-4/pid9080-08.h5"
+    - ...
+
+    dataset.exclude_pids: null # Evaluation
+    ```
+
+## Training and WandB Report
+Our training histroy and hyperparameters can be found in this [WandB Report [Link]](https://api.wandb.ai/links/zhanh-uwa/fcsjrq07).
+
+<p align="center">
+  <img src="./figures/3_wandb_preview.jpg" alt="Training History" width="720">
+  <br><em>Figure 3: Compare our multitask model (green) vs. each single-task model. We also compare the feature used "BSSL: solid line, logMel: dashed line"</em>
+</p>
+
+Once the dataset is downloaded, and the data pre-processing done, you can follow our [`Train_Model.ipynb`](./Train_Model.ipynb) to start the model training. We are doing the 5-fold cross-validation, the data is split on the Mazurka opus to becomes 5 folds, these five `split.csv` files can be found on `workspaces/` folder. To train with 5-fold:
+
+```bash
+python pytorch/train.py wandb.note='formal latent8 mmoe8 5x5' exp.model_name=MultiTaskCNN dataset.run_all_folds=True
+```
+
+Or simple train in the first fold:
+```bash
+python pytorch/train.py wandb.note='formal latent8 mmoe8 5x5' exp.model_name=MultiTaskCNN dataset.run_all_folds=False dataset.fold_index=0
+```
+You can modify other settings in the [`pytorch/config.yaml`](./pytorch/config.yaml).
+
+## Evaluation (Ours and Baselines)
+Our paper results can be found on the `eval_and_benchmarks/` folder. You can find our ”SingleTask“ and “Multitask” models‘ evaluation results from:
+
+- [`Eval_Singletask.ipynb`](./eval_and_benchmarks/Eval_Singletask.ipynb)
+- [`Eval_Multitask.ipynb`](./eval_and_benchmarks/Eval_Multitask.ipynb)
+
+Beat and downbeat tracking baselines results are obtained from their original implementation in GitHub: [TCN + DBN by Bock et al.(2020)](https://tempobeatdownbeat.github.io/tutorial/intro.html) and [Beat This by F. Foscarin et al. (2024)](https://github.com/CPJKU/beat_this). We retrain their model using their implementation. You can find the training history with evaluation results from:
+
+- [`beat_tcn/Eval_BeatTCN_MazurkaBL.ipynb`](./eval_and_benchmarks/beat_tcn/Eval_BeatTCN_MazurkaBL.ipynb)
+- [`beat_this/Eval_BeatThis_MazurkaBL.ipynb`](./eval_and_benchmarks/beat_this/Eval_BeatThis_MazurkaBL.ipynb)
+
+Dynamic and change point baseline is machine learning/algorithmic mehods, thereby we not reproducing their results, reported the literature instead. Download [K. Kosta PhD Thesis (2017, PDF)](https://qmro.qmul.ac.uk/xmlui/bitstream/handle/123456789/30712/Kosta_Katerina_PhD_Final_071117.pdf?sequence=1) to find these results.

@@ -1,0 +1,26 @@
+[
+  {
+    "file": "commit.json",
+    "sha256": "2bfc0d23f4a6069400d870793418908f1ab469a8d9af195cf5d31d5fc2f3a8ae"
+  },
+  {
+    "file": "tree.json",
+    "sha256": "86e39e35f3f220b9f6fa45f32e1c70f54aeaaf9de899251cffc02e7aa55e52a8"
+  },
+  {
+    "file": "main/models.py",
+    "sha256": "86fea13bdaa000cdd853a4e136e42b10b77f3a89319bc63a624e6e233f6aa702"
+  },
+  {
+    "file": "main/loss.py",
+    "sha256": "f77db31af2bf777697f4e66c740780907a5208e3d85be4530095a2d471d5b918"
+  },
+  {
+    "file": "conf/config.yaml",
+    "sha256": "3a94aec9b7d048c52bdc88736c35c58fbc2673bf366be6d2a1289279a698b999"
+  },
+  {
+    "file": "train.py",
+    "sha256": "4800c990499f7f9960a544c7db501f251278568fb9e3fc3fa437dcc79bcc1377"
+  }
+]

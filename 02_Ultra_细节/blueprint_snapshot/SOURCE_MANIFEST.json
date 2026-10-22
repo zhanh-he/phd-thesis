@@ -1,0 +1,848 @@
+{
+  "retrieved_utc": "2026-10-22",
+  "repository": "https://github.com/zhanh-he/phd-thesis",
+  "name_with_owner": "zhanh-he/phd-thesis",
+  "visibility_verified_gh": "public",
+  "branch": "main",
+  "commit": "7e319875a8b1e9fc8f6a0afa4dc4417b03212226",
+  "commit_metadata": "2026-10-22T08:30:42+08:00 now",
+  "source_root": "/Users/jollibear/Documents/PhD_Thesis_Source_20261022",
+  "source_status_porcelain": "",
+  "primary_thesis": "Zhanhong_He_PhD_Thesis_v0.pdf",
+  "files": [
+    {
+      "path": ".DS_Store",
+      "bytes": 30724,
+      "sha256": "43eaec0531556e12e22ac41882ee6db3429cf1e880f2c9d4525d8d9f5b601a5f",
+      "git_blob": "36ba06da3c339de8381ed6d333442ee144bf9975",
+      "lfs_pointer": false
+    },
+    {
+      "path": ".claude/FULL_THESIS_PROOFREAD.md",
+      "bytes": 13068,
+      "sha256": "310f31985dee73c5859c4387f580d2f95afae26f17ef0ef45f98ea87bfb4829a",
+      "git_blob": "f7079bf0e8245c8fbd9c77fe80e7a0754280502b",
+      "lfs_pointer": false
+    },
+    {
+      "path": ".claude/REFERENCES_REVIEW.md",
+      "bytes": 10098,
+      "sha256": "e3849bc9c2e70c8a4b60027848cd211d717a19ef2253eff7cdde1c483b96af01",
+      "git_blob": "7f9c740431f2f97c7982c6a5fe4606aa6725e51d",
+      "lfs_pointer": false
+    },
+    {
+      "path": ".claude/THESIS_REVIEW.md",
+      "bytes": 13244,
+      "sha256": "35dc65963413a8fe33c0031f305f18469a88c44de0db605bd23310a4b1122d34",
+      "git_blob": "b0dfba0fcd4163778e1a97528b0cd13f6b42ef1b",
+      "lfs_pointer": false
+    },
+    {
+      "path": ".claude/merge_paragraphs.py",
+      "bytes": 3708,
+      "sha256": "6e81229016b012477fb040b5a6c36dcf3986d4fabd0b0d0ed1b6faa1dd58f4f6",
+      "git_blob": "1ef79d21594df5185f163150cb80f2c1161b7deb",
+      "lfs_pointer": false
+    },
+    {
+      "path": ".claude/settings.local.json",
+      "bytes": 333,
+      "sha256": "761ecbdb6c4f54165c3bcbd1186d37c6c248bb1372c6dc57e6b9fd7721c552da",
+      "git_blob": "8384f1fbe5a4421c083fb802ade21b1a9af8cce5",
+      "lfs_pointer": false
+    },
+    {
+      "path": ".claude/thesis_reference_complete_no_ack.patch",
+      "bytes": 16862,
+      "sha256": "39e2dabd4106c68f62884473b25aa76800398b78b7f649580600e2b693d6a3f7",
+      "git_blob": "2f3cfc68ee46f75d946216eaf7e5e8bb6cf38a19",
+      "lfs_pointer": false
+    },
+    {
+      "path": ".vscode/extensions.json",
+      "bytes": 68,
+      "sha256": "21469d7436aef9508ad652ae8b5c878076209399937af00d81551a940d04b486",
+      "git_blob": "ae4d31e2bcbbaa612fe8a66d20f5dbb466397165",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Abbreviations/abbreviation.tex",
+      "bytes": 3806,
+      "sha256": "a5774d564dcf3ca8ba3cfbd80eebf4018c8b30989b0f6ae39810c525f095173d",
+      "git_blob": "9a2fe070d87b5e7ff8c88ad2f913406f35bd08ec",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Acknowledgments/PPT_plan.md",
+      "bytes": 15248,
+      "sha256": "b71932403f79f1a032ff5cf796a2cd6d52ffd921f738e45a33f1fe466e02e69a",
+      "git_blob": "adcdd1cfd4a532c283e385e70b01f7ac9c820138",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Acknowledgments/acknowledgements.tex",
+      "bytes": 4018,
+      "sha256": "cd26f714612dce13d34f3a7061d672363dbb001dffe41648dbdc71203e7e51f6",
+      "git_blob": "f0d1f5a9681ef0665d190b24ab0194403bb3ca87",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_1/.DS_Store",
+      "bytes": 8196,
+      "sha256": "32e334afa64e7745b2c5f5562f1682ec3adca68ccbf5205cd617cb9551943ebd",
+      "git_blob": "3b67e3e350ef9c7a54e2182678203449e540f6ca",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_1/Intro.tex",
+      "bytes": 21640,
+      "sha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359",
+      "git_blob": "44fac0f6349310bd7ff66400cd95ebe76aaadaf0",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_1/figures/AMT.png",
+      "bytes": 610329,
+      "sha256": "89a57d783a7828516d8057f77621cf5590e213100df647c190d9f7bf1ff2d26c",
+      "git_blob": "dde2e48036e7a39ceb802472b66e360f9bfdb0e7",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_1/figures/ExpressiveAMT.jpg",
+      "bytes": 141447,
+      "sha256": "77e4fec8c0ffd20fc3f86622017f1a7054c92f4a44ddbd44695ded16c2f3cc23",
+      "git_blob": "43a89ba94a660b079af63a76a9c3a183f6744025",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_1/figures/Overview.jpg",
+      "bytes": 311728,
+      "sha256": "98c3f404f16099cdfb0252182a6df9615543aaf6bab7318e3a9f5e18930ffaee",
+      "git_blob": "a4afcb7174a47d5bbf206f525d4c7195126d7964",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_2/.DS_Store",
+      "bytes": 8196,
+      "sha256": "8fdb5a129a7545a231a7dd2830a32b752c08ba6233e687c6ad02bdaed25aa4fb",
+      "git_blob": "6a1e804c75fb7193f31c5a0d0feaf07f19beb609",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_2/Background.tex",
+      "bytes": 90457,
+      "sha256": "3e06f2725ca4dd33c2ea72ada1a8b8de60063433dba7eb8954e88556f637584c",
+      "git_blob": "89ca594470e0ad939248282deee5c51248f6cc30",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_2/figures/.DS_Store",
+      "bytes": 6148,
+      "sha256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+      "git_blob": "5008ddfcf53c02e82d7eee2e57c38e5672ef89f6",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_2/figures/dynamics_layers.png",
+      "bytes": 160200,
+      "sha256": "141e1c8f6ba8f9d4775cea8c4ca9144a78e28deca751446c01e17a6c3e9009f4",
+      "git_blob": "d8bc53903a3ec7d8d9ac101e2ab966232c862162",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_2/figures/dynamics_layers_v1.jpg",
+      "bytes": 1042434,
+      "sha256": "a203c678b4e4b59f5233517714ef94421de83acd0326f1f6e2988e8f2358f432",
+      "git_blob": "e640a581733af9af6c1c3dec94edecec91195f8e",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_2/figures/equal_loudness_curve.png",
+      "bytes": 131502,
+      "sha256": "cea7845a9ec8add1281e65f24c90a4dad906769aa5dc9d5f2a26a39943e88066",
+      "git_blob": "cc8bd26e3c203eb6e6cf3ed1e399e7fb4b181c03",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_2/figures/instruments_sone.jpg",
+      "bytes": 854630,
+      "sha256": "6917b8c2a3fab60055cfdd4ca20506327b7eed359ccd4ad3908529832fc4baf2",
+      "git_blob": "ef4b6a9f4134b973be5f021721ec4e5fc2efc08f",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_2/figures/representation_chain.png",
+      "bytes": 221902,
+      "sha256": "d60a09beec8b67ebf2d5cb8b19cfa8b6fa94cbdc573f2f57d02006d509d83465",
+      "git_blob": "02db90dc784c8ec687ab84179ef4aa1f1ec5a074",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_2/figures/soundfont_guitar.png",
+      "bytes": 2616395,
+      "sha256": "654161fbe58899bc49c8a1eb45a13f3b4130a4582adb3ff71ccae85a161e117c",
+      "git_blob": "c2d6d788256f072c01250d99eef81cd9cbbb45f3",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_2/figures/soundfont_piano.png",
+      "bytes": 3099618,
+      "sha256": "62189fb2d823c869e60654b3fbe3bf8e124deb8017f0001e1ec1e60c4b2dbe41",
+      "git_blob": "9768d9ed31f832f7da3525896f353ccb678f20f6",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_2/figures/temporal_units.png",
+      "bytes": 1064478,
+      "sha256": "d116d8a51e845257dfe3e630a4dcbd7abd2fb1280c12d803030a1fdb714690cd",
+      "git_blob": "d902f9a2ebed09210a13999bda3c9b0c32d86286",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_2/figures/temporal_units_bk.png",
+      "bytes": 82265,
+      "sha256": "50b16b0efd2ef164d54c8254f9a39db2646c96993aa654eb973a34e8dd2fb6d4",
+      "git_blob": "8abcc2ab5c21a49e688596290e2f54276e18df3a",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_3/.DS_Store",
+      "bytes": 8196,
+      "sha256": "4f97976b04addb2a1683b01926bdff4350855ddf4feb0ffa51b0d079709ee0f5",
+      "git_blob": "acb4685dfd4c80fbcd4f71143151d27853d01a61",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_3/chap3.tex",
+      "bytes": 35306,
+      "sha256": "41b1b4894aa389c07db6f92c4685ed4087a712d88caf94b02ff673aaa0fb230d",
+      "git_blob": "de971c931f8514a3f5f7142e4fe60fe42024bead",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_3/figures/p1.png",
+      "bytes": 394906,
+      "sha256": "4900f8007affb0a0a25dfbbde01d1143da5c36d1c6bc65ed739081365c9a1927",
+      "git_blob": "a22db6966fc7475b5b7ce8c9745d201d71a451ae",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_3/figures/p2.png",
+      "bytes": 483598,
+      "sha256": "807aa6ef84babfa7a5b1265b096cc437410edd0b5b4026d05d054874555f3806",
+      "git_blob": "15fb328a254f333c731cd9309c8c30a81a4c3ecb",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_3/figures/p3.png",
+      "bytes": 430688,
+      "sha256": "fcb2dc71d133b3d2c46954f2efbb0d06786a7b64e2807b0a1417472e159053d9",
+      "git_blob": "9c2b7b9b2b79e551f35cc65b16acabe039e90e76",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_3/figures/p4.png",
+      "bytes": 753823,
+      "sha256": "e0e01ee5def760c402d7c19f2c12d57695ff6795c3c6b862bd18c07150bfb2e8",
+      "git_blob": "f75792106dbe27659bcae972aeae5ec1b3c7e170",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_3/figures/p4v1.png",
+      "bytes": 1001613,
+      "sha256": "69620b5400665d665df1a86e64cd68b29d63398281deac9db5a6f3f2b37a9360",
+      "git_blob": "5974af418b9b6ff19a41117e624a05f1b46b9559",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/.DS_Store",
+      "bytes": 8196,
+      "sha256": "34d79f168448c074d5f556a671003b857701fc9d62eb4c2ea4ec8ec2ed1a02a9",
+      "git_blob": "9094834f7015d7c1b9ec1a4d69ff0b27b8dc917d",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/chap4.tex",
+      "bytes": 39605,
+      "sha256": "822d3a1ed0d16d74873e1c8c94833ba8ed02c9a401aaa19dd0201ab7dd005c0c",
+      "git_blob": "a50f60f24e21778cc0174c3f9ba373bbb0bc3d43",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/.DS_Store",
+      "bytes": 6148,
+      "sha256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+      "git_blob": "5008ddfcf53c02e82d7eee2e57c38e5672ef89f6",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/p1.jpg",
+      "bytes": 86594,
+      "sha256": "89284a99a7889bf3dbbea59fa19753aa92ecb452bcb40ef7ea74ba5b196cab64",
+      "git_blob": "3cf61de119c6409d623f60024e2010767b2332b0",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/p1thesis.jpg",
+      "bytes": 99214,
+      "sha256": "ea5ba25512c4389f985e853f1901dead63e10d71849b55fcaa4b1d8eaf073f3b",
+      "git_blob": "0f7ba2b1b7bec2011d9d7de4f4097934fd3f2bda",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/p2.jpg",
+      "bytes": 302624,
+      "sha256": "8482724fcaba997bec50c7d2a037edcaf84d2c982b54ffbdb679392a1b5dbd25",
+      "git_blob": "10cf26dea6b1b90e73f2127625acef7694f7f91e",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/p3.jpg",
+      "bytes": 43197,
+      "sha256": "cdeca9c3f8b70cc898b46c15b7a01ce22034e7907cc0b01d543638ab163e3557",
+      "git_blob": "e6b5f8469500d3afb300ab2bbedf6c13c75dcd6d",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/p3v1.jpg",
+      "bytes": 52595,
+      "sha256": "f8b317fd9f28b09a15647d208986a9ea3792956113b1b705af34edf8c8f59dbf",
+      "git_blob": "2374940130dc47095138cf7fb7fcb33d1053b9dd",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/p4.jpg",
+      "bytes": 117773,
+      "sha256": "0a8f2c5d9d015dad7d2518524393ff58a42941f2bc540cc3d9784771c832a65f",
+      "git_blob": "6e1dc1e6d31c952274844ca9026fdb2bcf5fc035",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/p4thesis.jpg",
+      "bytes": 140071,
+      "sha256": "4a21e169939922e74da8a152d920a0013390c7d2cce8d72790d9ed3e674beaaf",
+      "git_blob": "675e4db6c21f16d6be15d216240a2247e669f584",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/p5.jpg",
+      "bytes": 202367,
+      "sha256": "799eda25984498e6f7a899e86c9e53028f92b5c993f4206b6aa1bf866f8f3c82",
+      "git_blob": "f4e0ff279d72fdfcefee4a899938fb7d08eea65e",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/p5thesis.png",
+      "bytes": 951774,
+      "sha256": "543dc742a6211232c60a7c208c4e5d191e58e09fefbfbc2c92a00ae5d73a34e1",
+      "git_blob": "c99225b73d346f45f2b1929de479f4c5b4fcc072",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/p5v1.jpg",
+      "bytes": 124799,
+      "sha256": "5e6a3e94ebe622ff71c2f64a8ffbb329e58137146eaa25aef53794e239a24e67",
+      "git_blob": "564166b0906a9e357fef2f506267ca349e813db8",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/p5v2.jpg",
+      "bytes": 196065,
+      "sha256": "789ecc02f0cafd710d78d36250f07ac83804c925a5b1e98a8b231b8f4dc90045",
+      "git_blob": "3758aa3cad47c67bc2d55115d67645125dd769e6",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_4/figures/p6thesis.jpg",
+      "bytes": 152984,
+      "sha256": "d54ddeacd5da944a50b143c3f4a0386488daf07914accdc3dbf93a0e010e66b8",
+      "git_blob": "b045e5d901cebf7eaf20c51bbe031cf09995946a",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_5/.DS_Store",
+      "bytes": 8196,
+      "sha256": "eac518e4055024ed5b1f0936b093dd7668a929b4799691f74a4b256ab1ac256b",
+      "git_blob": "a85e0b7575acfddcec2416733a59b79e43f1d5f1",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_5/chap5.tex",
+      "bytes": 51424,
+      "sha256": "2e97917030af3ff5cb4d2da3adc05b41864ec5d6f070ca64b14a60d2346d5647",
+      "git_blob": "96e25f86d917759eb7c236bbf55d10eae44d1f4e",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_5/figures/p1.png",
+      "bytes": 221937,
+      "sha256": "fd3f6d390c181579c55ad63222101d548a9d0ea82e50942086160104ad1ac8ff",
+      "git_blob": "ec035eebaa9b85e4dcbca3811f71b53a4f430dc8",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_5/figures/p2.png",
+      "bytes": 274134,
+      "sha256": "b10793be83704a0b00490d38e85415cfddd11f2dafb4a80a48b16ef9851281c2",
+      "git_blob": "1be3da20352f5e4ba657b01e47948557c2920497",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_5/figures/p2paper.png",
+      "bytes": 272396,
+      "sha256": "d86752add3b36ef07287c0c378de8c90bf8babed62cc9bcc48940401df8c39c3",
+      "git_blob": "e1fd4c3add056688cb1083b5488ba9da0394a36b",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_6/.DS_Store",
+      "bytes": 8196,
+      "sha256": "6fed08fd7b23ec33a60e3d4238cec485b1f5e74b14e7e9500ebbb8cd0ba34116",
+      "git_blob": "51710f1cf646e65351d68e07f905539f5dbd04d3",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_6/chap6.tex",
+      "bytes": 62982,
+      "sha256": "f11f90f83471df5f8cb572a0ba6d86329945119c83d37829aa6c9c6883c2fe78",
+      "git_blob": "21df8c9903db12312a95236f9e427368d01a5b64",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_6/figures/.DS_Store",
+      "bytes": 6148,
+      "sha256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+      "git_blob": "5008ddfcf53c02e82d7eee2e57c38e5672ef89f6",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_6/figures/p1.jpg",
+      "bytes": 343748,
+      "sha256": "2935920deaf3af6425a6dfdc1d2b093dea6d0bac932488961d93da8dc1494934",
+      "git_blob": "3cb5186b4aa0d8900879a52670e373a022c522c3",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_6/figures/p1v0.jpg",
+      "bytes": 421386,
+      "sha256": "5ab351ceb9aa356571911ecab31e5099bf707dd584d0a166438d552de3628ee6",
+      "git_blob": "2f43d51dacde0db13b5a900d6044fe1906f699ed",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_6/figures/p2.jpg",
+      "bytes": 209255,
+      "sha256": "b864871a546f12e6ae0aca29f4a62dc3e7352e34b7f123d7643d4bc029cc3fac",
+      "git_blob": "b083770cf4e8a68ad4eff944b8b193dee460073d",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_6/figures/p2.png",
+      "bytes": 916356,
+      "sha256": "3b9e40f78a8293952cced7225d388960851160ace93752f9b3ada9de7983b886",
+      "git_blob": "4dcc8cf5f17331dcbeb0a3f0d97a98372d5f5752",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_6/figures/p3.jpg",
+      "bytes": 964821,
+      "sha256": "4b70fb5466550575959241aae60e787d16874a664a1e5774cf224a3196a8b838",
+      "git_blob": "cafbb6bdd6c846839d5a902267d0ee85ec6e2828",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Chapter_7/Conclusion.tex",
+      "bytes": 23708,
+      "sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f",
+      "git_blob": "1e0a13605f8510c1f2791e62161e5979fd968db2",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Declaration/author_declaration.tex",
+      "bytes": 4621,
+      "sha256": "9d66129761a6d72b5370a489269dc61ea61d522107e1ec31e24370be32948063",
+      "git_blob": "a26526f36982c0cbbb27cac97891bff6c1bff186",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Declaration/declaration.tex",
+      "bytes": 1781,
+      "sha256": "75f74772746be99da7fc9e67efcfa0408ca13e10bf58e4e3e8dc1d6e4d7d5b57",
+      "git_blob": "f95b1485dcb33885fc1d8f758026092b3da97eec",
+      "lfs_pointer": false
+    },
+    {
+      "path": "IEEEbib.bst",
+      "bytes": 17903,
+      "sha256": "7e6ca0c8b72158d504a12bb091f817c07032a021ba41ca783cca4c2dd80d570b",
+      "git_blob": "f9bf3cca18df5226892678df3d5c5d01cdb23bc8",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf",
+      "bytes": 225062,
+      "sha256": "8a9412c1401a41a5b4f82865faf759f255a20f03cf7997d92be0278a3a582e78",
+      "git_blob": "84a788c37c5ca4b142142303b584162b3eebc461",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf",
+      "bytes": 118876,
+      "sha256": "c9d8a2a843e3c9cd167e751ed0dec8f7cd7ca757a6a8fabea2abc747b1c61020",
+      "git_blob": "9a666a72e4c8c501cc6ac0c3917a155ea73ac7b0",
+      "lfs_pointer": false
+    },
+    {
+      "path": "UWA_new.jpg",
+      "bytes": 856187,
+      "sha256": "ffe90f359933e66bbe3e1bf771dc0835101274b67475deb1d041f3149bc9c61b",
+      "git_blob": "6ebbe7e5b9b4c017b8b5f697fcad671ab039fc95",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Z_He_PhD_Thesis.pdf",
+      "bytes": 14833690,
+      "sha256": "cbfcfca09364f85a7f6fcef186114054bfa8c494a87d26271091911a9064de07",
+      "git_blob": "c93e52174e3ca7cd0649150be850a6b08ba91b38",
+      "lfs_pointer": false
+    },
+    {
+      "path": "Zhanhong_He_PhD_Thesis_v0.pdf",
+      "bytes": 14835628,
+      "sha256": "3479394740921480c1325c70cc343eaea9e5d09df174be449415a9c8dacb4798",
+      "git_blob": "b82b0f16e3bd346746d02a670bed5cf06ceab6db",
+      "lfs_pointer": false
+    },
+    {
+      "path": "clean_tex.sh",
+      "bytes": 2050,
+      "sha256": "7c5873b7f57b474f3ff040fa63278d74baba66216b97a97429ecb3b89df191fc",
+      "git_blob": "3b9baf388820e78caff98175bc939f8e89c212d7",
+      "lfs_pointer": false
+    },
+    {
+      "path": "main.pdf",
+      "bytes": 14400607,
+      "sha256": "45948164a8396ce9e84adaaa9d66e54d0afbda2f9a81d40823b335046cf379eb",
+      "git_blob": "4f5828f149af7c3b380f098146eb66c95e3bb14b",
+      "lfs_pointer": false
+    },
+    {
+      "path": "main.tex",
+      "bytes": 8145,
+      "sha256": "2d126ced4b31cf105f8662620a3000d9ff4530eda483f63b103ddf75689f014d",
+      "git_blob": "334979de8963bd6d4d827409ab5d96f5e5c80b5b",
+      "lfs_pointer": false
+    },
+    {
+      "path": "reference.bib",
+      "bytes": 106282,
+      "sha256": "276379f97acb557446c77af112c11b5f8aea695bdbb9c9b45a169a2e39641b18",
+      "git_blob": "48dd68201a87bdf3805a601aa3e31f782763011f",
+      "lfs_pointer": false
+    }
+  ],
+  "pdfs": [
+    {
+      "filename": "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf",
+      "bytes": 225062,
+      "sha256": "8a9412c1401a41a5b4f82865faf759f255a20f03cf7997d92be0278a3a582e78",
+      "pdf_pages": 4,
+      "metadata": {
+        "format": "PDF 1.7",
+        "title": "",
+        "author": "Kelly Burrows",
+        "subject": "",
+        "keywords": "",
+        "creator": "ONLYOFFICE/9.1.0.173",
+        "producer": "ONLYOFFICE/9.1.0.173",
+        "creationDate": "D:20260925093342+00'00'",
+        "modDate": "D:20260925093342+00'00'",
+        "trapped": "",
+        "encryption": null
+      },
+      "annotations": [],
+      "head": "%PDF-1.7\r%��ҩ\r"
+    },
+    {
+      "filename": "Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf",
+      "bytes": 118876,
+      "sha256": "c9d8a2a843e3c9cd167e751ed0dec8f7cd7ca757a6a8fabea2abc747b1c61020",
+      "pdf_pages": 4,
+      "metadata": {
+        "format": "PDF 1.6",
+        "title": "",
+        "author": "Waleed Abdulla",
+        "subject": "",
+        "keywords": "",
+        "creator": "Acrobat PDFMaker 25 for Word",
+        "producer": "Adobe PDF Library 25.1.40",
+        "creationDate": "D:20260614133348+12'00'",
+        "modDate": "D:20260614135604+12'00'",
+        "trapped": "",
+        "encryption": null
+      },
+      "annotations": [],
+      "head": "%PDF-1.6\r%����\r"
+    },
+    {
+      "filename": "Z_He_PhD_Thesis.pdf",
+      "bytes": 14833690,
+      "sha256": "cbfcfca09364f85a7f6fcef186114054bfa8c494a87d26271091911a9064de07",
+      "pdf_pages": 154,
+      "metadata": {
+        "format": "PDF 1.7",
+        "title": "",
+        "author": "",
+        "subject": "",
+        "keywords": "",
+        "creator": "LaTeX with hyperref",
+        "producer": "pdfTeX-1.40.27",
+        "creationDate": "D:20260526091410+10'00'",
+        "modDate": "D:20260526092018+10'00'",
+        "trapped": "",
+        "encryption": null
+      },
+      "annotations": [
+        {
+          "pdf_page": 3,
+          "type": [
+            13,
+            "Stamp"
+          ],
+          "info": {
+            "content": "",
+            "name": "",
+            "title": "Mobile User",
+            "creationDate": "",
+            "modDate": "D:20260519040537Z00'00'",
+            "subject": "",
+            "id": "64670df3-ca7a-8143-80b0-05fcad202c89"
+          }
+        },
+        {
+          "pdf_page": 9,
+          "type": [
+            13,
+            "Stamp"
+          ],
+          "info": {
+            "content": "",
+            "name": "Draft",
+            "title": "Cooper, David",
+            "creationDate": "",
+            "modDate": "D:20260513071402Z00'00'",
+            "subject": "",
+            "id": "70e497a3-2919-da46-bec8-55397ed2e927"
+          }
+        },
+        {
+          "pdf_page": 9,
+          "type": [
+            13,
+            "Stamp"
+          ],
+          "info": {
+            "content": "",
+            "name": "Draft",
+            "title": "Cooper, David",
+            "creationDate": "",
+            "modDate": "D:20260513071408Z00'00'",
+            "subject": "",
+            "id": "03feba08-bd85-d144-9a96-fa30dd8ee6bf"
+          }
+        },
+        {
+          "pdf_page": 9,
+          "type": [
+            13,
+            "Stamp"
+          ],
+          "info": {
+            "content": "",
+            "name": "",
+            "title": "Mobile User",
+            "creationDate": "",
+            "modDate": "D:20260518022200Z00'00'",
+            "subject": "",
+            "id": "4fafa09d-358d-c444-b4ef-42256b3f1d3c"
+          }
+        },
+        {
+          "pdf_page": 9,
+          "type": [
+            13,
+            "Stamp"
+          ],
+          "info": {
+            "content": "",
+            "name": "Draft",
+            "title": "Cooper, David",
+            "creationDate": "",
+            "modDate": "D:20260513071402Z00'00'",
+            "subject": "",
+            "id": "389ddb4e-8b62-0a4d-8ae3-bfdbdb42f90a"
+          }
+        },
+        {
+          "pdf_page": 9,
+          "type": [
+            13,
+            "Stamp"
+          ],
+          "info": {
+            "content": "",
+            "name": "Draft",
+            "title": "Cooper, David",
+            "creationDate": "",
+            "modDate": "D:20260513071408Z00'00'",
+            "subject": "",
+            "id": "b1914cfa-f376-c045-a4fe-4faf33c5b4d0"
+          }
+        }
+      ],
+      "head": "%PDF-1.7\r%����\r"
+    },
+    {
+      "filename": "Zhanhong_He_PhD_Thesis_v0.pdf",
+      "bytes": 14835628,
+      "sha256": "3479394740921480c1325c70cc343eaea9e5d09df174be449415a9c8dacb4798",
+      "pdf_pages": 154,
+      "metadata": {
+        "format": "PDF 1.7",
+        "title": "",
+        "author": "",
+        "subject": "",
+        "keywords": "",
+        "creator": "LaTeX with hyperref",
+        "producer": "pdfTeX-1.40.27",
+        "creationDate": "D:20260519120153+08'00'",
+        "modDate": "D:20260519120818+08'00'",
+        "trapped": "",
+        "encryption": null
+      },
+      "annotations": [
+        {
+          "pdf_page": 3,
+          "type": [
+            13,
+            "Stamp"
+          ],
+          "info": {
+            "content": "",
+            "name": "",
+            "title": "Mobile User",
+            "creationDate": "",
+            "modDate": "D:20260519040537Z00'00'",
+            "subject": "",
+            "id": "64670df3-ca7a-8143-80b0-05fcad202c89"
+          }
+        },
+        {
+          "pdf_page": 9,
+          "type": [
+            13,
+            "Stamp"
+          ],
+          "info": {
+            "content": "",
+            "name": "Draft",
+            "title": "Cooper, David",
+            "creationDate": "",
+            "modDate": "D:20260513071402Z00'00'",
+            "subject": "",
+            "id": "70e497a3-2919-da46-bec8-55397ed2e927"
+          }
+        },
+        {
+          "pdf_page": 9,
+          "type": [
+            13,
+            "Stamp"
+          ],
+          "info": {
+            "content": "",
+            "name": "Draft",
+            "title": "Cooper, David",
+            "creationDate": "",
+            "modDate": "D:20260513071408Z00'00'",
+            "subject": "",
+            "id": "03feba08-bd85-d144-9a96-fa30dd8ee6bf"
+          }
+        },
+        {
+          "pdf_page": 9,
+          "type": [
+            13,
+            "Stamp"
+          ],
+          "info": {
+            "content": "",
+            "name": "",
+            "title": "Mobile User",
+            "creationDate": "",
+            "modDate": "D:20260518022200Z00'00'",
+            "subject": "",
+            "id": "4fafa09d-358d-c444-b4ef-42256b3f1d3c"
+          }
+        },
+        {
+          "pdf_page": 9,
+          "type": [
+            13,
+            "Stamp"
+          ],
+          "info": {
+            "content": "",
+            "name": "Draft",
+            "title": "Cooper, David",
+            "creationDate": "",
+            "modDate": "D:20260513071402Z00'00'",
+            "subject": "",
+            "id": "389ddb4e-8b62-0a4d-8ae3-bfdbdb42f90a"
+          }
+        },
+        {
+          "pdf_page": 9,
+          "type": [
+            13,
+            "Stamp"
+          ],
+          "info": {
+            "content": "",
+            "name": "Draft",
+            "title": "Cooper, David",
+            "creationDate": "",
+            "modDate": "D:20260513071408Z00'00'",
+            "subject": "",
+            "id": "b1914cfa-f376-c045-a4fe-4faf33c5b4d0"
+          }
+        }
+      ],
+      "head": "%PDF-1.7\r%����\r"
+    },
+    {
+      "filename": "main.pdf",
+      "bytes": 14400607,
+      "sha256": "45948164a8396ce9e84adaaa9d66e54d0afbda2f9a81d40823b335046cf379eb",
+      "pdf_pages": 154,
+      "metadata": {
+        "format": "PDF 1.7",
+        "title": "",
+        "author": "",
+        "subject": "",
+        "keywords": "",
+        "creator": "LaTeX with hyperref",
+        "producer": "pdfTeX-1.40.27",
+        "creationDate": "D:20260902071843+08'00'",
+        "modDate": "D:20260902071843+08'00'",
+        "trapped": "",
+        "encryption": null
+      },
+      "annotations": [],
+      "head": "%PDF-1.7\n%����\n"
+    }
+  ],
+  "repository_scripts_executed": false
+}
