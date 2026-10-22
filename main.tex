@@ -1,14 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% NOTE: THIS IS A ROUGH TEMPLATE THAT WILL MOST LIKELY NEED CHANGES TO
-% CONFORM TO YOUR INDIVIDUAL SITUATION
-% THERE IS NO GUARANTEE OF ACCURACY OR COMPLETENESS TO THE TEMPLATE
+% UWA thesis template update
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt,a4paper,twoside,openright,final,titlepage]{report}
+
+% --------------------- Encoding and core mathematics ---------------------
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{bm} % for bold math symbols, including Greek letters, with \bm{}
+
+% --------------------- Figures, layout, and tables ---------------------
 \usepackage{makeidx}
 \usepackage{graphicx}
 \usepackage{layout}
@@ -17,53 +20,63 @@
 \usepackage{tabularx}
 \usepackage{rotating}
 \usepackage{longtable}
-\usepackage{makecell}
-
-\usepackage{multirow}
-\usepackage{bm} % for bold math symbols (incl. Greek letters) with \bm{}
 \usepackage{booktabs}
-
-%\usepackage{todonotes}
-\usepackage[colorlinks=true,
-							citecolor=black,
-							linkcolor=black,
-							urlcolor=red,
-							linktocpage=true,
-							hyperfootnotes=false]{hyperref}
-
-\usepackage[square,numbers,sort&compress]{natbib}
-\setlength\bibhang{.3in}
-
-% --------------------- Table in Ch2 ---------------------
-\usepackage{booktabs}
-\usepackage{multirow}
-\usepackage{makecell}
-\usepackage{tabularx}
 \usepackage{array}
 \usepackage{tablefootnote}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 \usepackage{pifont}
+\usepackage{siunitx}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage[labelfont=bf,font=small]{caption}
+\usepackage{subcaption}
+\usepackage{url}
 
-\newcommand{\cmark}{\textcolor{green!50!black}{\ding{51}}}
-\newcommand{\xmark}{\textcolor{red!70!black}{\ding{55}}}
-\newcommand{\warn}{\textcolor{orange!90!black}{$\blacktriangle$}}
-
-\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
-% --------------------- Table in Ch2 ---------------------
+% --------------------- Page style and spacing ---------------------
+% For electronic submission use:
+\usepackage[inner=2cm,outer=2cm,top=2cm,bottom=2cm]{geometry}
+% For printing use:
+% \usepackage[inner=4cm,outer=2cm,top=2cm,bottom=2cm]{geometry}
 
 \usepackage{lineno}
 \usepackage{setspace}
 \onehalfspacing
 \usepackage{microtype}
-\usepackage{color}
 \usepackage{fancyhdr}
-\usepackage[labelfont=bf,font=small]{caption}
+\usepackage{tocbibind}
 
-% For electronic submission use:
-\usepackage[inner=3cm,outer=3cm,top=2cm,bottom=2cm]{geometry}
-% For printing use:
-% \usepackage[inner=4cm,outer=2cm,top=2cm=bottom=2cm]{geometry}
+% --------------------- Bibliography and hyperlinks ---------------------
+\usepackage[square,numbers,sort&compress]{natbib}
+\setlength\bibhang{.3in}
+\usepackage[colorlinks=true,
+                            citecolor=black,
+                            linkcolor=black,
+                            urlcolor=red,
+                            linktocpage=true,
+                            hyperfootnotes=false]{hyperref}
 
+% Compatibility fallback: allow \gls-like commands even when glossaries is not used.
+\providecommand{\gls}[1]{#1}
+\providecommand{\Gls}[1]{#1}
+\providecommand{\glspl}[1]{#1s}
+\providecommand{\Glspl}[1]{#1s}
+
+% --------------------- Table helpers retained from the old thesis file ---------------------
+\newcommand{\cmark}{\textcolor{green!50!black}{\ding{51}}}
+\newcommand{\xmark}{\textcolor{red!70!black}{\ding{55}}}
+\newcommand{\warn}{\textcolor{orange!90!black}{$\blacktriangle$}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% --------------------- Thesis metadata for the title page ---------------------
+\newcommand{\thesistitle}{Recovering Musical Dynamics for Expressive Automatic Music Transcription}
+\newcommand{\thesisauthor}{Zhanhong HE}
+\newcommand{\thesisqualifications}{B.Sc.\ (Hons) in Engineering Science; B.Eng.\ in Electrical Engineering and Automation}
+\newcommand{\thesisyear}{2026}
+\newcommand{\thesisschool}{School of Engineering}
+\newcommand{\thesisdepartment}{Department of Electrical, Electronic and Computer Engineering}
 
 \renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\thechapter. #1 }}{}}
 \renewcommand{\sectionmark}[1]{}
@@ -78,41 +91,35 @@
 \newcommand\mainmatter{\cleardoublepage\pagenumbering{arabic}}
 
 \newenvironment{chapabstract}{%
-	\begin{center}%
-		\singlespacing
-		\bfseries ABSTRACT
-	\end{center}}%
-	
+    \begin{center}%
+        \singlespacing
+        \bfseries ABSTRACT
+    \end{center}}%
+
 \begin{document}
-	\hypersetup{pageanchor=false}
-	
-%	\layout
-	\begin{titlepage}
-		\centering
-		\vfill
-		\textit{This thesis is presented for the degree of Doctor of Philosophy of The University of Western Australia}\\
-		\vskip 1cm
-		{\bfseries\Large
-				Recovering Musical Dynamics for Expressive Automatic Music Transcription \\}
-		
-		\vskip1.5cm
-		
-		\includegraphics[width=.40\linewidth]{UWA_new}
-		\vskip 2cm	
-		Zhanhong HE\\
-		B.Sc. in FieldA; B.Sc. in FieldB; M.Sc in FieldC \\
-		February 2016\\
-		\vskip .5cm
-		Department of Electrical, Electronic and Computer Engineering\\
-		Electrical Engineering\\
-		% 2026\\
-%% 		\vskip 1.5cm
-% 		\textbf{Supervisors:} 
-% 		    Dr. FirstName LastName (Coordinating)\\
-% 			Prof. Dr. FirstName LastName\\
-% 			Prof. Dr. FirstName LastName\\
-% 			Prof. Dr. FirstName LastName\\
-	\end{titlepage}
+    \hypersetup{pageanchor=false}
+
+%   \layout
+    \begin{titlepage}
+        \centering
+        \vspace*{2cm}
+        {\bfseries\Large \thesistitle\par}
+        \vskip 1.5cm
+        \thesisauthor\\
+        \vskip 0.3cm
+        \thesisqualifications\\
+        \vfill
+        \includegraphics[width=.40\linewidth]{UWA_new}
+        \vskip 1cm
+        \textit{This thesis is presented for the degree of Doctor of Philosophy of The University of Western Australia}\\
+        \vskip 0.8cm
+        \thesisschool\\
+        \thesisdepartment\\
+        \vskip 0.8cm
+        \thesisyear\\
+        \vspace*{1cm}
+    \end{titlepage}
+
 	%\maketitle
 	\frontmatter
 %	\linenumbers
@@ -123,19 +130,22 @@
 	\vfill
     
 	\include{Declaration/declaration}
-
+    
     
 	\begin{abstract}
-
-		Automatic music transcription has achieved significant progress in note transcription. Yet note events alone do not provide enough expressiveness. This thesis establishes musical dynamics as the primary target for expressive AMT, treating note-level MIDI velocity and score-level dynamics as complementary representations. To this end, we propose a unified label-recovery framework evaluated across three practical settings. 
-        
-        For symbolic velocity completion, we infer missing velocities in flat MIDI files without altering note timing. We achieve this using an attention U-Net inspired by the image colorization, combined with a feature sparsity-aware loss, validating its impact through objective metrics and human listening tests.
+	Automatic music transcription has matured in its treatment of note pitch and timing, but musical dynamics remains less fully addressed. This thesis treats dynamics as a missing expressive label layer that can be recovered from music data already partly specified, without rewriting note content or note timing. Its unifying question is \emph{how musically interpretable dynamics labels can be recovered from incomplete, weakly expressive, or weakly supervised music data}. Two complementary targets within expressive music performance recur throughout: note-level MIDI velocity, the per-onset control variable used in MIDI workflows, and score-level dynamics, the beat-aligned markings such as \textit{p}, \textit{mf}, and \textit{f} written in notation.
 		
-		We refine audio-based velocity estimation using musical scores as a structural prior. We propose a lightweight score-informed Transformer that achieves leading performance on piano datasets, demonstrating strong robustness to audio-score misalignment.
-        
-        We predict beat-synchronous score dynamics directly from audio. By utilizing perceptually grounded loudness features and multitask network, this joint estimation approach produces practical dynamics that can be seamlessly integrated into existing scores.
-
-        Finally, we extend our velocity estimation framework beyond the piano. To overcome the scarcity of non-piano MIDI velocity labels, we employ differentiable neural proxies of soundfonts. This enables supervised model training on synthesised audio, successfully bypassing the need for ground-truth MIDI velocity data.
+	The thesis first addresses the symbolic-only setting by reformulating MIDI velocity completion as image colourisation on sparse piano-roll matrices. A U-Net with window attention and a sparsity-aware loss recovers the missing velocity layer, and the results are validated through cross-dataset objective metrics and a MUSHRA-inspired listening test.
+		
+	It then turns to score-informed velocity estimation in the audio-plus-score setting, using a Transformer correction module that refines AMT-estimated velocity at aligned score onsets. Rather than replacing the AMT backbone, the module uses score structure as a late correction prior, transfers across the HPT, HPPNet, and DynEst backbones, improves cross-dataset behaviour from MAESTRO to SMD, and remains stable under audio--score timing shifts of up to several seconds.
+		
+	A further study treats the audio-only setting with a score-facing output. It jointly estimates beat-synchronous dynamic markings, change points, beats, and downbeats from performance audio. A Bark-scale specific loudness front-end, a multi-scale encoder, and an MMoE decoder are combined to address the conflicting temporal requirements of dynamic-level estimation, change-point detection, and metrical localisation, producing output that can be written back into a score.
+		
+	Finally, the thesis reports an exploratory extension beyond piano. To recover note-level velocity for instruments without direct labels, it treats the problem as renderer-conditioned analysis-by-synthesis and compares two differentiable synthesis interfaces. The proposed differentiable SoundFont proxy supervises velocity through note-wise loudness-related descriptors rather than waveforms. On guitar, this proxy interface adapts a piano-pretrained estimator more reliably than a differentiable waveform synthesiser under recording mismatch.
+		
+	Taken together, these studies form a scenario map rather than an end-to-end pipeline. They show that dynamics recovery becomes tractable when the output layer, temporal coordinate, evidence source, and supervision regime are matched to one another. The thesis therefore extends expressive AMT beyond note detection by making existing music data more expressive, editable, and usable in settings where direct dynamics labels are partial or absent.
+		
+	\textbf{Keywords}: automatic music transcription; expressive music performance; MIDI velocity; dynamic markings; score-informed velocity estimation; differentiable SoundFont proxy.
 	\end{abstract}
 	
 	\include{Acknowledgments/acknowledgements}
@@ -146,6 +156,8 @@
 	\tableofcontents
 	\listoffigures
 	\listoftables
+	\include{Abbreviations/abbreviation}
+
 	\mainmatter
 	\hypersetup{pageanchor=true}
 	\raggedbottom
@@ -158,7 +170,8 @@
 	\include{Chapter_7/Conclusion}
 
 \cleardoublepage
-\renewcommand{\bibname}{Reference}
+%  \bibliographystyle{abbrv}
+\renewcommand{\bibname}{References}
 \bibliographystyle{IEEEbib}
 \bibliography{reference}
 \end{document}

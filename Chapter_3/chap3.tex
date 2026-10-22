@@ -3,21 +3,18 @@
 % preserved core method/experiments/results, and added a thesis-oriented discussion.
 \newcommand{\eqshift}{\qquad\qquad\qquad\qquad}
 
-\chapter{Symbolic MIDI Velocity Completion as Image Colorization}
+\chapter{Symbolic MIDI Velocity Completion as Image Colourisation}
 \label{ch:velcomp}
 
-\noindent\textbf{Source and adaptation note.}
-This chapter is adapted from the CMMR 2025 paper \cite{he2025filling}.
-Relative to the published version, the thesis chapter shortens the general introduction and literature survey already covered in Chapter~\ref{ch:introduction} and Chapter~\ref{ch:background}, while keeping the technical method, experimental protocol, and main findings largely unchanged.
 
 \section{Chapter Overview and Position in the Thesis}
 \label{sec:velcomp:overview}
 
-This chapter is the first paper-based method chapter of the thesis. It addresses Scenario~S1, the most controlled setting in the thesis map. Here the symbolic notes and their timing are already known, but the note-level velocity is missing, flattened, or musically uninformative. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?
+This chapter addresses Scenario~S1, the most controlled setting in the thesis map. Here the symbolic notes and their timing are already known, but the note-level velocity is missing, flattened, or musically uninformative. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?
 
-This setting matters because it isolates the dynamics problem from the broader transcription problem. It is common in digital audio workstation workflows, step-entered MIDI, quantized MIDI, and corpus curation settings where note content already exists but expression does not. It also provides the cleanest test of the thesis claim that dynamics can be treated as a separate and editable target rather than as a side effect of full expressive performance generation.
+This setting matters because it isolates the dynamics problem from the broader transcription problem. It is common in digital audio workstation workflows, step-entered MIDI, quantised MIDI, and corpus curation settings where note content already exists but expression does not. It also provides the cleanest test of the thesis claim that dynamics can be treated as a separate and editable target rather than as a side effect of full expressive performance generation.
 
-In thesis terms, this chapter makes three contributions. First, it shows that symbolic velocity completion can be formulated naturally as an image-colorization problem on sparse piano-roll representations. Second, it develops a U-Net-based model with window attention and a sparsity-aware loss tailored to this representation. Third, it provides both objective and perceptual evidence that recovering only MIDI velocity can improve musical expressiveness in a controlled setting.
+This chapter makes three contributions. First, it shows that symbolic velocity completion can be formulated naturally as an image-colourisation problem on sparse piano-roll representations. Second, it develops a U-Net-based model with window attention and a sparsity-aware loss tailored to this representation. Third, it provides both objective and perceptual evidence that recovering only MIDI velocity can improve musical expressiveness in a controlled setting.
 
 \section{Task-Specific Related Work}
 \label{sec:velcomp:related}
@@ -26,16 +23,12 @@ MIDI velocity completion sits at the intersection of expressive rendering and sy
 
 Recent symbolic velocity-prediction methods have typically treated the task as sequential prediction. Representative examples include convolutional autoencoders and sequence-to-sequence models with attention \cite{kuo2021velocity,kim2023piano}. These models establish that note-level velocity can be learned from symbolic context. However, piano-roll data is sparse and polyphonic. The relevant structure is not only sequential. It is also spatial. Simultaneous notes create meaningful vertical patterns, and short local pitch--time neighborhoods often carry clear expressive cues.
 
-This motivates the image-based view adopted in the present chapter. By treating symbolic MIDI as a sparse image and velocity as a colorization target, the model can exploit local polyphonic structure more directly. U-Net and attention mechanisms are already successful in related music and audio tasks, but the present setting is distinct because it is purely symbolic and does not rely on acoustic input \cite{he2025filling,kim2024method}. This makes the chapter a natural starting point for the broader thesis.
+This motivates the image-based view adopted in the present chapter. By treating symbolic MIDI as a sparse image and velocity as a colourisation target, the model can exploit local polyphonic structure more directly. U-Net and attention mechanisms are already successful in related music and audio tasks, but the present setting is distinct because it is purely symbolic and does not rely on acoustic input \cite{he2025filling,kim2024method}. This makes the chapter a natural starting point for the broader thesis.
 
 \section{Problem Setting}
 \label{sec:velcomp:problem}
 
-MIDI (Musical Instrument Digital Interface) is the dominant symbolic format in modern music production.
-A MIDI file that resembles sheet music can still sound mechanical when its note velocities are undefined or flattened to a default constant.
-In contrast, MIDI captured from human performance preserves the performer's control of intensity and therefore carries a substantial portion of the perceived musical expression.
-As discussed in the thesis introduction, dynamics is the expressive dimension targeted first in this thesis because it is both perceptually salient and directly editable.
-This chapter studies the most constrained setting in that map: recovering note-level MIDI velocity when the symbolic notes and their timing are already known.
+MIDI (Musical Instrument Digital Interface) is the dominant symbolic format in modern music production. A MIDI file that resembles sheet music can still sound mechanical when its note velocities are undefined or flattened to a default constant. In contrast, MIDI captured from human performance preserves the performer's control of intensity and therefore carries a substantial portion of the perceived musical expression. As discussed in the thesis introduction, dynamics is the expressive dimension targeted first in this thesis because it is both perceptually salient and directly editable. This chapter studies the most constrained setting in that map: recovering note-level MIDI velocity when the symbolic notes and their timing are already known.
 
 \begin{figure}[t]
 \begin{center}
@@ -45,16 +38,9 @@ This chapter studies the most constrained setting in that map: recovering note-l
 \end{center}
 \end{figure}
 
-This setting is practically important for two reasons.
-First, a large amount of MIDI used in digital audio workstation workflows is created by step input, quantization, or low-cost controllers, leaving velocity flat.
-Second, many expressive rendering systems modify several performance dimensions jointly, including timing and sometimes note content, which is undesirable when the goal is to preserve the user's composition.
-By isolating velocity, the task becomes a precise and controllable refinement problem: the notes, onsets, and offsets remain fixed, and only note intensity is completed.
+This setting is practically important for two reasons. First, a large amount of MIDI used in digital audio workstation workflows is created by step input, quantisation, or low-cost controllers, leaving velocity flat. Second, many expressive rendering systems modify several performance dimensions jointly, including timing and sometimes note content, which is undesirable when the goal is to preserve the user's composition. By isolating velocity, the task becomes a precise and controllable refinement problem: the notes, onsets, and offsets remain fixed, and only note intensity is completed.
 
-Chapter~\ref{ch:background} reviewed prior symbolic velocity-prediction methods, most of which formulate the problem sequentially.
-The key design choice in this chapter is instead to exploit the spatial structure of polyphonic symbolic music by treating MIDI as an image-colorization problem.
-MIDI without velocity is represented as a binary pianoroll, while the target is a velocity-valued pianoroll.
-This formulation is especially natural for instruments such as piano, where multiple simultaneous notes create rich vertical patterns.
-Current dataset availability restricts the experiments here to piano data, but the formulation itself is not tied to piano alone.
+This chapter instead exploits the spatial structure of polyphonic symbolic music by treating MIDI as an image-colourisation problem. MIDI without velocity is represented as a binary pianoroll, while the target is a velocity-valued pianoroll. This formulation is especially natural for instruments such as piano, where multiple simultaneous notes create rich vertical patterns. Current dataset availability restricts the experiments here to piano data, but the formulation itself is not tied to piano alone.
 
 \section{Representation as Image-like MIDI Matrices}
 \label{sec:velcomp:representation}
@@ -63,10 +49,10 @@ Current dataset availability restricts the experiments here to piano data, but t
 \label{sec:velcomp:matrix}
 
 To process MIDI as images, we convert each performance into three matrices of size \(T \times P\), where \(T\) is the number of time frames and \(P=88\) is the number of piano pitches.
-The three matrices are a binary onset roll \(O\), marking note starts; a binary frame roll \(F\), indicating note activation over time; and a velocity roll \(V\), acting as the target color intensity.
+The three matrices are a binary onset roll \(O\), marking note starts; a binary frame roll \(F\), indicating note activation over time; and a velocity roll \(V\), acting as the target colour intensity.
 In the implemented system, \(F\) is the network input, \(V\) is the prediction target, and \(O\) is used for onset masking in the loss.
-For the velocity roll, integer values in \([0,127]\) are normalized to \([0,1)\) to match the model output activation range.
-During post-processing, the model output is denormalized by scaling and rounding back to integer MIDI velocity.
+For the velocity roll, integer values in \([0,127]\) are normalised to \([0,1)\) to match the model output activation range.
+During post-processing, the model output is denormalised by scaling and rounding back to integer MIDI velocity.
 As illustrated in Figure~\ref{fig:velcomp_model}, these matrices are highly sparse.
 
 \subsection{MIDI Segmentation}
@@ -101,16 +87,16 @@ A plausible explanation is that a 10-second window often captures a musically co
 
 The proposed architecture is shown in Figure~\ref{fig:velcomp_model}.
 The U-Net extracts higher-level features through downsampling, while skip connections preserve local details together with broader structural patterns.
-All convolution blocks use \(3 \times 3\) kernels, stride 1, and padding 1, followed by sigmoid activation and batch normalization.
+All convolution blocks use \(3 \times 3\) kernels, stride 1, and padding 1, followed by sigmoid activation and batch normalisation.
 Downsampling is implemented with a standard \(2 \times 2\) MaxPool2D layer.
-For upsampling, we use transpose convolutions with \(4 \times 4\) kernels and stride 2, following the image-colorization variant in \cite{wang2022cunet}.
+For upsampling, we use transpose convolutions with \(4 \times 4\) kernels and stride 2, following the image-colourisation variant in \cite{wang2022cunet}.
 
 To address MIDI sparsity, we insert windowed scaled dot-product attention (window attention) \cite{shen2023linear} into the U-Net.
 Traditional self-attention \cite{vas2017attn} operates on the full feature map \(X \in \mathbb{R}^{H \times W}\), where \(H\) and \(W\) denote height and width.
 Window attention instead partitions \(X\) into non-overlapping \(n \times n\) windows and computes attention within each window.
 This reduces computational complexity while still improving feature aggregation \cite{chen2022hts}.
 
-The window size \((n)\) balances local detail against broader dependency modeling.
+The window size \((n)\) balances local detail against broader dependency modelling.
 We explored \(n \in \{1, 2, 4, 8\}\) and found that \(2 \times 2\) window attention performed best in hyperparameter search.
 This suggests that attention is useful in this sparse setting, but overly large windows can compress information too aggressively and reduce effectiveness.
 
@@ -122,7 +108,7 @@ The proposed loss combines binary cross-entropy (BCE) with cosine similarity (Co
 \mathcal{L}_{\mathrm{Combine}} = (1-\alpha)\,\mathcal{L}_{\mathrm{BCE}} + \alpha\,\left(1-\mathrm{CosSim}\right).
 \label{eq:velcomp_loss_combine}
 \end{equation}
-Here BCE optimizes element-wise prediction error, while CosSim is computed pitch-wise and then averaged to capture the trend of velocity variation over time:
+Here BCE optimises element-wise prediction error, while CosSim is computed pitch-wise and then averaged to capture the trend of velocity variation over time:
 \begin{gather}
 \mathrm{CosSim} = \frac{1}{P}\sum_{p=1}^{P}
 \frac{\sum_{t=1}^{T} y_{t,p}\,\hat{y}_{t,p}}
@@ -136,15 +122,15 @@ In these expressions, \(y_{t,p}\) and \(\hat{y}_{t,p}\) denote the target and pr
 
 To better match the structure of the task, we introduce two modifications.
 First, a masking operation \(<m>\) based on the onset roll \(O\) ignores silent time steps and counts each note once at its onset.
-Second, a weighting operation \(<w>\) emphasizes the velocity-range boundaries, which are harder to predict accurately \cite{jeong2020note,kim2024method,kim2023score}.
-Motivated by the approximately Gaussian velocity distribution in Figure~\ref{fig:velcomp_data_dist}, we use a V-shaped weighting centered on 64 (normalized to 0.5), with empirical factor 3:
+Second, a weighting operation \(<w>\) emphasises the velocity-range boundaries, which are harder to predict accurately \cite{jeong2020note,kim2024method,kim2023score}.
+Motivated by the approximately Gaussian velocity distribution in Figure~\ref{fig:velcomp_data_dist}, we use a V-shaped weighting centred on 64 (normalised to 0.5), with empirical factor 3:
 \begin{equation}
 \mathcal{L}_{\mathrm{BCE}}^{<m,w>} = \frac{1}{TP}\sum_{t=1}^{T}\sum_{p=1}^{P}
 O_{t,p}\,\bigl(1 + 3\lvert V_{t,p} - 0.5 \rvert\bigr)\,l_{\mathrm{bce}}\!\left(y_{t,p}, \hat{y}_{t,p}\right).
 \label{eq:velcomp_bce_weighted}
 \end{equation}
 The final objective replaces \(\mathcal{L}_{\mathrm{BCE}}\) in Eq.~\eqref{eq:velcomp_loss_combine} with \(\mathcal{L}_{\mathrm{BCE}}^{<m,w>}\).
-This loss focuses learning on note onsets while also penalizing the underestimation of more extreme dynamic values.
+This loss focuses learning on note onsets while also penalising the underestimation of more extreme dynamic values.
 
 \section{Experimental Setup}
 \label{sec:velcomp:experiment}
@@ -154,7 +140,7 @@ This loss focuses learning on note onsets while also penalizing the underestimat
 
 For training, we use the MAESTRO v3.0.0 dataset \cite{hawthorne2019maestro}, recorded by skilled pianists on Yamaha Disklavier pianos during the International Piano-e-Competition.
 The default train/validation/test split is used.
-With 1,276 performances totaling more than 200 hours, MAESTRO provides a strong foundation for modeling MIDI velocity.
+With 1,276 performances totaling more than 200 hours, MAESTRO provides a strong foundation for modelling MIDI velocity.
 
 For evaluation, we use the Saarland Music Data (SMD) dataset \cite{smd}, which contains 50 further performances recorded on a Yamaha Disklavier.
 We selected SMD for cross-dataset evaluation instead of the Piano-e-Competition dataset used in \cite{kuo2021velocity,kim2023piano}, because the latter has substantial performance overlap with MAESTRO.
@@ -176,7 +162,7 @@ Because SMD overlaps with MAESTRO in composer style but not in exact performance
 \setlength{\tabcolsep}{7pt}          % 控制表格列与列之间的左右留白
 \fontsize{11pt}{14pt}\selectfont     % 直接设置字体大小和行高
 \renewcommand{\arraystretch}{1.2}    % 控制表格行高倍率
-\caption{Selected SMD performances for the subjective listening test, together with SMD composer statistics and their overlap with the MAESTRO training set.}
+\caption{Selected SMD performances for the subjective listening test. SMD composer statistics and their overlap with the MAESTRO training set are also reported.}
 \label{tab:velcomp_composers}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
@@ -208,13 +194,13 @@ M. Ravel & 0 & 0 h & 2 & JeuxDEau \\
 The trained models include the proposed U-Net and a re-implemented ConvAE baseline \cite{kuo2021velocity}.
 Following \cite{zhang2023symbolic}, continuous segments from the same piece are arranged into the same batch in order to preserve local musical continuity during training.
 Both models are trained for 300 epochs on the MAESTRO training set with learning rate \(10^{-5}\), batch size 3, and the same loss function.
-Training takes approximately 12 hours on an NVIDIA V100 32~GiB GPU using the Ranger21 optimizer.
+Training takes approximately 12 hours on an NVIDIA V100 32~GiB GPU using the Ranger21 optimiser.
 The top three checkpoints of each model, selected by validation performance on MAESTRO, are then tested on the MAESTRO test split and on SMD for cross-dataset evaluation.
 
 \subsection{Evaluation Metrics}
 \label{sec:velcomp:metrics}
 
-\textbf{Objective} All objective metrics are computed on denormalized MIDI velocity in the original range of 0 to 127 after note-level post-processing.
+\textbf{Objective} All objective metrics are computed on denormalised MIDI velocity in the original range of 0 to 127 after note-level post-processing.
 Let \(\mathcal{I}\) denote the set of reference note onsets, and let \(V_i\) and \(\hat{V}_i\) denote the reference and predicted velocity of note \(i\), respectively.
 We report mean absolute error (MAE), mean squared error (MSE), standard deviation of absolute error (\(SD_{\mathrm{ae}}\)), Recall\textsubscript{10\%}, and the standard deviation of predicted velocity (\(SD_{\mathrm{velo}}\)):
 \begin{flalign}
@@ -240,20 +226,20 @@ We report mean absolute error (MAE), mean squared error (MSE), standard deviatio
 \end{flalign}
 Here \(\mathbf{1}(\cdot)\) is the indicator function.
 Recall\textsubscript{10\%} uses an absolute tolerance of 10\% of the full MIDI velocity range.
-MAE, MSE, and \(SD_{\mathrm{ae}}\) quantify direct prediction error, whereas \(SD_{\mathrm{velo}}\) summarizes how much dynamic variation the system preserves.
-The latter is especially relevant here because a model can obtain moderate average error while still collapsing toward an unnaturally narrow dynamic range.
+MAE, MSE, and \(SD_{\mathrm{ae}}\) quantify direct prediction error, whereas \(SD_{\mathrm{velo}}\) summarises how much dynamic variation the system preserves.
+The latter is especially relevant here because a model can obtain moderate average error while still collapsing towards an unnaturally narrow dynamic range.
 
-\textbf{Subjective} To complement the objective metrics, we also conduct a reference-based perceptual evaluation and summarize the listener responses as mean opinion scores (MOS) \cite{series2014mursha}.
+\textbf{Subjective} To complement the objective metrics, we also conduct a reference-based perceptual evaluation and summarise the listener responses as mean opinion scores (MOS) \cite{series2014mursha}.
 The protocol is MUSHRA-inspired rather than a strict implementation of the ITU procedure.
 Listeners hear the audio rendered from human-performed velocity as the reference and then rate each system output according to its perceived similarity to that reference.
-Ratings are collected with a continuous 0--5 slider whose five labeled intervals correspond to ``bad'', ``poor'', ``fair'', ``good'', and ``excellent'' similarity.
+Ratings are collected with a continuous 0--5 slider whose five labelled intervals correspond to ``bad'', ``poor'', ``fair'', ``good'', and ``excellent'' similarity.
 The reported MOS is the average of these scores across listeners and stimuli, and 95\% confidence intervals are reported to show rating consistency.
 
 \section{Quantitative Results}
 \label{sec:velcomp:results}
 
 Tables~\ref{tab:velcomp_results_smd} and \ref{tab:velcomp_results_maestro} report the model performance when all trainable systems are trained only on the MAESTRO training set.
-The Flat model assigns a fixed velocity of 64, corresponding to the default behavior of common music software.
+The Flat model assigns a fixed velocity of 64, corresponding to the default behaviour of common music software.
 The Seq2Seq baseline uses pretrained weights from \cite{kim2023piano}, while ConvAE \cite{kuo2021velocity} is re-implemented and trained within the same framework.
 Across both test conditions, the proposed U-Net outperforms the comparison systems on all reported objective metrics.
 
@@ -263,7 +249,7 @@ Across both test conditions, the proposed U-Net outperforms the comparison syste
 \setlength{\tabcolsep}{5pt}          % 控制表格列与列之间的左右留白
 \fontsize{11pt}{13pt}\selectfont     % 直接设置字体大小和行高
 \renewcommand{\arraystretch}{1.2}    % 控制表格行高倍率
-\caption{Quantitative results on the MAESTRO test set, where \(\uparrow\) and \(\downarrow\) indicate whether higher or lower values are better.}
+\caption{Quantitative results on the MAESTRO test set. Arrows \(\uparrow\) and \(\downarrow\) indicate whether higher or lower values are better. Best score is highlighted in bold.}
 \label{tab:velcomp_results_maestro}
 \begin{tabular}{l|ccccc}
 \toprule
@@ -290,7 +276,7 @@ ConvAE \cite{kuo2021velocity} (re-implemented) & 12.3 & 250.7 & 9.7 & 59.4\% & 9
 \setlength{\tabcolsep}{5pt}          % 控制表格列与列之间的左右留白
 \fontsize{11pt}{13pt}\selectfont     % 直接设置字体大小和行高
 \renewcommand{\arraystretch}{1.2}    % 控制表格行高倍率
-\caption{Quantitative results on the SMD dataset, where \(\uparrow\) and \(\downarrow\) indicate whether higher or lower values are better.}
+\caption{Quantitative results on the SMD dataset. Arrows \(\uparrow\) and \(\downarrow\) indicate whether higher or lower values are better. Best score is highlighted in bold.}
 \label{tab:velcomp_results_smd}
 \begin{tabular}{l|ccccc}
 \toprule
@@ -311,7 +297,7 @@ ConvAE \cite{kuo2021velocity} (re-implemented) & 12.5 & 258.1 & 9.6 & 58.5\% & 9
 \end{tabular}
 \end{table}
 
-The metric behavior warrants some discussion. When the predictions are visualized, as in Figure~\ref{fig:velcomp_visual}, two patterns become clear. First, accuracy metrics such as MAE, MSE, \(SD_{\mathrm{ae}}\), and Recall\textsubscript{10\%} usually distinguish the models well, but there are cases in which they fail to reflect perceptual differences. The Chopin Op.~10 No.~4 excerpt is one such example, where a mid-range local optimum produces superficially acceptable error values. Second, \(SD_{\mathrm{velo}}\) is especially informative because it reflects the dispersion of predicted velocities around their mean. Higher values tend to reveal clearer differentiation between the hands and therefore a more human-like intensity profile.
+The metric behaviour warrants some discussion. When the predictions are visualised, as in Figure~\ref{fig:velcomp_visual}, two patterns become clear. First, accuracy metrics such as MAE, MSE, \(SD_{\mathrm{ae}}\), and Recall\textsubscript{10\%} usually distinguish the models well, but there are cases in which they fail to reflect perceptual differences. The Chopin Op.~10 No.~4 excerpt is one such example, where a mid-range local optimum produces superficially acceptable error values. Second, \(SD_{\mathrm{velo}}\) is especially informative because it reflects the dispersion of predicted velocities around their mean. Higher values tend to reveal clearer differentiation between the hands and therefore a more human-like intensity profile.
 
 \begin{figure}[h!]
 \begin{center}
@@ -327,6 +313,8 @@ Table \ref{tb:result_maestro} presents an ablation study evaluating key componen
 
 \begin{table*}[h!]
 \centering
+\caption{Ablation study on the MAESTRO test set. \(Attn.\) denotes component ablation by adjusting the attention window, or removing attention. \(Dur.\) represents the MIDI segment duration, $<m,w>$ indicates loss with masking and weighting. An asterisk * marks the best configuration used for quantitative evaluation.}
+\label{tb:result_maestro}
 % \scriptsize                        % 控制字体, 把字体切到 LaTeX 预定义的小字号
 \setlength{\tabcolsep}{1.5pt}          % 控制表格列与列之间的左右留白
 \fontsize{11pt}{12pt}\selectfont     % 直接设置字体大小和行高
@@ -362,8 +350,6 @@ U-Net & 2x2     & 10s & BCE $<m>$    & 11.6 & 228.2 & 9.4 & 63.4\% & 10.0 \\
 U-Net & 2x2     & 10s & BCE $<m,w>$  & 11.5 & 227.6 & 9.4 & 63.6\% & 10.9 \\
 \bottomrule
 \end{tabular}
-\caption{Ablation study on the MAESTRO test set. \(Attn.\) denotes component ablation by adjusting the attention window, or removing attention. \(Dur.\) represents the MIDI segment duration, $<m,w>$ indicates loss with masking and weighting. An asterisk * marks the best configuration used for quantitative evaluation.}
-\label{tb:result_maestro}
 \end{table*}
 
 
@@ -371,7 +357,7 @@ U-Net & 2x2     & 10s & BCE $<m,w>$  & 11.5 & 227.6 & 9.4 & 63.6\% & 10.9 \\
 
 \textbf{MIDI segment duration.} The analysis shows that reducing it from 20 to 10 seconds improves performance, while further reduction to 5 seconds slightly worsens the accuracy metrics. This is likely because a 10-second segment roughly encompasses four measures at 120 beats per minute (BPM), forming a complete musical phrase that aids in semantic segmentation.
 
-\textbf{Loss function.} Training with BCE loss alone produced a wide velocity dispersion (highest \(SD_{\text{velo}}\)), but this came with the lowest accuracy metrics. Applying the masking $<m>$ improved accuracy but reduced \(SD_{\text{velo}}\) as a trade-off. The weighting $<w>$ encouraged predictions to deviate from the mean, increasing both \(SD_{\text{velo}}\) and accuracy metrics. Finally, adding CosSim achieved the highest overall accuracy, with a negligible drop in \(SD_{\text{velo}}\). This combined loss function $\mathcal{L}_{\mathrm{Comb}}^{<m,w>}$ was recognized as the optimal configuration and applied in the training of both U-Net and ConvAE.
+\textbf{Loss function.} Training with BCE loss alone produced a wide velocity dispersion (highest \(SD_{\text{velo}}\)), but this came with the lowest accuracy metrics. Applying the masking $<m>$ improved accuracy but reduced \(SD_{\text{velo}}\) as a trade-off. The weighting $<w>$ encouraged predictions to deviate from the mean, increasing both \(SD_{\text{velo}}\) and accuracy metrics. Finally, adding CosSim achieved the highest overall accuracy, with a negligible drop in \(SD_{\text{velo}}\). This combined loss function $\mathcal{L}_{\mathrm{Comb}}^{<m,w>}$ was recognised as the optimal configuration and applied in the training of both U-Net and ConvAE.
 
 % The application of masking $<m>$ and CosSim improves model accuracy, leading to lower MAE, MSE, and \(SD_{\text{ae}}\), as well as better Recall. Meanwhile, the weighting $<w>$ introduces a more dispersed velocity distribution, reflected in a higher \(SD_{\text{velo}}\). The final combined loss achieves optimal overall performance across all metrics.
 
@@ -404,7 +390,7 @@ The results in Table~\ref{tab:velcomp_pianoteq} show that a dynamics setting of 
 \setlength{\tabcolsep}{7pt}          % 控制表格列与列之间的左右留白
 \fontsize{11pt}{14pt}\selectfont     % 直接设置字体大小和行高
 \renewcommand{\arraystretch}{1.2}    % 控制表格行高倍率
-\caption{Metrics for comparing different PianoTeq configurations against the reference recordings.}
+\caption{Metrics for comparing different PianoTeq configurations against the reference recordings. The best-matching configuration, used to calibrate all listening-test stimuli, is highlighted in bold.}
 \label{tab:velcomp_pianoteq}
 \begin{tabular}{|l|c|c|}
 \hline
@@ -426,12 +412,12 @@ The results in Table~\ref{tab:velcomp_pianoteq} show that a dynamics setting of 
 \paragraph{Procedure.}
 Participants were instructed to use headphones because the relevant velocity differences are subtle and are easier to judge at adequate playback quality and level.
 In each trial, the audio rendered from the human-performed MIDI served as the fixed reference, and the rendered system outputs were judged relative to that reference.
-Following a MUSHRA-inspired reference-based procedure \cite{series2014mursha}, participants rated each processed stimulus independently on a continuous 0--5 scale, where the labeled intervals corresponded to ``bad'', ``poor'', ``fair'', ``good'', and ``excellent'' similarity.
+Following a MUSHRA-inspired reference-based procedure \cite{series2014mursha}, participants rated each processed stimulus independently on a continuous 0--5 scale, where the labelled intervals corresponded to ``bad'', ``poor'', ``fair'', ``good'', and ``excellent'' similarity.
 The final scores were averaged across listeners to obtain MOS, and 95\% confidence intervals were computed for reporting.
 
 \begin{table}[h]
 \centering
-\caption{Listening-test results. MOS values with 95\% confidence intervals are reported. ``Most seen'' composers include \{Chopin, Bach, Beethoven\}; ``less seen'' composers include \{Rachmaninoff, Haydn, Mozart\}; and ``unseen'' composers include \{Bart\'ok, Ravel\}.}
+\caption{Listening-test results. MOS values with 95\% confidence intervals are reported. ``Most seen'' composers include \{Chopin, Bach, Beethoven\}; ``less seen'' composers include \{Rachmaninoff, Haydn, Mozart\}; and ``unseen'' composers include \{Bart\'ok, Ravel\}. Best score is highlighted in bold.}
 \label{tab:velcomp_mos}
 % \scriptsize                        % 控制字体, 把字体切到 LaTeX 预定义的小字号
 \setlength{\tabcolsep}{7pt}          % 控制表格列与列之间的左右留白
@@ -458,36 +444,24 @@ ConvAE & $1.93 \pm 0.34$ & $2.40 \pm 0.39$ & $1.80 \pm 0.44$ & $2.08 \pm 0.33$ \
 \paragraph{Results.}
 Although a substantial gap to human performance remains, the proposed U-Net clearly outperforms the other systems.
 The Flat model performs worst, consistent with earlier findings that default velocity is musically inadequate \cite{kuo2021velocity}.
-One limitation of the listening test is that differences between seen and unseen repertoire cannot be cleanly separated from differences in musical complexity.
+The seen, less-seen, and unseen repertoire groups are best interpreted as descriptive groups rather than as a strict complexity-controlled comparison.
 Even so, the relatively narrow 95\% confidence intervals across groups suggest that participants rated the stimuli with reasonable consistency.
 
 \section{Discussion}
 \label{sec:velcomp:discussion}
 
-This chapter makes a focused thesis-level point: note-level dynamics can be recovered usefully even when the symbolic notes and timing are held fixed.
-That narrow formulation matters.
-It turns expressive enhancement into a controllable post-processing stage rather than a full performance-rendering problem, which is exactly the setting encountered in many MIDI-production and corpus-curation workflows.
+This chapter has verified that note-level dynamics can be recovered usefully even when the symbolic notes and timing are held fixed. It turns expressive enhancement into a controllable post-processing stage rather than a full performance-rendering problem, which is exactly the setting encountered in many MIDI-production and corpus-curation workflows.
 
-The image-colorization view is effective because it matches the structure of the data.
-Polyphonic note patterns create meaningful vertical and local spatial regularities that are awkward to express in purely sequential terms.
-The U-Net captures this local structure well, and the sparsity-aware loss prevents the model from spending most of its capacity on silent regions.
-The results suggest that this representation choice is a major reason the method surpasses the sequence-based baselines considered here.
+The image-colourisation view is effective because it matches the structure of the data. Polyphonic note patterns create meaningful vertical and local spatial regularities that are awkward to express in purely sequential terms. The U-Net captures this local structure well, and the sparsity-aware loss prevents the model from spending most of its capacity on silent regions. The results suggest that this representation choice is a major reason the method surpasses the sequence-based baselines considered here.
 
-At the same time, the chapter also exposes clear limits.
-Objective error metrics alone do not fully capture musical plausibility, which is why the listening test and the dispersion-sensitive statistic \(SD_{\mathrm{velo}}\) are important.
-Qualitative inspection further suggests that the remaining errors are most noticeable in dense chordal textures, fast ornaments, and passages that require stronger excursions toward the extremes of the velocity range.
-The boundary-weighted loss helps with these cases, but it does not eliminate them.
+The evaluation design is therefore deliberately broader than a single regression score. Objective error metrics quantify note-wise accuracy, \(SD_{\mathrm{velo}}\) checks whether the predicted velocity distribution retains expressive spread, and the listening test verifies that the recovered layer changes perceived musical quality. This combination is important because a velocity-completion model can be numerically close to the target while still sounding too flat, or can sound more expressive while producing larger point-wise deviations.
 
-The most important external limitation is scope.
-All experiments are performed on piano datasets recorded with Yamaha Disklavier instruments.
-The cross-dataset MAESTRO-to-SMD results are encouraging, but they do not yet establish robustness across instruments or across substantially different capture conditions.
-This limitation motivates the later thesis chapters on score-informed correction and extension beyond piano.
-In other words, the present chapter is intentionally narrow: it solves the symbolic-only velocity-completion problem as a clean and practical building block for the broader expressive-data curation pipeline.
+The empirical scope of the chapter is piano-based, using datasets recorded with Yamaha Disklavier instruments.
+Within that scope, the cross-dataset MAESTRO-to-SMD results show that the image-colourisation formulation is not merely memorising one corpus.
 
 
-In the language of Chapter~\ref{ch:background}, this chapter primarily addresses Requirement~R1 by preserving note content and timing, and Requirement~R2 under the symbolic-only regime. It also contributes to Requirement~R5 by combining objective metrics with perceptual evaluation. The chapter does not solve cross-instrument transfer or score-level interpretation, but it establishes a clean and practical baseline: note-level dynamics recovery is already useful before audio or score information is introduced.
+\section{Summary}
+\label{sec:velcomp_summary}
+This chapter studied the most controlled form of expressive-label recovery: the notes, onsets, and offsets are already fixed, and only the missing MIDI velocity layer is inferred. By casting the piano roll as an image-like representation, the proposed U-Net uses local pitch--time neighbourhoods and vertical chordal patterns that are weakened in a purely sequential formulation. Window attention and an onset-masked, velocity-aware loss are not incidental additions; they match the sparse structure of the target and prevent the model from optimising mainly around silence.
 
-% ===== THESIS TODO (recommended final addition) =====
-% Add one short qualitative failure case from a dense passage or fast ornamented excerpt.
-% Suggested thesis-facing conclusion: the current model is strongest when local polyphonic texture is stable,
-% and it remains weaker when expressive intent requires broader phrase planning or more extreme velocity excursions.
+The chapter also shows why velocity completion should not be evaluated only as point-wise regression. The MAESTRO-to-SMD experiments indicate that the model transfers beyond its training corpus, while \(SD_{\mathrm{velo}}\) and the listening test expose the musical problem that MAE alone can hide: a prediction may be close to the target and still sound too flat. This makes the chapter the symbolic-only baseline for the thesis. It preserves the composition exactly, treats dynamics as an editable layer, and establishes that such a layer has perceptual value before any audio evidence is introduced.

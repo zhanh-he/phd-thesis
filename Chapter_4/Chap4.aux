@@ -1,0 +1,144 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\citation{amt2019ov,hung2021emopia,kong2022giantMIDI,zhang2022atepp,edwards2023pijama}
+\citation{zhang2024dexter}
+\citation{zhang2025llaqo}
+\citation{borovik2025symupe}
+\citation{kong2021hpt,wei2022hppnet,toyama2023hft,yan2024semicrf}
+\citation{dan2006psy,ewert2011est,jeong2017note,jeong2018timbre}
+\citation{kim2023score,kim2024method,kim2023diffvel}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Score-Informed Transformer Correction for AMT Velocity Estimation}{51}{chapter.4}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{ch:scoreinf}{{4}{51}{Score-Informed Transformer Correction for AMT Velocity Estimation}{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Chapter Overview and Position in the Thesis}{51}{section.4.1}\protected@file@percent }
+\newlabel{sec:scoreinf:overview}{{4.1}{51}{Chapter Overview and Position in the Thesis}{section.4.1}{}}
+\citation{kong2021hpt,wei2022hppnet,toyama2023hft,yan2024semicrf}
+\citation{martak2026soundmusicbias}
+\citation{morsi2022bottlenecks,zeit2024align,chang2025rumaa}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Task-Specific Related Work and Motivation}{52}{section.4.2}\protected@file@percent }
+\newlabel{sec:scoreinf:related}{{4.2}{52}{Task-Specific Related Work and Motivation}{section.4.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Problem Setting}{52}{section.4.3}\protected@file@percent }
+\newlabel{sec:scoreinf:problem}{{4.3}{52}{Problem Setting}{section.4.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Modular Correction Principle}{53}{section.4.4}\protected@file@percent }
+\newlabel{sec:scoreinf:principle}{{4.4}{53}{Modular Correction Principle}{section.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Conceptual comparison between the proposed modular correction approach and earlier score-informed feature-fusion approaches.}}{53}{figure.caption.59}\protected@file@percent }
+\newlabel{fig:scoreinf_compare}{{4.1}{53}{Conceptual comparison between the proposed modular correction approach and earlier score-informed feature-fusion approaches}{figure.caption.59}{}}
+\citation{kim2024method}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Score-Informed Correction Module}{54}{section.4.5}\protected@file@percent }
+\newlabel{sec:scoreinf:method}{{4.5}{54}{Score-Informed Correction Module}{section.4.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Proposed score-informed MIDI velocity estimation framework. The AMT backbone provides a preliminary velocity estimate. The score-informed module refines this estimate using features extracted from the aligned MIDI score.}}{54}{figure.caption.60}\protected@file@percent }
+\newlabel{fig:scoreinf_framework}{{4.2}{54}{Proposed score-informed MIDI velocity estimation framework. The AMT backbone provides a preliminary velocity estimate. The score-informed module refines this estimate using features extracted from the aligned MIDI score}{figure.caption.60}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}MIDI score features}{54}{subsection.4.5.1}\protected@file@percent }
+\newlabel{sec:scoreinf:features}{{4.5.1}{54}{MIDI score features}{subsection.4.5.1}{}}
+\citation{kong2021hpt}
+\citation{wei2022hppnet}
+\citation{he2026dynest}
+\citation{kong2021hpt}
+\citation{kong2021hpt}
+\newlabel{eq:scoreinf:fex}{{4.1}{55}{MIDI score features}{equation.4.1}{}}
+\newlabel{eq:scoreinf:index}{{4.2}{55}{MIDI score features}{equation.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Architecture}{55}{subsection.4.5.2}\protected@file@percent }
+\newlabel{sec:scoreinf:arch}{{4.5.2}{55}{Architecture}{subsection.4.5.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Velocity Estimation Branch in High resolution piano transcription (HPT) system \cite  {kong2021hpt}.}}{55}{figure.caption.61}\protected@file@percent }
+\newlabel{fig:veloest_branch}{{4.3}{55}{Velocity Estimation Branch in High resolution piano transcription (HPT) system \cite {kong2021hpt}}{figure.caption.61}{}}
+\newlabel{eq:scoreinf:bilstm}{{4.3}{55}{Architecture}{equation.4.3}{}}
+\citation{gulati2020conformer}
+\citation{kim2024method}
+\newlabel{eq:scoreinf:token}{{4.4}{56}{Architecture}{equation.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Lightweight Conformer-like Transformer encoder used in the score-informed correction module.}}{56}{figure.caption.62}\protected@file@percent }
+\newlabel{fig:scoreinf_encoder}{{4.4}{56}{Lightweight Conformer-like Transformer encoder used in the score-informed correction module}{figure.caption.62}{}}
+\newlabel{eq:scoreinf:update}{{4.5}{56}{Architecture}{equation.4.5}{}}
+\citation{dan2006psy}
+\citation{hawthorne2019maestro}
+\citation{smd}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Loss function}{57}{subsection.4.5.3}\protected@file@percent }
+\newlabel{sec:scoreinf:loss}{{4.5.3}{57}{Loss function}{subsection.4.5.3}{}}
+\newlabel{eq:scoreinf:loss}{{4.6}{57}{Loss function}{equation.4.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.4}Post-Processing}{57}{subsection.4.5.4}\protected@file@percent }
+\newlabel{sec:scoreinf:post}{{4.5.4}{57}{Post-Processing}{subsection.4.5.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Experimental Protocol}{57}{section.4.6}\protected@file@percent }
+\newlabel{sec:scoreinf:exp}{{4.6}{57}{Experimental Protocol}{section.4.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Datasets}{57}{subsection.4.6.1}\protected@file@percent }
+\newlabel{sec:scoreinf:datasets}{{4.6.1}{57}{Datasets}{subsection.4.6.1}{}}
+\citation{kong2021hpt}
+\citation{wei2022hppnet}
+\citation{he2026dynest}
+\citation{kim2024method}
+\citation{raffel2014mireval}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}AMT backbones and training setup}{58}{subsection.4.6.2}\protected@file@percent }
+\newlabel{sec:scoreinf:training}{{4.6.2}{58}{AMT backbones and training setup}{subsection.4.6.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Evaluation metrics}{58}{subsection.4.6.3}\protected@file@percent }
+\newlabel{sec:scoreinf:metrics}{{4.6.3}{58}{Evaluation metrics}{subsection.4.6.3}{}}
+\newlabel{eq:scoreinf:legacy_recall}{{4.7}{58}{Evaluation metrics}{equation.4.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Results and Analysis}{59}{section.4.7}\protected@file@percent }
+\newlabel{sec:scoreinf:results}{{4.7}{59}{Results and Analysis}{section.4.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.1}Validation on the score-informed correction}{59}{subsection.4.7.1}\protected@file@percent }
+\newlabel{sec:scoreinf:results:maestro}{{4.7.1}{59}{Validation on the score-informed correction}{subsection.4.7.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Comparison of HPT and Score-HPT on the MAESTRO test set. Lower values are better for MAE and \(SD_{\mathrm  {ae}}\), while higher values are better for Recall$_{10\%}$. Best score is highlighted in bold.}}{59}{table.caption.63}\protected@file@percent }
+\newlabel{tab:scoreinf_maestro}{{4.1}{59}{Comparison of HPT and Score-HPT on the MAESTRO test set. Lower values are better for MAE and \(SD_{\mathrm {ae}}\), while higher values are better for Recall$_{10\%}$. Best score is highlighted in bold}{table.caption.63}{}}
+\citation{martak2026soundmusicbias}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Qualitative comparison between HPT and Score-HPT (Transformer applied). The refined estimate is more concentrated around onset locations while remaining fully populated.}}{60}{figure.caption.64}\protected@file@percent }
+\newlabel{fig:scoreinf_qualitative}{{4.5}{60}{Qualitative comparison between HPT and Score-HPT (Transformer applied). The refined estimate is more concentrated around onset locations while remaining fully populated}{figure.caption.64}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.2}Cross-dataset generalisation}{60}{subsection.4.7.2}\protected@file@percent }
+\newlabel{sec:scoreinf:results:generalisation}{{4.7.2}{60}{Cross-dataset generalisation}{subsection.4.7.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Learning curves for HPT and Score-HPT variants using the BiLSTM and Transformer correction module. All models are trained on the MAESTRO training split and evaluated every 10k iterations.}}{61}{figure.caption.65}\protected@file@percent }
+\newlabel{fig:scoreinf_learning_bilstm_transformer}{{4.6}{61}{Learning curves for HPT and Score-HPT variants using the BiLSTM and Transformer correction module. All models are trained on the MAESTRO training split and evaluated every 10k iterations}{figure.caption.65}{}}
+\citation{kim2023diffvel}
+\citation{kim2023score}
+\citation{kim2024method}
+\citation{kong2021hpt}
+\citation{wei2022hppnet}
+\citation{he2026dynest}
+\citation{toyama2023hft}
+\citation{yan2024semicrf}
+\citation{kim2024method}
+\citation{kim2024method}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.3}Comparison with existing systems}{62}{subsection.4.7.3}\protected@file@percent }
+\newlabel{sec:scoreinf:results:comparison}{{4.7.3}{62}{Comparison with existing systems}{subsection.4.7.3}{}}
+\citation{kim2024method}
+\citation{kim2023score}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Comparison on the SMD dataset. All models are trained only on the MAESTRO training split. Best score is highlighted in bold.}}{63}{table.caption.66}\protected@file@percent }
+\newlabel{tab:scoreinf_smd}{{4.2}{63}{Comparison on the SMD dataset. All models are trained only on the MAESTRO training split. Best score is highlighted in bold}{table.caption.66}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.4}Robustness to audio--score misalignment}{63}{subsection.4.7.4}\protected@file@percent }
+\newlabel{sec:scoreinf:results:robustness}{{4.7.4}{63}{Robustness to audio--score misalignment}{subsection.4.7.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Robustness evaluation on data derived from the SMD dataset, using audio--score misalignments of $\pm $0.1, 0.2, 0.3, 0.4, 0.5, 1, 1.5, 2, and 2.5 s.}}{64}{figure.caption.67}\protected@file@percent }
+\newlabel{fig:scoreinf_robustness}{{4.7}{64}{Robustness evaluation on data derived from the SMD dataset, using audio--score misalignments of $\pm $0.1, 0.2, 0.3, 0.4, 0.5, 1, 1.5, 2, and 2.5 s}{figure.caption.67}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.8}Discussion}{64}{section.4.8}\protected@file@percent }
+\newlabel{sec:scoreinf:discussion}{{4.8}{64}{Discussion}{section.4.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.9}Summary}{65}{section.4.9}\protected@file@percent }
+\newlabel{sec:scoreinf:conclusion}{{4.9}{65}{Summary}{section.4.9}{}}
+\@setckpt{Chapter_4/Chap4}{
+\setcounter{page}{66}
+\setcounter{equation}{7}
+\setcounter{enumi}{0}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{2}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{4}
+\setcounter{section}{9}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{7}
+\setcounter{table}{2}
+\setcounter{parentequation}{0}
+\setcounter{r@tfl@t}{0}
+\setcounter{LT@tables}{1}
+\setcounter{LT@chunks}{1}
+\setcounter{nlinenum}{0}
+\setcounter{caption@flags}{2}
+\setcounter{continuedfloat}{0}
+\setcounter{subfigure}{0}
+\setcounter{subtable}{0}
+\setcounter{linenumber}{1}
+\setcounter{LN@truepage}{92}
+\setcounter{NAT@ctr}{0}
+\setcounter{section@level}{1}
+\setcounter{Item}{0}
+\setcounter{bookmark@seq@number}{93}
+}

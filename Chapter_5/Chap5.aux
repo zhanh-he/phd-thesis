@@ -1,0 +1,150 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\citation{kosta2014dynpiano,kosta2016mapping,jones2023probingdyn}
+\citation{bock2020deconstruct,zhao2022beat,foscarin2024beat}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Audio-to-Score Dynamics via Joint Estimation of Piano Dynamics and Metrical Structure}{67}{chapter.5}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{ch:audiodyn}{{5}{67}{Audio-to-Score Dynamics via Joint Estimation of Piano Dynamics and Metrical Structure}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Chapter Overview and Position in the Thesis}{67}{section.5.1}\protected@file@percent }
+\newlabel{sec:audiodyn:overview}{{5.1}{67}{Chapter Overview and Position in the Thesis}{section.5.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Task-Specific Related Work}{67}{section.5.2}\protected@file@percent }
+\newlabel{sec:audiodyn:related}{{5.2}{67}{Task-Specific Related Work}{section.5.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Workflow for adding dynamic markings to an AMT-transcribed score from audio. The highlighted region (90--105 s of Chopin Mazurka Op.~6 No.~1) shows a case study. Dynamic markings are aligned with the musical beat grid, and a change point indicates a contextual shift in the dynamic levels.}}{68}{figure.caption.68}\protected@file@percent }
+\newlabel{fig:audiodyn_workflow}{{5.1}{68}{Workflow for adding dynamic markings to an AMT-transcribed score from audio. The highlighted region (90--105 s of Chopin Mazurka Op.~6 No.~1) shows a case study. Dynamic markings are aligned with the musical beat grid, and a change point indicates a contextual shift in the dynamic levels}{figure.caption.68}{}}
+\citation{zhao2022beat,foscarin2024beat}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Problem Setting and Targets}{69}{section.5.3}\protected@file@percent }
+\newlabel{sec:audiodyn_targets}{{5.3}{69}{Problem Setting and Targets}{section.5.3}{}}
+\citation{narang2024automatic}
+\citation{kosta2016mapping}
+\citation{san2021mosqito}
+\citation{iso532_1_2017}
+\citation{narang2024automatic}
+\citation{pampalk2004toolbox}
+\citation{pampalk2002content}
+\citation{bock2020deconstruct}
+\citation{narang2024automatic}
+\citation{li2023frame}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Perceptually Grounded Features and Multi-Scale Backbone}{70}{section.5.4}\protected@file@percent }
+\newlabel{sec:audiodyn_features}{{5.4}{70}{Perceptually Grounded Features and Multi-Scale Backbone}{section.5.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Audio feature representations}{70}{subsection.5.4.1}\protected@file@percent }
+\newlabel{ssec:audiodyn_features}{{5.4.1}{70}{Audio feature representations}{subsection.5.4.1}{}}
+\citation{li2023frame}
+\citation{li2023frame}
+\citation{ma2018mmoe}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Shared multi-scale encoder}{71}{subsection.5.4.2}\protected@file@percent }
+\newlabel{ssec:audiodyn_encoder}{{5.4.2}{71}{Shared multi-scale encoder}{subsection.5.4.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Joint Estimation with Task-Aware Decoding}{71}{section.5.5}\protected@file@percent }
+\newlabel{sec:audiodyn_mtl}{{5.5}{71}{Joint Estimation with Task-Aware Decoding}{section.5.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}MMoE decoder}{71}{subsection.5.5.1}\protected@file@percent }
+\newlabel{ssec:audiodyn_mmoe}{{5.5.1}{71}{MMoE decoder}{subsection.5.5.1}{}}
+\citation{foscarin2024beat}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Architecture of the proposed multi-task framework. A three-branch multi-scale network encodes either log-Mel or BSSL input at temporal resolutions $T$, $T/s$, and $T/s^{2}$, producing a latent sequence of shape $T\times 8$. An 8-expert MMoE with four gates forms task-specific features, followed by linear heads for the four targets. The scaling factor $s$ is a tunable hyperparameter.}}{72}{figure.caption.69}\protected@file@percent }
+\newlabel{fig:audiodyn_model}{{5.2}{72}{Architecture of the proposed multi-task framework. A three-branch multi-scale network encodes either log-Mel or BSSL input at temporal resolutions $T$, $T/s$, and $T/s^{2}$, producing a latent sequence of shape $T\times 8$. An 8-expert MMoE with four gates forms task-specific features, followed by linear heads for the four targets. The scaling factor $s$ is a tunable hyperparameter}{figure.caption.69}{}}
+\newlabel{eq:audiodyn_mmoe}{{5.1}{72}{MMoE decoder}{equation.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Task-specific post-processing}{72}{subsection.5.5.2}\protected@file@percent }
+\newlabel{ssec:audiodyn_post}{{5.5.2}{72}{Task-specific post-processing}{subsection.5.5.2}{}}
+\citation{kosta2018mazurkabl}
+\citation{kosta2017thesis}
+\citation{foscarin2024beat}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Loss function}{73}{subsection.5.5.3}\protected@file@percent }
+\newlabel{ssec:audiodyn_loss}{{5.5.3}{73}{Loss function}{subsection.5.5.3}{}}
+\newlabel{eq:audiodyn_loss}{{5.2}{73}{Loss function}{equation.5.2}{}}
+\newlabel{eq:audiodyn_dyn_loss}{{5.3}{73}{Loss function}{equation.5.3}{}}
+\newlabel{eq:audiodyn_bce_component}{{5.4}{73}{Loss function}{equation.5.4}{}}
+\newlabel{eq:audiodyn_shift_bce_pos}{{5.5}{73}{Loss function}{equation.5.5}{}}
+\newlabel{eq:audiodyn_shift_bce_neg}{{5.6}{73}{Loss function}{equation.5.6}{}}
+\newlabel{eq:audiodyn_shift_bce}{{5.7}{73}{Loss function}{equation.5.7}{}}
+\citation{kosta2018mazurkabl}
+\citation{hung2024eme33}
+\citation{goebl1999vienna4x22}
+\citation{hu2023batik}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Experimental Setup}{74}{section.5.6}\protected@file@percent }
+\newlabel{sec:audiodyn_exp}{{5.6}{74}{Experimental Setup}{section.5.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Dataset and protocol}{74}{subsection.5.6.1}\protected@file@percent }
+\newlabel{ssec:audiodyn_data}{{5.6.1}{74}{Dataset and protocol}{subsection.5.6.1}{}}
+\citation{li2023frame}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Beat-level distribution of five-level dynamic labels in the MazurkaBL training set, Vienna4x22, and Batik-plays-Mozart corpora. All three corpora share the same five score-dynamics labels, but their label priors differ substantially.}}{75}{table.caption.70}\protected@file@percent }
+\newlabel{tab:audiodyn_label_priors}{{5.1}{75}{Beat-level distribution of five-level dynamic labels in the MazurkaBL training set, Vienna4x22, and Batik-plays-Mozart corpora. All three corpora share the same five score-dynamics labels, but their label priors differ substantially}{table.caption.70}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.2}Baselines}{75}{subsection.5.6.2}\protected@file@percent }
+\newlabel{ssec:audiodyn_baselines}{{5.6.2}{75}{Baselines}{subsection.5.6.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Single-task multi-scale network.}{75}{section*.71}\protected@file@percent }
+\citation{kosta2017thesis}
+\citation{bock2020deconstruct}
+\citation{foscarin2024beat}
+\citation{raffel2014mireval,bock2020deconstruct,foscarin2024beat}
+\citation{kosta2017thesis}
+\@writefile{toc}{\contentsline {paragraph}{Dynamic and change-point baselines.}{76}{section*.72}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Beat and downbeat baselines.}{76}{section*.73}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.3}Evaluation metrics}{76}{subsection.5.6.3}\protected@file@percent }
+\newlabel{ssec:audiodyn_metrics}{{5.6.3}{76}{Evaluation metrics}{subsection.5.6.3}{}}
+\newlabel{eq:audiodyn_precision}{{5.8}{76}{Evaluation metrics}{equation.5.8}{}}
+\newlabel{eq:audiodyn_recall}{{5.9}{76}{Evaluation metrics}{equation.5.9}{}}
+\newlabel{eq:audiodyn_f1}{{5.10}{76}{Evaluation metrics}{equation.5.10}{}}
+\citation{kosta2017thesis}
+\citation{kosta2017thesis}
+\citation{bock2020deconstruct}
+\citation{foscarin2024beat}
+\newlabel{eq:audiodyn_classwise_f1}{{5.11}{77}{Evaluation metrics}{equation.5.11}{}}
+\newlabel{eq:audiodyn_macro_f1}{{5.12}{77}{Evaluation metrics}{equation.5.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Results, Case Study, and Discussion}{77}{section.5.7}\protected@file@percent }
+\newlabel{sec:audiodyn_results}{{5.7}{77}{Results, Case Study, and Discussion}{section.5.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.1}Main results}{77}{subsection.5.7.1}\protected@file@percent }
+\newlabel{ssec:audiodyn_mainres}{{5.7.1}{77}{Main results}{subsection.5.7.1}{}}
+\citation{foscarin2024beat}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Performance comparison of the proposed model against all baselines on the MazurkaBL dataset. Per-task F1 scores (\%) are reported as mean $\pm $ standard deviations over 5-fold cross-validation. PELT is an algorithmic method with no trainable parameters, while ANN did not report this attribute. The single-task parameter count is reported per model instance. The best score is highlighted in bold, and the second-best is underlined.}}{78}{table.caption.74}\protected@file@percent }
+\newlabel{tab:audiodyn_main_results}{{5.2}{78}{Performance comparison of the proposed model against all baselines on the MazurkaBL dataset. Per-task F1 scores (\%) are reported as mean $\pm $ standard deviations over 5-fold cross-validation. PELT is an algorithmic method with no trainable parameters, while ANN did not report this attribute. The single-task parameter count is reported per model instance. The best score is highlighted in bold, and the second-best is underlined}{table.caption.74}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.2}Ablation study}{78}{subsection.5.7.2}\protected@file@percent }
+\newlabel{ssec:audiodyn_ablation}{{5.7.2}{78}{Ablation study}{subsection.5.7.2}{}}
+\citation{li2023frame}
+\citation{foscarin2024beat}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Ablation study of the multitask multiscale network with BSSL as input. Per-task F1 scores (\%, mean over 5 folds) and their arithmetic average are reported. The full model uses MMoE, temporal scaling $s=5$, 60-second audio segments, and data augmentation. The best score is highlighted in bold, and the second-best is underlined.}}{79}{table.caption.75}\protected@file@percent }
+\newlabel{tab:audiodyn_ablation}{{5.3}{79}{Ablation study of the multitask multiscale network with BSSL as input. Per-task F1 scores (\%, mean over 5 folds) and their arithmetic average are reported. The full model uses MMoE, temporal scaling $s=5$, 60-second audio segments, and data augmentation. The best score is highlighted in bold, and the second-best is underlined}{table.caption.75}{}}
+\citation{bock2020deconstruct}
+\citation{foscarin2024beat}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.3}Cross-dataset evaluation}{80}{subsection.5.7.3}\protected@file@percent }
+\newlabel{ssec:audiodyn_cross_dataset}{{5.7.3}{80}{Cross-dataset evaluation}{subsection.5.7.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Cross-dataset evaluation on Vienna4x22 and Batik-plays-Mozart. Models are trained on MazurkaBL and applied to both external corpora without fine-tuning. Per-task F1 scores (\%) report the best transferred MazurkaBL fold under the protocol described above. The best score is highlighted in bold, and the second-best is underlined.}}{80}{table.caption.76}\protected@file@percent }
+\newlabel{tab:audiodyn_cross_dataset}{{5.4}{80}{Cross-dataset evaluation on Vienna4x22 and Batik-plays-Mozart. Models are trained on MazurkaBL and applied to both external corpora without fine-tuning. Per-task F1 scores (\%) report the best transferred MazurkaBL fold under the protocol described above. The best score is highlighted in bold, and the second-best is underlined}{table.caption.76}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.4}Discussion: why score dynamics is not a relabelled MIDI velocity problem}{81}{subsection.5.7.4}\protected@file@percent }
+\newlabel{ssec:audiodyn_discussion}{{5.7.4}{81}{Discussion: why score dynamics is not a relabelled MIDI velocity problem}{subsection.5.7.4}{}}
+\citation{foscarin2024beat}
+\citation{cancinochacon2024rach3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.5}Limitations}{82}{subsection.5.7.5}\protected@file@percent }
+\newlabel{ssec:audiodyn_limits}{{5.7.5}{82}{Limitations}{subsection.5.7.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}Summary}{83}{section.5.8}\protected@file@percent }
+\newlabel{sec:audiodyn_summary}{{5.8}{83}{Summary}{section.5.8}{}}
+\@setckpt{Chapter_5/Chap5}{
+\setcounter{page}{84}
+\setcounter{equation}{12}
+\setcounter{enumi}{0}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{5}
+\setcounter{section}{8}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{2}
+\setcounter{table}{4}
+\setcounter{parentequation}{0}
+\setcounter{r@tfl@t}{0}
+\setcounter{LT@tables}{1}
+\setcounter{LT@chunks}{1}
+\setcounter{nlinenum}{0}
+\setcounter{caption@flags}{2}
+\setcounter{continuedfloat}{0}
+\setcounter{subfigure}{0}
+\setcounter{subtable}{0}
+\setcounter{linenumber}{1}
+\setcounter{LN@truepage}{110}
+\setcounter{NAT@ctr}{0}
+\setcounter{section@level}{1}
+\setcounter{Item}{0}
+\setcounter{bookmark@seq@number}{115}
+}

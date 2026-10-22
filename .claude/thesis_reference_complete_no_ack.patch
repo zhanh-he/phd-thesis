@@ -1,0 +1,374 @@
+--- a/main.tex
++++ b/main.tex
+@@ -171,7 +171,7 @@
+ 
+ \cleardoublepage
+ %  \bibliographystyle{abbrv}
+-\renewcommand{\bibname}{Reference}
++\renewcommand{\bibname}{References}
+ \bibliographystyle{IEEEbib}
+ \bibliography{reference}
+ \end{document}
+\ No newline at end of file
+--- a/Chapter_6/Chap6.tex
++++ b/Chapter_6/Chap6.tex
+@@ -26,7 +26,7 @@
+ Learning-based velocity estimation from performance audio recovers expressive labels well, but almost entirely in the piano domain~\cite{jeong2018timbre, simonetta2022acoustics, kim2024method}. The reason is data: piano datasets such as MAESTRO~\cite{hawthorne2019maestro} provide note-aligned velocity labels sourced from Yamaha Disklavier performances. For guitar, violin, and many other instruments, public datasets~\cite{tamer2023violin, riley2024gaps, riley2024high} provide audio and aligned notes but no velocity labels. This precludes both supervised training and label-based domain transfer. The asymmetry between piano and other instruments is therefore not primarily a modelling gap but a labelling gap, and any method that aims to address the gap must operate without ground-truth note-level velocity supervision in the target domain.
+ 
+ \paragraph{Synthetic-data transfer for transcription.}
+-A common response to label scarcity in transcription is to train on synthesised audio, where symbolic labels are available by construction, and then transfer the model to real performances~\cite{maman2022unaligned, zang2024synthtab, kusaka2025learn}. Some recent works follow this route specifically to obtain synthetic velocity supervision~\cite{sato2024annotationfree, wang2026vioptt}.
++A common response to label scarcity in transcription is to train on synthesised audio, where symbolic labels are available by construction, and then transfer the model to real performances~\cite{maman2022general, zang2024synthtab, kusaka2025learn}. Some recent works follow this route specifically to obtain synthetic velocity supervision~\cite{sato2024annotationfree, wang2026vioptt}.
+ 
+ This chapter takes a different and simpler route. Instead of training on synthesised audio with synthetic labels, the front-end estimator is trained directly against real performance audio. The synthesiser is involved at training time only as a differentiable interface that connects predicted velocities to a measurable property of the real recording. This avoids the synthesis-to-performance domain gap that dominates synthetic-data transfer pipelines, at the cost of needing a differentiable supervision interface that is reliable across the instruments of interest.
+ 
+@@ -171,7 +171,7 @@
+ and stacks all note-wise pairs into $Z = (Z_1, \ldots, Z_N) \in \mathbb{R}^{N \times 2}$. The two parameters are designed to capture the early, velocity-sensitive portion of each note while remaining robust to alignment slack and to mismatch between SoundFont and real recordings.
+ 
+ \paragraph{Pitch-conditioned harmonic energy (PHE).}
+-The first parameter draws on harmonic-structure-based note-intensity estimation~\cite{ewert2011estimating}. It accumulates magnitude energy around the retained harmonics of the note pitch:
++The first parameter draws on harmonic-structure-based note-intensity estimation~\cite{ewert2011est}. It accumulates magnitude energy around the retained harmonics of the note pitch:
+ \begin{equation}
+ \label{eq:bp_phe}
+ \mathrm{PHE}_n =
+@@ -262,7 +262,7 @@
+ 
+ The SoundFont is chosen deliberately for each target instrument because a mismatched timbre would produce a teacher signal that the target recordings cannot match, regardless of how well the proxy is trained. Candidates were auditioned from the public FreePats sound banks, and the closest match was selected for each instrument family. Salamander Grand Piano~\cite{sf_salamander} is used for piano, since it approximates the Yamaha grand piano timbre of MAESTRO and SMD. Spanish Classical Guitar~\cite{sf_spanishguitar} is used for guitar, since it is a close match for GAPS and for the nylon-string portion of FL.
+ 
+-For the metric diagnostic in Section~\ref{sec:bp:why_pearson}, an alternative piano SoundFont is also used: YDP Grand Piano~\cite{sf_ydpgrand}, an earlier and less realistic Yamaha grand piano sample. This second SoundFont is not used to train any proxy. It is used only to test how sensitive the chosen evaluation metric is to a change of rendering asset.
++For the metric diagnostic in Section~\ref{ssec:bp:metric_diagnostic}, an alternative piano SoundFont is also used: YDP Grand Piano~\cite{sf_ydpgrand}, an earlier and less realistic Yamaha grand piano sample. This second SoundFont is not used to train any proxy. It is used only to test how sensitive the chosen evaluation metric is to a change of rendering asset.
+ 
+ \section{Diff-SFProxy Velocity-Recovery Diagnostic}
+ \label{sec:bp:proxy_diagnostic}
+diff --git a/scripts/final_reference_cleanup_no_ack.py b/scripts/final_reference_cleanup_no_ack.py
+new file mode 100755
+--- /dev/null
++++ b/scripts/final_reference_cleanup_no_ack.py
+@@ -0,0 +1,328 @@
++#!/usr/bin/env python3
++"""
++Final thesis reference/cross-reference cleanup.
++
++This script intentionally does NOT touch acknowledgements files.
++Run from the thesis repository root:
++
++    python scripts/final_reference_cleanup_no_ack.py
++
++It fixes:
++  - bibliography heading: Reference -> References
++  - Chapter 6 unresolved Section ?? reference
++  - duplicate bibliography output caused by duplicate citation keys
++  - key BibTeX title casing / self-citation title / SoundFont entries / MUSHRA institution author
++"""
++from __future__ import annotations
++
++import re
++from pathlib import Path
++from typing import Callable
++
++ROOT = Path.cwd()
++CHANGED: list[str] = []
++WARNINGS: list[str] = []
++
++
++def find_first(candidates: list[str]) -> Path | None:
++    for rel in candidates:
++        p = ROOT / rel
++        if p.exists():
++            return p
++    return None
++
++
++def read_text(path: Path) -> str:
++    return path.read_text(encoding="utf-8")
++
++
++def write_if_changed(path: Path, old: str, new: str) -> None:
++    if old != new:
++        path.write_text(new, encoding="utf-8")
++        CHANGED.append(str(path.relative_to(ROOT)))
++
++
++def simple_replace(path: Path, replacements: list[tuple[str, str]]) -> None:
++    old = read_text(path)
++    new = old
++    for src, dst in replacements:
++        new = new.replace(src, dst)
++    write_if_changed(path, old, new)
++
++
++# ---------------------------------------------------------------------------
++# LaTeX source fixes
++# ---------------------------------------------------------------------------
++main_tex = find_first(["main.tex"])
++if main_tex is None:
++    WARNINGS.append("main.tex not found")
++else:
++    simple_replace(main_tex, [(r"\renewcommand{\bibname}{Reference}", r"\renewcommand{\bibname}{References}")])
++
++chap6_tex = find_first([
++    "Chapter_6/Chap6.tex",
++    "Chapter_6/chap6.tex",
++    "chap6.tex",
++    "Chap6.tex",
++])
++if chap6_tex is None:
++    WARNINGS.append("Chapter 6 tex file not found")
++else:
++    simple_replace(chap6_tex, [
++        (r"\cite{maman2022unaligned, zang2024synthtab, kusaka2025learn}",
++         r"\cite{maman2022general, zang2024synthtab, kusaka2025learn}"),
++        (r"\cite{ewert2011estimating}", r"\cite{ewert2011est}"),
++        (r"\ref{sec:bp:why_pearson}", r"\ref{ssec:bp:metric_diagnostic}"),
++    ])
++
++
++# ---------------------------------------------------------------------------
++# BibTeX helpers
++# ---------------------------------------------------------------------------
++def iter_bib_entries(text: str):
++    """Yield (start, end, entry_type, key, entry_text) for top-level BibTeX entries."""
++    i = 0
++    n = len(text)
++    while True:
++        m = re.search(r"@([A-Za-z]+)\s*\{", text[i:])
++        if not m:
++            break
++        start = i + m.start()
++        entry_type = m.group(1)
++        brace_pos = i + m.end() - 1
++        depth = 0
++        j = brace_pos
++        while j < n:
++            c = text[j]
++            if c == "{":
++                depth += 1
++            elif c == "}":
++                depth -= 1
++                if depth == 0:
++                    end = j + 1
++                    entry = text[start:end]
++                    km = re.match(r"@\w+\s*\{\s*([^,]+)", entry)
++                    key = km.group(1).strip() if km else ""
++                    yield start, end, entry_type, key, entry
++                    i = end
++                    break
++            j += 1
++        else:
++            break
++
++
++def replace_entry(text: str, target_key: str, fn: Callable[[str, str], str]) -> str:
++    parts: list[str] = []
++    last = 0
++    found = False
++    for start, end, entry_type, key, entry in iter_bib_entries(text):
++        if key == target_key:
++            parts.append(text[last:start])
++            parts.append(fn(entry, entry_type))
++            last = end
++            found = True
++    if not found:
++        return text
++    parts.append(text[last:])
++    return "".join(parts)
++
++
++def replace_entries_matching(text: str, predicate: Callable[[str, str, str], bool], fn: Callable[[str, str, str], str]) -> str:
++    parts: list[str] = []
++    last = 0
++    changed = False
++    for start, end, entry_type, key, entry in iter_bib_entries(text):
++        if predicate(entry, entry_type, key):
++            parts.append(text[last:start])
++            parts.append(fn(entry, entry_type, key))
++            last = end
++            changed = True
++    if not changed:
++        return text
++    parts.append(text[last:])
++    return "".join(parts)
++
++
++def set_field(entry: str, field: str, value: str) -> str:
++    """Set a BibTeX field. value should include braces/quotes as desired."""
++    pat = re.compile(rf"(?ims)(^\s*{re.escape(field)}\s*=\s*)(\{{(?:[^{{}}]|\{{[^{{}}]*\}})*\}}|\"(?:[^\"]|\\\")*\")\s*,?")
++    if pat.search(entry):
++        return pat.sub(rf"\1{value},", entry, count=1)
++    # Insert after key line.
++    first_comma = entry.find(",")
++    if first_comma == -1:
++        return entry
++    return entry[: first_comma + 1] + f"\n  {field} = {value}," + entry[first_comma + 1 :]
++
++
++def replace_whole_entry(entry: str, entry_type: str, key: str, fields: str) -> str:
++    return f"@{entry_type}{{{key},\n{fields.rstrip()}\n}}"
++
++
++TITLE_TERMS = [
++    (r"MIDI", "{MIDI}"),
++    (r"U-Net", "{U-Net}"),
++    (r"FiLM", "{FiLM}"),
++    (r"MAESTRO", "{MAESTRO}"),
++    (r"SMD", "{SMD}"),
++    (r"MAPS", "{MAPS}"),
++    (r"ASAP", "{ASAP}"),
++    (r"BSSL", "{BSSL}"),
++    (r"BSTL", "{BSTL}"),
++    (r"DDSP", "{DDSP}"),
++    (r"SoundFont", "{SoundFont}"),
++    (r"MOSQITO", "{MOSQITO}"),
++    (r"MATLAB", "{MATLAB}"),
++    (r"MUSHRA", "{MUSHRA}"),
++    (r"MusicXML", "{MusicXML}"),
++    (r"HPT", "{HPT}"),
++    (r"HPPNet", "{HPPNet}"),
++    (r"DynEst", "{DynEst}"),
++    (r"AMT", "{AMT}"),
++    (r"MIR", "{MIR}"),
++]
++
++
++def protect_terms_in_title_content(s: str) -> str:
++    out = s
++    for term, repl in TITLE_TERMS:
++        # Do not rewrap an already braced term. Case-insensitive.
++        pattern = re.compile(rf"(?<![A-Za-z0-9{{]){re.escape(term)}(?![A-Za-z0-9}}])", re.IGNORECASE)
++        out = pattern.sub(repl, out)
++    return out
++
++
++def protect_title_fields(text: str) -> str:
++    result: list[str] = []
++    last = 0
++    for m in re.finditer(r"(?i)\btitle\s*=\s*", text):
++        start = m.start()
++        val_start = m.end()
++        if val_start >= len(text) or text[val_start] not in "{\"":
++            continue
++        delim = text[val_start]
++        if delim == "{":
++            depth = 0
++            j = val_start
++            while j < len(text):
++                if text[j] == "{":
++                    depth += 1
++                elif text[j] == "}":
++                    depth -= 1
++                    if depth == 0:
++                        inner_start = val_start + 1
++                        inner_end = j
++                        result.append(text[last:inner_start])
++                        result.append(protect_terms_in_title_content(text[inner_start:inner_end]))
++                        last = inner_end
++                        break
++                j += 1
++        else:
++            j = val_start + 1
++            while j < len(text):
++                if text[j] == '"' and text[j - 1] != "\\":
++                    inner_start = val_start + 1
++                    inner_end = j
++                    result.append(text[last:inner_start])
++                    result.append(protect_terms_in_title_content(text[inner_start:inner_end]))
++                    last = inner_end
++                    break
++                j += 1
++    if not result:
++        return text
++    result.append(text[last:])
++    return "".join(result)
++
++
++def patch_reference_bib(bib_path: Path) -> None:
++    old = read_text(bib_path)
++    text = old
++
++    # Standardise the Chapter 4 self-citation title to match the accepted SMC paper/declaration.
++    def fix_he2026score(entry: str, entry_type: str) -> str:
++        entry = set_field(entry, "title", r"{Score-Informed Transformer for Refining {MIDI} Velocity in Automatic Piano Transcription}")
++        entry = set_field(entry, "booktitle", r"{Proceedings of the Sound and Music Computing Conference ({SMC})}")
++        entry = set_field(entry, "year", r"{2026}")
++        entry = set_field(entry, "note", r"{Accepted, to appear}")
++        return entry
++
++    text = replace_entry(text, "he2026score", fix_he2026score)
++
++    # Fix ITU/MUSHRA institutional authorship if such an entry is present.
++    def is_mushra(entry: str, entry_type: str, key: str) -> bool:
++        e = entry.lower()
++        return "subjective assessment of intermediate quality" in e or "bs.1534" in e or "bs1534" in e
++
++    def fix_mushra(entry: str, entry_type: str, key: str) -> str:
++        fields = """  author      = {{International Telecommunication Union}},
++  title       = {Method for the Subjective Assessment of Intermediate Quality Level of Audio Systems},
++  institution = {International Telecommunication Union},
++  type        = {Recommendation {ITU-R} {BS.1534-3}},
++  year        = {2015}"""
++        return replace_whole_entry(entry, "techreport", key, fields)
++
++    text = replace_entries_matching(text, is_mushra, fix_mushra)
++
++    # Standardise SoundFont asset entries used by Chapter 6.
++    soundfont_entries = {
++        "sf_salamander": """@misc{sf_salamander,
++  author       = {Holm, Alexander},
++  title        = {Acoustic Grand Piano: Salamander Grand Piano},
++  howpublished = {FreePats Project sound bank},
++  month        = jun,
++  year         = {2020},
++  note         = {Version V3+2020-06-02; Creative Commons Attribution 3.0; accessed 2026-04-18},
++  url          = {https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html}
++}""",
++        "sf_spanishguitar": """@misc{sf_spanishguitar,
++  author       = {{FreePats Project}},
++  title        = {Nylon-String Acoustic Guitar: Spanish Classical Guitar},
++  howpublished = {FreePats Project sound bank},
++  month        = jun,
++  year         = {2019},
++  note         = {Version 2019-06-18; Creative Commons CC0 1.0 public domain dedication; accessed 2026-04-18},
++  url          = {https://freepats.zenvoid.org/Guitar/acoustic-guitar.html}
++}""",
++        "sf_ydpgrand": """@misc{sf_ydpgrand,
++  author       = {{FreePats Project}},
++  title        = {Acoustic Grand Piano: YDP Grand Piano},
++  howpublished = {FreePats Project sound bank},
++  month        = aug,
++  year         = {2016},
++  note         = {Version 2016-08-04; Creative Commons Attribution 3.0; accessed 2026-04-18},
++  url          = {https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html}
++}""",
++    }
++
++    for key, replacement in soundfont_entries.items():
++        def _replace(_entry: str, _entry_type: str, replacement=replacement) -> str:
++            return replacement
++        text = replace_entry(text, key, _replace)
++
++    # Protect common technical acronyms/proper names in title fields.
++    text = protect_title_fields(text)
++
++    write_if_changed(bib_path, old, text)
++
++
++bib = find_first(["reference.bib", "References/reference.bib", "Bibliography/reference.bib"])
++if bib is None:
++    WARNINGS.append("reference.bib not found; BibTeX title/SoundFont/MUSHRA fixes were not applied")
++else:
++    patch_reference_bib(bib)
++
++print("Final thesis cleanup complete.")
++if CHANGED:
++    print("Changed files:")
++    for p in CHANGED:
++        print(f"  - {p}")
++else:
++    print("No files changed; fixes may already have been applied.")
++if WARNINGS:
++    print("Warnings:")
++    for w in WARNINGS:
++        print(f"  - {w}")
++print("\nRecommended final checks:")
++print("  pdflatex main && bibtex main && pdflatex main && pdflatex main")
++print("  pdftotext main.pdf - | grep -E '\\\\?\\\\?|\\\\[\\\\?\\\\]'")
++print("  pdftotext main.pdf - | grep -F 'Reference 113'")

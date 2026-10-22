@@ -1,13 +1,166 @@
 \chapter{Conclusion}
 \label{ch:conclusion}
 
-This chapter concludes the thesis by summarizing findings, limitations, and future research directions.
+This thesis studied dynamics recovery as a problem of missing expressive labels under structural preservation. The starting point was not the general observation that musical performance is expressive, but the narrower problem that many useful music representations already contain reliable structure while lacking a dynamics layer. A MIDI file may contain the correct notes but flat velocities. An AMT output may recover note events but not the intensity attached to them. A score-level transcription may contain metre and pitch content but no dynamic markings. A beyond-piano dataset may provide audio and aligned notes but no trustworthy velocity labels.
+
+The thesis question introduced in Chapter~\ref{ch:introduction} was:
+\begin{quote}
+\textbf{How can musically interpretable dynamics labels be recovered from incomplete, weakly expressive, or weakly supervised music data without rewriting note content or note timing?}
+\end{quote}
+
+The answer developed in this thesis is conditional rather than universal. Dynamics is not a single target shared across all settings. It may be a note-level MIDI control, a beat-synchronous score marking, a perceived-loudness contour used for evaluation, or a renderer-conditioned coordinate constructed under missing supervision. A valid recovery method must therefore preserve the trusted musical structure, choose the output coordinate appropriate to the target representation, and evaluate the result in the space where that representation has musical meaning.
+
+This thesis builds that answer through four controlled recovery settings. Chapter~\ref{ch:velcomp} studies symbolic-only MIDI velocity completion. Chapter~\ref{ch:scoreinf} studies score-informed correction of audio-derived MIDI velocity. Chapter~\ref{ch:audiodyn} studies audio-only recovery of beat-synchronous score dynamics and metrical structure. Chapter~\ref{ch:beyondpiano} extends velocity recovery beyond the supervised piano regime through renderer-conditioned proxy supervision. These chapters form a scenario map rather than one end-to-end pipeline: each preserves a different structural coordinate and asks what kind of dynamics label can be recovered under that condition.
 
 \section{Summary of Contributions}
-TODO.
+\label{sec:conclusion:contrib}
 
-\section{Limitations}
-TODO.
+The thesis makes one formulation-level contribution and four method-level contributions. Together, they are best read as instantiations of the same principle: the recoverable dynamics layer depends on what structure is trusted and what supervision is available. The thesis does not propose a single model for all forms of expression. It defines controlled recovery settings and studies the representation, model design, and evaluation method appropriate to each.
 
-\section{Future Work}
-TODO.
+\subsection{A unified formulation of dynamics-oriented label recovery}
+\label{ssec:conclusion:formulation}
+
+The first contribution is the thesis-level formulation itself. Chapter~\ref{ch:background} established that the gap between loudness, MIDI velocity, and score dynamics is not a minor conversion problem. A fixed mapping from velocity to \textit{p}, \textit{mf}, or \textit{f} is attractive because it is simple, but it collapses several distinct stages: performer action, instrument response, acoustic signal, auditory perception, and score-level interpretation. The thesis therefore treats each dynamics representation as a valid but partial coordinate on expression.
+
+This formulation leads to a clear division of tasks. If the target is note-level MIDI velocity, the system should work on note onsets and preserve note identity. If the target is score dynamics, the system should work on a musical coordinate such as beats or phrases, not arbitrary audio frames alone. If the supervision is indirect, the recovered label must be interpreted relative to the proxy that supplies the learning signal. These distinctions are simple, but they prevent a large conceptual error: treating dynamics as a scalar loudness value that can be moved freely between audio, MIDI, and notation.
+
+\begin{table}[!htbp]
+\centering
+\caption{Scenario-level summary of the thesis.}
+\label{tab:conclusion_scenarios}
+\small
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{p{0.15\textwidth}p{0.24\textwidth}p{0.23\textwidth}p{0.28\textwidth}}
+\toprule
+\textbf{Chapter} & \textbf{Available structure} & \textbf{Recovered dynamics layer} & \textbf{Main thesis role} \\
+\midrule
+Chapter~\ref{ch:velcomp} & Fixed symbolic notes and timing & Note-level MIDI velocity & Shows that dynamics can be completed from symbolic context alone. \\
+Chapter~\ref{ch:scoreinf} & Performance audio and aligned score events & Corrected note-level MIDI velocity & Shows that score structure can act as a late correction prior for AMT velocity. \\
+Chapter~\ref{ch:audiodyn} & Performance audio only & Beat-synchronous score dynamics, change points, beats, and downbeats & Shows that score-facing dynamics can be recovered jointly with the metrical coordinate needed to write them. \\
+Chapter~\ref{ch:beyondpiano} & Performance audio and aligned note events without target velocity labels & Renderer-conditioned note-level MIDI velocity & Shows that beyond-piano recovery is primarily a missing-supervision problem. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Symbolic MIDI velocity completion}
+\label{ssec:conclusion:ch3}
+
+The first method contribution establishes the most controlled setting: the symbolic note sequence is fixed, and only the missing MIDI velocity layer is restored. Chapter~\ref{ch:velcomp} reformulates this task as image colourisation on sparse piano-roll matrices. This is not only an architectural analogy. Polyphonic symbolic music contains local pitch--time neighbourhoods and vertical chordal patterns that are weakened when the task is treated as a plain sequence. A U-Net with window attention and a sparsity-aware loss can exploit this structure while leaving the underlying note content unchanged.
+
+The chapter also demonstrates that a decoupled expressive layer has perceptual value. The model changes only velocity while preserving notes and timing, yet the listening test shows a clear improvement over flat and sequence-oriented baselines. This supports the central thesis stance: expressive recovery does not always require full expressive generation. In many practical settings, a controlled post-processing layer is the more appropriate object.
+
+\subsection{Score-informed velocity correction}
+\label{ssec:conclusion:ch4}
+
+The second method contribution introduces performance audio while keeping the note structure fixed through an aligned score. Chapter~\ref{ch:scoreinf} proposes a modular correction strategy: keep the AMT backbone unchanged, then use score information as a late residual correction signal for note-level velocity. This design is deliberately different from early-fusion score-informed transcription. It treats score information as a structural prior rather than as a replacement for acoustic evidence.
+
+The empirical result is that the late score-informed module adds only a small parameter overhead on top of an existing AMT backbone, transfers across HPT, HPPNet, and DynEst with consistent improvements in MAESTRO-to-SMD cross-dataset behaviour, and remains stable under moderate audio--score timing shifts. The deeper thesis result is about modularity. If expressive AMT is to remain useful as AMT front ends evolve, dynamics recovery should not depend on a single fixed transcription architecture. A late correction layer preserves this modularity while still using the musical information contained in the score.
+
+\subsection{Audio-only score-dynamics recovery}
+\label{ssec:conclusion:ch5}
+
+The third method contribution changes the target itself from note-level MIDI velocity to score-facing dynamic markings. Chapter~\ref{ch:audiodyn} therefore requires a different temporal coordinate. Score dynamics is not naturally a note-onset variable; it describes dynamic regimes, changes, and phrase-level intensity states. The chapter formulates the task as joint estimation of dynamic levels, dynamic change points, beats, and downbeats because the dynamic label is only useful once it is placed on a writable metrical grid.
+
+This chapter provides the score-dynamics counterpart to the velocity-focused chapters. It uses Bark-scale specific loudness as a perceptually grounded input representation, paired with a multi-scale encoder and an MMoE decoder that resolve the conflict between long-range dynamic context and precise metrical localisation. The result shows that score-facing dynamics can be estimated directly from audio when the model also estimates the coordinate on which those labels are meaningful. The point is not that score dynamics is a discretised version of MIDI velocity. It is a different symbolic target, and its modelling must respect that difference.
+
+\subsection{Beyond-piano velocity recovery through proxy supervision}
+\label{ssec:conclusion:ch6}
+
+The fourth method contribution removes the strongest assumption used by supervised piano work: target-domain velocity labels. Chapter~\ref{ch:beyondpiano} treats beyond-piano velocity estimation as a missing-supervision problem rather than ordinary domain shift. Piano has an unusually strong supervisory anchor because datasets such as MAESTRO provide note-aligned velocity labels through sensor-equipped instruments. For guitar and many other instruments, aligned notes and audio may be available, but true note-level velocity labels are not.
+
+The chapter addresses this setting through analysis-by-synthesis. A piano-pretrained VeloEst front end is adapted using differentiable supervision from either a waveform synthesiser or a SoundFont proxy. The main contribution is Diff-SFProxy: a compact differentiable proxy that maps note events and predicted velocities to note-wise loudness-related parameters. This parameter-level interface is more robust than waveform-level supervision under the tested recording mismatch because it supervises the subset of rendered behaviour most closely related to velocity. The recovered velocity is renderer-conditioned, but that conditioning is explicit and operationally useful. It gives a practical route to note-level dynamics recovery when the target domain lacks direct velocity labels.
+
+\section{Cross-Chapter Findings}
+\label{sec:conclusion:findings}
+
+Across the four studies, the main findings are not only architectural. They concern when a dynamics label is well defined, what evidence can support it, and how it should be evaluated.
+
+\subsection{Structure is a condition of recovery, not a convenience}
+\label{ssec:conclusion:structure}
+
+All four studies depend on preserving some trusted musical structure. In Chapter~\ref{ch:velcomp}, this is the symbolic note sequence. In Chapter~\ref{ch:scoreinf}, it is the aligned score. In Chapter~\ref{ch:audiodyn}, it is the beat and downbeat grid that makes score dynamics writable. In Chapter~\ref{ch:beyondpiano}, it is the aligned note event list used for renderer-conditioned adaptation. The thesis therefore treats dynamics recovery as a constrained restoration problem. Without a stable coordinate system, the task collapses into unconstrained expressive generation.
+
+This stricter formulation is also the source of the practical value. A recovered layer can be inspected, edited, attached to an existing score, or used to enrich a corpus without changing the underlying musical content. The preservation constraint is therefore not merely conservative. It is what makes the output musically accountable.
+
+\subsection{Velocity and score dynamics are not interchangeable labels}
+\label{ssec:conclusion:representation}
+
+MIDI velocity is a note-level control parameter. Score dynamics is a sparse, contextual marking system. Perceived loudness is an acoustic or perceptual observation that can support either task but is not identical to either output. This distinction explains why the thesis uses different temporal units, losses, and metrics across chapters instead of forcing all dynamics representations into one scalar target.
+
+This is also why Chapter~\ref{ch:beyondpiano} defines recovered velocity relative to a renderer. Outside piano, a MIDI velocity value is not a universal physical measurement, but it can still be a useful note-wise dynamics coordinate for analysis and resynthesis. The thesis therefore avoids the false choice between physical exactness and musical usefulness. A dynamics representation can be operationally useful while still being representation-dependent.
+
+\subsection{Evaluation must match the claimed representation}
+\label{ssec:conclusion:evaluation}
+
+Point-wise velocity error is useful when ground-truth velocity labels exist, but it can miss perceptual flatness. Listening tests and dispersion-based diagnostics reveal whether a restored velocity layer produces audible expressiveness. For score dynamics, beat-synchronous F1 is more appropriate because the output is a symbolic annotation on a metrical grid. For label-scarce beyond-piano recovery, perceptual loudness correlation is more defensible than velocity MAE because there is no ground-truth velocity label in the target domain.
+
+This produces a general evaluation principle: the metric should be tied to the representation being recovered. A low velocity error is not the same as a convincing score dynamic marking. A good waveform reconstruction is not the same as accurate velocity recovery. A strong note-transcription system is not automatically a strong dynamics-transcription system. Treating these distinctions explicitly is part of the contribution of the thesis.
+
+\subsection{Weaker supervision changes the claim, not necessarily the usefulness}
+\label{ssec:conclusion:supervision}
+
+The thesis moves from supervised symbolic completion to indirect renderer-conditioned adaptation. As supervision weakens, the recovered label should be interpreted more carefully. A supervised piano velocity estimate can be compared against Disklavier labels. A score-dynamics estimate can be compared against an editorial annotation convention. A beyond-piano renderer-conditioned velocity cannot claim to be the performer's physical gesture, but it can still be a useful control coordinate for resynthesis, curation, and expressive analysis.
+
+The result is not that weaker supervision makes the task impossible. Rather, weaker supervision changes what can be claimed. Each claim is valid inside its representational boundary. The thesis contribution is to make those boundaries explicit instead of hiding them behind a single generic term such as dynamics.
+
+\section{Limitations and Scope}
+\label{sec:conclusion:limitations}
+
+The thesis has several boundaries. These boundaries are not artefacts of unfinished implementation; they follow from the problem definition and from the representational choices made throughout the dissertation.
+
+First, the thesis focuses on dynamics rather than on the full space of musical expression. Timing, articulation, pedalling, timbre, and phrasing interact with dynamics in real performance. The systems developed here isolate dynamics because it is perceptually salient, directly useful for data curation, and recoverable under structural preservation. This isolation is methodologically useful, but it also means that the recovered layer is one dimension of expression rather than a complete performance model.
+
+Second, the strongest direct supervision in the thesis remains piano-centric. This reflects the state of available velocity-labelled datasets rather than a belief that piano dynamics is the universal template for all instruments. Chapter~\ref{ch:beyondpiano} addresses this bias by moving into a label-scarce guitar setting, but the broader point remains: once the target instrument lacks direct performance-control labels, the interpretation of recovered velocity must be stated operationally.
+
+Third, score dynamics is inherently contextual. A dynamic marking is not a fixed loudness threshold. It depends on edition, local musical function, register, texture, and phrase context. Chapter~\ref{ch:audiodyn} treats score dynamics as a beat-synchronous symbolic target because that is the most useful interface for notation and analysis. The resulting labels should therefore be read as score-facing annotations under a specific annotation convention, not as universal statements about physical loudness.
+
+Fourth, several chapters assume that structural coordinates are available or recoverable. Score-informed velocity correction assumes aligned score events. The beyond-piano proxy framework assumes aligned note events. Audio-to-score dynamics estimates beats and downbeats, but still relies on the idea that beat-synchronous output is the right symbolic interface. These assumptions are not weaknesses of the argument. They are the conditions under which label recovery, rather than unconstrained generation, becomes meaningful.
+
+Finally, the thesis uses multiple forms of evidence rather than a single unified benchmark. This is necessary because the targets differ across chapters. It also means that the contributions should be read as a coherent scenario map, not as four entries in one leaderboard. The unifying object is not one architecture or one dataset. It is the recovery of musically interpretable dynamics under different structural and supervisory conditions.
+
+\section{Future Research Directions}
+\label{sec:conclusion:future}
+
+The results of the thesis suggest several directions for future research. These directions extend the thesis argument rather than repair it.
+
+\subsection{Probabilistic bridges between dynamics representations}
+\label{ssec:conclusion:future_bridge}
+
+A natural direction is to model the relations between velocity, loudness, and score dynamics probabilistically. The thesis has deliberately avoided fixed lookup tables because they collapse representation-specific information. A stronger future model could instead treat the three layers as coupled but uncertain variables. A passage might support several plausible score-dynamic annotations, several possible velocity profiles, and several loudness realisations depending on instrument and performance style.
+
+Such a model would allow consistency constraints without enforcing deterministic conversion. A predicted \textit{ff} region should normally be compatible with strong local loudness or velocity evidence, but the relation should be contextual rather than fixed. Conversely, a sequence of high velocities may indicate a dynamic peak, but only relative to register, texture, and phrase structure. Probabilistic modelling is a better fit for this many-to-many relation than a scalar threshold.
+
+\subsection{Uncertainty-aware score annotation}
+\label{ssec:conclusion:future_uncertainty}
+
+Score dynamics is a human-readable target, but it is not always a single-label truth. Different editions and annotators can choose different markings for similar musical evidence. Future systems should therefore represent uncertainty explicitly. Instead of forcing one label at every beat, an annotation system could output ranked alternatives, confidence distributions, or region-level ambiguity flags.
+
+This would be useful in pedagogy and editing. A high-confidence dynamic label could be written directly into an automatically transcribed score. A low-confidence region could be presented to a musician for review. In this way, dynamics recovery would become a human-in-the-loop annotation tool rather than a black-box replacement for editorial judgement.
+
+\subsection{Instrument-general dynamics coordinates}
+\label{ssec:conclusion:future_instruments}
+
+The beyond-piano problem remains one of the most important directions for expressive AMT. The central difficulty is not only that guitar, violin, voice, and wind instruments sound different from piano. It is that their expressive control spaces are different. Piano velocity is a useful note-onset coordinate. Bowed strings and wind instruments also depend on continuous control dimensions such as bow pressure, bow speed, breath, vibrato, and articulation.
+
+Future work can generalise the label-recovery stance by defining instrument-appropriate dynamics coordinates rather than forcing all instruments into piano-style velocity. For some instruments, the recovered layer may remain a MIDI-like note intensity value. For others, it may require onset intensity plus sustain shape, articulation class, or continuous modulation descriptors. The principle from this thesis still applies: the target must be chosen according to the instrument, the available evidence, and the intended use of the recovered label.
+
+\subsection{Corpus-scale expressive data curation}
+\label{ssec:conclusion:future_curation}
+
+A practical direction is corpus-scale deployment. Many music datasets already contain partial structure: MIDI files with flat velocity, audio recordings with aligned scores, or symbolic scores without expressive annotations. The methods in this thesis suggest that these corpora can be enriched without recollecting them from scratch. Symbolic velocity completion can improve static MIDI archives. Score-informed correction can refine existing audio--score datasets. Audio-to-score dynamics can add human-readable markings to performance recordings. Proxy supervision can extend the approach to label-scarce instruments.
+
+The long-term value of such systems is not only better transcription. It is the construction of richer musical datasets. Once dynamics labels are recovered consistently, they can support expressive rendering, performance analysis, pedagogical feedback, and generative modelling. The thesis therefore positions dynamics recovery as a data infrastructure problem as much as a modelling problem.
+
+\subsection{Towards expressive AMT beyond note detection}
+\label{ssec:conclusion:future_amt}
+
+The broader direction is an AMT paradigm in which note detection is only the first layer. A musically useful transcription should not stop at pitch and onset. It should also recover the expressive information that makes the transcription interpretable as performance and usable as symbolic music data. Dynamics is the layer studied in this thesis, but the same logic can extend to articulation, pedal, phrasing, and timbre.
+
+The key lesson is that each expressive layer needs its own target definition and coordinate system. Adding more outputs to a network is not enough. The system must know whether it is predicting a physical control, a perceptual descriptor, or a score-facing annotation. It must also evaluate each output in the space where that output has musical meaning. This is the path from automatic note transcription towards expressive transcription.
+
+\section{Closing Remarks}
+\label{sec:conclusion:closing}
+
+This thesis shifts expressive AMT from the question of whether expression can be predicted to the more precise question of what kind of dynamics label can be recovered under a given structural and supervisory condition. Its central claim is that dynamics recovery becomes tractable when the musical structure is preserved, the target representation is explicit, and the evaluation metric matches the recovered layer.
+
+The resulting view is deliberately constrained. It does not treat expression as a single quantity, and it does not attempt to rewrite a performance wholesale. Instead, it treats dynamics as an interpretable layer that can be restored, refined, or constructed from the evidence available. This provides a practical route for improving weakly expressive MIDI, enriching AMT outputs, adding score-level dynamic markings, and extending expressive data curation beyond the piano domain.
