@@ -91,7 +91,7 @@ All convolution blocks use \(3 \times 3\) kernels, stride 1, and padding 1, foll
 Downsampling is implemented with a standard \(2 \times 2\) MaxPool2D layer.
 For upsampling, we use transpose convolutions with \(4 \times 4\) kernels and stride 2, following the image-colourisation variant in \cite{wang2022cunet}.
 
-To address MIDI sparsity, we insert windowed scaled dot-product attention (window attention) \cite{shen2023linear} into the U-Net.
+To address MIDI sparsity, we apply standard scaled dot-product attention~\cite{vas2017attn} within non-overlapping local windows in the U-Net. This follows the general window-based design used in audio transformers~\cite{chen2022hts}; linear-window attention for visual feature matching~\cite{shen2023linear} provides related architectural context.
 Traditional self-attention \cite{vas2017attn} operates on the full feature map \(X \in \mathbb{R}^{H \times W}\), where \(H\) and \(W\) denote height and width.
 Window attention instead partitions \(X\) into non-overlapping \(n \times n\) windows and computes attention within each window.
 This reduces computational complexity while still improving feature aggregation \cite{chen2022hts}.
@@ -103,7 +103,7 @@ This suggests that attention is useful in this sparse setting, but overly large 
 \subsection{Sparsity-aware Loss Function}
 \label{sec:velcomp:loss}
 
-The proposed loss combines binary cross-entropy (BCE) with cosine similarity (CosSim), following \cite{kim2023piano}, with \(\alpha = 0.2\):
+The proposed loss combines binary cross-entropy (BCE) with a cosine-similarity term inspired by the MSE--cosine objective of \cite{kim2023piano}; here we replace MSE with BCE and set \(\alpha=0.2\):
 \begin{equation}
 \mathcal{L}_{\mathrm{Combine}} = (1-\alpha)\,\mathcal{L}_{\mathrm{BCE}} + \alpha\,\left(1-\mathrm{CosSim}\right).
 \label{eq:velcomp_loss_combine}
@@ -140,7 +140,7 @@ This loss focuses learning on note onsets while also penalising the underestimat
 
 For training, we use the MAESTRO v3.0.0 dataset \cite{hawthorne2019maestro}, recorded by skilled pianists on Yamaha Disklavier pianos during the International Piano-e-Competition.
 The default train/validation/test split is used.
-With 1,276 performances totaling more than 200 hours, MAESTRO provides a strong foundation for modelling MIDI velocity.
+With 1,276 performances totalling 198.7 hours, MAESTRO provides a strong foundation for modelling MIDI velocity.
 
 For evaluation, we use the Saarland Music Data (SMD) dataset \cite{smd}, which contains 50 further performances recorded on a Yamaha Disklavier.
 We selected SMD for cross-dataset evaluation instead of the Piano-e-Competition dataset used in \cite{kuo2021velocity,kim2023piano}, because the latter has substantial performance overlap with MAESTRO.
@@ -192,7 +192,7 @@ M. Ravel & 0 & 0 h & 2 & JeuxDEau \\
 \label{sec:velcomp:training}
 
 The trained models include the proposed U-Net and a re-implemented ConvAE baseline \cite{kuo2021velocity}.
-Following \cite{zhang2023symbolic}, continuous segments from the same piece are arranged into the same batch in order to preserve local musical continuity during training.
+Continuous segments from the same piece are arranged into the same batch in the training setup used here, with the aim of preserving local musical continuity.
 Both models are trained for 300 epochs on the MAESTRO training set with learning rate \(10^{-5}\), batch size 3, and the same loss function.
 Training takes approximately 12 hours on an NVIDIA V100 32~GiB GPU using the Ranger21 optimiser.
 The top three checkpoints of each model, selected by validation performance on MAESTRO, are then tested on the MAESTRO test split and on SMD for cross-dataset evaluation.

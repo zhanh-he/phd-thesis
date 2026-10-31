@@ -14,7 +14,7 @@ The present chapter keeps the note-level velocity target but introduces real aud
 \section{Task-Specific Related Work and Motivation}
 \label{sec:scoreinf:related}
 
-Score-informed MIDI velocity estimation developed in parallel with velocity-enabled AMT. Earlier studies estimated note intensity from piano recordings with hand-crafted acoustic measurements, statistical analysis, or score-informed factorisation \cite{dan2006psy,ewert2011est,jeong2017note,jeong2018timbre}. These studies established the feasibility of the task, but their dependence on manual parameterisation limited portability across datasets and recording conditions. More recent work moved to deep learning and showed that aligned score information can substantially improve note-level dynamics estimation \cite{kim2023score,kim2024method,kim2023diffvel}. The most competitive of these systems use feature fusion, where score information is injected into the acoustic network during feature extraction.
+Score-informed MIDI velocity estimation developed in parallel with velocity-enabled AMT. Earlier work characterised how MIDI velocity affects the amplitude of synthesised notes~\cite{dan2006psy}. Subsequent studies estimated note intensity from piano recordings using hand-crafted acoustic measurements, statistical analysis, or score-informed factorisation~\cite{ewert2011est,jeong2017note,jeong2018timbre}. These studies established the feasibility of the task, but their dependence on manual parameterisation limited portability across datasets and recording conditions. More recent work moved to deep learning and showed that aligned score information can substantially improve note-level dynamics estimation \cite{kim2023score,kim2024method,kim2023diffvel}. The most competitive of these systems use feature fusion, where score information is injected into the acoustic network during feature extraction.
 
 Those feature-fusion approaches are effective, but they also create a practical bottleneck. The score-informed mechanism becomes entangled with the acoustic encoder. As a result, the whole system must usually be re-engineered for each new AMT backbone. This is awkward in a fast-moving research area where strong transcription front ends already exist and continue to improve. For a thesis contribution, accuracy alone is not enough. The method should also expose a reusable principle. This is the main reason for the late-correction stance adopted in this chapter.
 
@@ -83,7 +83,7 @@ The onset set $\mathcal{I}$ is used for tokenisation in the Transformer correcti
 
 The proposed architecture adopts a modular design. AMT systems are usually multi-task models that estimate onset, offset, frame, and velocity simultaneously. We isolate the velocity estimation branch of the chosen AMT baseline and extend it with a score-informed correction module. To make the design choice explicit, we study two correction modules: an early frame-wise BiLSTM retained for ablation, and a token-based Transformer used in the final system.
 
-\textbf{Velocity estimation branch in AMT.} This component is identical to the velocity branches of the selected AMT baselines, namely HPT~\cite{kong2021hpt}, HPPNet~\cite{wei2022hppnet}, and DynEst~\cite{he2026dynest}. All settings follow the original implementations and public repositories. For a fair comparison, all baselines use the same log-Mel spectrogram input with a 22.05~kHz sampling rate, 2048-point FFT, 100~FPS, Hann window, and 229 mel bins. This yields an input tensor of size $1001\times229$. The velocity branch outputs a preliminary velocity map $\hat{\mathbf{V}}_0\in[0,1]^{T\times P}$.
+\textbf{Velocity estimation branch in AMT.} This component is identical to the velocity branches of the selected AMT baselines, namely HPT~\cite{kong2021hpt}, HPPNet~\cite{wei2022hppnet}, and DynEst~\cite{he2026dynest}. We use the public implementations as starting points and adapt their audio front ends to a common log-Mel representation. For a controlled comparison, all baselines use the same log-Mel spectrogram input with a 22.05~kHz sampling rate, 2048-point FFT, 100~FPS, Hann window, and 229 mel bins. This yields an input tensor of size $1001\times229$. The velocity branch outputs a preliminary velocity map $\hat{\mathbf{V}}_0\in[0,1]^{T\times P}$.
 
 \begin{figure}[!htbp]
 \centering
@@ -154,7 +154,7 @@ The experiments are designed to answer four questions. First, does the score-inf
 \subsection{Datasets}
 \label{sec:scoreinf:datasets}
 
-For training, we use the MAESTRO v3.0.0 dataset~\cite{hawthorne2019maestro} with its default train, validation, and test split. MAESTRO contains 1,276 Yamaha Disklavier piano performances and more than 200 hours of precisely aligned audio--MIDI pairs. The Disklavier setup is particularly valuable here because it provides high-fidelity note-level velocity targets together with realistic acoustic recordings. For out-of-domain evaluation, we use the SMD dataset~\cite{smd}. All models are trained only on the MAESTRO training split. This deliberately strict protocol exposes cross-dataset behaviour clearly.
+For training, we use the MAESTRO v3.0.0 dataset~\cite{hawthorne2019maestro} with its default train, validation, and test split. MAESTRO contains 1,276 Yamaha Disklavier piano performances and 198.7 hours of precisely aligned audio--MIDI pairs. The Disklavier setup is particularly valuable here because it provides high-fidelity note-level velocity targets together with realistic acoustic recordings. For out-of-domain evaluation, we use the SMD dataset~\cite{smd}. All models are trained only on the MAESTRO training split. This deliberately strict protocol exposes cross-dataset behaviour clearly.
 
 \subsection{AMT backbones and training setup}
 \label{sec:scoreinf:training}
@@ -169,16 +169,9 @@ Each model is trained for 120k iterations on a single NVIDIA RTX~3090 with 24~Gi
 We retain the note-level evaluation protocol introduced in Section~\ref{sec:velcomp:metrics} of Chapter~\ref{ch:velcomp}. Specifically, the present chapter reports three quantitative metrics on the denormalised MIDI velocity scale $[0,127]$: the mean absolute error (MAE), the standard deviation of the absolute error ($SD_{\mathrm{ae}}$), and Recall\textsubscript{10\%}. Their formal definitions follow exactly the notation and formulas given in Eqs.~\eqref{eq:velcomp_mae}, \eqref{eq:velcomp_sdae}, and \eqref{eq:velcomp_recall}. In this chapter, the evaluation set \(\mathcal{I}\) is onset-masked by the aligned score, so the comparison is carried out only at reference note positions. This yields a note-level evaluation and avoids the temporal bias of frame-wise scoring, where sustained notes would otherwise dominate the error.
 
 
-A brief clarification is needed for the recall-style metric, because some earlier score-informed studies reported a different quantity under the name \emph{Recall} \cite{kim2024method}. In those studies, the predicted velocity map was sparse, so the goal was simply to check whether the model produced a nonzero velocity value at the reference note position:
-\begin{equation}
-\mathrm{Recall}
-= \frac{1}{|\mathcal{I}|}\sum_{i\in\mathcal{I}}
-\mathbf{1}\!\left(\hat{V}_i > 0\right).
-\label{eq:scoreinf:legacy_recall}
-\end{equation}
-This quantity measures note-position coverage rather than the accuracy of MIDI velocity itself. In our approach, and in most modern AMT baselines, the predicted velocity maps are dense as shown in Figure~\ref{fig:scoreinf_qualitative}. After post-processing, almost every aligned note onset therefore receives a nonzero estimated velocity, so the older Recall quickly saturates near \(100\%\) and becomes uninformative.
+Earlier score-informed work also reports a quantity called \emph{Recall}~\cite{kim2024method}. The published description treats it as a primary metric for classification accuracy under score conditioning, but does not establish equivalence to the fixed MIDI-scale velocity tolerance used in this thesis. We therefore distinguish the source's reported Recall from Recall\textsubscript{10\%} and do not convert between them.
 
-For this reason, the present chapter uses Recall\textsubscript{10\%}, following the same definition as Chapter~\ref{ch:velcomp}. This metric counts a note as correct only when the predicted velocity falls within a $10\%$ tolerance on the MIDI velocity scale. It is consistent with the velocity criterion used in the standard $NoteOn/OffwVelo$ evaluation implemented in the \texttt{mir\_eval} package \cite{raffel2014mireval}, which is widely used in music transcription research. Using this convention makes the evaluation easier to reproduce and helps maintain comparability with established AMT benchmarks.
+For this reason, the present chapter uses Recall\textsubscript{10\%}, following the same definition as Chapter~\ref{ch:velcomp}. A note is counted as correct when its estimated velocity is within \(0.1\times127\) of the reference value at the given score onset. This is a fixed-scale, note-wise velocity measure. It differs from the velocity-aware transcription evaluation in \texttt{mir\_eval}~\cite{raffel2014mireval}, which first matches note events and rescales estimated velocities by a fitted global linear transformation. Scores from that transcription protocol are therefore not treated as Recall\textsubscript{10\%} results here.
 
 \section{Results and Analysis}
 \label{sec:scoreinf:results}
@@ -250,11 +243,11 @@ The Transformer has a different inductive bias. It operates only on onset tokens
 \subsection{Comparison with existing systems}
 \label{sec:scoreinf:results:comparison}
 
-We next compare the Transformer-based correction strategy with existing score-informed systems and representative AMT models on the SMD dataset. To keep the comparison fair, all models follow the same training protocol and use only the MAESTRO training split for learning. Following the generalisation analysis above, we use onset $+$ frame for all proposed Transformer-based variants. Table~\ref{tab:scoreinf_smd} summarises the results. Specifically, Recall$_{10\%}$ results of hFT-Transformer and Transkun v2 are obtained from the MIREX2024: Polyphonic Transcription challenge.\footnote{\url{https://music-ir.org/mirex/wiki/2024:Polyphonic_Transcription_Results}}
+We next compare the Transformer-based correction strategy with existing score-informed systems and representative AMT models on the SMD dataset. Locally evaluated models follow the training protocol described above and use only the MAESTRO training split for learning; separately reported external results retain their source protocols. Following the generalisation analysis above, we use onset $+$ frame for all proposed Transformer-based variants. Table~\ref{tab:scoreinf_smd} summarises the results. The MIREX~2024 results for hFT-Transformer and Transkun v2 report joint note-onset, note-offset, and velocity recall, rather than the fixed-scale Recall\textsubscript{10\%} defined here. Those external recall values are not entered in the Recall\textsubscript{10\%} column of Table~\ref{tab:scoreinf_smd}.\footnote{\url{https://music-ir.org/mirex/wiki/2024:Polyphonic_Transcription_Results}}
 
 \begin{table}[!htbp]
     \centering
-    \caption{Comparison on the SMD dataset. All models are trained only on the MAESTRO training split. Best score is highlighted in bold.}
+    \caption{Comparison on the SMD dataset. Recall$_{10\%}$ is shown only for results evaluated using the fixed-scale definition in this chapter; dashes indicate unavailable or incompatible external values. Best comparable scores are highlighted in bold.}
     \label{tab:scoreinf_smd}
     \setlength{\tabcolsep}{10pt}
     \fontsize{11pt}{13pt}\selectfont     % 直接设置字体大小和行高
@@ -269,10 +262,11 @@ We next compare the Transformer-based correction strategy with existing score-in
     \textbf{Score-informed methods} & & & & \\
     DiffVel~\cite{kim2023diffvel} & 19.7 & 13.1 & -- & -- \\
     FiLM Conv~\cite{kim2023score} & 15.1 & 12.3 & -- & -- \\
-    FiLM U-Net~\cite{kim2024method} & 9.9 & 7.8 & 73.0\%~\tablefootnote{FiLM-UNet reported 89.7\% in their paper \cite{kim2024method} is standard Recall, a less strict metric than our Recall$_{10\%}$.} & 8.8M \\
+    % The previous draft listed 73.0% here. No independent fixed-scale re-evaluation record was found. Kim2024 Table 2 also has 73.0% for a different ablation, so that number is retained as history, not attributed to this FiLM U-Net row.
+    FiLM U-Net~\cite{kim2024method} & 9.9 & 7.8 & --~\tablefootnote{The original paper~\cite{kim2024method} reports 89.7\% under its own Recall metric. It is not treated as equivalent to the fixed-scale Recall$_{10\%}$ used here; no verified conversion or independent fixed-scale value is available for this row.} & 8.8M \\
     \midrule
     \textbf{Proposed (Transformer applied)} & & & & \\
-    Score-HPT & \textbf{8.0} & \textbf{6.9} & 80.3\% & 5.0M \\
+    Score-HPT & \textbf{8.0} & \textbf{6.9} & \textbf{80.3\%} & 5.0M \\
     Score-HPPNet & 9.2 & 7.3 & 79.3\% & 1.5M \\
     Score-DynEst & \textbf{8.0} & \textbf{6.9} & 77.6\% & 14.3M \\
     \midrule
@@ -280,8 +274,9 @@ We next compare the Transformer-based correction strategy with existing score-in
     HPT~\cite{kong2021hpt} & 10.0 & 8.8 & 62.5\% & 4.1M \\
     HPPNet (no CQT)~\cite{wei2022hppnet} & 10.6 & 9.0 & 60.2\% & 0.5M \\
     DynEst (no BSSL)~\cite{he2026dynest} & 10.4 & 8.8 & 59.6\% & 13.3M \\
-    hFT-Transformer~\cite{toyama2023hft} & 9.9 & 7.3 & 76.5\% & 5.5M \\
-    Transkun v2~\cite{yan2024semicrf} & 13.3 & 11.9 & \textbf{82.1\%} & 13.6M \\
+    % Original MIREX SMD joint onset+offset+velocity recall: hFT=0.7651 (76.5%), Transkun v2=0.8211 (82.1%); not fixed-scale Recall10%.
+    hFT-Transformer~\cite{toyama2023hft} & 9.9 & 7.3 & -- & 5.5M \\
+    Transkun v2~\cite{yan2024semicrf} & 13.3 & 11.9 & -- & 13.6M \\
     \bottomrule
     \end{tabular}
 \end{table}
@@ -304,9 +299,9 @@ Score alignment quality is a central condition for score-informed correction. Th
 \label{fig:scoreinf_robustness}
 \end{figure}
 
-A methodological point is important here. In the earlier benchmark of \cite{kim2024method}, shifted scores were used as model inputs but the original unshifted score was still used during post-processing. That choice follows the earlier evaluation tradition of \cite{kim2023score}, but it introduces a temporal inconsistency. If a model is conditioned on a shifted score, then its output is tied to that shifted note grid. Post-processing should therefore use the same shifted score. We adopt this internally consistent protocol in the present chapter. Under this refinement, FiLM U-Net is substantially more robust than originally implied by the earlier report.
+For the timing-shift experiments reported here, we use the same shifted score for conditioning and onset-based post-processing. This evaluates the complete score-conditioned pipeline under the stated perturbation. Differences from published robustness results should be interpreted in light of the evaluation protocol, rather than attributed to an undocumented implementation choice in earlier work.
 
-Applying this refined protocol, Score-HPT achieves the strongest robustness curve on SMD. More broadly, all score-informed methods degrade only moderately relative to the perfectly aligned case. Given that MIDI velocity spans the range 0 to 127, the observed increase of only a few units in MAE or \(SD_{\mathrm{ae}}\) under even large global shifts remains small in absolute terms. Minor shifts can even lead to slight improvements for some proposed variants. A plausible interpretation is that the AMT branch already produces temporally fuzzy onset-wise velocity estimates, and a small score displacement may occasionally compensate for that fuzziness. The important conclusion is not that alignment no longer matters. Rather, it is that the proposed late-correction design is surprisingly tolerant to moderate global timing mismatch. This makes the method more realistic for educational and archival use, where score synchronisation is often good but not perfect.
+Under this protocol, Score-HPT achieves the strongest robustness curve on SMD. More broadly, all score-informed methods degrade only moderately relative to the perfectly aligned case. Given that MIDI velocity spans the range 0 to 127, the observed increase of only a few units in MAE or \(SD_{\mathrm{ae}}\) under even large global shifts remains small in absolute terms. Minor shifts can even lead to slight improvements for some proposed variants. A plausible interpretation is that the AMT branch already produces temporally fuzzy onset-wise velocity estimates, and a small score displacement may occasionally compensate for that fuzziness. The important conclusion is not that alignment no longer matters. Rather, it is that the proposed late-correction design is surprisingly tolerant to moderate global timing mismatch. This makes the method more realistic for educational and archival use, where score synchronisation is often good but not perfect.
 
 \section{Discussion}
 \label{sec:scoreinf:discussion}

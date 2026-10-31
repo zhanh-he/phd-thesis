@@ -76,7 +76,7 @@ For example, if $I = 10^{-8}\,\mathrm{W/m^2}$, then $I/I_0 = 10^4$ and $L_I = 40
 L_p = 20\log_{10}\!\left(\frac{p}{p_0}\right).
 \label{eq:bg:spl_db}
 \end{equation}
-The logarithmic nature of the decibel scale is highly practical because acoustic energy spans many orders of magnitude, and human loudness perception is broadly compressive rather than linear. However, decibel levels do not represent an actual perceptual scale. For instance, a 60\,dB tone at 100\,Hz does not sound as loud as a 60\,dB tone at 1\,kHz, because human hearing sensitivity varies dramatically across frequencies. To address this discrepancy, equal-loudness contours were established through pioneering psychoacoustic experiments by Fletcher and Munson \cite{fletcher1933loudness}, refined by Robinson and Dadson \cite{robinson1956equal_loudness}, and now standardised in ISO~226:2003 \cite{iso2262003}, as illustrated in Figure~\ref{fig:bg_equal_loudness}. These contours map the sound pressure level (SPL) required across various frequencies to maintain a constant perceived loudness relative to a 1\,kHz reference tone. From these contours, loudness level can be quantified in a unit called the \emph{phon}.
+The logarithmic nature of the decibel scale is highly practical because acoustic energy spans many orders of magnitude, and human loudness perception is broadly compressive rather than linear. However, decibel levels do not represent an actual perceptual scale. For instance, a 60\,dB tone at 100\,Hz does not sound as loud as a 60\,dB tone at 1\,kHz, because human hearing sensitivity varies dramatically across frequencies. To address this discrepancy, equal-loudness contours were established through pioneering psychoacoustic experiments by Fletcher and Munson \cite{fletcher1933loudness}, refined by Robinson and Dadson \cite{robinson1956equal_loudness}, and standardised in the ISO~226:2003 edition used in Figure~\ref{fig:bg_equal_loudness} \cite{iso2262003}, as illustrated in Figure~\ref{fig:bg_equal_loudness}. These contours map the sound pressure level (SPL) required across various frequencies to maintain a constant perceived loudness relative to a 1\,kHz reference tone. From these contours, loudness level can be quantified in a unit called the \emph{phon}.
 
 \begin{figure}[!htbp]
   \centering
@@ -173,7 +173,7 @@ This step changes the spectral coordinate system from Hz to critical-band rate. 
 
 
 \subsection{Bark-scale specific loudness and total loudness}
-Among psychoacoustic-informed audio representations, Bark-scale specific loudness (BSSL) is designed to represent how perceived loudness is distributed across auditory critical bands, as human perception of loudness is more sensitive to certain frequency bands \cite{zwicker1999psychoacoustics,zwicker2007psychoacoustics}. Because it preserves both spectral location and perceptual magnitude, BSSL is well suited to dynamics-related MIR tasks \cite{narang2024automatic,he2026dynest}. While several BSSL extraction methods exist, such as DIN 45631/A1: 2010 \cite{din45631a1_2010} and ISO 532-1:2017 \cite{iso532_1_2017}, they are designed for industrial noise and sound quality assessment, assuming specific sound profiles. In MIR, however, music signals are typically highly polyphonic with negligible background noise. Therefore, the implementation proposed by Pampalk et al. \cite{pampalk2002content, pampalk2004exploring} is widely adopted. The extraction pipeline is defined as follows.
+Among psychoacoustic-informed audio representations, Bark-scale specific loudness (BSSL) is designed to represent how perceived loudness is distributed across auditory critical bands, as human perception of loudness is more sensitive to certain frequency bands \cite{zwicker1999psychoacoustics,zwicker2007psychoacoustics}. Because it preserves both spectral location and perceptual magnitude, BSSL is well suited to dynamics-related MIR tasks \cite{narang2024automatic,he2026dynest}. While several BSSL extraction methods exist, such as DIN 45631/A1: 2010 \cite{din45631a1_2010} and ISO 532-1:2017 \cite{iso532_1_2017}, they are designed for industrial noise and sound quality assessment, assuming specific sound profiles. In MIR, however, music signals are typically highly polyphonic with negligible background noise. The following MIR-oriented representation is inspired by the implementation of Pampalk et al.~\cite{pampalk2002content,pampalk2004exploring,pampalk2004toolbox}. It is not an assertion of numerical equivalence to a calibrated ISO loudness calculation. The extraction pipeline used here is defined as follows.
 
 First, the audio is converted to mono, peak-normalised to $-1\,\mathrm{dBFS}$, and resampled to a chosen sampling rate $f_s$ that preserves the spectral range required by the downstream MIR task. A short-time Fourier transform (STFT) then yields the complex spectrogram $X(k,t)$, where $t$ denotes the frame index and $k$ the frequency-bin index. The power spectrogram $P(k,t)$ is then formed using window-energy normalisation:
 \begin{equation}
@@ -213,7 +213,7 @@ The spread Bark-scale excitation is then computed as
 \end{equation}
 This step reflects a fundamental psychoacoustic principle: loudness perception is not a naive sum of independent narrowband energies, but involves auditory interaction across neighbouring critical bands.
 
-Traditionally, converting a sound representation expressed in sound-pressure level to the perceptual \emph{phon} scale requires mapping through equal-loudness contours. For the spread Bark excitation $\widetilde{B}_W(b,t)$, however, the previously applied outer/middle-ear weighting, Bark-band pooling, and spectral spreading have already introduced frequency-dependent auditory adjustments. Therefore, this implementation does not apply an additional equal-loudness contour lookup at this stage. Instead, the logarithmic level of $\widetilde{B}_W(b,t)$ is treated as a phon-like loudness-level input for the subsequent sone conversion. Following Zwicker's 1999 pipeline \cite{zwicker1999psychoacoustics,pampalk2002content,pampalk2004exploring}, this logarithmic conversion is defined as:
+Traditionally, converting a sound representation expressed in sound-pressure level to the perceptual \emph{phon} scale requires mapping through equal-loudness contours. For the spread Bark excitation $\widetilde{B}_W(b,t)$, however, the previously applied outer/middle-ear weighting, Bark-band pooling, and spectral spreading have already introduced frequency-dependent auditory adjustments. Therefore, this implementation does not apply an additional equal-loudness contour lookup at this stage. Instead, the logarithmic level of $\widetilde{B}_W(b,t)$ is treated as a phon-like loudness-level input for the subsequent sone conversion. In this Pampalk-inspired MIR representation~\cite{pampalk2002content,pampalk2004exploring,pampalk2004toolbox}, this logarithmic conversion is defined as:
 \begin{equation}
 L_B(b,t)=\max\!\left(0,\,10\log_{10}\!\left(\widetilde{B}_W(b,t)+\epsilon\right)\right),
 \label{eq:bg:spread_bark_level}
@@ -246,7 +246,7 @@ Besides explicit loudness measures, MIR also relies on time--frequency represent
 
 For this reason, sub-band spectral representations are often more informative than scalar energy features for dynamics-related MIR tasks, especially the Mel-based representations \cite{fu2011survey,nam2019deeplearningaudio,panda2023audiofeatures,mcloughlin2026spectrogramfeatures}. A Mel spectrogram aggregates spectral energy into perceptually motivated frequency bands, preserving not only how much energy is present but also where that energy lies in the spectrum \cite{slaney1998auditory}. A log-Mel spectrogram further applies logarithmic compression, reducing the dominance of very large amplitudes, stabilising the representation across a wide dynamic range, and making it more consistent with the nonlinear character of loudness perception. Nevertheless, log-Mel does not explicitly model human loudness perception. Consequently, recent works in loudness estimation typically employ log-Mel as a standard baseline against which the superior loudness modelling capabilities of BSSL are compared \cite{narang2024automatic, he2026dynest}.
 
-Compact cepstral features such as MFCCs and BFCCs provide lower-dimensional summaries of filterbank energies on perceptual frequency scales. MFCCs are derived from Mel-scale filterbank energies and have long been used in speech and music modelling \cite{davis1980comparison,logan2000mel}, while BFCCs apply the same general cepstral idea on the Bark scale \cite{herrera2010bfcc}. These features are attractive when compactness, decorrelation, and robust timbral description are important, and they remain common in MIR applications such as music classification and instrument recognition \cite{fu2011survey,panda2023audiofeatures,chen2024interpreting}. However, this compression is also their main limitation for fine-grained dynamics analysis: by transforming sub-band energies into a compact cepstral representation, they remove part of the band-wise structure that may carry local loudness, resonance, and spectral-balance cues. BFCCs inherit the same trade-off on the Bark scale. For dynamics-focused modelling, directly retaining Mel/Bark band energies or using specific-loudness representations is therefore usually easier to justify than relying on cepstral summaries alone \cite{mcloughlin2026spectrogramfeatures,narang2024automatic,he2026dynest,kondo2025perceivedvibrato}.
+Compact cepstral features such as MFCCs and BFCCs provide lower-dimensional summaries of filterbank energies on perceptual frequency scales. MFCCs are derived from Mel-scale filterbank energies and have long been used in speech and music modelling \cite{davis1980comparison,logan2000mel}, while BFCCs apply the same general cepstral idea on the Bark scale \cite{herrera2010bfcc}. These features are attractive when compactness, decorrelation, and robust timbral description are important, and they remain common in MIR applications such as music classification and instrument recognition \cite{fu2011survey,panda2023audiofeatures,chen2024interpreting}. However, this compression is also their main limitation for fine-grained dynamics analysis: by transforming sub-band energies into a compact cepstral representation, they remove part of the band-wise structure that may carry local loudness, resonance, and spectral-balance cues. BFCCs inherit the same trade-off on the Bark scale. For dynamics-focused modelling, directly retaining Mel/Bark band energies or using specific-loudness representations is therefore usually easier to justify than relying on cepstral summaries alone \cite{mcloughlin2026spectrogramfeatures,narang2024automatic,he2026dynest}.
 
 By contrast, the Constant-Q Transform (CQT) is designed around logarithmically spaced frequency bins whose spacing aligns closely with musical pitch \cite{brown1991constantq}. This makes CQT well suited to pitch-, harmony-, and transcription-oriented tasks, where the representation benefits from a frequency axis organised according to musical scale structure \cite{cheuk2020impact,mcloughlin2026spectrogramfeatures}. CQT can still retain amplitude variation implicitly, but its frequency organisation is not based on critical-band loudness or specific-loudness modelling. For that reason, CQT is better understood as a pitch- and harmony-oriented representation than as a primary representation for loudness or musical dynamics. 
 
@@ -390,13 +390,13 @@ ADSR \cite{kelz2019adsr} & 2019 & CNN + HMM & 77.16 & 81.38 & 56.08 & -- \\
 hFT-Trans \cite{toyama2023hft} & 2023 & Transformer & 82.89 & 85.14 & 66.34 & 48.20 \\
 \midrule
 
-\multicolumn{7}{c}{\textbf{MAESTRO (piano)}} \\
+\multicolumn{7}{c}{\textbf{MAESTRO (piano; dataset versions as noted)}} \\
 \midrule
-OaF$^\dagger$ \cite{hawthorne2018onsets} & 2018 & CRNN & 87.82 & 94.93 & 79.65 & 76.05 \\
-HPT$^\dagger$ \cite{kong2021hpt} & 2021 & CRNN & 90.15 & 96.77 & 84.45 & 83.02 \\
+OaF$^\dagger$ \cite{hawthorne2018onsets,yan2021semicrf} & 2018 & CRNN & 87.82 & 94.93 & 79.65 & 76.05 \\
+HPT$^\dagger$ \cite{kong2021hpt,yan2021semicrf} & 2021 & CRNN & 90.15 & 96.77 & 84.45 & 83.02 \\
 SemiCRFs$^\dagger$ \cite{yan2021semicrf} & 2021 & CRNN + SemiCRF & 91.11 & 96.51 & 88.72 & 87.75 \\
 Seq2Seq \cite{hawthorne2021trans} & 2021 & Transformer & -- & 96.01 & 83.94 & 82.75 \\
-HPT-T \cite{kong2021hpt} & 2021 & CRNN & 90.09 & 96.77 & 83.20 & 81.90 \\
+HPT-T \cite{ou2022hptt,toyama2023hft} & 2022 & CNN + GRU/Transformer & 90.09 & 96.77 & 83.20 & 81.90 \\
 HPPNet-sp \cite{wei2022hppnet} & 2022 & CRNN & 93.15 & 97.18 & 83.80 & 82.24 \\
 hFT-Trans \cite{toyama2023hft} & 2023 & Transformer & 93.24 & 97.44 & 90.53 & 89.48 \\
 Transkun v2 \cite{yan2024semicrf} & 2024 & Trans. + SemiCRF & 95.35 & 98.32 & 93.48 & 92.94 \\
@@ -406,14 +406,14 @@ Transkun v2 \cite{yan2024semicrf} & 2024 & Trans. + SemiCRF & 95.35 & 98.32 & 93
 \midrule
 Wu et al. \cite{wu2019semantic} & 2019 & CNN & 73.70 & -- & -- & -- \\
 ReconVAT \cite{cheuk2021reconvat,gardner2022mt3} & 2021 & U-Net & 48.0 & 29.0 & 11.0 & -- \\
-MT3 \cite{gardner2022mt3} & 2022 & Transformer & 68.0 & 50.0 & 33.0 & -- \\
-PerceiverTF \cite{lu2023perceivertf} & 2023 & Trans. + Perceiver & 63.7 & 46.1 & 29.0 & -- \\
-PF2N$^\S$ \cite{kim2025pf2n} & 2025 & PF2N + Perceiver & 64.5 & 47.5 & 30.7 & -- \\
+MT3 (mixture) \cite{gardner2022mt3} & 2022 & Transformer & 68.0 & 50.0 & 33.0 & -- \\
+YourMT3+ (YPTF)$^*$ \cite{chang2024yourmt3plus,kim2025pf2n} & 2024 & PerceiverTF + T5 & 63.7 & 46.1 & 29.0 & -- \\
+YPTF + PF2N \cite{kim2025pf2n} & 2025 & PF2N + PerceiverTF + T5 & 64.5 & 47.5 & 30.7 & -- \\
 \bottomrule
 \end{tabular}
 \vspace{0.5ex}
 \parbox{0.98\linewidth}{\footnotesize
-$^\dagger$ Re-evaluation on MAESTRO v3 by SemiCRF paper. \\
+$^\dagger$ MAESTRO v2 results recomputed or reported by Yan et al.~\cite{yan2021semicrf}; other MAESTRO rows use v3. Results come from different papers and training/evaluation protocols. $^*$ YourMT3+ baseline reproduced by the PF2N study~\cite{kim2025pf2n}. \\
 }
 \end{table*}
 
@@ -494,7 +494,7 @@ Expressive performance rendering aims to generate expressive control signals fro
 
 Symbolic velocity completion assumes that the note sequence is already known and that the missing variable is note-level velocity. Early work used rule-based or statistical approaches \cite{berndt2010modelling}. More recent work formulates the task with deep learning, including convolutional autoencoders and sequence-to-sequence models with attention \cite{kuo2021velocity,kim2023piano}. Diffusion-based note-intensity estimation has also been explored in related score-informed settings \cite{kim2023diffvel}.
 
-A central challenge in this literature is the sparsity of symbolic piano-roll data. Dense frame grids contain large silent regions, and a model that treats all cells equally can waste much of its capacity. Two architectural patterns recur in response. The first rasterises MIDI as piano-roll-like matrices indexed by pitch and time \cite{he2025filling}, then processes them with U-Net-style encoders that preserve fine local detail through skip connections while aggregating larger context through the encoder--decoder path. The second couples this locality with windowed or linear attention to extend the receptive field without the full cost of global attention \cite{shen2023linear,chen2022hts}. Together they motivate the image-like, sparse-2D formulation adopted in Chapter~\ref{ch:velcomp}.
+A central challenge in this literature is the sparsity of symbolic piano-roll data. Dense frame grids contain large silent regions, and a model that treats all cells equally can waste much of its capacity. One architectural response rasterises MIDI as piano-roll-like matrices indexed by pitch and time \cite{he2025filling}, then processes them with U-Net-style encoders that preserve fine local detail through skip connections while aggregating larger context through the encoder--decoder path. A complementary architectural inspiration comes from efficient windowed or linear attention in visual feature matching~\cite{shen2023linear} and hierarchical audio classification~\cite{chen2022hts}. These ideas motivate combining local structure with a wider receptive field in Chapter~\ref{ch:velcomp}.
 
 \subsection{Audio-driven velocity estimation within AMT}
 \label{sec:bg:velocity:amt}
@@ -506,7 +506,7 @@ Despite strong progress, note-level velocity remains more fragile than note pitc
 \subsection{Score-informed MIDI velocity estimation and correction}
 \label{sec:bg:velocity:scoreinf}
 
-Score-informed velocity estimation assumes that an aligned score is available together with performance audio. Historically, this line of work developed partly because early AMT systems focused on notes and offered limited support for reliable velocity estimation \cite{amt2013ov}. Early systems used hand-designed measurements or parametric estimation strategies \cite{dan2006psy,goebl2003role,szeto2005finding,ewert2011est}. Later work introduced restricted Boltzmann machines, score-informed non-negative matrix factorisation, diffusion-based note-level estimation, and FiLM-conditioned deep models \cite{van2014pred,jeong2017note,jeong2018timbre,kim2023diffvel,kim2023score,kim2024method,simonetta2022acoustics}.
+Score-informed velocity estimation assumes that an aligned score is available together with performance audio. Historically, this line of work developed partly because early AMT systems focused on notes and offered limited support for reliable velocity estimation \cite{amt2013ov}. Related measurement studies characterised the relation between performer action, MIDI velocity, and acoustic output~\cite{dan2006psy,goebl2003role}. Early estimation systems used hand-designed or parametric methods~\cite{szeto2005finding,ewert2011est}. Later work introduced restricted Boltzmann machines, score-informed non-negative matrix factorisation, diffusion-based note-level estimation, and FiLM-conditioned deep models \cite{van2014pred,jeong2017note,jeong2018timbre,kim2023diffvel,kim2023score,kim2024method,simonetta2022acoustics}.
 
 A key pattern in this literature is \emph{feature fusion}. Score information is injected into the acoustic model during feature extraction. This can improve accuracy, but it also ties the score-informed method tightly to a particular backbone. The present thesis instead emphasises \emph{late correction}. A correction module can attach to an existing AMT system and refine its velocity estimate while leaving the backbone largely unchanged. The natural interface for this stance is a note-token representation rather than a dense frame grid: when note events are already known, focusing modelling capacity on the events that actually require correction is more efficient than re-running a full transcription model end to end. This is the design stance developed in Chapter~\ref{ch:scoreinf}, where a score-informed Transformer over note tokens corrects a coarse velocity estimate from a frozen AMT front-end.
 
@@ -537,7 +537,7 @@ Dynamic markings rarely behave as independent frame labels. They form local regi
 \subsection{Beat and downbeat tracking as structural coordinates}
 \label{sec:bg:scoredyn:metrical}
 
-Beat and downbeat tracking has a mature literature. Early deep-learning approaches treated beats and downbeats as jointly modelled targets using recurrent neural networks combined with probabilistic post-processing such as dynamic Bayesian networks \cite{bock2016joint}, an RNN--DBN paradigm that dominated the field for several years. Subsequent work refined this combination with stronger convolutional encoders and tighter post-processing \cite{bock2020deconstruct,zhao2022beat}, while more recent Transformer-based systems further reduce reliance on heavy post-processing \cite{foscarin2024beat}. For this thesis, beat and downbeat tracking is not only a useful auxiliary task. It is the coordinate system that makes score dynamics interpretable, comparable, and writable back to a score, as reflected in the bottom grid of Figure~\ref{fig:bg_temporal_units}.
+Beat and downbeat tracking has a mature literature. Early deep-learning approaches treated beats and downbeats as jointly modelled targets using recurrent neural networks combined with probabilistic post-processing such as dynamic Bayesian networks \cite{bock2016joint}, an RNN--DBN paradigm that dominated the field for several years. Subsequent work introduced temporal convolutional encoders~\cite{bock2020deconstruct} and demixed Transformer encoders with dilated self-attention~\cite{zhao2022beat}, while later Transformer-based systems further reduce reliance on heavy post-processing~\cite{foscarin2024beat}. For this thesis, beat and downbeat tracking is not only a useful auxiliary task. It is the coordinate system that makes score dynamics interpretable, comparable, and writable back to a score, as reflected in the bottom grid of Figure~\ref{fig:bg_temporal_units}.
 
 \subsection{Multi-scale and multi-task formulations}
 \label{sec:bg:scoredyn:joint}
@@ -575,7 +575,7 @@ The implication for dynamics recovery is twofold. First, velocity is not a rende
 \subsection{Differentiable synthesis}
 \label{sec:bg:synth:diff}
 
-Differentiable synthesis was introduced to make audio rendering compatible with gradient-based learning. The DDSP framework expresses a renderer as a small differentiable graph (harmonic-plus-noise oscillators, time-varying filters) whose control signals are predicted by a neural network~\cite{engel2020ddsp,hayes2024ddsp_review}. Loss functions are then applied in the signal or spectral domain, and gradients flow back through the renderer to the network. The same idea has been adapted to specific instruments and rendering goals: MIDI-DDSP couples DDSP with explicit note-level control for expressive performance synthesis~\cite{wu2022mididdsp}, DDSP-Piano specialises the framework to piano timbre with mechanically motivated components~\cite{renault2023ddsp_piano}, and follow-up work extends it to acoustic guitar and other plucked-string instruments~\cite{wiggins2023ddsp_guitar_model,jonason2024guitar}. Beyond DDSP, differentiable approximations to traditional samplers and effects processors have been studied as well~\cite{martinez2021differentiable,shan2022differentiable,simionato2025neuralsample}, and recent work has explored normalising-flow and transformer-based generative renderers in similar settings~\cite{yang2026flowsynth,zang2024synthtab}.
+Differentiable synthesis was introduced to make audio rendering compatible with gradient-based learning. The DDSP framework expresses a renderer as a small differentiable graph (harmonic-plus-noise oscillators, time-varying filters) whose control signals are predicted by a neural network~\cite{engel2020ddsp,hayes2024ddsp_review}. Loss functions are then applied in the signal or spectral domain, and gradients flow back through the renderer to the network. The same idea has been adapted to specific instruments and rendering goals: MIDI-DDSP couples DDSP with explicit note-level control for expressive performance synthesis~\cite{wu2022mididdsp}, DDSP-Piano specialises the framework to piano timbre with mechanically motivated components~\cite{renault2023ddsp_piano}, and follow-up work extends it to acoustic guitar and other plucked-string instruments~\cite{wiggins2023ddsp_guitar_model,jonason2024guitar}. Beyond DDSP, differentiable wavetable synthesis, sample-based synthesis, and approximations to black-box effects have also been studied~\cite{shan2022differentiable,simionato2025neuralsample,martinez2021differentiable}. Recent work uses distributional flow matching for virtual-instrument generation~\cite{yang2026flowsynth}. Separately, SynthTab uses commercial guitar plugins to create synthetic training data for guitar tablature transcription~\cite{zang2024synthtab}.
 
 For dynamics recovery, the appeal is direct. A differentiable renderer turns the velocity-to-audio mapping into a learnable layer. A model can predict velocity, render the resulting audio, and back-propagate a reconstruction error. This makes velocity-relevant supervision possible even when direct note-level labels are absent. The cost is also direct: differentiable renderers are not free reproductions of every commercial synthesiser. They tend to specialise to one instrument family, and their fidelity to real recordings depends on how much of the timbral, recording-chain, and room behaviour the renderer captures. The choice of differentiable renderer therefore conditions what the downstream model can plausibly learn.
 
@@ -591,7 +591,7 @@ For expressive AMT, this strategy is attractive but delicate. It makes label-sca
 \section{Datasets, Evaluation, and Reproducibility Constraints}
 \label{sec:bg:dataeval}
 
-The empirical claims of this thesis are conditioned on what each available dataset can support. Table~\ref{tab:dataset_comparison} summarises the representative corpora relevant to expressive label recovery, listing their instrument coverage, scale, and which expressive modalities (MIDI velocity, score, and score dynamics) are actually available. The discussion that follows turns these modality differences into chapter-specific constraints.
+The empirical claims of this thesis are conditioned on what each available dataset can support. Table~\ref{tab:dataset_comparison} summarises the representative corpora relevant to expressive label recovery, listing their instrument coverage, scale, and which expressive modalities (MIDI velocity, score, and score dynamics) are actually available. The MIDI column also includes note annotations that can be converted to MIDI, such as the JAMS annotations in GuitarSet. The discussion that follows turns these modality differences into chapter-specific constraints.
 
 \begin{table}[!htbp]
 \centering
@@ -658,16 +658,16 @@ ASAP \cite{foscarin2020asap}
 \addlinespace[2pt]
 MAESTRO v3 \cite{hawthorne2019maestro}
 & piano
-& 172
+& 198.7
 & 1276
-& 864
+& n/a.
 & \cmark
 & \cmark
 & \xmark
 & \xmark \\
 \addlinespace[4pt]
 \multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
-{\hspace{1em}\cmark\ High-quality piano dataset, recorded on Yamaha Disklavier pianos.} \\
+{\hspace{1em}\cmark\ High-quality piano dataset, recorded on Yamaha Disklavier pianos; statistics use the official v3 metadata. Composition count is omitted because metadata titles are not resolved work identities.} \\
 \addlinespace[2pt]
 \midrule
 
@@ -699,7 +699,7 @@ MAPS \cite{maps}
 & \xmark \\
 \addlinespace[4pt]
 \multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
-{\hspace{1em} \cmark Count only ENSTDkAm and ENSTDkCl subsets (solo piano, Yamaha Disklavier).} \\
+{\hspace{1em} \cmark Counts describe the 270 MUSIC recordings across all nine recording conditions, including synthesised pianos and the Yamaha Disklavier ENSTDkAm/ENSTDkCl subsets.} \\
 \addlinespace[2pt]
 \midrule
 
@@ -779,7 +779,7 @@ GuitarSet \cite{xi2018guitarset}
 & \xmark \\
 \addlinespace[4pt]
 \multicolumn{9}{>{\raggedright\arraybackslash}p{\dimexpr\textwidth-2\tabcolsep\relax}}
-{\hspace{1em}\cmark\ Good quality electric guitar dataset.} \\
+{\hspace{1em}\cmark\ Acoustic guitar recorded with a hexaphonic pickup and a microphone.} \\
 \addlinespace[2pt]
 \midrule
 
