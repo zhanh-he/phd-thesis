@@ -1,0 +1,5 @@
+.DS_Store
+.venv/
+.claudeprism/
+__pycache__/
+*.pyc
