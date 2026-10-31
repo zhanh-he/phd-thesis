@@ -1,0 +1,12 @@
+{
+  "source_snapshot_files": 12,
+  "changed_source_files": [],
+  "passages": 20,
+  "unique_non_insertion_originals": true,
+  "N01_C2_minimal_repair_applied": true,
+  "table_values_unchanged": true,
+  "old_recommendations_modified": false,
+  "author_decisions_modified": false,
+  "experiments_run": false,
+  "external_apis_or_uploads": false
+}

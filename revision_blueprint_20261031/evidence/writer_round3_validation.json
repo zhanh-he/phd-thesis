@@ -1,0 +1,55 @@
+{
+  "phase": "writer round3 frozen pending final targeted independent check",
+  "source_files_checked": 128,
+  "source_hash_mismatches": [],
+  "protected_history_hashes": {
+    "writer_round1.md": "ef6c0d0c8e0c0e55bd1fdd4c032fc9816a8050313f11ca02bdd8244859a5dcaf",
+    "writer_working.md": "4fefce6703c8d7e24ceb319d07adf6da130d1c35a6a481b3f47b7b16c7708adf",
+    "writer_round2.md": "2e0430427a9ed337cb7a8734374b38dcdc999d4d884bdac318cced097ad6e627",
+    "writer_round2_changes.md": "ace8a70970a0cc30386cab08c8d3764b5e2ea3937294797883d75d800fa137fa",
+    "SOURCES.md": "aef54e4c2c6aee498d99f2bb7c9719680dc81c71a12f11ac55dfb8dbdceab064",
+    "COMMENT_MAP.md": "f8c9f9357f17d1060fb294e31196e3e846411369ede5518bb868fdb194ee7d18",
+    "ID_CROSSWALK.md": "7a371efb1b5ed54706a1ee376bf24b6c522418c2fdd9c8bdd4d00290a0d95d20",
+    "WRITER_HANDOFF.md": "ec0566434ff40f4344962edc766fe0b20661c3c018f272896d19624774bfd2ed",
+    "PAPER_RENAME_MAP.md": "0cba4c317a1480a5fac9c0649a2b8e2d5767344afe27a0c184491accea0e943f",
+    "evidence/writer_candidates_round1.json": "878437b12c8ac3cf5b2676394f0c161e74b37da925aeb366ebac0bb0ec5c2be6",
+    "evidence/writer_candidates_round2.json": "33bf89067848eb69f63347a43f72176cdd7f8aea73ef3ae3476ec085b9985bf3",
+    "evidence/writer_round1_validation.json": "8c4013ac00914b1c820d468b8c5aa7c1f5510b46e3b2ffd85db5485e087ec1ba",
+    "evidence/writer_round2_validation.json": "7fa32fdf5cff512240bb04b51e1c3790ed5af5b71679b7cfab19447a8c8ec2c4"
+  },
+  "all_protected_history_unchanged": true,
+  "canonical_items": 43,
+  "local_candidate_routes": 97,
+  "local_candidate_variants_identical_to_round2": true,
+  "substantive_candidate_changes": [
+    "F11a delete unsupported final sentence in source chap6.tex:431 assembled proposal",
+    "F11b modal risk in source chap6.tex:457 assembled proposal"
+  ],
+  "editorial_cleanup": [
+    "R1-31C current evaluation",
+    "R1-38C current evaluation",
+    "distinct 10s occurrences at 71 and 358"
+  ],
+  "numeric_observations_preserved": [
+    "0.083",
+    "0.01",
+    "2s",
+    "5s"
+  ],
+  "ready_for_author_choice_from_round2": 38,
+  "evidence_blocked": [
+    "R1-13",
+    "R1-21",
+    "R1-26",
+    "R1-30"
+  ],
+  "targeted_check_pending": [
+    "R1-33"
+  ],
+  "round2_md_sha256": "2e0430427a9ed337cb7a8734374b38dcdc999d4d884bdac318cced097ad6e627",
+  "round3_md_sha256": "1a658584d35ee50580dd2dfd6eb9d0afdac1b573404edbacf3e475a79250c75e",
+  "round3_json_sha256": "de9b73e37393623e8b2d1b2361185f8049fcdf4ce735ec62fba55c0d775a2b79",
+  "diff_sha256": "d5cb8eae540fd898f9156631b5559551c402191c729c86083ca5d4dd703eee82",
+  "source_thesis_edits": false,
+  "independent_targeted_verification_completed": false
+}

@@ -1,0 +1,118 @@
+{
+  "comparedTo": "revision_blueprint_20261031/evidence/source_sha256.json",
+  "files": [
+    {
+      "path": "Abbreviations/abbreviation.tex",
+      "sha256": "a5774d564dcf3ca8ba3cfbd80eebf4018c8b30989b0f6ae39810c525f095173d",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Acknowledgments/acknowledgements.tex",
+      "sha256": "cd26f714612dce13d34f3a7061d672363dbb001dffe41648dbdc71203e7e51f6",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Chapter_1/Intro.tex",
+      "sha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Chapter_2/Background.tex",
+      "sha256": "f9f847a8d09557536798e776d60d80de16fb6ba6435afdbcbffaaf938ac7dffb",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Chapter_3/chap3.tex",
+      "sha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Chapter_4/chap4.tex",
+      "sha256": "d3ba02f332041ea4e6e8c89fe342fdf560bd9edda1caafcd4b7c9fb651226eb8",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Chapter_5/chap5.tex",
+      "sha256": "60219fbeac5ebb0d2e70be7de2bbf6028c1e1916bf35c3626f0b5d872432e6fe",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Chapter_6/chap6.tex",
+      "sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Chapter_7/Conclusion.tex",
+      "sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Declaration/author_declaration.tex",
+      "sha256": "9d66129761a6d72b5370a489269dc61ea61d522107e1ec31e24370be32948063",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Declaration/declaration.tex",
+      "sha256": "75f74772746be99da7fc9e67efcfa0408ca13e10bf58e4e3e8dc1d6e4d7d5b57",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf",
+      "sha256": "28ad09550e7a47eff77693476db82d4d4d9a71ad5557871cfb27c72200ed63a4",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf",
+      "sha256": "c9d8a2a843e3c9cd167e751ed0dec8f7cd7ca757a6a8fabea2abc747b1c61020",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "Z_He_PhD_Thesis.pdf",
+      "sha256": "cbfcfca09364f85a7f6fcef186114054bfa8c494a87d26271091911a9064de07",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "casm.bib",
+      "sha256": "e787436aa31f737e54ac125e5bd0e47b575353388fc2a2628f05126ad7e2a438",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "main.pdf",
+      "sha256": "8cb8dbe9d560980e003148e442cdeae53e7a97495dcee695b8a58df9a0719bb8",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "main.tex",
+      "sha256": "a55546f7a41c9210f1ecebae71a2167f86e0fb93ddbf96797ba03c1ea270fd39",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "publish_paper/2025_CMMR_MIDI_Velocity_Colorizer.pdf",
+      "sha256": "fdffb60df941a5fd66d6497365d778d4f45d0c15be96a7f30ff8f9e58d838d28",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "publish_paper/2026_ICASSP_Dynamics_Metrical_Structure.pdf",
+      "sha256": "a93d246b18af61363483697f0135d92ac5611756bf929ae4bc48c46982c516a2",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "publish_paper/2026_ISMIR_Cross_Instrument_Velocity.pdf",
+      "sha256": "2b081d2c1636dc0453c7ab2a69ac23a3d2e570eef0ea93634a9aa9e2751fadf2",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "publish_paper/2026_SMC_Score_Informed_Velocity.pdf",
+      "sha256": "7bafa56d60ff5101712aec687fbd4165b75c7cebec8c8c9173cb64b3afd3fdc7",
+      "matchesEarlierSourceManifest": true
+    },
+    {
+      "path": "reference.bib",
+      "sha256": "0f171e7d67c82e44fa2bc2f292aa5f1e5a3ec470de1a86f754ff907c045c5573",
+      "matchesEarlierSourceManifest": true
+    }
+  ],
+  "allMatch": true,
+  "currentLedgerSha256": "f4489e74df68177519e62d3a94504bf01549cc8d42856f68a4644fd7b0cce6b8",
+  "scope": "earlier source manifest; current ledger hash recorded, no ledger write performed"
+}

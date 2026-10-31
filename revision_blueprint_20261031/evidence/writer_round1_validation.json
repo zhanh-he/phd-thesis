@@ -1,0 +1,19 @@
+{
+  "phase": "writer first round ready for independent candidate review",
+  "source_files_checked": 128,
+  "source_hash_mismatches": [],
+  "report1_unique_author_responses": 25,
+  "report1_normalized_response_matches": 25,
+  "actionable_R1": 38,
+  "actionable_R2": 5,
+  "substantive_ABC_items": 27,
+  "complete_candidate_prose_alternatives": 81,
+  "discarded_microdrafts_with_reasons": 162,
+  "simple_or_merged_or_retained_items": 16,
+  "original_excerpt_and_line_checks": 75,
+  "model_effort_verified": false,
+  "renamed_paper_bytes_preserved": true,
+  "source_thesis_edits": false,
+  "new_experiments": false,
+  "completed_independent_candidate_review_rounds": 0
+}

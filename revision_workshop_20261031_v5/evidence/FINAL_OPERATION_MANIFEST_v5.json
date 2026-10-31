@@ -1,0 +1,584 @@
+{
+  "operations": [
+    {
+      "id": "T01",
+      "file": "Chapter_1/Intro.tex",
+      "start": 15368,
+      "end": 15368,
+      "new": "\n\nHere, weakly expressive data retain note content and timing but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\\ref{ch:beyondpiano}. These conditions can overlap.\n\n",
+      "kind": "insertion"
+    },
+    {
+      "id": "T02",
+      "file": "Chapter_1/Intro.tex",
+      "start": 16926,
+      "end": 16926,
+      "new": "\n\nChapter~\\ref{ch:beyondpiano} extends S2 to guitar when target-domain velocity labels are unavailable. It retains the score-informed estimator and aligned note events. Audio-only velocity adaptation remains future work; S3 instead targets score dynamics.\n\n",
+      "kind": "insertion"
+    },
+    {
+      "id": "T03",
+      "file": "Chapter_3/chap3.tex",
+      "start": 2903,
+      "end": 3416,
+      "new": "We use a piano roll to place simultaneous notes and local pitch--time neighbourhoods on a regular grid for the convolutional U-Net. The input is binary; the single-channel output supplies velocity values, so colourisation is an analogy for adding dynamics to existing notes. A note-list representation would require a different model interface \\cite{he2025filling,kim2024method}.",
+      "kind": "replacement"
+    },
+    {
+      "id": "T04",
+      "file": "Chapter_4/chap4.tex",
+      "start": 9449,
+      "end": 9449,
+      "new": "\n\nNote detection and velocity estimation may benefit from joint modelling, but this chapter evaluates velocity at supplied note onsets and does not test that benefit.\n\n",
+      "kind": "insertion"
+    },
+    {
+      "id": "T05",
+      "file": "Chapter_5/chap5.tex",
+      "start": 5129,
+      "end": 5129,
+      "new": "\n\nChanges in the predicted level sequence could also define boundaries. The separate change-point head instead learns an explicit boundary target, while the level head predicts the dynamic state.\n\n",
+      "kind": "insertion"
+    },
+    {
+      "id": "T06",
+      "file": "Chapter_6/chap6.tex",
+      "start": 6011,
+      "end": 6580,
+      "new": "This chapter instead adapts a piano-pretrained estimator using real performance audio, without requiring target-domain velocity labels. A differentiable renderer or proxy supplies the training signal. Its match to the target recordings remains a limitation.",
+      "kind": "replacement"
+    },
+    {
+      "id": "T07",
+      "file": "Chapter_6/chap6.tex",
+      "start": 17773,
+      "end": 18185,
+      "new": "The waveform interface supplies gradients through a differentiable approximation of the instrument. Its timbre and velocity response may differ from the target recordings. The observed degradation is consistent with this mismatch, but reconstruction fidelity and velocity-gradient accuracy were not measured separately on the target recordings.",
+      "kind": "replacement"
+    },
+    {
+      "id": "T08",
+      "file": "Chapter_1/Intro.tex",
+      "start": 20275,
+      "end": 20491,
+      "new": "Chapters 3--6 are based on the four co-authored studies listed in the Authorship Declaration. The thesis brings them together through a common label-recovery question, a shared account of dynamics representations, and the cross-chapter discussion of assumptions and limitations in Chapter~\\ref{ch:conclusion}.",
+      "kind": "replacement"
+    },
+    {
+      "id": "T09",
+      "file": "Chapter_7/Conclusion.tex",
+      "start": 15425,
+      "end": 15919,
+      "new": "Second, the strongest direct supervision remains piano-based. Chapter~\\ref{ch:beyondpiano} extends the approach to guitar using renderer-conditioned velocity and loudness-based evaluation. Voice, bowed strings, and wind instruments were not evaluated; their sustained and continuous controls would require targets and acoustic descriptors beyond the attack-focused PHE/OSF pair.",
+      "kind": "replacement"
+    },
+    {
+      "id": "T10",
+      "file": "Chapter_3/chap3.tex",
+      "start": 31463,
+      "end": 32006,
+      "new": "U-Net received higher mean similarity ratings than Flat and ConvAE on the selected excerpts, while Flat received the lowest ratings, consistent with earlier findings on default velocity \\cite{kuo2021velocity}. The listening study provides supplementary perceptual evidence from 11 expert listeners, eight selected SMD excerpts, and one PianoTeq rendering configuration. The composer-group scores are descriptive rather than a controlled comparison of stylistic effects.",
+      "kind": "replacement"
+    },
+    {
+      "id": "N01",
+      "file": "Chapter_6/chap6.tex",
+      "start": 57271,
+      "end": 57719,
+      "new": "Both similarity metrics score GT above flat velocity in this diagnostic. Their numerical GT--flat gaps do not by themselves establish which metric is more sensitive to dynamics.",
+      "kind": "replacement"
+    },
+    {
+      "id": "N02",
+      "file": "Chapter_6/chap6.tex",
+      "start": 57721,
+      "end": 58239,
+      "new": "Changing from Salamander to YDP retains the GT notes and velocities but changes their rendered sound. This comparison tests the renderer change as a whole, rather than gain alone.",
+      "kind": "replacement"
+    },
+    {
+      "id": "T11",
+      "file": "Chapter_6/chap6.tex",
+      "start": 19371,
+      "end": 19623,
+      "new": "We chose Huber for its smooth gradients near zero and L1-like penalty for large residuals. We have not established an advantage over MAE.",
+      "kind": "replacement"
+    },
+    {
+      "id": "N03",
+      "file": "Chapter_6/chap6.tex",
+      "start": 58241,
+      "end": 58601,
+      "new": "For label-free guitar evaluation, we use Pearson $r$ on BSSL/BSTL to measure rendered loudness-contour agreement while reducing dependence on absolute level. In the piano diagnostic, it scores GT above flat velocity under both tested SoundFonts. Cosine similarity and MAE are retained as complementary diagnostics.",
+      "kind": "replacement"
+    },
+    {
+      "id": "N04",
+      "file": "Chapter_2/Background.tex",
+      "start": 75311,
+      "end": 75380,
+      "new": "so renderer mismatch can divert the gradient from velocity-relevant differences.",
+      "kind": "replacement"
+    },
+    {
+      "id": "N05a",
+      "file": "Chapter_7/Conclusion.tex",
+      "start": 14701,
+      "end": 14912,
+      "new": "The thesis has several boundaries.",
+      "kind": "replacement"
+    },
+    {
+      "id": "N05b",
+      "file": "Chapter_7/Conclusion.tex",
+      "start": 17472,
+      "end": 17612,
+      "new": "The results suggest several directions for future research.",
+      "kind": "replacement"
+    },
+    {
+      "id": "N05c",
+      "file": "Chapter_7/Conclusion.tex",
+      "start": 16794,
+      "end": 16957,
+      "new": "These assumptions define the conditions for the label-recovery tasks studied here.",
+      "kind": "replacement"
+    },
+    {
+      "id": "N06a",
+      "file": "Chapter_3/chap3.tex",
+      "start": 7633,
+      "end": 7841,
+      "new": "",
+      "kind": "replacement"
+    },
+    {
+      "id": "N06b",
+      "file": "Chapter_3/chap3.tex",
+      "start": 25732,
+      "end": 25909,
+      "new": "",
+      "kind": "replacement"
+    },
+    {
+      "id": "V4-velocity-1",
+      "file": "Chapter_1/Intro.tex",
+      "start": 10379,
+      "end": 11121,
+      "new": "Here, MIDI velocity refers to the velocity value in a Note On message. It is a machine-readable control parameter. In sensor-equipped piano data, the recorded value acts as a discretised proxy for key or hammer motion. Each note carries an integer value that can be edited independently, although its acoustic effect depends on the instrument and renderer. When expressive values are missing, a MIDI sequence may instead use a constant such as 64.",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-velocity-2",
+      "file": "Chapter_1/Intro.tex",
+      "start": 8171,
+      "end": 8220,
+      "new": "an editable note-level control",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-velocity-3",
+      "file": "Chapter_1/Intro.tex",
+      "start": 5491,
+      "end": 5619,
+      "new": "a gap remains between machine-readable control values (MIDI velocity) and context-dependent musical notation (score dynamics)",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-velocity-4",
+      "file": "Chapter_1/Intro.tex",
+      "start": 6895,
+      "end": 7020,
+      "new": "using note-level controls (e.g., MIDI velocity) and contextual notation (e.g., score dynamic markings)",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-velocity-5",
+      "file": "Chapter_1/Intro.tex",
+      "start": 9981,
+      "end": 10016,
+      "new": "\\makecell[l]{Note-level\\\\control}",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-velocity-6",
+      "file": "Chapter_1/Intro.tex",
+      "start": 12836,
+      "end": 12873,
+      "new": "a machine-readable control parameter",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-velocity-7",
+      "file": "Chapter_1/Intro.tex",
+      "start": 13061,
+      "end": 13157,
+      "new": "bridge acoustic observations, performance controls, and musical notation",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-velocity-8",
+      "file": "Chapter_1/Intro.tex",
+      "start": 11725,
+      "end": 11924,
+      "new": "",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-scope-1",
+      "file": "Chapter_1/Intro.tex",
+      "start": 15757,
+      "end": 15919,
+      "new": "Finally, \\textbf{Scenario S3} uses an \\textit{audio-only} input to jointly estimate dynamic markings and the metrical coordinates needed for a \\textit{score-facing} output.",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-scope-2",
+      "file": "Chapter_1/Intro.tex",
+      "start": 18109,
+      "end": 18473,
+      "new": "\\item \\textbf{Exploration beyond the piano.} Chapter~\\ref{ch:beyondpiano} explores note-level velocity estimation for guitar using indirect supervision. Large-scale non-piano score-dynamics transcription with human labels remains outside the scope of this thesis.",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-motivation",
+      "file": "Chapter_1/Intro.tex",
+      "start": 6064,
+      "end": 6279,
+      "new": "By estimating missing dynamics on existing corpora, we can reduce the need for new data collection and make those corpora more useful for music research.",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-S1-opening",
+      "file": "Chapter_3/chap3.tex",
+      "start": 454,
+      "end": 840,
+      "new": "This chapter addresses Scenario S1, where only symbolic information is available. Here the symbolic notes and their timing are already known, but the note-level velocity is missing, flattened, or musically uninformative. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-R1-15-sync-1",
+      "file": "Chapter_3/chap3.tex",
+      "start": 4067,
+      "end": 4129,
+      "new": "This chapter studies the symbolic-only setting in that map:",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-R1-15-sync-2",
+      "file": "Chapter_3/chap3.tex",
+      "start": 33775,
+      "end": 33850,
+      "new": "This chapter studied expressive-label recovery without acoustic input:",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-R1-15-sync-3",
+      "file": "Chapter_7/Conclusion.tex",
+      "start": 5366,
+      "end": 5436,
+      "new": "The first method contribution addresses the symbolic-only setting:",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-R1-15-sync-4",
+      "file": "Chapter_1/Intro.tex",
+      "start": 15920,
+      "end": 16059,
+      "new": "These settings form the core empirical arc of the thesis by varying both the available evidence and the target representation.",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-R2-04-sync-1",
+      "file": "main.tex",
+      "start": 5269,
+      "end": 5372,
+      "new": "the results are assessed through cross-dataset objective metrics and a MUSHRA-inspired listening test.",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-R2-04-sync-2",
+      "file": "Chapter_3/chap3.tex",
+      "start": 33173,
+      "end": 33260,
+      "new": "the listening study provides complementary evidence of greater perceived similarity to the reference on the selected stimuli.",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-R2-04-sync-3",
+      "file": "Chapter_1/Intro.tex",
+      "start": 20720,
+      "end": 20916,
+      "new": "It shows that velocity completion can improve expressive rendering on fixed symbolic notes, supported by objective evaluation and the listening study.",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-R2-04-sync-4",
+      "file": "Chapter_7/Conclusion.tex",
+      "start": 6125,
+      "end": 6216,
+      "new": "and the listening study supports an improvement over Flat and ConvAE on the selected excerpts.",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-R1-33-common-1",
+      "file": "Chapter_6/chap6.tex",
+      "start": 7324,
+      "end": 7991,
+      "new": "Two limitations of waveform-level supervision are relevant here. First, a Diff-Synth only approximates the real instrument; its waveform statistics differ from real recordings in timbre, articulation, microphone response, and room acoustics. A waveform or spectral loss can be influenced by residual mismatch as well as velocity-dependent behaviour. Second, an instrument-specific Diff-Synth requires a dedicated design: piano-oriented synthesisers expect piano-specific controls such as pedal state, while guitar-oriented synthesisers expect string-wise trajectories. Reusing one Diff-Synth across instruments is therefore impractical.",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-R1-33-common-2",
+      "file": "Chapter_6/chap6.tex",
+      "start": 49568,
+      "end": 50261,
+      "new": "Third, the asymmetry between the two adaptation interfaces widens with crop length. On FL dataset, Diff-Synth's $r_{\\mathrm{BSSL}}$ falls by $0.083$ when moving from $2$\\,s to $5$\\,s, while Diff-SFProxy's $r_{\\mathrm{BSSL}}$ varies within $0.01$. The crop-length pattern is consistent with greater exposure of the waveform objective to acoustic mismatch, but the present comparison does not isolate that mechanism.",
+      "kind": "dependency"
+    },
+    {
+      "id": "V4-R1-33-common-3",
+      "file": "Chapter_6/chap6.tex",
+      "start": 53359,
+      "end": 54069,
+      "new": "Velocity is not the only MIDI control that shapes rendered dynamics: continuous controllers can also encode within-note loudness variation~\\cite{ryu2024midfild}. Pedal settings and room response also affect the synthesised piano waveform and are explicitly modelled by DDSP-Piano~\\cite{renault2023ddsp_piano}. Consequently, when adaptation updates only velocity, the velocity gradient can become entangled with residuals caused by fixed or unobserved controls. Diff-SFProxy restricts the adapted control to velocity, but this does not remove effects of unobserved controls from the target audio. The recovered velocity may therefore absorb effects that, in the real performance, came from other parallel controls.",
+      "kind": "dependency"
+    },
+    {
+      "id": "N07",
+      "file": "Chapter_6/chap6.tex",
+      "start": 55489,
+      "end": 57269,
+      "new": "\\begin{table}[!ht]\n\\caption{MAESTRO metric diagnostic. Real audio is compared with GT-note resynthesis using GT or flat velocity under the Salamander (default) or YDP Grand Piano. Summary rows show GT-Flat separation and SoundFont drift.}\n\\label{tab:bp_metric_diagnostic}\n\\centering\n\\fontsize{11pt}{13pt}\\selectfont\n\\setlength{\\tabcolsep}{11pt}\n\\renewcommand{\\arraystretch}{1.2}\n\\begin{tabular}{l||ccc|ccc}\n\\toprule\n\\multicolumn{1}{c||}{\\multirow{3}{*}{\\textbf{Method}}}\n& \\multicolumn{6}{c}{\\textbf{MAESTRO test set}} \\\\\n\\cmidrule(l){2-7}\n& \\multicolumn{3}{c|}{\\textbf{BSSL}} & \\multicolumn{3}{c}{\\textbf{BSTL}} \\\\\n\\cmidrule(lr){2-4} \\cmidrule(l){5-7}\n& $r$ & $cs$ & MAE & $r$ & $cs$ & MAE \\\\\n\\midrule\n\\textbf{GT velocity}            & 0.870 & 0.939 & 0.702 & 0.883 & 0.975 & 3.706 \\\\\n\\,-\\, uses YDP Piano            & 0.836 & 0.926 & 0.510 & 0.872 & 0.973 & 1.983 \\\\\n$\\Delta\\lvert$Sal.\\,$-$\\,YDP$\\rvert$ $\\downarrow$\n                                & 0.034 & 0.013 & 0.193\n                                & 0.011 & 0.002 & 1.723 \\\\\n\\midrule\n\\textbf{Flat velocity = 64}     & 0.752 & 0.887 & 0.786 & 0.620 & 0.928 & 4.065 \\\\\n\\,-\\, uses YDP Piano            & 0.733 & 0.883 & 0.637 & 0.617 & 0.930 & 2.750 \\\\\n$\\Delta\\lvert$Sal.\\,$-$\\,YDP$\\rvert$ $\\downarrow$\n                                & 0.019 & 0.004 & 0.149\n                                & 0.003 & 0.002 & 1.314 \\\\\n\\midrule\n\\textbf{$\\Delta$ (GT $-$ Flat)}\n                                & +0.118 & +0.052 & -0.083\n                                & +0.263 & +0.047 & -0.359 \\\\\n\\bottomrule\n\\end{tabular}\n\\end{table}",
+      "kind": "replacement"
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "V4-velocity-1",
+      "file": "Chapter_1/Intro.tex",
+      "line": 89,
+      "old": "Originating from the physical sensors of electronic keyboards and pianos, MIDI velocity is a machine-centric measurement of physical intensity. To say it operates as a \"note-level\" parameter means that every music note from a discrete key strike is assigned an independent, static integer representing its initial strike force. This strict per-note measurement dictates that velocity functions as a discrete loudness control parameter. It is highly granular and absolute within its own scale, yet the resulting loudness highly depends on the acoustic environment and the specific instrument being played. Because MIDI velocity is necessary for MIDI-to-audio playback in DAWs and synthesisers, a common default is set to 64 when it is missing.",
+      "new": "Here, MIDI velocity refers to the velocity value in a Note On message. It is a machine-readable control parameter. In sensor-equipped piano data, the recorded value acts as a discretised proxy for key or hammer motion. Each note carries an integer value that can be edited independently, although its acoustic effect depends on the instrument and renderer. When expressive values are missing, a MIDI sequence may instead use a constant such as 64.",
+      "origin": "SUPPLEMENTS_v4.md §1",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-velocity-2",
+      "file": "Chapter_1/Intro.tex",
+      "line": 62,
+      "old": "a universal loudness variable for all instruments",
+      "new": "an editable note-level control",
+      "origin": "SUPPLEMENTS_v4.md §1",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-velocity-3",
+      "file": "Chapter_1/Intro.tex",
+      "line": 43,
+      "old": "a deep semantic gap exists between physical machine measurements (MIDI velocity) and subjective human cognition (score dynamics)",
+      "new": "a gap remains between machine-readable control values (MIDI velocity) and context-dependent musical notation (score dynamics)",
+      "origin": "SUPPLEMENTS_v4.md §1",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-velocity-4",
+      "file": "Chapter_1/Intro.tex",
+      "line": 53,
+      "old": "bridging physical machine measurements (e.g., MIDI velocity) with semantic cognitive notations (e.g., score dynamic markings)",
+      "new": "using note-level controls (e.g., MIDI velocity) and contextual notation (e.g., score dynamic markings)",
+      "origin": "SUPPLEMENTS_v4.md §1",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-velocity-5",
+      "file": "Chapter_1/Intro.tex",
+      "line": 82,
+      "old": "\\makecell[l]{Physical\\\\measurement}",
+      "new": "\\makecell[l]{Note-level\\\\control}",
+      "origin": "SUPPLEMENTS_v4.md §1",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-velocity-6",
+      "file": "Chapter_1/Intro.tex",
+      "line": 100,
+      "old": "a machine-centric, physical parameter",
+      "new": "a machine-readable control parameter",
+      "origin": "SUPPLEMENTS_v4.md §1",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-velocity-7",
+      "file": "Chapter_1/Intro.tex",
+      "line": 100,
+      "old": "bridge the fundamental gap between objective physical measurement and subjective human cognition",
+      "new": "bridge acoustic observations, performance controls, and musical notation",
+      "origin": "SUPPLEMENTS_v4.md §1",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-velocity-8",
+      "file": "Chapter_1/Intro.tex",
+      "line": 92,
+      "old": "In symbolic environments, the default assumption is often that missing score dynamics should be filled with \\textit{mf} (mezzo-forte), which is the neutral middle ground of human perceptual loudness.",
+      "new": "",
+      "origin": "SUPPLEMENTS_v4.md §1",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-scope-1",
+      "file": "Chapter_1/Intro.tex",
+      "line": 118,
+      "old": "Finally, \\textbf{Scenario S3} removes structural support entirely, tackling the fully open, \\textit{audio-only} setting to recover a \\textit{score-facing} target.",
+      "new": "Finally, \\textbf{Scenario S3} uses an \\textit{audio-only} input to jointly estimate dynamic markings and the metrical coordinates needed for a \\textit{score-facing} output.",
+      "origin": "SUPPLEMENTS_v4.md §2",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-scope-2",
+      "file": "Chapter_1/Intro.tex",
+      "line": 153,
+      "old": "\\item \\textbf{Exploration beyond the piano.} Extending velocity estimation beyond the piano is recognised as an important direction to counter the dataset bias in expressive AMT. However, large-scale non-piano score-dynamics transcription with human labels remains outside the scope of the core scenarios, and will only be investigated as an exploratory extension.",
+      "new": "\\item \\textbf{Exploration beyond the piano.} Chapter~\\ref{ch:beyondpiano} explores note-level velocity estimation for guitar using indirect supervision. Large-scale non-piano score-dynamics transcription with human labels remains outside the scope of this thesis.",
+      "origin": "SUPPLEMENTS_v4.md §2",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-motivation",
+      "file": "Chapter_1/Intro.tex",
+      "line": 45,
+      "old": "By retroactively estimating missing dynamics on existing corpora, we entirely bypass acquisition bottlenecks and annotation ambiguities, unlocking a vast, previously untapped resource for data-driven music research.",
+      "new": "By estimating missing dynamics on existing corpora, we can reduce the need for new data collection and make those corpora more useful for music research.",
+      "origin": "SUPPLEMENTS_v4.md §3",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-S1-opening",
+      "file": "Chapter_3/chap3.tex",
+      "line": 13,
+      "old": "This chapter addresses Scenario~S1, the most controlled setting in the thesis map. Here the symbolic notes and their timing are already known, but the note-level velocity is missing, flattened, or musically uninformative. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?",
+      "new": "This chapter addresses Scenario S1, where only symbolic information is available. Here the symbolic notes and their timing are already known, but the note-level velocity is missing, flattened, or musically uninformative. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?",
+      "origin": "writer_round3.md R1-15 A",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-R1-15-sync-1",
+      "file": "Chapter_3/chap3.tex",
+      "line": 31,
+      "old": "This chapter studies the most constrained setting in that map:",
+      "new": "This chapter studies the symbolic-only setting in that map:",
+      "origin": "writer_round3.md R1-15 exact synchronisation",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-R1-15-sync-2",
+      "file": "Chapter_3/chap3.tex",
+      "line": 465,
+      "old": "This chapter studied the most controlled form of expressive-label recovery:",
+      "new": "This chapter studied expressive-label recovery without acoustic input:",
+      "origin": "writer_round3.md R1-15 exact synchronisation",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-R1-15-sync-3",
+      "file": "Chapter_7/Conclusion.tex",
+      "line": 48,
+      "old": "The first method contribution establishes the most controlled setting:",
+      "new": "The first method contribution addresses the symbolic-only setting:",
+      "origin": "writer_round3.md R1-15 exact synchronisation",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-R1-15-sync-4",
+      "file": "Chapter_1/Intro.tex",
+      "line": 118,
+      "old": "By intentionally ordering these environments from the tightly constrained to the ambiguous, they form the core empirical arc of the thesis.",
+      "new": "These settings form the core empirical arc of the thesis by varying both the available evidence and the target representation.",
+      "origin": "writer_round3.md R1-15 exact synchronisation",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-R2-04-sync-1",
+      "file": "main.tex",
+      "line": 138,
+      "old": "the results are validated through cross-dataset objective metrics and a MUSHRA-inspired listening test.",
+      "new": "the results are assessed through cross-dataset objective metrics and a MUSHRA-inspired listening test.",
+      "origin": "writer_round3.md R2-04 exact synchronisation",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-R2-04-sync-2",
+      "file": "Chapter_3/chap3.tex",
+      "line": 457,
+      "old": "the listening test verifies that the recovered layer changes perceived musical quality.",
+      "new": "the listening study provides complementary evidence of greater perceived similarity to the reference on the selected stimuli.",
+      "origin": "writer_round3.md R2-04 exact synchronisation",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-R2-04-sync-3",
+      "file": "Chapter_1/Intro.tex",
+      "line": 181,
+      "old": "Supported by listening tests, it demonstrates that recovering a decoupled expressive layer on fixed symbolic notes is enough to transform a mechanical MIDI sequence into an expressive performance.",
+      "new": "It shows that velocity completion can improve expressive rendering on fixed symbolic notes, supported by objective evaluation and the listening study.",
+      "origin": "writer_round3.md R2-04 exact synchronisation; evaluator external C2 repairs composed Supported repetition",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-R2-04-sync-4",
+      "file": "Chapter_7/Conclusion.tex",
+      "line": 50,
+      "old": "yet the listening test shows a clear improvement over flat and sequence-oriented baselines.",
+      "new": "and the listening study supports an improvement over Flat and ConvAE on the selected excerpts.",
+      "origin": "writer_round3.md R2-04 exact synchronisation",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-R1-33-common-1",
+      "file": "Chapter_6/chap6.tex",
+      "line": 36,
+      "old": "Two limitations of waveform-level supervision are relevant here. First, a Diff-Synth only approximates the real instrument; its waveform statistics differ from real recordings in timbre, articulation, microphone response, and room acoustics. A waveform or spectral loss therefore spends much of its gradient budget on residual mismatch rather than on velocity-dependent behaviour. Second, an instrument-specific Diff-Synth requires a dedicated design: piano-oriented synthesisers expect piano-specific controls such as pedal state, while guitar-oriented synthesisers expect string-wise trajectories. Reusing one Diff-Synth across instruments is therefore impractical.",
+      "new": "Two limitations of waveform-level supervision are relevant here. First, a Diff-Synth only approximates the real instrument; its waveform statistics differ from real recordings in timbre, articulation, microphone response, and room acoustics. A waveform or spectral loss can be influenced by residual mismatch as well as velocity-dependent behaviour. Second, an instrument-specific Diff-Synth requires a dedicated design: piano-oriented synthesisers expect piano-specific controls such as pedal state, while guitar-oriented synthesisers expect string-wise trajectories. Reusing one Diff-Synth across instruments is therefore impractical.",
+      "origin": "writer_round3.md R1-33 common three paragraphs / five actions",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-R1-33-common-2",
+      "file": "Chapter_6/chap6.tex",
+      "line": 431,
+      "old": "Third, the asymmetry between the two adaptation interfaces widens with crop length. On FL dataset, Diff-Synth's $r_{\\mathrm{BSSL}}$ falls by $0.083$ when moving from $2$\\,s to $5$\\,s, while Diff-SFProxy's $r_{\\mathrm{BSSL}}$ varies within $0.01$. Longer crops give waveform-level objectives more of the underlying timbral mismatch to fit, while parameter-level supervision sees only per-note targets and is therefore much less sensitive to crop length. This mirrors a long-standing observation in inverse-problem design: a supervision signal that only depends on the latent variable of interest is more stable than a high-dimensional signal that mixes that variable with many nuisance factors.",
+      "new": "Third, the asymmetry between the two adaptation interfaces widens with crop length. On FL dataset, Diff-Synth's $r_{\\mathrm{BSSL}}$ falls by $0.083$ when moving from $2$\\,s to $5$\\,s, while Diff-SFProxy's $r_{\\mathrm{BSSL}}$ varies within $0.01$. The crop-length pattern is consistent with greater exposure of the waveform objective to acoustic mismatch, but the present comparison does not isolate that mechanism.",
+      "origin": "writer_round3.md R1-33 common three paragraphs / five actions",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    },
+    {
+      "id": "V4-R1-33-common-3",
+      "file": "Chapter_6/chap6.tex",
+      "line": 457,
+      "old": "Velocity is not the only MIDI control that shapes rendered dynamics: continuous controllers can also encode within-note loudness variation~\\cite{ryu2024midfild}. Pedal settings and room response also affect the synthesised piano waveform and are explicitly modelled by DDSP-Piano~\\cite{renault2023ddsp_piano}. Consequently, when adaptation updates only velocity, the velocity gradient can become entangled with residuals caused by fixed or unobserved controls. Diff-SFProxy avoids this contamination by treating velocity as the only loudness-shaping degree of freedom, but the choice carries its own cost. The recovered velocity absorbs effects that, in the real performance, came from other parallel controls.",
+      "new": "Velocity is not the only MIDI control that shapes rendered dynamics: continuous controllers can also encode within-note loudness variation~\\cite{ryu2024midfild}. Pedal settings and room response also affect the synthesised piano waveform and are explicitly modelled by DDSP-Piano~\\cite{renault2023ddsp_piano}. Consequently, when adaptation updates only velocity, the velocity gradient can become entangled with residuals caused by fixed or unobserved controls. Diff-SFProxy restricts the adapted control to velocity, but this does not remove effects of unobserved controls from the target audio. The recovered velocity may therefore absorb effects that, in the real performance, came from other parallel controls.",
+      "origin": "writer_round3.md R1-33 common three paragraphs / five actions",
+      "status": "writer/evaluator agreed for author choice; author-unapproved; not implemented"
+    }
+  ],
+  "overlaps": [],
+  "assembled_preview_only": true,
+  "only_changed_operation_ids": [
+    "V4-R2-04-sync-3",
+    "N07"
+  ],
+  "selectedTextChangesFromR2": [],
+  "virtual_overlay_sha256": {
+    "Chapter_1/Intro.tex": "c597f00804fb7d9467d4129147ec606a0ca4074139877ef5939eb9252ba5aab5",
+    "Chapter_2/Background.tex": "64d23ec355864dade2fa2c05ad2c9acabf98c3934bddae9613b3dec586f0399c",
+    "Chapter_3/chap3.tex": "ddbfa73ef870118f0a1663b79da1c0aa3100c8679a1f88bccd36c65bf9f9fbc5",
+    "Chapter_4/chap4.tex": "41e268333944ab6510a0aff4ebe4d4e5ee83f66fa1f350d106889b5825309d58",
+    "Chapter_5/chap5.tex": "eb89db957bac31a2e66f258f7c37e7b4b3f295751a2a0e1f95dcec1363eb2c1e",
+    "Chapter_6/chap6.tex": "c98192e37770457da9e0f80e779c7910dfd1c9d85d337e5823edbe5680591ce6",
+    "Chapter_7/Conclusion.tex": "f24f83ff47cc162eb478d8a8036dbaaf4a3ce0cbec1e7e2415555f2f433c7526",
+    "main.tex": "0a8e3765a8ef74a3a3ad02a59dc33434d897a9347f1c47ce625f09eec3fd91b4"
+  },
+  "authorApproval": false,
+  "sourceImplementation": false
+}

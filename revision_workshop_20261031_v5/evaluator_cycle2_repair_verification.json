@@ -1,0 +1,46 @@
+{
+  "corrected_operation_count": 44,
+  "overlaps": false,
+  "only_changed_operation_ids": [
+    "V4-R2-04-sync-3",
+    "N07"
+  ],
+  "corrected_dependency": {
+    "id": "V4-R2-04-sync-3",
+    "file": "Chapter_1/Intro.tex",
+    "line": 181,
+    "old": "Supported by listening tests, it demonstrates that recovering a decoupled expressive layer on fixed symbolic notes is enough to transform a mechanical MIDI sequence into an expressive performance.",
+    "new": "It shows that velocity completion can improve expressive rendering on fixed symbolic notes, supported by objective evaluation and the listening study.",
+    "origin": "writer_round3.md R2-04 exact synchronisation; evaluator external C2 repairs composed Supported repetition",
+    "status": "evaluator-corrected author-unapproved proposal; writer acknowledgement pending"
+  },
+  "previous_dependency": {
+    "id": "V4-R2-04-sync-3",
+    "file": "Chapter_1/Intro.tex",
+    "line": 181,
+    "old": "it demonstrates that recovering a decoupled expressive layer on fixed symbolic notes is enough to transform a mechanical MIDI sequence into an expressive performance.",
+    "new": "it shows that velocity completion can improve expressive rendering on fixed symbolic notes, supported by objective evaluation and the listening study.",
+    "origin": "writer_round3.md R2-04 exact synchronisation",
+    "status": "carried-forward unapproved proposal; preview assumption only"
+  },
+  "old_table_row": "\\textbf{$\\Delta$ (GT $-$ Flat) $\\uparrow$}",
+  "new_table_row": "\\textbf{$\\Delta$ (GT $-$ Flat)}",
+  "all_table_numbers_unchanged": true,
+  "source_writes": false,
+  "writer_writes": false,
+  "corrected_proposal_files": {
+    "evaluator_cycle2_dependencies_corrected_proposal.json": "5d61171e29adc0e2516ba56d95927eab6d7ee21609d0eceeb81af044c87cb6df",
+    "evaluator_cycle2_N07_corrected_proposal.tex": "b33c0fe2a46985df026574d86b24a14fd139d0512d2511c637f99abd514508e1"
+  },
+  "corrected_virtual_overlay_sha256": {
+    "Chapter_2/Background.tex": "64d23ec355864dade2fa2c05ad2c9acabf98c3934bddae9613b3dec586f0399c",
+    "Chapter_6/chap6.tex": "c98192e37770457da9e0f80e779c7910dfd1c9d85d337e5823edbe5680591ce6",
+    "Chapter_5/chap5.tex": "eb89db957bac31a2e66f258f7c37e7b4b3f295751a2a0e1f95dcec1363eb2c1e",
+    "Chapter_4/chap4.tex": "41e268333944ab6510a0aff4ebe4d4e5ee83f66fa1f350d106889b5825309d58",
+    "Chapter_3/chap3.tex": "ddbfa73ef870118f0a1663b79da1c0aa3100c8679a1f88bccd36c65bf9f9fbc5",
+    "Chapter_7/Conclusion.tex": "f24f83ff47cc162eb478d8a8036dbaaf4a3ce0cbec1e7e2415555f2f433c7526",
+    "main.tex": "0a8e3765a8ef74a3a3ad02a59dc33434d897a9347f1c47ce625f09eec3fd91b4",
+    "Chapter_1/Intro.tex": "c597f00804fb7d9467d4129147ec606a0ca4074139877ef5939eb9252ba5aab5"
+  },
+  "status": "Exact corrective proposals reviewed by evaluator; writer agreement and final reader integration pending."
+}

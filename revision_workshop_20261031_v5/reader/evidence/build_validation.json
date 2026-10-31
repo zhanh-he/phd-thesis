@@ -1,0 +1,51 @@
+{
+  "packet": "reviewed_v5_packet.json",
+  "packetSha256": "593f78e162ad2652ca24f0e7f1cc10dba4891e48a4ab51d0f8576eac41ff4319",
+  "htmlSha256": "d7fc933840be7049f0d17cc472568b2584a1a01fef7965c0e4f8da5115148f37",
+  "cards": [
+    {
+      "id": "T11",
+      "source": "Chapter_6/chap6.tex",
+      "sourceSha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+      "quoteExact": true,
+      "optionCount": 2
+    },
+    {
+      "id": "N01",
+      "source": "Chapter_6/chap6.tex",
+      "sourceSha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+      "quoteExact": true,
+      "optionCount": 2
+    },
+    {
+      "id": "T03",
+      "source": "Chapter_3/chap3.tex",
+      "sourceSha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9",
+      "quoteExact": true,
+      "optionCount": 3
+    },
+    {
+      "id": "T01",
+      "source": "Chapter_1/Intro.tex",
+      "sourceSha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359",
+      "quoteExact": true,
+      "optionCount": 2
+    },
+    {
+      "id": "N05a",
+      "source": "Chapter_7/Conclusion.tex",
+      "sourceSha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f",
+      "quoteExact": true,
+      "optionCount": 2
+    },
+    {
+      "id": "KEEP-FIG62",
+      "source": "Chapter_6/chap6.tex",
+      "sourceSha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+      "quoteExact": true,
+      "optionCount": 1
+    }
+  ],
+  "sourceWrites": false,
+  "choicesSaved": false
+}

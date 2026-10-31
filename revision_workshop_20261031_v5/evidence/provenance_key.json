@@ -1,0 +1,92 @@
+{
+  "T01": {
+    "T01-K": "FRESH_2",
+    "T01-L": "FRESH_1",
+    "T01-M": "V4",
+    "T01-N": "ORIGINAL"
+  },
+  "T02": {
+    "T02-K": "FRESH_1",
+    "T02-L": "FRESH_2",
+    "T02-M": "V4",
+    "T02-N": "ORIGINAL"
+  },
+  "T03": {
+    "T03-K": "V4",
+    "T03-L": "ORIGINAL",
+    "T03-M": "FRESH_2",
+    "T03-N": "FRESH_1"
+  },
+  "T04": {
+    "T04-K": "FRESH_1",
+    "T04-L": "ORIGINAL",
+    "T04-M": "V4",
+    "T04-N": "FRESH_2"
+  },
+  "T05": {
+    "T05-K": "FRESH_1",
+    "T05-L": "V4",
+    "T05-M": "FRESH_2",
+    "T05-N": "ORIGINAL"
+  },
+  "T06": {
+    "T06-K": "V4",
+    "T06-L": "FRESH_1",
+    "T06-M": "FRESH_2",
+    "T06-N": "ORIGINAL"
+  },
+  "T07": {
+    "T07-K": "ORIGINAL",
+    "T07-L": "V4",
+    "T07-M": "FRESH_1",
+    "T07-N": "FRESH_2"
+  },
+  "T08": {
+    "T08-K": "V4",
+    "T08-L": "FRESH_1",
+    "T08-M": "FRESH_2",
+    "T08-N": "ORIGINAL"
+  },
+  "T09": {
+    "T09-K": "FRESH_2",
+    "T09-L": "FRESH_1",
+    "T09-M": "ORIGINAL",
+    "T09-N": "V4"
+  },
+  "T10": {
+    "T10-K": "FRESH_2",
+    "T10-L": "V4",
+    "T10-M": "ORIGINAL",
+    "T10-N": "FRESH_1"
+  },
+  "N01": {
+    "N01-K": "FRESH_1",
+    "N01-L": "FRESH_2",
+    "N01-M": "V4",
+    "N01-N": "ORIGINAL"
+  },
+  "N02": {
+    "N02-K": "V4",
+    "N02-L": "ORIGINAL",
+    "N02-M": "FRESH_1",
+    "N02-N": "FRESH_2"
+  },
+  "T11": {
+    "T11-K": "FRESH_2",
+    "T11-L": "FRESH_1",
+    "T11-M": "ORIGINAL",
+    "T11-N": "V4"
+  },
+  "N03": {
+    "N03-K": "ORIGINAL",
+    "N03-L": "FRESH_1",
+    "N03-M": "FRESH_2",
+    "N03-N": "V4"
+  },
+  "N04": {
+    "N04-K": "V4",
+    "N04-L": "ORIGINAL",
+    "N04-M": "FRESH_1",
+    "N04-N": "FRESH_2"
+  }
+}

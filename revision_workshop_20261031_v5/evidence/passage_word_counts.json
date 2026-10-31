@@ -1,0 +1,52 @@
+[
+  {
+    "id": "T01",
+    "old_recommended_words": 79,
+    "new_words": 45
+  },
+  {
+    "id": "T02",
+    "old_recommended_words": 63,
+    "new_words": 34
+  },
+  {
+    "id": "T03",
+    "old_recommended_words": 78,
+    "new_words": 49
+  },
+  {
+    "id": "T04",
+    "old_recommended_words": 56,
+    "new_words": 25
+  },
+  {
+    "id": "T05",
+    "old_recommended_words": 36,
+    "new_words": 28
+  },
+  {
+    "id": "T06",
+    "old_recommended_words": 52,
+    "new_words": 34
+  },
+  {
+    "id": "T07",
+    "old_recommended_words": 64,
+    "new_words": 41
+  },
+  {
+    "id": "T08",
+    "old_recommended_words": 76,
+    "new_words": 43
+  },
+  {
+    "id": "T09",
+    "old_recommended_words": 67,
+    "new_words": 48
+  },
+  {
+    "id": "T11",
+    "old_recommended_words": 32,
+    "new_words": 27
+  }
+]

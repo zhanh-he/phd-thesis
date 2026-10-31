@@ -1,0 +1,81 @@
+{
+  "checked_utc": "2026-10-31T16:15:07.024249+00:00",
+  "repo_root": "/private/tmp/phd-thesis-complete-sync-20261031",
+  "read_only": true,
+  "manifest": {
+    "source_head": "f5d37710933787eff4dc8213e6d7d3de72ea3b90",
+    "source_generated_utc": "2026-10-31T16:15:03Z",
+    "included_files": 406,
+    "included_bytes": 88694705,
+    "verified_files": 406,
+    "verified_bytes": 88694705,
+    "excluded_files": 2,
+    "excluded_bytes": 19181,
+    "total_source_inventory_files": 408
+  },
+  "delivery_manifest": {
+    "present": false
+  },
+  "exact_reviewed_hashes": [
+    {
+      "path": "revision_workshop_20261031_v5/READER_PACKET_REVIEWED_v5.json",
+      "sha256": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17",
+      "matches": true
+    },
+    {
+      "path": "revision_workshop_20261031_v5/reader/index.html",
+      "sha256": "d7fc933840be7049f0d17cc472568b2584a1a01fef7965c0e4f8da5115148f37",
+      "matches": true
+    }
+  ],
+  "readers": [
+    {
+      "path": "revision_workshop_20261031_v5/reader/index.html",
+      "embedded_project_references": 53,
+      "literal_file_references": 0,
+      "provenance_hashes_verified": 31,
+      "absolute_user_paths": 0,
+      "passed": true,
+      "network_or_persistent_state_code": false
+    },
+    {
+      "path": "revision_workshop_20261031_v5/reader/legacy_v3_v4.html",
+      "embedded_project_references": 21,
+      "literal_file_references": 0,
+      "provenance_hashes_verified": 6,
+      "absolute_user_paths": 0,
+      "passed": true
+    },
+    {
+      "path": "revision_workshop_20261031_v5/reader/provisional.html",
+      "embedded_project_references": 33,
+      "literal_file_references": 0,
+      "provenance_hashes_verified": 16,
+      "absolute_user_paths": 0,
+      "passed": true
+    },
+    {
+      "path": "revision_workshop_20261031_v5/reader/provisional_r2.html",
+      "embedded_project_references": 45,
+      "literal_file_references": 0,
+      "provenance_hashes_verified": 26,
+      "absolute_user_paths": 0,
+      "passed": true
+    }
+  ],
+  "exclusions": [
+    {
+      "path": "revision_workshop_20261031_v5/evidence/tool_checks/__pycache__/check_sources.cpython-314.pyc",
+      "reason": "Generated Python bytecode/cache or macOS metadata; reproducible and not a project deliverable",
+      "bytes": 3310
+    },
+    {
+      "path": "revision_workshop_20261031_v5/reader/__pycache__/final_agreement_checks.cpython-314.pyc",
+      "reason": "Generated Python bytecode/cache or macOS metadata; reproducible and not a project deliverable",
+      "bytes": 15871
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "historical_absolute_paths": "Archived logs/manifests retain original paths; they are not executed by this verifier."
+}

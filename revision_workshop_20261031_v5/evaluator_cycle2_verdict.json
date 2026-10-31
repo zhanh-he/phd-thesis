@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 1,
+  "reviewStage": "external-cycle2",
+  "externalCycle2Completed": true,
+  "outcome": "accepted-for-author-choice-with-two-exact-context-markup-corrections",
+  "acceptedSelectedIds": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08",
+    "T09",
+    "T10",
+    "N01",
+    "N02",
+    "T11",
+    "N03",
+    "N04",
+    "N05a",
+    "N05b",
+    "N05c",
+    "N06a",
+    "N06b"
+  ],
+  "acceptedSelectedTextSha256": {
+    "T01": "b0c70f57554647999a08fc068ea50708829f2f12d2ecd8a45c5c4ab368190644",
+    "T02": "b68bc166387a3df91bc952a457a2faa860de57e583f3505c137f97d5a1e18a3f",
+    "T03": "c6f03ee027890d87b6c5bbba1e6c883f3c185d727aeef003556f34e860fe7d10",
+    "T04": "783d704554fa4ef25a68cc912eccaff2d35810ef8134437507dae35609fd9661",
+    "T05": "f6a47f838f06b71f9821944c19d555cead03a06b15bb5e676a32f1d3b7b8986f",
+    "T06": "121f13c14d56824e6356d4f7268b26af8b69d843a6c0bc581c1700602f5f977b",
+    "T07": "ec399473755e8bfbb50ed4b95fb7183148a74a31ff3bc5bd6ea850efd625a75f",
+    "T08": "206f4d51963bf2813b91aa9ba3d7824007009e79dae4166bc0e423c025553630",
+    "T09": "71b5f3da043d7e32201c185de37dc14a2a2963b26fcc09fcd0520dbd76b3499a",
+    "T10": "0035ef8fc3ccc93d10d4c04e7b217b759c11e1f66d01e2fbe59a2974b9d513b8",
+    "N01": "c76c8ebaed441425ba7412bb158d596088f6e004eaf7c9c06f3a78547f61a18b",
+    "N02": "e10464e173898a8669c30f6e52402aefe7a783461e134552c68d721ee1fb8e87",
+    "T11": "fe9a4d1a2b6150648b75cf7534453b712bd7dc39ee082bc9c707bc9f3c2a6e3a",
+    "N03": "ce8999ddc43954c46f190afb3b81020095fcc16e257025e3099155364ce8517b",
+    "N04": "4ceccb92217aa153349cad60b2c0bb7124e9213f1d3d40027f9b3a0afb16dfb1",
+    "N05a": "9be8a3a8776194b15ec99f259e7d98e5bff811c372ffac0b289395f4e6c2bb69",
+    "N05b": "6fad0656bcccc5952f6af41449d9a9e0282a5a88f675c8fd555966e226dd8981",
+    "N05c": "41805b99969988ae09dcadb8bc7742d63417f346de36240cce51d250616614fc",
+    "N06a": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "N06b": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "acceptedUnchangedDependencyIds": [
+    "V4-velocity-1",
+    "V4-velocity-2",
+    "V4-velocity-3",
+    "V4-velocity-4",
+    "V4-velocity-5",
+    "V4-velocity-6",
+    "V4-velocity-7",
+    "V4-velocity-8",
+    "V4-scope-1",
+    "V4-scope-2",
+    "V4-motivation",
+    "V4-S1-opening",
+    "V4-R1-15-sync-1",
+    "V4-R1-15-sync-2",
+    "V4-R1-15-sync-3",
+    "V4-R1-15-sync-4",
+    "V4-R2-04-sync-1",
+    "V4-R2-04-sync-2",
+    "V4-R2-04-sync-4",
+    "V4-R1-33-common-1",
+    "V4-R1-33-common-2",
+    "V4-R1-33-common-3"
+  ],
+  "acceptedCorrectedDependencyIds": [
+    "V4-R2-04-sync-3"
+  ],
+  "acceptedKeepIds": [
+    "KEEP-FIG62",
+    "T10-v4-selection",
+    "N05a-original-first-sentence",
+    "O/F/V-settings-results-outside-reviewed-operations"
+  ],
+  "currentR2ItemsNeedingCorrection": [
+    "V4-R2-04-sync-3",
+    "N07"
+  ],
+  "correctedTableAcceptedForChoice": true,
+  "correctedProposalArtifactSha256": {
+    "evaluator_cycle2_dependencies_corrected_proposal.json": "5d61171e29adc0e2516ba56d95927eab6d7ee21609d0eceeb81af044c87cb6df",
+    "evaluator_cycle2_N07_corrected_proposal.tex": "b33c0fe2a46985df026574d86b24a14fd139d0512d2511c637f99abd514508e1"
+  },
+  "correctedVirtualOverlaySha256": {
+    "Chapter_2/Background.tex": "64d23ec355864dade2fa2c05ad2c9acabf98c3934bddae9613b3dec586f0399c",
+    "Chapter_6/chap6.tex": "c98192e37770457da9e0f80e779c7910dfd1c9d85d337e5823edbe5680591ce6",
+    "Chapter_5/chap5.tex": "eb89db957bac31a2e66f258f7c37e7b4b3f295751a2a0e1f95dcec1363eb2c1e",
+    "Chapter_4/chap4.tex": "41e268333944ab6510a0aff4ebe4d4e5ee83f66fa1f350d106889b5825309d58",
+    "Chapter_3/chap3.tex": "ddbfa73ef870118f0a1663b79da1c0aa3100c8679a1f88bccd36c65bf9f9fbc5",
+    "Chapter_7/Conclusion.tex": "f24f83ff47cc162eb478d8a8036dbaaf4a3ce0cbec1e7e2415555f2f433c7526",
+    "main.tex": "0a8e3765a8ef74a3a3ad02a59dc33434d897a9347f1c47ce625f09eec3fd91b4",
+    "Chapter_1/Intro.tex": "c597f00804fb7d9467d4129147ec606a0ca4074139877ef5939eb9252ba5aab5"
+  },
+  "exactRepairsAlreadyReviewed": true,
+  "requiresAnotherFullEditorialCycle": false,
+  "writerAgreementOnCorrectionsPending": true,
+  "readerIntegrationAllowed": false,
+  "readerIntegrationConditions": [
+    "Writer acknowledges exact evaluator corrective artifacts, or submits materially different wording for bounded review.",
+    "Bind corrected final selection/dependencies/table/input hashes; retain all frozen records.",
+    "Use R2 context fields and corrected dependencies, not earlier reinserted_context or frozen FINAL_SELECTION.json.",
+    "Expose N01-N03 plus N07 and N04 as the five-range consistency group; N05b/c remain independently optional.",
+    "Context dependencies remain unapproved preview assumptions; no inherited YES or browser-choice approval.",
+    "Replace process-heavy short/why summaries with author-facing reasons without altering exact English.",
+    "Run final six-card/KEEP/insertion/context/source-link regression; old five-card tests do not certify final reader."
+  ],
+  "sevenRevisedPassageScores": {
+    "T01": {
+      "semanticGate": "PASS",
+      "factualGate": "PASS",
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "T03": {
+      "semanticGate": "PASS",
+      "factualGate": "PASS",
+      "scores": [
+        4,
+        4,
+        3,
+        4,
+        4,
+        3
+      ]
+    },
+    "T07": {
+      "semanticGate": "PASS",
+      "factualGate": "PASS",
+      "scores": [
+        4,
+        4,
+        3,
+        4,
+        3,
+        3
+      ]
+    },
+    "T11": {
+      "semanticGate": "PASS",
+      "factualGate": "PASS",
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "N02": {
+      "semanticGate": "PASS",
+      "factualGate": "PASS",
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "N03": {
+      "semanticGate": "PASS",
+      "factualGate": "PASS",
+      "scores": [
+        4,
+        4,
+        3,
+        4,
+        4,
+        3
+      ]
+    },
+    "N05a": {
+      "semanticGate": "PASS",
+      "factualGate": "PASS",
+      "scores": [
+        4,
+        4,
+        4,
+        3,
+        4,
+        4
+      ]
+    }
+  },
+  "scoreDimensions": [
+    "response",
+    "voice",
+    "cohesion",
+    "minor_revision_necessity",
+    "readability",
+    "information_density"
+  ],
+  "scale": "Anchored ordinal1-4; no composite; editorial needs do not become examiner demands.",
+  "proposedAuthorApproval": false,
+  "sourceImplementation": false,
+  "runOrGTVerificationCompleted": false,
+  "acceptedForChoiceIsNot": "user approval, thesis implementation, complete thesis certification or completed fact-pending items",
+  "sourceOperationCount": 44,
+  "overlaps": false,
+  "reviewedInputSnapshot": {
+    "CANDIDATE_PACKET_R2_FULL_CONTEXT.md": "f97927db79271972f9fcde1fe569ff93e8908e57be88899a9bb3cceb419798fc",
+    "WRITER_REVISION_RESPONSE_R2.md": "5c6e0eb1889fe3ef6af10e54f5ba29582f05ee4addc96a40caffcf321cf00e53",
+    "FINAL_SELECTION_R2.json": "f042fce6fa01b3f3be6f0c48979cb9c0558cc95f2f9e48005e3f1791cdc96810",
+    "DEPENDENCIES_R2.json": "cdd63d5ac3e9d1f8db9b3183867f44f3d1faff55ecc8d96bbc7766b161d9f246",
+    "WRITER_READER_PACKET_R2.json": "ff02bc4fa7ee6781c528e54915cfdd3d637c2a04f8e950cb4041a1a1abbeac78",
+    "N07_TABLE_MARKUP_PROPOSAL.tex": "afaf3b3e288a2324db2a3007d8945fe2b83bd2a1e0b1eb5e73b713724b48e0f5",
+    "evidence/R2_context_operation_manifest.json": "7ebf4656d57be85d9c28060063e0d410a3f51bf5bf5c50d04336476d07f0a25d"
+  },
+  "reviewedSourceProvenance": [
+    {
+      "path": "Chapter_1/Intro.tex",
+      "sha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359"
+    },
+    {
+      "path": "Chapter_2/Background.tex",
+      "sha256": "f9f847a8d09557536798e776d60d80de16fb6ba6435afdbcbffaaf938ac7dffb"
+    },
+    {
+      "path": "Chapter_3/chap3.tex",
+      "sha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9"
+    },
+    {
+      "path": "Chapter_4/chap4.tex",
+      "sha256": "d3ba02f332041ea4e6e8c89fe342fdf560bd9edda1caafcd4b7c9fb651226eb8"
+    },
+    {
+      "path": "Chapter_5/chap5.tex",
+      "sha256": "60219fbeac5ebb0d2e70be7de2bbf6028c1e1916bf35c3626f0b5d872432e6fe"
+    },
+    {
+      "path": "Chapter_6/chap6.tex",
+      "sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf"
+    },
+    {
+      "path": "Chapter_7/Conclusion.tex",
+      "sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f"
+    },
+    {
+      "path": "main.tex",
+      "sha256": "a55546f7a41c9210f1ecebae71a2167f86e0fb93ddbf96797ba03c1ea270fd39"
+    }
+  ],
+  "pending": [
+    "Formal submitted baseline",
+    "R1-13",
+    "R1-21",
+    "R1-26",
+    "R1-30",
+    "run/checkpoint/table provenance",
+    "guitar GT",
+    "final ICASSP version"
+  ],
+  "report": "evaluator_cycle2.md",
+  "verification": "evaluator_cycle2_verification.json",
+  "repairVerification": "evaluator_cycle2_repair_verification.json"
+}

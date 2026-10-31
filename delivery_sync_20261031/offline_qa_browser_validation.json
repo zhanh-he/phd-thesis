@@ -1,0 +1,392 @@
+{
+  "edition": "jointly-reviewed-v5, author choice pending",
+  "tests": [
+    {
+      "name": "Final page is exact jointly-reviewed proposal, not author-approved",
+      "passed": true
+    },
+    {
+      "name": "Six priority cards and folded fifteen-item source index",
+      "passed": true
+    },
+    {
+      "name": "First screen omits internal acceptance/pending jargon",
+      "passed": true
+    },
+    {
+      "name": "Main entry distinguishes latest v5, v4 references and unedited thesis",
+      "passed": true
+    },
+    {
+      "name": "Huber exact approved sentence",
+      "passed": true
+    },
+    {
+      "name": "Stable v5-T11 reply identity visible; ledger is historical only",
+      "passed": true
+    },
+    {
+      "name": "T11/REVIEWED exact passage after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T11/KEEP exact passage after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T11/REVIEWED exact passage after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T11/KEEP exact passage after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T11/REVIEWED exact passage after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "T11/KEEP exact passage after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "T11 file-only references",
+      "passed": true
+    },
+    {
+      "name": "N01/REVIEWED exact passage after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "N01/KEEP exact passage after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "N01/REVIEWED exact passage after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "N01/KEEP exact passage after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "N01/REVIEWED exact passage after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "N01/KEEP exact passage after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "N01 file-only references",
+      "passed": true
+    },
+    {
+      "name": "T03/REVIEWED exact passage after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T03/GRID exact passage after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T03/KEEP exact passage after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T03/REVIEWED exact passage after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T03/GRID exact passage after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T03/KEEP exact passage after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T03/REVIEWED exact passage after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "T03/GRID exact passage after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "T03/KEEP exact passage after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "T03 file-only references",
+      "passed": true
+    },
+    {
+      "name": "T01/REVIEWED exact passage after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T01/KEEP exact passage after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T01/REVIEWED exact passage after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T01/KEEP exact passage after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T01/REVIEWED exact passage after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "T01/KEEP exact passage after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "T01 file-only references",
+      "passed": true
+    },
+    {
+      "name": "N05a/REVIEWED exact passage after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "N05a/KEEP exact passage after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "N05a/REVIEWED exact passage after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "N05a/KEEP exact passage after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "N05a/REVIEWED exact passage after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "N05a/KEEP exact passage after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "N05a file-only references",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62/KEEP exact passage after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62/KEEP exact passage after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62/KEEP exact passage after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62 file-only references",
+      "passed": true
+    },
+    {
+      "name": "T11 exact final context",
+      "passed": true
+    },
+    {
+      "name": "T11 context does not imply other proposals approved",
+      "passed": true
+    },
+    {
+      "name": "N01 exact final context",
+      "passed": true
+    },
+    {
+      "name": "N01 context does not imply other proposals approved",
+      "passed": true
+    },
+    {
+      "name": "T03 exact final context",
+      "passed": true
+    },
+    {
+      "name": "T03 context does not imply other proposals approved",
+      "passed": true
+    },
+    {
+      "name": "T01 exact final context",
+      "passed": true
+    },
+    {
+      "name": "T01 context does not imply other proposals approved",
+      "passed": true
+    },
+    {
+      "name": "N05a exact final context",
+      "passed": true
+    },
+    {
+      "name": "N05a context does not imply other proposals approved",
+      "passed": true
+    },
+    {
+      "name": "Insertion retains original question and inserts exact candidate",
+      "passed": true
+    },
+    {
+      "name": "Inherited v4 is visibly separate",
+      "passed": true
+    },
+    {
+      "name": "N01 five-range scope and corrected table row",
+      "passed": true
+    },
+    {
+      "name": "N01 KEEP retains entire five-range group",
+      "passed": true
+    },
+    {
+      "name": "N05a visually retains original boundaries sentence",
+      "passed": true
+    },
+    {
+      "name": "N05b/c stay independently identified while a is KEEP",
+      "passed": true
+    },
+    {
+      "name": "KEEP does not falsely recompute fixed final context",
+      "passed": true
+    },
+    {
+      "name": "Corrected roadmap has fresh v5 identity, no old-approval inheritance",
+      "passed": true
+    },
+    {
+      "name": "Exactly22 dependencies are unchanged-v4, corrected one is new-v5",
+      "passed": true
+    },
+    {
+      "name": "Stable visible ID search works",
+      "passed": true
+    },
+    {
+      "name": "Independent subrange search works",
+      "passed": true
+    },
+    {
+      "name": "Corrected roadmap ID search reveals exact new scope",
+      "passed": true
+    },
+    {
+      "name": "Empty search has recovery instruction",
+      "passed": true
+    },
+    {
+      "name": "Keyboard Tab reaches filter",
+      "passed": true
+    },
+    {
+      "name": "Keyboard card navigation focuses visible title",
+      "passed": true
+    },
+    {
+      "name": "Keyboard KEEP is view-only",
+      "passed": true
+    },
+    {
+      "name": "Evidence keyboard disclosure",
+      "passed": true
+    },
+    {
+      "name": "View mode proposed",
+      "passed": true
+    },
+    {
+      "name": "View mode original",
+      "passed": true
+    },
+    {
+      "name": "View mode compare",
+      "passed": true
+    },
+    {
+      "name": "T11390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "N01390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "T03390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "T01390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "N05a390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Reset closes global disclosures",
+      "passed": true
+    },
+    {
+      "name": "Narrow uses compact passage picker",
+      "passed": true
+    },
+    {
+      "name": "Second tab has independent default, no shared author state",
+      "passed": true
+    },
+    {
+      "name": "Reload restores view defaults",
+      "passed": true
+    },
+    {
+      "name": "legacy_v3_v4.html archived unchanged",
+      "passed": true
+    },
+    {
+      "name": "provisional.html archived unchanged",
+      "passed": true
+    },
+    {
+      "name": "provisional_r2.html archived unchanged",
+      "passed": true
+    },
+    {
+      "name": "No runtime errors",
+      "passed": true
+    },
+    {
+      "name": "No external content calls",
+      "passed": true
+    },
+    {
+      "name": "No persistent choice state, fetch or forms",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "final-desktop.png",
+    "final-piano-roll.png",
+    "final-context.png",
+    "final-metrics.png",
+    "final-defensive-prose.png",
+    "final-narrow-top.png",
+    "final-narrow-text.png"
+  ],
+  "runtimeErrors": [],
+  "externalRequests": []
+}

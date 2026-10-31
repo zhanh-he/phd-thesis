@@ -1,0 +1,179 @@
+{
+  "status": "Source-only dependency verification; does not implement/approve any change.",
+  "count": 19,
+  "bad_anchors": [],
+  "overlaps_with_selected_passages": [],
+  "operations": [
+    {
+      "id": "Intro-89-1",
+      "group": "SUPPLEMENTS_v4 Intro definition/S3/scope",
+      "source": "Chapter_1/Intro.tex",
+      "old": "Originating from the physical sensors of electronic keyboards and pianos, MIDI velocity is a machine-centric measurement of physical intensity. To say it operates as a \"note-level\" parameter means that every music note from a discrete key strike is assigned an independent, static integer representing its initial strike force. This strict per-note measurement dictates that velocity functions as a discrete loudness control parameter. It is highly granular and absolute within its own scale, yet the resulting loudness highly depends on the acoustic environment and the specific instrument being played. Because MIDI velocity is necessary for MIDI-to-audio playback in DAWs and synthesisers, a common default is set to 64 when it is missing.",
+      "new": "Here, MIDI velocity refers to the velocity value in a Note On message. It is a machine-readable control parameter. In sensor-equipped piano data, the recorded value acts as a discretised proxy for key or hammer motion. Each note carries an integer value that can be edited independently, although its acoustic effect depends on the instrument and renderer. When expressive values are missing, a MIDI sequence may instead use a constant such as 64.",
+      "exact_old_matches": 1,
+      "current_source_line": 89
+    },
+    {
+      "id": "Intro-62-2",
+      "group": "SUPPLEMENTS_v4 Intro definition/S3/scope",
+      "source": "Chapter_1/Intro.tex",
+      "old": "a universal loudness variable for all instruments",
+      "new": "an editable note-level control",
+      "exact_old_matches": 1,
+      "current_source_line": 62
+    },
+    {
+      "id": "Intro-43-3",
+      "group": "SUPPLEMENTS_v4 Intro definition/S3/scope",
+      "source": "Chapter_1/Intro.tex",
+      "old": "a deep semantic gap exists between physical machine measurements (MIDI velocity) and subjective human cognition (score dynamics)",
+      "new": "a gap remains between machine-readable control values (MIDI velocity) and context-dependent musical notation (score dynamics)",
+      "exact_old_matches": 1,
+      "current_source_line": 43
+    },
+    {
+      "id": "Intro-53-4",
+      "group": "SUPPLEMENTS_v4 Intro definition/S3/scope",
+      "source": "Chapter_1/Intro.tex",
+      "old": "bridging physical machine measurements (e.g., MIDI velocity) with semantic cognitive notations (e.g., score dynamic markings)",
+      "new": "using note-level controls (e.g., MIDI velocity) and contextual notation (e.g., score dynamic markings)",
+      "exact_old_matches": 1,
+      "current_source_line": 53
+    },
+    {
+      "id": "Intro-82-5",
+      "group": "SUPPLEMENTS_v4 Intro definition/S3/scope",
+      "source": "Chapter_1/Intro.tex",
+      "old": "\\makecell[l]{Physical\\\\measurement}",
+      "new": "\\makecell[l]{Note-level\\\\control}",
+      "exact_old_matches": 1,
+      "current_source_line": 82
+    },
+    {
+      "id": "Intro-100-6",
+      "group": "SUPPLEMENTS_v4 Intro definition/S3/scope",
+      "source": "Chapter_1/Intro.tex",
+      "old": "a machine-centric, physical parameter",
+      "new": "a machine-readable control parameter",
+      "exact_old_matches": 1,
+      "current_source_line": 100
+    },
+    {
+      "id": "Intro-100-7",
+      "group": "SUPPLEMENTS_v4 Intro definition/S3/scope",
+      "source": "Chapter_1/Intro.tex",
+      "old": "bridge the fundamental gap between objective physical measurement and subjective human cognition",
+      "new": "bridge acoustic observations, performance controls, and musical notation",
+      "exact_old_matches": 1,
+      "current_source_line": 100
+    },
+    {
+      "id": "Intro-92-8",
+      "group": "SUPPLEMENTS_v4 Intro definition/S3/scope",
+      "source": "Chapter_1/Intro.tex",
+      "old": "In symbolic environments, the default assumption is often that missing score dynamics should be filled with \\textit{mf} (mezzo-forte), which is the neutral middle ground of human perceptual loudness.",
+      "new": "",
+      "exact_old_matches": 1,
+      "current_source_line": 92
+    },
+    {
+      "id": "Intro-118-9",
+      "group": "SUPPLEMENTS_v4 Intro definition/S3/scope",
+      "source": "Chapter_1/Intro.tex",
+      "old": "Finally, \\textbf{Scenario S3} removes structural support entirely, tackling the fully open, \\textit{audio-only} setting to recover a \\textit{score-facing} target.",
+      "new": "Finally, \\textbf{Scenario S3} uses an \\textit{audio-only} input to jointly estimate dynamic markings and the metrical coordinates needed for a \\textit{score-facing} output.",
+      "exact_old_matches": 1,
+      "current_source_line": 118
+    },
+    {
+      "id": "Intro-153-10",
+      "group": "SUPPLEMENTS_v4 Intro definition/S3/scope",
+      "source": "Chapter_1/Intro.tex",
+      "old": "    \\item \\textbf{Exploration beyond the piano.} Extending velocity estimation beyond the piano is recognised as an important direction to counter the dataset bias in expressive AMT. However, large-scale non-piano score-dynamics transcription with human labels remains outside the scope of the core scenarios, and will only be investigated as an exploratory extension.",
+      "new": "\\item \\textbf{Exploration beyond the piano.} Chapter~\\ref{ch:beyondpiano} explores note-level velocity estimation for guitar using indirect supervision. Large-scale non-piano score-dynamics transcription with human labels remains outside the scope of this thesis.",
+      "exact_old_matches": 1,
+      "current_source_line": 153
+    },
+    {
+      "id": "R2-04-abstract",
+      "group": "R2-04-abstract",
+      "source": "main.tex",
+      "old": "the results are validated through cross-dataset objective metrics and a MUSHRA-inspired listening test.",
+      "new": "the results are assessed through cross-dataset objective metrics and a MUSHRA-inspired listening test.",
+      "exact_old_matches": 1,
+      "current_source_line": 138
+    },
+    {
+      "id": "R2-04-ch3",
+      "group": "R2-04",
+      "source": "Chapter_3/chap3.tex",
+      "old": "the listening test verifies that the recovered layer changes perceived musical quality.",
+      "new": "the listening study provides complementary evidence of greater perceived similarity to the reference on the selected stimuli.",
+      "exact_old_matches": 1,
+      "current_source_line": 457
+    },
+    {
+      "id": "R2-04-intro",
+      "group": "R2-04-intro",
+      "source": "Chapter_1/Intro.tex",
+      "old": "it demonstrates that recovering a decoupled expressive layer on fixed symbolic notes is enough to transform a mechanical MIDI sequence into an expressive performance.",
+      "new": "it shows that velocity completion can improve expressive rendering on fixed symbolic notes, supported by objective evaluation and the listening study.",
+      "exact_old_matches": 1,
+      "current_source_line": 181
+    },
+    {
+      "id": "R2-04-ch7",
+      "group": "R2-04",
+      "source": "Chapter_7/Conclusion.tex",
+      "old": "yet the listening test shows a clear improvement over flat and sequence-oriented baselines.",
+      "new": "and the listening study supports an improvement over Flat and ConvAE on the selected excerpts.",
+      "exact_old_matches": 1,
+      "current_source_line": 50
+    },
+    {
+      "id": "R1-33-ch6-36",
+      "group": "R1-33",
+      "source": "Chapter_6/chap6.tex",
+      "old": "A waveform or spectral loss therefore spends much of its gradient budget on residual mismatch rather than on velocity-dependent behaviour.",
+      "new": "A waveform or spectral loss can be influenced by residual mismatch as well as velocity-dependent behaviour.",
+      "exact_old_matches": 1,
+      "current_source_line": 36
+    },
+    {
+      "id": "R1-33-ch6-431a",
+      "group": "R1-33",
+      "source": "Chapter_6/chap6.tex",
+      "old": "Longer crops give waveform-level objectives more of the underlying timbral mismatch to fit, while parameter-level supervision sees only per-note targets and is therefore much less sensitive to crop length.",
+      "new": "The crop-length pattern is consistent with greater exposure of the waveform objective to acoustic mismatch, but the present comparison does not isolate that mechanism.",
+      "exact_old_matches": 1,
+      "current_source_line": 431
+    },
+    {
+      "id": "R1-33-ch6-431b",
+      "group": "R1-33",
+      "source": "Chapter_6/chap6.tex",
+      "old": "This mirrors a long-standing observation in inverse-problem design: a supervision signal that only depends on the latent variable of interest is more stable than a high-dimensional signal that mixes that variable with many nuisance factors.",
+      "new": "",
+      "exact_old_matches": 1,
+      "current_source_line": 431
+    },
+    {
+      "id": "R1-33-ch6-457a",
+      "group": "R1-33",
+      "source": "Chapter_6/chap6.tex",
+      "old": "Diff-SFProxy avoids this contamination by treating velocity as the only loudness-shaping degree of freedom, but the choice carries its own cost.",
+      "new": "Diff-SFProxy restricts the adapted control to velocity, but this does not remove effects of unobserved controls from the target audio.",
+      "exact_old_matches": 1,
+      "current_source_line": 457
+    },
+    {
+      "id": "R1-33-ch6-457b",
+      "group": "R1-33",
+      "source": "Chapter_6/chap6.tex",
+      "old": "The recovered velocity absorbs effects that, in the real performance, came from other parallel controls.",
+      "new": "The recovered velocity may therefore absorb effects that, in the real performance, came from other parallel controls.",
+      "exact_old_matches": 1,
+      "current_source_line": 457
+    }
+  ]
+}

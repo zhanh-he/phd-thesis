@@ -1,0 +1,112 @@
+{
+  "sourcePacket": "revision_workshop_20261031_v5/WRITER_READER_PACKET.json",
+  "sourcePacketSha256": "e01bc91e4cda147f8b69c83d411fbeec917b3b371efbbd067c01a5e27f260934",
+  "status": "provisional; parent evaluator pending",
+  "priorityCards": 6,
+  "tournamentItems": 15,
+  "fullSelectionEntries": 20,
+  "sourceQuoteChecks": [
+    {
+      "id": "T11",
+      "unique": true,
+      "exactLine": 126,
+      "sourceFile": "Chapter_6/chap6.tex"
+    },
+    {
+      "id": "N01",
+      "unique": true,
+      "exactLine": 501,
+      "sourceFile": "Chapter_6/chap6.tex"
+    },
+    {
+      "id": "T03",
+      "unique": true,
+      "exactLine": 26,
+      "sourceFile": "Chapter_3/chap3.tex"
+    },
+    {
+      "id": "T01",
+      "unique": true,
+      "exactLine": 114,
+      "sourceFile": "Chapter_1/Intro.tex"
+    },
+    {
+      "id": "N05a",
+      "unique": true,
+      "exactLine": 109,
+      "sourceFile": "Chapter_7/Conclusion.tex"
+    },
+    {
+      "id": "KEEP-FIG62",
+      "unique": true,
+      "exactLine": 204,
+      "sourceFile": "Chapter_6/chap6.tex"
+    }
+  ],
+  "candidateChecks": [
+    {
+      "id": "T11",
+      "option": "V5",
+      "candidateExact": true,
+      "candidateProof": [
+        "FINAL_SELECTION.json#T11.selected"
+      ]
+    },
+    {
+      "id": "N01",
+      "option": "V5",
+      "candidateExact": true,
+      "candidateProof": [
+        "FINAL_SELECTION.json#N01",
+        "FINAL_SELECTION.json#N02",
+        "FINAL_SELECTION.json#N03"
+      ]
+    },
+    {
+      "id": "T03",
+      "option": "V5",
+      "candidateExact": true,
+      "candidateProof": [
+        "FINAL_SELECTION.json#T03.selected"
+      ]
+    },
+    {
+      "id": "T03",
+      "option": "GRID",
+      "candidateExact": true,
+      "candidateProof": [
+        "FINAL_SELECTION.json#T03.variants.FRESH_1"
+      ]
+    },
+    {
+      "id": "T01",
+      "option": "V5",
+      "candidateExact": true,
+      "candidateProof": [
+        "FINAL_SELECTION.json#T01.selected"
+      ]
+    },
+    {
+      "id": "N05a",
+      "option": "V5",
+      "candidateExact": true,
+      "candidateProof": [
+        "FINAL_SELECTION.json#N05a.selected"
+      ]
+    }
+  ],
+  "writerFilesModified": false,
+  "decisionWrites": false,
+  "findings": [
+    "Six selected cards, not fifteen. The fifteen tournament items remain in the linked source index.",
+    "optionNotes is a string in writer input; adapted to per-option notes so historical-approval restriction stays visible.",
+    "decisionPath links old generic ledger; explicitly historical, legacy IDs mapped where known, no v5 author-choice endpoint claimed.",
+    "Reviewer summaries and editorial status were not verbatim quotes; legacy cards now attach actual COMMENT_MAP text, new findings use editorial labels.",
+    "Workflow pending text separated from actual fact-pending filter.",
+    "N01 is a five-range consistency group; KEEP scope covers full group.",
+    "N05b/c remain optional independent edits, not approval inherited from N05a.",
+    "Source provenance expanded to mandatory Ch2 followthrough and exact writer/review/alternative inputs.",
+    "GRID alternative needs C1 source; final passages only contain selected V5.",
+    "FINAL_SELECTION N01 includes later C2 repair, whereas selected_passages_c2 snapshot is older; final packet uses FINAL_SELECTION."
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "created_utc": "2026-10-31T10:24:51.153115+00:00",
+  "status": "independent contextual/usability review accepted; exact final integration checked; author choice and source execution pending",
+  "review_file": "contextual_review_v4.md",
+  "review_sha256": "61867a500d88131d104cd6f59fa6621dbb9b63cd756540d9dea24122ecc6e298",
+  "links_checked": 478,
+  "link_errors": [],
+  "project_source_links": [
+    {
+      "from": "RECOMMENDED_PREVIEW.md",
+      "to": "../Chapter_1/Intro.tex",
+      "exists_in_project": true
+    },
+    {
+      "from": "RECOMMENDED_PREVIEW.md",
+      "to": "../Chapter_3/chap3.tex",
+      "exists_in_project": true
+    },
+    {
+      "from": "RECOMMENDED_PREVIEW.md",
+      "to": "../Chapter_3/chap3.tex",
+      "exists_in_project": true
+    },
+    {
+      "from": "RECOMMENDED_PREVIEW.md",
+      "to": "../Chapter_3/chap3.tex",
+      "exists_in_project": true
+    },
+    {
+      "from": "RECOMMENDED_PREVIEW.md",
+      "to": "../Chapter_4/chap4.tex",
+      "exists_in_project": true
+    },
+    {
+      "from": "RECOMMENDED_PREVIEW.md",
+      "to": "../Chapter_6/chap6.tex",
+      "exists_in_project": true
+    },
+    {
+      "from": "RECOMMENDED_PREVIEW.md",
+      "to": "../Chapter_1/Intro.tex",
+      "exists_in_project": true
+    },
+    {
+      "from": "RECOMMENDED_PREVIEW.md",
+      "to": "../Chapter_3/chap3.tex",
+      "exists_in_project": true
+    }
+  ],
+  "canonical_ids": 43,
+  "independent_supplement_choices": 3,
+  "supplement_operations_exact_to_source_and_review": 11,
+  "english_entry_excerpts_exact_to_source_or_frozen_candidate": 10,
+  "original_author_choice_cells_preserved": 42,
+  "r1_35_previously_empty_template_extended_to_keep_or_A": true,
+  "author_row_notes_preserved": 43,
+  "global_author_fields_preserved": true,
+  "author_decisions_filled_by_agent": 0,
+  "source_files_checked": 128,
+  "source_files_changed": [],
+  "frozen_writer_sha256": "1a658584d35ee50580dd2dfd6eb9d0afdac1b573404edbacf3e475a79250c75e",
+  "file_sha256": {
+    "START_HERE.md": "bf46f91a0a76843cc94d574960235b96079a55ed6aaab8e3e8edc289f865668c",
+    "CHANGE_CARDS_v2.md": "858b03d6841448ad5d910afd2a3525fac645107ae4758594ed0893157a784d8c",
+    "DECISIONS.md": "f4489e74df68177519e62d3a94504bf01549cc8d42856f68a4644fd7b0cce6b8",
+    "README.md": "d7817ac49d65cb2e560f3b349409b325baa56eb78f52a06a5205ea775a4b1592",
+    "REVIEW_SUMMARY.md": "1512ce8c2a1839fae57945eff2284a1580166dee07024c25371c1eb99681b2a3",
+    "RECOMMENDED_PREVIEW.md": "231a3b789528aa8fcc597da60cb1327181a41f0128a3db8d85230137b9c6dd71",
+    "GRS_REVISION_REPORT_DRAFT.md": "35d191603da80fe74093e3f9d3c7a489338836db8afc5f49544b3a936f3c4828",
+    "READABILITY_HANDOFF_v2.md": "fb5d91846626a84e5613f5889ec0ba2efa79426f2814d926b298ce19bad02576",
+    "SUPPLEMENTS_v4.md": "91d383210951927a08bdc23cb46900d571a5692b1adf3ac2c8777fc58c25b926"
+  },
+  "prior_zip_sha256": "d7167b07579602670133e55f79ec86be2ceb953461d0288ef9470f2ee258537b",
+  "uploads_attempted_this_pass": 0,
+  "archive": {
+    "name": "thesis_revision_proposals_20261031_readability_v2.zip",
+    "bytes": 639665,
+    "sha256": "c02f8869f86f23fa1e03f115a7e1f0cdd2c3366a1776a833648951f480440662",
+    "entries": 55,
+    "crc_test": "passed",
+    "member_bytes_match_current_files": 53,
+    "old_archive_unchanged": true
+  },
+  "package_allowlist": [
+    "README.md",
+    "REVIEW_SUMMARY.md",
+    "RECOMMENDED_PREVIEW.md",
+    "DECISIONS.md",
+    "GRS_REVISION_REPORT_DRAFT.md",
+    "editor_crosswalk.md",
+    "COMMENT_MAP.md",
+    "ID_CROSSWALK.md",
+    "SOURCES.md",
+    "PAPER_RENAME_MAP.md",
+    "WRITER_HANDOFF.md",
+    "reviewer_baseline.md",
+    "reviewer_round1.md",
+    "reviewer_round2.md",
+    "reviewer_final.md",
+    "writer_round1.md",
+    "writer_round2.md",
+    "writer_round2_changes.md",
+    "writer_round3.md",
+    "writer_round3_changes.md",
+    "writer_working.md",
+    "evidence/comment_map.json",
+    "evidence/paper_rename_records.json",
+    "evidence/pdf_inventory.json",
+    "evidence/source_sha256.json",
+    "evidence/writer_candidates_round1.json",
+    "evidence/writer_candidates_round2.json",
+    "evidence/writer_candidates_round3.json",
+    "evidence/writer_round1_validation.json",
+    "evidence/writer_round2_validation.json",
+    "evidence/writer_round3_validation.json",
+    "START_HERE.md",
+    "CHANGE_CARDS_v2.md",
+    "READABILITY_HANDOFF_v2.md",
+    "reader_usability_audit.md",
+    "contextual_audit_v4.md",
+    "contextual_review_v4.md",
+    "SUPPLEMENTS_v4.md",
+    "history/DECISIONS_before_readability_v2.md",
+    "history/DECISIONS_readability_v2.diff",
+    "evidence/readability_v2_validation.json",
+    "evidence/readability_v2_manifest.json",
+    "evidence/contextual_audit_v4_validation.json",
+    "evidence/supplements_v4.json",
+    "evidence/final_readability_v2_integration.json",
+    "history/START_HERE_before_v4.md",
+    "history/CHANGE_CARDS_v2_before_v4.md",
+    "history/DECISIONS_before_v4.md",
+    "history/README_before_v4.md",
+    "history/REVIEW_SUMMARY_before_v4.md",
+    "history/RECOMMENDED_PREVIEW_before_v4.md",
+    "history/GRS_REVISION_REPORT_DRAFT_before_v4.md",
+    "history/READABILITY_HANDOFF_v2_before_v4.md"
+  ]
+}

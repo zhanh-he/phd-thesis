@@ -1,0 +1,51 @@
+{
+  "created_utc": "2026-10-31T10:22:06.045468+00:00",
+  "status": "applied to proposal files only; independently reviewed wording; ready for author choice",
+  "review_sha256": "61867a500d88131d104cd6f59fa6621dbb9b63cd756540d9dea24122ecc6e298",
+  "frozen_writer_sha256": "1a658584d35ee50580dd2dfd6eb9d0afdac1b573404edbacf3e475a79250c75e",
+  "input_sha256": {
+    "START_HERE.md": "119bfc9aab2f15c76d6c3f6d5a0f3eabd2580d686a244c967c19ceaacaf027ee",
+    "CHANGE_CARDS_v2.md": "9fa9687ed001933dded80a50d64691dc52a841a04c5e525b8267edd95d343460",
+    "DECISIONS.md": "5f777d675875c8956a62fe7c68ed28d8991dcc1842113e74e70950912b7aebfd",
+    "README.md": "33bb2207d81e38fb5653799cc9ddd9e04c86fd1bc89095d02d68d08fc715a233",
+    "REVIEW_SUMMARY.md": "9483a71c971b8b1acebc593321ac09dbc105b195ff33c3304cff61abe649cb69",
+    "RECOMMENDED_PREVIEW.md": "6ef439149b8ceaed3d0d7fdfef6c197935fec12733b7b314593ebcdcb79aadc1",
+    "GRS_REVISION_REPORT_DRAFT.md": "73f2e95536a16dba90d7fdf2808eaa342fb4b4c6167fd5338fad30d2e2fc032e",
+    "READABILITY_HANDOFF_v2.md": "5e4d51dfc4e2674efab4776727a9a47394b5452b999b2768ed870a2feca3d1c7"
+  },
+  "staged_sha256": {
+    "START_HERE.md": "bf46f91a0a76843cc94d574960235b96079a55ed6aaab8e3e8edc289f865668c",
+    "CHANGE_CARDS_v2.md": "858b03d6841448ad5d910afd2a3525fac645107ae4758594ed0893157a784d8c",
+    "DECISIONS.md": "f4489e74df68177519e62d3a94504bf01549cc8d42856f68a4644fd7b0cce6b8",
+    "README.md": "d7817ac49d65cb2e560f3b349409b325baa56eb78f52a06a5205ea775a4b1592",
+    "REVIEW_SUMMARY.md": "1512ce8c2a1839fae57945eff2284a1580166dee07024c25371c1eb99681b2a3",
+    "RECOMMENDED_PREVIEW.md": "231a3b789528aa8fcc597da60cb1327181a41f0128a3db8d85230137b9c6dd71",
+    "GRS_REVISION_REPORT_DRAFT.md": "35d191603da80fe74093e3f9d3c7a489338836db8afc5f49544b3a936f3c4828",
+    "READABILITY_HANDOFF_v2.md": "fb5d91846626a84e5613f5889ec0ba2efa79426f2814d926b298ce19bad02576"
+  },
+  "new_files": [
+    "SUPPLEMENTS_v4.md",
+    "evidence/supplements_v4.json"
+  ],
+  "author_rows_preserved": 43,
+  "author_notes_preserved": 43,
+  "author_decisions_filled": 0,
+  "new_supplement_groups": 3,
+  "supplement_operations": 11,
+  "r1_35_preferred": "KEEP",
+  "source_writes": 0,
+  "uploads": 0,
+  "prior_zip_sha256": "d7167b07579602670133e55f79ec86be2ceb953461d0288ef9470f2ee258537b",
+  "applied_utc": "2026-10-31T10:24:51.152571+00:00",
+  "current_sha256": {
+    "START_HERE.md": "bf46f91a0a76843cc94d574960235b96079a55ed6aaab8e3e8edc289f865668c",
+    "CHANGE_CARDS_v2.md": "858b03d6841448ad5d910afd2a3525fac645107ae4758594ed0893157a784d8c",
+    "DECISIONS.md": "f4489e74df68177519e62d3a94504bf01549cc8d42856f68a4644fd7b0cce6b8",
+    "README.md": "d7817ac49d65cb2e560f3b349409b325baa56eb78f52a06a5205ea775a4b1592",
+    "REVIEW_SUMMARY.md": "1512ce8c2a1839fae57945eff2284a1580166dee07024c25371c1eb99681b2a3",
+    "RECOMMENDED_PREVIEW.md": "231a3b789528aa8fcc597da60cb1327181a41f0128a3db8d85230137b9c6dd71",
+    "GRS_REVISION_REPORT_DRAFT.md": "35d191603da80fe74093e3f9d3c7a489338836db8afc5f49544b3a936f3c4828",
+    "READABILITY_HANDOFF_v2.md": "fb5d91846626a84e5613f5889ec0ba2efa79426f2814d926b298ce19bad02576",
+    "SUPPLEMENTS_v4.md": "91d383210951927a08bdc23cb46900d571a5692b1adf3ac2c8777fc58c25b926"
+  }
+}

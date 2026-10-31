@@ -1,0 +1,1311 @@
+{
+  "stage": "Frozen before provenance reveal",
+  "frozen_utc": "2026-10-31T12:50:32.265613+00:00",
+  "blind_limit": "Provenance labels concealed; evaluator already knows some original source wording and may recognise it. This is not double-blind.",
+  "packet_sha256": "6cdb230a24da1de3458ea6de17a6698dbc6041d060c2a18910a2b5791c355634",
+  "dimensions": [
+    "reviewer_response",
+    "author_voice",
+    "local_full_cohesion",
+    "minor_revision_necessity",
+    "readability",
+    "length_information_density"
+  ],
+  "scale": "Ordinal 1–4 frozen source-only rubric; no sums, means or quality percentages. Scores for non-PASS candidates are diagnostic only and never override exclusion.",
+  "candidates": [
+    {
+      "id": "T01-K",
+      "passage": "T01",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        3,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Clear data/learning distinction; unavailable reliable labels also covers unreliable labels, but overlap is left implicit.",
+      "candidate_sha256": "698acd789ee6eccf0e2c45139887b9dd1b481f01bd56b08d0e7f82686131884a",
+      "word_count_diagnostic": 39
+    },
+    {
+      "id": "T01-L",
+      "passage": "T01",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Constant/coarsely quantised velocities are concrete; renderer example and overlapping conditions answer the actual definitional need.",
+      "candidate_sha256": "4f0100780e9a77633522320a16727af641b8b638aae65017b63bb22d48e2774d",
+      "word_count_diagnostic": 42
+    },
+    {
+      "id": "T01-M",
+      "passage": "T01",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        3,
+        3,
+        2,
+        3,
+        2
+      ],
+      "reason": "Defines extra incomplete term and adds quality-of-performance disclaimer; useful content but 79 words over-expands the two requested definitions.",
+      "candidate_sha256": "7337b5c82f976212657559fa7ceeba3d7246339478b290588a0944e6f5ae2d0e",
+      "word_count_diagnostic": 79
+    },
+    {
+      "id": "T01-N",
+      "passage": "T01",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        1,
+        4,
+        2,
+        2,
+        3,
+        4
+      ],
+      "reason": "No addition preserves brevity but leaves weakly expressive/weakly supervised undefined at the central question.",
+      "candidate_sha256": "6ae32afe873d44ffc8252a2de94dcf95265b1d94592def21be19613c4f47f51e",
+      "word_count_diagnostic": 3
+    },
+    {
+      "id": "T02-K",
+      "passage": "T02",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Directly maps Chapter 6 to S2, preserves aligned notes, and distinguishes future audio-only velocity from score-dynamics S3.",
+      "candidate_sha256": "b68bc166387a3df91bc952a457a2faa860de57e583f3505c137f97d5a1e18a3f",
+      "word_count_diagnostic": 31
+    },
+    {
+      "id": "T02-L",
+      "passage": "T02",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        3,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Specific and concise; relies on existing table for S3 target and does not explicitly name S2 extension under weaker supervision.",
+      "candidate_sha256": "df6581b3ce2f220d9b168650da9d6e6fe151169a415a97c58020d6a507483f84",
+      "word_count_diagnostic": 35
+    },
+    {
+      "id": "T02-M",
+      "passage": "T02",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "reason": "Correctly distinguishes target from input, but repeats score-dynamics/table facts in a 63-word insertion.",
+      "candidate_sha256": "0bc078e138d93b1a6df764d55021fdf948588477fa97d08d0a8f7dc071498a49",
+      "word_count_diagnostic": 63
+    },
+    {
+      "id": "T02-N",
+      "passage": "T02",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        1,
+        4,
+        2,
+        2,
+        3,
+        4
+      ],
+      "reason": "Existing table lacks the Chapter 6 relationship raised by the examiner.",
+      "candidate_sha256": "6ae32afe873d44ffc8252a2de94dcf95265b1d94592def21be19613c4f47f51e",
+      "word_count_diagnostic": 3
+    },
+    {
+      "id": "T03-K",
+      "passage": "T03",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        2
+      ],
+      "reason": "Explains scalar versus RGB and regular grid, but convolution/skip-connection explanation duplicates nearby architecture and stretches the paragraph.",
+      "candidate_sha256": "c3cf110a836105ac23536a522ce976584bac0717f8933fcf60e77264bf414473",
+      "word_count_diagnostic": 75
+    },
+    {
+      "id": "T03-L",
+      "passage": "T03",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        1,
+        3,
+        3,
+        2,
+        3,
+        2
+      ],
+      "reason": "Keeps image-based/colourisation analogy without resolving single-channel versus colour prediction or the representation choice.",
+      "candidate_sha256": "79dc6eb1869ca3689782b6e46bb048666e7d1017d618823f403d3fd3bf3a8b1b",
+      "word_count_diagnostic": 77
+    },
+    {
+      "id": "T03-M",
+      "passage": "T03",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Clear model-interface rationale and input/output distinction; no claim that event representations were outperformed.",
+      "candidate_sha256": "542e8d282887ff23581715a98cd769f8af23dc31943adc9d4fbc9890521807ba",
+      "word_count_diagnostic": 47
+    },
+    {
+      "id": "T03-N",
+      "passage": "T03",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Regular grid, binary structure, scalar output and window attention are explained in order; strongest direct explanation of the analogy.",
+      "candidate_sha256": "a8286ae9d1ae66bd199d49191481bad4554c7568742dd64c4f6115c9af804f24",
+      "word_count_diagnostic": 51
+    },
+    {
+      "id": "T04-K",
+      "passage": "T04",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        3,
+        3,
+        4,
+        4
+      ],
+      "reason": "Addresses joint modelling and states no note-detection benefit was tested, but trusted-note premise repeats preceding text.",
+      "candidate_sha256": "288a70d14e579966509500a0ba8367629d6f8dc6eef940a70afd16970b444dd3",
+      "word_count_diagnostic": 33
+    },
+    {
+      "id": "T04-L",
+      "passage": "T04",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        2,
+        4,
+        4,
+        3,
+        4,
+        4
+      ],
+      "reason": "No addition avoids repeated scope; existing use cases remain useful, but the joint-modelling question remains only implicit.",
+      "candidate_sha256": "6ae32afe873d44ffc8252a2de94dcf95265b1d94592def21be19613c4f47f51e",
+      "word_count_diagnostic": 3
+    },
+    {
+      "id": "T04-M",
+      "passage": "T04",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        2,
+        2,
+        2,
+        3,
+        2
+      ],
+      "reason": "Two defensive negations repeat scope already stated; correct but excessively explanatory for this position.",
+      "candidate_sha256": "bf607892db7a3d65c14ca745226f5642ccab469ab172c56676825543c5b63c84",
+      "word_count_diagnostic": 56
+    },
+    {
+      "id": "T04-N",
+      "passage": "T04",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        3,
+        4,
+        3,
+        3,
+        4,
+        4
+      ],
+      "reason": "Readable application boundary, but does not explicitly say the reported evaluation cannot assess note-detection gains.",
+      "candidate_sha256": "3c82416f88f2004442059e74d245f9c793d9ee3f21ce2b101c2217f710e68023",
+      "word_count_diagnostic": 33
+    },
+    {
+      "id": "T05-K",
+      "passage": "T05",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        3,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Explicit transition supervision is a valid design reason; does not make comparison to deriving transitions from level output explicit.",
+      "candidate_sha256": "8f35671ad2f587966c258bc1c55265db49abc220f707e6900c92a9c5a107c9e5",
+      "word_count_diagnostic": 22
+    },
+    {
+      "id": "T05-L",
+      "passage": "T05",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        3,
+        3,
+        4,
+        3
+      ],
+      "reason": "Answers the alternative directly, but final modelling-new-region clause repeats the target definition.",
+      "candidate_sha256": "7f212bc37eae6d3118c6be9af6e037b55bd99f62b279b6118d670804959e6ef6",
+      "word_count_diagnostic": 36
+    },
+    {
+      "id": "T05-M",
+      "passage": "T05",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Acknowledges level-transition alternative then distinguishes explicit boundary/state targets without an untested improvement claim.",
+      "candidate_sha256": "f6a47f838f06b71f9821944c19d555cead03a06b15bb5e676a32f1d3b7b8986f",
+      "word_count_diagnostic": 28
+    },
+    {
+      "id": "T05-N",
+      "passage": "T05",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        2,
+        4,
+        4,
+        3,
+        4,
+        4
+      ],
+      "reason": "Existing definitions say what a change point is but not why a separate head is used.",
+      "candidate_sha256": "6519a26388ce97c17f0f5fd480682b5c8e69a864b63a3b44da0c62ca50b97c20",
+      "word_count_diagnostic": 8
+    },
+    {
+      "id": "T06-K",
+      "passage": "T06",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ],
+      "reason": "More direct is not a cost claim, but target-adaptation wording and reduces-dependence language are less exact than no target labels.",
+      "candidate_sha256": "2839fd4fd22bd9f0662c94243793825729abba7f25e36fa0cf6e059528dfcbd3",
+      "word_count_diagnostic": 52
+    },
+    {
+      "id": "T06-L",
+      "passage": "T06",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Piano-pretraining, real target audio, absent velocity labels and renderer limitation are clear without efficiency superiority.",
+      "candidate_sha256": "121f13c14d56824e6356d4f7268b26af8b69d843a6c0bc581c1700602f5f977b",
+      "word_count_diagnostic": 34
+    },
+    {
+      "id": "T06-M",
+      "passage": "T06",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Equally safe short method account; does not restate piano pretraining, which preceding chapter context already supplies.",
+      "candidate_sha256": "a434bbb950d3ca654b8a57c4ed082b7e40c9d0b0b3fb159879e71cd7251dd203",
+      "word_count_diagnostic": 32
+    },
+    {
+      "id": "T06-N",
+      "passage": "T06",
+      "semantic_gate": "PASS",
+      "factual_gate": "FAIL",
+      "eligible": false,
+      "scores": [
+        1,
+        2,
+        2,
+        1,
+        3,
+        2
+      ],
+      "reason": "Simpler route is unmeasured; avoids synthesis-to-performance domain gap conflicts with the continuing renderer-mismatch limitation.",
+      "candidate_sha256": "b644899d58f95823f9fc54fe6f806130719ad9b7e67212601e8bdb9922dadba6",
+      "word_count_diagnostic": 79
+    },
+    {
+      "id": "T07-K",
+      "passage": "T07",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        2,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "reason": "Conditional can become dominated is a plausible risk, but does not state the actual response: fidelity and gradient accuracy not separately measured.",
+      "candidate_sha256": "59aa3f53e007f05e2ad5ed523ded2e49626847fcd12dfb7f9cb7fc3e3261f476",
+      "word_count_diagnostic": 62
+    },
+    {
+      "id": "T07-L",
+      "passage": "T07",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        3,
+        4,
+        3,
+        4,
+        3
+      ],
+      "reason": "Faithfulness is properly separated from velocity response and cause is not isolated; 64 words include an unnecessary exact-reproductions contrast.",
+      "candidate_sha256": "0a1b240fb573f73f663efa0cd0f18a18090318edc2fbc2040437a0d1d033d549",
+      "word_count_diagnostic": 64
+    },
+    {
+      "id": "T07-M",
+      "passage": "T07",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Keeps observed degradation, possible mismatch and the two unmeasured properties in 41 concrete words.",
+      "candidate_sha256": "275f74e9f4188cda7f677b3873acae4140f286b16cb11d6eba8a200bff30ea44",
+      "word_count_diagnostic": 41
+    },
+    {
+      "id": "T07-N",
+      "passage": "T07",
+      "semantic_gate": "PASS",
+      "factual_gate": "FAIL",
+      "eligible": false,
+      "scores": [
+        2,
+        3,
+        2,
+        2,
+        3,
+        3
+      ],
+      "reason": "Which part of that mismatch caused the degradation presupposes a mismatch cause that the experiment did not isolate.",
+      "candidate_sha256": "3b88bc719eb5a319ca525396b07ba7c4bc654729832988bdc278ad1948679a79",
+      "word_count_diagnostic": 39
+    },
+    {
+      "id": "T08-K",
+      "passage": "T08",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        3,
+        3,
+        3,
+        3,
+        2
+      ],
+      "reason": "Accurate four-paper map verified against declaration, but duplicates a readily available declaration and following roadmap.",
+      "candidate_sha256": "9214fa4cdbf9b327526e5fa0a015c49a2d08684428211d9fce61823e7bee3ffc",
+      "word_count_diagnostic": 76
+    },
+    {
+      "id": "T08-L",
+      "passage": "T08",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Based on four co-authored studies plus specific cross-chapter synthesis answers the distinction without claiming exhaustive novelty.",
+      "candidate_sha256": "206f4d51963bf2813b91aa9ba3d7824007009e79dae4166bc0e423c025553630",
+      "word_count_diagnostic": 40
+    },
+    {
+      "id": "T08-M",
+      "passage": "T08",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        3,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Compact and concrete synthesis description; presented and co-authorship details make adaptation less explicit than based on studies.",
+      "candidate_sha256": "a297f983963c9026d4bab511389587640f36f22164182743fb8abfa9058a2571",
+      "word_count_diagnostic": 40
+    },
+    {
+      "id": "T08-N",
+      "passage": "T08",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        2,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "reason": "Original only names Chapters 3–5 and does not specify what the thesis synthesis contributes.",
+      "candidate_sha256": "94acf0decbe5f3cce55465c9db223fc8ec0c96d4b99af40a53396eb8e0a75c61",
+      "word_count_diagnostic": 24
+    },
+    {
+      "id": "T09-K",
+      "passage": "T09",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        3,
+        4,
+        3,
+        3,
+        4,
+        4
+      ],
+      "reason": "Tested piano/guitar scope and untested sustained instruments are clear, but captured labels versus dynamics agreement could be more exact.",
+      "candidate_sha256": "cb2cf5e2280b4cc8e1d6cf0383f4d4d6d75ae9297efbb0d1aaa43280bc0e4b95",
+      "word_count_diagnostic": 42
+    },
+    {
+      "id": "T09-L",
+      "passage": "T09",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        3,
+        4,
+        4,
+        4
+      ],
+      "reason": "Most economical account of direct piano labels, renderer-conditioned guitar evaluation and untested sustained controls; restore Second for enumeration.",
+      "candidate_sha256": "f8b32e438b5d09cea471ea3196e2186dcb785fe7a73e5ae54c0725c6df93ece4",
+      "word_count_diagnostic": 43
+    },
+    {
+      "id": "T09-M",
+      "passage": "T09",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        2,
+        2,
+        3,
+        2,
+        3,
+        2
+      ],
+      "reason": "Original defensive belief-that-piano-is-universal clause adds no scope information and still does not name untested instruments.",
+      "candidate_sha256": "7e1dbe3d8f006630c1c054f90ae22c2261f87dc469195dd33e25253d2d6112d3",
+      "word_count_diagnostic": 65
+    },
+    {
+      "id": "T09-N",
+      "passage": "T09",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        3,
+        3,
+        3,
+        4,
+        3
+      ],
+      "reason": "Accurate and complete but target-coordinates wording and label discussion are longer than necessary; restore Second.",
+      "candidate_sha256": "45e94b53886532e34fa98a9d67fcc87e8b5608de6d64eb5dc873139ce4c67ac4",
+      "word_count_diagnostic": 66
+    },
+    {
+      "id": "T10-K",
+      "passage": "T10",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        3,
+        4,
+        3,
+        4,
+        3
+      ],
+      "reason": "Correct supporting evidence and descriptive composer grouping, but repeats lowest-rating result at the end and generic earlier findings is vague.",
+      "candidate_sha256": "c18f9da5a7ca0f19cddb6be6ecc716390f8a98c8e92f3a78cf832f7f3b0b57c0",
+      "word_count_diagnostic": 57
+    },
+    {
+      "id": "T10-L",
+      "passage": "T10",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        3
+      ],
+      "reason": "Careful higher mean ratings and selected SMD/PianoTeq scope; 61 words retain all needed limits without statistical significance claim.",
+      "candidate_sha256": "0035ef8fc3ccc93d10d4c04e7b217b759c11e1f66d01e2fbe59a2974b9d513b8",
+      "word_count_diagnostic": 61
+    },
+    {
+      "id": "T10-M",
+      "passage": "T10",
+      "semantic_gate": "PASS",
+      "factual_gate": "FAIL",
+      "eligible": false,
+      "scores": [
+        1,
+        2,
+        2,
+        1,
+        3,
+        2
+      ],
+      "reason": "Relatively narrow group confidence intervals do not establish participant consistency; clearly outperforms broadens beyond reported mean similarities.",
+      "candidate_sha256": "c4563506004e380e7db8e4b619fd5df7c22220c8ceffe0bcbcc9d1d2fd733ed9",
+      "word_count_diagnostic": 71
+    },
+    {
+      "id": "T10-N",
+      "passage": "T10",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Short, factual means comparison and clear finite listening setting; composer groups do not isolate style, with no significance assertion.",
+      "candidate_sha256": "3515bea7a8c4fd93d93c2194c40262fd621e7706f2003b7e7461b27e186c96c7",
+      "word_count_diagnostic": 54
+    },
+    {
+      "id": "N01-K",
+      "passage": "N01",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        3,
+        4,
+        3,
+        3,
+        2
+      ],
+      "reason": "Correct numbers and no universal insensitivity claim; reads like a table transcription plus audit caveat.",
+      "candidate_sha256": "6aa3c65cbf72a5cf66b3b3b74a88eebcaf874e7b928ff2c43d5d87468374b63d",
+      "word_count_diagnostic": 62
+    },
+    {
+      "id": "N01-L",
+      "passage": "N01",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Preserves both metrics discriminating GT/flat and confines numerical-gap observation to this diagnostic.",
+      "candidate_sha256": "f1de85df32b28e152a4dbb9c99cbd87559afce545421876a79f9525693ed7c99",
+      "word_count_diagnostic": 47
+    },
+    {
+      "id": "N01-M",
+      "passage": "N01",
+      "semantic_gate": "PASS",
+      "factual_gate": "FAIL",
+      "eligible": false,
+      "scores": [
+        1,
+        2,
+        2,
+        1,
+        3,
+        3
+      ],
+      "reason": "A numerical margin across different metrics does not prove cosine similarity insensitive to fine dynamics differences.",
+      "candidate_sha256": "1f37004a3fee9e2b7a77ef987b514e153aa7610eb0e77690897198caff1436ed",
+      "word_count_diagnostic": 62
+    },
+    {
+      "id": "N01-N",
+      "passage": "N01",
+      "semantic_gate": "PASS",
+      "factual_gate": "FAIL",
+      "eligible": false,
+      "scores": [
+        1,
+        2,
+        2,
+        1,
+        3,
+        3
+      ],
+      "reason": "Identical unsupported proving-insensitive inference; no score difference from M.",
+      "candidate_sha256": "1f37004a3fee9e2b7a77ef987b514e153aa7610eb0e77690897198caff1436ed",
+      "word_count_diagnostic": 62
+    },
+    {
+      "id": "N02-K",
+      "passage": "N02",
+      "semantic_gate": "PASS",
+      "factual_gate": "FAIL",
+      "eligible": false,
+      "scores": [
+        1,
+        2,
+        2,
+        1,
+        3,
+        2
+      ],
+      "reason": "SoundFont swap is not a gain-only intervention; raw MAE/r changes have different units and cannot prove over-sensitivity.",
+      "candidate_sha256": "2e333b5b953897a8a9da59bc0d660f56be5664c6c81125f58e2b764e3006688f",
+      "word_count_diagnostic": 73
+    },
+    {
+      "id": "N02-L",
+      "passage": "N02",
+      "semantic_gate": "PASS",
+      "factual_gate": "FAIL",
+      "eligible": false,
+      "scores": [
+        1,
+        2,
+        2,
+        1,
+        3,
+        2
+      ],
+      "reason": "Identical gain-only causal and noncommensurate-magnitude inference; no score difference from K.",
+      "candidate_sha256": "2e333b5b953897a8a9da59bc0d660f56be5664c6c81125f58e2b764e3006688f",
+      "word_count_diagnostic": 73
+    },
+    {
+      "id": "N02-M",
+      "passage": "N02",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        3
+      ],
+      "reason": "States table changes, labels the whole renderer intervention, and gives a positive contour-agreement reason for r.",
+      "candidate_sha256": "edad3b60d6a102da790bce87d47070efcf3d16ecfcafe2bcb39bc642863381cc",
+      "word_count_diagnostic": 63
+    },
+    {
+      "id": "N02-N",
+      "passage": "N02",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        3,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Concise and does not identify gain as sole cause, but supports-using-r can still sound like an uncalibrated cross-metric magnitude ranking.",
+      "candidate_sha256": "8a5e1187b96e36d460f3db431ff3eae04c182e2a2cd35f1df2bc653350383e8f",
+      "word_count_diagnostic": 51
+    },
+    {
+      "id": "T11-K",
+      "passage": "T11",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        3,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Mathematical reason is clear; awkward rather-than-establishing wording is less direct than the actual author statement.",
+      "candidate_sha256": "d0a1f928f05c3e0b83cdb61abe98123174580f31f1a54699a809faa5f2be5bca",
+      "word_count_diagnostic": 28
+    },
+    {
+      "id": "T11-L",
+      "passage": "T11",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Matches actual response: smooth gradients near zero, L1-like large errors, and no established comparative advantage.",
+      "candidate_sha256": "c534041df413b009bebda9fdd06f910c5bda65f7d07edaf49ed8a244e2c2bb4f",
+      "word_count_diagnostic": 27
+    },
+    {
+      "id": "T11-M",
+      "passage": "T11",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        2,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "reason": "Robust-loss rationale is plausible but does not explain Huber versus MAE smoothing; second half discusses parameter space instead of loss form.",
+      "candidate_sha256": "7a2e5c6730dcf264597f759baced12fdc767a7c02562a3929093911186b59cd5",
+      "word_count_diagnostic": 35
+    },
+    {
+      "id": "T11-N",
+      "passage": "T11",
+      "semantic_gate": "PASS",
+      "factual_gate": "UNRESOLVED",
+      "eligible": false,
+      "scores": [
+        3,
+        4,
+        3,
+        3,
+        4,
+        4
+      ],
+      "reason": "We did not conduct a dedicated comparison goes beyond have not established advantage through a dedicated comparison; experiment history not independently known.",
+      "candidate_sha256": "c71166dbda81f536e595b1e52c716560b6fefda9672e97589a8bbe4cf4756bac",
+      "word_count_diagnostic": 32
+    },
+    {
+      "id": "N03-K",
+      "passage": "N03",
+      "semantic_gate": "PASS",
+      "factual_gate": "FAIL",
+      "eligible": false,
+      "scores": [
+        1,
+        2,
+        2,
+        1,
+        3,
+        3
+      ],
+      "reason": "Cosine similarity and MAE fail turns a limited diagnostic into an unsupported general metric verdict.",
+      "candidate_sha256": "390c24f02c6c6856f7aa59627a998bf73bb9ed7731e8996e20b23ca6c37bd70c",
+      "word_count_diagnostic": 50
+    },
+    {
+      "id": "N03-L",
+      "passage": "N03",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Names rendered loudness-contour agreement, positive within-piano diagnostic and complementary metrics; no physical-velocity truth claim.",
+      "candidate_sha256": "077e3e64f9a45bf4662d05707d37e9066292b09ef437e79a43ed19881a3cae93",
+      "word_count_diagnostic": 49
+    },
+    {
+      "id": "N03-M",
+      "passage": "N03",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Clear present-task choice and complementary metrics; does not explicitly flag transfer from piano diagnostic to guitar evaluation.",
+      "candidate_sha256": "3d5df8a1e9aec1b9251c7de32801fd4d2acd0650b9408f86033b3be5ba7eeee4",
+      "word_count_diagnostic": 44
+    },
+    {
+      "id": "N03-N",
+      "passage": "N03",
+      "semantic_gate": "PASS",
+      "factual_gate": "FAIL",
+      "eligible": false,
+      "scores": [
+        1,
+        2,
+        2,
+        1,
+        3,
+        3
+      ],
+      "reason": "Identical fail-on-sensitivity/robustness claim; no score difference from K.",
+      "candidate_sha256": "390c24f02c6c6856f7aa59627a998bf73bb9ed7731e8996e20b23ca6c37bd70c",
+      "word_count_diagnostic": 50
+    },
+    {
+      "id": "N04-K",
+      "passage": "N04",
+      "semantic_gate": "PASS",
+      "factual_gate": "FAIL",
+      "eligible": false,
+      "scores": [
+        1,
+        3,
+        2,
+        1,
+        4,
+        4
+      ],
+      "reason": "Unqualified is dominated upgrades a possible mechanism into universal gradient dominance.",
+      "candidate_sha256": "6a96b149718ac810915f84cabae343b149e2980760cbaf8b536842f4ce9a5545",
+      "word_count_diagnostic": 11
+    },
+    {
+      "id": "N04-L",
+      "passage": "N04",
+      "semantic_gate": "PASS",
+      "factual_gate": "FAIL",
+      "eligible": false,
+      "scores": [
+        1,
+        3,
+        2,
+        1,
+        4,
+        4
+      ],
+      "reason": "Identical unconditional gradient-dominance claim; no score difference from K.",
+      "candidate_sha256": "6a96b149718ac810915f84cabae343b149e2980760cbaf8b536842f4ce9a5545",
+      "word_count_diagnostic": 11
+    },
+    {
+      "id": "N04-M",
+      "passage": "N04",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        3,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Can be influenced is safe but weak and generic; loses why the renderer condition matters.",
+      "candidate_sha256": "e628a7cee7026f4cd1e5e52ed74dd9170b98c13bb0847194d6e1e0f859cc014d",
+      "word_count_diagnostic": 12
+    },
+    {
+      "id": "N04-N",
+      "passage": "N04",
+      "semantic_gate": "PASS",
+      "factual_gate": "PASS",
+      "eligible": true,
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "reason": "Conditional renderer mismatch and velocity-relevant differences preserve the mechanism as a risk, not a measured causal result.",
+      "candidate_sha256": "4ceccb92217aa153349cad60b2c0bb7124e9213f1d3d40027f9b3a0afb16dfb1",
+      "word_count_diagnostic": 10
+    }
+  ],
+  "rankings": {
+    "T01": [
+      [
+        "T01-L"
+      ],
+      [
+        "T01-K"
+      ],
+      [
+        "T01-M"
+      ],
+      [
+        "T01-N"
+      ]
+    ],
+    "T02": [
+      [
+        "T02-K"
+      ],
+      [
+        "T02-L"
+      ],
+      [
+        "T02-M"
+      ],
+      [
+        "T02-N"
+      ]
+    ],
+    "T03": [
+      [
+        "T03-N"
+      ],
+      [
+        "T03-M"
+      ],
+      [
+        "T03-K"
+      ],
+      [
+        "T03-L"
+      ]
+    ],
+    "T04": [
+      [
+        "T04-K"
+      ],
+      [
+        "T04-N"
+      ],
+      [
+        "T04-L"
+      ],
+      [
+        "T04-M"
+      ]
+    ],
+    "T05": [
+      [
+        "T05-M"
+      ],
+      [
+        "T05-L"
+      ],
+      [
+        "T05-K"
+      ],
+      [
+        "T05-N"
+      ]
+    ],
+    "T06": [
+      [
+        "T06-L"
+      ],
+      [
+        "T06-M"
+      ],
+      [
+        "T06-K"
+      ],
+      [
+        "T06-N"
+      ]
+    ],
+    "T07": [
+      [
+        "T07-M"
+      ],
+      [
+        "T07-L"
+      ],
+      [
+        "T07-K"
+      ],
+      [
+        "T07-N"
+      ]
+    ],
+    "T08": [
+      [
+        "T08-L"
+      ],
+      [
+        "T08-M"
+      ],
+      [
+        "T08-K"
+      ],
+      [
+        "T08-N"
+      ]
+    ],
+    "T09": [
+      [
+        "T09-L"
+      ],
+      [
+        "T09-N"
+      ],
+      [
+        "T09-K"
+      ],
+      [
+        "T09-M"
+      ]
+    ],
+    "T10": [
+      [
+        "T10-N"
+      ],
+      [
+        "T10-L"
+      ],
+      [
+        "T10-K"
+      ],
+      [
+        "T10-M"
+      ]
+    ],
+    "N01": [
+      [
+        "N01-L"
+      ],
+      [
+        "N01-K"
+      ],
+      [
+        "N01-M",
+        "N01-N"
+      ]
+    ],
+    "N02": [
+      [
+        "N02-M"
+      ],
+      [
+        "N02-N"
+      ],
+      [
+        "N02-K",
+        "N02-L"
+      ]
+    ],
+    "T11": [
+      [
+        "T11-L"
+      ],
+      [
+        "T11-K"
+      ],
+      [
+        "T11-M"
+      ],
+      [
+        "T11-N"
+      ]
+    ],
+    "N03": [
+      [
+        "N03-L"
+      ],
+      [
+        "N03-M"
+      ],
+      [
+        "N03-K",
+        "N03-N"
+      ]
+    ],
+    "N04": [
+      [
+        "N04-N"
+      ],
+      [
+        "N04-M"
+      ],
+      [
+        "N04-K",
+        "N04-L"
+      ]
+    ]
+  },
+  "blockers": [
+    "Formal source baseline unresolved",
+    "run/GT provenance unresolved",
+    "R1-13/21/26/30 remain evidence-pending"
+  ],
+  "outside_subset_keep": [
+    "Current Fig.6.2 SoundFont-rendered target caption",
+    "Current local V^(0)/Vhat explanation",
+    "Detailed O/F/V input-target-mask roles; do not compress into vague prose"
+  ]
+}

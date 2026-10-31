@@ -1,0 +1,98 @@
+{
+  "created_utc": "2026-10-31T10:02:46.698463+00:00",
+  "task": "proposal-only contextual editorial audit v4",
+  "canonical_items_read": 43,
+  "new_proposal_groups": 3,
+  "new_prose_independently_reviewed": false,
+  "source_integrity": {
+    "count": 128,
+    "missing": [],
+    "changed": []
+  },
+  "frozen_hashes_before": {
+    "writer_round1.md": "ef6c0d0c8e0c0e55bd1fdd4c032fc9816a8050313f11ca02bdd8244859a5dcaf",
+    "writer_round2.md": "2e0430427a9ed337cb7a8734374b38dcdc999d4d884bdac318cced097ad6e627",
+    "writer_round2_changes.md": "ace8a70970a0cc30386cab08c8d3764b5e2ea3937294797883d75d800fa137fa",
+    "writer_round3.md": "1a658584d35ee50580dd2dfd6eb9d0afdac1b573404edbacf3e475a79250c75e",
+    "writer_round3_changes.md": "135e3e0b894a0bcb3124a395d9242eed0f7de082c7b937d2730847317eedf093",
+    "evidence/writer_candidates_round3.json": "de9b73e37393623e8b2d1b2361185f8049fcdf4ce735ec62fba55c0d775a2b79"
+  },
+  "frozen_hashes_after": {
+    "writer_round1.md": "ef6c0d0c8e0c0e55bd1fdd4c032fc9816a8050313f11ca02bdd8244859a5dcaf",
+    "writer_round2.md": "2e0430427a9ed337cb7a8734374b38dcdc999d4d884bdac318cced097ad6e627",
+    "writer_round2_changes.md": "ace8a70970a0cc30386cab08c8d3764b5e2ea3937294797883d75d800fa137fa",
+    "writer_round3.md": "1a658584d35ee50580dd2dfd6eb9d0afdac1b573404edbacf3e475a79250c75e",
+    "writer_round3_changes.md": "135e3e0b894a0bcb3124a395d9242eed0f7de082c7b937d2730847317eedf093",
+    "evidence/writer_candidates_round3.json": "de9b73e37393623e8b2d1b2361185f8049fcdf4ce735ec62fba55c0d775a2b79"
+  },
+  "exact_intro_context_guards": [
+    {
+      "file": "Chapter_1/Intro.tex",
+      "line": 89,
+      "query": "Originating from the physical sensors",
+      "matches": true
+    },
+    {
+      "file": "Chapter_1/Intro.tex",
+      "line": 62,
+      "query": "universal loudness variable",
+      "matches": true
+    },
+    {
+      "file": "Chapter_1/Intro.tex",
+      "line": 100,
+      "query": "machine-centric, physical parameter",
+      "matches": true
+    },
+    {
+      "file": "Chapter_1/Intro.tex",
+      "line": 43,
+      "query": "physical machine measurements",
+      "matches": true
+    },
+    {
+      "file": "Chapter_1/Intro.tex",
+      "line": 53,
+      "query": "physical machine measurements",
+      "matches": true
+    },
+    {
+      "file": "Chapter_1/Intro.tex",
+      "line": 82,
+      "query": "Physical\\\\measurement",
+      "matches": true
+    },
+    {
+      "file": "Chapter_1/Intro.tex",
+      "line": 118,
+      "query": "removes structural support entirely",
+      "matches": true
+    },
+    {
+      "file": "Chapter_1/Intro.tex",
+      "line": 153,
+      "query": "will only be investigated as an exploratory extension",
+      "matches": true
+    },
+    {
+      "file": "Chapter_1/Intro.tex",
+      "line": 45,
+      "query": "entirely bypass acquisition bottlenecks and annotation ambiguities",
+      "matches": true
+    },
+    {
+      "file": "Chapter_1/Intro.tex",
+      "line": 92,
+      "query": "In symbolic environments, the default assumption is often that missing score dynamics should be filled with \\textit{mf} (mezzo-forte), which is the neutral middle ground of human perceptual loudness.",
+      "matches": true
+    }
+  ],
+  "audit_sha256": "8b72c2121b5f998630678d8bbcf6319a104d7de668317b223d749bd6e1c37f82",
+  "files_written": [
+    "contextual_audit_v4.md",
+    "evidence/contextual_audit_v4_validation.json"
+  ],
+  "decisions_modified_by_this_task": false,
+  "source_mutations_in_this_task": false,
+  "technical_evidence_gaps_reopened": false
+}

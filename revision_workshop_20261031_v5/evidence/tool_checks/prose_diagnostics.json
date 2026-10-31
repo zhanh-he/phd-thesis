@@ -1,0 +1,53 @@
+{
+  "method": "Regex diagnostic on source prose lines; excludes obvious command/table/math lines. Approximate lengths are not readability or quality scores. No sentence is changed automatically.",
+  "long_sentence_flags": [
+    {
+      "path": "Chapter_5/chap5.tex",
+      "line": 409,
+      "approx_words": 59,
+      "sentence": "This distinction motivates the whole design: BSSL is used because dynamics are closer to perceived loudness than to raw spectral magnitude; the multi-scale encoder provides both phrase-level context and frame-level timing; and the four heads jointly estimate dynamic levels, change points, beats, and downbeats because the dynamic label is only meaningful once it is placed on a metrical coordinate."
+    },
+    {
+      "path": "Chapter_5/chap5.tex",
+      "line": 58,
+      "approx_words": 55,
+      "sentence": "As shown in Fig. , given an $F  T$ time--frequency feature, where $F$ is the number of frequency bands and $T$ is the number of time frames, the encoder first applies 2D batch normalisation and then forms three temporal branches at resolutions $T$, $T/s$, and $T/s^2$, where $s$ denotes the temporal scaling factor."
+    },
+    {
+      "path": "Chapter_6/chap6.tex",
+      "line": 51,
+      "approx_words": 49,
+      "sentence": "where $a_j$ is the performance audio, $E_j = \\(p_n, t_n, _n)\\_n=1^N_j$ is the aligned note-event list with pitch $p_n$, onset $t_n$, and duration $_n$, and $V_j = (v_j,1, , v_j,N_j)$ is the corresponding ground-truth note-level MIDI velocity vector."
+    },
+    {
+      "path": "Chapter_2/Background.tex",
+      "line": 589,
+      "approx_words": 47,
+      "sentence": "It makes label-scarce learning possible, yet it also ties the learning signal to the adequacy of the renderer: a proxy objective can reward compatibility with the synthesiser more than compatibility with real instrumental control, and reconstruction error is therefore not the same thing as accurate velocity recovery."
+    },
+    {
+      "path": "Chapter_5/chap5.tex",
+      "line": 219,
+      "approx_words": 47,
+      "sentence": "We therefore count matches by one-to-one event alignment: a predicted beat or downbeat is a true positive only if it can be matched to an unmatched reference event within a $ 70$ ms window; otherwise it is a false positive, and any unmatched reference event becomes a false negative."
+    },
+    {
+      "path": "Chapter_2/Background.tex",
+      "line": 578,
+      "approx_words": 46,
+      "sentence": "The same idea has been adapted to specific instruments and rendering goals: MIDI-DDSP couples DDSP with explicit note-level control for expressive performance synthesis , DDSP-Piano specialises the framework to piano timbre with mechanically motivated components , and follow-up work extends it to acoustic guitar and other plucked-string instruments ."
+    },
+    {
+      "path": "Chapter_4/chap4.tex",
+      "line": 39,
+      "approx_words": 46,
+      "sentence": "This relocation gives the design three concrete properties that are exploited in the rest of the chapter: it preserves compatibility with existing AMT pipelines, it isolates dynamics refinement from note transcription, and it allows the same correction module to be reused across acoustically different AMT backbones."
+    },
+    {
+      "path": "Chapter_6/chap6.tex",
+      "line": 182,
+      "approx_words": 45,
+      "sentence": "where $h$ indexes harmonics, $B_n,h$ is the $ 1$-bin frequency band around the $h$-th harmonic of note $n$, $T_n$ is the set of STFT frames within $120$\\,ms after the note onset, and $H_n  5$ is the number of retained harmonics below Nyquist."
+    }
+  ]
+}

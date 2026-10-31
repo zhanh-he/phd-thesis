@@ -1,0 +1,248 @@
+{
+  "english_quote_blocks": 48,
+  "revision_item_headings": 43,
+  "implementation_claim_flags": [],
+  "first_person_proposal_count": 19,
+  "quote_blocks": [
+    {
+      "id": "opening",
+      "line": 14,
+      "text": "I thank both examiners for their careful reading and constructive comments. The responses below explain the research choices and the clarifications proposed for this minor revision."
+    },
+    {
+      "id": "R1-01",
+      "line": 45,
+      "text": "Thank you for the suggestion. I propose to retain the existing numerical citation style consistently throughout the thesis."
+    },
+    {
+      "id": "R1-01",
+      "line": 49,
+      "text": "Thank you for the suggestion. I propose to adopt an author-year format for the citations and bibliography throughout the thesis."
+    },
+    {
+      "id": "R1-02",
+      "line": 71,
+      "text": "The ISMIR 2026 entry should read “Accepted for publication” rather than “Under review”. I propose to update that status in the authorship declaration."
+    },
+    {
+      "id": "R1-03",
+      "line": 91,
+      "text": "The diagram is intended as a conceptual overview of AMT. Instrument identity, articulation and other instrument-specific controls belong to that broader view, while MIDI velocity and score dynamics are the targets studied in this thesis. I propose to show those additional outputs explicitly and highlight the dynamics branch as the thesis focus."
+    },
+    {
+      "id": "R1-04",
+      "line": 111,
+      "text": "“Collecting” is the intended word. I propose to replace “recollecting” in this sentence and the corresponding use in the conclusion."
+    },
+    {
+      "id": "R1-05",
+      "line": 133,
+      "text": "In this thesis, weakly expressive data retain useful note structure but contain a simplified dynamics layer, such as constant or coarsely quantised velocities. Weakly supervised settings lack reliable direct dynamics labels and use indirect evidence for learning. These conditions describe the available information and can overlap."
+    },
+    {
+      "id": "R1-06",
+      "line": 153,
+      "text": "Chapter 6 uses performance audio together with aligned note events. It extends the score-informed S2 setting under missing target-domain velocity labels. Audio-only adaptation for MIDI velocity is a possible extension, distinct from S3, whose target is score dynamics rather than note-level velocity."
+    },
+    {
+      "id": "R1-07",
+      "line": 175,
+      "text": "The diagram is intended to describe related representations rather than a mandatory processing chain. Perceptual evidence can support score-dynamics estimation directly, without an intermediate MIDI-velocity estimate; Chapter 5 is an example. Instrument response, performance interpretation and musical context make these relations context-dependent."
+    },
+    {
+      "id": "R1-08",
+      "line": 195,
+      "text": "I propose to separate the three groups of columns more clearly in Table 2.3, using the same grouping of values."
+    },
+    {
+      "id": "R1-09",
+      "line": 215,
+      "text": "In the velocity-estimation chapters, the target is MIDI Note On velocity, attached to an individual note attack. This is narrower than the full MIDI protocol, which also supports release-related information and separate expressive controls. These chapters estimate one onset-velocity value per note rather than a continuous control trajectory."
+    },
+    {
+      "id": "R1-10",
+      "line": 239,
+      "text": "A uniform colour for note events would remove the impression that colour encodes an additional variable. In that version, horizontal position indicates time, while the relevant vertical axes identify the event-lane index and MIDI pitch."
+    },
+    {
+      "id": "R1-11",
+      "line": 261,
+      "text": "Here, humanisation means adding or varying expressive controls in a symbolic sequence to move it away from a mechanically uniform rendering. The velocity-completion task in Chapter 3 has the narrower aim of changing velocity while preserving note content and timing."
+    },
+    {
+      "id": "R1-12",
+      "line": 281,
+      "text": "Crescendo and diminuendo describe gradual instructions over a span and are already introduced in Section 2.3.1. I propose a short cross-reference in Section 2.6.1, distinguishing these instructions from the static dynamic levels and change points estimated in Chapter 5."
+    },
+    {
+      "id": "R1-13",
+      "line": 301,
+      "text": "The intended distinction is between structural note annotations, velocity annotations, reference scores and audio access. Velocity annotations have different provenance across datasets, which needs to remain explicit in the row notes. I propose to clarify those columns and the triangular qualification symbol. The ATEPP 43% entry refers to score availability, rather than verified score-dynamics annotations."
+    },
+    {
+      "id": "R1-14",
+      "line": 321,
+      "text": "For a given class or event type, precision is TP/(TP+FP), recall is TP/(TP+FN), and F1 is their harmonic mean. Macro-F1 averages class-wise scores equally, whereas support-weighted F1 weights them by reference counts. Note-wise velocity MAE averages absolute error at reference note onsets. These definitions distinguish the principal measures used to interpret the dynamics results."
+    },
+    {
+      "id": "R1-15",
+      "line": 341,
+      "text": "Scenario S1 fixes the symbolic notes and timing but provides no performance audio as input. Fixing the note structure limits what the model may change without uniquely determining the velocity profile. I propose to describe these information conditions directly in place of the ambiguous “most controlled” ordering."
+    },
+    {
+      "id": "R1-16",
+      "line": 361,
+      "text": "The model is not conditioned on composer or performer identity. Its aim is useful completion across the available piano repertoire rather than explicit style control. The composer groups in the listening study are descriptive: the selected excerpts were not balanced to isolate composer or style effects."
+    },
+    {
+      "id": "R1-17",
+      "line": 381,
+      "text": "The representation is image-like because pitch and time form a regular two-dimensional grid processed by the U-Net. The output is a single-channel velocity roll. Colourisation is an analogy for completing the missing scalar layer, not RGB prediction; the formal published title retains its original wording."
+    },
+    {
+      "id": "R1-18",
+      "line": 401,
+      "text": "A piano roll exposes simultaneous notes and local pitch–time neighbourhoods on a regular grid, which suits the convolutional architecture used here. An event-list representation is a valid alternative but would require a different model interface."
+    },
+    {
+      "id": "R1-19",
+      "line": 421,
+      "text": "In Chapter 3, completion describes adding the missing velocity layer and estimation describes the prediction problem. Recovery describes the supervised reconstruction setting in which reference velocities are withheld. For new symbolic input, the output is a plausible expressive profile rather than a uniquely determined original performance."
+    },
+    {
+      "id": "R1-20",
+      "line": 441,
+      "text": "Physical time preserves the timings supplied with the input and allows use without a beat map. A beat-relative representation could add metrical context and need not discard expressive timing. The present study does not compare these alternatives, so I propose to explain the choice in terms of input compatibility."
+    },
+    {
+      "id": "R1-21",
+      "line": 463,
+      "text": "The composition use case is to add velocity while preserving the note content and timing supplied by the user. Performance MIDI provides captured velocity targets for training. The listening-test inputs were timing-quantised versions of the selected SMD excerpts, with velocity values removed before estimation. I propose to clarify this preparation in the listening-test protocol and distinguish this evaluation from a controlled comparison of timing representations."
+    },
+    {
+      "id": "R1-21",
+      "line": 467,
+      "text": "The composition use case is to add velocity while preserving the note content and timing supplied by the user. Performance MIDI provides captured velocity targets for training. The listening-test inputs were derived from the selected SMD performances and retained their performance timing, with velocity values removed before estimation. I propose to clarify this preparation in the listening-test protocol and distinguish this evaluation from a controlled comparison of timing representations."
+    },
+    {
+      "id": "R1-22",
+      "line": 489,
+      "text": "The baselines are Flat velocity, an available pretrained Seq2Seq model, and ConvAE re-implemented in the local training framework. ConvAE and U-Net share the stated local training procedure, while Seq2Seq retains its pretrained weights. I propose to collect these existing details in a dedicated subsection, preserving those differences in training and checkpoint sources."
+    },
+    {
+      "id": "R1-23",
+      "line": 509,
+      "text": "The modular design targets settings with trusted note events, such as aligned-score archives and performance feedback. This is a task boundary rather than a claim that notes and dynamics are independent. Joint modelling may allow the two forms of evidence to support one another; the present known-note evaluation does not measure gains in note detection."
+    },
+    {
+      "id": "R1-24",
+      "line": 529,
+      "text": "The score matrices provide a common pitch–time interface with the acoustic velocity map. The final Transformer then processes the known onset coordinates as note tokens, while the BiLSTM variant uses the dense frame sequence. The design combines a raster interface with event-centred correction rather than using dense piano rolls throughout."
+    },
+    {
+      "id": "R1-25",
+      "line": 549,
+      "text": "In the stated objective, the frame-wise BCE and onset-wise L1 terms are averaged over their respective active positions and combined with equal relative coefficients. The hybrid formulation follows the cited score-informed work and is supported by the preliminary comparison with frame-only and onset-only alternatives reported in the SMC paper. Equal coefficients do not imply equal numerical loss or gradient magnitudes."
+    },
+    {
+      "id": "R1-26",
+      "line": 569,
+      "text": "Table 4.1 varies the correction module and its score features. The onset-only condition uses the score onset matrix; onset-plus-frame adds the active-note matrix; onset-plus-frame-ex uses the onset-excluded frame matrix. The BiLSTM and Transformer rows distinguish dense frame-wise correction from onset-token correction. I propose to define these conditions together in the experimental protocol."
+    },
+    {
+      "id": "R1-27",
+      "line": 589,
+      "text": "For the score-facing markings in Chapter 5, integration would attach estimated dynamics to note content on a common metrical grid. Note-level velocity correction instead uses aligned note onsets. The chapter evaluates dynamics and metrical targets; those component evaluations do not establish complete integrated AMT performance or an improvement in pitch, onset or offset accuracy."
+    },
+    {
+      "id": "R1-28",
+      "line": 609,
+      "text": "The separate change-point head gives transitions an explicit supervision target, instead of deriving boundaries only from changes in the predicted level sequence. It complements the beat-wise level output by modelling when a new dynamic region begins."
+    },
+    {
+      "id": "R1-29",
+      "line": 631,
+      "text": "Beat and downbeat predictions share the encoder and expert pool but retain separate heads and loss terms. In the normal evaluation path of the retained code, where predicted beats are available, the postprocessor snaps downbeats to those beats and removes duplicate positions. This is an output constraint rather than a learned cross-head consistency term in the training objective."
+    },
+    {
+      "id": "R1-30",
+      "line": 655,
+      "text": "Cross-dataset evaluation tests the learned mapping under changes in repertoire, performers, recording conditions and annotation conventions. These factors vary together in the external corpora, so the experiment diagnoses combined corpus transfer rather than isolating a composer or performer effect. The current protocol description uses target-corpus F1 to select transferred checkpoints without fine-tuning; such selection produces a target-informed diagnostic rather than an estimate based on selection independent of target labels."
+    },
+    {
+      "id": "R1-31",
+      "line": 677,
+      "text": "The intended advantage is access to supervision: real target audio can support adaptation without direct target-domain velocity labels. A differentiable synthesiser or proxy still has to be designed or supplied. I propose to state this supervision advantage directly in place of “simpler route”."
+    },
+    {
+      "id": "R1-32",
+      "line": 697,
+      "text": "V^(0) denotes the intermediate coarse acoustic velocity roll, while V-hat denotes the score-refined values read at aligned note onsets for the rendering interface. The superscript does not identify a pre-adaptation checkpoint. The estimator architecture is retained during adaptation, while VeloEst parameters are updated and the synthesis or proxy back-end remains frozen."
+    },
+    {
+      "id": "R1-33",
+      "line": 717,
+      "text": "The differentiable synthesisers used here are approximations whose timbre and velocity-to-sound response may differ from the target recordings. The observed degradation is consistent with acoustic mismatch but does not isolate the cause of the degradation. We did not separately measure reconstruction fidelity or velocity-gradient accuracy on the target recordings."
+    },
+    {
+      "id": "R1-34",
+      "line": 737,
+      "text": "Huber loss is used with beta = 1 for smooth small-error behaviour and an L1-like penalty for larger PHE/OSF residuals. We did not conduct a dedicated comparison with MAE."
+    },
+    {
+      "id": "R1-35",
+      "line": 757,
+      "text": "Figure 6.2 shows offline proxy training. Its caption identifies the teacher targets as PHE/OSF extracted from SoundFont-rendered audio."
+    },
+    {
+      "id": "R1-35",
+      "line": 761,
+      "text": "Figure 6.2 concerns offline proxy training. MIDI notes and velocities are rendered by the SoundFont, and PHE/OSF parameters extracted from that audio provide the teacher targets. Real performance audio is used in the later VeloEst adaptation stage, rather than to generate those offline targets. I propose to make the two stages explicit in the figure explanation."
+    },
+    {
+      "id": "R1-36",
+      "line": 781,
+      "text": "Automatic SoundFont selection is a possible extension. The selected renderer affects the velocity coordinate, so a matching procedure should consider velocity response as well as timbral similarity. The present study uses the stated by-ear selection and does not evaluate an automated selection method."
+    },
+    {
+      "id": "R1-37",
+      "line": 801,
+      "text": "The dynamics components could be integrated with note transcription, using aligned onsets for note-level velocity and a metrical grid for score-facing markings. Such a system would need evaluation of expressive usefulness alongside pitch, onset and offset accuracy. The component-level studies do not establish an improvement in those note-transcription measures."
+    },
+    {
+      "id": "R1-38",
+      "line": 821,
+      "text": "The score-dynamics model estimates the five static levels in its annotations and their change points. It does not explicitly represent crescendo, diminuendo or other gradual instructions as labelled spans. These are appropriate future targets because a change point alone does not specify a gradual instruction’s onset, duration and direction."
+    },
+    {
+      "id": "R2-01",
+      "line": 843,
+      "text": "The existing technical-chapter overviews identify the inputs, dynamics target and relation to the central question. I propose to retain those passages and make the local scope clarifications identified in R1-06 and R1-15, rather than add a second set of chapter introductions."
+    },
+    {
+      "id": "R2-02",
+      "line": 863,
+      "text": "Chapters 3–6 are associated with the four co-authored studies listed in the Authorship Declaration. Across these studies, the thesis develops a common label-recovery formulation and scenario map, introduces shared background, and compares assumptions and limitations in Chapter 7. I propose to distinguish this organising synthesis from the technical methods attributed to the individual studies."
+    },
+    {
+      "id": "R2-03",
+      "line": 883,
+      "text": "The empirical evidence concerns the tested piano datasets and exploratory guitar adaptation. The real-audio guitar adaptation evaluation concerns renderer-conditioned velocities and rendered-loudness agreement rather than comparison with target-domain MIDI velocity labels. Voice, bowed strings and wind instruments were not evaluated; their sustained and continuous controls may require different dynamics targets and descriptors beyond the attack-focused PHE/OSF pair."
+    },
+    {
+      "id": "R2-04",
+      "line": 905,
+      "text": "In the listening study, 11 expert listeners rated eight selected SMD excerpts rendered with one PianoTeq configuration for similarity to the human-performed MIDI rendering reference. The higher ratings for U-Net than for Flat and ConvAE support the objective comparison within this setting. This is supporting perceptual evidence for the selected stimuli and renderer."
+    },
+    {
+      "id": "R2-05",
+      "line": 925,
+      "text": "I propose to correct the identified local phrasing and presentation issues, including the listed grammar errors and the description of segment duration in relation to bars. A segment’s length in bars depends on tempo and metre, so a fixed duration should not be equated with a fixed number of measures."
+    },
+    {
+      "id": "R2-05",
+      "line": 941,
+      "text": "I am grateful for the examiners’ positive assessment of the contribution, organisation, methodological choices and presentation. The proposed revisions focus on the requested clarifications and presentation changes."
+    }
+  ]
+}

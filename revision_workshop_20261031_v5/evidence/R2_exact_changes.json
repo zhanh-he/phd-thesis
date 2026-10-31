@@ -1,0 +1,79 @@
+[
+  {
+    "id": "T01",
+    "decision": "ACCEPT",
+    "reason_zh": "接受。note content and timing逐项对应作者真实定义，比note structure精确，不引入新的数据类别。",
+    "source": "Chapter_1/Intro.tex",
+    "source_line": 114,
+    "before": "Here, weakly expressive data retain note structure but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\\ref{ch:beyondpiano}. These conditions can overlap.",
+    "after": "Here, weakly expressive data retain note content and timing but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\\ref{ch:beyondpiano}. These conditions can overlap.",
+    "suggested_text_from_external": "Here, weakly expressive data retain note content and timing but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\\ref{ch:beyondpiano}. These conditions can overlap.",
+    "exact_diff": "--- T01 frozen writer selection\n+++ T01 R2 proposal\n@@ -1 +1 @@\n-Here, weakly expressive data retain note structure but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\\ref{ch:beyondpiano}. These conditions can overlap.\n+Here, weakly expressive data retain note content and timing but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\\ref{ch:beyondpiano}. These conditions can overlap."
+  },
+  {
+    "id": "T03",
+    "decision": "ACCEPT",
+    "reason_zh": "接受实质合并。旧稿先说U-Net需二维输入，理由偏循环；现在先交代simultaneous notes与local neighbourhoods如何放到regular grid，再说明binary/single-channel与note-list接口代价。为必要信息接受略长文本，不追求最短。",
+    "source": "Chapter_3/chap3.tex",
+    "source_line": 26,
+    "before": "We use piano rolls because the U-Net processes two-dimensional pitch--time neighbourhoods, including simultaneous notes. The input is binary and the output is a single-channel velocity roll, so colourisation is an analogy for adding dynamics to existing notes. A note-list representation would require a different model interface \\cite{he2025filling,kim2024method}.",
+    "after": "We use a piano roll to place simultaneous notes and local pitch--time neighbourhoods on a regular grid for the convolutional U-Net. The input is binary; the single-channel output supplies velocity values, so colourisation is an analogy for adding dynamics to existing notes. A note-list representation would require a different model interface \\cite{he2025filling,kim2024method}.",
+    "suggested_text_from_external": "We use a piano roll to place simultaneous notes and local pitch--time neighbourhoods on a regular grid for the convolutional U-Net. The input is binary; the single-channel output supplies velocity values, so colourisation is an analogy for adding dynamics to existing notes. A note-list representation would require a different model interface \\cite{he2025filling,kim2024method}.",
+    "exact_diff": "--- T03 frozen writer selection\n+++ T03 R2 proposal\n@@ -1 +1 @@\n-We use piano rolls because the U-Net processes two-dimensional pitch--time neighbourhoods, including simultaneous notes. The input is binary and the output is a single-channel velocity roll, so colourisation is an analogy for adding dynamics to existing notes. A note-list representation would require a different model interface \\cite{he2025filling,kim2024method}.\n+We use a piano roll to place simultaneous notes and local pitch--time neighbourhoods on a regular grid for the convolutional U-Net. The input is binary; the single-channel output supplies velocity values, so colourisation is an analogy for adding dynamics to existing notes. A note-list representation would require a different model interface \\cite{he2025filling,kim2024method}."
+  },
+  {
+    "id": "T07",
+    "decision": "ACCEPT",
+    "reason_zh": "接受。补on the target recordings，限定未单独测量的对象；不暗示这些合成器从未做过保真评估。",
+    "source": "Chapter_6/chap6.tex",
+    "source_line": 111,
+    "before": "The waveform interface supplies gradients through a differentiable approximation of the instrument. Its timbre and velocity response may differ from the target recordings. The observed degradation is consistent with this mismatch, but reconstruction fidelity and velocity-gradient accuracy were not measured separately.",
+    "after": "The waveform interface supplies gradients through a differentiable approximation of the instrument. Its timbre and velocity response may differ from the target recordings. The observed degradation is consistent with this mismatch, but reconstruction fidelity and velocity-gradient accuracy were not measured separately on the target recordings.",
+    "suggested_text_from_external": "The waveform interface supplies gradients through a differentiable approximation of the instrument. Its timbre and velocity response may differ from the target recordings. The observed degradation is consistent with this mismatch, but reconstruction fidelity and velocity-gradient accuracy were not measured separately on the target recordings.",
+    "exact_diff": "--- T07 frozen writer selection\n+++ T07 R2 proposal\n@@ -1 +1 @@\n-The waveform interface supplies gradients through a differentiable approximation of the instrument. Its timbre and velocity response may differ from the target recordings. The observed degradation is consistent with this mismatch, but reconstruction fidelity and velocity-gradient accuracy were not measured separately.\n+The waveform interface supplies gradients through a differentiable approximation of the instrument. Its timbre and velocity response may differ from the target recordings. The observed degradation is consistent with this mismatch, but reconstruction fidelity and velocity-gradient accuracy were not measured separately on the target recordings."
+  },
+  {
+    "id": "T11",
+    "decision": "ACCEPT",
+    "reason_zh": "接受可选精简。旧v5与批注相容，并非确定的事实错误；删through a dedicated comparison减少实验史歧义，只保留尚未确立优势。",
+    "source": "Chapter_6/chap6.tex",
+    "source_line": 126,
+    "before": "We chose Huber for its smooth gradients near zero and L1-like penalty for large residuals. We have not established an advantage over MAE through a dedicated comparison.",
+    "after": "We chose Huber for its smooth gradients near zero and L1-like penalty for large residuals. We have not established an advantage over MAE.",
+    "suggested_text_from_external": "We chose Huber for its smooth gradients near zero and L1-like penalty for large residuals. We have not established an advantage over MAE.",
+    "exact_diff": "--- T11 frozen writer selection\n+++ T11 R2 proposal\n@@ -1 +1 @@\n-We chose Huber for its smooth gradients near zero and L1-like penalty for large residuals. We have not established an advantage over MAE through a dedicated comparison.\n+We chose Huber for its smooth gradients near zero and L1-like penalty for large residuals. We have not established an advantage over MAE."
+  },
+  {
+    "id": "N02",
+    "decision": "ACCEPT_WITH_INTEGRATION",
+    "reason_zh": "接受实质意见，整合位置略调整。删去紧邻表格的四个delta，不从舍入端点重算0.193。保留GT notes/velocities不变、rendered sound变化及非gain-only干预。metric purpose移到N03首句，避免相邻两段重复同一句目的说明。",
+    "source": "Chapter_6/chap6.tex",
+    "source_line": 503,
+    "before": "Changing from Salamander to YDP while retaining the GT notes and velocities changes MAE by $0.193$ on BSSL and $1.723$ on BSTL; the corresponding changes in Pearson $r$ are $0.034$ and $0.011$. This tests the effect of the renderer change as a whole, rather than absolute gain alone. Pearson $r$ is used here to compare loudness-contour agreement while reducing dependence on absolute level.",
+    "after": "Changing from Salamander to YDP retains the GT notes and velocities but changes their rendered sound. This comparison tests the renderer change as a whole, rather than gain alone.",
+    "suggested_text_from_external": "Changing from Salamander to YDP retains the GT notes and velocities but changes their rendered sound. This comparison tests the renderer change as a whole, rather than gain alone. Pearson $r$ is used here to compare loudness-contour agreement while reducing dependence on absolute level.",
+    "exact_diff": "--- N02 frozen writer selection\n+++ N02 R2 proposal\n@@ -1 +1 @@\n-Changing from Salamander to YDP while retaining the GT notes and velocities changes MAE by $0.193$ on BSSL and $1.723$ on BSTL; the corresponding changes in Pearson $r$ are $0.034$ and $0.011$. This tests the effect of the renderer change as a whole, rather than absolute gain alone. Pearson $r$ is used here to compare loudness-contour agreement while reducing dependence on absolute level.\n+Changing from Salamander to YDP retains the GT notes and velocities but changes their rendered sound. This comparison tests the renderer change as a whole, rather than gain alone."
+  },
+  {
+    "id": "N03",
+    "decision": "ACCEPT_WITH_INTEGRATION",
+    "reason_zh": "接受目的句写法，并承接N02末句的absolute-level目的。用For label-free guitar evaluation替代therefore；保留piano/two SoundFonts范围及complementary diagnostics，不重新声称优越性。",
+    "source": "Chapter_6/chap6.tex",
+    "source_line": 505,
+    "before": "We therefore use Pearson $r$ on BSSL/BSTL as the main measure of rendered loudness-contour agreement for label-free guitar evaluation. In this piano diagnostic, it distinguishes GT from flat velocity under both tested SoundFonts. Cosine similarity and MAE are retained as complementary diagnostics.",
+    "after": "For label-free guitar evaluation, we use Pearson $r$ on BSSL/BSTL to measure rendered loudness-contour agreement while reducing dependence on absolute level. In the piano diagnostic, it scores GT above flat velocity under both tested SoundFonts. Cosine similarity and MAE are retained as complementary diagnostics.",
+    "suggested_text_from_external": "For label-free guitar evaluation, we use Pearson $r$ on BSSL/BSTL to measure rendered loudness-contour agreement. In the piano diagnostic, it scores GT above flat velocity under both tested SoundFonts. Cosine similarity and MAE are retained as complementary diagnostics.",
+    "exact_diff": "--- N03 frozen writer selection\n+++ N03 R2 proposal\n@@ -1 +1 @@\n-We therefore use Pearson $r$ on BSSL/BSTL as the main measure of rendered loudness-contour agreement for label-free guitar evaluation. In this piano diagnostic, it distinguishes GT from flat velocity under both tested SoundFonts. Cosine similarity and MAE are retained as complementary diagnostics.\n+For label-free guitar evaluation, we use Pearson $r$ on BSSL/BSTL to measure rendered loudness-contour agreement while reducing dependence on absolute level. In the piano diagnostic, it scores GT above flat velocity under both tested SoundFonts. Cosine similarity and MAE are retained as complementary diagnostics."
+  },
+  {
+    "id": "N05a",
+    "decision": "ACCEPT",
+    "reason_zh": "接受KEEP原首句。scope boundaries不全等于缺陷；只删后面的防御句，原分类不变。",
+    "source": "Chapter_7/Conclusion.tex",
+    "source_line": 109,
+    "before": "The thesis has several limitations.",
+    "after": "The thesis has several boundaries.",
+    "suggested_text_from_external": "The thesis has several boundaries.",
+    "exact_diff": "--- N05a frozen writer selection\n+++ N05a R2 proposal\n@@ -1 +1 @@\n-The thesis has several limitations.\n+The thesis has several boundaries."
+  }
+]

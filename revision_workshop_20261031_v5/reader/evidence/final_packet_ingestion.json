@@ -1,0 +1,627 @@
+{
+  "sourcePacket": "revision_workshop_20261031_v5/READER_PACKET_REVIEWED_v5.json",
+  "sourcePacketSha256": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17",
+  "status": "writer/evaluator agreed exact repaired text; author approval and implementation pending",
+  "priorityCards": 6,
+  "tournamentItems": 15,
+  "fullSelectionEntries": 20,
+  "sourceQuoteChecks": [
+    {
+      "id": "T11",
+      "unique": true,
+      "exactLine": 126,
+      "sourceFile": "Chapter_6/chap6.tex"
+    },
+    {
+      "id": "N01",
+      "unique": true,
+      "exactLine": 501,
+      "sourceFile": "Chapter_6/chap6.tex"
+    },
+    {
+      "id": "T03",
+      "unique": true,
+      "exactLine": 26,
+      "sourceFile": "Chapter_3/chap3.tex"
+    },
+    {
+      "id": "T01",
+      "unique": true,
+      "exactLine": 114,
+      "sourceFile": "Chapter_1/Intro.tex"
+    },
+    {
+      "id": "N05a",
+      "unique": true,
+      "exactLine": 109,
+      "sourceFile": "Chapter_7/Conclusion.tex"
+    },
+    {
+      "id": "KEEP-FIG62",
+      "unique": true,
+      "exactLine": 204,
+      "sourceFile": "Chapter_6/chap6.tex"
+    }
+  ],
+  "candidateChecks": [
+    {
+      "id": "T11",
+      "option": "REVIEWED",
+      "candidateExact": true,
+      "candidateProof": [
+        "FINAL_SELECTION_REVIEWED_v5.json#T11.selected"
+      ]
+    },
+    {
+      "id": "N01",
+      "option": "REVIEWED",
+      "candidateExact": true,
+      "candidateProof": [
+        "FINAL_SELECTION_REVIEWED_v5.json#N01",
+        "FINAL_SELECTION_REVIEWED_v5.json#N02",
+        "FINAL_SELECTION_REVIEWED_v5.json#N03"
+      ]
+    },
+    {
+      "id": "T03",
+      "option": "REVIEWED",
+      "candidateExact": true,
+      "candidateProof": [
+        "FINAL_SELECTION_REVIEWED_v5.json#T03.selected"
+      ]
+    },
+    {
+      "id": "T03",
+      "option": "GRID",
+      "candidateExact": true,
+      "candidateProof": [
+        "FINAL_SELECTION_REVIEWED_v5.json#T03.variants.FRESH_1"
+      ]
+    },
+    {
+      "id": "T01",
+      "option": "REVIEWED",
+      "candidateExact": true,
+      "candidateProof": [
+        "FINAL_SELECTION_REVIEWED_v5.json#T01.selected"
+      ]
+    },
+    {
+      "id": "N05a",
+      "option": "REVIEWED",
+      "candidateExact": true,
+      "candidateProof": [
+        "FINAL_SELECTION_REVIEWED_v5.json#N05a.selected"
+      ]
+    }
+  ],
+  "writerFilesModified": false,
+  "decisionWrites": false,
+  "findings": [
+    "Six selected cards, not fifteen. The fifteen tournament items remain in the linked source index.",
+    "optionNotes is a string in writer input; adapted to per-option notes so historical-approval restriction stays visible.",
+    "decisionPath links old generic ledger; explicitly historical, legacy IDs mapped where known, no v5 author-choice endpoint claimed.",
+    "Reviewer summaries and editorial status were not verbatim quotes; legacy cards now attach actual COMMENT_MAP text, new findings use editorial labels.",
+    "Workflow pending text separated from actual fact-pending filter.",
+    "N01 is a five-range consistency group; KEEP scope covers full group.",
+    "N05b/c remain optional independent edits, not approval inherited from N05a.",
+    "Source provenance expanded to mandatory Ch2 followthrough and exact writer/review/alternative inputs.",
+    "GRID alternative needs C1 source; final passages only contain selected V5.",
+    "FINAL_SELECTION N01 includes later C2 repair, whereas selected_passages_c2 snapshot is older; final packet uses FINAL_SELECTION.",
+    "R2 contextPreview is exactly reconstructed from 44 operations. It includes other unapproved proposals as well as v4 deps; these are separately listed and highlighted."
+  ],
+  "operationChecks": [
+    {
+      "id": "T01",
+      "kind": "insertion",
+      "source": "Chapter_1/Intro.tex",
+      "start": 15368,
+      "end": 15368,
+      "exact": true
+    },
+    {
+      "id": "T02",
+      "kind": "insertion",
+      "source": "Chapter_1/Intro.tex",
+      "start": 16926,
+      "end": 16926,
+      "exact": true
+    },
+    {
+      "id": "T03",
+      "kind": "replacement",
+      "source": "Chapter_3/chap3.tex",
+      "start": 2903,
+      "end": 3416,
+      "exact": true
+    },
+    {
+      "id": "T04",
+      "kind": "insertion",
+      "source": "Chapter_4/chap4.tex",
+      "start": 9449,
+      "end": 9449,
+      "exact": true
+    },
+    {
+      "id": "T05",
+      "kind": "insertion",
+      "source": "Chapter_5/chap5.tex",
+      "start": 5129,
+      "end": 5129,
+      "exact": true
+    },
+    {
+      "id": "T06",
+      "kind": "replacement",
+      "source": "Chapter_6/chap6.tex",
+      "start": 6011,
+      "end": 6580,
+      "exact": true
+    },
+    {
+      "id": "T07",
+      "kind": "replacement",
+      "source": "Chapter_6/chap6.tex",
+      "start": 17773,
+      "end": 18185,
+      "exact": true
+    },
+    {
+      "id": "T08",
+      "kind": "replacement",
+      "source": "Chapter_1/Intro.tex",
+      "start": 20275,
+      "end": 20491,
+      "exact": true
+    },
+    {
+      "id": "T09",
+      "kind": "replacement",
+      "source": "Chapter_7/Conclusion.tex",
+      "start": 15425,
+      "end": 15919,
+      "exact": true
+    },
+    {
+      "id": "T10",
+      "kind": "replacement",
+      "source": "Chapter_3/chap3.tex",
+      "start": 31463,
+      "end": 32006,
+      "exact": true
+    },
+    {
+      "id": "N01",
+      "kind": "replacement",
+      "source": "Chapter_6/chap6.tex",
+      "start": 57271,
+      "end": 57719,
+      "exact": true
+    },
+    {
+      "id": "N02",
+      "kind": "replacement",
+      "source": "Chapter_6/chap6.tex",
+      "start": 57721,
+      "end": 58239,
+      "exact": true
+    },
+    {
+      "id": "T11",
+      "kind": "replacement",
+      "source": "Chapter_6/chap6.tex",
+      "start": 19371,
+      "end": 19623,
+      "exact": true
+    },
+    {
+      "id": "N03",
+      "kind": "replacement",
+      "source": "Chapter_6/chap6.tex",
+      "start": 58241,
+      "end": 58601,
+      "exact": true
+    },
+    {
+      "id": "N04",
+      "kind": "replacement",
+      "source": "Chapter_2/Background.tex",
+      "start": 75311,
+      "end": 75380,
+      "exact": true
+    },
+    {
+      "id": "N05a",
+      "kind": "replacement",
+      "source": "Chapter_7/Conclusion.tex",
+      "start": 14701,
+      "end": 14912,
+      "exact": true
+    },
+    {
+      "id": "N05b",
+      "kind": "replacement",
+      "source": "Chapter_7/Conclusion.tex",
+      "start": 17472,
+      "end": 17612,
+      "exact": true
+    },
+    {
+      "id": "N05c",
+      "kind": "replacement",
+      "source": "Chapter_7/Conclusion.tex",
+      "start": 16794,
+      "end": 16957,
+      "exact": true
+    },
+    {
+      "id": "N06a",
+      "kind": "replacement",
+      "source": "Chapter_3/chap3.tex",
+      "start": 7633,
+      "end": 7841,
+      "exact": true
+    },
+    {
+      "id": "N06b",
+      "kind": "replacement",
+      "source": "Chapter_3/chap3.tex",
+      "start": 25732,
+      "end": 25909,
+      "exact": true
+    },
+    {
+      "id": "V4-velocity-1",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 10379,
+      "end": 11121,
+      "exact": true
+    },
+    {
+      "id": "V4-velocity-2",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 8171,
+      "end": 8220,
+      "exact": true
+    },
+    {
+      "id": "V4-velocity-3",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 5491,
+      "end": 5619,
+      "exact": true
+    },
+    {
+      "id": "V4-velocity-4",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 6895,
+      "end": 7020,
+      "exact": true
+    },
+    {
+      "id": "V4-velocity-5",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 9981,
+      "end": 10016,
+      "exact": true
+    },
+    {
+      "id": "V4-velocity-6",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 12836,
+      "end": 12873,
+      "exact": true
+    },
+    {
+      "id": "V4-velocity-7",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 13061,
+      "end": 13157,
+      "exact": true
+    },
+    {
+      "id": "V4-velocity-8",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 11725,
+      "end": 11924,
+      "exact": true
+    },
+    {
+      "id": "V4-scope-1",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 15757,
+      "end": 15919,
+      "exact": true
+    },
+    {
+      "id": "V4-scope-2",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 18109,
+      "end": 18473,
+      "exact": true
+    },
+    {
+      "id": "V4-motivation",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 6064,
+      "end": 6279,
+      "exact": true
+    },
+    {
+      "id": "V4-S1-opening",
+      "kind": "dependency",
+      "source": "Chapter_3/chap3.tex",
+      "start": 454,
+      "end": 840,
+      "exact": true
+    },
+    {
+      "id": "V4-R1-15-sync-1",
+      "kind": "dependency",
+      "source": "Chapter_3/chap3.tex",
+      "start": 4067,
+      "end": 4129,
+      "exact": true
+    },
+    {
+      "id": "V4-R1-15-sync-2",
+      "kind": "dependency",
+      "source": "Chapter_3/chap3.tex",
+      "start": 33775,
+      "end": 33850,
+      "exact": true
+    },
+    {
+      "id": "V4-R1-15-sync-3",
+      "kind": "dependency",
+      "source": "Chapter_7/Conclusion.tex",
+      "start": 5366,
+      "end": 5436,
+      "exact": true
+    },
+    {
+      "id": "V4-R1-15-sync-4",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 15920,
+      "end": 16059,
+      "exact": true
+    },
+    {
+      "id": "V4-R2-04-sync-1",
+      "kind": "dependency",
+      "source": "main.tex",
+      "start": 5269,
+      "end": 5372,
+      "exact": true
+    },
+    {
+      "id": "V4-R2-04-sync-2",
+      "kind": "dependency",
+      "source": "Chapter_3/chap3.tex",
+      "start": 33173,
+      "end": 33260,
+      "exact": true
+    },
+    {
+      "id": "V4-R2-04-sync-3",
+      "kind": "dependency",
+      "source": "Chapter_1/Intro.tex",
+      "start": 20720,
+      "end": 20916,
+      "exact": true
+    },
+    {
+      "id": "V4-R2-04-sync-4",
+      "kind": "dependency",
+      "source": "Chapter_7/Conclusion.tex",
+      "start": 6125,
+      "end": 6216,
+      "exact": true
+    },
+    {
+      "id": "V4-R1-33-common-1",
+      "kind": "dependency",
+      "source": "Chapter_6/chap6.tex",
+      "start": 7324,
+      "end": 7991,
+      "exact": true
+    },
+    {
+      "id": "V4-R1-33-common-2",
+      "kind": "dependency",
+      "source": "Chapter_6/chap6.tex",
+      "start": 49568,
+      "end": 50261,
+      "exact": true
+    },
+    {
+      "id": "V4-R1-33-common-3",
+      "kind": "dependency",
+      "source": "Chapter_6/chap6.tex",
+      "start": 53359,
+      "end": 54069,
+      "exact": true
+    },
+    {
+      "id": "N07",
+      "kind": "replacement",
+      "source": "Chapter_6/chap6.tex",
+      "start": 55489,
+      "end": 57269,
+      "exact": true
+    }
+  ],
+  "sourceSnapshots": [
+    {
+      "path": "Chapter_1/Intro.tex",
+      "sha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359"
+    },
+    {
+      "path": "Chapter_2/Background.tex",
+      "sha256": "f9f847a8d09557536798e776d60d80de16fb6ba6435afdbcbffaaf938ac7dffb"
+    },
+    {
+      "path": "Chapter_3/chap3.tex",
+      "sha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9"
+    },
+    {
+      "path": "Chapter_4/chap4.tex",
+      "sha256": "d3ba02f332041ea4e6e8c89fe342fdf560bd9edda1caafcd4b7c9fb651226eb8"
+    },
+    {
+      "path": "Chapter_5/chap5.tex",
+      "sha256": "60219fbeac5ebb0d2e70be7de2bbf6028c1e1916bf35c3626f0b5d872432e6fe"
+    },
+    {
+      "path": "Chapter_6/chap6.tex",
+      "sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf"
+    },
+    {
+      "path": "Chapter_7/Conclusion.tex",
+      "sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f"
+    },
+    {
+      "path": "main.tex",
+      "sha256": "a55546f7a41c9210f1ecebae71a2167f86e0fb93ddbf96797ba03c1ea270fd39"
+    },
+    {
+      "path": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "sha256": "f8c9f9357f17d1060fb294e31196e3e846411369ede5518bb868fdb194ee7d18"
+    },
+    {
+      "path": "revision_blueprint_20261031/SUPPLEMENTS_v4.md",
+      "sha256": "91d383210951927a08bdc23cb46900d571a5692b1adf3ac2c8777fc58c25b926"
+    },
+    {
+      "path": "revision_blueprint_20261031/evidence/comment_map.json",
+      "sha256": "6c6f16db0eb4478b80f54fc8846713e1c02650e4c51b5eb99690ff1f86906722"
+    },
+    {
+      "path": "revision_blueprint_20261031/writer_round3.md",
+      "sha256": "1a658584d35ee50580dd2dfd6eb9d0afdac1b573404edbacf3e475a79250c75e"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/AUTHOR_READING_GUIDE_v5.md",
+      "sha256": "c2a6058d66a16a2b715f038cc4a03c6f65f647756f7c9340ac22aaae27febe90"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/CANDIDATE_PACKET_BLIND_C1.md",
+      "sha256": "6cdb230a24da1de3458ea6de17a6698dbc6041d060c2a18910a2b5791c355634"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/CANDIDATE_PACKET_FINAL_v5.md",
+      "sha256": "4c98b4f3b0be6b6c189539ade6deda3742a732381f9e3986695bfa53e985330e"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/DEPENDENCIES_REVIEWED_v5.json",
+      "sha256": "f09f6285ace0178e8d625b9ea8c9e2066769a2097fe1236c91f54b3cdd5da1fe"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/FINAL_DELIVERY_MANIFEST_v5.json",
+      "sha256": "46cccea59fc3e5221c859a762c6fabcb0e5f1f4d6bc3ed14bddcd13d7e92a7fa"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_REVIEWED_v5.md",
+      "sha256": "2216fb8a4b2a277d93f339353a7658df3c589d2282f5b5848120d7f4609a5fb6"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/FINAL_SELECTION.json",
+      "sha256": "ef9eb2c40590daf05b7135f99ca6de39c7b086a113b00279b27a2da85d54d40a"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/FINAL_SELECTION_REVIEWED_v5.json",
+      "sha256": "ea192ca43b8034ae30ab5c4ed271c46758516ba69161b2c340aafeec09741b81"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/FINAL_WRITER_EVALUATOR_AGREEMENT_v5.md",
+      "sha256": "e3a186c8193e24908bb109df3225b52327b0f9f0f9388d0f1c1a3d9848faa805"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/N07_TABLE_MARKUP_REVIEWED_v5.tex",
+      "sha256": "b33c0fe2a46985df026574d86b24a14fd139d0512d2511c637f99abd514508e1"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/READER_PACKET_REVIEWED_v5.json",
+      "sha256": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/evaluator_cycle1.md",
+      "sha256": "d7dadb73ba3a9c3485ca3d04bbdb0c30fa8b6a30f1d857df7ab4847432f39933"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/evaluator_cycle2.md",
+      "sha256": "c095132cc8cc54aa24d4d13ccf0d478c1446ace9ad0384eda93a0aa503e5f60f"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/evaluator_cycle2_N07_corrected_proposal.tex",
+      "sha256": "b33c0fe2a46985df026574d86b24a14fd139d0512d2511c637f99abd514508e1"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/evaluator_cycle2_dependencies_corrected_proposal.json",
+      "sha256": "5d61171e29adc0e2516ba56d95927eab6d7ee21609d0eceeb81af044c87cb6df"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/evaluator_cycle2_repair_verification.json",
+      "sha256": "a0d246a9a9293c0dec0f4390a8218170cf056d8ac69adb43897f5999ef660542"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/evaluator_cycle2_verdict.json",
+      "sha256": "4167fea299cc14157efd350b01d79cd9530fc2398c9e350f83f37d5cb721c0a0"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/evidence/FINAL_OPERATION_MANIFEST_v5.json",
+      "sha256": "cfbf7e45eba0360a607f657df3962e1914b253bb76b544f80dce286d5ab958c9"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/evidence/R2_exact_changes.json",
+      "sha256": "9f729ebfe9c061f7abcd7a9c1ae87fab087ac0105507a0f011ba23c18491295c"
+    }
+  ],
+  "insertionAnchorChecks": {
+    "T01": 15368,
+    "T02": 16926,
+    "T04": 9449,
+    "T05": 5129
+  },
+  "newDecisionInstruction": "Reply using v5 IDs + 推荐稿/KEEP; source ledger is historical/current existing scope only.",
+  "exactRepairedOperationIds": [
+    "V4-R2-04-sync-3",
+    "N07"
+  ],
+  "acceptedSelectionHashes": {
+    "T01": "b0c70f57554647999a08fc068ea50708829f2f12d2ecd8a45c5c4ab368190644",
+    "T02": "b68bc166387a3df91bc952a457a2faa860de57e583f3505c137f97d5a1e18a3f",
+    "T03": "c6f03ee027890d87b6c5bbba1e6c883f3c185d727aeef003556f34e860fe7d10",
+    "T04": "783d704554fa4ef25a68cc912eccaff2d35810ef8134437507dae35609fd9661",
+    "T05": "f6a47f838f06b71f9821944c19d555cead03a06b15bb5e676a32f1d3b7b8986f",
+    "T06": "121f13c14d56824e6356d4f7268b26af8b69d843a6c0bc581c1700602f5f977b",
+    "T07": "ec399473755e8bfbb50ed4b95fb7183148a74a31ff3bc5bd6ea850efd625a75f",
+    "T08": "206f4d51963bf2813b91aa9ba3d7824007009e79dae4166bc0e423c025553630",
+    "T09": "71b5f3da043d7e32201c185de37dc14a2a2963b26fcc09fcd0520dbd76b3499a",
+    "T10": "0035ef8fc3ccc93d10d4c04e7b217b759c11e1f66d01e2fbe59a2974b9d513b8",
+    "N01": "c76c8ebaed441425ba7412bb158d596088f6e004eaf7c9c06f3a78547f61a18b",
+    "N02": "e10464e173898a8669c30f6e52402aefe7a783461e134552c68d721ee1fb8e87",
+    "T11": "fe9a4d1a2b6150648b75cf7534453b712bd7dc39ee082bc9c707bc9f3c2a6e3a",
+    "N03": "ce8999ddc43954c46f190afb3b81020095fcc16e257025e3099155364ce8517b",
+    "N04": "4ceccb92217aa153349cad60b2c0bb7124e9213f1d3d40027f9b3a0afb16dfb1",
+    "N05a": "9be8a3a8776194b15ec99f259e7d98e5bff811c372ffac0b289395f4e6c2bb69",
+    "N05b": "6fad0656bcccc5952f6af41449d9a9e0282a5a88f675c8fd555966e226dd8981",
+    "N05c": "41805b99969988ae09dcadb8bc7742d63417f346de36240cce51d250616614fc",
+    "N06a": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "N06b": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "overlayMatchesEvaluator": true
+}

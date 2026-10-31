@@ -1,0 +1,216 @@
+{
+  "edition": "writer-provisional; external evaluator pending",
+  "tests": [
+    {
+      "name": "Provisional status visible, not accepted review",
+      "passed": true
+    },
+    {
+      "name": "Six priority cards; 15-item optional index collapsed",
+      "passed": true
+    },
+    {
+      "name": "No duplicated short/why lead",
+      "passed": true
+    },
+    {
+      "name": "Historical author-choice link does not claim T11 approval row",
+      "passed": true
+    },
+    {
+      "name": "T11/V5 exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T11/KEEP exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T11/V5 exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T11/KEEP exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T11 historical approval warning stays visible",
+      "passed": true
+    },
+    {
+      "name": "N01/V5 exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "N01/KEEP exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "N01/V5 exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "N01/KEEP exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "N01 historical approval warning stays visible",
+      "passed": true
+    },
+    {
+      "name": "T03/V5 exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T03/GRID exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T03/KEEP exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T03/V5 exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T03/GRID exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T03/KEEP exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T03 historical approval warning stays visible",
+      "passed": true
+    },
+    {
+      "name": "T01/V5 exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T01/KEEP exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T01/V5 exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T01/KEEP exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T01 historical approval warning stays visible",
+      "passed": true
+    },
+    {
+      "name": "N05a/V5 exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "N05a/KEEP exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "N05a/V5 exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "N05a/KEEP exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "N05a historical approval warning stays visible",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62/KEEP exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62/KEEP exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62 historical approval warning stays visible",
+      "passed": true
+    },
+    {
+      "name": "N01 whole group exact sync ranges and five-range notice",
+      "passed": true
+    },
+    {
+      "name": "N01 KEEP scope retains whole group",
+      "passed": true
+    },
+    {
+      "name": "Optional b/c remain visible independent when a kept",
+      "passed": true
+    },
+    {
+      "name": "GRID has actual alternative source instead of selected-only file",
+      "passed": true
+    },
+    {
+      "name": "T01 shows actual examiner and authored reply",
+      "passed": true
+    },
+    {
+      "name": "New editorial issue not labeled examiner quote",
+      "passed": true
+    },
+    {
+      "name": "Workflow pending does not masquerade as scientific fact blocks",
+      "passed": true
+    },
+    {
+      "name": "Reset restores six defaults",
+      "passed": true
+    },
+    {
+      "name": "T11 at 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "N01 at 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "T03 at 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "T01 at 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "N05a at 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62 at 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "No runtime errors",
+      "passed": true
+    },
+    {
+      "name": "No external requests",
+      "passed": true
+    },
+    {
+      "name": "Legacy index.html not overwritten",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "provisional-desktop.png",
+    "provisional-metric-group.png",
+    "provisional-narrow.png"
+  ],
+  "runtimeErrors": [],
+  "externalRequests": []
+}

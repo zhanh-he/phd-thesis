@@ -1,0 +1,323 @@
+[
+  {
+    "id": "T01",
+    "source": "Chapter_1/Intro.tex",
+    "source_occurrences": 0,
+    "insertion": true,
+    "source_sha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359",
+    "selected_words": 45,
+    "original_words": null,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-[No additional paragraph.]",
+      "+Here, weakly expressive data retain note structure but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\\ref{ch:beyondpiano}. These conditions can overlap."
+    ]
+  },
+  {
+    "id": "T02",
+    "source": "Chapter_1/Intro.tex",
+    "source_occurrences": 0,
+    "insertion": true,
+    "source_sha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359",
+    "selected_words": 34,
+    "original_words": null,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-[No additional paragraph.]",
+      "+Chapter~\\ref{ch:beyondpiano} extends S2 to guitar when target-domain velocity labels are unavailable. It retains the score-informed estimator and aligned note events. Audio-only velocity adaptation remains future work; S3 instead targets score dynamics."
+    ]
+  },
+  {
+    "id": "T03",
+    "source": "Chapter_3/chap3.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9",
+    "selected_words": 49,
+    "original_words": 79,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-This motivates the image-based view adopted in the present chapter. By treating symbolic MIDI as a sparse image and velocity as a colourisation target, the model can exploit local polyphonic structure more directly. U-Net and attention mechanisms are already successful in related music and audio tasks, but the present setting is distinct because it is purely symbolic and does not rely on acoustic input \\cite{he2025filling,kim2024method}. This makes the chapter a natural starting point for the broader thesis.",
+      "+We use piano rolls because the U-Net processes two-dimensional pitch--time neighbourhoods, including simultaneous notes. The input is binary and the output is a single-channel velocity roll, so colourisation is an analogy for adding dynamics to existing notes. A note-list representation would require a different model interface \\cite{he2025filling,kim2024method}."
+    ]
+  },
+  {
+    "id": "T04",
+    "source": "Chapter_4/chap4.tex",
+    "source_occurrences": 0,
+    "insertion": true,
+    "source_sha256": "d3ba02f332041ea4e6e8c89fe342fdf560bd9edda1caafcd4b7c9fb651226eb8",
+    "selected_words": 25,
+    "original_words": null,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-[No additional paragraph.]",
+      "+Note detection and velocity estimation may benefit from joint modelling, but this chapter evaluates velocity at supplied note onsets and does not test that benefit."
+    ]
+  },
+  {
+    "id": "T05",
+    "source": "Chapter_5/chap5.tex",
+    "source_occurrences": 0,
+    "insertion": true,
+    "source_sha256": "60219fbeac5ebb0d2e70be7de2bbf6028c1e1916bf35c3626f0b5d872432e6fe",
+    "selected_words": 28,
+    "original_words": null,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-[No additional rationale beyond the existing target definitions.]",
+      "+Changes in the predicted level sequence could also define boundaries. The separate change-point head instead learns an explicit boundary target, while the level head predicts the dynamic state."
+    ]
+  },
+  {
+    "id": "T06",
+    "source": "Chapter_6/chap6.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+    "selected_words": 34,
+    "original_words": 79,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-This chapter takes a different and simpler route. Instead of training on synthesised audio with synthetic labels, the front-end estimator is trained directly against real performance audio. The synthesiser is involved at training time only as a differentiable interface that connects predicted velocities to a measurable property of the real recording. This avoids the synthesis-to-performance domain gap that dominates synthetic-data transfer pipelines, at the cost of needing a differentiable supervision interface that is reliable across the instruments of interest.",
+      "+This chapter instead adapts a piano-pretrained estimator using real performance audio, without requiring target-domain velocity labels. A differentiable renderer or proxy supplies the training signal. Its match to the target recordings remains a limitation."
+    ]
+  },
+  {
+    "id": "T07",
+    "source": "Chapter_6/chap6.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+    "selected_words": 41,
+    "original_words": 67,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-The advantage of this interface is that it exposes the front end to rich waveform gradients. The risk, already noted in Section~\\ref{sec:bp:related}, is that any timbral or recording mismatch between $\\tilde{a}$ and $a$ also enters the gradient. When the synthesiser is not a faithful match for the target recordings, the gradient can become dominated by nuisance compensation rather than by velocity correction.",
+      "+The waveform interface supplies gradients through a differentiable approximation of the instrument. Its timbre and velocity response may differ from the target recordings. The observed degradation is consistent with this mismatch, but reconstruction fidelity and velocity-gradient accuracy were not measured separately."
+    ]
+  },
+  {
+    "id": "T08",
+    "source": "Chapter_1/Intro.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359",
+    "selected_words": 43,
+    "original_words": 27,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-Referring to Figure~\\ref{fig:intro_overview}, the core methodological chapters (Chapters 3--5) preserve the technical contributions of their respective peer-reviewed publications, adapted to form a unified narrative.",
+      "+Chapters 3--6 are based on the four co-authored studies listed in the Authorship Declaration. The thesis brings them together through a common label-recovery question, a shared account of dynamics representations, and the cross-chapter discussion of assumptions and limitations in Chapter~\\ref{ch:conclusion}."
+    ]
+  },
+  {
+    "id": "T09",
+    "source": "Chapter_7/Conclusion.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f",
+    "selected_words": 48,
+    "original_words": 68,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-Second, the strongest direct supervision in the thesis remains piano-centric. This reflects the state of available velocity-labelled datasets rather than a belief that piano dynamics is the universal template for all instruments. Chapter~\\ref{ch:beyondpiano} addresses this bias by moving into a label-scarce guitar setting, but the broader point remains: once the target instrument lacks direct performance-control labels, the interpretation of recovered velocity must be stated operationally.",
+      "+Second, the strongest direct supervision remains piano-based. Chapter~\\ref{ch:beyondpiano} extends the approach to guitar using renderer-conditioned velocity and loudness-based evaluation. Voice, bowed strings, and wind instruments were not evaluated; their sustained and continuous controls would require targets and acoustic descriptors beyond the attack-focused PHE/OSF pair."
+    ]
+  },
+  {
+    "id": "T10",
+    "source": "Chapter_3/chap3.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9",
+    "selected_words": 62,
+    "original_words": 72,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1,4 +1 @@",
+      "-Although a substantial gap to human performance remains, the proposed U-Net clearly outperforms the other systems.",
+      "-The Flat model performs worst, consistent with earlier findings that default velocity is musically inadequate \\cite{kuo2021velocity}.",
+      "-The seen, less-seen, and unseen repertoire groups are best interpreted as descriptive groups rather than as a strict complexity-controlled comparison.",
+      "-Even so, the relatively narrow 95\\% confidence intervals across groups suggest that participants rated the stimuli with reasonable consistency.",
+      "+U-Net received higher mean similarity ratings than Flat and ConvAE on the selected excerpts, while Flat received the lowest ratings, consistent with earlier findings on default velocity \\cite{kuo2021velocity}. The listening study provides supplementary perceptual evidence from 11 expert listeners, eight selected SMD excerpts, and one PianoTeq rendering configuration. The composer-group scores are descriptive rather than a controlled comparison of stylistic effects."
+    ]
+  },
+  {
+    "id": "N01",
+    "source": "Chapter_6/chap6.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+    "selected_words": 31,
+    "original_words": 70,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-To test dynamics sensitivity, $\\Delta(\\mathrm{GT} - \\mathrm{Flat\\,64})$ asks whether a metric can distinguish expressive resynthesis from a flat one. Among the similarity metrics, Pearson $r$ produces the larger separation on both BSSL ($+0.118$) and BSTL ($+0.263$). Cosine similarity also orders GT above flat, but it severely compresses the margin ($+0.052$ on BSSL and $+0.047$ on BSTL), proving \\emph{insensitive} to fine dynamics differences.",
+      "+Both similarity metrics score GT above flat velocity. Pearson $r$ gives a larger numerical GT--flat gap on BSSL and BSTL in this table, although the gaps are measured on different scales."
+    ]
+  },
+  {
+    "id": "N02",
+    "source": "Chapter_6/chap6.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+    "selected_words": 67,
+    "original_words": 82,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-To evaluate renderer robustness, $\\Delta\\lvert\\mathrm{Sal.} - \\mathrm{YDP}\\rvert$ asks whether a metric is stable when the rendering SoundFont is swapped while the underlying note velocities are kept the same. Here, MAE proves \\emph{over-sensitive} to absolute gain: it drifts by $0.193$ on BSSL and $1.723$ on BSTL, substantially more than the corresponding drift on $r$ ($0.034$ and $0.011$). On real recordings, this drift would conflate dynamics differences with renderer choice and make the evaluation unreliable.",
+      "+Changing from Salamander to YDP while retaining the GT notes and velocities changes MAE by $0.193$ on BSSL and $1.723$ on BSTL; the corresponding changes in Pearson $r$ are $0.034$ and $0.011$. This tests the effect of the renderer change as a whole, rather than absolute gain alone. Pearson $r$ is used here to compare loudness-contour agreement while reducing dependence on absolute level."
+    ]
+  },
+  {
+    "id": "T11",
+    "source": "Chapter_6/chap6.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+    "selected_words": 27,
+    "original_words": 35,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-The Huber form tolerates outliers from onset contamination such as overlapping notes, while the parameter-space objective concentrates gradients on note intensity and attack behaviour rather than on waveform details that are weakly related to velocity.",
+      "+We chose Huber for its smooth gradients near zero and L1-like penalty for large residuals. We have not established an advantage over MAE through a dedicated comparison."
+    ]
+  },
+  {
+    "id": "N03",
+    "source": "Chapter_6/chap6.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+    "selected_words": 43,
+    "original_words": 55,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-Pearson $r$ on BSSL/BSTL therefore provides the right trade-off for this chapter. Cosine similarity and MAE fail on sensitivity and robustness, respectively, and are kept only as diagnostic alternatives. This is also the reason the main results table reports $r_{\\mathrm{BSSL}}$ and $r_{\\mathrm{BSTL}}$ as the headline metrics for label-free guitar evaluation.",
+      "+We therefore use Pearson $r$ on BSSL/BSTL as the main measure of rendered loudness-contour agreement for label-free guitar evaluation. In this piano diagnostic, it distinguishes GT from flat velocity under both tested SoundFonts. Cosine similarity and MAE are retained as complementary diagnostics."
+    ]
+  },
+  {
+    "id": "N04",
+    "source": "Chapter_2/Background.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "f9f847a8d09557536798e776d60d80de16fb6ba6435afdbcbffaaf938ac7dffb",
+    "selected_words": 10,
+    "original_words": 11,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-so the gradient signal is dominated by factors unrelated to velocity.",
+      "+so renderer mismatch can divert the gradient from velocity-relevant differences."
+    ]
+  },
+  {
+    "id": "N05a",
+    "source": "Chapter_7/Conclusion.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f",
+    "selected_words": 5,
+    "original_words": 28,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-The thesis has several boundaries. These boundaries are not artefacts of unfinished implementation; they follow from the problem definition and from the representational choices made throughout the dissertation.",
+      "+The thesis has several limitations."
+    ]
+  },
+  {
+    "id": "N05b",
+    "source": "Chapter_7/Conclusion.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f",
+    "selected_words": 8,
+    "original_words": 21,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-The results of the thesis suggest several directions for future research. These directions extend the thesis argument rather than repair it.",
+      "+The results suggest several directions for future research."
+    ]
+  },
+  {
+    "id": "N05c",
+    "source": "Chapter_7/Conclusion.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f",
+    "selected_words": 11,
+    "original_words": 22,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +1 @@",
+      "-These assumptions are not weaknesses of the argument. They are the conditions under which label recovery, rather than unconstrained generation, becomes meaningful.",
+      "+These assumptions define the conditions for the label-recovery tasks studied here."
+    ]
+  },
+  {
+    "id": "N06a",
+    "source": "Chapter_3/chap3.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9",
+    "selected_words": 0,
+    "original_words": 30,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +0,0 @@",
+      "-A plausible explanation is that a 10-second window often captures a musically coherent phrase, for example roughly four measures at 120 BPM, providing enough context without overextending the receptive field."
+    ]
+  },
+  {
+    "id": "N06b",
+    "source": "Chapter_3/chap3.tex",
+    "source_occurrences": 1,
+    "insertion": false,
+    "source_sha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9",
+    "selected_words": 0,
+    "original_words": 27,
+    "diff": [
+      "--- CURRENT SOURCE",
+      "+++ PROPOSAL ONLY",
+      "@@ -1 +0,0 @@",
+      "-This is likely because a 10-second segment roughly encompasses four measures at 120 beats per minute (BPM), forming a complete musical phrase that aids in semantic segmentation."
+    ]
+  }
+]

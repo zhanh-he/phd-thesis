@@ -1,0 +1,22 @@
+--- R2-virtual-preview/Chapter_1/Intro.tex
++++ evaluator-corrected-virtual-preview/Chapter_1/Intro.tex
+@@ -186,7 +186,7 @@
+ 
+ \textbf{Chapter~2} establishes the shared conceptual system, defining dynamics across audio, MIDI, and score, while reviewing baseline AMT models, datasets, and evaluation strategies.
+ 
+-\textbf{Chapter~3} addresses Scenario~S1. Supported by listening tests, it shows that velocity completion can improve expressive rendering on fixed symbolic notes, supported by objective evaluation and the listening study.
++\textbf{Chapter~3} addresses Scenario~S1. It shows that velocity completion can improve expressive rendering on fixed symbolic notes, supported by objective evaluation and the listening study.
+ 
+ \textbf{Chapter~4} addresses Scenario~S2. It details the Transformer correction module, demonstrating superior generalisation under dataset shift and robustness to audio-to-score misalignment.
+ 
+--- R2-virtual-preview/Chapter_6/chap6.tex
++++ evaluator-corrected-virtual-preview/Chapter_6/chap6.tex
+@@ -491,7 +491,7 @@
+                                 & 0.019 & 0.004 & 0.149
+                                 & 0.003 & 0.002 & 1.314 \\
+ \midrule
+-\textbf{$\Delta$ (GT $-$ Flat) $\uparrow$}
++\textbf{$\Delta$ (GT $-$ Flat)}
+                                 & +0.118 & +0.052 & -0.083
+                                 & +0.263 & +0.047 & -0.359 \\
+ \bottomrule

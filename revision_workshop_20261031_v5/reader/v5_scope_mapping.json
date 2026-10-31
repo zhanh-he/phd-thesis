@@ -1,0 +1,107 @@
+{
+  "readOnly": true,
+  "purpose": "Proposed response ID mapping; not an author decision ledger.",
+  "sourcePacketSha256": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17",
+  "items": [
+    {
+      "displayId": "v5-T11",
+      "version": "reviewed-v5-20261031",
+      "sourcePacketSha256": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17",
+      "rangeIds": [
+        "T11"
+      ],
+      "allowedReplyLabels": [
+        "推荐稿",
+        "KEEP"
+      ]
+    },
+    {
+      "displayId": "v5-N01",
+      "version": "reviewed-v5-20261031",
+      "sourcePacketSha256": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17",
+      "rangeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N07",
+        "N04"
+      ],
+      "allowedReplyLabels": [
+        "推荐稿",
+        "KEEP"
+      ]
+    },
+    {
+      "displayId": "v5-T03",
+      "version": "reviewed-v5-20261031",
+      "sourcePacketSha256": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17",
+      "rangeIds": [
+        "T03"
+      ],
+      "allowedReplyLabels": [
+        "推荐稿",
+        "KEEP",
+        "GRID"
+      ]
+    },
+    {
+      "displayId": "v5-T01",
+      "version": "reviewed-v5-20261031",
+      "sourcePacketSha256": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17",
+      "rangeIds": [
+        "T01"
+      ],
+      "allowedReplyLabels": [
+        "推荐稿",
+        "KEEP"
+      ]
+    },
+    {
+      "displayId": "v5-N05a",
+      "version": "reviewed-v5-20261031",
+      "sourcePacketSha256": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17",
+      "rangeIds": [
+        "N05a"
+      ],
+      "allowedReplyLabels": [
+        "推荐稿",
+        "KEEP"
+      ]
+    },
+    {
+      "displayId": "v5-N05b",
+      "version": "reviewed-v5-20261031",
+      "rangeIds": [
+        "N05b"
+      ],
+      "allowedReplyLabels": [
+        "推荐稿",
+        "KEEP"
+      ]
+    },
+    {
+      "displayId": "v5-N05c",
+      "version": "reviewed-v5-20261031",
+      "rangeIds": [
+        "N05c"
+      ],
+      "allowedReplyLabels": [
+        "推荐稿",
+        "KEEP"
+      ]
+    },
+    {
+      "displayId": "v5-ROADMAP",
+      "version": "reviewed-v5-20261031",
+      "rangeIds": [
+        "V4-R2-04-sync-3"
+      ],
+      "old": "Supported by listening tests, it demonstrates that recovering a decoupled expressive layer on fixed symbolic notes is enough to transform a mechanical MIDI sequence into an expressive performance.",
+      "new": "It shows that velocity completion can improve expressive rendering on fixed symbolic notes, supported by objective evaluation and the listening study.",
+      "allowedReplyLabels": [
+        "推荐稿",
+        "KEEP"
+      ]
+    }
+  ]
+}

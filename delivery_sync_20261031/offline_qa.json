@@ -1,0 +1,25 @@
+{
+  "generated_utc": "2026-10-31T16:14:01Z",
+  "check_context": "Isolated copy on a new relative root; no source or prior evidence overwritten",
+  "rebuild_commands": [
+    "python3 revision_workshop_20261031_v5/reader/prepare_final_packet.py",
+    "python3 revision_workshop_20261031_v5/reader/build_reader.py --packet revision_workshop_20261031_v5/reader/reviewed_v5_packet.json"
+  ],
+  "rebuild_exit_codes": [
+    0,
+    0
+  ],
+  "rebuilt_reader_sha256": "d7fc933840be7049f0d17cc472568b2584a1a01fef7965c0e4f8da5115148f37",
+  "expected_reader_sha256": "d7fc933840be7049f0d17cc472568b2584a1a01fef7965c0e4f8da5115148f37",
+  "browser_context": "Fresh independent headless Google Chrome profile, file:// offline reader, existing test_final.mjs; existing permission session unused",
+  "browser_tests_passed": 94,
+  "runtime_errors": [],
+  "external_requests": [],
+  "source_thesis_and_choices_modified": false,
+  "additional_independent_visual_check": {
+    "status": "completed by separate evaluator, not by sync runner",
+    "release_report": "revision_workshop_20261031_v5/evaluator_release.md",
+    "actual_reading_evidence": "revision_workshop_20261031_v5/evaluator_release_reading_test.json",
+    "passed": true
+  }
+}

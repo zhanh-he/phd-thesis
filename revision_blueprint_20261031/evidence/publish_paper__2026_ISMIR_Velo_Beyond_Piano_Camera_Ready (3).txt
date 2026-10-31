@@ -1,0 +1,800 @@
+
+=== PDF PAGE 1; LABEL 1 ===
+BEYOND PIANO: CROSS-INSTRUMENT MIDI VELOCITY ESTIMATION
+VIA DIFFERENTIABLE SOUNDFONT PROXIES
+Zhanhong He1 Hanyu Meng2 David (Defeng) Huang1 Roberto Togneri 1
+1 University of Western Australia, Perth, Australia
+2 University of New South Wales, Sydney, Australia
+zhanh.he.uwa@gmail.com, hanyu.meng@unsw.edu.au, {david.huang; roberto.togneri}@uwa.edu.au
+ABSTRACT
+Many music datasets contain MIDI notes but lack reliable
+velocities, defaulting to a constant value. This absence is
+especially problematic outside the piano domain, as veloc-
+ity is a core component for expressive rendering, music
+generation, and performance analysis. This paper studies
+cross-instrument MIDI velocity estimation in this label-
+scarce setting. Starting from a piano-trained velocity esti-
+mator, we recast target-instrument adaptation as predicting
+renderer-conditioned velocities whose rendering matches
+the dynamics of the performance audio. This adaptation
+can be driven by either differentiable synthesizers (Diff-
+Synth) or our proposed differentiable SoundFont proxies
+(Diff-SFProxy). We highlight the Diff-SFProxy: it super-
+vises velocity through note-wise, loudness-related acous-
+tic parameters rather than waveform reconstruction, fo-
+cusing gradients on velocity-dependent behavior. Experi-
+ments on piano and guitar show that Diff-SFProxy is effec-
+tive for cross-instrument MIDI velocity estimation, while
+waveform-domain Diff-Synth degrades performance.
+1. INTRODUCTION
+MIDI velocity is the per-note control parameter in sym-
+bolic music systems, controlling expressive aspects of ren-
+dering such as amplitude and timbre. Since its effect varies
+across instruments and recording conditions, velocity is re-
+lated to but cannot be directly replaced by loudness mea-
+surement [1, 2]. Reliable velocity labels are crucial for ex-
+pressive rendering [3, 4], music generation [5, 6], perfor-
+mance analysis [7] and data curation [8]. However, most
+publicly available MIDI files lack velocity corresponding
+to human performance. A common practice in music soft-
+ware is to map score-level dynamic markings (such as p
+and f) to fixed velocities, or default to 64 when unavailable
+[1]. Such velocities carry minimal expressive information.
+By contrast, learning-based velocity estimation from per-
+formance audio works well, but almost entirely in the piano
+© Zhanhong He, Hanyu Meng, David (Defeng) Huang,
+Roberto Togneri. Licensed under a Creative Commons Attribution 4.0
+International License (CC BY 4.0). Attribution: Zhanhong He, Hanyu
+Meng, David (Defeng) Huang, Roberto Togneri, “Beyond Piano: Cross-
+Instrument MIDI Velocity Estimation via Differentiable SoundFont Prox-
+ies”, in Proc. of the 27th Int. Society for Music Information Retrieval
+Conf., Abu Dhabi, UAE, 2026.
+domain [2, 9, 10, 11]. The reason is data: piano datasets
+such as MAESTRO [12] are enabled by sensor-equipped
+Yamaha Disklavier pianos, which provide note-aligned ve-
+locity labels from recorded performances. For guitar, vio-
+lin, and other instruments, public datasets [13, 14, 15] pro-
+vide audio and aligned notes but no velocity labels.
+This paper studies label-scarce cross-instrument MIDI
+velocity estimation. In music transcription, a common
+strategy is to train on synthesized audio, where symbolic
+labels are available by construction, and transfer the model
+to real performances [16, 17, 18]. Recent works have used
+this strategy for synthetic velocity supervision [19, 20], but
+the synthetic-to-real gap remains. We instead take a more
+direct route. Starting from a velocity estimator (VeloEst)
+trained on piano, we adapt it to target instruments using
+real performance audio, predicting velocities whose ren-
+dering matches the dynamics of the recording.
+For Diff-Synth, while several implementations exist for
+each instrument, we adopt DDSP-Piano [21] and DDSP-
+Guitar-Synth [22], both of which are MIDI-oriented. Ve-
+locity estimates are rendered into audio with aligned note
+events, and an audio-based loss against the real recording
+drives gradients back into VeloEst. Yet Diff-Synth only
+approximates the real instrument, so waveform or spectral
+objectives spend much of their gradient on residual timbral
+mismatch rather than on velocity-dependent behavior.
+Our proposed Diff-SFProxy follows the neural-proxy
+strategy for black-box audio systems [23, 24, 25]. Sound-
+Font is a widely adopted software-based instrument for-
+mat for rendering MIDI into audio. Because this rendering
+is non-differentiable, it cannot pass gradients to VeloEst,
+which motivates a proxy. Diff-SFProxy is not asked to
+reproduce waveforms. Instead, it maps note events to
+loudness-related acoustic parameters: pitch-conditioned
+harmonic energy (PHE) and onset-window spectral flux
+(OSF). This design yields two benefits over Diff-Synth:
+(i) many SoundFonts can plug in off the shelf, whereas
+Diff-Synth requires a dedicated design per instrument; (ii)
+gradients focus on velocity-relevant intensity and attack
+cues rather than waveform details sensitive to recording
+and timbral mismatch. 1
+The contributions of this paper are threefold. First,
+we formulate label-scarce cross-instrument MIDI veloc-
+ity estimation and investigate two differentiable adaptation
+1 Code is available at https://github.com/zhanh-he/
+sfproxy-velocity-estimation
+
+=== PDF PAGE 2; LABEL 2 ===
+Figure 1. Overview of the cross-instrument velocity estimation framework. VeloEst is trained with ground-truth velocity
+labels on piano (Lvelo), then fine-tuned for target instruments through one of two adaptation strategies. Diff-Synth provides
+waveform-domain supervision (Laudio). Diff-SFProxy provides note-wise loudness-parameter supervision (Lparams).
+strategies: Diff-Synth and Diff-SFProxy. Second, we in-
+troduce Diff-SFProxy itself, a compact SoundFont proxy
+that supervises on note-wise loudness-related acoustic pa-
+rameters rather than waveforms. Third, we validate the
+proposed framework on piano and guitar recordings. To
+evaluate without the use of ground-truth velocity labels, we
+adopt Bark-scale specific loudness (BSSL) and Bark-scale
+total loudness (BSTL) [26, 27] to assess whether predicted
+velocities reproduce the perceived loudness of the original
+recording, reflecting its performance dynamics.
+2. CROSS-INSTRUMENT MIDI VELOCITY
+ESTIMATION FRAMEWORK
+2.1 VeloEst: Pretrained on Piano
+Figure 1 shows the overall framework. We adopt the score-
+HPT model of [11], which achieved state-of-the-art per-
+formance in MIDI velocity estimation, together with its
+publicly available checkpoint trained on MAESTRO us-
+ing ground-truth velocity supervision Lvelo. Serving as
+the shared front-end, VeloEst takes log-Mel spectrograms
+computed at 100 fps from 22050 Hz mono audio (FFT size
+2048, hop 221 samples, Hann window) and aligned note
+information to estimate MIDI velocities. During cross-
+instrument adaptation, only VeloEst is updated, while the
+Diff-Synth and Diff-SFProxy back-ends remain frozen.
+2.2 VeloEst Adaptation via Diff-Synth
+During the adaptation, only VeloEst parameters are up-
+dated. Diff-Synth is a frozen, instrument-specific differ-
+entiable synthesizer. Given note events E (pitch, onset,
+duration) derived from the aligned score and predicted ve-
+locitiesˆ
+V, Diff-Synth renders audio˜
+a. The adaptation loss
+is the multi-scale spectral loss proposed in [28], which
+is widely adopted in the differentiable synthesizer family
+[21, 22, 29]. We apply it between the rendered audio˜
+aand
+the real performance audio a,
+Laudio =
+ω∈Ω
+|STFTω(˜ a)|−|STFTω(a)| 1
++ log(|STFTω(˜ a)|+ ϵ)−log(|STFTω(a)|+ ϵ) 1 ,
+(1)
+where Ω = {2048,1024,512,256,128,64}as in [28]. For
+each ω∈Ω, STFTω uses an ω-sample Hann window with
+75% overlap and an ω-point FFT. We apply log(|·|+ ϵ)
+with ϵ= 10−7 for numerical stability.
+2.3 VeloEst Adaptation via Diff-SFProxy
+As in the Diff-Synth path, only VeloEst parameters are up-
+dated. Diff-SFProxy is a frozen differentiable proxy P of
+an instrument-specific SoundFont. Let F be the note-wise
+loudness-related acoustic parameter extractor, detailed in
+Section 3.1, that reads audio conditioned on the note events
+E. Given predicted velocitiesˆ
+v, the two feature streams
+are
+˜
+Z= F(a,E),
+Z= P(E,ˆ
+v). (2)
+The adaptation loss is the Huber (Smooth-L1) distance be-
+tween the proxy prediction˜
+Z and the extracted loudness-
+related acoustic parameters Z,
+Lparams = Huberβ
+˜
+Z−Z , (3)
+with the default β = 1.0. With Zn = (PHEn,OSFn)
+defined in Section 3.1, the Huber loss averages over both
+components and all valid notes, weighting PHE and OSF
+equally (1:1). The Huber form tolerates outliers from on-
+set contamination, such as overlapping notes, while the
+parameter-space objective concentrates gradients on note
+intensity and attack behaviour rather than on waveform de-
+tails weakly related to velocity.
+2.4 Shared Regularizers and Training Objective
+Diff-Synth and Diff-SFProxy adaptation share two aux-
+iliary regularizers on the predicted velocity vectorˆ
+v =
+(ˆ v1,...,
+ˆ
+vN) ∈[0,1]N, where N is the number of notes
+in the segment. The first is an anti-collapse regularizer,
+Lanti = (¯ v−µ)2 + max 0, σ2
+min−Var(ˆ v), (4)
+where¯
+vand Var(ˆ v) are the empirical mean and variance of
+the predicted velocities, µ = 0.5 is the desired operating
+point, and σ2
+min = 0.01 is the minimum-variance thresh-
+old. The mean term resists drift towards extremes, while
+
+=== PDF PAGE 3; LABEL 3 ===
+the hinge variance term penalises collapse towards a single
+output value. The second is a soft saturation penalty,
+Lsatu =
+1
+N
+N
+n=1
+max(0,
+ˆ
+vn−τ) 2
+, (5)
+which quadratically penalises predictions above a near-
+maximum threshold τ = 0.95, discouraging VeloEst from
+pushing predictions into the saturated region where audio-
+derived gradients become uninformative.
+L= Lparams + 0.2 Lanti + 0.4 Lsatu. (6)
+where Lmain ∈{Laudio, Lparams}selects the active set-
+ting. For both adaptation branches, the loss weights for
+Lmain, Lanti, and Lsatu are fixed at 1:0.2:0.4, based on
+grid search.
+3. DIFFERENTIABLE SOUNDFONT PROXY
+3.1 Loudness-Related Acoustic Parameters
+To characterize the velocity-dependent acoustic behavior
+of a SoundFont, we use two note-wise loudness-related
+parameters adapted from established MIR feature fami-
+lies. The extractor F computes these parameters from
+the magnitude STFT X(k,t) = |STFT(k,t)|, using the
+same FFT settings as Section 2.1. Here k indexes fre-
+quency bins and t indexes STFT frames. For each valid
+note n ∈{1,...,N}, the extractor stacks PHE and OSF
+into
+Zn = PHEn, OSFn ∈R2
+, (7)
+and stacks all note-wise pairs into Z = (Z1,...,ZN) ∈
+RN×2. Each parameter is defined below.
+Pitch-conditioned harmonic energy (PHE) draws on
+harmonic-structure-based note-intensity estimation [30]. It
+accumulates magnitude energy around the retained har-
+monics of the note pitch:
+PHEn = log 1 +
+Hn
+h=1
+1
+|Bn,h||Tn|k∈Bn,h t∈Tn
+X(k,t)2 
+(8)
+where hindexes harmonics, Bn,h is the ±1-bin frequency
+band around the h-th harmonic of note n, Tn is the set of
+STFT frames within 120 ms after the note onset, and Hn ≤
+5 is the number of retained harmonics below Nyquist. The
+narrow band handles STFT leakage while rejecting nearby
+pitches. The five-harmonic cap keeps PHE on lower par-
+tials that are less exposed to inharmonicity, tuning or ren-
+dering mismatch, and overlap.
+Onset-window spectral flux (OSF) is based on
+spectral-flux onset functions, which are used in onset de-
+tection by capturing positive spectral differences [31, 32].
+It measures the broadband, half-wave-rectified spectral in-
+crease around the note onset:
+OSFn = log 1 +
+1
+|On|t∈On k
+X(k,t)−X(k,t−1) +
+(9)
+where On is the set of STFT frames from 20 ms before to
+80 ms after the note onset, and [u]+ = max(u,0) for any
+scalar u. The short pre-onset side absorbs alignment slack
+and provides a local reference. The longer post-onset side
+covers the main struck or plucked-string transient without
+folding in sustained energy.
+3.2 Proxy Architecture
+Figure 2 shows the proxy architecture. We use a Trans-
+former encoder that maps a padded sequence of up to
+Nmax = 64 note events in a 5 s segment to the corre-
+sponding (PHEn,OSFn) pairs. We choose Nmax = 64 as
+our data analysis on MAESTRO reveals that human perfor-
+mances rarely exceed 64 notes per 5 seconds. Each note to-
+ken combines a learnable pitch embedding, a shared learn-
+able basis that maps onset, duration, and velocity (each
+normalized to [0,1]) to additive directions in token space,
+and a two-layer MLP with GELU activation on the nor-
+malized onset acting as a learnable positional encoding.
+These components are summed and passed through Layer-
+Norm to form the note token, and then padded slots are ze-
+roed. The encoder stacks six pre-norm Transformer layers
+(d= 256, 8 heads, FFN width 4d= 1024, GELU, dropout
+0.1), with a key-padding mask excluding padded slots from
+attention. A shared note-wise head (d →d →2, with
+GELU) emits each (PHEn,OSFn) pair. The encoder-only
+design fits here because this is a set-to-set regression task.
+Figure 2. An encoder-only Transformer maps padded note
+sequences to per-note PHE/OSF targets extracted from
+SoundFont-rendered audio.
+3.3 Training Data and Objective
+Training the proxy involves three steps: MIDI segments
+are drawn from samplers, rendered through a SoundFont
+and extracted to PHE/OSF targets as teacher data, and a
+loss aligns the proxy’s predictions with those targets.
+Note event sampling. Note events come from a three-
+part mixture sampler: (1) 50% of the segments draw notes
+uniformly across pitch, duration, and inter-onset interval,
+giving broad coverage of ordinary polyphonic texture; (2)
+
+=== PDF PAGE 4; LABEL 4 ===
+30% are simple monophonic or low-polyphony passes that
+isolate how velocity alone affects a single note; (3) 20%
+is deliberately adversarial, with dense overlapping onsets
+and large chords, so that the proxy is also exposed to its
+worst-case inputs during training. Within any chord, per-
+note velocities are sampled independently so that the proxy
+learns per-note rather than chord-level responses.
+Teacher data from SoundFonts. The teacher audio for
+the proxy is rendered using a specified SoundFont (.sfz)
+via the Python package sfizz at 22050 Hz. Audio is ren-
+dered in segments of 2, 5, or 10 s with reverb disabled,
+and short fade-outs are applied to suppress synthesizer
+state leakage. Rendered segments and their PHE/OSF tar-
+gets are cached once and reused across epochs, decoupling
+proxy training from online rendering.
+Training objective. Given the sampled note sequence
+(E,V), the proxy predicts a (PHEn,OSFn) pair for each
+note. We optimize the network by minimizing the Huber
+loss in Eq. (3), applying a strict mask to exclude padded
+sequence slots from the gradient computation.
+4. EXPERIMENTS
+4.1 Datasets and SoundFont Selection
+We use piano as the source domain, where velocity la-
+bels are available, and guitar as the main label-scarce
+target domain. For piano, we train on the MAESTRO
+V3 dataset [12] (198.7 h) using its default train/valid/test
+split. For guitar, we adapt on the GAPS dataset [14]
+(14 h) using its default train/valid/test split. Furthermore,
+we evaluate the cross-dataset generalization on the SMD
+dataset [33] (4.7 h) for piano and the François Leduc (FL)
+dataset [15] (4.0 h) for guitar. MAESTRO and SMD con-
+sist of Yamaha Disklavier performances. GAPS features
+nylon-string classical guitar, while FL comprises solo jazz
+guitar recordings on a mix of nylon-string, steel-string,
+electric, and acoustic guitars.
+The SoundFont is chosen deliberately for each target
+instrument, since a mismatched timbre would produce a
+training signal that the target recordings cannot match.
+We audition candidates from the public FreePats sound
+banks and select the closest match: Salamander Grand Pi-
+ano [34] for piano, which approximates the Yamaha grand
+piano timbre of MAESTRO and SMD, and Spanish Clas-
+sical Guitar [35] for guitar, a close match for GAPS and
+the nylon-string performance in FL. We also include YDP
+Grand Piano [36], an earlier and less realistic Yamaha
+grand piano sample, to investigate the metric sensitivity to
+SoundFont change (Section 5).
+4.2 Diff-SFProxy: Velocity-Recovery Diagnostic
+Experimental rationale. Before deploying Diff-SFProxy
+in cross-instrument adaptation, we test whether its gradi-
+ents can be trusted. The question is: do the proxy’s gra-
+dients point velocity in the right direction? We answer it
+with a controlled inversion on synthetic audio, where the
+true velocities are known. This isolates the gradient path-
+way from any real-audio domain gap. A pass here is a
+precondition for Section 4.3.
+4.2.1 Training Protocol
+Each proxy is trained on 20k MIDI segments, with an ad-
+ditional 2k for validation. The optimizer is AdamW with
+a learning rate of 10−4, weight decay 0.01, batch size
+64, and a fixed random seed 19. We train Diff-SFProxy
+for 200 epochs, and the validation loss typically plateaus
+between epochs 150 and 200. We select the checkpoint
+with the lowest validation loss for each run. To accom-
+modate the three input segment lengths 2/5/10 s, we set
+Nmax to 32/64/128 accordingly. All three proxies use the
+same Transformer architecture, resulting in 4.9 M parame-
+ters each.
+4.2.2 Diagnostic Protocol
+We render MIDI segments with the SoundFont and extract
+their PHE/OSF as the target. We then reset all note ve-
+locities to 64, freeze the proxy, and run gradient descent
+(Adam, 120 steps, learning rate 0.03) on the candidate ve-
+locities until the proxy’s predicted PHE/OSF match the tar-
+get. The headline metric is the per-note velocity MAE on
+the scale [0,127] between recovered and true velocities. A
+substantial reduction from the initial error indicates that the
+proxy’s gradients yield update directions toward the true
+velocities, which is exactly the property needed for adapta-
+tion. We use two test groups, each containing 2k MIDI seg-
+ments. The in-domain test draws from the same sampler
+used for training. The stress test uses denser polyphony,
+larger chords, and tighter inter-onset intervals to probe be-
+havior beyond the training distribution.
+4.2.3 Results
+Table 1 reports the diagnostic for piano and guitar proxies
+at 2/5/10 s segment lengths. In-domain, all six proxies
+cut the initial error to about a third. Under the stress test,
+recovery improves from 2 s to 5 s, most clearly on piano.
+From 5 s to 10 s the gain disappears, with all cells within
+half a MIDI unit. We therefore use the 5 s proxy as the
+default in the cross-instrument adaptation, and keep 2 s as
+an ablation. The 10 s setting adds training cost without
+further gain, so we discard it.
+In-domain Stress
+Diff-SFProxy Init Rec. Gain ↑ Init Rec. Gain ↑
+Piano, 2 s Piano, 5 s Piano, 10 s 37.2 12.3 66.9% 37.9 12.2 67.8% 38.2 12.5 67.3% 38.6 19.5 49.5%
+38.5 17.7 54.0%
+38.5 17.8 53.7%
+Guitar, 2 s Guitar, 5 s Guitar, 10 s 33.6 9.3 72.3% 34.6 9.1 73.7% 34.6 9.5 72.5% 34.2 11.3 67.0%
+33.8 10.7 68.3%
+33.8 10.8 68.0%
+Table 1. Velocity recovery diagnostic. Init and Rec. report
+per-note velocity MAE in MIDI units [0,127] before and
+after optimization; Gain = (Init−Rec.)/Init ×100%.
+
+=== PDF PAGE 5; LABEL 5 ===
+Method Piano Guitar
+MAESTRO test set SMD dataset GAPS test set FL dataset
+MAEVelo ↓ rBSSL ↑ rBSTL ↑ MAEVelo ↓ rBSSL ↑ rBSTL ↑ rBSSL ↑ rBSTL ↑ rBSSL ↑ rBSTL ↑
+Flat Velocity: set at 64 VeloEst: pretrained on MAESTRO VeloEst + Diff-Synth - uses 2s backend instead of 5s 14.8 0.757 0.622 3.9 0.878 0.892 19.2 0.776 0.752 25.0 0.702 0.553 15.4 0.701 0.582 8.0 0.829 0.816 19.7 0.789 0.742 25.9 0.662 0.520 0.737 0.701 0.769 0.798 0.669 0.624 0.760 0.770 0.714 0.587
+0.740 0.699
+0.646 0.547
+0.729 0.636
+VeloEst + Diff-SFProxy (proposed) - uses 2s backend instead of 5s - w/o anti-collapse and saturation loss - w/o VeloEst pretrained weights 10.5 0.869 0.881 10.9 0.858 0.870 12.9 0.789 0.698 20.5 0.770 0.757 11.3 0.821 0.806 11.8 0.820 0.804 14.4 0.735 0.653 21.2 0.723 0.703 0.794 0.860 0.787 0.836 0.777 0.788
+0.771 0.756
+0.740 0.705 0.702 0.686 0.723 0.614
+0.683 0.600
+Table 2. Evaluation on piano and guitar datasets. Diff-Synth and Diff-SFProxy backends process 5 s segments by default.
+Best and second-best results are marked in bold and underlined, respectively.
+4.3 Cross-Instrument VeloEst Adaptation
+Experimental rationale. Our experiment on adaptation
+has two purposes. On guitar, where velocity labels are un-
+available, it provides a convenient label-free approach to
+MIDI velocity estimation. On piano, where ground-truth
+velocity is available on MAESTRO and SMD, it serves as
+a controlled diagnostic: we adapt on MAESTRO so that
+predictions can be checked against true labels, verifying
+whether our non-velocity supervision pushes velocity to-
+ward the right value. The piano result is therefore not a
+claim about improving over a supervised piano baseline. It
+is a sanity check that the supervision signal is informative.
+4.3.1 Training Protocol
+We compare three settings on the same VeloEst front-end:
+the piano-pretrained baseline (no adaptation), Diff-Synth
+adaptation, and Diff-SFProxy adaptation. The Diff-Synth
+backends [21, 22] were originally implemented for 3 s in-
+put segments. We retrain each at 2 s and 5 s with their orig-
+inal hyperparameters, then freeze them.
+During adaptation, VeloEst processes 10 s segments,
+while the frozen backend operates on 5 s crops by default
+and 2 s for ablation. Backend losses are averaged over
+valid notes in each crop and backpropagated to the cor-
+responding VeloEst 10 s predictions, keeping the gradient
+scale comparable across backend crop lengths. Adapta-
+tion is run separately on the MAESTRO and GAPS train-
+ing sets for 120k iterations using Adam with learning rate
+10−4, batch size 8, and step decay 0.9 every 10k iterations.
+SMD and FL are used only for evaluation. All runs use
+seed 19, and the final checkpoint is selected by validation
+rBSSL on MAESTRO for piano or GAPS for guitar.
+4.3.2 Evaluation Metrics
+For piano datasets with ground-truth velocities, we follow
+[10, 11] and report per-note MAEVelo. For datasets with-
+out velocity labels, MAEVelo cannot be computed. We
+instead re-render the aligned notes through the selected
+SoundFont using the predicted velocities, and compare the
+resynthesis with the original recording in perceptual loud-
+ness space.
+We use Bark-scale specific loudness (BSSL) and Bark-
+scale total loudness (BSTL) [26, 27] as perceptually
+grounded comparison features. BSSL is a frame-wise
+critical-band representation, while BSTL is its band-
+summed contour, tracking perceived loudness over time.
+Both features capture the main perceptual effect tar-
+geted by velocity estimation, namely the temporal shap-
+ing of loudness, while reducing sensitivity to timbral
+and recording-condition mismatch between real audio and
+SoundFont resynthesis. We avoid two natural alternatives.
+Raw RMS energy ignores frequency-dependent perceptual
+sensitivity. Note-wise loudness measures, including PHE
+and OSF, are onset-locked, miss the continuous loudness
+contour, and coincide with the proxy training targets, mak-
+ing the evaluation circular.
+Pearson correlation (r) between real and rendered loud-
+ness contours is our primary metric. Because it is invariant
+to global scale and offset, it reduces sensitivity to loudness
+differences introduced by gain, microphone response, or
+renderer calibration. We denote Pearson correlation com-
+puted on BSSL and BSTL as rBSSL and rBSTL, respec-
+tively. Cosine similarity (cs) and MAE are retained as
+diagnostic alternatives: cosine similarity is scale-invariant
+but not offset-invariant, whereas MAE is sensitive to both.
+Their behaviour is examined in Section 5.
+4.3.3 Results
+Table 2 reports evaluation across all four test sets. The row
+labeled ‘VeloEst: pretrained on MAESTRO’ is the super-
+vised checkpoint applied without further training, serving
+as the zero-shot transfer baseline for SMD, GAPS, and FL.
+On piano, this checkpoint remains the strongest supervised
+reference. Both adaptation strategies underperform on pi-
+ano because they optimize indirect performance-matching
+objectives rather than the available velocity labels.
+On guitar, Diff-SFProxy achieves the best rBSSL and
+rBSTL on both GAPS and FL, outperforming flat veloc-
+ity, zero-shot transfer, and Diff-Synth under both backend
+crop lengths. Diff-Synth does not reliably improve gui-
+tar performance and can degrade it: on FL, the 5 s Diff-
+Synth backend falls below flat velocity in rBSSL (0.646
+
+=== PDF PAGE 6; LABEL 6 ===
+vs. 0.714). This supports the concern in Section 2.2:
+waveform-level objectives are more exposed to timbral
+and room-acoustic mismatch than parameter-level super-
+vision. The crop-length effect also differs sharply be-
+tween the two approaches. On FL, increasing the backend
+crop from 2 s to 5 s reduces Diff-Synth’s rBSSL by 0.083,
+whereas Diff-SFProxy changes by only 0.006. Longer
+crops expose waveform-level objectives to more residual
+mismatch, while parameter-level supervision remains fo-
+cused on note-wise velocity-related cues. The zero-shot
+piano checkpoint already exceeds flat velocity on both gui-
+tar sets, suggesting partial cross-instrument transfer, while
+Diff-SFProxy provides a consistent further improvement.
+4.3.4 Ablations
+The bottom rows of Table 2 isolate two design choices. Re-
+moving Lanti +Lsatu gives a plausible MAEVelo on MAE-
+STRO, but rBSSL falls near the flat-velocity baseline. The
+outputs collapse toward a near-constant value, consistent
+with the median-seeking behavior of MAE: central predic-
+tions can keep absolute error tolerable while losing the dy-
+namic contour. Removing the piano-pretrained checkpoint
+leaves the proxy loss without a supervised velocity anchor,
+causing performance to drift across all datasets and under-
+perform flat velocity on three of the four guitar metrics.
+Piano pretraining therefore acts as a crucial prior for cross-
+instrument adaptation.
+5. DISCUSSION
+Scope and metric implications. Velocity is not the only
+factor that shapes rendered audio loudness: pedaling, con-
+tinuous controllers, and effects such as reverb also con-
+tribute [37]. Diff-Synth backends such as DDSP-Piano ex-
+pose several of these controls. Consequently, when adap-
+tation updates velocity alone while the remaining con-
+trols are fixed or unobserved, the velocity gradient can
+be confounded by residuals attributable to those controls.
+Diff-SFProxy instead restricts the optimization to veloc-
+ity, making adaptation more tractable. This simplification
+comes at a cost: the recovered velocity may absorb ef-
+fects that, in the real performance, arose from other con-
+trols. Hence, the recovered velocity is not a canonical
+property of the acoustic performance. It is defined relative
+to the chosen SoundFont as the velocity that best repro-
+duces the perceptual dynamics of the original audio. This
+renderer-conditioned velocity is therefore the relevant tar-
+get for label-scarce expressive analysis or resynthesis. Ac-
+cordingly, the evaluation metric must be robust to Sound-
+Font choice and sensitive to dynamics differences.
+Why Pearson r on BSSL/BSTL. Table 3 tests met-
+rics against the two requirements implied above: sensi-
+tivity to expressive dynamics and robustness to renderer-
+specific loudness calibration. To test dynamics sensitiv-
+ity, ∆(GT−Flat 64) asks whether a metric can tell ex-
+pressive resynthesis from a flat one. Among the similar-
+ity metrics, Pearson r gives the larger separation on both
+BSSL (+0.118) and BSTL (+0.263). Cosine similarity
+also orders GT above flat, but severely compresses the mar-
+gin (+0.052 on BSSL and +0.047 on BSTL), proving in-
+sensitive to fine dynamics differences. To evaluate ren-
+derer robustness, ∆|Sal.−YDP|asks whether a metric is
+stable when the rendering SoundFont is swapped. Here,
+MAE proves over-sensitive to absolute gain: it drifts by
+0.193 on BSSL and 1.723 on BSTL, substantially more
+than the corresponding drift on r (0.034, 0.011). On real
+recordings, this drift would conflate dynamics differences
+with renderer choice. Overall, Pearson r on BSSL/BSTL
+provides the ideal trade-off, whereas cosine similarity and
+MAE fail on sensitivity and robustness, respectively, and
+are kept only as diagnostic alternatives.
+MAESTRO test set
+Method
+BSSL BSTL
+r cs MAE r cs MAE
+GT velocity - uses YDP Piano ∆|Sal.−YDP|↓ 0.870 0.939 0.702 0.836 0.926 0.510 0.034 0.013 0.193 0.883 0.975 3.706
+0.872 0.973 1.983
+0.011 0.002 1.723
+Flat velocity = 64 - uses YDP Piano ∆|Sal.−YDP|↓ 0.752 0.887 0.786 0.733 0.883 0.637 0.019 0.004 0.149 0.620 0.928 4.065
+0.617 0.930 2.750
+0.003 0.002 1.314
+∆ (GT−Flat) ↑ +0.118 +0.052 -0.083 +0.263 +0.047 -0.359
+Table 3. MAESTRO metric diagnostic. Real audio is com-
+pared with GT-note resynthesis using GT or flat velocity
+under the Salamander (default) or YDP Grand Piano. Sum-
+mary rows show GT–Flat separation and SoundFont drift.
+6. CONCLUSION
+In this paper, we presented a framework for cross-
+instrument MIDI velocity estimation. A piano-pretrained
+estimator is adapted to target instruments without ve-
+locity labels through one of two differentiable inter-
+faces: waveform-space Diff-Synth or loudness-related
+acoustic parameter-space Diff-SFProxy. The proposed
+Diff-SFProxy leverages note-wise loudness parameters ex-
+tracted from black-box SoundFont renders, focusing the
+gradient on velocity-dependent behavior rather than wave-
+form details. On guitar, where velocity labels are un-
+available, Diff-SFProxy improves over zero-shot transfer
+and waveform-level adaptation, while Diff-Synth often de-
+grades performance. Our finding suggests that, when the
+task is to estimate a single control parameter rather than re-
+construct audio, parameter-wise supervision through a ren-
+derer proxy is more reliable than waveform supervision.
+Future work includes extending the framework to other
+instruments, such as violin and wind instruments. Au-
+tomating SoundFont selection through timbre matching
+would replace the current by-ear procedure and scale the
+method to broader datasets. Beyond velocity, the frame-
+work could also recover other expressive control parame-
+ters, such as sustain pedaling in piano and bow-pressure
+curves in violin.
+
+=== PDF PAGE 7; LABEL 7 ===
+7. ACKNOWLEDGMENTS
+This research was carried out while the author was in re-
+ceipt of a University International Fees Scholarship and a
+University Postgraduate Award at The University of West-
+ern Australia. The authors acknowledge the use of Kaya,
+the High-Performance Computing facility at The Univer-
+sity of Western Australia, and the technical assistance pro-
+vided by the UWA IT – HPC team.
+8. REFERENCES
+[1] R. B. Dannenberg, “The interpretation of midi veloc-
+ity,” in Proceedings of the International Computer Mu-
+sic Conference (ICMC), 2006, pp. 193–196.
+[2] D. Jeong, T. Kwon, and J. Nam, “A timbre-based ap-
+proach to estimate key velocity from polyphonic piano
+recordings,” in Proceedings of the International Soci-
+ety for Music Information Retrieval Conference (IS-
+MIR), 2018, pp. 120–127.
+[3] S. Rhyu, S. Kim, and K. Lee, “Sketching the expres-
+sion: Flexible rendering of expressive piano perfor-
+mance with self-supervised learning,” in Proceedings
+of the International Society for Music Information Re-
+trieval Conference (ISMIR), 2022, pp. 178–185.
+[4] H. Zhang, S. Chowdhury, C. E. Cancino-Chacón,
+J. Liang, S. Dixon, and G. Widmer, “Dexter: Learning
+and controlling performance expression with diffusion
+models,” Applied Sciences, vol. 14, no. 15, p. 6543,
+2024.
+[5] J. Tang, E. Cooper, X. Wang, J. Yamagishi, and
+G. Fazekas, “Towards an integrated approach for
+expressive piano performance synthesis from music
+scores,” in Proceedings of the IEEE International Con-
+ference on Acoustics, Speech and Signal Processing
+(ICASSP), 2025.
+[6] I. Borovik, D. Gavrilev, and V. Viro, “SyMuPe: Af-
+fective and controllable symbolic music performance,”
+in Proceedings of the 33rd ACM International Con-
+ference on Multimedia, ser. MM ’25. Dublin, Ire-
+land: Association for Computing Machinery, 2025, pp.
+10 699–10 708.
+[7] A. Morsi, S. Chiruthapudi, S. Peter, I. Pilkov,
+L. Bishop, A. Maezawa, X. Serra, and C. E. Cancino-
+Chacón, “Enabling empirical analysis of piano perfor-
+mance rehearsal with the rach3 midi dataset,” in Pro-
+ceedings of the International Society for Music Infor-
+mation Retrieval Conference (ISMIR), 2025, pp. 484–
+491.
+[8] H. Zhang, J. Tang, S. R. M. Rafee, S. Dixon, and
+G. Fazekas, “ATEPP: A dataset of automatically tran-
+scribed expressive piano performance,” in Proceedings
+of the International Society for Music Information Re-
+trieval Conference (ISMIR), 2022, pp. 446–453.
+[9] F. Simonetta, S. Ntalampiras, and F. Avanzini,
+“Acoustics-specific piano velocity estimation,” in Pro-
+ceedings of the IEEE International Workshop on Mul-
+timedia Signal Processing (MMSP), 2022.
+[10] H. Kim and X. Serra, “A method for midi velocity esti-
+mation for piano performance by a U-net with attention
+and FiLM,” in Proceedings of the International Society
+for Music Information Retrieval Conference (ISMIR),
+2024, pp. 304–310.
+[11] Z. He, R. Togneri, and D. Huang, “Score-informed
+transformer for refining midi velocity in automatic mu-
+sic transcription,” in Proceedings of the Sound and Mu-
+sic Computing Conference (SMC), 2026.
+[12] C. Hawthorne, A. Stasyuk, A. Roberts, I. Simon, C.-
+Z. A. Huang, S. Dieleman, E. Elsen, J. Engel, and
+D. Eck, “Enabling factorized piano music modeling
+and generation with the maestro dataset,” in Proceed-
+ings of the International Conference on Learning Rep-
+resentations (ICLR), 2019.
+[13] N. C. Tamer, Y. Özer, M. Müller, and X. Serra, “High-
+resolution violin transcription using weak labels,” in
+Proceedings of the International Society for Music In-
+formation Retrieval Conference (ISMIR), 2023, pp.
+223–230.
+[14] X. Riley, Z. Guo, A. C. Edwards, and S. Dixon,
+“GAPS: a large and diverse classical guitar dataset and
+benchmark transcription model,” in Proceedings of the
+International Society for Music Information Retrieval
+Conference (ISMIR), 2024, pp. 611–617.
+[15] X. Riley, D. Edwards, and S. Dixon, “High resolu-
+tion guitar transcription via domain adaptation,” in
+Proceedings of the IEEE International Conference on
+Acoustics, Speech and Signal Processing (ICASSP),
+2024, pp. 1051–1055.
+[16] B. Maman and A. H. Bermano, “Unaligned supervi-
+sion for automatic music transcription in the wild,” in
+Proceedings of the International Conference on Ma-
+chine Learning (ICML), 2022, pp. 14 918–14 934.
+[17] Y. Zang, Y. Zhong, F. Cwitkowitz, and Z. Duan, “Syn-
+thTab: Leveraging synthesized data for guitar tabla-
+ture transcription,” in Proceedings of the IEEE Inter-
+national Conference on Acoustics, Speech and Signal
+Processing (ICASSP), 2024, pp. 1286–1290.
+[18] Y. Kusaka and A. Maezawa, “Learn from virtual guitar:
+A comparative analysis of automatic guitar transcrip-
+tion using synthetic and real audio,” in Proceedings of
+the IEEE Workshop on Applications of Signal Process-
+ing to Audio and Acoustics (WASPAA), 2025, pp. 1–5.
+[19] G. Sato and T. Akama, “Annotation-free automatic
+music transcription with scalable synthetic data and
+adversarial domain confusion,” in Proceedings of the
+2024 IEEE International Conference on Multimedia
+and Expo (ICME), 2024, pp. 1–6.
+
+=== PDF PAGE 8; LABEL 8 ===
+[20] T.-K. Wang, Y.-P. Peng, L. Su, and V. K. M. Cheung,
+“Vioptt: Violin technique-aware transcription from
+synthetic data augmentation,” in Proceedings of the
+IEEE International Conference on Acoustics, Speech
+and Signal Processing (ICASSP), 2026, pp. 15 947–
+15 951.
+[21] L. Renault, R. Mignot, and A. Roebel, “DDSP-Piano:
+A neural sound synthesizer informed by instrument
+knowledge,” Journal of the Audio Engineering Society,
+vol. 71, no. 9, pp. 552–565, 2023.
+[22] N. Jonason, X. Wang, E. Cooper, L. Juvela, B. L. T.
+Sturm, and J. Yamagishi, “DDSP-Based neural wave-
+form synthesis of polyphonic guitar performance from
+string-wise midi input,” in Proceedings of the Inter-
+national Conference on Digital Audio Effects (DAFx),
+2024, pp. 208–215.
+[23] M. A. Martínez Ramírez, O. Wang, P. Smaragdis, and
+N. J. Bryan, “Differentiable signal processing with
+black-box audio effects,” in Proceedings of the IEEE
+International Conference on Acoustics, Speech and
+Signal Processing (ICASSP), 2021.
+[24] O. Barkan, S. Shvartzman, N. Uzrad, M. Laufer,
+A. Elharar, and N. Koenigstein, “InverSynth II: Sound
+matching via self-supervised synthesizer-proxy and
+inference-time finetuning,” in Proceedings of the Inter-
+national Society for Music Information Retrieval Con-
+ference (ISMIR), 2023, pp. 642–648.
+[25] P. Combes, S. Weinzierl, and K. Obermayer, “Neural
+proxies for sound synthesizers: Learning perceptually
+informed preset representations,” Journal of the Audio
+Engineering Society, vol. 73, no. 9, pp. 561–577, 2025.
+[26] E. Zwicker and H. Fastl, Psychoacoustics: Facts and
+Models, 2nd ed., ser. Springer Series in Information
+Sciences. Berlin: Springer, 1999, vol. 22.
+[27] Z. He, H. Meng, D. Huang, and R. Togneri, “Joint esti-
+mation of piano dynamics and metrical structure with a
+multi-task multi-scale network,” in Proceedings of the
+IEEE International Conference on Acoustics, Speech
+and Signal Processing (ICASSP), 2026, pp. 14 607–
+14 611.
+[28] J. Engel, L. Hantrakul, C. Gu, and A. Roberts, “DDSP:
+differentiable digital signal processing,” in Proceed-
+ings of the International Conference on Learning Rep-
+resentations (ICLR), 2020.
+[29] Y. Wu, E. Manilow, Y. Deng, R. Swavely, K. Kastner,
+T. Cooijmans, A. Courville, C.-Z. A. Huang, and J. En-
+gel, “MIDI-DDSP: Detailed control of musical perfor-
+mance via hierarchical modeling,” in Proceedings of
+the International Conference on Learning Representa-
+tions (ICLR), 2022.
+[30] S. Ewert and M. Müller, “Estimating note intensities in
+music recordings,” in Proceedings of the IEEE Inter-
+national Conference on Acoustics, Speech and Signal
+Processing (ICASSP), 2011, pp. 385–388.
+[31] S. Dixon, “Onset detection revisited,” in Proceedings
+of the International Conference on Digital Audio Ef-
+fects (DAFx), 2006, pp. 133–137.
+[32] S. Böck and G. Widmer, “Maximum filter vibrato
+suppression for onset detection,” in Proceedings of
+the International Conference on Digital Audio Effects
+(DAFx), 2013, pp. 55–61.
+[33] M. Müller, V. Konz, W. Bogler, and V. Arifi-Müller,
+“Saarland music data (smd),” in Late-Breaking and
+Demo Session of the 12th Int. Conf. on Music Infor-
+mation Retrieval, 2011.
+[34] A. Holm, “Acoustic grand piano: Salamander Grand
+Piano,” FreePats Project sound bank, Jun. 2020, ver-
+sion V3+2020-06-02; Creative Commons Attribution
+3.0; accessed 2026-04-18. [Online]. Available: https://
+freepats.zenvoid.org/Piano/acoustic-grand-piano.html
+[35] FreePats Project, “Nylon-string acoustic guitar: Span-
+ish Classical Guitar,” FreePats Project sound bank,
+Jun. 2019, version 2019-06-18; Creative Com-
+mons CC0 1.0 public domain dedication; ac-
+cessed 2026-04-18. [Online]. Available: https:
+//freepats.zenvoid.org/Guitar/acoustic-guitar.html
+[36] ——, “Acoustic grand piano: YDP Grand Piano,”
+FreePats Project sound bank, Aug. 2016, version
+2016-08-04; Creative Commons Attribution 3.0;
+accessed 2026-04-18. [Online]. Available: https://
+freepats.zenvoid.org/Piano/acoustic-grand-piano.html
+[37] J. Ryu, S. Rhyu, H.-G. Yoon, E. Kim, J. Y. Yang, and
+T. Kim, “Mid-fild: Midi dataset for fine-level dynam-
+ics,” in Proceedings of the AAAI Conference on Artifi-
+cial Intelligence (AAAI), 2024, pp. 222–230.

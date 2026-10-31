@@ -1,0 +1,111 @@
+# Thesis revision decisions
+
+这是唯一的人类决定清单。先看主题预览；可填全局基线、独立事实确认、常规包或实际需要选择的条目。YES 只批准当前明确文字，不等于已执行；NO 只拒绝当前方案。后续更新保留所有填写，不自动把旧批准转给不同的新稿。
+
+**状态：最终定点核验通过，39项文字可供作者选择，4项事实待核；全部仍未执行。** [先看精简预览](REVIEW_SUMMARY.md)。候选入口绑定冻结第三轮；可选不等于YES，也不表示所有来源问题已解决。独立结论见 [reviewer_final.md](reviewer_final.md)。
+
+正式修订基线【待作者填写：main.pdf / Z_He_PhD_Thesis.pdf / 其他】；最终 thesis 页码【待核验】。
+
+## 主题预览
+
+| 主题 | 关联意见 | 第三轮差别；文字可选与事实待核分开 |
+| --- | --- | --- |
+| 中心问题与场景 | R1-05、06、15、19；R2-01 | 简定义／局部解释／叙事衔接；R2-01 当前提案保留已有 overview |
+| 图示与表示 | R1-03、07、09、17／18、24 | 概念分支、非强制转换链、note-on 范围、matrix＋token 接口 |
+| 数据表和指标 | R1-13、14、26 | 图注或增列；指标短定义或公式；settings 用单稿解释 |
+| 应用与听测 | R1-16、20、21；R2-04 | 风格控制与泛化分开；物理／音乐时间未比较；听测协议先核验 |
+| 完整 AMT | R1-23、27／37 | 模块适用条件、集成接口、未评估 note accuracy 的边界 |
+| 方法选择和未来范围 | R1-25、28、29、30、31、33、34、36、38；R2-03 | loss／解码／迁移解释与有限证据；A/B/C 各条字母不能跨条自动对应 |
+| 发表与 thesis 综合 | R1-02；R2-02 | accepted 状态更新；四研究映射；Ch5 逐结果归属受 V-07 限制 |
+
+## 小修合并与共用文字
+
+**当前常规包 v3，文字可供选择：** R1-02、04、08、11、12、22、32 的单稿 A，以及 R2-05 A。准确文字绑定 [第三轮来源身份](editor_crosswalk.md#第三轮来源身份)。图表实施后的视觉检查、事实核验和作者批准仍各自待完成。
+
+第三轮常规包决定【待定：YES/NO】；排除项目【无／填写ID】；备注【】。
+
+10秒说明有两处：R1-20处理 `Chapter_3/chap3.tex:71`，R2-05处理 `:358`，两处各改一次。本包只批准R2-05对应的358行，71行随R1-20所选路线，不互相覆盖。
+
+R1-18与R1-17共用一段，只选主项。R1-27／37采用Ch5的R1-27A与Ch7的R1-27C组合，不另插第三段。R1-12／38位置不同，不自动共享A/B/C。R2-01保留已有overview，仅随R1-06／15局部澄清。
+
+旧包v1／v2的原字段冻结保留于本文件“历史版本与选择”；没有自动批准第三轮。条目有单独选择时，以该条为准；新文字不能继承旧版批准。
+
+## 事实确认
+
+这些是已有材料／记录问题，不是新增 examiner 要求，不暗示研究不当，也不自动要求新实验。优先由写作与审查者查现有记录；不足时才需作者填。作者 quantised MOS 陈述保留为原话，不能从正文未写预处理就推定其错误。
+
+| 核验组 | 集中要确认的事实 | 作者确认／记录位置 |
+| --- | --- | --- |
+| V-01 基线 | 正式送审／修订版本见上方基线字段；GRS 模板如有，请注明位置 | 材料位置【待填写；基线只填上方】 |
+| V-02 听测 | 八个刺激输入和 reference 的 timing preprocessing，量化步骤与生成记录 | 事实确认【待填写】 |
+| V-03 Ch3 实际 run | input mask／channels、loss 轴和归一化、attention window／partition 的实际配置与 checkpoint | 事实确认【待填写】 |
+| V-04 Ch4 实际 run | frozen／jointly trained 分支、loss theta 与 preliminary comparison 范围、SMD 选择用途 | 事实确认【待填写】 |
+| V-05 Ch5 评估 | macro／weighted F1、最终每行 checkpoint／fold 来源；是否调用固定源码中 beat/downbeat snap＋dedup | 事实确认【待填写】 |
+| V-06 吉他图 | Fig6.3 excerpt／绘图来源，所谓 GT 是 measured、synthetic control 或其他 reference | 事实确认【待填写】 |
+| V-07 ICASSP 版本 | 所给稿 p4 有 PENDING／no yet、p5 有替换表格说明，标题也不同；需 final paper 或作者说明本稿用途 | 事实确认【待填写】 |
+
+其余来源核对留在 [editor_crosswalk.md](editor_crosswalk.md)：图色、三倍 MAE、MAPS、完整 AMT 示例。安全候选可去掉未支持的比较或按现有范围解释；这些不变成更多必须回答的问题。若确实影响选定方案，再在这里补具体需要。
+
+## 完整追踪表
+
+下方候选对应冻结第三轮，并承接最终独立核验。推荐路线只供作者决定；YES仍是批准该提案，不表示实施。[第三轮](writer_round3.md)有准确原文、完整英文和拼接范围。GRS说明稿不代替thesis候选，正式页码仍【待核验】。
+
+| ID／详情 | 位置 | 一句话问题 | 当前提案方向 | 候选区别／状态 | 人的决定与版本 | 备注 |
+| --- | --- | --- | --- | --- | --- | --- |
+| [R1-01 第三轮](writer_round3.md#r1-01) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-01) | 全文引用格式 | 建议改用 author-year 引用 | 比较保留数字制与统一切换；采用前先看渲染效果，不自动改格式 | 建议路线 A；单稿 A：保留数字制；author-year 另待作者选择；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-02 第三轮](writer_round3.md#r1-02) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-02) | Authorship Declaration | ISMIR 2026 状态仍为 Under review | 拟把第四篇论文更新为 accepted；不补未经核实的出版信息 | 建议路线 A；单稿 A：更新为 accepted；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：单项/自定】 | 【】 |
+| [R1-03 第三轮](writer_round3.md#r1-03) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-03) | Ch1 Figure 1.1 | general AMT 图未列其他表达维度 | 在原图局部补 instrument identity／expressive aspects 并标明 dynamics 为本 thesis 焦点 | 建议路线 A；A：补两阶段标签；B：分信息层；C：改并列分支；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-04 第三轮](writer_round3.md#r1-04) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-04) | Ch1 Motivation；Ch7 同词 | recollecting 用词不准确 | 改为 collecting，并检查结论同类用法；单项纠错 | 建议路线 A；单稿 A：collecting；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：单项/自定】 | 【】 |
+| [R1-05 第三轮](writer_round3.md#r1-05) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-05) | Ch1 Unified Thesis Question | weakly expressive／weak supervision 未定义 | 区分表达层被简化与监督标签不足，保留 default 64／粗量化例子 | 建议路线 B；A：简定义；B：区分三种信息条件并允许重叠；C：概念衔接；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-06 第三轮](writer_round3.md#r1-06) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-06) | Ch1 Table 1.2；Ch6 overview | Ch6 是否也属于 audio-only velocity 场景 | 澄清 Ch6 是 S2 的标签稀缺扩展；audio-only velocity adaptation 留未来 | 建议路线 B；A：Ch6 延伸 S2；B：分清输入与目标；C：重述三场景地图；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-07 第三轮](writer_round3.md#r1-07) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-07) | Ch2 Figure 2.1 | 三层关系是否必须经由 MIDI velocity | 图注说明 many-to-many；直接回答 perceptual→score 可不经过 MIDI | 建议路线 B；A：图注直答非链条；B：加 Ch5 实例；C：解释三类关系；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-08 第三轮](writer_round3.md#r1-08) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-08) | Ch2 Table 2.3 | 三组列的视觉分隔不清 | 细分隔线或适度加组间距；单项排版提案 | 建议路线 A；单稿 A：三组列加分隔线；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：单项/自定】 | 【】 |
+| [R1-09 第三轮](writer_round3.md#r1-09) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-09) | Ch2 MIDI velocity | onset 表述是否适用于整个 MIDI 协议 | 把目标限定为本论文的 note-on velocity；不扩大为所有 MIDI 控制 | 建议路线 B；A：Note On／Off；B：补 aftertouch／CC 范围；C：结合逐音目标；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-10 第三轮](writer_round3.md#r1-10) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-10) | Ch2 Figure 2.3(e)(f) | 颜色含义不清 | 统一颜色提案消除额外语义，并补轴说明；图副本仍待制作与核验 | 建议路线 A；单稿 A：统一颜色并解释坐标；实际图示待审；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-11 第三轮](writer_round3.md#r1-11) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-11) | Ch2 Section 2.5 | humanisation 含义不清 | 定义一般 humanisation，再限定 Ch3 velocity completion 只补 velocity | 建议路线 A；单稿 A：一行定义 humanisation；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-12 第三轮](writer_round3.md#r1-12) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-12) | Ch2 Section 2.6.1 | 需涉及 crescendo／diminuendo | 指向已有定义，并简述渐变记号与本研究离散目标的边界 | 建议路线 A；单稿 A：指向已有定义并说明 Ch5 目标边界；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-13 第三轮](writer_round3.md#r1-13) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-13) | Ch2 Table 2.7 | 模态、三角符号、MIDI 类型及 43% 不清 | 补音频可用性、列定义、符号图例与 43% 分母；逐数据集核验 | 建议路线 A；A：扩图注与行注；B：增 audio 列；C：强调结构／监督区别；【事实待核；局部文字可选】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-14 第三轮](writer_round3.md#r1-14) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-14) | Ch2 evaluation | 缺常用 dynamics 指标定义 | 补短定义与后文章节公式的交叉引用，不重复整套推导 | 建议路线 B；A：直观短定义；B：公式与 macro/weighted 区别；C：按输出组织；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-15 第三轮](writer_round3.md#r1-15) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-15) | Ch3 overview；Ch1／7 同步 | most controlled 混淆结构固定与信息充分 | 改为 fixed structure／symbolic-only evidence；同步相关排序 | 建议路线 A；A：完整最小首段；B：补无音频与解释歧义；C：按模型可改信息组织；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-16 第三轮](writer_round3.md#r1-16) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-16) | Ch3 style／composer discussion | 是否应风格／作曲家特定 | 区分风格控制与跨 repertoire 泛化；现有分组只作描述 | 建议路线 B；A：无风格控制；B：解释共享模型；C：plausible interpretation；听测限制集中 R2-04；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-17 第三轮](writer_round3.md#r1-17) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-17) | Ch3 image-based 术语 | 并未预测 RGB，image-based 易误导 | 正文解释 image-like pitch–time matrices；保留已发表标题 | 建议路线 B；A：image-like 非RGB；B：二维邻域＋single-channel；C：event 表示边界；附12处同步表；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-18 第三轮](writer_round3.md#r1-18) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-18) | Ch3 piano-roll representation | 需说明为何不用 note list | 共用第三轮 R1-17 所选段，不重复插入 | 随第三轮 R1-17 的所选路线（写作窗拟B）；不另插A中的操作说明；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-19 第三轮](writer_round3.md#r1-19) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-19) | Ch3 Problem Setting | recovery 或 estimation 的关系不明 | 解释 recovery/completion 为任务设定，estimation 为模型行为 | 建议路线 B；A：recovery 是实验构造；B：completion／estimation 术语；C：训练到部署；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-20 第三轮](writer_round3.md#r1-20) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-20) | Ch3 MIDI Segmentation | 为何不用 musical／beat time | 解释兼容未 beat-aligned 数据的选择，并承认未比较替代方案 | 建议路线 B；A：无 beat map 的兼容性；B：输入来源与未比较范围；C：两类时间网格取舍；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-21 第三轮](writer_round3.md#r1-21) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-21) | Ch3 performance／quantised MIDI | composition 动机与实验材料是否冲突 | 保留 composition 动机；量化听测断言待刺激记录核验 | 建议路线 A；A：训练来源＋composition接口；B：输入条件；C：训练／部署角色；协议全部留候选外；【事实待核；局部文字可选】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-22 第三轮](writer_round3.md#r1-22) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-22) | Ch3 baseline descriptions | baseline 信息分散 | 局部集中 Flat／Seq2Seq／ConvAE 的来源、训练与用法 | 建议路线 A；单稿 A：集中三类 baseline，保留不同训练来源；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-23 第三轮](writer_round3.md#r1-23) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-23) | Ch4 modular correction | 解耦是否贴近应用，能否与 joint learning 并存 | 限定 aligned-score 应用；承认 joint learning 价值与未测 note F1 | 建议路线 A；A：限定已知 notes；B：任务边界与 joint learning；C：按应用条件对照；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-24 第三轮](writer_round3.md#r1-24) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-24) | Ch4 Figure 4.2；features／arch | piano-roll 与 event-based 的取舍 | 说明 score raster 接口与 onset-token Transformer 两层，不误称全程 dense roll | 建议路线 A；单稿 A：matrix interface＋onset tokens；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-25 第三轮](writer_round3.md#r1-25) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-25) | Ch4 Loss function | 两项 loss 的权重与平衡依据 | 说明各自平均后 unit coefficients 和已有 Kim 引用；最佳性待证据 | 建议路线 B；A：相对系数；B：preliminary comparison＋数值区分；C：两项职责；公式上下文保留；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-26 第三轮](writer_round3.md#r1-26) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-26) | Ch4 Table 4.1 | 不同输入与模型设置未解释清楚 | 定义 onset-only／onset+frame／onset+frame_ex，并区分 BiLSTM／Transformer | 建议路线 A；单稿 A：逐一定义 Table4.1 组合；输入实现仍待核验；【事实待核；局部文字可选】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-27 第三轮](writer_round3.md#r1-27) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-27) | Ch5 complete AMT scope | 是否实现并测试完整 note AMT 集成 | 区分 workflow 展示、dynamics/metre 模块与经评估的完整系统 | 建议路线 A（Ch.5）；C（Ch.7，与R1-37合并）；A：Ch5最小范围；B：score-facing metrical grid；C：Ch7跨章接口；拟组合A＋C；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-28 第三轮](writer_round3.md#r1-28) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-28) | Ch5 change points | 为何除 beat-wise levels 外单独预测 CP | 分别解释 regime label 与 transition detection；两者都落 beat grid | 建议路线 B；A：state／boundary；B：显式boundary监督；C：允许从相邻labels导出边界；均完整拼接；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-29 第三轮](writer_round3.md#r1-29) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-29) | Ch5 Figure 5.2；loss／decode | beat 与 downbeat 如何连接 | 区分 shared encoder/experts、独立 heads/loss 与解码约束；核验后者 | 建议路线 B；A：共享＋snap 简述；B：区分学习与解码；C：完整层次解释；最终 run 待查；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-30 第三轮](writer_round3.md#r1-30) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-30) | Ch5 cross-dataset evaluation | composer／performer 依赖下为何仍作外部测试 | 保留 transfer diagnostic；披露 target-informed best-fold 与未隔离因素 | 建议路线 B；A：保留原框架；B：压缩combined shift；C：转移条件；另有待V-05的共用protocol；【事实待核；局部文字可选】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-31 第三轮](writer_round3.md#r1-31) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-31) | Ch6 simpler route | simplicity／efficiency 优势未经成本比较 | 用无需 target velocity labels 的准确动机替换比较性形容词 | 建议路线 B；A：无需目标标签；B：real-audio adaptation路径；C：监督来源＋renderer需匹配；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-32 第三轮](writer_round3.md#r1-32) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-32) | Ch6 VeloEst notation | V^(0) 与 V-hat 的区别 | 明确同一次 forward pass 的 coarse map 与 score-refined output | 建议路线 A；A：完整两段澄清符号，保留采样率／FFT／hop／Hann与Ch4引用；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-33 第三轮](writer_round3.md#r1-33) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-33) | Ch6 Diff-Synth faithfulness | 合成器保真度及梯度可靠性限制 | 沿用作者谨慎回复：consistent with mismatch，非证明原因 | 建议路线 B；A：直接列限制；B：fidelity 与 velocity response；C：解释未隔离因果；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-34 第三轮](writer_round3.md#r1-34) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-34) | Ch6 Huber distance | 为何不用 MAE | 解释 small-error smooth／large-error L1-like、β=1；承认无 MAE 专项比较 | 建议路线 A；A：最小Huber理由；B：small-error梯度；C：误差取舍；均明确未作MAE比较并保留公式；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-35 第三轮](writer_round3.md#r1-35) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-35) | Ch6 Figure 6.2 | 右侧 target 是否为 rendered audio | 保留现有 SoundFont-rendered 标记；必要时补 offline proxy training 阶段说明 | 建议路线 A；单稿 A：offline rendered teacher 与 later real-audio adaptation 分阶段；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-36 第三轮](writer_round3.md#r1-36) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-36) | Ch6 SoundFont selection | 能否自动选择 SoundFont | 说明当前人工试听的主观性；自动选择列未来工作 | 建议路线 A；A：具体自动匹配方向；B：实际人工选择；C：selected renderer的影响；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-37 第三轮](writer_round3.md#r1-37) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-37) | Ch7 complete AMT | 集成后能否改善 note transcription | 随第三轮 R1-27C 在 Ch7 讨论；不另插第三段 | 随第三轮 R1-27C（Ch7）；不另将本项A插为第三段；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R1-38 第三轮](writer_round3.md#r1-38) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r1-38) | Ch7 broader dynamic marks | 未研究 crescendo 等渐变记号 | 短补未来工作；区分 discrete CP 与 explicit span/hairpin | 建议路线 B；A：简列范围；B：CP与span的区别；C：not explicitly represented；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R2-01 第三轮](writer_round3.md#r2-01) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r2-01) | Ch3–6 opening／closing | 技术章与中心问题的关系需更显式 | 保留现有overview，仅随R1-06／15局部澄清；文字可供选择，不新增四段 | 建议路线 A；单稿 A：保留现有 overview，仅随 R1-06／15 局部澄清；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R2-02 第三轮](writer_round3.md#r2-02) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r2-02) | Ch1 contributions／organisation | published、adapted 与 thesis synthesis 区分不足 | 四研究映射与 thesis 综合分开；Ch5 逐结果来源待 final paper | 建议路线 B；A：四研究与综合；B：chapter-paper映射＋组织性综合；C：论点连接；V-07开放；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R2-03 第三轮](writer_round3.md#r2-03) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r2-03) | Ch6／7 generalisability | piano／guitar 与 voice／bowed／wind 边界 | 集中区分已测 piano/guitar 与未测连续控制乐器；补 voice | 建议路线 B；A：已测／未测；B：具体target／descriptor边界；C：框架可能迁移；未测乐器不扩大；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R2-04 第三轮](writer_round3.md#r2-04) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r2-04) | Ch3 listening test；摘要／总结 | 11 人听测应作支持性证据 | 局部说明 11 人／8 片段／单 renderer 范围，收紧 definitive 语气 | 建议路线 A；A：保留系统排序与citation；B：直述Results；C：强调reference互补证据；均集中样本范围；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+| [R2-05 第三轮](writer_round3.md#r2-05) · [GRS](GRS_REVISION_REPORT_DRAFT.md#r2-05) | 全文局部 proofread／PDF QA | 轻微英文、格式与断行问题 | 仅列实际源码／渲染可证缺陷，逐项修正，不全篇润色 | 建议路线 A；单稿 A：三处语言小修＋10秒解释；后者与 R1-20 只改一次；【文字可供选择】 | 决定【待定：YES/NO】；版本【待定：A/B/C/自定】 | 【】 |
+
+## 版本切换记录
+
+本次切换检查：43行决定和版本均待定，没有已批准／拒绝方案需要转移。原备注逐字保留。当前行的后续新填写只绑定第二轮来源身份；旧常规包 v1 字段仍只绑定第一轮。
+
+## 历史版本与选择
+
+以下旧包字段逐字保留，仅绑定原快照，不授权第三轮。
+
+常规包决定【待定：YES/NO】；排除项目【无／填写ID】；备注【】。
+
+第二轮常规包决定【待定：YES/NO】；排除项目【无／填写ID】；备注【】。
+
+切换第三轮时，43行决定及版本均待定，没有已批准／拒绝方案被转移。原备注逐字保留；后续新填写绑定第三轮准确文本。

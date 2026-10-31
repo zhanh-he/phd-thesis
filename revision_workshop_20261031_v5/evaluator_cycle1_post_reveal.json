@@ -1,0 +1,105 @@
+{
+  "stage": "First external independent cycle completed; targeted writer response/revision requested; not joint final approval",
+  "changes": [
+    {
+      "id": "T01",
+      "category": "precision",
+      "reason": "Replace retain note structure with retain note content and timing.",
+      "suggested_text": "Here, weakly expressive data retain note content and timing but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\\ref{ch:beyondpiano}. These conditions can overlap.",
+      "current_selected_text": "Here, weakly expressive data retain note structure but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\\ref{ch:beyondpiano}. These conditions can overlap."
+    },
+    {
+      "id": "T03",
+      "category": "substantive_rewrite",
+      "reason": "Explain the regular-grid benefit, retaining note-list interface cost without untested superiority.",
+      "suggested_text": "We use a piano roll to place simultaneous notes and local pitch--time neighbourhoods on a regular grid for the convolutional U-Net. The input is binary; the single-channel output supplies velocity values, so colourisation is an analogy for adding dynamics to existing notes. A note-list representation would require a different model interface \\cite{he2025filling,kim2024method}.",
+      "current_selected_text": "We use piano rolls because the U-Net processes two-dimensional pitch--time neighbourhoods, including simultaneous notes. The input is binary and the output is a single-channel velocity roll, so colourisation is an analogy for adding dynamics to existing notes. A note-list representation would require a different model interface \\cite{he2025filling,kim2024method}."
+    },
+    {
+      "id": "T07",
+      "category": "precision",
+      "reason": "Limit missing fidelity/gradient measurements to the target recordings.",
+      "suggested_text": "The waveform interface supplies gradients through a differentiable approximation of the instrument. Its timbre and velocity response may differ from the target recordings. The observed degradation is consistent with this mismatch, but reconstruction fidelity and velocity-gradient accuracy were not measured separately on the target recordings.",
+      "current_selected_text": "The waveform interface supplies gradients through a differentiable approximation of the instrument. Its timbre and velocity response may differ from the target recordings. The observed degradation is consistent with this mismatch, but reconstruction fidelity and velocity-gradient accuracy were not measured separately."
+    },
+    {
+      "id": "T11",
+      "category": "optional_simplification",
+      "reason": "Current wording is compatible with the actual reply; shorter wording avoids experimental-history implications.",
+      "suggested_text": "We chose Huber for its smooth gradients near zero and L1-like penalty for large residuals. We have not established an advantage over MAE.",
+      "current_selected_text": "We chose Huber for its smooth gradients near zero and L1-like penalty for large residuals. We have not established an advantage over MAE through a dedicated comparison."
+    },
+    {
+      "id": "N02",
+      "category": "substantive_edit",
+      "reason": "Do not restate nearby table deltas; preserve all table values and avoid rounded-cell recomputation.",
+      "suggested_text": "Changing from Salamander to YDP retains the GT notes and velocities but changes their rendered sound. This comparison tests the renderer change as a whole, rather than gain alone. Pearson $r$ is used here to compare loudness-contour agreement while reducing dependence on absolute level.",
+      "current_selected_text": "Changing from Salamander to YDP while retaining the GT notes and velocities changes MAE by $0.193$ on BSSL and $1.723$ on BSTL; the corresponding changes in Pearson $r$ are $0.034$ and $0.011$. This tests the effect of the renderer change as a whole, rather than absolute gain alone. Pearson $r$ is used here to compare loudness-contour agreement while reducing dependence on absolute level."
+    },
+    {
+      "id": "N03",
+      "category": "clarity",
+      "reason": "Use a purpose sentence rather than therefore; retain positive metric choice and piano diagnostic boundary.",
+      "suggested_text": "For label-free guitar evaluation, we use Pearson $r$ on BSSL/BSTL to measure rendered loudness-contour agreement. In the piano diagnostic, it scores GT above flat velocity under both tested SoundFonts. Cosine similarity and MAE are retained as complementary diagnostics.",
+      "current_selected_text": "We therefore use Pearson $r$ on BSSL/BSTL as the main measure of rendered loudness-contour agreement for label-free guitar evaluation. In this piano diagnostic, it distinguishes GT from flat velocity under both tested SoundFonts. Cosine similarity and MAE are retained as complementary diagnostics."
+    },
+    {
+      "id": "N05a",
+      "category": "keep_original_first_sentence",
+      "reason": "Boundaries include scope conditions, not only limitations; delete defensive second sentence.",
+      "suggested_text": "The thesis has several boundaries.",
+      "current_selected_text": "The thesis has several limitations."
+    }
+  ],
+  "accept_existing_selected": [
+    "T02",
+    "T04",
+    "T05",
+    "T06",
+    "T08",
+    "T09",
+    "T10",
+    "N01",
+    "N04",
+    "N05b",
+    "N05c",
+    "N06a",
+    "N06b"
+  ],
+  "accept_N07": "Numeric token sequence verified unchanged; apply coherently with N01/N02/N03.",
+  "keep_wins": [
+    "T10 v4 accepted over unnecessary stylistic churn",
+    "N05a original first sentence",
+    "Fig.6.2 current caption and image",
+    "O/F/V roles, losses, settings and measured table values"
+  ],
+  "carry_forward_v4": [
+    "R2-04 listening comparator and reference-similarity synchronisations",
+    "R1-33 Ch6:36/431/457 causal-language synchronisations",
+    "SUPPLEMENTS_v4 Intro velocity definition, S3 and beyond-piano scope repairs"
+  ],
+  "writer_lineage_audit": {
+    "internal_C1": {
+      "path": "/root/blind_cycle1",
+      "thread_id": "01a191f2-d386-73c8-8e9d-6c6525a5703c",
+      "verification": "Distinct local subagent activity and final report confirmed via read_thread."
+    },
+    "internal_C2": {
+      "path": "/root/source_checks",
+      "thread_id": "01a191ef-b3c9-70dc-b742-dd4962cf400b",
+      "verification": "Different local subagent; reused earlier source checker in a second turn, non-blind 21-item report confirmed."
+    },
+    "classification": "Two writer-internal substantive reviews; current evaluator is the first separate external cycle. Do not merge counts or scales."
+  },
+  "pending": [
+    "Formal submitted baseline",
+    "R1-13",
+    "R1-21",
+    "R1-26",
+    "R1-30",
+    "run/checkpoint/table provenance",
+    "guitar GT provenance",
+    "final ICASSP version"
+  ],
+  "next": "Writer makes reasoned choices and actual revisions; second external review follows; reader integration remains pending."
+}

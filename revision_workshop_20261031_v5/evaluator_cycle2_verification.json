@@ -1,0 +1,309 @@
+{
+  "verified_utc": "2026-10-31T13:11:33.248128+00:00",
+  "changed_passages": [
+    "T01",
+    "T03",
+    "T07",
+    "N02",
+    "T11",
+    "N03",
+    "N05a"
+  ],
+  "source_files_unchanged": 19,
+  "prior_proposal_files_unchanged": 80,
+  "frozen_writer_c1_snapshot_unchanged": true,
+  "source_quote_operations": 44,
+  "operation_counts": {
+    "insertion": 4,
+    "replacement": 16,
+    "inherited_dependency": 23,
+    "table_format": 1
+  },
+  "operation_ids": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08",
+    "T09",
+    "T10",
+    "N01",
+    "N02",
+    "T11",
+    "N03",
+    "N04",
+    "N05a",
+    "N05b",
+    "N05c",
+    "N06a",
+    "N06b",
+    "V4-velocity-1",
+    "V4-velocity-2",
+    "V4-velocity-3",
+    "V4-velocity-4",
+    "V4-velocity-5",
+    "V4-velocity-6",
+    "V4-velocity-7",
+    "V4-velocity-8",
+    "V4-scope-1",
+    "V4-scope-2",
+    "V4-motivation",
+    "V4-S1-opening",
+    "V4-R1-15-sync-1",
+    "V4-R1-15-sync-2",
+    "V4-R1-15-sync-3",
+    "V4-R1-15-sync-4",
+    "V4-R2-04-sync-1",
+    "V4-R2-04-sync-2",
+    "V4-R2-04-sync-3",
+    "V4-R2-04-sync-4",
+    "V4-R1-33-common-1",
+    "V4-R1-33-common-2",
+    "V4-R1-33-common-3",
+    "N07"
+  ],
+  "overlap_pairs": [],
+  "declared_manifest_matches_independent_derivation": true,
+  "independently_reassembled_contexts": [
+    {
+      "id": "T01",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "T02",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "T03",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "T04",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "T05",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "T06",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "T07",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "T08",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "T09",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "T10",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "N01",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "N02",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "T11",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "N03",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "N04",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "N05a",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "N05b",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "N05c",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "N06a",
+      "r2_context_is_exact_overlay_substring": true
+    },
+    {
+      "id": "N06b",
+      "r2_context_is_exact_overlay_substring": true
+    }
+  ],
+  "removed_targeted_overclaims": [
+    [
+      "Chapter_1/Intro.tex",
+      "removes structural support entirely"
+    ],
+    [
+      "Chapter_1/Intro.tex",
+      "a universal loudness variable for all instruments"
+    ],
+    [
+      "Chapter_3/chap3.tex",
+      "most controlled"
+    ],
+    [
+      "Chapter_3/chap3.tex",
+      "most constrained"
+    ],
+    [
+      "Chapter_3/chap3.tex",
+      "four measures at 120"
+    ],
+    [
+      "Chapter_7/Conclusion.tex",
+      "sequence-oriented baselines"
+    ],
+    [
+      "Chapter_6/chap6.tex",
+      "proving \\emph{insensitive}"
+    ],
+    [
+      "Chapter_6/chap6.tex",
+      "MAE proves \\emph{over-sensitive}"
+    ],
+    [
+      "Chapter_6/chap6.tex",
+      "Cosine similarity and MAE fail"
+    ],
+    [
+      "Chapter_6/chap6.tex",
+      "This avoids the synthesis-to-performance domain gap"
+    ],
+    [
+      "Chapter_6/chap6.tex",
+      "therefore spends much of its gradient budget"
+    ],
+    [
+      "Chapter_2/Background.tex",
+      "so the gradient signal is dominated"
+    ],
+    [
+      "Chapter_7/Conclusion.tex",
+      "not artefacts of unfinished implementation"
+    ],
+    [
+      "Chapter_7/Conclusion.tex",
+      "rather than repair it"
+    ]
+  ],
+  "reader_input_checks": [
+    {
+      "id": "T11",
+      "quote_exact": true,
+      "recommended_text_exact": true,
+      "has_keep": true,
+      "context_dependency_ids": []
+    },
+    {
+      "id": "N01",
+      "quote_exact": true,
+      "recommended_text_exact": true,
+      "has_keep": true,
+      "context_dependency_ids": []
+    },
+    {
+      "id": "T03",
+      "quote_exact": true,
+      "recommended_text_exact": true,
+      "has_keep": true,
+      "context_dependency_ids": [
+        "V4-R1-15-sync-1"
+      ]
+    },
+    {
+      "id": "T01",
+      "quote_exact": true,
+      "recommended_text_exact": true,
+      "has_keep": true,
+      "context_dependency_ids": [
+        "V4-scope-1",
+        "V4-R1-15-sync-4"
+      ]
+    },
+    {
+      "id": "N05a",
+      "quote_exact": true,
+      "recommended_text_exact": true,
+      "has_keep": true,
+      "context_dependency_ids": []
+    },
+    {
+      "id": "KEEP-FIG62",
+      "quote_exact": true,
+      "recommended_text_exact": true,
+      "has_keep": true,
+      "context_dependency_ids": []
+    }
+  ],
+  "reader_pending_status_honest": true,
+  "reviewed_source_provenance": [
+    {
+      "path": "Chapter_1/Intro.tex",
+      "sha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359"
+    },
+    {
+      "path": "Chapter_2/Background.tex",
+      "sha256": "f9f847a8d09557536798e776d60d80de16fb6ba6435afdbcbffaaf938ac7dffb"
+    },
+    {
+      "path": "Chapter_3/chap3.tex",
+      "sha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9"
+    },
+    {
+      "path": "Chapter_4/chap4.tex",
+      "sha256": "d3ba02f332041ea4e6e8c89fe342fdf560bd9edda1caafcd4b7c9fb651226eb8"
+    },
+    {
+      "path": "Chapter_5/chap5.tex",
+      "sha256": "60219fbeac5ebb0d2e70be7de2bbf6028c1e1916bf35c3626f0b5d872432e6fe"
+    },
+    {
+      "path": "Chapter_6/chap6.tex",
+      "sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf"
+    },
+    {
+      "path": "Chapter_7/Conclusion.tex",
+      "sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f"
+    },
+    {
+      "path": "main.tex",
+      "sha256": "a55546f7a41c9210f1ecebae71a2167f86e0fb93ddbf96797ba03c1ea270fd39"
+    }
+  ],
+  "reviewed_input_snapshot": {
+    "CANDIDATE_PACKET_R2_FULL_CONTEXT.md": "f97927db79271972f9fcde1fe569ff93e8908e57be88899a9bb3cceb419798fc",
+    "WRITER_REVISION_RESPONSE_R2.md": "5c6e0eb1889fe3ef6af10e54f5ba29582f05ee4addc96a40caffcf321cf00e53",
+    "FINAL_SELECTION_R2.json": "f042fce6fa01b3f3be6f0c48979cb9c0558cc95f2f9e48005e3f1791cdc96810",
+    "DEPENDENCIES_R2.json": "cdd63d5ac3e9d1f8db9b3183867f44f3d1faff55ecc8d96bbc7766b161d9f246",
+    "WRITER_READER_PACKET_R2.json": "ff02bc4fa7ee6781c528e54915cfdd3d637c2a04f8e950cb4041a1a1abbeac78",
+    "N07_TABLE_MARKUP_PROPOSAL.tex": "afaf3b3e288a2324db2a3007d8945fe2b83bd2a1e0b1eb5e73b713724b48e0f5",
+    "evidence/R2_context_operation_manifest.json": "7ebf4656d57be85d9c28060063e0d410a3f51bf5bf5c50d04336476d07f0a25d"
+  },
+  "limits": [
+    "Assembly/quote checking does not prove run or GT provenance.",
+    "23 inherited dependencies are still author-unapproved proposals.",
+    "Reader HTML integration and post-integration usability are separate work.",
+    "Some original source issues outside the 44 reviewed operations may remain; this is not complete thesis implementation."
+  ]
+}

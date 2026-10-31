@@ -1,0 +1,34 @@
+[
+  {
+    "old": "publish_paper/2025_CMMR_Camera_ready_MIDI_Colorizer.pdf",
+    "new": "publish_paper/2025_CMMR_MIDI_Velocity_Colorizer.pdf",
+    "title": "Filling MIDI Velocity using U-Net Image Colorizer",
+    "sha256_before": "fdffb60df941a5fd66d6497365d778d4f45d0c15be96a7f30ff8f9e58d838d28",
+    "sha256_after": "fdffb60df941a5fd66d6497365d778d4f45d0c15be96a7f30ff8f9e58d838d28",
+    "bytes": 2299556
+  },
+  {
+    "old": "publish_paper/2026_SMC_VeloEst_Camera_Ready (1).pdf",
+    "new": "publish_paper/2026_SMC_Score_Informed_Velocity.pdf",
+    "title": "Score-Informed Transformer for Refining MIDI Velocity in Automatic Piano Transcription",
+    "sha256_before": "7bafa56d60ff5101712aec687fbd4165b75c7cebec8c8c9173cb64b3afd3fdc7",
+    "sha256_after": "7bafa56d60ff5101712aec687fbd4165b75c7cebec8c8c9173cb64b3afd3fdc7",
+    "bytes": 899656
+  },
+  {
+    "old": "publish_paper/_ICASSP2026__Bark_Dynest.pdf",
+    "new": "publish_paper/2026_ICASSP_Dynamics_Metrical_Structure.pdf",
+    "title": "Joint Estimation of Piano Dynamics and Metrical Structure with a Multitask Multi-Scale CNN",
+    "sha256_before": "a93d246b18af61363483697f0135d92ac5611756bf929ae4bc48c46982c516a2",
+    "sha256_after": "a93d246b18af61363483697f0135d92ac5611756bf929ae4bc48c46982c516a2",
+    "bytes": 628772
+  },
+  {
+    "old": "publish_paper/2026_ISMIR_Velo_Beyond_Piano_Camera_Ready (3).pdf",
+    "new": "publish_paper/2026_ISMIR_Cross_Instrument_Velocity.pdf",
+    "title": "Beyond Piano: Cross-Instrument MIDI Velocity Estimation via Differentiable SoundFont Proxies",
+    "sha256_before": "2b081d2c1636dc0453c7ab2a69ac23a3d2e570eef0ea93634a9aa9e2751fadf2",
+    "sha256_after": "2b081d2c1636dc0453c7ab2a69ac23a3d2e570eef0ea93634a9aa9e2751fadf2",
+    "bytes": 660277
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "python_version": "3.14.5 (main, May 10 2026, 10:21:34) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "files": [
+    {
+      "path": "Chapter_1/Intro.tex",
+      "sha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359",
+      "unchanged_since_source_check": true
+    },
+    {
+      "path": "Chapter_2/Background.tex",
+      "sha256": "f9f847a8d09557536798e776d60d80de16fb6ba6435afdbcbffaaf938ac7dffb",
+      "unchanged_since_source_check": true
+    },
+    {
+      "path": "Chapter_3/chap3.tex",
+      "sha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9",
+      "unchanged_since_source_check": true
+    },
+    {
+      "path": "Chapter_4/chap4.tex",
+      "sha256": "d3ba02f332041ea4e6e8c89fe342fdf560bd9edda1caafcd4b7c9fb651226eb8",
+      "unchanged_since_source_check": true
+    },
+    {
+      "path": "Chapter_5/chap5.tex",
+      "sha256": "60219fbeac5ebb0d2e70be7de2bbf6028c1e1916bf35c3626f0b5d872432e6fe",
+      "unchanged_since_source_check": true
+    },
+    {
+      "path": "Chapter_6/chap6.tex",
+      "sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+      "unchanged_since_source_check": true
+    },
+    {
+      "path": "Chapter_7/Conclusion.tex",
+      "sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f",
+      "unchanged_since_source_check": true
+    }
+  ],
+  "all_unchanged": true
+}

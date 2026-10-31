@@ -1,0 +1,173 @@
+--- writer_round2.md
++++ writer_round3.md
+@@ -1,59 +1,59 @@
+-# 第二轮英文修改候选
+-
+-这是独立reviewer_round1之后的实际返修稿，供复审使用。round1、working、来源与共同编号文件均冻结保留。本轮没有修改thesis源、论文PDF、作者回复、数据、bibliography或图片，没有实验/编译/提交。
++# 第三轮冻结候选稿
++
++这是reviewer_round2后的定点小修稿。仅修R1-33的F11a/F11b及三处过时中文说明；已通过的97条局部候选文字不重写。round1、round2、working和来源文件冻结保留。本轮没有修改thesis源、论文PDF、作者回复、数据、bibliography或图片，没有实验/编译/提交。
+ 
+ 作者YES/NO和路线只在第三编辑维护的唯一清单填写。本文件的“推荐”是编辑判断，不是作者批准；所有实施状态仍为【未执行】，最终页码【待基线／编译核验】。待核验run和刺激来源不因文字返修而关闭。
+ 
+-A最小，B补局部理由，C改善局部叙述。每项给出当前有效的实际文字；未变路线标明沿用第一轮通过文字。关键8项R1-15/21/25/28/30/32、R2-02/04均给出整段拼接，R1-21的未定timing协议留在正文候选外。
+-
+-working中的162条是短稿／组件草图与取舍，不是162个完整独立段落或历史轮次证据。本次可观察循环是writer round1 → independent reviewer round1 → writer round2；候选复审尚未完成。另一位GPT-6.1仅看过5个摘录，其建议已对照原文使用，未把它称作全书审查。
+-
+-## 当前推荐与复审索引
++A最小，B补局部理由，C改善局部叙述。43项仍完整覆盖；局部A/B/C与单稿沿用round2复审文字，R1-33的共同同步段在本轮修复。下表状态承接reviewer_round2：38项可供作者选择、4项受证据阻塞、R1-33待最终定点核验。R1-21的未定timing协议仍留在正文候选外。
++
++working中的162条是短稿／组件草图与取舍，不是162个完整独立段落或历史轮次证据。可观察循环为writer round1 → independent reviewer round1 → writer round2 → independent reviewer round2 → 本次定点小修。最终定点核验尚待完成。另一位GPT-6.1仅看过5个摘录，未把它称作全书审查。
++
++## 当前推荐与定点核验索引
+ 
+ | ID | 修改点 | 当前推荐 | 本轮状态 |
+ | --- | --- | --- | --- |
+-| [R1-01](#r1-01) | 引用体例由作者决定，不为可选建议重写全文 | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-02](#r1-02) | 更新 ISMIR 接收状态 | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-03](#r1-03) | Fig.1.1 补足乐器身份和其他表达因素 | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-04](#r1-04) | recollecting 改 collecting | A | 返修待复审 |
+-| [R1-05](#r1-05) | 定义 weakly expressive 与 weakly supervised | B | 返修待复审 |
+-| [R1-06](#r1-06) | S3 不是所有 audio-only 输出的总称 | B | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-07](#r1-07) | Fig.2.1 是多种关系，不是必经 MIDI 的链 | B | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-08](#r1-08) | Bark 表每组三列加分隔线 | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-09](#r1-09) | 把 onset 说法限定为本文的 Note On velocity | B | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-10](#r1-10) | Fig.2.3 颜色不能猜含义 | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-11](#r1-11) | humanisation 用一行定义 | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-12](#r1-12) | crescendo 已有定义，只补定位与范围 | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-13](#r1-13) | 数据表拆清 note events、performance velocity、score 与音频可用性 | A | 返修待复审 |
+-| [R1-14](#r1-14) | 背景定义常用指标，同时保留 Ch.5 平均方式待核验 | B | 返修待复审 |
+-| [R1-15](#r1-15) | 用信息条件描述 S1，不用单一难度排序 | A | 返修待复审 |
+-| [R1-16](#r1-16) | 区分跨曲目使用与风格控制 | B | 返修待复审 |
+-| [R1-17](#r1-17) | image-like 的含义与 piano-roll 选择一起解释 | B | 返修待复审 |
+-| [R1-18](#r1-18) | piano roll 与 event list 的取舍 | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-19](#r1-19) | recovery 是实验构造，estimation 是一般任务 | B | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-20](#r1-20) | physical time 是兼容性选择，不是 beat-alignment 劣势的证明 | B | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-21](#r1-21) | 量化 MIDI 听测保留作者说明，待刺激记录对齐 | A | 返修待复审 |
+-| [R1-22](#r1-22) | 单列 baselines，重排已有事实即可 | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-23](#r1-23) | modular correction 的实际适用范围与联合模型互补 | A | 返修待复审 |
+-| [R1-24](#r1-24) | Ch.4 实际上是矩阵接口加 onset tokens | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-25](#r1-25) | 明确 hybrid loss 的相对权重与证据边界 | B | 返修待复审 |
+-| [R1-26](#r1-26) | Table4.1 每个 setup 用现有变量逐一解释 | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-27](#r1-27) | 完整 AMT 集成作为未来方向，不虚报已验证性能 | A（Ch.5）；C（Ch.7，与R1-37合并） | 返修待复审 |
+-| [R1-28](#r1-28) | state 与 boundary 是互补监督，并非二选一 | B | 返修待复审 |
+-| [R1-29](#r1-29) | 共享表征、分头 loss 与 decoding 连接同时说明 | B | 返修待复审 |
+-| [R1-30](#r1-30) | cross-dataset 是测迁移边界，不是分离风格因果 | B | 返修待复审 |
+-| [R1-31](#r1-31) | 不用未测的 simpler 或 efficiency 优越性 | B | 返修待复审 |
+-| [R1-32](#r1-32) | V^(0) 是粗估 roll，Vhat 是 correction 后的逐音值 | A | 返修待复审 |
+-| [R1-33](#r1-33) | DDSP fidelity 是限制，退化不等于因果证明 | B | 返修待复审 |
+-| [R1-34](#r1-34) | Huber 的梯度理由与 MAE 对照边界 | A | 返修待复审 |
+-| [R1-35](#r1-35) | Fig6.2 已提 rendered audio，补图内 teacher 路径 | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R1-36](#r1-36) | 自动选择 SoundFont 留为明确未来工作 | A | 返修待复审 |
+-| [R1-37](#r1-37) | 完整 AMT 与 note accuracy 的回应统一放一处 | A | 返修待复审 |
+-| [R1-38](#r1-38) | 明确未显式恢复渐强渐弱，加入 span 输出方向 | B | 返修待复审 |
+-| [R2-01](#r2-01) | 现有章节首尾已经显式回应中心问题，推荐保留 | A | 保留第一轮通过文字；事实边界仍待查 |
+-| [R2-02](#r2-02) | 四篇论文的技术贡献与 thesis 新增综合分开 | B | 返修待复审 |
+-| [R2-03](#r2-03) | 把 beyond-piano 可迁移与未验证部分写具体 | B | 返修待复审 |
+-| [R2-04](#r2-04) | 11位听者与8段刺激是补充证据，避免 definitive validation | A | 返修待复审 |
+-| [R2-05](#r2-05) | 只列实际见到的语言／格式问题 | A | 保留第一轮通过文字；事实边界仍待查 |
++| [R1-01](#r1-01) | 引用体例由作者决定，不为可选建议重写全文 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-02](#r1-02) | 更新 ISMIR 接收状态 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-03](#r1-03) | Fig.1.1 补足乐器身份和其他表达因素 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-04](#r1-04) | recollecting 改 collecting | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-05](#r1-05) | 定义 weakly expressive 与 weakly supervised | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-06](#r1-06) | S3 不是所有 audio-only 输出的总称 | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-07](#r1-07) | Fig.2.1 是多种关系，不是必经 MIDI 的链 | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-08](#r1-08) | Bark 表每组三列加分隔线 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-09](#r1-09) | 把 onset 说法限定为本文的 Note On velocity | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-10](#r1-10) | Fig.2.3 颜色不能猜含义 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-11](#r1-11) | humanisation 用一行定义 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-12](#r1-12) | crescendo 已有定义，只补定位与范围 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-13](#r1-13) | 数据表拆清 note events、performance velocity、score 与音频可用性 | A | evidence-blocked；局部文字可选，关键字段待核 |
++| [R1-14](#r1-14) | 背景定义常用指标，同时保留 Ch.5 平均方式待核验 | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-15](#r1-15) | 用信息条件描述 S1，不用单一难度排序 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-16](#r1-16) | 区分跨曲目使用与风格控制 | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-17](#r1-17) | image-like 的含义与 piano-roll 选择一起解释 | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-18](#r1-18) | piano roll 与 event list 的取舍 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-19](#r1-19) | recovery 是实验构造，estimation 是一般任务 | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-20](#r1-20) | physical time 是兼容性选择，不是 beat-alignment 劣势的证明 | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-21](#r1-21) | 量化 MIDI 听测保留作者说明，待刺激记录对齐 | A | evidence-blocked；局部文字可选，关键字段待核 |
++| [R1-22](#r1-22) | 单列 baselines，重排已有事实即可 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-23](#r1-23) | modular correction 的实际适用范围与联合模型互补 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-24](#r1-24) | Ch.4 实际上是矩阵接口加 onset tokens | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-25](#r1-25) | 明确 hybrid loss 的相对权重与证据边界 | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-26](#r1-26) | Table4.1 每个 setup 用现有变量逐一解释 | A | evidence-blocked；局部文字可选，关键字段待核 |
++| [R1-27](#r1-27) | 完整 AMT 集成作为未来方向，不虚报已验证性能 | A（Ch.5）；C（Ch.7，与R1-37合并） | ready-for-author-choice；仍未批准／实施 |
++| [R1-28](#r1-28) | state 与 boundary 是互补监督，并非二选一 | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-29](#r1-29) | 共享表征、分头 loss 与 decoding 连接同时说明 | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-30](#r1-30) | cross-dataset 是测迁移边界，不是分离风格因果 | B | evidence-blocked；局部文字可选，关键字段待核 |
++| [R1-31](#r1-31) | 不用未测的 simpler 或 efficiency 优越性 | B | ready-for-author-choice；仍未批准／实施 |
++| [R1-32](#r1-32) | V^(0) 是粗估 roll，Vhat 是 correction 后的逐音值 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-33](#r1-33) | DDSP fidelity 是限制，退化不等于因果证明 | B | 定点小修完成，待最终独立核验 |
++| [R1-34](#r1-34) | Huber 的梯度理由与 MAE 对照边界 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-35](#r1-35) | Fig6.2 已提 rendered audio，补图内 teacher 路径 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-36](#r1-36) | 自动选择 SoundFont 留为明确未来工作 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-37](#r1-37) | 完整 AMT 与 note accuracy 的回应统一放一处 | A | ready-for-author-choice；仍未批准／实施 |
++| [R1-38](#r1-38) | 明确未显式恢复渐强渐弱，加入 span 输出方向 | B | ready-for-author-choice；仍未批准／实施 |
++| [R2-01](#r2-01) | 现有章节首尾已经显式回应中心问题，推荐保留 | A | ready-for-author-choice；仍未批准／实施 |
++| [R2-02](#r2-02) | 四篇论文的技术贡献与 thesis 新增综合分开 | B | ready-for-author-choice；仍未批准／实施 |
++| [R2-03](#r2-03) | 把 beyond-piano 可迁移与未验证部分写具体 | B | ready-for-author-choice；仍未批准／实施 |
++| [R2-04](#r2-04) | 11位听者与8段刺激是补充证据，避免 definitive validation | A | ready-for-author-choice；仍未批准／实施 |
++| [R2-05](#r2-05) | 只列实际见到的语言／格式问题 | A | ready-for-author-choice；仍未批准／实施 |
+ 
+ <a id="r1-01"></a>
+@@ -1491,5 +1491,5 @@
+ The practical aim is to reduce dependence on unavailable target-domain velocity labels. We therefore train the adaptation stage against real performance audio through a differentiable interface. The advantage concerns access to supervision, while the renderer or proxy still has to be built and matched to the target setting.
+ 
+-**评价与推荐**：B 既保留作者更直接／减少annotation需求的意思，也与上传ISMIR的more direct route一致。A最短，C明确比较轴但否定句偏多。作者提moreefficient可理解为labelacquisition效率，未经测量不建议直接写generalefficiency。
++**评价与推荐**：B保留作者更直接／减少annotation需求的意思，也与提供的ISMIR稿more direct route一致。A最短；C把对比落在supervision availability与接口要求，解释较长，B更紧凑。作者的more efficient可理解为减少target annotation需求，未经测量不直接写一般效率优势。
+ 
+ **实施**：【未执行】　**作者决定**：仅引用统一决策清单同编号。
+@@ -1572,5 +1572,5 @@
+ A differentiable synthesiser can offer useful gradients without reproducing every detail of a recording, but the relevant error is not timbral fidelity alone. Its velocity-to-sound response must also be suitable for the adaptation target. The present comparison shows weaker adaptation with the selected Diff-Synth back-ends, but does not isolate the cause of that degradation. The conclusion is limited to the tested interfaces and recordings.
+ 
+-**评价与推荐**：推荐B，忠实保留作者关于未分测fidelity/gradient的回复。C已改成不隔离degradation原因，不再预设mismatch造成退化。跨段替换展示完整上下文，保留FL的0.083/0.01等实际crop-length观察，只收窄机制因果措辞。A中的DDSP名称指本研究采用的adapted back-ends，不推论原模型native velocity接口。
++**评价与推荐**：推荐B，局部A/B/C均已通过第二轮复审，保持原文。共同同步涉及三个完整段落、五个逐句操作：保留FL的0.083/0.01及crop-length观察，删除无独立依据的普遍稳定性末句，并把unobserved-controls吸收写成may therefore absorb。没有改结果、设置或模型设计。
+ 
+ **逐句同步提案**
+@@ -1588,4 +1588,14 @@
+   - 拟：Diff-SFProxy restricts the adapted control to velocity, but this does not remove effects of unobserved controls from the target audio.
+ 
++**第三轮补充的两个准确操作**
++
++- `Chapter_6/chap6.tex` line 431
++  - 删除原整句：This mirrors a long-standing observation in inverse-problem design: a supervision signal that only depends on the latent variable of interest is more stable than a high-dimensional signal that mixes that variable with many nuisance factors.
++  - 保留0.083、0.01、2s/5s观察与consistent-with解释。
++
++- `Chapter_6/chap6.tex` line 457
++  - 原：The recovered velocity absorbs effects that, in the real performance, came from other parallel controls.
++  - 拟：The recovered velocity may therefore absorb effects that, in the real performance, came from other parallel controls.
++
+ **上述同步替换的完整段落效果**
+ 
+@@ -1596,9 +1606,9 @@
+ `Chapter_6/chap6.tex` line 431
+ 
+-Third, the asymmetry between the two adaptation interfaces widens with crop length. On FL dataset, Diff-Synth's $r_{\mathrm{BSSL}}$ falls by $0.083$ when moving from $2$\,s to $5$\,s, while Diff-SFProxy's $r_{\mathrm{BSSL}}$ varies within $0.01$. The crop-length pattern is consistent with greater exposure of the waveform objective to acoustic mismatch, but the present comparison does not isolate that mechanism. This mirrors a long-standing observation in inverse-problem design: a supervision signal that only depends on the latent variable of interest is more stable than a high-dimensional signal that mixes that variable with many nuisance factors.
++Third, the asymmetry between the two adaptation interfaces widens with crop length. On FL dataset, Diff-Synth's $r_{\mathrm{BSSL}}$ falls by $0.083$ when moving from $2$\,s to $5$\,s, while Diff-SFProxy's $r_{\mathrm{BSSL}}$ varies within $0.01$. The crop-length pattern is consistent with greater exposure of the waveform objective to acoustic mismatch, but the present comparison does not isolate that mechanism.
+ 
+ `Chapter_6/chap6.tex` line 457
+ 
+-Velocity is not the only MIDI control that shapes rendered dynamics: continuous controllers can also encode within-note loudness variation~\cite{ryu2024midfild}. Pedal settings and room response also affect the synthesised piano waveform and are explicitly modelled by DDSP-Piano~\cite{renault2023ddsp_piano}. Consequently, when adaptation updates only velocity, the velocity gradient can become entangled with residuals caused by fixed or unobserved controls. Diff-SFProxy restricts the adapted control to velocity, but this does not remove effects of unobserved controls from the target audio. The recovered velocity absorbs effects that, in the real performance, came from other parallel controls.
++Velocity is not the only MIDI control that shapes rendered dynamics: continuous controllers can also encode within-note loudness variation~\cite{ryu2024midfild}. Pedal settings and room response also affect the synthesised piano waveform and are explicitly modelled by DDSP-Piano~\cite{renault2023ddsp_piano}. Consequently, when adaptation updates only velocity, the velocity gradient can become entangled with residuals caused by fixed or unobserved controls. Diff-SFProxy restricts the adapted control to velocity, but this does not remove effects of unobserved controls from the target audio. The recovered velocity may therefore absorb effects that, in the real performance, came from other parallel controls.
+ 
+ **实施**：【未执行】　**作者决定**：仅引用统一决策清单同编号。
+@@ -1805,5 +1815,5 @@
+ Score dynamics includes sustained instructions as well as discrete levels. The present model estimates static levels and local transitions; gradual directions such as crescendo and diminuendo are not explicitly represented. A future score-facing interface could represent these as labelled spans alongside the beat-wise levels, preserving the distinction between a gradual instruction and an abrupt change of dynamic state.
+ 
+-**评价与推荐**：B说明CPt不等于hairpin，限制与future要求相连而不提出本轮新实验。A最短，C叙述顺畅但implicit可能被误读为已可靠检测，因此B更稳。
++**评价与推荐**：A最短；B更具体说明change points与gradual-span输出的区别，把限制和未来需求连起来；C更偏未来接口叙述，并已明确not explicitly represented。推荐B，不要求本轮增加实验。
+ 
+ **合并关系**：R1-12。不重复实施共享文字。
+@@ -2117,5 +2127,5 @@
+ **评价与推荐**：前三处是实际措辞／语法问题，最后一处是可核验时间解释。Figure2.3标题与其他排版问题须先看现存PDF页面再定，不能把PDF抽取换行自动当LaTeX缺陷。
+ 
+-**待核验／边界**：与R1-20同一10s解释只改一次。更大的事实／协议疑点列在V-01至V-07，不能当proofreading静默修掉。
++**待核验／边界**：10s说明有两处不同源码原句：R1-20处理Chapter_3/chap3.tex第71行，R2-05处理第358行；各改一次，不重复实施。更大的事实／协议疑点仍在V-01至V-07，不能当proofreading静默修掉。
+ 
+ **合并关系**：R1-04; R1-20。不重复实施共享文字。
+@@ -2127,3 +2137,3 @@
+ V-01正式baseline；V-02听测timing preparation；V-03 Ch3实际run/input/loss/window；V-04 Ch4训练mode、onset-only形状、loss验证范围及SMD开发用途；V-05 Ch5 evaluator averaging与fold/表源；V-06 Fig6.3吉他GT身份；V-07最终ICASSP稿。它们不是新增examiner意见，也不因本轮英文更通顺而获关闭。
+ 
+-图示路线仍只是副本制作方案；未产出新图就不能把条件caption称为已匹配图像。GRS文件与唯一决定清单由各自编辑维护，本写作窗未修改；针对GRS R1-21的审查路由意见见writer_round2_changes.md。
++图示路线仍只是副本制作方案；未产出新图就不能把条件caption称为已匹配图像。GRS文件与唯一决定清单由各自编辑维护，本写作窗未修改。各项“独立审查处理”保留round2写作处理的历史记录；当前状态以上表及本轮定点修复为准。GRS R1-21的事实条件和V-01至V-07继续开放。

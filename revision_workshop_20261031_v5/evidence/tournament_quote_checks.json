@@ -1,0 +1,122 @@
+[
+  {
+    "id": "T01",
+    "file": "Chapter_1/Intro.tex",
+    "source_occurrences": 0,
+    "anchor_occurrences": 1,
+    "expected_insertion": true,
+    "line": 114
+  },
+  {
+    "id": "T02",
+    "file": "Chapter_1/Intro.tex",
+    "source_occurrences": 0,
+    "anchor_occurrences": 1,
+    "expected_insertion": true,
+    "line": 114
+  },
+  {
+    "id": "T03",
+    "file": "Chapter_3/chap3.tex",
+    "source_occurrences": 1,
+    "anchor_occurrences": 1,
+    "expected_insertion": false,
+    "line": 26
+  },
+  {
+    "id": "T04",
+    "file": "Chapter_4/chap4.tex",
+    "source_occurrences": 0,
+    "anchor_occurrences": 1,
+    "expected_insertion": true,
+    "line": 50
+  },
+  {
+    "id": "T05",
+    "file": "Chapter_5/chap5.tex",
+    "source_occurrences": 0,
+    "anchor_occurrences": 1,
+    "expected_insertion": true,
+    "line": 38
+  },
+  {
+    "id": "T06",
+    "file": "Chapter_6/chap6.tex",
+    "source_occurrences": 1,
+    "anchor_occurrences": 1,
+    "expected_insertion": false,
+    "line": 31
+  },
+  {
+    "id": "T07",
+    "file": "Chapter_6/chap6.tex",
+    "source_occurrences": 1,
+    "anchor_occurrences": 1,
+    "expected_insertion": false,
+    "line": 111
+  },
+  {
+    "id": "T08",
+    "file": "Chapter_1/Intro.tex",
+    "source_occurrences": 1,
+    "anchor_occurrences": 1,
+    "expected_insertion": false,
+    "line": 177
+  },
+  {
+    "id": "T09",
+    "file": "Chapter_7/Conclusion.tex",
+    "source_occurrences": 1,
+    "anchor_occurrences": 1,
+    "expected_insertion": false,
+    "line": 113
+  },
+  {
+    "id": "T10",
+    "file": "Chapter_3/chap3.tex",
+    "source_occurrences": 1,
+    "anchor_occurrences": 1,
+    "expected_insertion": false,
+    "line": 445
+  },
+  {
+    "id": "N01",
+    "file": "Chapter_6/chap6.tex",
+    "source_occurrences": 1,
+    "anchor_occurrences": 1,
+    "expected_insertion": false,
+    "line": 501
+  },
+  {
+    "id": "N02",
+    "file": "Chapter_6/chap6.tex",
+    "source_occurrences": 1,
+    "anchor_occurrences": 1,
+    "expected_insertion": false,
+    "line": 503
+  },
+  {
+    "id": "T11",
+    "file": "Chapter_6/chap6.tex",
+    "source_occurrences": 1,
+    "anchor_occurrences": 1,
+    "expected_insertion": false,
+    "line": 126
+  },
+  {
+    "id": "N03",
+    "file": "Chapter_6/chap6.tex",
+    "source_occurrences": 1,
+    "anchor_occurrences": 1,
+    "expected_insertion": false,
+    "line": 505
+  },
+  {
+    "id": "N04",
+    "file": "Chapter_2/Background.tex",
+    "source_occurrences": 1,
+    "anchor_occurrences": 1,
+    "expected_insertion": false,
+    "line": 587
+  }
+]

@@ -1,0 +1,281 @@
+{
+  "scope": "Source-only baseline; no prior proposals or recommendations read.",
+  "source_manifest": {
+    "main.tex": "a55546f7a41c9210f1ecebae71a2167f86e0fb93ddbf96797ba03c1ea270fd39",
+    "README.md": "31e184cba434a17b4c885f712435756445c973214bb235dd45659a0a7f0a1cc8",
+    "README_Preliminary_Report_1.md": "e5916abeffcabf7e863728d9fca7ca2ca1eb76fadc595e7e24c2e4c595c17179",
+    "README_Preliminary_Report_2.md": "89b84809d49df248ecc4da8825399fe73ff700edee1f3e9bd56d957e7614cdd3",
+    "Chapter_1/Intro.tex": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359",
+    "Chapter_2/Background.tex": "f9f847a8d09557536798e776d60d80de16fb6ba6435afdbcbffaaf938ac7dffb",
+    "Chapter_3/chap3.tex": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9",
+    "Chapter_4/chap4.tex": "d3ba02f332041ea4e6e8c89fe342fdf560bd9edda1caafcd4b7c9fb651226eb8",
+    "Chapter_5/chap5.tex": "60219fbeac5ebb0d2e70be7de2bbf6028c1e1916bf35c3626f0b5d872432e6fe",
+    "Chapter_6/chap6.tex": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+    "Chapter_7/Conclusion.tex": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f",
+    "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf": "28ad09550e7a47eff77693476db82d4d4d9a71ad5557871cfb27c72200ed63a4",
+    "Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf": "c9d8a2a843e3c9cd167e751ed0dec8f7cd7ca757a6a8fabea2abc747b1c61020",
+    "Z_He_PhD_Thesis.pdf": "cbfcfca09364f85a7f6fcef186114054bfa8c494a87d26271091911a9064de07",
+    "main.pdf": "8cb8dbe9d560980e003148e442cdeae53e7a97495dcee695b8a58df9a0719bb8",
+    "publish_paper/2025_CMMR_MIDI_Velocity_Colorizer.pdf": "fdffb60df941a5fd66d6497365d778d4f45d0c15be96a7f30ff8f9e58d838d28",
+    "publish_paper/2026_ICASSP_Dynamics_Metrical_Structure.pdf": "a93d246b18af61363483697f0135d92ac5611756bf929ae4bc48c46982c516a2",
+    "publish_paper/2026_ISMIR_Cross_Instrument_Velocity.pdf": "2b081d2c1636dc0453c7ab2a69ac23a3d2e570eef0ea93634a9aa9e2751fadf2",
+    "publish_paper/2026_SMC_Score_Informed_Velocity.pdf": "7bafa56d60ff5101712aec687fbd4165b75c7cebec8c8c9173cb64b3afd3fdc7"
+  },
+  "previous_proposal_manifest": {
+    "revision_blueprint_20261031/CHANGE_CARDS_v2.md": "858b03d6841448ad5d910afd2a3525fac645107ae4758594ed0893157a784d8c",
+    "revision_blueprint_20261031/COMMENT_MAP.md": "f8c9f9357f17d1060fb294e31196e3e846411369ede5518bb868fdb194ee7d18",
+    "revision_blueprint_20261031/DECISIONS.md": "f4489e74df68177519e62d3a94504bf01549cc8d42856f68a4644fd7b0cce6b8",
+    "revision_blueprint_20261031/GRS_REVISION_REPORT_DRAFT.md": "35d191603da80fe74093e3f9d3c7a489338836db8afc5f49544b3a936f3c4828",
+    "revision_blueprint_20261031/ID_CROSSWALK.md": "7a371efb1b5ed54706a1ee376bf24b6c522418c2fdd9c8bdd4d00290a0d95d20",
+    "revision_blueprint_20261031/PAPER_RENAME_MAP.md": "0cba4c317a1480a5fac9c0649a2b8e2d5767344afe27a0c184491accea0e943f",
+    "revision_blueprint_20261031/READABILITY_HANDOFF_v2.md": "fb5d91846626a84e5613f5889ec0ba2efa79426f2814d926b298ce19bad02576",
+    "revision_blueprint_20261031/README.md": "d7817ac49d65cb2e560f3b349409b325baa56eb78f52a06a5205ea775a4b1592",
+    "revision_blueprint_20261031/RECOMMENDED_PREVIEW.md": "231a3b789528aa8fcc597da60cb1327181a41f0128a3db8d85230137b9c6dd71",
+    "revision_blueprint_20261031/REVIEW_SUMMARY.md": "1512ce8c2a1839fae57945eff2284a1580166dee07024c25371c1eb99681b2a3",
+    "revision_blueprint_20261031/SOURCES.md": "aef54e4c2c6aee498d99f2bb7c9719680dc81c71a12f11ac55dfb8dbdceab064",
+    "revision_blueprint_20261031/START_HERE.md": "bf46f91a0a76843cc94d574960235b96079a55ed6aaab8e3e8edc289f865668c",
+    "revision_blueprint_20261031/SUPPLEMENTS_v4.md": "91d383210951927a08bdc23cb46900d571a5692b1adf3ac2c8777fc58c25b926",
+    "revision_blueprint_20261031/WRITER_HANDOFF.md": "ec0566434ff40f4344962edc766fe0b20661c3c018f272896d19624774bfd2ed",
+    "revision_blueprint_20261031/contextual_audit_v4.md": "8b72c2121b5f998630678d8bbcf6319a104d7de668317b223d749bd6e1c37f82",
+    "revision_blueprint_20261031/contextual_review_v4.md": "61867a500d88131d104cd6f59fa6621dbb9b63cd756540d9dea24122ecc6e298",
+    "revision_blueprint_20261031/editor_crosswalk.md": "dec0a3c0973f332934dac1b58ac419ff5a34c23d22d04b3c6c7b14a02348283b",
+    "revision_blueprint_20261031/evidence/ICASSP_provided_page_4.png": "c89d8b32f1c9359e834152045ae6d53154498e961b28f686539fae948eec536e",
+    "revision_blueprint_20261031/evidence/ICASSP_provided_page_5.png": "252217503cb9adb3e3b4d0e3bd154f05f0f833dd5338e4f6e798e02eee77855d",
+    "revision_blueprint_20261031/evidence/Preliminary_Report_PhD_thesis_Zhanhong_He 1.txt": "8d223f1e316610e6259d93c2362370836dd36d335356020d427b0620b5e66c59",
+    "revision_blueprint_20261031/evidence/Preliminary_Report_PhD_thesis_Zhanhong_He 1_page1.png": "a36afb0f38e24effc43c9538ecc91645e8ca0e81ba67185d5f88c3d52ca0b0cc",
+    "revision_blueprint_20261031/evidence/Preliminary_Report_PhD_thesis_Zhanhong_He 1_page2.png": "72988555e39e3c93d4adbe47c5b1306d1723c990d511471c03a9597d02d1fffd",
+    "revision_blueprint_20261031/evidence/Preliminary_Report_PhD_thesis_Zhanhong_He 1_page3.png": "e5f5fed411626143b121901c2a20168ec46186be22be5e657014ad80dcfad819",
+    "revision_blueprint_20261031/evidence/Preliminary_Report_PhD_thesis_Zhanhong_He 1_page4.png": "369f20c0c07f34a6fe12a0116ab430f87aeb2cf0764f0ce101a92249d9a22c0f",
+    "revision_blueprint_20261031/evidence/Preliminary_Report_PhD_thesis_Zhanhong_He 2.txt": "8088e5223682cc0dc148e8765ec4b4110073ab51e893feb944291d47cf01a8f6",
+    "revision_blueprint_20261031/evidence/Preliminary_Report_PhD_thesis_Zhanhong_He 2_page1.png": "76cbf2cdff44507a5de125a251c405aec55bb6d234487765480db9b27fe7d47a",
+    "revision_blueprint_20261031/evidence/Preliminary_Report_PhD_thesis_Zhanhong_He 2_page2.png": "a1bfb6f75a842575e800a7d742df4c5495b06097c2e1a564b6cd4ed00918ac48",
+    "revision_blueprint_20261031/evidence/Preliminary_Report_PhD_thesis_Zhanhong_He 2_page3.png": "9e2d26a2482b761ae77efdbca3e621edb2ecbbd666a44edd9386b776ff3edf93",
+    "revision_blueprint_20261031/evidence/Preliminary_Report_PhD_thesis_Zhanhong_He 2_page4.png": "2fecc7258f9eeb90a6759ed834593b80538add4144219e3ad1ec91db8305fb7d",
+    "revision_blueprint_20261031/evidence/Z_He_PhD_Thesis.txt": "c8a149c0f5179e031e1e7fb7a9323302e7f21de823040183fe28bce418b95aed",
+    "revision_blueprint_20261031/evidence/comment_map.json": "6c6f16db0eb4478b80f54fc8846713e1c02650e4c51b5eb99690ff1f86906722",
+    "revision_blueprint_20261031/evidence/contextual_audit_v4_validation.json": "3b0e1913d785537077d53b66f958a313ae585863b0a4a89be8de8d69c8adc132",
+    "revision_blueprint_20261031/evidence/existing_pdf_text_difference.diff": "6bb7e8e63f76a9806814603192681e57140f9ccd313d609e8f632d9b0eb996d8",
+    "revision_blueprint_20261031/evidence/final_delivery_readability_v2.json": "808ad10f917b780343e7e9529bfb4483ed641080309cd9729cd2b28c4ed52117",
+    "revision_blueprint_20261031/evidence/final_readability_v2_integration.json": "40ae1d69b3b26656a826a5a23de715cdd1c8eb0eea343e947008c2a4d9bfd64b",
+    "revision_blueprint_20261031/evidence/main.txt": "844800728264c7af6e817c45c6065836d762c53b12c596f7c5899f4d82c7636c",
+    "revision_blueprint_20261031/evidence/main_pdf_physical_page_122.png": "cbf55854076e565ecf4f99801afcdce03084a6ccb45d43d1fa96574941aac16e",
+    "revision_blueprint_20261031/evidence/main_pdf_physical_page_130.png": "f91f557893edd55bfb5fb8b3555bde9cb18139e0dd76d8801d7ac5c8e9fb1deb",
+    "revision_blueprint_20261031/evidence/main_pdf_physical_page_29.png": "1f8cf9eee060da00a21c18f086352c6bca7c792c00b1f6508bce53d0fd543637",
+    "revision_blueprint_20261031/evidence/main_pdf_physical_page_52.png": "763b6dddbe4c8fdeb19b31c295f15f7d3221064e7396dfb03b5972cd995d415f",
+    "revision_blueprint_20261031/evidence/paper_rename_records.json": "4d5dca52be7d5a22bc76703a7d8ecfaf5e8995154595945e7f4c358a877d5a5e",
+    "revision_blueprint_20261031/evidence/pdf_inventory.json": "28daaecb40fe30db194938425f3b128d8c72748c20f0ee75d2924c3835320336",
+    "revision_blueprint_20261031/evidence/publish_paper__2025_CMMR_Camera_ready_MIDI_Colorizer.txt": "521ad0f616231adff09aad7c95e36503551d3d140fc3464d9251889b354cb77f",
+    "revision_blueprint_20261031/evidence/publish_paper__2026_ISMIR_Velo_Beyond_Piano_Camera_Ready (3).txt": "b4f4153e5765a24ab69ffa77970e4f05ae0e8c8724ef729886cf92e71ed1e9c7",
+    "revision_blueprint_20261031/evidence/publish_paper__2026_SMC_VeloEst_Camera_Ready (1).txt": "0587e7559177f491c7ddc5c2431228aae131e7e738c37037bfb49910b89fbcee",
+    "revision_blueprint_20261031/evidence/publish_paper___ICASSP2026__Bark_Dynest.txt": "3f3ca05d0be964556f3914c5d6543ecca110e4d175eb0a43b5b951cf020c11a3",
+    "revision_blueprint_20261031/evidence/readability_v2_manifest.json": "cf0b7074816e90a907b686417bdfa3bb4a2f29e2de0cb070ac55f5c4b494ba9c",
+    "revision_blueprint_20261031/evidence/readability_v2_validation.json": "54f32e1ad67a9a4de01a2ce7396f18deace83b7516b39675670ab431b728e63f",
+    "revision_blueprint_20261031/evidence/source_sha256.json": "d8df59d7d57c1a289deaf2f4af751093646470eda05b137ca8ec8a22cedd0d10",
+    "revision_blueprint_20261031/evidence/supplements_v4.json": "b808f05eab3db332ef069faa62e2291ad859e9a06545de2fa79b48fb18e9f582",
+    "revision_blueprint_20261031/evidence/writer_candidates_round1.json": "878437b12c8ac3cf5b2676394f0c161e74b37da925aeb366ebac0bb0ec5c2be6",
+    "revision_blueprint_20261031/evidence/writer_candidates_round2.json": "33bf89067848eb69f63347a43f72176cdd7f8aea73ef3ae3476ec085b9985bf3",
+    "revision_blueprint_20261031/evidence/writer_candidates_round3.json": "de9b73e37393623e8b2d1b2361185f8049fcdf4ce735ec62fba55c0d775a2b79",
+    "revision_blueprint_20261031/evidence/writer_round1_validation.json": "8c4013ac00914b1c820d468b8c5aa7c1f5510b46e3b2ffd85db5485e087ec1ba",
+    "revision_blueprint_20261031/evidence/writer_round2_validation.json": "7fa32fdf5cff512240bb04b51e1c3790ed5af5b71679b7cfab19447a8c8ec2c4",
+    "revision_blueprint_20261031/evidence/writer_round3_validation.json": "20d3f69756147ac64b204467d27cbdcada4c179187db812dd2baf99127930c30",
+    "revision_blueprint_20261031/evidence/writer_round3_vs_round2.diff": "d5cb8eae540fd898f9156631b5559551c402191c729c86083ca5d4dd703eee82",
+    "revision_blueprint_20261031/history/CHANGE_CARDS_v2_before_v4.md": "9fa9687ed001933dded80a50d64691dc52a841a04c5e525b8267edd95d343460",
+    "revision_blueprint_20261031/history/DECISIONS_before_readability_v2.md": "34ab3d9f6601f347e0df5a1fb5e06bd921bfcf84fe5c34d2e35406c543e4fe9a",
+    "revision_blueprint_20261031/history/DECISIONS_before_v4.md": "5f777d675875c8956a62fe7c68ed28d8991dcc1842113e74e70950912b7aebfd",
+    "revision_blueprint_20261031/history/DECISIONS_readability_v2.diff": "5d7d43616e0315468314bbcdbd6372968cf2072d8d99ffb26c5f8773c8a5db52",
+    "revision_blueprint_20261031/history/GRS_REVISION_REPORT_DRAFT_before_v4.md": "73f2e95536a16dba90d7fdf2808eaa342fb4b4c6167fd5338fad30d2e2fc032e",
+    "revision_blueprint_20261031/history/READABILITY_HANDOFF_v2_before_v4.md": "5e4d51dfc4e2674efab4776727a9a47394b5452b999b2768ed870a2feca3d1c7",
+    "revision_blueprint_20261031/history/README_before_v4.md": "33bb2207d81e38fb5653799cc9ddd9e04c86fd1bc89095d02d68d08fc715a233",
+    "revision_blueprint_20261031/history/RECOMMENDED_PREVIEW_before_v4.md": "6ef439149b8ceaed3d0d7fdfef6c197935fec12733b7b314593ebcdcb79aadc1",
+    "revision_blueprint_20261031/history/REVIEW_SUMMARY_before_v4.md": "9483a71c971b8b1acebc593321ac09dbc105b195ff33c3304cff61abe649cb69",
+    "revision_blueprint_20261031/history/START_HERE_before_v4.md": "119bfc9aab2f15c76d6c3f6d5a0f3eabd2580d686a244c967c19ceaacaf027ee",
+    "revision_blueprint_20261031/reader_usability_audit.md": "0d3f200c38846635733f9d502fc77ed5eefdda3ede3868cf6d41a97d1fe54838",
+    "revision_blueprint_20261031/reviewer_baseline.md": "2d3056725dd27782cc1bf5692e4f7818568ba2e988de715c88477166f7a350bf",
+    "revision_blueprint_20261031/reviewer_final.md": "235ffc8a221764e0b28709a064ceecce39e75bb1e4ad1c080bc0e2eeed408a4a",
+    "revision_blueprint_20261031/reviewer_round1.md": "4db10e241a6e291a49c04446033168169ba0f01fc80027e8f17a920f367639c5",
+    "revision_blueprint_20261031/reviewer_round2.md": "2877440df279b6f1470e6568a287b0371512fce140f4c82ef75ceb24103e48b8",
+    "revision_blueprint_20261031/thesis_revision_proposals_20261031.zip": "d7167b07579602670133e55f79ec86be2ceb953461d0288ef9470f2ee258537b",
+    "revision_blueprint_20261031/thesis_revision_proposals_20261031_readability_v2.zip": "c02f8869f86f23fa1e03f115a7e1f0cdd2c3366a1776a833648951f480440662",
+    "revision_blueprint_20261031/writer_round1.md": "ef6c0d0c8e0c0e55bd1fdd4c032fc9816a8050313f11ca02bdd8244859a5dcaf",
+    "revision_blueprint_20261031/writer_round2.md": "2e0430427a9ed337cb7a8734374b38dcdc999d4d884bdac318cced097ad6e627",
+    "revision_blueprint_20261031/writer_round2_changes.md": "ace8a70970a0cc30386cab08c8d3764b5e2ea3937294797883d75d800fa137fa",
+    "revision_blueprint_20261031/writer_round3.md": "1a658584d35ee50580dd2dfd6eb9d0afdac1b573404edbacf3e475a79250c75e",
+    "revision_blueprint_20261031/writer_round3_changes.md": "135e3e0b894a0bcb3124a395d9242eed0f7de082c7b937d2730847317eedf093",
+    "revision_blueprint_20261031/writer_working.md": "4fefce6703c8d7e24ceb319d07adf6da130d1c35a6a481b3f47b7b16c7708adf"
+  },
+  "quote_checks": [
+    {
+      "source": "Chapter_3/chap3.tex",
+      "quote": "A MUSHRA-inspired reference-based listening test was conducted to evaluate the human-likeness of performances generated by U-Net, ConvAE \\cite{kuo2021velocity}, and the Flat model.",
+      "exact_match": true,
+      "line": 369
+    },
+    {
+      "source": "Chapter_3/chap3.tex",
+      "quote": "The test used eight 10-second MIDI segments, each selected from one of the SMD performances listed in Table~\\ref{tab:velcomp_composers}.",
+      "exact_match": true,
+      "line": 376
+    },
+    {
+      "source": "Chapter_7/Conclusion.tex",
+      "quote": "yet the listening test shows a clear improvement over flat and sequence-oriented baselines.",
+      "exact_match": true,
+      "line": 50
+    },
+    {
+      "source": "Chapter_6/chap6.tex",
+      "quote": "\\caption{An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio.}",
+      "exact_match": true,
+      "line": 204
+    },
+    {
+      "source": "Chapter_1/Intro.tex",
+      "quote": "MIDI velocity is a universal loudness variable for all instruments in digital audio workstations (DAWs)",
+      "exact_match": true,
+      "line": 62
+    },
+    {
+      "source": "Chapter_1/Intro.tex",
+      "quote": "independent, static integer representing its initial strike force.",
+      "exact_match": true,
+      "line": 89
+    },
+    {
+      "source": "Chapter_1/Intro.tex",
+      "quote": "large-scale non-piano score-dynamics transcription with human labels remains outside the scope",
+      "exact_match": true,
+      "line": 153
+    },
+    {
+      "source": "Chapter_7/Conclusion.tex",
+      "quote": "These boundaries are not artefacts of unfinished implementation;",
+      "exact_match": true,
+      "line": 109
+    },
+    {
+      "source": "Chapter_7/Conclusion.tex",
+      "quote": "These directions extend the thesis argument rather than repair it.",
+      "exact_match": true,
+      "line": 124
+    },
+    {
+      "source": "Chapter_3/chap3.tex",
+      "quote": "roughly four measures at 120 BPM",
+      "exact_match": true,
+      "line": 71
+    },
+    {
+      "source": "Chapter_6/chap6.tex",
+      "quote": "whose dynamic shape resembles the ground truth in panel (a).",
+      "exact_match": true,
+      "line": 442
+    }
+  ],
+  "report1_annotation_verification": {
+    "annotation_objects_with_contents": 50,
+    "unique_contents": 25,
+    "matching_markdown_transcriptions": 25,
+    "normalisation": "Remove Markdown blockquote markers, collapse whitespace; no spelling or punctuation changes."
+  },
+  "pdf_inventory": {
+    "z_he": {
+      "source": "/Users/jollibear/Documents/tmp/phd thesis/Z_He_PhD_Thesis.pdf",
+      "page_count": 154,
+      "annotation_objects_with_contents": 0
+    },
+    "current": {
+      "source": "/Users/jollibear/Documents/tmp/phd thesis/main.pdf",
+      "page_count": 155,
+      "annotation_objects_with_contents": 0
+    },
+    "report1": {
+      "source": "/Users/jollibear/Documents/tmp/phd thesis/Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf",
+      "page_count": 4,
+      "annotation_objects_with_contents": 50
+    },
+    "report2": {
+      "source": "/Users/jollibear/Documents/tmp/phd thesis/Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf",
+      "page_count": 4,
+      "annotation_objects_with_contents": 0
+    },
+    "paper_cmmr": {
+      "source": "/Users/jollibear/Documents/tmp/phd thesis/publish_paper/2025_CMMR_MIDI_Velocity_Colorizer.pdf",
+      "page_count": 12,
+      "annotation_objects_with_contents": 0
+    },
+    "paper_smc": {
+      "source": "/Users/jollibear/Documents/tmp/phd thesis/publish_paper/2026_SMC_Score_Informed_Velocity.pdf",
+      "page_count": 8,
+      "annotation_objects_with_contents": 0
+    },
+    "paper_ismir": {
+      "source": "/Users/jollibear/Documents/tmp/phd thesis/publish_paper/2026_ISMIR_Cross_Instrument_Velocity.pdf",
+      "page_count": 8,
+      "annotation_objects_with_contents": 0
+    }
+  },
+  "term_counts_diagnostic_only": {
+    "Chapter_1/Intro.tex": {
+      "renderer_conditioned": 0,
+      "coordinate_family": 1,
+      "most_controlled": 0,
+      "most_constrained": 0,
+      "defensive_unfinished": 0,
+      "defensive_repair": 0
+    },
+    "Chapter_2/Background.tex": {
+      "renderer_conditioned": 2,
+      "coordinate_family": 23,
+      "most_controlled": 0,
+      "most_constrained": 0,
+      "defensive_unfinished": 0,
+      "defensive_repair": 0
+    },
+    "Chapter_3/chap3.tex": {
+      "renderer_conditioned": 0,
+      "coordinate_family": 0,
+      "most_controlled": 2,
+      "most_constrained": 1,
+      "defensive_unfinished": 0,
+      "defensive_repair": 0
+    },
+    "Chapter_4/chap4.tex": {
+      "renderer_conditioned": 0,
+      "coordinate_family": 1,
+      "most_controlled": 0,
+      "most_constrained": 0,
+      "defensive_unfinished": 0,
+      "defensive_repair": 0
+    },
+    "Chapter_5/chap5.tex": {
+      "renderer_conditioned": 0,
+      "coordinate_family": 4,
+      "most_controlled": 0,
+      "most_constrained": 0,
+      "defensive_unfinished": 0,
+      "defensive_repair": 0
+    },
+    "Chapter_6/chap6.tex": {
+      "renderer_conditioned": 5,
+      "coordinate_family": 3,
+      "most_controlled": 0,
+      "most_constrained": 0,
+      "defensive_unfinished": 0,
+      "defensive_repair": 0
+    },
+    "Chapter_7/Conclusion.tex": {
+      "renderer_conditioned": 7,
+      "coordinate_family": 16,
+      "most_controlled": 1,
+      "most_constrained": 0,
+      "defensive_unfinished": 1,
+      "defensive_repair": 1
+    }
+  },
+  "limitations": [
+    "No automatic readability score is used as a quality verdict.",
+    "The formal submitted thesis baseline is unresolved.",
+    "PDF extraction does not establish LaTeX-to-PDF identity.",
+    "No run or ground-truth provenance is established by text inspection."
+  ]
+}

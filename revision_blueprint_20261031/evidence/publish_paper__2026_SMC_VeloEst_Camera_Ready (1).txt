@@ -1,0 +1,726 @@
+
+=== PDF PAGE 1; LABEL 1 ===
+SCORE-INFORMED TRANSFORMER FOR REFINING MIDI VELOCITY IN
+AUTOMATIC PIANO TRANSCRIPTION
+Zhanhong HE(zhanh.he.uwa@gmail.com)1
+, Roberto TOGNERI1, and Defeng (David) HUANG1
+1Signal Processing and Recognition Lab, University of Western Australia, Perth, WA 6000 Australia
+ABSTRACT
+MIDI velocity is crucial for capturing expressive dynam-
+ics in human performances. In practical scenarios, a music
+score with inaccurate velocities may be available along-
+side the performance audio (e.g., music education and
+free online archives), enabling the task of score-informed
+MIDI velocity estimation. In this work, we propose a
+modular, lightweight score-informed Transformer correc-
+tion module that refines the velocity estimates of Auto-
+matic Music Transcription (AMT) systems. Leveraging
+high-quality expressive datasets for rigorous evaluation,
+we focus on piano transcription, integrating our module
+into multiple existing systems. Trained exclusively on the
+MAESTRO dataset, our method consistently reduces ve-
+locity errors and improves cross-dataset generalization to
+SMD and MAPS datasets. Under this training protocol,
+integrating our score-informed module with HPT (named
+Score-HPT) establishes a new state-of-the-art, outperform-
+ing existing score-informed methods and piano transcrip-
+tion models while adding only 1 M parameters. Further-
+more, our framework remains robust to temporal misalign-
+ments caused by imperfect audio-score synchronization, a
+common real-world challenge.
+ence score and performance audio co-exist. In music ed-
+ucation, for instance, students practice from a given score
+but require nuanced velocity feedback [13, 14]. Besides,
+automated dataset curation often relies on online archives
+that provide aligned audio-score pairs but lack detailed dy-
+namic annotations (e.g., MuseScore.com).
+Previous score-informed approaches [14, 15] applied a
+FiLM conditioning layer to inject score information dur-
+ing audio feature processing. These feature fusion meth-
+ods require the design of specific model architectures from
+scratch. In contrast, we propose a modular approach built
+upon existing piano AMT systems. Fig. 1 conceptually
+illustrates this distinction. Specifically, we introduce a
+lightweight Transformer encoder as a score-informed cor-
+rection module. Inspired by how musicians reference
+a music score to make corrections, our design refines
+AMT-estimated MIDI velocity with minimal architectural
+changes, enabling easy integration into existing systems.
+To evaluate its effectiveness, we integrated the proposed
+module into several well-known piano transcription mod-
+els, including High-Resolution Piano Transcription (HPT)
+[16], HPPNet [17], and a recent piano dynamic estima-
+tion (DynEst) system [18]. Furthermore, we conducted ro-
+bustness evaluations under imperfect audio-score synchro-
+nization, demonstrating that our framework remains robust
+to temporal misalignments commonly encountered in real-
+world scenarios. 1
+1. INTRODUCTION
+Automatic music transcription (AMT) is a longstanding
+topic in Music Information Retrieval (MIR), aiming to cap-
+ture symbolic music information from audio. While tradi-
+tional AMT systems focus on pitch and note boundaries to
+construct the basic MIDI score [1], recent advancements
+have expanded to estimating MIDI velocity in piano per-
+formances [2]. This expansion has facilitated the creation
+of large-scale piano datasets [3–7], benefiting downstream
+MIR tasks such as expressive rendering, music education
+and generation [8, 9]. Despite recent progress, AMT out-
+puts still require post-correction. Prior work has addressed
+temporal discrepancies through audio-to-score alignment
+[10–12]. By contrast, our work focuses on refining the
+MIDI velocity predicted by AMT systems.
+Leveraging music score to aid velocity estimation from
+audio is known as score-informed MIDI velocity estima-
+tion. This paradigm is a practical scenario where a refer-
+Figure 1. Comparison between the proposed and previous
+score-informed MIDI velocity estimation approaches.
+Copyright: © 2026. This is an open-access article distributed under the terms
+of the Creative Commons Attribution 3.0 Unported License, which permits unre-
+2. RELATED WORK
+2.1 Score-Informed MIDI Velocity Estimation
+Early AMT systems often ignored MIDI velocity [1],
+fostering score-informed velocity estimation as a parallel
+stricted use, distribution, and reproduction in any medium, provided the original
+author and source are credited.
+1 Code and pretrained models are available at:
+https://github.com/zhanh-he/score-informed-amt
+
+=== PDF PAGE 2; LABEL 2 ===
+Figure 2. Proposed score-informed MIDI velocity estimation framework. The system includes a velocity estimation mod-
+ule, which is identical to the velocity branch of the piano AMT system. The correction module then rectifies the preliminary
+velocity estimates using features extracted from the MIDI score.
+field. Initial methods relied on manual sound pressure
+measurements and statistical analysis [19–21], leading to
+the first parametric estimation system in 2011 [22]. Subse-
+quent research using restricted Boltzmann machines [23]
+and non-negative matrix factorization [24, 25] proved the
+feasibility of machine learning for this task. However, their
+reliance on expert-defined parameters limited generaliza-
+tion and practical deployment.
+Recently, deep learning approaches for score-informed
+velocity estimation have been introduced [15, 26, 27], with
+the FiLM U-Net model [14] achieving state-of-the-art
+(SOTA) results. While these end-to-end designs elimi-
+nate the need for manual parameter tuning, contemporary
+audio-only AMT systems have also achieved competitive
+velocity estimation performance. This convergence moti-
+vates our approach: rather than developing a standalone
+score-informed model from scratch, we propose refining
+the initial velocity estimates from existing piano AMT sys-
+tems by leveraging available score information.
+2.2 Automatic Piano Transcription
+Recent piano AMT systems have increasingly been esti-
+mating MIDI velocity, thanks to high-quality expressive
+piano datasets [28–30]. This progression includes the
+Onsets and Frames [31], the T5 Transformer [32], the
+HPT system [16], and the Hierarchical Frequency-Time
+Transformer (hFT-Transformer) [33]. With a different
+focus, Semi-CRF [34] was proposed to refine pitch and
+note-boundary estimates, while its recent development us-
+ing Transformer (Transkun v2) [35] achieved significant
+Notew/Off&Velo scores across many piano datasets, repre-
+senting the current SOTA. Meanwhile, other AMT studies
+propose competing solutions that prioritize broader gener-
+alization [36–38], parameter efficiency [17], or extend the
+focus to pedal [39].
+Among these systems, HPT serves as a highly prevalent
+baseline. It has been used in creating well-known piano
+datasets (e.g., EMOPIA [3], GiantMIDI [4], ATEPP [5],
+PiJAMA [6], Pianist8 [7]) and has been adapted for gui-
+tar transcription [40,41] as well as downstream MIR tasks.
+While HPT may not hold the current SOTA for piano tran-
+scription accuracy, its lightweight, modular CRNN archi-
+tecture ensures computational efficiency and ease of modi-
+fication. Similar advantageous qualities are found in HPP-
+Net [17] and DynEst [18], making them ideal candidates
+for evaluating our proposed approach.
+3. METHODOLOGY
+3.1 MIDI Score Features
+Consistent with the standard paradigm of score-informed
+MIDI velocity estimation [14], we utilize MIDI scores that
+are time-aligned with the audio. We rasterize the score into
+pianoroll-like binary matrices at the same time resolution
+as the AMT output. Let 𝑇 be the number of frames and
+𝑃 the number of piano keys (𝑇=1001 and 𝑃=88 in our
+setting). We define: (i) onset matrix O ∈{0,1}𝑇 ×𝑃 , (ii)
+frame matrix F ∈{0,1}𝑇 ×𝑃 , and (iii) onset-excluded sus-
+tain matrix Fex ∈{0,1}𝑇 ×𝑃 :
+Fex
+= F−O. (1)
+We further extract the nonzero entries of these matrices:
+ℐ= {(𝑡,𝑝) |O𝑡,𝑝 = 1}, 𝒥= {(𝑡,𝑝) |F𝑡,𝑝 = 1}. (2)
+They are used for tokenization in our score-informed cor-
+rection module (Sec. 3.2) and masking the loss function.
+
+=== PDF PAGE 3; LABEL 3 ===
+3.2 Model Architecture
+The proposed architecture, illustrated in Fig. 2, adopts a
+modular design. Since AMT systems are multi-task ar-
+chitectures that estimate onset, offset, frame, and velocity
+simultaneously, we isolate their velocity estimation branch
+and extend it with our score-informed correction module.
+Velocity Estimation Module: This component is identi-
+cal to the velocity branches of the selected piano AMT sys-
+tems, including HPT [16], HPPNet [17], and DynEst [18].
+All setups follow the original implementations and their
+public repositories. We unify the input for all baselines us-
+ing log-Mel spectrograms (10 second audio segmentation,
+waveform normalized, 22.05 kHz sampling rate, 2048 FFT
+size, 100 FPS, Hann window, 229 mel bins), producing an
+input tensor of 1001 ×229. The velocity branch outputs a
+preliminary velocity mapˆ
+V0 ∈[0,1]𝑇 ×𝑃
+.
+Score-informed Correction Module: The preliminary
+velocityˆ
+V0 is refined using the onset as tokens. For
+computational efficiency, we tokenize only the score on-
+set coordinates ℐ, resulting in a variable-length sequence
+of 𝑁= |ℐ|tokens per segment. For each onset token
+𝑖= (𝑡𝑖,𝑝𝑖) ∈ℐ, we form an embedding
+x𝑖 = e(𝑡)
+𝑡𝑖 + e(𝑝)
+𝑝𝑖 + W𝑓 f𝑖, (3)
+where e(𝑡)
+and e(𝑝)
+𝑡𝑖
+𝑝𝑖 are learnable pitch/time embeddings.
+The f𝑖 contains the onset-wise velocityˆ
+𝑉0,𝑡𝑖 ,𝑝𝑖 and op-
+tional score-derived features (𝐹 or 𝐹𝑒𝑥), projected by
+each component’s weight W𝑓 . Stacking all embeddings
+yields X ∈ R𝑁 ×𝑑, which is processed by the proposed
+lightweight Transformer encoder (a streamlined variant of
+the Conformer architecture [42]), as detailed in Fig. 3. We
+use 𝑑=128, 2 layers, and 4 attention heads, applying a
+dropout probability of 0.1 after each sub-module. Given
+the encoder outputs, a linear head predicts a scalar residual
+𝛿𝑖 for each token, and we apply a bounded update:
+ˆ
+𝑉corr
+𝑡𝑖 ,𝑝𝑖 = clip(︁ˆ
+𝑉0,𝑡𝑖 ,𝑝𝑖 + 𝛼tanh(𝛿𝑖), 0, 1)︁, (4)
+where 𝛼controls the maximum correction magnitude (em-
+pirically set to 𝛼=0.2). The refined values replace the
+preliminary estimates inˆ
+V0 at onset positions, while non-
+onset entries remain unchanged.
+Figure 3. Proposed Conformer-like Transformer encoder.
+3.3 Loss Function
+All models are trained with the hybrid loss proposed in
+[14]. It combines frame-wise BCE with onset-wise ℓ1:
+ℒ=
+1
+|𝒥| ∑︁
+(𝑡,𝑝)∈𝒥
+ˆ
+ℓbce(𝑉𝑡,𝑝,
+𝑉𝑡,𝑝)+ 1
+|ℐ| ∑︁
+⃒⃒⃒
+𝑉𝑡,𝑝−
+ˆ
+𝑉𝑡,𝑝
+⃒⃒⃒.
+(𝑡,𝑝)∈ℐ
+(5)
+where V andˆ
+V denote ground-truth and predicted veloc-
+ity of either (i) the AMT velocity branch or (ii) the same
+branch with the proposed score-informed module applied.
+In our preliminary experiments, this multi-scale supervi-
+sion consistently outperformed single-target alternatives
+(e.g., frame-only or onset-only losses). Consequently, we
+adopt this formulation throughout our study, omitting de-
+tailed ablation results for brevity.
+3.4 Post-Processing
+Velocity is defined at note onset. It reflects the instanta-
+neous intensity of a keystroke rather than a time-varying
+loudness curve [19]. This onset-centered definition is con-
+sistent with the physical mechanism of the piano. Once a
+key has been fully pressed down, subsequent changes in
+finger pressure do not affect the tone. In other words, vi-
+brato is technically impossible on an acoustic piano.
+In our setting, a time-aligned MIDI score is available,
+but it does not provide reliable expressive dynamics labels
+such as note velocity. Instead, it only provides the ground-
+truth note positions, i.e., onsets and frames. We therefore
+bypass AMT-style note detection and focus only on veloc-
+ity estimation. Consequently, we take the predicted veloc-
+ity at each onset and assign this value to the entire note
+event, consistent with the MIDI specification.
+4. EXPERIMENT
+4.1 Dataset
+In this study, we used the MAESTRO v3.0.0 dataset [28]
+with its default train/validation/test split. This dataset com-
+prises 1,276 Yamaha Disklavier piano performances, total-
+ing over 200 hours of precisely aligned audio-MIDI data.
+A Yamaha Disklavier is an acoustic grand piano with an in-
+tegrated electronic system that records MIDI data from hu-
+man performance. Thus, MAESTRO provides audio cap-
+tured by microphones, reflecting the acoustic environment,
+and its tightly synchronized MIDI data.
+Following previous studies [14], we trained our model
+exclusively on the MAESTRO train set, and evaluated it
+on the Saarland Music Data (SMD) dataset [29]. SMD
+consists of human performances recorded on a Yamaha
+Disklavier piano, but differs from MAESTRO in acoustic
+environment and recording conditions. To further assess
+cross-dataset generalization, we evaluated our model on 60
+piano recordings from the MAPS dataset [30], exposing it
+to an additional set of acoustic scenarios.
+4.2 Training Setup
+For each selected AMT system, we trained two models
+in similar configurations. The baseline model is the stan-
+dalone velocity branch of the original AMT system. For in-
+stance, our HPT baseline utilizes only the velocity branch,
+which contains about one-quarter of the full HPT system’s
+parameters. Its score-informed counterpart (e.g., Score-
+HPT) integrates this same branch with our proposed cor-
+rection module. This ensures a fair comparison by isolat-
+ing the impact of score information on velocity estimation.
+
+=== PDF PAGE 4; LABEL 4 ===
+Each model was trained for 120k iterations on a sin-
+gle NVIDIA RTX 3090 (24 GiB). We used Adam with
+learning rate 1 ×10−4 (multiplied by 0.9 every 10k iter-
+ations), batch size 12, and random seed 86. All models
+were trained on the MAESTRO training split. We selected
+the best checkpoint by validation set performance and then
+proceeded to evaluation.
+4.3 Evaluation Metrics
+Consistent with [14], we use the mean absolute error
+(MAE) and standard deviation of the error (STD) as eval-
+uation metrics, calculated on the standard MIDI veloc-
+ity scale of [0,127]. By applying onset-masking, we en-
+sure a note-level evaluation that avoids the temporal bias
+of frame-wise metrics, where sustained notes would oth-
+erwise disproportionately influence the total error. These
+metrics are defined as:
+MAE = 1
+|ℐ|∑︁
+𝑖∈ℐ
+(6)
+STD = √︃1
+|ℐ|∑︁
+𝑖∈ℐ
+.
+While previous work [14] (which predicts a sparse map)
+used Recall to penalize missing velocity at note positions,
+this metric is not discriminative in our setting. As shown in
+Fig. 4, both the AMT baseline and our method output fully-
+populated velocity maps, so the velocity is non-zero at all
+potential note positions, leading to a Recall close to 100%.
+Since the post-processing is applied to extract velocities
+at known note positions, we prioritize numerical precision
+(MAE / STD) rather than penalizing off-note predictions.
+⃒⃒⃒
+𝑉𝑖−
+ˆ
+𝑉𝑖
+⃒⃒⃒,
+(︁|𝑉𝑖−
+ˆ
+𝑉𝑖|−MAE)︁2
+Figure 4. Velocity estimates from the HPT baseline and
+the proposed Score-HPT. Referencing the given MIDI note
+features, the refinement effect is evident. Both HPT and
+Score-HPT provide a fully-populated velocity estimation.
+5. RESULTS AND DISCUSSION
+5.1 Validation of Score-Informed Module
+To validate the proposed score-informed Transformer cor-
+rection module, we first integrate it into the HPT [16]. We
+choose HPT as an initial testbed because it is widely used
+and lightweight, which allows us to isolate the contribution
+of the correction module before extending to additional
+baselines. We denote the resulting system as Score-HPT.
+Table 1 summarizes the results on the MAESTRO test set.
+Compared with the original HPT, Score-HPT consistently
+Model & Inputs MAESTRO test set
+MAE ↓ STD ↓ # Params
+achieves lower MAE and STD under all conditioning vari-
+ants, with only a modest increase in model parameters
+(from 4.1 M to 5.0 M). Among these Score-HPT variants,
+onset + frameex yields the best overall performance, while
+onset + frame performs comparably. These results con-
+firm that the proposed score-informed module effectively
+refines velocity estimates upon an existing AMT system.
+Additionally, Fig. 4 provides a qualitative visualization
+of this improvement. Compared to the HPT, Score-HPT
+generates velocity estimates that are more closely aligned
+with the MIDI note onset positions, clearly demonstrating
+the guiding effectiveness of the proposed score-informed
+Transformer module.
+HPT
+audio 4.6 6.1 4.1 M
+Score-HPT
+audio + onset audio + onset + frame audio + onset + frameex 4.0 4.8 5.0 M
+4.0 4.7 5.0 M
+3.9 4.7 5.0 M
+Table 1. Comparison of HPT and Score-HPT on the MAE-
+STRO test set. ↓indicate a lower value is better.
+5.2 Generalization across Datasets
+Fig. 5 illustrates the learning curves for the HPT and
+Score-HPT variants. While training on the MAESTRO
+train set, models were evaluated on MAESTRO validation
+set, alongside 10% held-out subsets of SMD and MAPS
+datasets (which lack official validation splits). All variants
+of Score-HPT consistently outperform the HPT baseline
+on both in-domain (MAESTRO) and out-of-distribution
+
+=== PDF PAGE 5; LABEL 5 ===
+Figure 5. Comparison between HPT and Score-HPT variants using different score features. Models were trained on the
+MAESTRO train set for 120k iterations and evaluated every 10k iterations across three validation sets.
+(SMD, MAPS) data, demonstrating superior generaliza-
+tion. The onset + frame condition yields the best overall
+performance, though differences between conditions are
+modest.
+During training in MAESTRO, the in-domain perfor-
+mance steadily improves but out-of-distribution perfor-
+mance peaks early and declines. This indicates that pro-
+longed training overfits to MAESTRO-specific acoustics
+and harms generalization. Similar sound biases in AMT
+velocity estimation were also reported in [43]. Never-
+theless, Score-HPT improves both in-domain and out-of-
+distribution results. This highlights the benefits of score
+information, which provides an acoustics-invariant struc-
+tural cue for reliable velocity estimation across diverse en-
+vironments.
+5.3 Comparison with Existing Works
+Table 2 evaluates the proposed score-informed framework
+against existing methods and representative AMT systems
+on the SMD dataset. All models were trained on MAE-
+STRO only, enabling a fair comparison. Following the
+findings in Sec. 5.2, we employ the onset + frame con-
+figuration for all proposed variants.
+To further demonstrate the generality of our approach,
+we integrated the correction module into diverse archi-
+tectures beyond HPT [16], including HPPNet [17] and
+DynEst [18]. Although retraining these models on log-
+Mel spectrograms rather than their original CQT or Bark-
+scale specific loudness (BSSL) features inherently de-
+grades their performance, our score-informed module con-
+sistently yields significant improvements. This confirms
+that our approach serves as a general-purpose enhancement
+for different piano AMT backbones, while adding only a
+marginal overhead of∼1M parameters. Through this inte-
+gration, Score-HPT and Score-DynEst achieve new SOTA
+performance. These models outperform both dedicated
+score-informed frameworks, such as FiLM U-Net [14], and
+Model SMD dataset
+MAE ↓ STD ↓ # Params
+Score-Inf. Methods
+DiffVel [27] FiLM Conv [15] FiLM U-Net [14] 19.7 13.1 –
+15.1 12.3 –
+9.9 7.8 8.8 M
+Proposed
+Score-HPT Score-HPPNet Score-DynEst 8.0 6.9 5.0 M
+9.2 7.3 1.5 M
+8.0 6.9 14.3 M
+AMT Systems
+HPT [16] HPPNet (no CQT) [17] DynEst (no BSSL) [18] hFT-Transformer [33] Transkun v2 [35] 10.0 8.8 4.1 M
+10.6 9.0 0.5 M
+10.4 8.8 13.3 M
+9.9 7.3 5.5 M
+13.3 11.9 13.6 M
+Table 2. Comparison of different methods on the SMD
+dataset. ↓indicate a lower value is better.
+top-tier AMT systems, including hFT-Transformer [33]
+and Transkun v2 [35]. Interestingly, although Transkun
+v2 [35] currently defines the SOTA in AMT, it lags behind
+several other models in velocity MAE and STD. A plausi-
+ble explanation is that its core SemiCRF is primarily de-
+signed for pitch and note onset/offset modeling, which en-
+ables strong transcription performance (Notew/Off&Velo),
+whereas velocity estimation is not its main strength. Incor-
+porating our score-informed correction module into Tran-
+skun v2 therefore remains a promising future direction.
+5.4 Robustness to Audio-Score Misalignment
+To evaluate the models against audio-score temporal mis-
+alignments, we conducted robustness tests using timing
+
+=== PDF PAGE 6; LABEL 6 ===
+significantly better than originally reported in [14], reveal-
+ing its true robustness as shown in Fig. 6.
+Applying this refined evaluation protocol, Score-HPT
+achieves the best performance on the SMD dataset under
+misaligned settings. Notably, all methods in Fig. 6 de-
+grade only marginally compared to the audio-score per-
+fectly aligned scenario (score shift= 0 second). Given that
+MIDI velocity ranges from 0 to 127, an increase of around
+6 units in MAE or STD under misalignment corresponds to
+a very small absolute deviation relative to the full velocity
+range. Furthermore, we observe that minor shifts unex-
+pectedly improve the performance of our proposed score-
+informed variants, likely by offsetting the inherent fuzzi-
+ness of the AMT branch’s velocity prediction. Together,
+these findings highlight an important conclusion: score-
+informed MIDI velocity estimation methods are highly ro-
+bust to audio-score misalignments.
+6. CONCLUSION AND FUTURE WORK
+Figure 6. Robustness evaluation on data derived from the
+SMD dataset, using audio-score misalignments of ±0.1,
+0.2, 0.3, 0.4, 0.5, 1, 1.5, 2, and 2.5 s.
+shifts ranging from ±0.1 to ±2.5 seconds, following [14].
+We applied these artificial shifts on SMD dataset, form-
+ing the evaluation data. For example, a +0.1 shift means
+that the original, perfectly aligned score is intentionally de-
+layed by 0.1 seconds. All models evaluated here are ex-
+actly the same as those in Sec. 5.3, meaning they were
+trained exclusively on the MAESTRO dataset (not shifted,
+perfect synchronization). The final robustness results are
+summarized in Fig. 6.
+Specifically, we introduce a necessary refinement to the
+evaluation pipeline of [14]. Their approach used shifted
+scores to feed the model but unshifted scores for post-
+processing to be consistent with the earlier benchmark
+[15]. While this intention is understandable, it introduces a
+timeline mismatch: if a model is guided by a shifted score,
+its predictions are inherently tied to that shifted temporal
+grid. Therefore, we argue that the model’s output should
+be post-processed using the shifted MIDI score. Under this
+more internally consistent protocol, FiLM-UNet performs
+In this work, we presented a novel, modular score-
+informed Transformer correction module for refining
+MIDI velocity in automatic piano transcription when a ref-
+erence score is available. By operating on score onset
+tokens and predicting bounded residual updates, the pro-
+posed module can be attached to an existing AMT velocity
+branch with minimal architectural changes. Experiments
+with MAESTRO-only training demonstrate consistent im-
+provements across multiple piano transcription systems
+(HPT, HPPNet, and DynEst), stronger cross-dataset gen-
+eralization to SMD and MAPS, and state-of-the-art per-
+formance on SMD under our training protocol, surpass-
+ing both prior score-informed models and competitive pi-
+ano transcription systems. We further demonstrate that the
+proposed framework is robust to audio-score temporal mis-
+alignments.
+A key limitation of the current study is its restriction to
+piano datasets, constrained by the fact that high-fidelity
+MIDI velocity ground truth is predominantly captured via
+acoustic pianos equipped with velocity sensors. For many
+other instruments, velocity annotations are scarce or un-
+available, making supervised training and evaluation diffi-
+cult. An important direction for future work is to transfer
+the proposed framework from piano to other instruments
+for MIDI velocity estimation, potentially leveraging self-
+supervised learning, transfer learning, or continual learn-
+ing to reduce dependence on explicit velocity labels.
+Acknowledgments
+This research was carried out while the author was in re-
+ceipt of a University International Fees Scholarship and a
+University Postgraduate Award at The University of West-
+ern Australia. The authors acknowledge the use of Kaya,
+the High-Performance Computing facility at The Univer-
+sity of Western Australia, and the technical assistance pro-
+vided by the UWA IT – HPC team.
+
+=== PDF PAGE 7; LABEL 7 ===
+7. REFERENCES
+[1] E. Benetos, S. Dixon, D. Giannoulis, H. Kirchhoff,
+and A. Klapuri, “Automatic music transcription: Chal-
+lenges and future directions,” Journal of Intelligent In-
+formation Systems, vol. 41, no. 3, pp. 407–434, 2013.
+[2] E. Benetos, S. Dixon, Z. Duan, and S. Ewert, “Auto-
+matic music transcription: An overview,” IEEE Signal
+Processing Magazine, vol. 36, no. 1, pp. 20–30, 2019.
+[3] H.-T. Hung, J. Ching, S. Doh, N. Kim, J. Nam, and Y.-
+H. Yang, “Emopia: A multi-modal pop piano dataset
+for emotion recognition and emotion-based music gen-
+eration,” in Proceedings of the International Society
+for Music Information Retrieval Conference (ISMIR),
+2021, pp. 318–325.
+[4] Q. Kong, B. Li, J. Chen, and Y. Wang, “Giantmidi-
+piano: A large-scale midi dataset for classical piano
+music,” Transactions of the International Society for
+Music Information Retrieval, May 2022.
+[5] H. Zhang, J. Tang, S. R. M. Rafee, S. Dixon, and
+G. Fazekas, “ATEPP: A dataset of automatically tran-
+scribed expressive piano performance,” in Proceedings
+of the International Society for Music Information Re-
+trieval Conference (ISMIR), 2022, pp. 446–453.
+[6] D. Edwards, S. Dixon, and E. Benetos, “Pijama: Pi-
+ano jazz with automatic midi annotations,” Transac-
+tions of the International Society for Music Informa-
+tion Retrieval, vol. 6, no. 1, pp. 89–102, 2023.
+[7] Y.-H. Chou, I.-C. Chen, J. Ching, C.-J. Chang, and Y.-
+H. Yang, “Midibert-piano: Large-scale pre-training for
+symbolic music classification tasks,” Journal of Cre-
+ative Music Systems, vol. 8, no. 1, 2024.
+[8] H. Zhang, S. Chowdhury, C. E. Cancino-Chac´
+on,
+J. Liang, S. Dixon, and G. Widmer, “Dexter: Learning
+and controlling performance expression with diffusion
+models,” Applied Sciences, vol. 14, no. 15, p. 6543,
+2024.
+[9] Z. He, D. Cooper, D. Huang, and R. Togneri, “Fill-
+ing midi velocity using u-net image colorizer,” in Pro-
+ceedings of the International Symposium on Computer
+Music Multidisciplinary Research (CMMR), 2025, pp.
+949–960.
+[10] A. Morsi and X. Serra, “Bottlenecks and solutions for
+audio to score alignment research,” in Proceedings of
+the International Society for Music Information Re-
+trieval Conference (ISMIR), 2022, pp. 272–279.
+[11] J. Zeitler, B. Maman, and M. M¨ uller, “Robust and ac-
+curate audio synchronization using raw features from
+transcription models,” in Proceedings of the Interna-
+tional Society for Music Information Retrieval Confer-
+ence (ISMIR), 2024, pp. 120–127.
+[12] S. Chang, S. Dixon, and E. Benetos, “Rumaa:
+Repeat-aware unified music audio analysis for score-
+performance alignment, transcription, and mistake de-
+tection,” in Proceedings of the IEEE Workshop on Ap-
+plications of Signal Processing to Audio and Acoustics
+(WASPAA), 2025, pp. 1–5.
+[13] H. Kim, P. Ramoneda, M. Miron, and X. Serra, “An
+overview of automatic piano performance assessment
+within the music education context,” in Proceedings of
+the International Conference on Computer Supported
+Education (CSEDU), 2022, pp. 465–474.
+[14] H. Kim and X. Serra, “A method for midi velocity esti-
+mation for piano performance by a U-net with attention
+and FiLM,” in Proceedings of the International Society
+for Music Information Retrieval Conference (ISMIR),
+2024, pp. 304–310.
+[15] H. Kim, M. Miron, and X. Serra, “Score-informed
+midi velocity estimation for piano performance by film
+conditioning,” in Proceedings of the Sound and Music
+Computing Conference (SMC), 2023, pp. 139–147.
+[16] Q. Kong, B. Li, X. Song, Y. Wan, and Y. Wang, “High-
+resolution piano transcription with pedals by regress-
+ing onset and offset times,” IEEE/ACM Transactions
+on Audio, Speech, and Language Processing, vol. 29,
+pp. 3707–3717, 2021.
+[17] W. Wei, P. Li, Y. Yu, and W. Li, “HPPNet: Modeling
+the harmonic structure and pitch invariance in piano
+transcription,” in Proceedings of the International So-
+ciety for Music Information Retrieval Conference (IS-
+MIR), 2022, pp. 709–716.
+[18] Z. He, H. Meng, D. Huang, and R. Togneri, “Joint esti-
+mation of piano dynamics and metrical structure with a
+multi-task multi-scale network,” in Proceedings of the
+IEEE International Conference on Acoustics, Speech
+and Signal Processing (ICASSP), 2026.
+[19] R. B. Dannenberg, “The interpretation of midi veloc-
+ity,” in Proceedings of the International Computer Mu-
+sic Conference (ICMC), 2006, pp. 193–196.
+[20] W. Goebl, “The role of timing and intensity in the
+production and perception of melody in expressive pi-
+ano performance,” Ph.D. dissertation, Karl-Franzens-
+Universit¨ at Graz, Graz, Austria, 2003.
+[21] W. M. Szeto, K. H. Wong, and C. H. Wong, “Finding
+intensities and temporal characteristics in piano mu-
+sic,” in Proceedings of the International Conference on
+Digital Audio Effects (DAFx), 2005, pp. 214–219.
+[22] S. Ewert and M. M¨ uller, “Estimating note intensities in
+music recordings,” in Proceedings of the IEEE Inter-
+national Conference on Acoustics, Speech and Signal
+Processing (ICASSP), 2011, pp. 385–388.
+[23] S. van Herwaarden, M. Grachten, and W. B. de Haas,
+“Predicting expressive dynamics in piano perfor-
+mances using neural networks,” in Proceedings of the
+
+=== PDF PAGE 8; LABEL 8 ===
+International Society for Music Information Retrieval
+Conference (ISMIR), 2014, pp. 47–52.
+[24] D. Jeong and J. Nam, “Note intensity estimation of pi-
+ano recordings by score-informed nmf,” Journal of the
+Audio Engineering Society, vol. 65, no. 4/5, pp. 263–
+273, June 2017.
+[25] D. Jeong, T. Kwon, and J. Nam, “A timbre-based ap-
+proach to estimate key velocity from polyphonic piano
+recordings,” in Proceedings of the International Soci-
+ety for Music Information Retrieval Conference (IS-
+MIR), 2018, pp. 120–126.
+[26] F. Simonetta, S. Ntalampiras, and F. Avanzini,
+“Acoustics-specific piano velocity estimation,” in Pro-
+ceedings of the IEEE International Workshop on Mul-
+timedia Signal Processing (MMSP), 2022.
+[27] H. Kim and X. Serra, “DiffVel: Note-level midi ve-
+locity estimation for piano performance by a double
+conditioned diffusion model,” in Proceedings of the In-
+ternational Symposium on Computer Music Multidisci-
+plinary Research (CMMR), 2023, pp. 197–208.
+[28] C. Hawthorne, A. Stasyuk, A. Roberts, I. Simon, C.-
+Z. A. Huang, S. Dieleman, E. Elsen, J. Engel, and
+D. Eck, “Enabling factorized piano music modeling
+and generation with the maestro dataset,” in Proceed-
+ings of the International Conference on Learning Rep-
+resentations (ICLR), 2019.
+[29] M. M¨ uller, V. Konz, W. Bogler, and V. Arifi-M¨ uller,
+“Saarland music data (smd),” in Late-Breaking and
+Demo Session of the 12th Int. Conf. on Music Infor-
+mation Retrieval, 2011.
+[30] V. Emiya, N. Bertin, B. David, and R. Badeau, “Maps:
+A piano database for multipitch estimation and au-
+tomatic transcription of music,” INRIA, Tech. Rep.
+2010D017, 2010.
+[31] C. Hawthorne, A. Stasyuk, A. Roberts, I. Simon,
+S. Huang, S. Dieleman, E. Elsen, J. Engel, and
+D. Eck, “Onsets and frames: Dual-objective piano tran-
+scription,” in Proceedings of the International Society
+for Music Information Retrieval Conference (ISMIR),
+2018, pp. 50–57.
+[32] C. Hawthorne, I. Simon, R. Swavely, E. Manilow,
+and J. Engel, “Sequence-to-sequence piano transcrip-
+tion with transformers,” in Proceedings of the Interna-
+tional Society for Music Information Retrieval Confer-
+ence (ISMIR), 2021, pp. 246–253.
+[33] K. Toyama, T. Akama, Y. Ikemiya, Y. Takida, W.-H.
+Liao, and Y. Mitsufuji, “Automatic piano transcription
+with hierarchical frequency-time transformer,” in Pro-
+ceedings of the International Society for Music Infor-
+mation Retrieval Conference (ISMIR), 2023, pp. 215–
+222.
+[34] Y. Yan, F. Cwitkowitz, and Z. Duan, “Skipping the
+frame-level: Event-based piano transcription with neu-
+ral semi-crfs,” in Advances in Neural Information Pro-
+cessing Systems (NeurIPS), vol. 34, 2021, pp. 20 583–
+20 595.
+[35] Y. Yan and Z. Duan, “Scoring time intervals using
+non-hierarchical transformer for automatic piano tran-
+scription,” in Proceedings of the International Society
+for Music Information Retrieval Conference (ISMIR),
+2024, pp. 973–980.
+[36] B. Maman and A. H. Bermano, “Unaligned supervi-
+sion for automatic music transcription in the wild,” in
+Proceedings of the International Conference on Ma-
+chine Learning (ICML), 2022, pp. 14 918–14 934.
+[37] D. Edwards, S. Dixon, E. Benetos, A. Maezawa, and
+Y. Kusaka, “A data-driven analysis of robust automatic
+piano transcription,” IEEE Signal Processing Letters,
+vol. 31, pp. 681–685, 2024.
+[38] S. Strahl and M. M¨ uller, “Semi-supervised piano tran-
+scription using pseudo-labeling techniques,” in Pro-
+ceedings of the International Society for Music Infor-
+mation Retrieval Conference (ISMIR), 2024, pp. 173–
+181.
+[39] Q. Wang, M. Liu, and M. Jia, “Multitask frequency-
+time feature-wise linear modulation for piano tran-
+scription with pedal,” IEEE/ACM Transactions on Au-
+dio, Speech, and Language Processing, vol. 33, pp.
+1049–1062, 2025.
+[40] X. Riley, D. Edwards, and S. Dixon, “High resolu-
+tion guitar transcription via domain adaptation,” in
+Proceedings of the IEEE International Conference on
+Acoustics, Speech and Signal Processing (ICASSP),
+2024, pp. 1051–1055.
+[41] X. Riley, Z. Guo, D. Edwards, and S. Dixon, “GAPS:
+a large and diverse classical guitar dataset and bench-
+mark transcription model,” in Proceedings of the Inter-
+national Society for Music Information Retrieval Con-
+ference (ISMIR), 2024.
+[42] A. Gulati, J. Qin, C.-C. Chiu, N. Parmar, Y. Zhang,
+J. Yu, W. Han, S. Wang, Z. Zhang, Y. Wu, and R. Pang,
+“Conformer: Convolution-augmented transformer for
+speech recognition,” in Proceedings of the Annual
+Conference of the International Speech Communica-
+tion Association (INTERSPEECH), 2020, pp. 5036–
+5040.
+[43] L. S. Mart´ ak, P. Hu, and G. Widmer, “Sound and music
+biases in deep music transcription models: a systematic
+analysis,” EURASIP J. Audio Speech Music. Process.,
+vol. 2026, p. 5, 2026.

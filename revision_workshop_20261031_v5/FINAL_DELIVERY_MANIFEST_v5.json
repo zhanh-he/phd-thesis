@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "stage": "writer-external-evaluator agreed text for author choice",
+  "authorApproved": false,
+  "implemented": false,
+  "readerUiTestedByWriter": false,
+  "readerPacketPath": "READER_PACKET_REVIEWED_v5.json",
+  "readerPacketSha256": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17",
+  "files": {
+    "AUTHOR_READING_GUIDE_v5.md": "c2a6058d66a16a2b715f038cc4a03c6f65f647756f7c9340ac22aaae27febe90",
+    "FINAL_READER_HIGHLIGHTS_v5.json": "0379a63785c71674802a0805a486260468e186b31b6cd40e85a6e8db31a812aa",
+    "FINAL_WRITER_EVALUATOR_AGREEMENT_v5.md": "e3a186c8193e24908bb109df3225b52327b0f9f0f9388d0f1c1a3d9848faa805",
+    "FINAL_SELECTION_REVIEWED_v5.json": "ea192ca43b8034ae30ab5c4ed271c46758516ba69161b2c340aafeec09741b81",
+    "DEPENDENCIES_REVIEWED_v5.json": "f09f6285ace0178e8d625b9ea8c9e2066769a2097fe1236c91f54b3cdd5da1fe",
+    "N07_TABLE_MARKUP_REVIEWED_v5.tex": "b33c0fe2a46985df026574d86b24a14fd139d0512d2511c637f99abd514508e1",
+    "CANDIDATE_PACKET_FINAL_v5.md": "4c98b4f3b0be6b6c189539ade6deda3742a732381f9e3986695bfa53e985330e",
+    "FINAL_PASSAGES_REVIEWED_v5.md": "2216fb8a4b2a277d93f339353a7658df3c589d2282f5b5848120d7f4609a5fb6",
+    "READER_PACKET_REVIEWED_v5.json": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17",
+    "evidence/FINAL_OPERATION_MANIFEST_v5.json": "cfbf7e45eba0360a607f657df3962e1914b253bb76b544f80dce286d5ab958c9",
+    "evidence/FINAL_TWO_REPAIRS_v5.diff": "1f22f748bbbb07eedf1cafea8aa6162cd962ab23530c6249f83adb82bdd4bbc3",
+    "evidence/FINAL_WRITER_VERIFICATION_v5.json": "8ba46e0e88aad6682d964b30b68e07539f3d546b435d270463f31954c7de6945"
+  },
+  "selectedTextSha256": {
+    "T01": "b0c70f57554647999a08fc068ea50708829f2f12d2ecd8a45c5c4ab368190644",
+    "T02": "b68bc166387a3df91bc952a457a2faa860de57e583f3505c137f97d5a1e18a3f",
+    "T03": "c6f03ee027890d87b6c5bbba1e6c883f3c185d727aeef003556f34e860fe7d10",
+    "T04": "783d704554fa4ef25a68cc912eccaff2d35810ef8134437507dae35609fd9661",
+    "T05": "f6a47f838f06b71f9821944c19d555cead03a06b15bb5e676a32f1d3b7b8986f",
+    "T06": "121f13c14d56824e6356d4f7268b26af8b69d843a6c0bc581c1700602f5f977b",
+    "T07": "ec399473755e8bfbb50ed4b95fb7183148a74a31ff3bc5bd6ea850efd625a75f",
+    "T08": "206f4d51963bf2813b91aa9ba3d7824007009e79dae4166bc0e423c025553630",
+    "T09": "71b5f3da043d7e32201c185de37dc14a2a2963b26fcc09fcd0520dbd76b3499a",
+    "T10": "0035ef8fc3ccc93d10d4c04e7b217b759c11e1f66d01e2fbe59a2974b9d513b8",
+    "N01": "c76c8ebaed441425ba7412bb158d596088f6e004eaf7c9c06f3a78547f61a18b",
+    "N02": "e10464e173898a8669c30f6e52402aefe7a783461e134552c68d721ee1fb8e87",
+    "T11": "fe9a4d1a2b6150648b75cf7534453b712bd7dc39ee082bc9c707bc9f3c2a6e3a",
+    "N03": "ce8999ddc43954c46f190afb3b81020095fcc16e257025e3099155364ce8517b",
+    "N04": "4ceccb92217aa153349cad60b2c0bb7124e9213f1d3d40027f9b3a0afb16dfb1",
+    "N05a": "9be8a3a8776194b15ec99f259e7d98e5bff811c372ffac0b289395f4e6c2bb69",
+    "N05b": "6fad0656bcccc5952f6af41449d9a9e0282a5a88f675c8fd555966e226dd8981",
+    "N05c": "41805b99969988ae09dcadb8bc7742d63417f346de36240cce51d250616614fc",
+    "N06a": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "N06b": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "exactChangedOperationIds": [
+    "V4-R2-04-sync-3",
+    "N07"
+  ],
+  "pending": [
+    "formal submitted baseline",
+    "R1-13",
+    "R1-21",
+    "R1-26",
+    "R1-30",
+    "run/checkpoint/table provenance",
+    "guitar GT",
+    "final ICASSP version",
+    "reader final UI regression"
+  ]
+}

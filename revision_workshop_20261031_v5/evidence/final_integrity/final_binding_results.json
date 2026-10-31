@@ -1,0 +1,106 @@
+{
+  "actual_final_operations_exact_independent_reconstruction": true,
+  "delivery_file_bindings": [
+    {
+      "path": "AUTHOR_READING_GUIDE_v5.md",
+      "hash_bound_to_actual_bytes": true
+    },
+    {
+      "path": "FINAL_READER_HIGHLIGHTS_v5.json",
+      "hash_bound_to_actual_bytes": true
+    },
+    {
+      "path": "FINAL_WRITER_EVALUATOR_AGREEMENT_v5.md",
+      "hash_bound_to_actual_bytes": true
+    },
+    {
+      "path": "FINAL_SELECTION_REVIEWED_v5.json",
+      "hash_bound_to_actual_bytes": true
+    },
+    {
+      "path": "DEPENDENCIES_REVIEWED_v5.json",
+      "hash_bound_to_actual_bytes": true
+    },
+    {
+      "path": "N07_TABLE_MARKUP_REVIEWED_v5.tex",
+      "hash_bound_to_actual_bytes": true
+    },
+    {
+      "path": "CANDIDATE_PACKET_FINAL_v5.md",
+      "hash_bound_to_actual_bytes": true
+    },
+    {
+      "path": "FINAL_PASSAGES_REVIEWED_v5.md",
+      "hash_bound_to_actual_bytes": true
+    },
+    {
+      "path": "READER_PACKET_REVIEWED_v5.json",
+      "hash_bound_to_actual_bytes": true
+    },
+    {
+      "path": "evidence/FINAL_OPERATION_MANIFEST_v5.json",
+      "hash_bound_to_actual_bytes": true
+    },
+    {
+      "path": "evidence/FINAL_TWO_REPAIRS_v5.diff",
+      "hash_bound_to_actual_bytes": true
+    },
+    {
+      "path": "evidence/FINAL_WRITER_VERIFICATION_v5.json",
+      "hash_bound_to_actual_bytes": true
+    }
+  ],
+  "reader_hash_matches_manifest_and_writer_message": true,
+  "reader_card_ids": [
+    "T11",
+    "N01",
+    "T03",
+    "T01",
+    "N05a",
+    "KEEP-FIG62"
+  ],
+  "reader_uses_final_selection_and_context_field": true,
+  "context_packet_contains_all_20_exact_final_contexts": true,
+  "reader_bindings": [
+    {
+      "id": "T11",
+      "recommended_text_and_context_exact": true,
+      "original_in_real_source": true,
+      "followthrough_originals_in_source": true
+    },
+    {
+      "id": "N01",
+      "recommended_text_and_context_exact": true,
+      "original_in_real_source": true,
+      "followthrough_originals_in_source": true
+    },
+    {
+      "id": "T03",
+      "recommended_text_and_context_exact": true,
+      "original_in_real_source": true,
+      "followthrough_originals_in_source": true
+    },
+    {
+      "id": "T01",
+      "recommended_text_and_context_exact": true,
+      "original_in_real_source": true,
+      "followthrough_originals_in_source": true
+    },
+    {
+      "id": "N05a",
+      "recommended_text_and_context_exact": true,
+      "original_in_real_source": true,
+      "followthrough_originals_in_source": true
+    },
+    {
+      "id": "KEEP-FIG62",
+      "recommended_text_and_context_exact": true,
+      "original_in_real_source": true,
+      "followthrough_originals_in_source": true
+    }
+  ],
+  "metric_group_exact_five_ranges": true,
+  "n05bc_independent_not_automatic": true,
+  "approval_and_implementation_stay_false": true,
+  "all_binding_checks_passed": true
+}

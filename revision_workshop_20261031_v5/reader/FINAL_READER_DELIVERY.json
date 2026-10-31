@@ -1,0 +1,44 @@
+{
+  "createdUtc": "2026-10-31T13:35:25.385968+00:00",
+  "entryPath": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/reader/index.html",
+  "entrySha256": "d7fc933840be7049f0d17cc472568b2584a1a01fef7965c0e4f8da5115148f37",
+  "canonicalInputPath": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/READER_PACKET_REVIEWED_v5.json",
+  "canonicalInputSha256": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17",
+  "adaptedPacketSha256": "593f78e162ad2652ca24f0e7f1cc10dba4891e48a4ab51d0f8576eac41ff4319",
+  "status": "reviewed proposals for author choice; no author approval or source implementation",
+  "offlineFileEntry": true,
+  "requiresLocalhost": false,
+  "browserChecksPassed": 94,
+  "browserRuntimeErrors": 0,
+  "pageExternalRequests": 0,
+  "browserEvidencePath": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/reader/evidence/final_browser_validation.json",
+  "screenshots": [
+    "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/reader/evidence/final-desktop.png",
+    "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/reader/evidence/final-piano-roll.png",
+    "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/reader/evidence/final-context.png",
+    "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/reader/evidence/final-metrics.png",
+    "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/reader/evidence/final-defensive-prose.png",
+    "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/reader/evidence/final-narrow-top.png",
+    "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/reader/evidence/final-narrow-text.png"
+  ],
+  "ledgerSha256Unchanged": "f4489e74df68177519e62d3a94504bf01549cc8d42856f68a4644fd7b0cce6b8",
+  "frozenInputCount": 31,
+  "frozenInputChanges": [],
+  "preservedPages": {
+    "legacy_v3_v4.html": "70156f73a27a60520436af815b6e7c725eae87951b8b645207f6771ce9432a72",
+    "provisional.html": "1968f8d0ee95575d9e44fb27e46234ef442daddb17ac12a3dd95638ec22bc45c",
+    "provisional_r2.html": "d269ddca4a7d1fe660b92c75b639686fc34a6ada0619fcde52621c371b5f08fe"
+  },
+  "decisionStateSavedByReader": false,
+  "uploadsOrPublication": false,
+  "scopeMappingPath": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/reader/v5_scope_mapping.json",
+  "briefEntryText": "打开 [v5 本地文字比较](index.html)：原文、推荐稿和简短理由同屏，一次看一处。正文未改；新稿用 v5 编号＋推荐稿／KEEP 回复，旧清单只作对照，旧 YES 不转移。",
+  "remainingMaterialQuestions": [
+    "formal submitted baseline",
+    "listening timing preparation",
+    "actual run/checkpoint/table provenance",
+    "guitar GT",
+    "final ICASSP version"
+  ],
+  "readyForParentFinalReadingTest": true
+}

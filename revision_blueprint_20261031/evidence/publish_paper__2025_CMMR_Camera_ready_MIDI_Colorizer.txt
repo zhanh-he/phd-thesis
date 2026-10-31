@@ -1,0 +1,504 @@
+
+=== PDF PAGE 1; LABEL 1 ===
+Filling MIDI Velocity using U-Net Image
+Colorizer
+Zhanhong He1,2[0000−0002−8940−8437], David Cooper2[0009−0008−9805−8943]
+,
+Defeng Huang1[0000−0002−1431−8859], and Roberto Togneri1[0000−0002−3778−4633]
+1 University of Western Australia, Perth WA 6000, Australia
+2 Dolby Laboratories, Sydney NSW 2000, Australia
+zhanh.he.uwa@gmail.com, david.cooper@dolby.com,
+{david.huang, roberto.togneri}@uwa.edu.au
+Abstract. Modern music producers commonly use MIDI (Musical In-
+strument Digital Interface) to store their musical compositions. How-
+ever, MIDI files created with digital software may lack the expressive
+characteristics of human performances, essentially leaving the velocity
+parameter—a control for note loudness—undefined, which defaults to
+a flat value. The task of filling MIDI velocity is termed MIDI velocity
+prediction, which uses regression models to enhance music expressiveness
+by adjusting only this parameter. In this paper, we introduce the U-Net,
+a widely adopted architecture in image colorization, to this task. By
+conceptualizing MIDI data as images, we adopt window attention and
+develop a custom loss function to address the sparsity of MIDI-converted
+images. Current dataset availability restricts our experiments to piano
+data. Evaluated on the MAESTRO v3 and SMD datasets, our proposed
+method for filling MIDI velocity outperforms previous approaches in both
+quantitative metrics and qualitative listening tests.
+Keywords: expressiveness.
+MIDI velocity prediction· U-Net· Image colorization· Music
+1 Introduction
+MIDI(MusicalInstrumentDigitalInterface),actingasdigitalsheetmusicplayable
+by machines and software, is the dominant format in modern music production. A
+MIDI file resembling sheet music sounds mechanical due to the undefined velocity
+parameter, which defaults to a flat value. In contrast, as shown in Figure 1, MIDI
+files recorded from human performances capture performer skills through subtle
+timing and loudness variations, which infuse expressiveness [1]. Today, music
+producers are not always masterful in playing musical instruments [2,3], and low
+cost MIDI keyboards may lack sophisticated touch-sensitive sensors. This leads
+to a demand for automated systems designed to enhance the expressiveness of
+MIDI compositions.
+All rights remain with the authors under the Creative Commons Attribution
+4.0 International License (CC BY 4.0).
+Proc. of the 17th Int. Symposium on Computer Music Multidisciplinary Research,
+London, United Kingdom, 2025
+
+=== PDF PAGE 2; LABEL 2 ===
+Z. He et al.
+Enhancing the expressiveness of existing MIDI files is one important focus in
+music generation [4]. However, many of these systems modify multiple aspects of
+MIDI simultaneously [5–10], including note timing and loudness, and sometimes
+note quantity, which can introduce unwanted alterations. The loudness of each
+music note in a MIDI file is governed by a parameter called MIDI velocity. Studies
+[11] have shown that rendering only the MIDI velocity enhances expressiveness
+while preserving the original timing, making it a precise and controllable solution.
+This task of filling or rendering MIDI velocity has been treated as a sequential
+prediction problem by previous studies, which employed autoencoders [12] and
+sequential models [13].
+Fig.1. Comparison between MIDI notes with human performed velocity versus Music
+Software default velocity (64 if user not specified). The standard deviation of velocity
+(SDvelo) represents the dispersion of velocities around their mean across the pitches.
+Inspired by image colorization [14], we reframe MIDI velocity prediction as
+an image colorization problem, representing MIDI without velocity as a binary
+pianoroll and target velocity as a colored pianoroll. Image-based methods suit
+this case well, as they effectively capture the polyphonic structure of instruments
+such as the piano and guitar, which produce multiple simultaneous notes. While
+our work focuses on piano data, where well-annotated velocity datasets are
+most common, the universal nature of MIDI velocity makes cross-instrument
+generalization a promising direction for future research [15].
+In this paper, we introduce the U-Net architecture to MIDI velocity prediction,
+leveraging its success in image colorization, and incorporate window attention to
+handle the sparsity of MIDI data. In addition, we design a custom loss function
+
+=== PDF PAGE 3; LABEL 3 ===
+Filling MIDI Velocity
+tailored to our task. The resulting model is evaluated through both objective
+quantitative metrics and qualitative assessments via a subjective listening test.
+2 Related Works
+How to render a score to be more expressive (i.e., a performance-like MIDI)
+has been a long-standing topic in music research [4]. A central goal of this
+research, MIDI velocity prediction, has been to independently modify MIDI
+velocity. Early efforts to this problem involved linear basis models [16] and
+restricted Boltzmann machines [17]. More recently, Kuo et al. [12] implemented
+a convolutional autoencoder (ConvAE), while a Seq2Seq model [13] reported the
+best results by integrating Luong attention into a BiLSTM.
+While recent methods have treated MIDI as a sequence, those sequential
+models prioritize global features over local details [18], potentially affecting the
+scattered distribution of velocities. Inspired by image colorization, where precise
+grayscale images are overlaid with blurred color predictions [19], MIDI velocity
+prediction can be approached similarly by leveraging given MIDI notes. This
+suggests that U-Net, a widely used architecture in image colorization [20], can be
+effective for MIDI velocity prediction. U-Net also dominates image segmentation
+and is frequently combined with self-attention mechanisms [21,22].
+Both U-Net and attention mechanisms have shown success in music informa-
+tion retrieval (MIR) research. While U-Net has been effective in automatic music
+transcription (AMT) [23,24], the attention mechanism has been used to refine
+velocity estimation from performance audio [25]. Since our task is MIDI-only,
+their audio-dependent approach is not applicable.
+3 Methods
+3.1 Matrix Representation
+To process MIDI as images, we convert the MIDI into a three matrices with
+T ×P dimension, where T is the number of time frames and P = 88 is the
+number of pitches. The three matrices include a binary onset roll Omarking note
+starts, a binary frame roll F indicating note activation over time, and a velocity
+roll V acting as color intensity. For the velocity roll, integer values [0,127] are
+normalized to the range [0,1) to align with the model’s output activation layer.
+The final integer velocities will denormalize by scaling and rounding the model’s
+output. As shown in Figure 2, these matrices are highly sparse.
+3.2 MIDI Segmentation
+The MIDI segment duration is a key consideration in our approach. Since a
+MIDI file often exceeds 3 minutes in length, we split it into short segments to
+
+=== PDF PAGE 4; LABEL 4 ===
+Z. He et al.
+manage computational load. The number of time frames T defines the temporal
+granularity of the MIDI-converted matrix, so the timestep resolution is given by:
+Segment Duration
+Resolution=
+T (1)
+Unlike tasks that require high timestep resolution for precise event detection,
+our task leverages known MIDI timings, making a computationally efficient
+timestep resolution feasible. With a fix input size T = 96 to keep size affordable,
+we experimented the segment durations of 5s, 10s, 15s, 20s and found that 10
+seconds yielded the best results, as detailed in our hyperparameter search.3 A
+10-second segment likely provides superior semantic context by encapsulating a
+complete musical phrase (e.g., four measures at 120 BPM) compared to other
+durations we tested.
+Fig.2. Proposed U-Net architecture. Model input (F roll) comprises 88 pitch bins and
+96 time frames. Attn block denotes the windowed scaled dot-product attention. The
+final velocity roll (V roll) is generated during post-processing by extracting velocity at
+note positions, and then assigning each note the velocity at its onset.
+3.3 Model Architecture
+The proposed architecture is shown in Figure 2. The U-Net extracts higher-level
+features through downsampling, with skip connections preserving details and
+global patterns. All convolution blocks use 3 ×3 kernels, stride 1, and padding 1,
+followed by sigmoid activation and batch normalization. To scale features by a
+factor of 2, we perform downsampling with a standard 2 ×2 MaxPool2D layer;
+for upsampling, we employ a transpose convolution with 4 ×4 kernels and stride
+2, a distinctive strategy introduced in [20].
+3 wandb report has concluded our experiment history of hyperparameter searching,
+available at: https://api.wandb.ai/links/zhanh-uwa/wpzvcb76
+
+=== PDF PAGE 5; LABEL 5 ===
+Filling MIDI Velocity
+To handle MIDI data sparsity, we integrate the windowed scaled dot-product
+attention (window attention) [26] into our U-Net. Traditional self-attention [27]
+operates on the full feature map X ∈ RH×W , where H and W denote the
+height and width of the attention inputs, as depicted in Figure 2. Window
+attentionpartitionsXinton×nnon-overlappingwindowsandcomputesattention
+within each. This reduces computational complexity while enhancing feature
+aggregation [28].
+The window size (n) is a tunable hyperparameter balancing local and long-
+range dependencies. We explored n∈{1,2,4,8}and found that a 2 ×2 window
+attention yielded the best performance (see wandb report3). This suggests that
+while window attention is effective, larger windows can over-compress information
+and reduce effectiveness.
+3.4 Loss Function
+The proposed loss function combines binary cross-entropy (BCE) loss with cosine
+similarity (CosSim) introduced in [13], with α= 0.2, defined as:
+LCombine = (1−α) LBCE + α (1−CosSim) (2)
+where the BCE loss is used to optimize the prediction error; CosSim is computed
+for each pitch and then averaged, capturing the trending of velocity changes over
+time:
+1
+CosSim=
+LBCE =
+P
+P
+p=1
+T
+ˆ
+t=1 yt,p
+yt,p
+T
+t=1 y2
+t,p
+T
+t=1
+1
+TP
+T
+P
+lbce(yt,p,
+t=1
+p=1
+(3)
+ˆ
+y2
+t,p
+ˆ
+yt,p) (4)
+here, CosSim and BCE are functions pre-built in PyTorch, with yt,p andˆ
+yt,p
+denoting the target and predicted velocity, respectively. The indices t and p
+represent the time and pitch dimensions. To deal with the sparsity, we apply
+a masking operation <m> using the onset roll O, which ignores silent time
+steps and counts each note once at its onset. In addition, a weighting operation
+<w> is introduced to reduce the boundary velocity prediction errors emphasized
+in [25,29,30]. Motivated by the Gaussian distribution of velocity observed in
+Figure 3, we design a V-shaped weighting centered on 64 (normalized to 0.5),
+with an empirical factor of 3 to enhance regions away from the midpoint. The
+updated BCE loss with masking and weighting is defined as:
+L<m,w>
+BCE =
+1
+TP
+T
+t=1
+P
+p=1
+Ot,p· 1 + 3|Vt,p−0.5| ·lbce(yt,p,
+ˆ
+yt,p), (5)
+in which Ot,p is the onset-roll mask and (1 + 3|Vt,p−0.5|) is a weighting factor
+based on velocity roll V. Finally, LBCE in Eqn (2) is replaced with L<m,w>
+BCE to
+form L<m,w>
+Combine. The effectiveness of this loss was validated in our wandb report.3
+
+=== PDF PAGE 6; LABEL 6 ===
+Z. He et al.
+Fig.3. MIDI data distributions of the MAESTRO (blue) and SMD (orange) datasets,
+with density maps highlighting the similarity in their MIDI feature correlations.
+4 Experiment
+4.1 Dataset
+Fortraining,weusetheMAESTROv3.0.0dataset[31],recordedbyskilledpianists
+on Yamaha Disklavier pianos during the International Piano-e-Competition. The
+default train/valid/test split is used. With 1,276 performances totaling over 200
+hours, MAESTRO provides an ideal foundation for modeling MIDI velocity.
+For evaluation, we use the Saarland Music Data (SMD) dataset [32], which
+comprises 50 performances also recorded on a Yamaha Disklavier. We selected
+SMD for cross-dataset evaluation to assess model generalization, instead of the
+Piano-e-Competition dataset used in [12,13] which has significant performance
+overlap with MAESTRO. The suitability of SMD is confirmed in Figure 3.
+Furthermore,SMDisusedforqualitativeassessmentthroughasubjectivelistening
+test of 8 selected performances, as listed in Table 1. As SMD only has composer-
+style overlaps with MAESTRO (none of performance overlap), it allows us to
+evaluate our model on both seen and unseen compositional styles.
+Table 1. Selected SMD performances for the subjective listening test, with SMD
+composer statistics and their overlap with the MAESTRO train set.
+MAESTRO train set SMD dataset
+Composer Total Perf. Total Dur. Total Perf. Selected Perf.
+Chopin 145 19.9 h 13 Op010-04
+Bach Beethov. Liszt Schuman. 11.2 h 8 BWV849-02
+20.5 h 7 Op027No1-01
+16.0 h 3 -
+12.4 h 3 -
+114 110 93 33 Rachman. 29 4.2 h 3 Op036-02
+Haydn Mozart Scriabin Brahms 3.7 h 4 Hob017No4
+3.9 h 2 KV265
+4.1 h 1 -
+6.1 h 3 -
+29 27 22 20 Bartok 0 0 h 3 SZ080-03
+Ravel 0 0 h 2 JeuxDEau
+
+=== PDF PAGE 7; LABEL 7 ===
+Filling MIDI Velocity
+4.2 Training Setup
+The models we trained include the proposed U-Net and a re-implemented ConvAE
+[12]. Following the training strategy of [33], we arranged continuous segments
+of a song into the same batch to preserve the musical structure, thereby aiding
+semantic learning. Both models were trained for 300 epochs on the MAESTRO
+train set with a learning rate of 1e-5, a batch size of 3, and the same loss function.
+Training took approximately 12 hours on an NVIDIA V100 32GiB GPU using
+the Ranger21 optimizer. The top three checkpoints of each model, selected based
+on the MAESTRO validation set performance, were tested on the MAESTRO
+test set and the SMD dataset for cross-dataset evaluation.
+4.3 Evaluation Metrics
+All objective evaluation metrics are computed on the denormalized MIDI velocity,
+restoredtotheoriginalscaleof0to127.Weadoptthemeanabsoluteerror(MAE),
+mean square error (MSE), and standard deviation of velocity (SDvelo), which
+are standard metrics in MIDI velocity prediction [12,13]. We also incorporate
+the standard deviation of absolute error (SDae) and Recall, both prevalent in
+similar research [25,34]. The Recall uses a standard 10% error tolerance.
+The subjective listening test follows the mean opinion score (MOS) of
+MUSHRA[35]framework.ParticipantsratedtheexpressivenessofMIDI-generated
+audioona100-pointscale,mappedtovaluesfrom0to5,withfivelabeledintervals
+(from "bad" to "excellent") for ease of use.
+5 Results and Discussion
+5.1 Quantitative Results
+Tables 2 and 3 present the model performance, with all models trained exclusively
+on the MAESTRO train set. The Flat model assigns a fixed velocity of 64,
+representing default music software behavior. The Seq2Seq model uses pretrained
+weights from [13], while ConvAE [12] is re-implemented and trained in our
+framework. Both tables demonstrated that the proposed U-Net outperformed
+other models across all objective metrics.
+Table 2. Quantitative results on the SMD dataset, where ↑and ↓indicate whether
+higher or lower values are better.
+Model MAE ↓MSE ↓SDae ↓Recall ↑SDvelo ↑
+Flat (all velocities set to 64) 15.3 367.5 10.4 49.2% 0
+Seq2Seq [13] 15.1 356.9 10.9 48.8% 8.5
+ConvAE [12] (re-implemented) 12.5 258.1 9.6 58.5% 9.8
+U-Net (proposed) 11.2 217.5 9.2 65.1% 11.1
+
+=== PDF PAGE 8; LABEL 8 ===
+Z. He et al.
+Table 3. Quantitative results on the MAESTRO test set, where ↑and ↓indicate
+whether higher or lower values are better.
+Model MAE ↓MSE ↓SDae ↓Recall ↑SDvelo ↑
+Flat (all velocities set to 64) 14.8 333.8 10.2 48.5% 0
+Seq2Seq [13] 13.5 286.1 9.9 53.8% 6.2
+ConvAE [12] (re-implemented) 12.3 250.7 9.7 59.4% 9.7
+U-Net (proposed) 11.5 226.2 9.4 63.8% 10.7
+The validity of evaluation metrics warrants further discussion. When visual-
+izing the results, as demonstrated in Figure 4, we found: (1) Accuracy metrics
+(including MAE, MSE, SDae, and Recall) usually show significant differences, but
+not in certain cases (e.g., the Chopin Op10-04 segment), suggesting an artifact
+caused by a local optimum when mid-value predictions dominate. (2) SDvelo
+is a key differentiator that effectively reflects human-likeness. By capturing the
+dispersion of MIDI velocity around its mean, higher values reveal a greater clarity
+between the left and right hands, potentially enhancing expressiveness.
+Fig.4. Comparison of human-performed velocity with ConvAE and U-Net predictions.
+The U-Net result is more human-like than ConvAE, but for Chopin Op. 10 No. 4,
+accuracy metrics fail to reflect this.
+5.2 Qualitative Results through Listening Test
+A MUSHRA-like listening test was conducted to evaluate the human-likeness of
+performances generated by our U-Net, ConvAE [12], and the Flat model.
+Participants. We recruited 11 expert listeners (aged ≥18) based on their
+substantial musical background and experience with critical listening studies.
+Participants completed survey anonymously through the Qualtrics platform [36].
+
+=== PDF PAGE 9; LABEL 9 ===
+Filling MIDI Velocity
+Stimuli. The test involved eight 10s MIDI segments, each selected from a
+performance listed in Table 1, with human-performed velocities removed for
+uniform model inputs. Outputs from Flat, ConvAE, and U-Net were rendered as
+stimuli, while the original MIDI (with human-performed velocity) served as a
+reference, all using the PianoTeq 8 plug-in with the Steinway Model D instrument.
+Calibration. The dataset used for the human-performed MIDI also contained
+corresponding recordings of the Yamaha Disklavier used in the performance. This
+is the audio that the pianist would have heard at the time of the performance.
+To most accurately render the MIDI, we calibrated the piano modeling software,
+PianoTeq 8 [37], to match those Disklavier recordings. This was achieved by
+adjusting the "Dynamics" control in PianoTeq 8 and comparing the Momen-
+tary Loudness via correlation coefficient and Loudness Range as described in
+BS.1770/EBU R128, against the reference. The results of this process presented
+in Table 4 indicated that a Dynamics setting of 60 dB most closely matched the
+audio of the original performance. This setting was used to process all files used
+for the test.
+Table 4. Metrics for comparing different PianoTeq configurations to the reference.
+Dynamics (dB) Loudness ∆ ↓Correlation Coefficient ↑
+50 1.8 0.9583
+60 0.3 0.9591
+70 0.9 0.9561
+80 1.9 0.9535
+90 3.1 0.9479
+Procedure. Participants were instructed to use headphones for accurate
+evaluation, as subtle velocity differences required higher playback volumes for
+clarity. They rated the similarity between audio rendered from model-predicted
+and human-performed MIDI, using a continuous slider from 0 to 5, and results
+were aggregated into MOS scores in Table 5.
+Table 5. Results of subjective listening test. MOS with 95% confidence interval are
+reported, where "most seen" includes {Chopin, Bach, Beethoven}, "less seen" includes
+{Rachmaninoff, Haydn, Mozart}, and "unseen" includes {Bartók, Ravel}.
+Model Most Seen MOS ↑Less Seen MOS ↑Unseen MOS ↑Overall MOS ↑
+Flat 1.58 ±0.36 1.64 ±0.44 1.18 ±0.42 1.50 ±0.37
+ConvAE 1.93 ±0.34 2.40 ±0.39 1.80 ±0.44 2.08 ±0.33
+U-Net 3.10 ±0.38 3.16 ±0.29 2.67 ±0.46 3.01 ±0.34
+Results. Although a gap to human performance remains (no model achieved
+a perfect similarity score of 5), our U-Net model significantly outperformed other
+approaches. The "Flat" model performed worst, aligning with the survey in
+previous work [12]. A key limitation in this survey was distinguishing whether
+
+=== PDF PAGE 10; LABEL 10 ===
+Z. He et al.
+performance was impacted by model familiarity with composer styles (seen vs.
+unseen) or by the music’s complexity. Despite this ambiguity, the consistently
+narrow 95% confidence intervals across all groups indicate that listeners provided
+similar ratings, reinforcing the overall reliability of this survey.
+6 Conclusion
+In this paper, we propose a U-Net model for MIDI velocity prediction inspired by
+image colorization. Our model integrates window attention and a task-specific loss
+function to address the sparse nature of image-like MIDI representations, and we
+also explore the impact of MIDI segment duration. Both objective and subjective
+evaluationsconfirmedtheinadequacyofdefaultMIDIvelocitiesanddemonstrated
+that the proposed U-Net outperforms existing methods. Furthermore, we used
+a visual representation to assess the reliability of various objective metrics,
+highlighting SDvelo as a particularly effective indicator. The potential of SDvelo
+for applications beyond evaluation, such as in model training, warrants further
+investigation.
+A key limitation is that the proposed model has only been validated on piano
+data. Although a cross-dataset evaluation was conducted, generalization across
+different composer styles and other instruments remains unexplored. Future
+work should investigate this area, as image-based models may offer advantages
+over sequential models that rely on instrument-specific patterns (i.e., linguistic
+information). This makes them a promising direction for further research.
+Acknowledgments. This work was conducted during Zhanhong He’s research intern-
+ship at Dolby Australia. We would like to thank the Dolby staffs for their support with
+the subjective listening test, and the other intern Hanyu Meng for selecting the MIDI
+segments.
+Disclosure of Interests. The authors declare no competing interests to declare that
+are relevant to the content of this article.
+References
+1. Cancino-Chacón, C.E.: Computational Modeling of Expressive Music Performance
+With Linear and Non-Linear Basis Function Models. Ph.D. thesis, Johannes Kepler
+University Linz (2018)
+2. Hracs,B.J.:Acreativeindustryintransition:Theriseofdigitallydrivenindependent
+music production. Growth and Change 43(3), 442–461 (2012)
+3. Hong, A.: "But You’re a Violinist—Why Do You Compose?": Narratives of Experi-
+ence of Three Composer-Performers. Ph.D. thesis, Faculty of Music, University of
+Toronto (2018)
+4. Oore, S., Simon, I., Dieleman, S., Eck, D., Simonyan, K.: This time with feeling:
+Learning expressive musical performance. Neural Computing and Applications 32,
+955–967 (2020)
+
+=== PDF PAGE 11; LABEL 11 ===
+Filling MIDI Velocity
+5. Brunner, G., Konrad, A., Wang, Y., Wattenhofer, R.: MIDI-VAE: Modeling dynam-
+ics and instrumentation of music with applications to style transfer. In: Proc. of
+the Int. Society for Music Information Retrieval Conf. pp. 747–754. ISMIR (2018)
+6. Jeong, D., Kwon, T., Kim, Y., Lee, K., Nam, J.: Virtuosonet: A hierarchical rnn-
+based system for modeling expressive piano performance. In: Proc. of the Int.
+Society for Music Information Retrieval Conf. pp. 908–915. ISMIR (2019)
+7. Rhyu, S., Kim, S., Lee, K.: Sketching the expression: Flexible rendering of expressive
+piano performance with self-supervised learning. In: Proc. of the Int. Society for
+Music Information Retrieval Conf. pp. 178–185. ISMIR (2022)
+8. Tang, J., Wiggins, G., Fazekas, G.: Reconstructing human expressiveness in piano
+performances with a transformer network. In: Proc. of the Int. Symposium on
+Computer Music Multidisciplinary Research (CMMR). pp. 134–145 (2023)
+9. Borovik, I., Viro, V.: ScorePerformer: Expressive piano performance rendering with
+fine-grained control. In: Proc. of the Int. Society for Music Information Retrieval
+Conf. pp. 588–596. ISMIR (2023)
+10. Zhang, H., Chowdhury, S., Cancino-Chacón, C.E., Liang, J., Dixon, S., Widmer,
+G.: Dexter: Learning and controlling performance expression with diffusion models.
+Applied Sciences 14(15), 6543 (2024)
+11. Simões, J.M., Machado, P., Rodrigues, A.C.: Deep learning for expressive music
+generation.In:Proc.ofthe9thInt.Conf.onDigitalandInteractiveArts(ARTECH).
+pp. 1–9 (2019)
+12. Kuo, C.S., Chen, W.K., Liu, C.H., You, S.D.: Velocity prediction for midi notes with
+deep learning. In: 2021 IEEE International Conference on Consumer Electronics-
+Taiwan (ICCE-TW). pp. 1–2. IEEE (2021)
+13. Kim, T., Kim, Y.: Piano velocity prediction using a seq2seq model with attention
+mechanism. In: 2023 Autumn Meeting of the Acoustical Society of Japan. pp.
+1467–1470. Acoustical Society of Japan (2023)
+14. Anwar, S., Tahir, M., Li, C., Mian, A., Khan, F.S., Muzaffar, A.W.: Image coloriza-
+tion: A survey and dataset. Information Fusion p. 102720 (2024)
+15. Riley, X., Guo, Z., Edwards, D., Dixon, S.: Gaps: A large and diverse classical
+guitar dataset and benchmark transcription model. In: Proc. of the Int. Society for
+Music Information Retrieval Conf. pp. 611–617. ISMIR (2024)
+16. Grachten, M., Widmer, G.: Linear basis models for prediction and analysis of
+musical expression. Journal of New Music Research 41(4), 311–322 (2012)
+17. van Herwaarden, S., Grachten, M., de Haas, W.B.: Predicting expressive dynamics
+in piano performances using neural networks. In: Proc. of the Int. Society for Music
+Information Retrieval Conf. pp. 45–50. ISMIR (2014)
+18. Li, Y., Zhang, Y., Wang, X., Wu, R., Xu, W.: Cnn-transformer ensemble: Advancing
+visual piano transcription with global and local features. In: 2024 International
+Joint Conference on Neural Networks (IJCNN). pp. 1–8 (2024)
+19. Zhang, R., Isola, P., Efros, A.A.: Colorful image colorization. In: Computer Vision–
+ECCV 2016: 14th European Conference, Amsterdam, The Netherlands, October
+11-14, 2016, Proceedings, Part III 14. pp. 649–666. Springer (2016)
+20. Wang, N., Chen, G.D., Tian, Y.: Image colorization algorithm based on deep
+learning. Symmetry 14(11) (2022)
+21. Siddique, N., Paheding, S., Elkin, C.P., Devabhaktuni, V.: U-Net and Its Variants
+for Medical Image Segmentation: A Review of Theory and Applications. IEEE
+Access 9, 82031–82057 (2021)
+22. Azad, R., Aghdam, E.K., Rauland, A., Jia, Y., Avval, A.H., Bozorgpour, A., Karim-
+ijafarbigloo, S., Cohen, J.P., Adeli, E., Merhof, D.: Medical image segmentation
+
+=== PDF PAGE 12; LABEL 12 ===
+Z. He et al.
+review: The success of u-net. IEEE Transactions on Pattern Analysis and Machine
+Intelligence 46(12), 10076–10095 (2024)
+23. Pedersoli, F., Tzanetakis, G., Yi, K.M.: Improving music transcription by pre-
+stacking a u-net. In: Proc. IEEE Int. Conf. Acoust. Speech Signal Process. (ICASSP).
+pp. 506–510 (2020)
+24. Scarpiniti, M., Sigismondi, E., Comminiello, D., Uncini, A.: A u-net based architec-
+ture for automatic music transcription. In: 2023 IEEE 33rd International Workshop
+on Machine Learning for Signal Processing (MLSP). pp. 1–6 (2023)
+25. Kim, H., Serra, X.: A method for midi velocity estimation for piano performance by
+a u-net with attention and film. In: Proc. of the Int. Society for Music Information
+Retrieval Conf. pp. 304–310. ISMIR (2024)
+26. Shen, Z., Kong, B., Dong, X.: Transformer with linear-window attention for feature
+matching. IEEE Access 11, 121202–121211 (2023)
+27. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser,
+L., Polosukhin, I.: Attention is all you need. In: Advances in Neural Information
+Processing Systems. vol. 30. Curran Associates, Inc. (2017)
+28. Chen, K., Du, X., Zhu, B., Ma, Z., Berg-Kirkpatrick, T., Dubnov, S.: Hts-at: A
+hierarchical token-semantic audio transformer for sound classification and detection.
+In: Proc. IEEE Int. Conf. Acoust. Speech Signal Process. (ICASSP). pp. 646–650.
+IEEE (2022)
+29. Jeong, D., Kwon, T., Nam, J.: Note-intensity estimation of piano recordings using
+coarsely aligned midi score. Journal of the Audio Engineering Society 68(1/2),
+34–47 (January 2020)
+30. Kim, H., Miron, M., Serra, X.: Score-informed midi velocity estimation for piano
+performance by film conditioning. In: Proc. of the Sound and Music Computing
+Conf. (SMC). pp. 139–147 (2023)
+31. Hawthorne, C., Stasyuk, A., Roberts, A., Simon, I., Huang, C.Z.A., Dieleman,
+S., Elsen, E., Engel, J., Eck, D.: Enabling factorized piano music modeling and
+generation with the maestro dataset. In: Proc. of the Int. Conf. on Learning
+Representations (ICLR) (2019)
+32. Müller, M., Konz, V., Bogler, W., Arifi-Müller, V.: Saarland music data (smd).
+In: Late-Breaking and Demo Session of the 12th Int. Conf. on Music Information
+Retrieval. ISMIR (2011)
+33. Zhang,H.,Karystinaios,E.,Dixon,S.,Widmer,G.,Cancino-Chacón,C.E.:Symbolic
+music representations for classification tasks: A systematic evaluation. In: Proc. of
+the Int. Society for Music Information Retrieval Conf. ISMIR (2023)
+34. Toyama, K., Akama, T., Ikemiya, Y., Takida, Y., Liao, W.H., Mitsufuji, Y.: Auto-
+matic piano transcription with hierarchical frequency-time transformer. In: Proc. of
+the Int. Society for Music Information Retrieval Conf. pp. 215–222. ISMIR (2023)
+35. Series, B.: Method for the subjective assessment of intermediate quality level
+of audio systems. International Telecommunication Union Radiocommunication
+Assembly 2 (2014)
+36. Qualtrics: Qualtrics corexm (2024), https://www.qualtrics.com, version Feb 2025,
+Provo, UT, USA
+37. Modartt: Pianoteq 8 (2022), https://www.modartt.com/pianoteq_overview, ver-
+sion 8, Accessed Feb 9, 2025

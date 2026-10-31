@@ -1,0 +1,397 @@
+{
+  "tool": "Installed Chrome headless CDP + Node built-ins; Python difflib source build",
+  "tests": [
+    {
+      "name": "Five selected cards, explicit legacy edition, default R1-15 A",
+      "passed": true
+    },
+    {
+      "name": "Desktop no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-15 / A exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-15 / B exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-15 / C exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-15 / KEEP exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-15 / A exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-15 / B exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-15 / C exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-15 / KEEP exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-15 / A exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-15 / B exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-15 / C exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-15 / KEEP exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-15 B shows whole paragraph and precise scope",
+      "passed": true
+    },
+    {
+      "name": "R1-15 source/reviewer/ledger links are local",
+      "passed": true
+    },
+    {
+      "name": "R1-25 / A exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-25 / B exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-25 / C exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-25 / KEEP exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-25 / A exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-25 / B exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-25 / C exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-25 / KEEP exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-25 / A exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-25 / B exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-25 / C exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-25 / KEEP exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-25 source/reviewer/ledger links are local",
+      "passed": true
+    },
+    {
+      "name": "R1-21 / A exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-21 / B exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-21 / C exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-21 / KEEP exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-21 / A exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-21 / B exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-21 / C exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-21 / KEEP exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-21 / A exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-21 / B exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-21 / C exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-21 / KEEP exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-21 source/reviewer/ledger links are local",
+      "passed": true
+    },
+    {
+      "name": "R1-35 / KEEP exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-35 / A exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R1-35 / KEEP exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-35 / A exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R1-35 / KEEP exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-35 / A exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R1-35 source/reviewer/ledger links are local",
+      "passed": true
+    },
+    {
+      "name": "R2-04 / A exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R2-04 / B exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R2-04 / C exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R2-04 / KEEP exact text after toggle 1",
+      "passed": true
+    },
+    {
+      "name": "R2-04 / A exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R2-04 / B exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R2-04 / C exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R2-04 / KEEP exact text after toggle 2",
+      "passed": true
+    },
+    {
+      "name": "R2-04 / A exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R2-04 / B exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R2-04 / C exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R2-04 / KEEP exact text after toggle 3",
+      "passed": true
+    },
+    {
+      "name": "R2-04 source/reviewer/ledger links are local",
+      "passed": true
+    },
+    {
+      "name": "R1-21 insertion keeps original paragraph then exact candidate",
+      "passed": true
+    },
+    {
+      "name": "R1-35 current v4 recommendation is KEEP",
+      "passed": true
+    },
+    {
+      "name": "Fact-pending filter finds three cards",
+      "passed": true
+    },
+    {
+      "name": "Empty filter gives recovery route",
+      "passed": true
+    },
+    {
+      "name": "Reset restores filters, choices, mode, diff, first card",
+      "passed": true
+    },
+    {
+      "name": "Keyboard Tab reaches filter",
+      "passed": true
+    },
+    {
+      "name": "Keyboard Tab reaches card button",
+      "passed": true
+    },
+    {
+      "name": "Keyboard Enter navigates and focuses card title",
+      "passed": true
+    },
+    {
+      "name": "Keyboard KEEP comparison works without approval",
+      "passed": true
+    },
+    {
+      "name": "Evidence details keyboard toggle",
+      "passed": true
+    },
+    {
+      "name": "View mode proposed",
+      "passed": true
+    },
+    {
+      "name": "View mode original",
+      "passed": true
+    },
+    {
+      "name": "View mode compare",
+      "passed": true
+    },
+    {
+      "name": "R1-15 narrow 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-15 narrow comparison is one column",
+      "passed": true
+    },
+    {
+      "name": "R1-25 narrow 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-25 narrow comparison is one column",
+      "passed": true
+    },
+    {
+      "name": "R1-21 narrow 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-21 narrow comparison is one column",
+      "passed": true
+    },
+    {
+      "name": "R1-35 narrow 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-35 narrow comparison is one column",
+      "passed": true
+    },
+    {
+      "name": "R2-04 narrow 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "R2-04 narrow comparison is one column",
+      "passed": true
+    },
+    {
+      "name": "Bottom Next brings new heading into viewport",
+      "passed": true
+    },
+    {
+      "name": "Second tab starts with original recommended view",
+      "passed": true
+    },
+    {
+      "name": "Reload discards temporary view choices",
+      "passed": true
+    },
+    {
+      "name": "Actual ledger link opens original Markdown",
+      "passed": true
+    },
+    {
+      "name": "Ledger link discloses ID search instead of assuming Markdown anchors",
+      "passed": true
+    },
+    {
+      "name": "No runtime exceptions",
+      "passed": true
+    },
+    {
+      "name": "No HTTP(S), websocket or external network requests",
+      "passed": true
+    },
+    {
+      "name": "No persistence, external content fetch, form or approval controls",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "desktop-first.png",
+    "desktop-insertion.png",
+    "desktop-keep.png",
+    "desktop-loss.png",
+    "narrow-top.png",
+    "narrow-text.png"
+  ],
+  "consoleErrors": [],
+  "networkRequests": [
+    "file:///Users/jollibear/Documents/tmp/phd%20thesis/revision_workshop_20261031_v5/reader/index.html",
+    "file:///Users/jollibear/Documents/tmp/phd%20thesis/Chapter_6/figures/p2.jpg",
+    "file:///Users/jollibear/Documents/tmp/phd%20thesis/revision_workshop_20261031_v5/reader/index.html"
+  ],
+  "ledgerNavigation": {
+    "url": "file:///Users/jollibear/Documents/tmp/phd%20thesis/revision_blueprint_20261031/DECISIONS.md#decision-r1-15",
+    "contentType": "text/markdown",
+    "hasOriginalText": true,
+    "fragmentResolves": false
+  }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "path": "Chapter_1/Intro.tex",
+    "quote": "MIDI velocity is a universal loudness variable for all instruments",
+    "exact_occurrences": 1,
+    "source_lines": [
+      62
+    ],
+    "unique": true
+  },
+  {
+    "path": "Chapter_1/Intro.tex",
+    "quote": "large-scale non-piano score-dynamics transcription with human labels",
+    "exact_occurrences": 1,
+    "source_lines": [
+      153
+    ],
+    "unique": true
+  },
+  {
+    "path": "Chapter_1/Intro.tex",
+    "quote": "By intentionally ordering these environments from the tightly constrained to the ambiguous",
+    "exact_occurrences": 1,
+    "source_lines": [
+      118
+    ],
+    "unique": true
+  },
+  {
+    "path": "Chapter_3/chap3.tex",
+    "quote": "This chapter addresses Scenario~S1, the most controlled setting in the thesis map.",
+    "exact_occurrences": 1,
+    "source_lines": [
+      13
+    ],
+    "unique": true
+  },
+  {
+    "path": "Chapter_3/chap3.tex",
+    "quote": "This chapter studied the most controlled form of expressive-label recovery",
+    "exact_occurrences": 1,
+    "source_lines": [
+      465
+    ],
+    "unique": true
+  },
+  {
+    "path": "Chapter_4/chap4.tex",
+    "quote": "MIDI velocity is defined at note onset.",
+    "exact_occurrences": 1,
+    "source_lines": [
+      145
+    ],
+    "unique": true
+  },
+  {
+    "path": "Chapter_7/Conclusion.tex",
+    "quote": "The first method contribution establishes the most controlled setting",
+    "exact_occurrences": 1,
+    "source_lines": [
+      48
+    ],
+    "unique": true
+  },
+  {
+    "path": "Chapter_6/chap6.tex",
+    "quote": "It does not claim that $V^{\\star}$ recovers the performer's physical gesture.",
+    "exact_occurrences": 1,
+    "source_lines": [
+      67
+    ],
+    "unique": true
+  }
+]

@@ -1,0 +1,642 @@
+[
+  {
+    "path": ".gitignore",
+    "bytes": 50,
+    "sha256": "2a85130a77ab2165623c39368b7fc067d9136849b96bbc11a65860a9a0e599cb"
+  },
+  {
+    "path": ".vscode/extensions.json",
+    "bytes": 68,
+    "sha256": "21469d7436aef9508ad652ae8b5c878076209399937af00d81551a940d04b486"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/README.md",
+    "bytes": 2882,
+    "sha256": "36156c1a7f6a2851c0a4175bc8b8b2f15c0ca97e9d3b60965228e7269c2845af"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/all_fold_summary.csv",
+    "bytes": 5845,
+    "sha256": "e45bc48b3173e7fe222a6f613c1e51a9e01caecb7315c78d7706e612d320c1f9"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/extract_and_summarise.py",
+    "bytes": 8959,
+    "sha256": "6b9d86b181ee81581d6c0528ad53bdf570140c04e9358d078e97b5f57b05f1eb"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/README.md",
+    "bytes": 9424,
+    "sha256": "594af48bf279b63dba61dcb75dd9287b54a897da2642270ad2b3008a9a7f9a01"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/eval_and_benchmarks/CrossEval.ipynb",
+    "bytes": 76040,
+    "sha256": "295aa1288f1ffae987c10d64c3928f9bbe00cc338858916e6540bec2e1efe61c"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/eval_and_benchmarks/CrossEval_README.md",
+    "bytes": 3859,
+    "sha256": "505bde990f40fc522f6cbc5742f56fc48d4433a9970690730dd273a692f416c2"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/manifest.json",
+    "bytes": 3705,
+    "sha256": "023c6f5aa0e24acd01cb1b742fe91944c9507630c814065996e1cb2d80e3adcc"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/pytorch/config.yaml",
+    "bytes": 6059,
+    "sha256": "76a1690f585106f023af1345139513205d6b1f408530349a6897c5062c2285a5"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/pytorch/evaluator.py",
+    "bytes": 13733,
+    "sha256": "6bc03020016b258baa29d4daf3cbb4268f47e78da493bebb60126ec9d3ae1b98"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/pytorch/final_evaluation.py",
+    "bytes": 14109,
+    "sha256": "3122068bff9cb7e8d84326efc502ce8e7a9b66e00fdecf4ac335a5404650c05d"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/pytorch/inference.py",
+    "bytes": 18857,
+    "sha256": "2080a9b2299ffcbc0970425dce43583acc1ee41822e60fcc2521d286ba26b77e"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/pytorch/losses.py",
+    "bytes": 8939,
+    "sha256": "6b4b9bfae502954f35502f0c770085892917cbaf11d82f6dcd6bbc44799dba58"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/pytorch/models_audioCNN.py",
+    "bytes": 16296,
+    "sha256": "8f8ecdba1837746b3e54351fa29766f8dfdd0056cda7158cf3d05c383942b075"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/pytorch/post_processor/beat_postproc.py",
+    "bytes": 9058,
+    "sha256": "ae553ec1a6fa9080413aa8f4507e9e80bf8842ec7214194b7fd4122154262e5a"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/pytorch/post_processor/dynamic_postproc.py",
+    "bytes": 2808,
+    "sha256": "c257ffc443658379bd79be20007d641f2fe02808cc468039bb1d6683c5e9268e"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/saved_checkpoint_records.csv",
+    "bytes": 13172,
+    "sha256": "92c292a125f45a0df750db2b1fb1cfe6de5fbe0c688ca5984bcde15f5af408b9"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/saved_per_fold_metrics.csv",
+    "bytes": 17037,
+    "sha256": "27339931ba32043f4b1d1291db9036603ce74682295ae9c14fb4a4ae527b7b72"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/v0_table5_4_comparison.csv",
+    "bytes": 2744,
+    "sha256": "2c341e66bf2099bec2296a7eba6da0668544f42fa3f269400acc4d5b74f22d1f"
+  },
+  {
+    "path": "02_Ultra_细节/Ch5_现有输出汇总/validation.json",
+    "bytes": 594,
+    "sha256": "6a89a694b3fc3e1278ce3532f249d9a273b48339ca15b480749057aaec6b6127"
+  },
+  {
+    "path": "02_Ultra_细节/README.md",
+    "bytes": 2763,
+    "sha256": "b1f4802c44954cc94fcc00015c889beaa3485b9620e7992250bab6d9bc5d584e"
+  },
+  {
+    "path": "02_Ultra_细节/关键核查与证据.md",
+    "bytes": 5486,
+    "sha256": "471b4b968660078419ef842ffea4556cebc7a8ccf13902885a811be9f0295024"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch3_53e1b950/commit.json",
+    "bytes": 2064,
+    "sha256": "2bfc0d23f4a6069400d870793418908f1ab469a8d9af195cf5d31d5fc2f3a8ae"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch3_53e1b950/conf/config.yaml",
+    "bytes": 5454,
+    "sha256": "3a94aec9b7d048c52bdc88736c35c58fbc2673bf366be6d2a1289279a698b999"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch3_53e1b950/main/loss.py",
+    "bytes": 5342,
+    "sha256": "f77db31af2bf777697f4e66c740780907a5208e3d85be4530095a2d471d5b918"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch3_53e1b950/main/models.py",
+    "bytes": 16806,
+    "sha256": "86fea13bdaa000cdd853a4e136e42b10b77f3a89319bc63a624e6e233f6aa702"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch3_53e1b950/train.py",
+    "bytes": 4096,
+    "sha256": "4800c990499f7f9960a544c7db501f251278568fb9e3fc3fa437dcc79bcc1377"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch3_53e1b950/tree.json",
+    "bytes": 41120,
+    "sha256": "86e39e35f3f220b9f6fa45f32e1c70f54aeaaf9de899251cffc02e7aa55e52a8"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch3_53e1b950/本地快照清单.json",
+    "bytes": 708,
+    "sha256": "ff56c73481e2f2831887fe0a9c21a209935e0e92a43410ef72334324017ff2be"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/LICENSE",
+    "bytes": 1062,
+    "sha256": "c03fca589185aa742189abd0e38758e1058167541288c98216b62bb6037335f6"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/PINNED_COMMIT.txt",
+    "bytes": 41,
+    "sha256": "45c5b46ae8cfb5cee7c68a2e6ad09aa3572858ed929175b94f0b659529c95db5"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/Readme.md",
+    "bytes": 5008,
+    "sha256": "c57f95d1bc516f84dcc6779c2970d969efe80dd6a6b1cda041beb7d3f970893c"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/Test.ipynb",
+    "bytes": 40414,
+    "sha256": "3e662dadba2a8e6b111e93db1810208fb743bdc67713d480084e0727a64cc9ad"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/Test_text_cells.txt",
+    "bytes": 30223,
+    "sha256": "bb7d3e4472a3564cf873d14805d352c4de62df5b5dfd3f82e0c552b733a35c21"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/Train_code_cells.txt",
+    "bytes": 1429,
+    "sha256": "6ee0b8c2bee1fa3218bb9d71b5c83f048fc7a70c221ab715013247d9ea39262d"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/commit.json",
+    "bytes": 6887,
+    "sha256": "ebe33f081d92a48a62c641c227679ba0afac90bd91774630936bec72dc2d6e98"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/commits_listing.json",
+    "bytes": 39981,
+    "sha256": "8af3f3a825b149064d2903f78585b624c83093c921e1443e47e8d6ff794689fb"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/calculate_scores.py",
+    "bytes": 22309,
+    "sha256": "b35296e48f1c736b8b8bb792c3f4d2c2d03150ff60074872c4d89417863a90ac"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/config/config.yaml",
+    "bytes": 3300,
+    "sha256": "a0e8ea869d73afcfaf9e5eece567d182e95d467482c1f0ae402a1ed516e45da4"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/config/note_editor.yaml",
+    "bytes": 147,
+    "sha256": "8bde6b9dc143f478ee2765327fb8277eaa442ce50f79b83bce807250239b8808"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/data_generator.py",
+    "bytes": 27138,
+    "sha256": "7428a9b70c30be460b3b5ec76998dc48907b5954a1f4f77b991d2677665f07a9"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/evaluate.py",
+    "bytes": 4555,
+    "sha256": "f0449f58532d038edad24bea43444cf49abdfb4ec8f006a7c6491a7e6b26a514"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/feature_extractor.py",
+    "bytes": 19449,
+    "sha256": "3428c6daf00d7df5cc60a211f84ecbef5a4a1c1fcc02844cc56869df839d6c63"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/inference.py",
+    "bytes": 37317,
+    "sha256": "3c5f5daf821f1fdc97636ba1d831637cf015525dee88861d1a7cb94eb6f64d00"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/losses.py",
+    "bytes": 3956,
+    "sha256": "1b175855aac157bfe143284e0139cf841f7dc4bc0f67826c681f02caef1d4d4d"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/model/__init__.py",
+    "bytes": 344,
+    "sha256": "3c200da8964ce06b1ac296c971c75c3bdd79c8c45e77950987192a5243507b75"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/model/base.py",
+    "bytes": 3997,
+    "sha256": "07e80f19688f57a97be94510577ae8cae248efc0eb9ef0a80a13ed6a30becaef"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/model/dynest_adapter.py",
+    "bytes": 12602,
+    "sha256": "dd53c428a55e8173aa122f6b3931e741085c84d73be5b08107bdfe487d4a4cca"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/model/hppnet_adapter.py",
+    "bytes": 9947,
+    "sha256": "6e060842470ea4f6da33afd2e5d3c75194ad586208eb614ffd4138fd38dbb7b0"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/model/hpt_adapter.py",
+    "bytes": 8488,
+    "sha256": "384f2ccd917a39034e143d17d452d0ce4214f2c7c3d214bff1079fe798eeb2c6"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/score_inf/method_bilstm.py",
+    "bytes": 3178,
+    "sha256": "d705b7be8adaa340e58a4d36afb3b8a6b77a65b03081a985ac21b7d4f1acd618"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/score_inf/method_identity.py",
+    "bytes": 648,
+    "sha256": "1e38959569df0cb8da607a898fe881d08128981c7dcd07831995c793eb93aa30"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/score_inf/method_note_editor.py",
+    "bytes": 8547,
+    "sha256": "45dac62375dce9d309cd2e4b9c60bc71d6e8b937b77d264494a21c1c3a1a9a5e"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/score_inf/wrapper.py",
+    "bytes": 2523,
+    "sha256": "956844f04d6259b147c3ffe880a9889eb961212ef0fc766465f93de75ca31b93"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/pytorch/train_score_inf.py",
+    "bytes": 17128,
+    "sha256": "35a361ccac6b45b8ab1bc56ef51c298c7611f326ca892d5fdc9357018ce4ace1"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/retrieval_manifest.json",
+    "bytes": 7471,
+    "sha256": "91c00af6377fc364351e1dd595788c49ce5a50f6115e477505b199caccc93847"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/run_scripts/kaya_hpt_note_editor_ablation.sh",
+    "bytes": 6391,
+    "sha256": "2eeb6fd2304b27f5e54fc72f73bfd8d78db587836758c58cee9037d8530905ce"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/run_scripts/kaya_hpt_note_train.sh",
+    "bytes": 2764,
+    "sha256": "bdf954d998a5ff109b4e71c5dc406284f537253d335208555526995fdd53eeff"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/run_scripts/kaya_hpt_train.sh",
+    "bytes": 3440,
+    "sha256": "57ed07adcce762c0e8ed7a057b0aaad86ee78a7515a24edf9768ca6cbf5a1063"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/run_scripts/local_train.sh",
+    "bytes": 1960,
+    "sha256": "3bea0bb35cde273d7b12546dd7c1bff7982e5afe83b01428235acb3d83c85a67"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/snapshot_manifest.json",
+    "bytes": 5450,
+    "sha256": "ee7c312d6ca7e5bb60546bb7c5897ac250cb924ba115ff5a2df06959828b9855"
+  },
+  {
+    "path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/tree.json",
+    "bytes": 31963,
+    "sha256": "b16fd769f1487ce1e7c35cc09d0fc063bb1770e37be9aed047bb82f6998b6f93"
+  },
+  {
+    "path": "Abbreviations/abbreviation.tex",
+    "bytes": 3806,
+    "sha256": "a5774d564dcf3ca8ba3cfbd80eebf4018c8b30989b0f6ae39810c525f095173d"
+  },
+  {
+    "path": "Acknowledgments/acknowledgements.tex",
+    "bytes": 4018,
+    "sha256": "cd26f714612dce13d34f3a7061d672363dbb001dffe41648dbdc71203e7e51f6"
+  },
+  {
+    "path": "Chapter_1/Intro.tex",
+    "bytes": 21640,
+    "sha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359"
+  },
+  {
+    "path": "Chapter_1/figures/AMT.png",
+    "bytes": 610329,
+    "sha256": "89a57d783a7828516d8057f77621cf5590e213100df647c190d9f7bf1ff2d26c"
+  },
+  {
+    "path": "Chapter_1/figures/ExpressiveAMT.jpg",
+    "bytes": 141447,
+    "sha256": "77e4fec8c0ffd20fc3f86622017f1a7054c92f4a44ddbd44695ded16c2f3cc23"
+  },
+  {
+    "path": "Chapter_1/figures/Overview.jpg",
+    "bytes": 311728,
+    "sha256": "98c3f404f16099cdfb0252182a6df9615543aaf6bab7318e3a9f5e18930ffaee"
+  },
+  {
+    "path": "Chapter_2/Background.tex",
+    "bytes": 91565,
+    "sha256": "f9f847a8d09557536798e776d60d80de16fb6ba6435afdbcbffaaf938ac7dffb"
+  },
+  {
+    "path": "Chapter_2/figures/dynamics_layers.png",
+    "bytes": 160200,
+    "sha256": "141e1c8f6ba8f9d4775cea8c4ca9144a78e28deca751446c01e17a6c3e9009f4"
+  },
+  {
+    "path": "Chapter_2/figures/dynamics_layers_v1.jpg",
+    "bytes": 1042434,
+    "sha256": "a203c678b4e4b59f5233517714ef94421de83acd0326f1f6e2988e8f2358f432"
+  },
+  {
+    "path": "Chapter_2/figures/equal_loudness_curve.png",
+    "bytes": 131502,
+    "sha256": "cea7845a9ec8add1281e65f24c90a4dad906769aa5dc9d5f2a26a39943e88066"
+  },
+  {
+    "path": "Chapter_2/figures/instruments_sone.jpg",
+    "bytes": 854630,
+    "sha256": "6917b8c2a3fab60055cfdd4ca20506327b7eed359ccd4ad3908529832fc4baf2"
+  },
+  {
+    "path": "Chapter_2/figures/representation_chain.png",
+    "bytes": 221902,
+    "sha256": "d60a09beec8b67ebf2d5cb8b19cfa8b6fa94cbdc573f2f57d02006d509d83465"
+  },
+  {
+    "path": "Chapter_2/figures/soundfont_guitar.png",
+    "bytes": 2616395,
+    "sha256": "654161fbe58899bc49c8a1eb45a13f3b4130a4582adb3ff71ccae85a161e117c"
+  },
+  {
+    "path": "Chapter_2/figures/soundfont_piano.png",
+    "bytes": 3099618,
+    "sha256": "62189fb2d823c869e60654b3fbe3bf8e124deb8017f0001e1ec1e60c4b2dbe41"
+  },
+  {
+    "path": "Chapter_2/figures/temporal_units.png",
+    "bytes": 1064478,
+    "sha256": "d116d8a51e845257dfe3e630a4dcbd7abd2fb1280c12d803030a1fdb714690cd"
+  },
+  {
+    "path": "Chapter_2/figures/temporal_units_bk.png",
+    "bytes": 82265,
+    "sha256": "50b16b0efd2ef164d54c8254f9a39db2646c96993aa654eb973a34e8dd2fb6d4"
+  },
+  {
+    "path": "Chapter_3/chap3.tex",
+    "bytes": 35562,
+    "sha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9"
+  },
+  {
+    "path": "Chapter_3/figures/p1.png",
+    "bytes": 394906,
+    "sha256": "4900f8007affb0a0a25dfbbde01d1143da5c36d1c6bc65ed739081365c9a1927"
+  },
+  {
+    "path": "Chapter_3/figures/p2.png",
+    "bytes": 483598,
+    "sha256": "807aa6ef84babfa7a5b1265b096cc437410edd0b5b4026d05d054874555f3806"
+  },
+  {
+    "path": "Chapter_3/figures/p3.png",
+    "bytes": 430688,
+    "sha256": "fcb2dc71d133b3d2c46954f2efbb0d06786a7b64e2807b0a1417472e159053d9"
+  },
+  {
+    "path": "Chapter_3/figures/p4.png",
+    "bytes": 753823,
+    "sha256": "e0e01ee5def760c402d7c19f2c12d57695ff6795c3c6b862bd18c07150bfb2e8"
+  },
+  {
+    "path": "Chapter_3/figures/p4v1.png",
+    "bytes": 1001613,
+    "sha256": "69620b5400665d665df1a86e64cd68b29d63398281deac9db5a6f3f2b37a9360"
+  },
+  {
+    "path": "Chapter_4/chap4.tex",
+    "bytes": 39804,
+    "sha256": "d3ba02f332041ea4e6e8c89fe342fdf560bd9edda1caafcd4b7c9fb651226eb8"
+  },
+  {
+    "path": "Chapter_4/figures/p1.jpg",
+    "bytes": 86594,
+    "sha256": "89284a99a7889bf3dbbea59fa19753aa92ecb452bcb40ef7ea74ba5b196cab64"
+  },
+  {
+    "path": "Chapter_4/figures/p1thesis.jpg",
+    "bytes": 99214,
+    "sha256": "ea5ba25512c4389f985e853f1901dead63e10d71849b55fcaa4b1d8eaf073f3b"
+  },
+  {
+    "path": "Chapter_4/figures/p2.jpg",
+    "bytes": 302624,
+    "sha256": "8482724fcaba997bec50c7d2a037edcaf84d2c982b54ffbdb679392a1b5dbd25"
+  },
+  {
+    "path": "Chapter_4/figures/p3.jpg",
+    "bytes": 43197,
+    "sha256": "cdeca9c3f8b70cc898b46c15b7a01ce22034e7907cc0b01d543638ab163e3557"
+  },
+  {
+    "path": "Chapter_4/figures/p3v1.jpg",
+    "bytes": 52595,
+    "sha256": "f8b317fd9f28b09a15647d208986a9ea3792956113b1b705af34edf8c8f59dbf"
+  },
+  {
+    "path": "Chapter_4/figures/p4.jpg",
+    "bytes": 117773,
+    "sha256": "0a8f2c5d9d015dad7d2518524393ff58a42941f2bc540cc3d9784771c832a65f"
+  },
+  {
+    "path": "Chapter_4/figures/p4thesis.jpg",
+    "bytes": 140071,
+    "sha256": "4a21e169939922e74da8a152d920a0013390c7d2cce8d72790d9ed3e674beaaf"
+  },
+  {
+    "path": "Chapter_4/figures/p5.jpg",
+    "bytes": 202367,
+    "sha256": "799eda25984498e6f7a899e86c9e53028f92b5c993f4206b6aa1bf866f8f3c82"
+  },
+  {
+    "path": "Chapter_4/figures/p5thesis.png",
+    "bytes": 951774,
+    "sha256": "543dc742a6211232c60a7c208c4e5d191e58e09fefbfbc2c92a00ae5d73a34e1"
+  },
+  {
+    "path": "Chapter_4/figures/p5v1.jpg",
+    "bytes": 124799,
+    "sha256": "5e6a3e94ebe622ff71c2f64a8ffbb329e58137146eaa25aef53794e239a24e67"
+  },
+  {
+    "path": "Chapter_4/figures/p5v2.jpg",
+    "bytes": 196065,
+    "sha256": "789ecc02f0cafd710d78d36250f07ac83804c925a5b1e98a8b231b8f4dc90045"
+  },
+  {
+    "path": "Chapter_4/figures/p6thesis.jpg",
+    "bytes": 152984,
+    "sha256": "d54ddeacd5da944a50b143c3f4a0386488daf07914accdc3dbf93a0e010e66b8"
+  },
+  {
+    "path": "Chapter_5/chap5.tex",
+    "bytes": 51936,
+    "sha256": "60219fbeac5ebb0d2e70be7de2bbf6028c1e1916bf35c3626f0b5d872432e6fe"
+  },
+  {
+    "path": "Chapter_5/figures/p1.png",
+    "bytes": 221937,
+    "sha256": "fd3f6d390c181579c55ad63222101d548a9d0ea82e50942086160104ad1ac8ff"
+  },
+  {
+    "path": "Chapter_5/figures/p2.png",
+    "bytes": 274134,
+    "sha256": "b10793be83704a0b00490d38e85415cfddd11f2dafb4a80a48b16ef9851281c2"
+  },
+  {
+    "path": "Chapter_5/figures/p2paper.png",
+    "bytes": 272396,
+    "sha256": "d86752add3b36ef07287c0c378de8c90bf8babed62cc9bcc48940401df8c39c3"
+  },
+  {
+    "path": "Chapter_6/chap6.tex",
+    "bytes": 63049,
+    "sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf"
+  },
+  {
+    "path": "Chapter_6/figures/p1.jpg",
+    "bytes": 343748,
+    "sha256": "2935920deaf3af6425a6dfdc1d2b093dea6d0bac932488961d93da8dc1494934"
+  },
+  {
+    "path": "Chapter_6/figures/p1v0.jpg",
+    "bytes": 421386,
+    "sha256": "5ab351ceb9aa356571911ecab31e5099bf707dd584d0a166438d552de3628ee6"
+  },
+  {
+    "path": "Chapter_6/figures/p2.jpg",
+    "bytes": 209255,
+    "sha256": "b864871a546f12e6ae0aca29f4a62dc3e7352e34b7f123d7643d4bc029cc3fac"
+  },
+  {
+    "path": "Chapter_6/figures/p2.png",
+    "bytes": 916356,
+    "sha256": "3b9e40f78a8293952cced7225d388960851160ace93752f9b3ada9de7983b886"
+  },
+  {
+    "path": "Chapter_6/figures/p3.jpg",
+    "bytes": 964821,
+    "sha256": "4b70fb5466550575959241aae60e787d16874a664a1e5774cf224a3196a8b838"
+  },
+  {
+    "path": "Chapter_7/Conclusion.tex",
+    "bytes": 23708,
+    "sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f"
+  },
+  {
+    "path": "Declaration/author_declaration.tex",
+    "bytes": 4621,
+    "sha256": "9d66129761a6d72b5370a489269dc61ea61d522107e1ec31e24370be32948063"
+  },
+  {
+    "path": "Declaration/declaration.tex",
+    "bytes": 1781,
+    "sha256": "75f74772746be99da7fc9e67efcfa0408ca13e10bf58e4e3e8dc1d6e4d7d5b57"
+  },
+  {
+    "path": "IEEEbib.bst",
+    "bytes": 17903,
+    "sha256": "7e6ca0c8b72158d504a12bb091f817c07032a021ba41ca783cca4c2dd80d570b"
+  },
+  {
+    "path": "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf",
+    "bytes": 185540,
+    "sha256": "28ad09550e7a47eff77693476db82d4d4d9a71ad5557871cfb27c72200ed63a4"
+  },
+  {
+    "path": "Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf",
+    "bytes": 118876,
+    "sha256": "c9d8a2a843e3c9cd167e751ed0dec8f7cd7ca757a6a8fabea2abc747b1c61020"
+  },
+  {
+    "path": "README.md",
+    "bytes": 1172,
+    "sha256": "31e184cba434a17b4c885f712435756445c973214bb235dd45659a0a7f0a1cc8"
+  },
+  {
+    "path": "README_Preliminary_Report_1.md",
+    "bytes": 20902,
+    "sha256": "e5916abeffcabf7e863728d9fca7ca2ca1eb76fadc595e7e24c2e4c595c17179"
+  },
+  {
+    "path": "README_Preliminary_Report_2.md",
+    "bytes": 10907,
+    "sha256": "89b84809d49df248ecc4da8825399fe73ff700edee1f3e9bd56d957e7614cdd3"
+  },
+  {
+    "path": "UWA_new.jpg",
+    "bytes": 856187,
+    "sha256": "ffe90f359933e66bbe3e1bf771dc0835101274b67475deb1d041f3149bc9c61b"
+  },
+  {
+    "path": "Z_He_PhD_Thesis.pdf",
+    "bytes": 14833690,
+    "sha256": "cbfcfca09364f85a7f6fcef186114054bfa8c494a87d26271091911a9064de07"
+  },
+  {
+    "path": "casm.bib",
+    "bytes": 121156,
+    "sha256": "e787436aa31f737e54ac125e5bd0e47b575353388fc2a2628f05126ad7e2a438"
+  },
+  {
+    "path": "clean_tex.sh",
+    "bytes": 2050,
+    "sha256": "7c5873b7f57b474f3ff040fa63278d74baba66216b97a97429ecb3b89df191fc"
+  },
+  {
+    "path": "main.pdf",
+    "bytes": 14403753,
+    "sha256": "8cb8dbe9d560980e003148e442cdeae53e7a97495dcee695b8a58df9a0719bb8"
+  },
+  {
+    "path": "main.tex",
+    "bytes": 8145,
+    "sha256": "a55546f7a41c9210f1ecebae71a2167f86e0fb93ddbf96797ba03c1ea270fd39"
+  },
+  {
+    "path": "publish_paper/2025_CMMR_MIDI_Velocity_Colorizer.pdf",
+    "bytes": 2299556,
+    "sha256": "fdffb60df941a5fd66d6497365d778d4f45d0c15be96a7f30ff8f9e58d838d28"
+  },
+  {
+    "path": "publish_paper/2026_ICASSP_Dynamics_Metrical_Structure.pdf",
+    "bytes": 628772,
+    "sha256": "a93d246b18af61363483697f0135d92ac5611756bf929ae4bc48c46982c516a2"
+  },
+  {
+    "path": "publish_paper/2026_ISMIR_Cross_Instrument_Velocity.pdf",
+    "bytes": 660277,
+    "sha256": "2b081d2c1636dc0453c7ab2a69ac23a3d2e570eef0ea93634a9aa9e2751fadf2"
+  },
+  {
+    "path": "publish_paper/2026_SMC_Score_Informed_Velocity.pdf",
+    "bytes": 899656,
+    "sha256": "7bafa56d60ff5101712aec687fbd4165b75c7cebec8c8c9173cb64b3afd3fdc7"
+  },
+  {
+    "path": "reference.bib",
+    "bytes": 146502,
+    "sha256": "0f171e7d67c82e44fa2bc2f292aa5f1e5a3ec470de1a86f754ff907c045c5573"
+  }
+]

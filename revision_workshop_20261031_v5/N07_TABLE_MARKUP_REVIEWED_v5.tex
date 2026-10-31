@@ -1,0 +1,36 @@
+% Proposal only. Source Chapter_6/chap6.tex, tab:bp_metric_diagnostic.
+% Removes cross-metric best/second-best numeric emphasis; keeps every value.
+\begin{table}[!ht]
+\caption{MAESTRO metric diagnostic. Real audio is compared with GT-note resynthesis using GT or flat velocity under the Salamander (default) or YDP Grand Piano. Summary rows show GT-Flat separation and SoundFont drift.}
+\label{tab:bp_metric_diagnostic}
+\centering
+\fontsize{11pt}{13pt}\selectfont
+\setlength{\tabcolsep}{11pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{l||ccc|ccc}
+\toprule
+\multicolumn{1}{c||}{\multirow{3}{*}{\textbf{Method}}}
+& \multicolumn{6}{c}{\textbf{MAESTRO test set}} \\
+\cmidrule(l){2-7}
+& \multicolumn{3}{c|}{\textbf{BSSL}} & \multicolumn{3}{c}{\textbf{BSTL}} \\
+\cmidrule(lr){2-4} \cmidrule(l){5-7}
+& $r$ & $cs$ & MAE & $r$ & $cs$ & MAE \\
+\midrule
+\textbf{GT velocity}            & 0.870 & 0.939 & 0.702 & 0.883 & 0.975 & 3.706 \\
+\,-\, uses YDP Piano            & 0.836 & 0.926 & 0.510 & 0.872 & 0.973 & 1.983 \\
+$\Delta\lvert$Sal.\,$-$\,YDP$\rvert$ $\downarrow$
+                                & 0.034 & 0.013 & 0.193
+                                & 0.011 & 0.002 & 1.723 \\
+\midrule
+\textbf{Flat velocity = 64}     & 0.752 & 0.887 & 0.786 & 0.620 & 0.928 & 4.065 \\
+\,-\, uses YDP Piano            & 0.733 & 0.883 & 0.637 & 0.617 & 0.930 & 2.750 \\
+$\Delta\lvert$Sal.\,$-$\,YDP$\rvert$ $\downarrow$
+                                & 0.019 & 0.004 & 0.149
+                                & 0.003 & 0.002 & 1.314 \\
+\midrule
+\textbf{$\Delta$ (GT $-$ Flat)}
+                                & +0.118 & +0.052 & -0.083
+                                & +0.263 & +0.047 & -0.359 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,242 @@
+{
+  "readability_layer": "v2, 2026-10-31",
+  "new_files": [
+    "START_HERE.md",
+    "CHANGE_CARDS_v2.md",
+    "READABILITY_HANDOFF_v2.md"
+  ],
+  "updated_files": [
+    "DECISIONS.md",
+    "README.md"
+  ],
+  "frozen_writer_sha256": "1a658584d35ee50580dd2dfd6eb9d0afdac1b573404edbacf3e475a79250c75e",
+  "ledger_before_sha256": "34ab3d9f6601f347e0df5a1fb5e06bd921bfcf84fe5c34d2e35406c543e4fe9a",
+  "ledger_after_sha256": "f4489e74df68177519e62d3a94504bf01549cc8d42856f68a4644fd7b0cce6b8",
+  "groups": [
+    {
+      "slug": "framing",
+      "title": "把中心问题和场景说准",
+      "items": [
+        {
+          "id": "R1-05",
+          "variant": "B"
+        },
+        {
+          "id": "R1-06",
+          "variant": "B"
+        },
+        {
+          "id": "R1-15",
+          "variant": "A"
+        },
+        {
+          "id": "R1-19",
+          "variant": "B"
+        },
+        {
+          "id": "R2-01",
+          "variant": "A"
+        },
+        {
+          "id": "R2-02",
+          "variant": "B"
+        }
+      ]
+    },
+    {
+      "slug": "explanation",
+      "title": "把表示、接口和方法理由说具体",
+      "items": [
+        {
+          "id": "R1-03",
+          "variant": "A"
+        },
+        {
+          "id": "R1-07",
+          "variant": "B"
+        },
+        {
+          "id": "R1-09",
+          "variant": "B"
+        },
+        {
+          "id": "R1-11",
+          "variant": "A"
+        },
+        {
+          "id": "R1-17",
+          "variant": "B"
+        },
+        {
+          "id": "R1-18",
+          "variant": "随R1-17"
+        },
+        {
+          "id": "R1-20",
+          "variant": "B"
+        },
+        {
+          "id": "R1-24",
+          "variant": "A"
+        },
+        {
+          "id": "R1-32",
+          "variant": "A"
+        },
+        {
+          "id": "R1-08",
+          "variant": "A"
+        },
+        {
+          "id": "R1-10",
+          "variant": "A"
+        },
+        {
+          "id": "R1-13",
+          "variant": "A（局部）"
+        },
+        {
+          "id": "R1-14",
+          "variant": "B"
+        },
+        {
+          "id": "R1-22",
+          "variant": "A"
+        },
+        {
+          "id": "R1-25",
+          "variant": "B"
+        },
+        {
+          "id": "R1-26",
+          "variant": "A（局部）"
+        },
+        {
+          "id": "R1-28",
+          "variant": "B"
+        },
+        {
+          "id": "R1-29",
+          "variant": "B"
+        },
+        {
+          "id": "R1-34",
+          "variant": "A"
+        }
+      ]
+    },
+    {
+      "slug": "claims",
+      "title": "保留实验结果，收准解释的力度",
+      "items": [
+        {
+          "id": "R1-16",
+          "variant": "B"
+        },
+        {
+          "id": "R1-21",
+          "variant": "A（应用段）"
+        },
+        {
+          "id": "R1-30",
+          "variant": "B（目的段）"
+        },
+        {
+          "id": "R1-33",
+          "variant": "B"
+        },
+        {
+          "id": "R2-04",
+          "variant": "A"
+        }
+      ]
+    },
+    {
+      "slug": "scope",
+      "title": "说明适用范围，未来工作点到为止",
+      "items": [
+        {
+          "id": "R1-12",
+          "variant": "A"
+        },
+        {
+          "id": "R1-23",
+          "variant": "A"
+        },
+        {
+          "id": "R1-27",
+          "variant": "Ch5 A＋Ch7 C"
+        },
+        {
+          "id": "R1-31",
+          "variant": "B"
+        },
+        {
+          "id": "R1-35",
+          "variant": "KEEP（原caption＋原图）；原A仍可选"
+        },
+        {
+          "id": "R1-36",
+          "variant": "A"
+        },
+        {
+          "id": "R1-37",
+          "variant": "随R1-27C"
+        },
+        {
+          "id": "R1-38",
+          "variant": "B"
+        },
+        {
+          "id": "R2-03",
+          "variant": "B"
+        }
+      ]
+    },
+    {
+      "slug": "small",
+      "title": "小修合并看，引用体例单独选",
+      "items": [
+        {
+          "id": "R1-01",
+          "variant": "A（保留数字制）"
+        },
+        {
+          "id": "R1-02",
+          "variant": "A"
+        },
+        {
+          "id": "R1-04",
+          "variant": "A"
+        },
+        {
+          "id": "R2-05",
+          "variant": "A"
+        }
+      ]
+    }
+  ],
+  "literal_excerpt_checks": 10,
+  "pending_scope": {
+    "R1-13": {
+      "variant": "A",
+      "exact_text": "Representative datasets relevant to expressive label recovery. “MIDI / note annotations” includes performance MIDI and aligned note annotations convertible to MIDI; it does not by itself imply measured velocity. “Velocity” indicates the availability of the note-level dynamics target, with qualifications stated in the row notes. “Score” refers to a reference symbolic score, rather than the performance timing in MIDI. A triangle marks a qualification in the corresponding row."
+    },
+    "R1-21": {
+      "variant": "A",
+      "exact_text": "Performance MIDI supplies captured velocity targets for training, while the completion interface can also accept quantised symbolic input. The composition use case is to add a velocity profile while retaining the notes and timing supplied by the user."
+    },
+    "R1-26": {
+      "variant": "A",
+      "exact_text": "In Table 4.1, audio denotes the standalone HPT velocity branch. The score-informed rows add either the frame-wise BiLSTM or the onset-token Transformer correction module. The onset condition uses the score onset matrix O; onset + frame additionally supplies the active-note matrix F; and onset + frame_ex uses F − O to distinguish sustain from the onset frame."
+    },
+    "R1-30": {
+      "variant": "B",
+      "exact_text": "Piece-disjoint cross-validation tests generalisation to unseen mazurkas within MazurkaBL. Cross-dataset evaluation additionally tests the learned mapping under changes in repertoire, performers, recording conditions, and annotation conventions. These factors vary together in Vienna4x22 and Batik-plays-Mozart, so the experiment diagnoses combined corpus transfer rather than isolating a composer or performer effect."
+    }
+  },
+  "early_qa_repairs_included": true,
+  "contextual_supplements": "SUPPLEMENTS_v4.md",
+  "contextual_review": "contextual_review_v4.md",
+  "supplement_groups": 3
+}

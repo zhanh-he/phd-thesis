@@ -1,0 +1,305 @@
+{
+  "edition": "writer-provisional; external evaluator pending",
+  "tests": [
+    {
+      "name": "Provisional status visible, not accepted review",
+      "passed": true
+    },
+    {
+      "name": "Six priority cards; 15-item optional index collapsed",
+      "passed": true
+    },
+    {
+      "name": "No duplicated short/why lead",
+      "passed": true
+    },
+    {
+      "name": "Historical author-choice link does not claim T11 approval row",
+      "passed": true
+    },
+    {
+      "name": "T11/R2 exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T11/KEEP exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T11/R2 exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T11/KEEP exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T11 historical approval warning stays visible",
+      "passed": true
+    },
+    {
+      "name": "N01/R2 exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "N01/KEEP exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "N01/R2 exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "N01/KEEP exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "N01 historical approval warning stays visible",
+      "passed": true
+    },
+    {
+      "name": "T03/R2 exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T03/GRID exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T03/KEEP exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T03/R2 exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T03/GRID exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T03/KEEP exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T03 historical approval warning stays visible",
+      "passed": true
+    },
+    {
+      "name": "T01/R2 exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T01/KEEP exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "T01/R2 exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T01/KEEP exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "T01 historical approval warning stays visible",
+      "passed": true
+    },
+    {
+      "name": "N05a/R2 exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "N05a/KEEP exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "N05a/R2 exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "N05a/KEEP exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "N05a historical approval warning stays visible",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62/KEEP exact original/candidate, toggle 1",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62/KEEP exact original/candidate, toggle 2",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62 historical approval warning stays visible",
+      "passed": true
+    },
+    {
+      "name": "N01 whole group exact sync ranges and five-range notice",
+      "passed": true
+    },
+    {
+      "name": "N01 KEEP scope retains whole group",
+      "passed": true
+    },
+    {
+      "name": "Optional b/c remain visible independent when a kept",
+      "passed": true
+    },
+    {
+      "name": "GRID has actual alternative source instead of selected-only file",
+      "passed": true
+    },
+    {
+      "name": "T01 shows actual examiner and authored reply",
+      "passed": true
+    },
+    {
+      "name": "New editorial issue not labeled examiner quote",
+      "passed": true
+    },
+    {
+      "name": "Workflow pending does not masquerade as scientific fact blocks",
+      "passed": true
+    },
+    {
+      "name": "Reset restores six defaults",
+      "passed": true
+    },
+    {
+      "name": "Huber exact corrected sentence, no dedicated-comparison phrase in candidate",
+      "passed": true
+    },
+    {
+      "name": "Stable v5 identifier displayed",
+      "passed": true
+    },
+    {
+      "name": "T11 exact reconstructed R2 context",
+      "passed": true
+    },
+    {
+      "name": "T11 other unapproved proposal IDs explicitly listed",
+      "passed": true
+    },
+    {
+      "name": "N01 exact reconstructed R2 context",
+      "passed": true
+    },
+    {
+      "name": "N01 other unapproved proposal IDs explicitly listed",
+      "passed": true
+    },
+    {
+      "name": "T03 exact reconstructed R2 context",
+      "passed": true
+    },
+    {
+      "name": "T03 other unapproved proposal IDs explicitly listed",
+      "passed": true
+    },
+    {
+      "name": "T03 retained v4 dependencies separately colored and labeled",
+      "passed": true
+    },
+    {
+      "name": "T01 exact reconstructed R2 context",
+      "passed": true
+    },
+    {
+      "name": "T01 other unapproved proposal IDs explicitly listed",
+      "passed": true
+    },
+    {
+      "name": "T01 retained v4 dependencies separately colored and labeled",
+      "passed": true
+    },
+    {
+      "name": "N05a exact reconstructed R2 context",
+      "passed": true
+    },
+    {
+      "name": "N05a other unapproved proposal IDs explicitly listed",
+      "passed": true
+    },
+    {
+      "name": "N05a first sentence preserved as boundaries",
+      "passed": true
+    },
+    {
+      "name": "N05 optional subranges have stable separate IDs",
+      "passed": true
+    },
+    {
+      "name": "KEEP cannot masquerade as R2 assembled context",
+      "passed": true
+    },
+    {
+      "name": "Previous provisional.html preserved",
+      "passed": true
+    },
+    {
+      "name": "Visible stable v5-T11 ID is searchable",
+      "passed": true
+    },
+    {
+      "name": "Independent v5-N05b ID finds its parent reading card",
+      "passed": true
+    },
+    {
+      "name": "Writer response is not labeled independent review",
+      "passed": true
+    },
+    {
+      "name": "Real quote link uses correct legacy R1-34 identity",
+      "passed": true
+    },
+    {
+      "name": "T11 at 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "N01 at 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "T03 at 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "T01 at 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "N05a at 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "KEEP-FIG62 at 390px no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "No runtime errors",
+      "passed": true
+    },
+    {
+      "name": "No external requests",
+      "passed": true
+    },
+    {
+      "name": "Legacy index.html not overwritten",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "r2-desktop.png",
+    "r2-metric-group.png",
+    "r2-v4-context.png",
+    "r2-narrow.png"
+  ],
+  "runtimeErrors": [],
+  "externalRequests": []
+}

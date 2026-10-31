@@ -1,0 +1,161 @@
+
+=== PDF PAGE 1; LABEL 1 ===
+Dr Emmanouil Benetos
+Reader in Machine Listening
+School of Electronic Engineering and Computer Science
+Queen Mary University of London
+Mile End Road, London E1 4NS
+Tel: +44(0)20 7882 6206
+Email: emmanouil.benetos@qmul.ac.uk
+24 September 2026
+Report on the PhD thesis of Zhanhong He entitled:
+“Recovering Musical Dynamics for Expressive Automatic Music Transcription”
+Introduction
+Zhanhong He has provided a PhD thesis which consists of 154 pages, 127 of which make up the main body
+of the text which consists of seven chapters. The core methodological chapters are chapters 3-6, with the
+first two providing an introduction and background and the last chapter being the thesis conclusions. Overall
+the document is well written and clearly organised, with no comments on the overall chapter structure. In
+terms of citation style, I would suggest to use an author-year format which improves readability given a lack
+of space constraints. The use of language and the overall presentation of the text is excellent. In general the
+thesis is of high quality and was a pleasure to read.
+Three works carried out by the candidate have been published as peer-reviewed papers at the CMMR 2025,
+SMC 2026, and IEEE ICASSP 2026 conferences respectively, and one work has been accepted for
+publication at the ISMIR 2026 conference. This shows good research productivity and consistency on
+publishing the outputs of Zhanhong’s PhD research to the music computing and MIR communities. All
+associated publications were carried out by Zhanhong as lead author with supervisors as co-authors.
+Thesis Evaluation
+According to the six merit criteria set by the University of Western Australia:
+· The thesis of Zhanhong He as a whole is a substantial and original contribution to knowledge in the
+fields of music information retrieval and music signal processing (the latter particularly for the
+contribution in chapter 6).
+· As demonstrated by Chapter 2 of the thesis, but also throughout the thesis document, the candidate
+shows familiarity with, and understanding of, the relevant literature particularly on topics related to
+automatic music transcription and velocity prediction, and more broadly on topics related to music
+information retrieval and music signal processing (such as DDSP).
+· The thesis provides a comprehensive study of the topic of automatically recovering musical
+dynamics from music audio and machine-readable symbolic music representations, perhaps at a
+level not achieved before in the field.
+· The techniques adopted and proposed (primarily computational, related to machine learning and
+signal processing) are all appropriate to the subject matter of the thesis and are properly applied. In
+certain cases, as with most engineering works, there could be alternative techniques or minor
+suggestions on certain experimental settings; these will be detailed in the comments below.
+· For each of the core methodological chapters (3-6), there are well-designed experiments and
+evaluations using appropriate existing or newly proposed evaluation metrics; results are suitably set
+out in tables and figures, and there is a good level of discussion of experimental results. As with
+most PhD theses including a computational evaluation component, there can be minor suggestions
+for presentation of results or choice of experimental setup; these are detailed in the comments
+below.
+· The quality of English and general presentation are of a standard for doctoral thesis publication. The
+narrative in particular flows very well across and within chapters.
+Patron: Her Majesty The Late Queen Elizabeth II
+Incorporated by Royal Charter as Queen Mary University of London
+
+=== PDF PAGE 2; LABEL 2 ===
+Specific comments and questions
+Below are specific comments on the thesis manuscript, as well as topics to be discussed during the viva.
+Preamble: Submitted ISMIR 2026 paper can now be marked as accepted for publication.
+Chapter 1:
+· Figure 1.1 is captioned as a “general architecture of an AMT system”, however step 2 of the figure
+only takes into account dynamics and velocity estimation, and not other aspects of music
+performance (e.g. instrument identities, expressive playing techniques).
+· Section 1.1, final paragraph: the term “recollecting” is ambiguous, perhaps “collecting” is more
+appropriate?
+· Section 1.5: how do you define weakly expressive and weakly supervised music data?
+· Table 1.2: would a scenario of converting performance audio to MIDI velocity also apply, particularly
+for the work done in chapter 6?
+Chapter 2:
+· Figure 2.1: does there need to be always a correspondence between the Perceptual level and the
+MIDI velocity level? Could there be a direct link between the Perceptual level to the Score Dynamics
+level?
+· Table 2.3 could benefit from inserting vertical lines to separate triplets of columns (1-3 vs 4-6 vs 7-9).
+· Section 2.3.2: “MIDI [...] is attached to a note onset”. Does that always hold true for the MIDI
+protocol?
+· Figure 2.3: In subfigures (e) and (f), it is not clear what do the different colours signify.
+· Section 2.5: The term “humanisation” is unclear – I would suggest to either define or replace it.
+· Section 2.6.1 could also discuss other score dynamics symbols, including crescendo and
+diminuendo.
+· Table 2.7: should an “audio” column be included for those datasets which include audio recordings?
+The upper triangular symbol is unclear. Does the MIDI column include both performance
+(unquantised) MIDI and reference (quantised) MIDI? What does the “43%” refer to? Many of the
+above can be clarified in the table caption.
+· Section 2.8.3: It might benefit the background section if commonly used evaluation metrics for
+dynamics prediction are defined here.
+Chapter 3:
+· Section 3.1: This work is mentioned as the “most controlled” in the thesis; however predicting
+dynamics from a score in the absence of any dynamics markings or velocity info is a more
+unconstrained problem than dynamics prediction given input audio (where dynamics are present).
+· Section 3.1 and beyond: to what extent should MIDI Velocity completion be style-specific or
+composer-specific?
+· Section 3.2 and beyond considers the proposed work as “image-based”. Although there are some
+related figures with varying colours included in this chapter, I do not see any strong argument for
+using this term – the methodology does not treat dynamics as a colour channel or similar.
+· Section 3.3: The text and candidate could perhaps better justify the use of piano-roll as
+representation, as opposed to other MIDI-like representations (with lists of notes).
+· Section 3.3: is this task about velocity recovery? Or velocity estimation?
+· Section 3.4.1: could the input representation be in musical time as opposed to physical time? One
+might expect that velocity prediction in symbolic music might be more accurate using a beat-aligned
+representation.
+· Section 3.6: The data used for experiments is performance MIDI, as opposed to reference
+(quantised) MIDI. Would that conflict with the main envisaged usecase which is on music
+composition?
+· Section 3.7: Baseline models could be presented in a separate subsection with more detail.
+Patron: Her Majesty The Late Queen Elizabeth II
+Incorporated by Royal Charter as Queen Mary University of London
+
+=== PDF PAGE 3; LABEL 3 ===
+Chapter 4:
+· Section 4.4: As part of the motivation for this work, it is stated that the proposed system isolates
+dynamics refinement from note transcription. Although practical, is this ecologically valid? Also, there
+is evidence that good velocity prediction can improve on note transcription performance, which
+would motivate linking both tasks and not isolating them.
+· Section 4.5 and Figure 4.2: The use of piano-rolls for the proposed work could be further motivated;
+why not use event-based representations which are closer to MIDI?
+· Section 4.5.3: Are both loss components balanced? Is there a need to weigh loss components?
+· The different experimental setups as presented in Table 4.1 are not clearly defined in the main text
+of the thesis.
+Chapter 5:
+· Section 5.3: beyond the dynamics-related predictions made by the proposed system, did you
+attempt to combine these outputs with the outputs of a note-based AMT system as to have a
+complete AMT system?
+· Section 5.3: It is not clear why there is a need to explictly model changepoints, and not predict
+dynamics markings at beat/downbeat levels.
+· Figure 5.2: Are the beat and downbeat components not connected? The same applies to the loss
+function of equation 5.2.
+· Section 5.6.1: is cross-dataset evaluation crucial for this specific work? Given that dynamics
+prediction can be to a large extent composer- and performer-dependent.
+Chapter 6:
+· Section 6.2: The author argues that this chapter is taking a “simpler route”. However I would doubt
+that treating the problem using analysis-by-synthesis methods and DDSP is simpler than a
+supervised labelling effort. One might argue that the former is more appropriate and accurate, and
+the latter is less valid and time-consuming, however modelling simplicity might be difficult to argue
+for the proposed work.
+· Section 6.4.1: What is the difference between V^{(0)} and \hat{V} ?
+· Section 6.4.2: Can you comment on the faithfulness of the DDSP-Piano and DDSP-Guitar-Synth
+synthesizers?
+· Section 6.4.3: Can you justify the use of a Huber distance as opposed to a more straightforward
+MAE loss?
+· Figure 6.2: is the data in the right part of the figure rendered audio? If yes, this is not shown in the
+figure.
+· Section 6.9.4: Could the SoundFont selection not be selected by ear but be automated instead?
+Chapter 7:
+· Would it be possible to integrate the developed models into AMT models for complete AMT? Would
+these improve on transcription performance?
+· Section 7.3: A possible limitation of this work is that not all possible dynamics markings (e.g.
+crescendo) are invetigated; these could be mentioned as future work.
+Overall recommendation
+As demonstrated by this thesis, the research carried out by the candidate contributed new knowledge to the
+field of music information retrieval in terms of proposing new models for predicting or recovering musical
+dynamics in the context of automatic music transcription. This is a systematic and thorough work into the
+topic, with significant contributions to knowledge, and the proposed work was carried out in a systematic and
+rigorous manner. As can be seen from the comments above, I have certain minor queries or comments that
+can be further discussed during the viva. I therefore approve the PhD thesis of Zhanhong He to proceed to
+viva, and consider the written work to be excellent, at the level of top 25% PhD theses I have examined.
+Patron: Her Majesty The Late Queen Elizabeth II
+Incorporated by Royal Charter as Queen Mary University of London
+
+=== PDF PAGE 4; LABEL 4 ===
+Yours faithfully,
+Dr Emmanouil Benetos
+emmanouil.benetos@qmul.ac.uk
+Patron: Her Majesty The Late Queen Elizabeth II
+Incorporated by Royal Charter as Queen Mary University of London

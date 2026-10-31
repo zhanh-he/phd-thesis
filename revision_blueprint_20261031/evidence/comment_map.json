@@ -1,0 +1,389 @@
+[
+  {
+    "id": "R1-01",
+    "source": "Report 1 Introduction citation-style suggestion",
+    "report_pdf_page": 1,
+    "comment": "Zhanhong He has provided a PhD thesis which consists of 154 pages, 127 of which make up the main body of the text which consists of seven chapters. The core methodological chapters are chapters 3-6, with the first two providing an introduction and background and the last chapter being the thesis conclusions. Overall the document is well written and clearly organised, with no comments on the overall chapter structure. In terms of citation style, I would suggest to use an author-year format which improves readability given a lack of space constraints. The use of language and the overall presentation of the text is excellent. In general the thesis is of high quality and was a pleasure to read.",
+    "response": "zhanhong not response yet",
+    "target_file": "main.tex",
+    "target_location": "natbib / bibliography style; entire thesis citation presentation"
+  },
+  {
+    "id": "R1-02",
+    "source": "Report 1 Preamble",
+    "report_pdf_page": 2,
+    "comment": "Preamble: Submitted ISMIR 2026 paper can now be marked as accepted for publication.",
+    "response": "> zhanhong not response yet",
+    "target_file": "Declaration/author_declaration.tex",
+    "target_location": "fourth publication status"
+  },
+  {
+    "id": "R1-03",
+    "source": "Report 1 1.1",
+    "report_pdf_page": 2,
+    "comment": "Figure 1.1 is captioned as a “general architecture of an AMT system”, however step 2 of the figure only takes into account dynamics and velocity estimation, and not other aspects of music performance (e.g. instrument identities, expressive playing techniques).",
+    "response": "> Yes, that’s a fair point. I forgot instrument identities and other expressive aspects from this figure. Final thesis, in this figure I will add them.",
+    "target_file": "Chapter_1/Intro.tex",
+    "target_location": "Figure 1.1 and nearby expressive-AMT text"
+  },
+  {
+    "id": "R1-04",
+    "source": "Report 1 1.2",
+    "report_pdf_page": 2,
+    "comment": "Section 1.1, final paragraph: the term “recollecting” is ambiguous, perhaps “collecting” is more appropriate?",
+    "response": "> Yes, collecting",
+    "target_file": "Chapter_1/Intro.tex",
+    "target_location": "Motivation final paragraph, recollecting"
+  },
+  {
+    "id": "R1-05",
+    "source": "Report 1 1.3",
+    "report_pdf_page": 2,
+    "comment": "Section 1.5: how do you define weakly expressive and weakly supervised music data?",
+    "response": "> Oops, Thanks, indeed I should add definition on that part.\n>\n> Weakly expressive is like \"音符和时间信息已经存在，但目标力度层被简化，例如 MIDI velocity 全部设为默认值，无法保留逐音力度变化 (set to 64, or 8-labels scale quantization.)\"\n>\n> Weak supervise is the missing of groundtruth labels, or low quality groundtruth.",
+    "target_file": "Chapter_1/Intro.tex",
+    "target_location": "Unified Thesis Question, after central question"
+  },
+  {
+    "id": "R1-06",
+    "source": "Report 1 1.4",
+    "report_pdf_page": 2,
+    "comment": "Table 1.2: would a scenario of converting performance audio to MIDI velocity also apply, particularly for the work done in chapter 6?",
+    "response": "> At current, I am success in Senario 2. We use a score-informed MIDI velocity estimation model because it performs better and provides a stronger pre-train model for adaptation.\n>\n> Normal MIDI velocity estimation, those without music score as prior, for example the hFT Transformer by Toyama ISMIR2023 is about 3 times MAE than our baseline system. So adapt these audio-only (S3) model with DDSP or DIff-SFProxy is good problem to explore, but we have not yet established.\n>\n> Current method is useful, As we demonstrated in Chapter 4, the audio–score misalignments won't affect much. So it works well.\n>\n> So it's good to explore border application. I believe.",
+    "target_file": "Chapter_1/Intro.tex; Chapter_6/chap6.tex",
+    "target_location": "Table 1.2; Chapter 6 overview"
+  },
+  {
+    "id": "R1-07",
+    "source": "Report 1 2.1",
+    "report_pdf_page": 2,
+    "comment": "Figure 2.1: does there need to be always a correspondence between the Perceptual level and the MIDI velocity level? Could there be a direct link between the Perceptual level to the Score Dynamics level?",
+    "response": "> Ture, but and False. This correspondence is about the instrument-specific tones, and Performer style. Like two different piano will give different sound with the same finger force. And, about the skill, this could said the piano pedal, and many other factor influence it. So it's false, because too many uncertainty.\n>\n> I would the Katerina Kosta's work, a \"piano symbol\" performance guidance resulted in sound is not always a soft. Her journal article also analyze this problem, and her ML model is better learn about the performer style instead of some kind of audio-to-loudness correspondence.\n>\n> Same finding in Kim’s work utilizing LLMs for midi-velocity-to-dynamic  translation",
+    "target_file": "Chapter_2/Background.tex",
+    "target_location": "Figure 2.1; representation relation text"
+  },
+  {
+    "id": "R1-08",
+    "source": "Report 1 2.2",
+    "report_pdf_page": 2,
+    "comment": "Table 2.3 could benefit from inserting vertical lines to separate triplets of columns (1-3 vs 4-6 vs 7-9).",
+    "response": "> zhanhong not response yet",
+    "target_file": "Chapter_2/Background.tex",
+    "target_location": "Table 2.3, triplets of columns"
+  },
+  {
+    "id": "R1-09",
+    "source": "Report 1 2.3",
+    "report_pdf_page": 2,
+    "comment": "Section 2.3.2: “MIDI [...] is attached to a note onset”. Does that always hold true for the MIDI protocol?",
+    "response": "> Yes a true",
+    "target_file": "Chapter_2/Background.tex",
+    "target_location": "Section 2.3.2 MIDI velocity"
+  },
+  {
+    "id": "R1-10",
+    "source": "Report 1 2.4",
+    "report_pdf_page": 2,
+    "comment": "Figure 2.3: In subfigures (e) and (f), it is not clear what do the different colours signify.",
+    "response": "> zhanhong not response yet",
+    "target_file": "Chapter_2/Background.tex",
+    "target_location": "Figure 2.3 caption and asset"
+  },
+  {
+    "id": "R1-11",
+    "source": "Report 1 2.5",
+    "report_pdf_page": 2,
+    "comment": "Section 2.5: The term “humanisation” is unclear – I would suggest to either define or replace it.",
+    "response": "> zhanhong not response yet",
+    "target_file": "Chapter_2/Background.tex",
+    "target_location": "Section 2.5.1 humanisation"
+  },
+  {
+    "id": "R1-12",
+    "source": "Report 1 2.6",
+    "report_pdf_page": 2,
+    "comment": "Section 2.6.1 could also discuss other score dynamics symbols, including crescendo and diminuendo.",
+    "response": "> zhanhong not response yet",
+    "target_file": "Chapter_2/Background.tex",
+    "target_location": "Section 2.6.1 score dynamics symbols"
+  },
+  {
+    "id": "R1-13",
+    "source": "Report 1 2.7",
+    "report_pdf_page": 2,
+    "comment": "Table 2.7: should an “audio” column be included for those datasets which include audio recordings? The upper triangular symbol is unclear. Does the MIDI column include both performance (unquantised) MIDI and reference (quantised) MIDI? What does the “43%” refer to? Many of the above can be clarified in the table caption.",
+    "response": "> In my table, MIDI is unquantised real-performance data, and the score is quantised (somehow we call it score-MIDI). So 43% means the ATEPP only have 43% of recording provided the score, but all of them can use a AMT system to obtain MIDI.",
+    "target_file": "Chapter_2/Background.tex",
+    "target_location": "Table 2.7 and caption"
+  },
+  {
+    "id": "R1-14",
+    "source": "Report 1 2.8",
+    "report_pdf_page": 2,
+    "comment": "Section 2.8.3: It might benefit the background section if commonly used evaluation metrics for dynamics prediction are defined here.",
+    "response": "> zhanhong not response yet",
+    "target_file": "Chapter_2/Background.tex",
+    "target_location": "Sections 2.8.2 and 2.8.3 evaluation"
+  },
+  {
+    "id": "R1-15",
+    "source": "Report 1 3.1",
+    "report_pdf_page": 2,
+    "comment": "Section 3.1: This work is mentioned as the “most controlled” in the thesis; however predicting dynamics from a score in the absence of any dynamics markings or velocity info is a more unconstrained problem than dynamics prediction given input audio (where dynamics are present).",
+    "response": "> Yes my mistake, my intend is to say \"less input signal compared to others\", but indeed less constrained. I will change my term.",
+    "target_file": "Chapter_3/chap3.tex; Chapter_1/Intro.tex; Chapter_7/Conclusion.tex",
+    "target_location": "most controlled / most constrained and scenario ordering"
+  },
+  {
+    "id": "R1-16",
+    "source": "Report 1 3.2",
+    "report_pdf_page": 2,
+    "comment": "Section 3.1 and beyond: to what extent should MIDI Velocity completion be style-specific or composer-specific?",
+    "response": "> That's a great question, During my Dolby internship, we explored using style as a control parameter in a generative system. Composer could also be used as a coarse style label, for example “Chopin style” or “Beethoven style.”\n>\n> However, we were facing the data limitation, we don't have enough training data for composer/style control. So we changed our idea from \" style control\", to make a model can generalize to more data in different style. \n>\n> You can see our human listening test analyse the \"most-seen composer / unseen composer style\" in train data, it exist a gap, but work well across those scenario.s.",
+    "target_file": "Chapter_3/chap3.tex",
+    "target_location": "Overview; style / composer discussion and listening test"
+  },
+  {
+    "id": "R1-17",
+    "source": "Report 1 3.3",
+    "report_pdf_page": 2,
+    "comment": "Section 3.2 and beyond considers the proposed work as “image-based”. Although there are some related figures with varying colours included in this chapter, I do not see any strong argument for using this term – the methodology does not treat dynamics as a colour channel or similar.",
+    "response": "> Good question. The idea originally came from image-processing papers, especially the use of U-Net and window attention. We use “image-based” because both the input and output are two-dimensional pitch–time matrices, processed with two-dimensional convolutions.\n>\n> The input is a binary piano roll, and the output is a single-channel velocity roll. We do not predict RGB colours. “Colourisation” is an analogy for adding velocity values to the existing note structure, it's good for general audiance understand, but I agree that the wording needs clarification.\n>\n> I would say the “image-like” is more proper. I will make revision.",
+    "target_file": "Chapter_3/chap3.tex; main.tex; Chapter_1/Intro.tex; Chapter_7/Conclusion.tex",
+    "target_location": "image-based terminology across thesis"
+  },
+  {
+    "id": "R1-18",
+    "source": "Report 1 3.4",
+    "report_pdf_page": 2,
+    "comment": "Section 3.3: The text and candidate could perhaps better justify the use of piano-roll as representation, as opposed to other MIDI-like representations (with lists of notes).",
+    "response": "> zhanhong not response yet",
+    "target_file": "Chapter_3/chap3.tex",
+    "target_location": "Problem Setting; Matrix Representation"
+  },
+  {
+    "id": "R1-19",
+    "source": "Report 1 3.5",
+    "report_pdf_page": 2,
+    "comment": "Section 3.3: is this task about velocity recovery? Or velocity estimation?",
+    "response": "> At first is recovery, because it's how we make the training data. We delete those midi velocity from the given MIDI files. But the final task is the estimation, so shown our MAESTRO dataset trained model can perform well in SMD dataset.",
+    "target_file": "Chapter_3/chap3.tex",
+    "target_location": "Problem Setting; velocity recovery vs estimation"
+  },
+  {
+    "id": "R1-20",
+    "source": "Report 1 3.6",
+    "report_pdf_page": 2,
+    "comment": "Section 3.4.1: could the input representation be in musical time as opposed to physical time? One might expect that velocity prediction in symbolic music might be more accurate using a beat-aligned representation.",
+    "response": "> Could be, but I guess it will be less expressive, as we know about the problem of quantization. We are not always input this model with the \"real music score\", sometimes, it could be AMT model result,. For example the  guitar-AMT model will not provide the velocity. Using our model in Physcical time, will be a great help.",
+    "target_file": "Chapter_3/chap3.tex",
+    "target_location": "MIDI segmentation in physical time"
+  },
+  {
+    "id": "R1-21",
+    "source": "Report 1 3.7",
+    "report_pdf_page": 2,
+    "comment": "Section 3.6: The data used for experiments is performance MIDI, as opposed to reference (quantised) MIDI. Would that conflict with the main envisaged usecase which is on music composition?",
+    "response": "> I don't think so. We tried the model inference, and it actually works well in quantised MIDI scores we download from the internet. And our MOS test is based on the score-MIDI, which is quantised, double confirm it can work.\n>\n> Be honestly I understand this can make a further experiment, which make discussion deeper. \n>\n> The true problem is Dolby will not happy for my \"internship finished project\" have further development\" haha. So we keep it as current.",
+    "target_file": "Chapter_3/chap3.tex",
+    "target_location": "Subjective listening protocol and composition usecase"
+  },
+  {
+    "id": "R1-22",
+    "source": "Report 1 3.8",
+    "report_pdf_page": 2,
+    "comment": "Section 3.7: Baseline models could be presented in a separate subsection with more detail.",
+    "response": "> zhanhong not response yet",
+    "target_file": "Chapter_3/chap3.tex",
+    "target_location": "Experimental Setup and Quantitative Results baseline description"
+  },
+  {
+    "id": "R1-23",
+    "source": "Report 1 4.1",
+    "report_pdf_page": 3,
+    "comment": "Section 4.4: As part of the motivation for this work, it is stated that the proposed system isolates dynamics refinement from note transcription. Although practical, is this ecologically valid? Also, there is evidence that good velocity prediction can improve on note transcription performance, which would motivate linking both tasks and not isolating them.",
+    "response": "> zhanhong not response yet",
+    "target_file": "Chapter_4/chap4.tex",
+    "target_location": "Modular Correction Principle; discussion"
+  },
+  {
+    "id": "R1-24",
+    "source": "Report 1 4.2",
+    "report_pdf_page": 3,
+    "comment": "Section 4.5 and Figure 4.2: The use of piano-rolls for the proposed work could be further motivated; why not use event-based representations which are closer to MIDI?",
+    "response": "> because we want to use the multi-scale network. Event-based token transformer might have better methodologies, but piano-roll based is easier to build. Actually we tried a \"multi-scale transformer\" in time series research, which is failed, so I did not goes further.",
+    "target_file": "Chapter_4/chap4.tex",
+    "target_location": "MIDI score features; architecture"
+  },
+  {
+    "id": "R1-25",
+    "source": "Report 1 4.3",
+    "report_pdf_page": 3,
+    "comment": "Section 4.5.3: Are both loss components balanced? Is there a need to weigh loss components?",
+    "response": "> This is the following work of a ISMIR2024 paper by Hyon Kim, he found this is the best ratio, and I verfied it. \n>\n> I will directly cite his work to further explain this.",
+    "target_file": "Chapter_4/chap4.tex",
+    "target_location": "Loss function; Kim citation"
+  },
+  {
+    "id": "R1-26",
+    "source": "Report 1 4.4",
+    "report_pdf_page": 3,
+    "comment": "The different experimental setups as presented in Table 4.1 are not clearly defined in the main text of the thesis.",
+    "response": "> zhanhong not response yet",
+    "target_file": "Chapter_4/chap4.tex",
+    "target_location": "Table 4.1 and Experimental Protocol"
+  },
+  {
+    "id": "R1-27",
+    "source": "Report 1 5.1",
+    "report_pdf_page": 3,
+    "comment": "Section 5.3: beyond the dynamics-related predictions made by the proposed system, did you attempt to combine these outputs with the outputs of a note-based AMT system as to have a complete AMT system?",
+    "response": "> zhanhong not response yet",
+    "target_file": "Chapter_5/chap5.tex; Chapter_7/Conclusion.tex",
+    "target_location": "complete AMT integration scope"
+  },
+  {
+    "id": "R1-28",
+    "source": "Report 1 5.2",
+    "report_pdf_page": 3,
+    "comment": "Section 5.3: It is not clear why there is a need to explictly model changepoints, and not predict dynamics markings at beat/downbeat levels.",
+    "response": "> dynamic markings is decode to beat levels,",
+    "target_file": "Chapter_5/chap5.tex",
+    "target_location": "Problem Setting; post-processing; change points"
+  },
+  {
+    "id": "R1-29",
+    "source": "Report 1 5.3",
+    "report_pdf_page": 3,
+    "comment": "Figure 5.2: Are the beat and downbeat components not connected? The same applies to the loss function of equation 5.2.",
+    "response": "*Response 1*\n\n> connected them might have benefit, a good point, but our idea is the simply MMoE module, so hard development might damage its performance.\n\n*Response 2*\n\n> only the decoding progress has the connection, but thanks for rasing it, this is a good point if we want a further performance improvement.",
+    "target_file": "Chapter_5/chap5.tex",
+    "target_location": "Figure 5.2; MMoE loss; decoding"
+  },
+  {
+    "id": "R1-30",
+    "source": "Report 1 5.4",
+    "report_pdf_page": 3,
+    "comment": "Section 5.6.1: is cross-dataset evaluation crucial for this specific work? Given that dynamics prediction can be to a large extent composer- and performer-dependent.",
+    "response": "> That's the reason. So we want to check whether this model can generalised across the composer and performer.\n>\n> Unfortunaly we cannot make a dataset that has specific balance to discuss this topic, but least we verfied it has a good generalization.",
+    "target_file": "Chapter_5/chap5.tex",
+    "target_location": "cross-dataset evaluation interpretation"
+  },
+  {
+    "id": "R1-31",
+    "source": "Report 1 6.1",
+    "report_pdf_page": 3,
+    "comment": "Section 6.2: The author argues that this chapter is taking a “simpler route”. However I would doubt that treating the problem using analysis-by-synthesis methods and DDSP is simpler than a supervised labelling effort. One might argue that the former is more appropriate and accurate, and the latter is less valid and time-consuming, however modelling simplicity might be difficult to argue for the proposed work.",
+    "response": "> yes, great point. Protential problem is design a ddsp model is hard, it need a new data/methodology develpment. But as you said, it's more straightforward.\n>\n> I will modify this term \"simpler route\" to \"more efficient route\".",
+    "target_file": "Chapter_6/chap6.tex",
+    "target_location": "Task-specific related work, simpler route"
+  },
+  {
+    "id": "R1-32",
+    "source": "Report 1 6.2",
+    "report_pdf_page": 3,
+    "comment": "Section 6.4.1: What is the difference between V^{(0)} and \\hat{V} ?",
+    "response": "> zhanhong not response yet",
+    "target_file": "Chapter_6/chap6.tex",
+    "target_location": "VeloEst notation V^(0) and V-hat"
+  },
+  {
+    "id": "R1-33",
+    "source": "Report 1 6.3",
+    "report_pdf_page": 3,
+    "comment": "Section 6.4.2: Can you comment on the faithfulness of the DDSP-Piano and DDSP-Guitar-Synth synthesizers?",
+    "response": "> We use these synthesizers as differentiable approximations, and their fidelity to the target recordings, especially their velocity-to-sound response, is a limitation. The degradation after Diff-Synth adaptation is consistent with acoustic mismatch, although we have not separately measured reconstruction fidelity and velocity-gradient accuracy on our target data.",
+    "target_file": "Chapter_6/chap6.tex",
+    "target_location": "Diff-Synth fidelity; limitations"
+  },
+  {
+    "id": "R1-34",
+    "source": "Report 1 6.4",
+    "report_pdf_page": 3,
+    "comment": "Section 6.4.3: Can you justify the use of a Huber distance as opposed to a more straightforward MAE loss?",
+    "response": "> We chose Huber because it provides smoother gradients for small PHE/OSF errors while retaining an L1-like penalty for large errors. We use β = 1, but we have not established that it performs better than MAE through a dedicated comparison.\n>\n> We will add more details about this in the thesis, thanks for rasing it.",
+    "target_file": "Chapter_6/chap6.tex",
+    "target_location": "Diff-SFProxy Huber loss and beta"
+  },
+  {
+    "id": "R1-35",
+    "source": "Report 1 6.5",
+    "report_pdf_page": 3,
+    "comment": "Figure 6.2: is the data in the right part of the figure rendered audio? If yes, this is not shown in the figure.",
+    "response": "> zhanhong not response yet",
+    "target_file": "Chapter_6/chap6.tex",
+    "target_location": "Figure 6.2 proxy training data"
+  },
+  {
+    "id": "R1-36",
+    "source": "Report 1 6.6",
+    "report_pdf_page": 3,
+    "comment": "Section 6.9.4: Could the SoundFont selection not be selected by ear but be automated instead?",
+    "response": "> could be, but it is a big field about the instrument similarity, we agree it's future work but hard to do it well at the current.",
+    "target_file": "Chapter_6/chap6.tex",
+    "target_location": "SoundFont selection; limitations"
+  },
+  {
+    "id": "R1-37",
+    "source": "Report 1 7.1",
+    "report_pdf_page": 3,
+    "comment": "Would it be possible to integrate the developed models into AMT models for complete AMT? Would these improve on transcription performance?",
+    "response": "> Possible, but I can image this is taken the longer time. \n>\n> I think it will make the model output more \"human-prefer\", for example in my case, we used the Bark-scale loudness so definatly it sounds more like the real performance. \n>\n> But sometimes, it will return lower objective evaluation metrics, which is a deeper issues need to be address.",
+    "target_file": "Chapter_7/Conclusion.tex; Chapter_4/chap4.tex; Chapter_5/chap5.tex",
+    "target_location": "future full-AMT integration; pitch/onset benefit untested"
+  },
+  {
+    "id": "R1-38",
+    "source": "Report 1 7.2",
+    "report_pdf_page": 3,
+    "comment": "Section 7.3: A possible limitation of this work is that not all possible dynamics markings (e.g. crescendo) are invetigated; these could be mentioned as future work.",
+    "response": "> Yes I agree, I will make this more detail.",
+    "target_file": "Chapter_7/Conclusion.tex; Chapter_2/Background.tex; Chapter_5/chap5.tex",
+    "target_location": "crescendo / diminuendo scope and future work"
+  },
+  {
+    "id": "R2-01",
+    "source": "Report 2 Main strengths",
+    "report_pdf_page": 2,
+    "comment": "The thesis has a clear central question: how musically interpretable dynamics labels can be recovered from incomplete, weakly expressive, or weakly supervised music data without changing note content or timing. This question gives the thesis a coherent intellectual framework and avoids the common problem of a PhD thesis appearing like a collection of disconnected papers. However, the thesis question is clearly articulated in the Abstract, Chapters 1 & 2, and revisited in the Conclusion. The technical chapters do address this question through speciﬁc recovery scenarios, such as symbolic velocity completion, score-informed velocity correction, audio-only score-dynamics recovery, and beyond-piano proxy-supervised velocity estimation. However, the connection between each technical chapter and the central thesis question could be made more explicit. I recommend a minor revision in which each technical chapter includes a short opening or closing paragraph that explains how that chapter addresses the central question under its speciﬁc data-availability condition. This is a minor revision, not a substantive ﬂaw. Technically, the contribution is substantial.",
+    "response": "zhanhong not response yet",
+    "target_file": "Chapter_3/chap3.tex; Chapter_4/chap4.tex; Chapter_5/chap5.tex; Chapter_6/chap6.tex",
+    "target_location": "technical chapter openings / closings"
+  },
+  {
+    "id": "R2-02",
+    "source": "Report 2 Main weaknesses and required minor revisions",
+    "report_pdf_page": 3,
+    "comment": "The thesis should more explicitly distinguish between published contributions, adapted contributions, and new thesis-level syntheses. The thesis states that Chapters 3–5 preserve technical contributions from peer-reviewed publications and adapt them into a uniﬁed narrative. This is acceptable, but the reader or I, as a thesis reviewer, would beneﬁt from a clearer statement of what was newly added to the thesis, especially in the introduction or contribution section.",
+    "response": "zhanhong not response yet",
+    "target_file": "Chapter_1/Intro.tex; Declaration/author_declaration.tex",
+    "target_location": "Main Contributions and Thesis Organisation"
+  },
+  {
+    "id": "R2-03",
+    "source": "Report 2 Main weaknesses and required minor revisions",
+    "report_pdf_page": 3,
+    "comment": "The discussion of generalisability should be strengthened. The thesis is honest that the main empirical focus is piano, with beyond-piano work treated as exploratory. However, I think a clearer statement of which conclusions can and cannot be transferred to guitar, voice, bowed strings, and wind instruments would be more informative. This is a minor revision because the limitation is already acknowledged, but it could be improved.",
+    "response": "zhanhong not response yet",
+    "target_file": "Chapter_7/Conclusion.tex; Chapter_6/chap6.tex",
+    "target_location": "Limitations; future instruments"
+  },
+  {
+    "id": "R2-04",
+    "source": "Report 2 Main weaknesses and required minor revisions",
+    "report_pdf_page": 4,
+    "comment": "The perceptual evaluation in Chapter 3 is useful but modest in scale, with 11 expert listeners. This does not invalidate the work, but the thesis should more clearly and explicitly state that the listening test supports the objective results rather than providing deﬁnitive perceptual validation.",
+    "response": "zhanhong not response yet",
+    "target_file": "Chapter_3/chap3.tex; main.tex; Chapter_1/Intro.tex; Chapter_7/Conclusion.tex",
+    "target_location": "Subjective listening; overview / summary perceptual claims"
+  },
+  {
+    "id": "R2-05",
+    "source": "Report 2 Main weaknesses and required minor revisions",
+    "report_pdf_page": 4,
+    "comment": "Some presentation improvements are advisable. The English is generally excellent and suitable for publication. Still, there are a few formatting artifacts and phrasing issues, likely from PDF conversion or LaTeX output, such as line-break artifacts. These could be corrected.",
+    "response": "zhanhong not response yet",
+    "target_file": "all active thesis .tex and PDF",
+    "target_location": "verified minor English / formatting defects"
+  }
+]

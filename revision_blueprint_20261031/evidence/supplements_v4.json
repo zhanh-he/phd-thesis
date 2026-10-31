@@ -1,0 +1,125 @@
+{
+  "status": "independently reviewed; ready for author choice; not approved or executed",
+  "review_file": "contextual_review_v4.md",
+  "review_sha256": "61867a500d88131d104cd6f59fa6621dbb9b63cd756540d9dea24122ecc6e298",
+  "frozen_round3_sha256": "1a658584d35ee50580dd2dfd6eb9d0afdac1b573404edbacf3e475a79250c75e",
+  "groups": [
+    {
+      "key": "intro-velocity-v4",
+      "canonical_id": "R1-09",
+      "cross_refs": [
+        "R2-03"
+      ],
+      "title": "前言定义同步",
+      "approval": "全部八处操作一起选；不从原R1-09 B继承YES，不确认Fig6.3 GT",
+      "operations": [
+        {
+          "file": "Chapter_1/Intro.tex",
+          "line": 89,
+          "old": "Originating from the physical sensors of electronic keyboards and pianos, MIDI velocity is a machine-centric measurement of physical intensity. To say it operates as a \"note-level\" parameter means that every music note from a discrete key strike is assigned an independent, static integer representing its initial strike force. This strict per-note measurement dictates that velocity functions as a discrete loudness control parameter. It is highly granular and absolute within its own scale, yet the resulting loudness highly depends on the acoustic environment and the specific instrument being played. Because MIDI velocity is necessary for MIDI-to-audio playback in DAWs and synthesisers, a common default is set to 64 when it is missing.",
+          "new": "Here, MIDI velocity refers to the velocity value in a Note On message. It is a machine-readable control parameter. In sensor-equipped piano data, the recorded value acts as a discretised proxy for key or hammer motion. Each note carries an integer value that can be edited independently, although its acoustic effect depends on the instrument and renderer. When expressive values are missing, a MIDI sequence may instead use a constant such as 64.",
+          "mode": "替换MIDI velocity整段"
+        },
+        {
+          "file": "Chapter_1/Intro.tex",
+          "line": 62,
+          "old": "a universal loudness variable for all instruments",
+          "new": "an editable note-level control",
+          "mode": "只替换短语"
+        },
+        {
+          "file": "Chapter_1/Intro.tex",
+          "line": 43,
+          "old": "a deep semantic gap exists between physical machine measurements (MIDI velocity) and subjective human cognition (score dynamics)",
+          "new": "a gap remains between machine-readable control values (MIDI velocity) and context-dependent musical notation (score dynamics)",
+          "mode": "只替换短语"
+        },
+        {
+          "file": "Chapter_1/Intro.tex",
+          "line": 53,
+          "old": "bridging physical machine measurements (e.g., MIDI velocity) with semantic cognitive notations (e.g., score dynamic markings)",
+          "new": "using note-level controls (e.g., MIDI velocity) and contextual notation (e.g., score dynamic markings)",
+          "mode": "只替换短语"
+        },
+        {
+          "file": "Chapter_1/Intro.tex",
+          "line": 82,
+          "old": "\\makecell[l]{Physical\\\\measurement}",
+          "new": "\\makecell[l]{Note-level\\\\control}",
+          "mode": "只替换Nature单元格"
+        },
+        {
+          "file": "Chapter_1/Intro.tex",
+          "line": 100,
+          "old": "a machine-centric, physical parameter",
+          "new": "a machine-readable control parameter",
+          "mode": "只替换短语"
+        },
+        {
+          "file": "Chapter_1/Intro.tex",
+          "line": 100,
+          "old": "bridge the fundamental gap between objective physical measurement and subjective human cognition",
+          "new": "bridge acoustic observations, performance controls, and musical notation",
+          "mode": "只替换动词短语"
+        },
+        {
+          "file": "Chapter_1/Intro.tex",
+          "line": 92,
+          "old": "In symbolic environments, the default assumption is often that missing score dynamics should be filled with \\textit{mf} (mezzo-forte), which is the neutral middle ground of human perceptual loudness.",
+          "new": "",
+          "mode": "删除这一整句，不加默认值"
+        }
+      ]
+    },
+    {
+      "key": "intro-scope-v4",
+      "canonical_id": "R1-06",
+      "cross_refs": [
+        "R1-15",
+        "R2-03"
+      ],
+      "title": "S3与guitar范围",
+      "approval": "只替S3句及scope bullet；R1-15末句仍另选，table后原B仍在原位置",
+      "operations": [
+        {
+          "file": "Chapter_1/Intro.tex",
+          "line": 118,
+          "old": "Finally, \\textbf{Scenario S3} removes structural support entirely, tackling the fully open, \\textit{audio-only} setting to recover a \\textit{score-facing} target.",
+          "new": "Finally, \\textbf{Scenario S3} uses an \\textit{audio-only} input to jointly estimate dynamic markings and the metrical coordinates needed for a \\textit{score-facing} output.",
+          "mode": "只替换S3句"
+        },
+        {
+          "file": "Chapter_1/Intro.tex",
+          "line": 153,
+          "old": "    \\item \\textbf{Exploration beyond the piano.} Extending velocity estimation beyond the piano is recognised as an important direction to counter the dataset bias in expressive AMT. However, large-scale non-piano score-dynamics transcription with human labels remains outside the scope of the core scenarios, and will only be investigated as an exploratory extension.",
+          "new": "\\item \\textbf{Exploration beyond the piano.} Chapter~\\ref{ch:beyondpiano} explores note-level velocity estimation for guitar using indirect supervision. Large-scale non-piano score-dynamics transcription with human labels remains outside the scope of this thesis.",
+          "mode": "只替换该scope bullet"
+        }
+      ]
+    },
+    {
+      "key": "intro-motivation-v4",
+      "canonical_id": "R1-04",
+      "cross_refs": [
+        "R2-05"
+      ],
+      "title": "动机末句",
+      "approval": "只替末句；不扩大collecting或单一方案包范围",
+      "operations": [
+        {
+          "file": "Chapter_1/Intro.tex",
+          "line": 45,
+          "old": "By retroactively estimating missing dynamics on existing corpora, we entirely bypass acquisition bottlenecks and annotation ambiguities, unlocking a vast, previously untapped resource for data-driven music research.",
+          "new": "By estimating missing dynamics on existing corpora, we can reduce the need for new data collection and make those corpora more useful for music research.",
+          "mode": "只替换最后一句；collecting另选"
+        }
+      ]
+    }
+  ],
+  "r1_35": {
+    "preferred": "KEEP",
+    "caption": "\\caption{An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio.}",
+    "old_A_preserved": true,
+    "new_choice_not_inherited": true
+  }
+}

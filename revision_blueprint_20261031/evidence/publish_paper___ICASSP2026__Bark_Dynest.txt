@@ -1,0 +1,498 @@
+
+=== PDF PAGE 1; LABEL 1 ===
+JOINT ESTIMATION OF PIANO DYNAMICS AND METRICAL STRUCTURE WITH A
+MULTITASK MULTI-SCALE CNN
+Zhanhong He1, Hanyu Meng2, David Huang1, Roberto Togneri1
+1The University of Western Australia, Perth, Australia
+2The University of New South Wales, Sydney, Australia
+ABSTRACT
+Estimating piano dynamic from audio recordings is a fundamental
+challenge in computational music analysis. In this paper, we pro-
+pose an efficient multitask CNN that jointly predicts dynamic levels,
+change points, beats, and downbeats from a shared latent represen-
+tation. These four targets form the metrical structure of dynamics in
+the music score. Inspired by recent vocal dynamic research, we use
+the multi-scale CNN backbone to leverage Bark-scale specific loud-
+ness as input features. Compared to log-Mel as input, this reduces
+model size from 13.4 M to 0.5 M, enabling long audio sequential
+input. We indentify the 60-second as optimial for combined tasks,
+which doubled the length of beat tracking commonly used. Evalu-
+ated on the public MazurkaBL dataset, our model achieves state-of-
+the-art results across all tasks. This work sets a new benchmark for
+piano dynamic estimation and delivers a powerful and compact tool,
+paving the way for large-scale, resource-efficient analysis of musical
+expression.
+Index Terms— Piano dynamic estimation, Beat and downbeat
+tracking, Bark-scale specific loudness, Multi-scale network, Multi-
+task learning.
+accurately estimate MIDI velocity from Yamaha Disklavier piano
+performance, estimate across diverse piano remains unsolved [11].
+The subsequent task of regressing dynamic markings from MIDI ve-
+locity expectionally difficult.
+Given these complexities, we propose an end-to-end multitask
+learning approach to estimate dynamic markings and their under-
+lying metrical structure directly from audio. Inspired by recent ad-
+vances in vocal dynamics estimation [12], we use Bark-scale specific
+loudness (BSSL) as input feature. This representation is processed
+by a multi-scale attention CNN backbone, adapted from [13], to ex-
+tract a shared latent representation. This unified representation is
+then channeled through a Multi-gate Mixture-of-Experts (MMoE)
+layer [14], which generates specialized features for four distinct task
+heads that jointly predict: (1) dynamic levels, (2) change points, (3)
+beat positions, and (4) downbeat positions. Together, these targets
+model not only the dynamic markings but also their underlying met-
+rical structure, as the beat and downbeat grid forms the rhythmic
+foundation of a musical score.
+The proposed multitask framework offers significant practical
+applications compared to single-task approaches. Its primary use is
+to enrich a musical score with dynamic markings, which is particu-
+larly valuable for enhancing the output of score-level automatic mu-
+sic transcription systems that typically capture only musical notes.
+This is achieved by combining the model’s predicted dynamic levels
+and change points and aligning them to a beat grid (see Fig. 1). A
+more advanced application stems from the model’s end-to-end de-
+sign, where it can predict the beat and downbeat grid by itself, using
+these internal predictions to post-process the dynamics. This enables
+fully audio-based music analysis where no ground-truth score or an-
+notations are available. By achieving state-of-the-art results on the
+expressive MazurkaBL dataset, we present this multitask CNN as
+a complete, end-to-end tool that supports large-scale music perfor-
+mance analysis, making it a valuable resource for the music research
+community.1
+1. INTRODUCTION
+The creation, comprehension and reproduction of music are fun-
+damental aspects of human culture. In western musical tradition,
+dynamics-the variations in loudness-is a key aspect of musical ex-
+pression [1]. Indicated in a score by markings such as p (piano,
+soft) and f (forte, loud), dynamics are essential for shaping musical
+phrases, conveying emotion, and articulating structural differenta-
+tion. This vocabulary extended to a nuanced of static levels, from pp
+(pianissimo) to ff (fortissimo), and includes gradual transitions like
+crescendo and decrescendo. The computational modeling of these
+expressive markings is valuable for music education, performance
+analysis, and theory-informed music generation [2].
+The core challenge in estimation from audio lies in the inherent
+relativity and ambiguity of dynamic markings. A symbol like pianis-
+simo does not map to a fixed physical measurement like a decibel
+level. Instead, its interpretation is deeply contextual, influenced by
+musical style, performer’s intent, and the acoustic environment [3,4].
+This lack of a standardized ground truth has historically posed a sig-
+nificant challenge for machine learning algorithms, often leading to
+poor generalization among different performers or pieces [5, 6].
+To circumvent the ambiguity of music dynamics, researchers of-
+ten adopt proxy targets: LUFS in audio generation and MIDI veloc-
+ity in music transcription and analysis [7–9]. However, MIDI ve-
+locity reflects performer’s physical action rather than the perceived
+loudness, and is entangled with music instrumental timbre and touch
+[10]. Although automatic music transcription (AMT) systems can
+2. METHODOLOGY
+2.1. Bark-scale Feature Extraction (WILL BE TIDY UP)
+The Bark-scale specific loudness (BSSL) feature, based on a psy-
+choacoustic model of perceived loudness over critical bands, has
+proven more effective than common log-Mel spectrograms for tasks
+like vocal dynamics estimation [12]. However, the implementa-
+tion in that study relied on the MOSQITO toolbox [15], which is
+designed for robust sound quality assessment and thus mandates a
+48 kHz sampling rate with constrained FFT parameters. Since music
+1Code and pre-trained models are available at: https://github.com/zhanh-
+he/piano-dynamic-estimation
+
+=== PDF PAGE 2; LABEL 2 ===
+Next, the weighted power spectrogram PW (k, t) is mapped to the
+Bark scale by summing energies up to 24 critical bands [21]. A total
+of 22 Bark bands are used, which is consistent with our Nyquist
+frequency of 11.05 kHz, where the 22nd band extends up to 9.5 kHz.
+Denoting the band index as b ∈{1, . . . , 22}, the Bark spectrogram
+is:
+B(b, t) =
+PW (k, t). (5)
+k∈Bandb
+To account for spectral masking, where a loud sound makes weaker
+sounds at nearby frequencies harder to preceive, we apply the
+spreading function following Schoroeder et al. [22]:
+G(∆b) = 15.81 + 7.5(∆b + 0.474)−17.5 1 + (∆ + 0.474)2
+,
+(6)
+with ∆b= bj−bi is the distance between the j-th and i-th bark
+bands.
+S as matrix multiplication :
+BS (b, t) =
+22
+i=1
+Sbi·B(i, t), (7)
+where the element Sbi of the spreading matrix S is defined by the
+distance between the j-th and i-th Bark bands. Letting ∆z = b−
+i + 0.474,
+Fig. 1. Workflow for adding dynamic markings to an AMT-
+transcribed score from audio. The highlighted region (90–105 s of
+Chopin Mazurka Op. 6 No. 1) shows a case study. Dynamic mark-
+ings is in music beat grid, with the meaning of dynamic levels at its
+shifting location (i.e., the change point).
+recordings are mostly encoded at 44.1 kHz, using MOSQITO would
+necessitate upsampling, a computationally expensive process that
+can introduce artifacts. We developed a more flexible feature extrac-
+tor in PyTorch framework, which reproduces the ma sone function
+from Pampalk’s widely-used music analysis MATLAB toolbox [16],
+following the processing chain proposed in [17, 18].
+The feature extraction pipeline proceeds as follows. First, the
+audio is converted to mono, peak-normalized to−1 dBFS, and re-
+sampled to fs = 22.05 kHz. To ensure comparability with the re-
+cent SOTA beat tracking model [19], we use identical STFT param-
+eters: a Hann window w[n] of length N = 1024 and a frame rate
+of FPS = 50 (i.e., 20 ms per frame and hop size of 441), where
+n indexes samples within a frame. The STFT yields the complex
+spectrogram X(k, t), with frame index t and frequency bin index k.
+We then form the power spectrogram P (k, t) with window-energy
+normalization, and subsequently convert to decibel scale:
+P(k, t) = |X(k, t)|2
+( N−1
+n=0 w[n])2 , (1)
+PdB(k, t) = max(0, 10 log10(P (k, t))). (2)
+To approximate the outer and middle-ear frequency response,
+we apply the Terhardt weighting function WdB(fk ) [20] designed in
+the decibel domain, where fk denotes the center frequency (in kHz)
+of the k-th bin:
+WdB(fk ) =−3.64 f−0.8
+k + 6.5 e−0.6 (fk−3.3)2
+−10−3 f 4
+k , (3)
+This weighting must be converted to a linear power weight before
+being applied to P (k, t):
+W (fk ) = 10WdB (fk )/20
+; PW (k, t) = P (k, t)·W (fk )2
+. (4)
+Sbi = 10(15.81+7.5∆z−17.5√1+(∆z+0.474)2 )/10
+. (8)
+Finally, the masked Bark spectrogram BS (b, t) is converted to the
+decibels (dB), and then to the perceived loudness in sones via a stan-
+dard piecewise [23]:
+BdB(b, t) = max(0, 10 log10(BS (b, t))). (9)
+Bsone(b, t) =
+2(BdB (b,t)−40)/10, BdB(b, t) ≥40
+(10)
+(BdB(b, t)/40)2.642, otherwise.
+The resulting BSSL matrix Bsone(b, t) is a 22-dimensional time-
+frequency representation of perceived loudness. While its aggre-
+gated total loudness is useful for visualization (see Fig. 1), we use
+the complete 24-dimensional matrix as input feature to preserve the
+vital spectral envelope information.
+2.2. Model Architecture
+The proposed model is illustrated in Fig. 2. With divergent acous-
+tic requirements, dynamic estimation benefits from a large tempo-
+ral receptive field [12], whereas beat and downbeat tracking require
+high temporal resolution to locate transient onsets [24]. To address
+this need for varied receptive fields, we adapt the multi-scale CNN
+from [13] as a shared encoder. Given an F ×T time–frequency fea-
+ture as input, the encoder operates on three parallel streams at dif-
+ferent temporal resolutions, corresponding to lengths of T , T /s, and
+T /s2. The downsampling and upsampling by the scaling factor s
+are implemented via setting strides in max-pooling and transposed
+convolutions. Unlike the original design [13], which used a fix fac-
+tor of 3, we treat the scaling factors as hyperparameters and study
+task-dependencies via ablations. We also replace the original task-
+specific classifiers with a shared latent sequence Z ∈RT ×8 con-
+sumed by all tasks. The model employs a compact configuration
+with a shared latent dimension of 8, a temporal scaling factor of 5,
+and an MMoE block with 8 experts.
+To specialize the shared representation and mitigate negative
+transfer between the acoustically heterogeneous tasks (multi-class
+
+=== PDF PAGE 3; LABEL 3 ===
+Fig. 2. Proposed model architecture. We apply an empirically optimal temporal scaling factor of 5, and predict dynamic levels across 6
+classes: a blank class for silence before the first annotation, and the five dynamic classes (pp, p, mf, f, ff ) from the MazurkaBL dataset.
+dynamics vs. other binary targets), we employ the MMoE module
+as a task-aware decoder [14]. This module consists of a pool of 8
+shared experts (a sequential Conv1D blocks) and four task-specific
+gates. For each task and time steps, a linear gate maps the shared
+latent feature to expert logits and normalizes them into non-negative
+weights that sum to one across experts by applying the softmax func-
+tion; the task feature is the weighted sum of expert outputs under
+these weights. Finally, separate linear heads map these task-specific
+features to the output logits, with shapes of C ×T for dynamic level,
+and 1 ×T for the beat, downbeat, and change point.
+multiclass target, dynamics, the loss term LDyn is a standard cross-
+entropy masked by the ground-truth beat positions. The masking
+operation enforces the prelimiary knowledge that dynamic changes
+occur at beat positions, guiding the model to ignore spurious inter-
+beat fluctuations.
+3. EXPERIMENTS
+2.3. Task-specific post-processing
+The model’s raw output is a sequence of frame-wise probabili-
+ties, which we convert into discrete musical events via tailored
+post-processing. For beat and downbeat detection, we follow [19],
+identifying events by thresholding probabilities at 50% and applying
+peak-picking within a 70 ms neighborhood (±3 frames at 50 fps).
+Our final target, a set of discrete dynamic markings, is obtained
+by sampling the continuous dynamic level (a curve) at the precise lo-
+cation of each change point. We detect these two intermediate com-
+ponents from the model’s output: the dynamic level is determined by
+an arg max over class probabilities, and change points are selected
+by peak-picking on probabilities exceeding a 75% threshold.
+An additional post-processing step is applied to change points.
+While it is not a strict musical rule that dynamic changes occur ex-
+actly on beat positions (they can occur between beats), the anno-
+tations in the MazurkaBL dataset are exclusively at beat locations.
+To be consistent with prior work [25], we snap the detected change
+points to the nearest beat position to ensure a comparable evaluation.
+3.1. Dataset
+This experiment uses the MazurkaBL dataset [6], a score-aligned
+corpus of 2,098 solo piano recordings covering 44 Chopin Mazurkas.
+After excluding two opuses with irregular dynamics annotations,
+1,999 recordings remained. MazurkaBL is the largest resource for
+studying notated dynamics versus performed loudness from audio,
+providing score-aligned beat times and verified expressive markings,
+with a specific focus on dynamics. In contrast, other large datasets
+like MAESTRO [26] use MIDI velocity as a proxy for dynamics,
+while others such as ASAP [27] provide score-aligned annotations
+but lack dynamic markings.
+3.2. Implementation details
+We use a 5-fold cross-validation protocol, stratified by Mazurka
+opus, to train and evaluate our model. Within each fold, the model is
+trained for 120 epochs, with the best-performing checkpoint selected
+based on the F1 score on its respective validation set. The training
+configuration includes the AdamW optimizer with a learning rate of
+3e-4, a batch size of 10, and a fixed random seed of 86. For data
+augmentation, we slice audio into 60-second segments with 50%
+overlap during training, while no overlap is used for evaluation.
+Both BSSL (22 bark bands) and log-Mel (128 mel bins) features
+are extracted using the same STFT parameters as in [19] to ensure
+identical temporal resolution. When run on a NVIDIA RTX 3090
+(24 GiB), a full 5-fold run completed in approximately 20 hours,
+with peak GPU memory usage of 4 GiB.
+2.4. Loss Function
+Training the multitask model involves a composite loss that com-
+bines specialized objectives for each task. Our multitask loss, LMTL,
+is defined as the sum of four task-specific losses:
+LMTL = LDyn + LCPt + LBt + LDbt (11)
+where each component is defined as follows. For the binary targets
+(change points, beats, and downbeats), the loss terms LCP t, LBt,
+and LDbt employ the shift-tolerant weighted binary cross-entropy
+proposed in [19]. This function addresses two key challenges: it
+counteracts the extreme sparsity of targets by weighting positive
+frames more heavily, and it accommodates annotation timing im-
+precision by incorporating a ±3 frame tolerance window. For the
+3.3. Baselines
+We compare the proposed multitask CNN against the single-task
+CNNs and task-specific baselines.
+Single-task CNN. The single-task CNN baselines are adapted from
+the public implementation of the multi-scale CNN [13], training one
+independent model per target. To ensure a fair comparison, the train-
+ing setup mirrors our multitask model, and the loss is the correspond-
+
+=== PDF PAGE 4; LABEL 4 ===
+Table 1. Basic evaluation results on different tasks, reported F1 scores as mean ±standard deviations (%) over 5 folds cross-validation. BS
+and PELT are algorithm-based methods with no trainable parameters, while the ANN did not report this attribute.
+Method Feature Dynamic Level F1 Change Point F1 Beat F1 Downbeat F1 # Params
+ANN [25] PELT [25] TCN+DBN [24] Beat This [19] Single-task CNN [13] w/o. BSSL BSSLsone BSSLsone– log-Mel log-Mel BSSLsone log-Mel 29.4 – – 10.8– – – 60.9 ±1.8 – – 80.5 ±2.7 47.7 ±7.5 16.8 ±5.0 83.7 ±1.4 46.4 ±7.9 16.6 ±2.4 83.1 ±1.4 – n/a.
+– n/a.
+30.4 ±1.3 0.3 M
+52.8 ±6.4 20.3 M
+44.1±0.9 0.4 M
+48.1±no yet 13.3 M
+Multitask CNN (Proposed) w/o. BSSL w/o. MMoE w/o. temporal scaling (s set to 1) BSSLsone log-Mel BSSLsone BSSLsone 51.4 ±5.4 48.5 ±6.5 48.3 ±2.6 49.6 ±9.0 21.6 ±5.9 19.8 ±7.3 21.7 ±5.5 13.1 ±3.3 83.4 ±0.8 83.7 ±1.6 83.9 ±0.8 79.6 ±1.1 52.3 ±1.2 56.1 ±2.9 53.1 ±1.6 40.7 ±1.1 0.5 M
+13.4 M
+0.4 M
+0.4 M
+ing single term from our multitask loss, with an empirically optimal
+temporal scaling factor of 5.
+Dynamic and change-point baselines. We report published re-
+sults from representative methods in [25]. This includes the Arti-
+ficial Neural Networks (ANN) for dynamics, and the Pruned Exact
+Linear Time (PELT) algorithms for change points. These methods
+are tuning-intensive and non–end-to-end, so we report the literature
+scores rather than re-implement them.
+Beat and downbeat baselines. We include the time-convolutional
+network (TCN) with a dynamic Bayesian network (DBN) post-
+processor [24], and the recent state-of-the-art transformer model,
+Beat This [19]. Both models are retrained from scratch on the
+MazurkaBL dataset using their public code and the same 5-fold
+protocol as ours.
+4. RESULTS
+3.4. Evaluation Metrics
+We evaluate four tasks using F1 scores. For beat and downbeat track-
+ing, we report F1 with a ±70 ms tolerance, consistent with prior
+work [19, 24]. For dynamic levels and change points, we devise two
+distinct evaluation scenarios.
+Basic. This scenario simulates an ideal case where accurate beat in-
+formation is available, such as refinement to a music score that has
+reliable beat positions but lacks dynamic markings. Consistent with
+single-task benchmarks [25], we align the model’s predictions with
+the ground-truth beats. The continuous dynamic levels are sampled
+at these ground-truth positions, discretized, and then evaluated us-
+ing a macro-averaged F1 score across five classes (pp, p, mf, f, ff ),
+the sixth class blank is masked). Change points are snapped to the
+nearest ground-truth beat and are thus represented on the beat grid
+for evaluation with a standard F1 score.
+Advanced. This scenario assesses the model’s practical, end-to-end
+performance where ground-truth beats are unavailable, such as in
+audio-only music analysis. The evaluation relies on the model’s own
+predicted beat positions. We first sample the predicted dynamic level
+curve at these predicted beats to obtain a beat-wise sequence of dy-
+namics. Then, we achor the predicted change points to this beat grid.
+The final ”dynamic markings” are formed by using these change
+point indices to define the dynamic level for each segment. This
+output is evaluated using accuracy (Acc) and the micro-averaged F1
+score across five dynamic classes .
+The proposed multitask CNN model demonstrates superior perfor-
+mance across all four tasks in Table 1. It achieves new SOTA F1
+scores for both dynamics estimation (51.4%) and change point de-
+tection (21.6%). Although a small gap remains in beat tracking when
+compared with the specialized system ”Beat This”, the core advan-
+tage of our approach is confirmed by the comparison with single-task
+CNNs. With BSSL features, the multitask CNN achieves improve-
+ments in dynamics (+3.7%), change points (+4.8%), and downbeats
+(+8.2%), with only a minor trade-off in beat detection (-0.3%). No-
+tably, this overall performance is achieved within a single, highly
+parameter-efficient multitask model that further confirms its prac-
+tical benefits, as it uses its own predicted beat positions for post-
+processing rather than relying on ground-truth annotations.
+Beyond the performance gains, our analysis reveals a strong
+task-feature dependency, with BSSL features proving superior for
+dynamics and log-Mel features excelling at beat tracking. The key
+advantage of BSSL is its compactness (22 Bark bins in our FFT set-
+tings, compared to 128 Mel bins), which dramatically reduces the
+model size from 13.5 M to 0.4 M trainable parameters. This smaller
+footprint enables the processing of longer audio sequences, directly
+benefiting tasks that require long-term temporal information and re-
+vealing BSSL’s potential for a wider range of musical tasks with
+long-temporal dependencies.
+Furthermore, our ablation study (in Table 1) investigates the im-
+pact of the MMoE module and the multi-scale functionality. Re-
+moving the MMoE module significantly degrades dynamics estima-
+tion while yielding minor gains in other tasks, highlighting its role in
+optimally allocating weights by light-weight shared experts, instead
+of a huge structural model changes. Disabling the multi-scale func-
+tionality (by setting the scaling factor s = 1) impairs the model’s
+ability to perceive features at different temporal resolutions, leading
+to a performance drop across all tasks. This degradation was partic-
+ularly severe in change point and downbeat detection, which might
+requiring high temporal precision.
+New: Advance evaluation. Now a figure will replace the Ta-
+ble2, to show model actual performance when using model own pre-
+dicted beat grid – a practical case that ”music score” is unknown.
+We will discuss on this figure. PENDING THIS PART.
+
+=== PDF PAGE 5; LABEL 5 ===
+Table 2. This table is being replaced by a figure to conduct the
+”Advanced” evaluation.
+Dyn. Acc. Dyn. F1. Num of CPtPred Num of CPtGT
+49.5 16.1 78.9 39.0
+49.5 16.1 78.9 39.0
+49.5 16.1 78.9 39.0
+5. CONCLUSION
+In this paper, we introduce a compact multitask, multi-scale CNN
+that jointly estimates piano dynamics, change points, beats, and
+downbeats directly from audio. Using Bark-scale specific loudness
+as input and an MMoE decoder, our model leverages long-range
+temporal context (60 s) while remaining highly parameter-efficient
+(0.5 M). Evaluated on the MazurkaBL dataset, it achieves SOTA
+results for dynamics and change point detection and competitive in
+beat and downbeat tracking. This demonstrates not only the model’s
+practical utility but also its significant potential for broader appli-
+cations. Future work will focus on combining our proposed model
+with score-level piano transcription systems. Such a pipeline would
+produce music scores with expressive dynamics marking more than
+pp to ff, and though this presents a new challenge in developing
+appropriate evaluation methods for such comprehensive outputs.
+6. REFERENCES
+[1] Carlos E Cancino-Chac´ on, Maarten Grachten, Werner Goebl,
+and Gerhard Widmer, “Computational models of expressive
+music performance: A comprehensive and critical review,”
+Frontiers in Digital Humanities, vol. 5, pp. 25, 2018.
+[2] Shih-Lun Wu, Chris Donahue, Shinji Watanabe, and
+Nicholas J. Bryan, “Music controlnet: Multiple time-varying
+controls for music generation,” IEEE/ACM Trans. Audio,
+Speech, Lang. Process., vol. 32, pp. 2692–2703, 2024.
+[3] Katerina Kosta, Oscar F. Bandtlow, and Elaine Chew, “Prac-
+tical implications of dynamic markings in the score: Is piano
+always piano?,” in AES 53rd International Conference: Se-
+mantic Audio, 2014, pp. 1–3.
+[4] Gabriel Jones and Anders Friberg, “Probing the underly-
+ing principles of dynamics in piano performances using a
+modelling approach,” Frontiers in Psychology, vol. 14, pp.
+1269715, 2023.
+[5] Katerina Kosta, Rafael Ramirez, Oscar F. Bandtlow, and Elaine
+Chew, “Mapping between dynamic markings and performed
+loudness: A machine learning approach,” Journal of Mathe-
+matics and Music, vol. 10, no. 2, pp. 149–172, 2016.
+[6] Katerina Kosta, Oscar F. Bandtlow, and Elaine Chew,
+“MazurkaBL: score-aligned loudness, beat, and expressive
+markings data for 2000 chopin mazurka recordings,” in Proc.
+Int. Conf. Tech. for Music Notation and Rep., 2018, pp. 85–94.
+[7] Curtis Hawthorne, Andriy Stasyuk, Adam Roberts, Ian Simon,
+Sageev Huang, Sander Dieleman, Erich Elsen, Jesse Engel,
+and Douglas Eck, “Onsets and frames: Dual-objective piano
+transcription,” in Proc. ISMIR, 2018, pp. 50–57.
+[8] Hyon Kim, Marius Miron, and Xavier Serra, “Score-informed
+midi velocity estimation for piano performance by film condi-
+tioning,” in Proc. of the Sound and Music Computing Conf.
+(SMC), 2023.
+[9] Hyon Kim and Xavier Serra, “A method for midi velocity es-
+timation for piano performance by a u-net with attention and
+film,” in Proc. ISMIR, 2024, pp. 304–310.
+[10] Axel Berndt and Tilo H¨ ahnel, “Modelling musical dynamics,”
+in Proceedings of the 5th Audio Mostly Conference: A Confer-
+ence on Interaction with Sound, 2010, pp. 1–8.
+[11] Drew Edwards, Simon Dixon, Emmanouil Benetos, Akira
+Maezawa, and Yuta Kusaka, “A data-driven analysis of ro-
+bust automatic piano transcription,” IEEE Signal Processing
+Letters, vol. 31, pp. 681–685, 2024.
+[12] Jyoti Narang, Nazif Can Tamer, Viviana De La Vega, and
+Xavier Serra, “Automatic estimation of singing voice musical
+dynamics,” in Proc. ISMIR, 2024, pp. 256–263.
+[13] Dichucheng Li, Mingjin Che, Wenwu Meng, Yulun Wu, Yi Yu,
+Fan Xia, and Wei Li, “Frame-level multi-label playing tech-
+nique detection using multi-scale network and self-attention
+mechanism,” in Proc. ICASSP, 2023, pp. 1–5.
+[14] Jiaqi Ma, Zhe Zhao, Xinyang Yi, Jilin Chen, Lichan Hong, and
+Ed H. Chi, “Modeling task relationships in multi-task learning
+with multi-gate mixture-of-experts,” in Proc. ACM SIGKDD
+Int. Conf. Knowl. Discov. Data Min., 2018, pp. 1930–1939.
+[15] Roberto San Mill´ an-Castillo, Eduardo Latorre-Iglesias, Mar-
+tin Glesser, Salom´ e Wanty, Daniel Jim´ enez-Caminero, and
+´
+Jos´ e Mar´
+ıa
+Alvarez-Jimeno, “MOSQITO: an open-source and
+free toolbox for sound quality metrics in the industry and ed-
+ucation,” in INTER-NOISE and NOISE-CON Congress and
+Conference Proceedings, 2021, pp. 1164–1175.
+[16] Elias Pampalk, “A matlab toolbox to compute music similarity
+from audio,” in Proc. ISMIR, 2004, pp. 254–257.
+[17] Elias Pampalk, Andreas Rauber, and Dieter Merkl, “Content-
+based organization and visualization of music archives,” in
+Proc. ACM Int. Conf. Multimedia, 2002, pp. 570–579.
+[18] Elias Pampalk, Simon Dixon, and Gerhard Widmer, “Explor-
+ing music collections by browsing different views,” Computer
+Music Journal, vol. 28, no. 2, pp. 49–62, 2004.
+[19] Francesco Foscarin, Jan Schl¨ uter, and Gerhard Widmer, “Beat
+this! accurate beat tracking without dbn postprocessing,” in
+Proc. ISMIR, 2024, pp. 962–969.
+[20] Ernst Terhardt, “Calculating virtual pitch,” Hearing Research,
+vol. 1, no. 2, pp. 155–182, 1979.
+[21] Eberhard Zwicker and Hugo Fastl, Psychoacoustics: Facts
+and Models, vol. 22 of Springer Series in Information Sciences,
+Springer, Berlin, 2nd, updated edition, 1999.
+[22] Manfred R. Schroeder, Bishnu S. Atal, and John L. Hall, “Op-
+timizing digital speech coders by exploiting masking proper-
+ties of the human ear,” Journal of the Acoustical Society of
+America, vol. 66, no. 6, pp. 1647–1652, 1979.
+[23] R. Anthony W. Bladon and Bj¨ orn Lindblom, “Modeling the
+judgment of vowel quality differences,” The Journal of the
+Acoustical Society of America, vol. 69, no. 5, pp. 1414–1422,
+1981.
+[24] Sebastian B¨ ock and Matthew E.P. Davies, “Deconstruct, anal-
+yse, reconstruct: How to improve tempo, beat, and downbeat
+estimation,” in Proc. ISMIR, 2020, pp. 574–582.
+
+=== PDF PAGE 6; LABEL 6 ===
+[25] Katerina Kosta, Computational Modelling and Quantitative
+Analysis of Dynamics in Performed Music, Ph.D. thesis, Centre
+for Digital Music, Queen Mary University of London, 2017.
+[26] Curtis Hawthorne et al., “Enabling factorized piano music
+modeling and generation with the MAESTRO dataset,” in
+Proc. ICLR, 2019.
+[27] Francesco Foscarin, Andrew McLeod, Philippe Rigaux, Flo-
+rent Jacquemard, and Masahiko Sakai, “ASAP: a dataset of
+aligned scores and performances for piano transcription,” in
+Proc. ISMIR, 2020, pp. 534–541.

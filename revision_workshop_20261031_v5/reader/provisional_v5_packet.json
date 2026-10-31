@@ -1,0 +1,555 @@
+{
+  "schemaVersion": 1,
+  "edition": "v5 待独立评审 · 六处精选预览",
+  "packetStatus": "writer-provisional",
+  "versionNotice": "待独立评审：这是 writer 的 v5 暂定候选。内部 C1/C2 记录不等于本轮外部评审同意；此预览不批准任何文字。",
+  "purpose": "只读暂定比较。原 index.html 继续展示历史已复核例子；不写作者决定。",
+  "reviewAgreement": {
+    "writerFile": "revision_workshop_20261031_v5/EDITORIAL_RECOMMENDATIONS_v5.md",
+    "internalC1": "revision_workshop_20261031_v5/evidence/BLIND_CRITIQUE_C1.md",
+    "internalC2": "revision_workshop_20261031_v5/evidence/CRITIQUE_C2.md",
+    "scope": "C2 accepts selected ranges, with N01 exact minimal repair applied; Fig6.2 KEEP supported by independent all43 audit and existing v4. Parent evaluator agreement still pending.",
+    "parentEvaluatorPending": true
+  },
+  "cards": [
+    {
+      "id": "T11",
+      "title": "Huber：保留你真实的证据边界",
+      "short": "实际PDF说not established，不是did not conduct；不替作者添加否定实验历史。",
+      "group": "准确",
+      "why": "实际PDF说not established，不是did not conduct；不替作者添加否定实验历史。",
+      "stance": "真实PDF批注：未通过专门比较确立优于MAE；不能推断从未做过比较。",
+      "scope": "只换最后理由句；公式、beta=1和1:1保留。",
+      "pending": "",
+      "sourceFile": "Chapter_6/chap6.tex",
+      "sourceLine": 126,
+      "originalFull": "The Huber form tolerates outliers from onset contamination such as overlapping notes, while the parameter-space objective concentrates gradients on note intensity and attack behaviour rather than on waveform details that are weakly related to velocity.",
+      "originalFocus": "The Huber form tolerates outliers from onset contamination such as overlapping notes, while the parameter-space objective concentrates gradients on note intensity and attack behaviour rather than on waveform details that are weakly related to velocity.",
+      "operation": "replacement",
+      "options": [
+        {
+          "id": "V5",
+          "label": "v5 · 推荐短稿",
+          "kind": "replacement",
+          "fullText": "We chose Huber for its smooth gradients near zero and L1-like penalty for large residuals. We have not established an advantage over MAE through a dedicated comparison.",
+          "focusText": "We chose Huber for its smooth gradients near zero and L1-like penalty for large residuals. We have not established an advantage over MAE through a dedicated comparison."
+        },
+        {
+          "id": "KEEP",
+          "label": "KEEP · 保留原文",
+          "kind": "keep",
+          "fullText": "The Huber form tolerates outliers from onset contamination such as overlapping notes, while the parameter-space objective concentrates gradients on note intensity and attack behaviour rather than on waveform details that are weakly related to velocity.",
+          "focusText": "The Huber form tolerates outliers from onset contamination such as overlapping notes, while the parameter-space objective concentrates gradients on note intensity and attack behaviour rather than on waveform details that are weakly related to velocity."
+        }
+      ],
+      "recommended": "V5",
+      "recommendationLabel": "writer 暂定推荐（待独立评审）",
+      "reviewStatus": "暂定候选 · 外部独立评审待确认",
+      "decisionPath": "revision_blueprint_20261031/DECISIONS.md",
+      "reviewFile": "revision_workshop_20261031_v5/evidence/CRITIQUE_C2.md",
+      "candidateFile": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md",
+      "candidateAnchor": "t11",
+      "commentFile": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "reviewerComment": "Section 6.4.3: Can you justify the use of a Huber distance as opposed to a more straightforward MAE loss?",
+      "authorResponse": "> We chose Huber because it provides smoother gradients for small PHE/OSF errors while retaining an L1-like penalty for large errors. We use β = 1, but we have not established that it performs better than MAE through a dedicated comparison.\n>\n> We will add more details about this in the thesis, thanks for rasing it.",
+      "optionNotes": {
+        "V5": "旧DECISIONS仅作历史参考；此v5范围尚未绑定作者批准入口。",
+        "KEEP": "旧DECISIONS仅作历史参考；此v5范围尚未绑定作者批准入口。"
+      },
+      "writerScope": "只换最后理由句；公式、beta=1和1:1保留。",
+      "writerReviewSummary": "R1-34：justify Huber rather than MAE.",
+      "writerAuthorResponseSummary": "We chose Huber because it provides smoother gradients for small PHE/OSF errors while retaining an L1-like penalty for large errors. We use β = 1, but we have not established that it performs better than MAE through a dedicated comparison.",
+      "statusNote": "v5提案未实施；不继承旧YES。正式送审PDF基线仍待确认。",
+      "candidateSourceLabel": "writer 准确候选（待独立评审）",
+      "decisionNotice": "新 v5 范围尚未写入原决定清单。链接仅供查看历史，旧 YES 不批准本页新稿。",
+      "decisionLinkLabel": "查看旧清单 · 搜索 R1-34（历史参考）",
+      "legacyDecisionId": "R1-34",
+      "evidenceKind": "original",
+      "commentSearchId": "R1-34",
+      "candidateEvidenceByOption": {}
+    },
+    {
+      "id": "N01",
+      "title": "指标：保留数字，收准推理",
+      "short": "r/cosine的gap不是校准过的sensitivity效应；换SoundFont也不隔离gain。",
+      "group": "准确",
+      "why": "r/cosine的gap不是校准过的sensitivity效应；换SoundFont也不隔离gain。",
+      "stance": "编辑新发现；没有作者既有回复或批准。",
+      "scope": "三个解释段整体替换；N07表格数值强调和N04背景从句必须同步。",
+      "pending": "",
+      "sourceFile": "Chapter_6/chap6.tex",
+      "sourceLine": 501,
+      "originalFull": "To test dynamics sensitivity, $\\Delta(\\mathrm{GT} - \\mathrm{Flat\\,64})$ asks whether a metric can distinguish expressive resynthesis from a flat one. Among the similarity metrics, Pearson $r$ produces the larger separation on both BSSL ($+0.118$) and BSTL ($+0.263$). Cosine similarity also orders GT above flat, but it severely compresses the margin ($+0.052$ on BSSL and $+0.047$ on BSTL), proving \\emph{insensitive} to fine dynamics differences.\n\nTo evaluate renderer robustness, $\\Delta\\lvert\\mathrm{Sal.} - \\mathrm{YDP}\\rvert$ asks whether a metric is stable when the rendering SoundFont is swapped while the underlying note velocities are kept the same. Here, MAE proves \\emph{over-sensitive} to absolute gain: it drifts by $0.193$ on BSSL and $1.723$ on BSTL, substantially more than the corresponding drift on $r$ ($0.034$ and $0.011$). On real recordings, this drift would conflate dynamics differences with renderer choice and make the evaluation unreliable.\n\nPearson $r$ on BSSL/BSTL therefore provides the right trade-off for this chapter. Cosine similarity and MAE fail on sensitivity and robustness, respectively, and are kept only as diagnostic alternatives. This is also the reason the main results table reports $r_{\\mathrm{BSSL}}$ and $r_{\\mathrm{BSTL}}$ as the headline metrics for label-free guitar evaluation.",
+      "originalFocus": "To test dynamics sensitivity, $\\Delta(\\mathrm{GT} - \\mathrm{Flat\\,64})$ asks whether a metric can distinguish expressive resynthesis from a flat one. Among the similarity metrics, Pearson $r$ produces the larger separation on both BSSL ($+0.118$) and BSTL ($+0.263$). Cosine similarity also orders GT above flat, but it severely compresses the margin ($+0.052$ on BSSL and $+0.047$ on BSTL), proving \\emph{insensitive} to fine dynamics differences.\n\nTo evaluate renderer robustness, $\\Delta\\lvert\\mathrm{Sal.} - \\mathrm{YDP}\\rvert$ asks whether a metric is stable when the rendering SoundFont is swapped while the underlying note velocities are kept the same. Here, MAE proves \\emph{over-sensitive} to absolute gain: it drifts by $0.193$ on BSSL and $1.723$ on BSTL, substantially more than the corresponding drift on $r$ ($0.034$ and $0.011$). On real recordings, this drift would conflate dynamics differences with renderer choice and make the evaluation unreliable.\n\nPearson $r$ on BSSL/BSTL therefore provides the right trade-off for this chapter. Cosine similarity and MAE fail on sensitivity and robustness, respectively, and are kept only as diagnostic alternatives. This is also the reason the main results table reports $r_{\\mathrm{BSSL}}$ and $r_{\\mathrm{BSTL}}$ as the headline metrics for label-free guitar evaluation.",
+      "operation": "replacement",
+      "options": [
+        {
+          "id": "V5",
+          "label": "v5 · 推荐短稿",
+          "kind": "replacement",
+          "fullText": "Both similarity metrics score GT above flat velocity in this diagnostic. Their numerical GT--flat gaps do not by themselves establish which metric is more sensitive to dynamics.\n\nChanging from Salamander to YDP while retaining the GT notes and velocities changes MAE by $0.193$ on BSSL and $1.723$ on BSTL; the corresponding changes in Pearson $r$ are $0.034$ and $0.011$. This tests the effect of the renderer change as a whole, rather than absolute gain alone. Pearson $r$ is used here to compare loudness-contour agreement while reducing dependence on absolute level.\n\nWe therefore use Pearson $r$ on BSSL/BSTL as the main measure of rendered loudness-contour agreement for label-free guitar evaluation. In this piano diagnostic, it distinguishes GT from flat velocity under both tested SoundFonts. Cosine similarity and MAE are retained as complementary diagnostics.",
+          "focusText": "Both similarity metrics score GT above flat velocity in this diagnostic. Their numerical GT--flat gaps do not by themselves establish which metric is more sensitive to dynamics.\n\nChanging from Salamander to YDP while retaining the GT notes and velocities changes MAE by $0.193$ on BSSL and $1.723$ on BSTL; the corresponding changes in Pearson $r$ are $0.034$ and $0.011$. This tests the effect of the renderer change as a whole, rather than absolute gain alone. Pearson $r$ is used here to compare loudness-contour agreement while reducing dependence on absolute level.\n\nWe therefore use Pearson $r$ on BSSL/BSTL as the main measure of rendered loudness-contour agreement for label-free guitar evaluation. In this piano diagnostic, it distinguishes GT from flat velocity under both tested SoundFonts. Cosine similarity and MAE are retained as complementary diagnostics."
+        },
+        {
+          "id": "KEEP",
+          "label": "KEEP · 保留原文",
+          "kind": "keep",
+          "fullText": "To test dynamics sensitivity, $\\Delta(\\mathrm{GT} - \\mathrm{Flat\\,64})$ asks whether a metric can distinguish expressive resynthesis from a flat one. Among the similarity metrics, Pearson $r$ produces the larger separation on both BSSL ($+0.118$) and BSTL ($+0.263$). Cosine similarity also orders GT above flat, but it severely compresses the margin ($+0.052$ on BSSL and $+0.047$ on BSTL), proving \\emph{insensitive} to fine dynamics differences.\n\nTo evaluate renderer robustness, $\\Delta\\lvert\\mathrm{Sal.} - \\mathrm{YDP}\\rvert$ asks whether a metric is stable when the rendering SoundFont is swapped while the underlying note velocities are kept the same. Here, MAE proves \\emph{over-sensitive} to absolute gain: it drifts by $0.193$ on BSSL and $1.723$ on BSTL, substantially more than the corresponding drift on $r$ ($0.034$ and $0.011$). On real recordings, this drift would conflate dynamics differences with renderer choice and make the evaluation unreliable.\n\nPearson $r$ on BSSL/BSTL therefore provides the right trade-off for this chapter. Cosine similarity and MAE fail on sensitivity and robustness, respectively, and are kept only as diagnostic alternatives. This is also the reason the main results table reports $r_{\\mathrm{BSSL}}$ and $r_{\\mathrm{BSTL}}$ as the headline metrics for label-free guitar evaluation.",
+          "focusText": "To test dynamics sensitivity, $\\Delta(\\mathrm{GT} - \\mathrm{Flat\\,64})$ asks whether a metric can distinguish expressive resynthesis from a flat one. Among the similarity metrics, Pearson $r$ produces the larger separation on both BSSL ($+0.118$) and BSTL ($+0.263$). Cosine similarity also orders GT above flat, but it severely compresses the margin ($+0.052$ on BSSL and $+0.047$ on BSTL), proving \\emph{insensitive} to fine dynamics differences.\n\nTo evaluate renderer robustness, $\\Delta\\lvert\\mathrm{Sal.} - \\mathrm{YDP}\\rvert$ asks whether a metric is stable when the rendering SoundFont is swapped while the underlying note velocities are kept the same. Here, MAE proves \\emph{over-sensitive} to absolute gain: it drifts by $0.193$ on BSSL and $1.723$ on BSTL, substantially more than the corresponding drift on $r$ ($0.034$ and $0.011$). On real recordings, this drift would conflate dynamics differences with renderer choice and make the evaluation unreliable.\n\nPearson $r$ on BSSL/BSTL therefore provides the right trade-off for this chapter. Cosine similarity and MAE fail on sensitivity and robustness, respectively, and are kept only as diagnostic alternatives. This is also the reason the main results table reports $r_{\\mathrm{BSSL}}$ and $r_{\\mathrm{BSTL}}$ as the headline metrics for label-free guitar evaluation."
+        }
+      ],
+      "recommended": "V5",
+      "recommendationLabel": "writer 暂定推荐（待独立评审）",
+      "reviewStatus": "暂定候选 · 外部独立评审待确认",
+      "decisionPath": "revision_blueprint_20261031/DECISIONS.md",
+      "reviewFile": "revision_workshop_20261031_v5/evidence/CRITIQUE_C2.md",
+      "candidateFile": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md",
+      "candidateAnchor": "n01",
+      "commentFile": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "reviewerComment": "本轮全文审查新增的局部编辑问题，不冒充新增examiner要求。",
+      "authorResponse": "未找到对本轮新增措辞的既有批准；真实立场见下方说明。",
+      "optionNotes": {
+        "V5": "旧DECISIONS仅作历史参考；此v5范围尚未绑定作者批准入口。",
+        "KEEP": "旧DECISIONS仅作历史参考；此v5范围尚未绑定作者批准入口。"
+      },
+      "followthrough": [
+        {
+          "file": "Chapter_6/chap6.tex",
+          "line": 466,
+          "old": "\\begin{table}[!ht]\n\\caption{MAESTRO metric diagnostic. Real audio is compared with GT-note resynthesis using GT or flat velocity under the Salamander (default) or YDP Grand Piano. Summary rows show GT-Flat separation and SoundFont drift. Best score is highlighted in bold, and the second-best is underlined.}\n\\label{tab:bp_metric_diagnostic}\n\\centering\n\\fontsize{11pt}{13pt}\\selectfont\n\\setlength{\\tabcolsep}{11pt}\n\\renewcommand{\\arraystretch}{1.2}\n\\begin{tabular}{l||ccc|ccc}\n\\toprule\n\\multicolumn{1}{c||}{\\multirow{3}{*}{\\textbf{Method}}}\n& \\multicolumn{6}{c}{\\textbf{MAESTRO test set}} \\\\\n\\cmidrule(l){2-7}\n& \\multicolumn{3}{c|}{\\textbf{BSSL}} & \\multicolumn{3}{c}{\\textbf{BSTL}} \\\\\n\\cmidrule(lr){2-4} \\cmidrule(l){5-7}\n& $r$ & $cs$ & MAE & $r$ & $cs$ & MAE \\\\\n\\midrule\n\\textbf{GT velocity}            & 0.870 & 0.939 & 0.702 & 0.883 & 0.975 & 3.706 \\\\\n\\,-\\, uses YDP Piano            & 0.836 & 0.926 & 0.510 & 0.872 & 0.973 & 1.983 \\\\\n$\\Delta\\lvert$Sal.\\,$-$\\,YDP$\\rvert$ $\\downarrow$\n                                & \\underline{0.034} & \\textbf{0.013} & 0.193\n                                & \\underline{0.011} & \\textbf{0.002} & 1.723 \\\\\n\\midrule\n\\textbf{Flat velocity = 64}     & 0.752 & 0.887 & 0.786 & 0.620 & 0.928 & 4.065 \\\\\n\\,-\\, uses YDP Piano            & 0.733 & 0.883 & 0.637 & 0.617 & 0.930 & 2.750 \\\\\n$\\Delta\\lvert$Sal.\\,$-$\\,YDP$\\rvert$ $\\downarrow$\n                                & \\underline{0.019} & \\textbf{0.004} & 0.149\n                                & \\underline{0.003} & \\textbf{0.002} & 1.314 \\\\\n\\midrule\n\\textbf{$\\Delta$ (GT $-$ Flat) $\\uparrow$}\n                                & \\textbf{+0.118} & \\underline{+0.052} & -0.083\n                                & \\textbf{+0.263} & \\underline{+0.047} & -0.359 \\\\\n\\bottomrule\n\\end{tabular}\n\\end{table}",
+          "new": "\\begin{table}[!ht]\n\\caption{MAESTRO metric diagnostic. Real audio is compared with GT-note resynthesis using GT or flat velocity under the Salamander (default) or YDP Grand Piano. Summary rows show GT-Flat separation and SoundFont drift.}\n\\label{tab:bp_metric_diagnostic}\n\\centering\n\\fontsize{11pt}{13pt}\\selectfont\n\\setlength{\\tabcolsep}{11pt}\n\\renewcommand{\\arraystretch}{1.2}\n\\begin{tabular}{l||ccc|ccc}\n\\toprule\n\\multicolumn{1}{c||}{\\multirow{3}{*}{\\textbf{Method}}}\n& \\multicolumn{6}{c}{\\textbf{MAESTRO test set}} \\\\\n\\cmidrule(l){2-7}\n& \\multicolumn{3}{c|}{\\textbf{BSSL}} & \\multicolumn{3}{c}{\\textbf{BSTL}} \\\\\n\\cmidrule(lr){2-4} \\cmidrule(l){5-7}\n& $r$ & $cs$ & MAE & $r$ & $cs$ & MAE \\\\\n\\midrule\n\\textbf{GT velocity}            & 0.870 & 0.939 & 0.702 & 0.883 & 0.975 & 3.706 \\\\\n\\,-\\, uses YDP Piano            & 0.836 & 0.926 & 0.510 & 0.872 & 0.973 & 1.983 \\\\\n$\\Delta\\lvert$Sal.\\,$-$\\,YDP$\\rvert$ $\\downarrow$\n                                & 0.034 & 0.013 & 0.193\n                                & 0.011 & 0.002 & 1.723 \\\\\n\\midrule\n\\textbf{Flat velocity = 64}     & 0.752 & 0.887 & 0.786 & 0.620 & 0.928 & 4.065 \\\\\n\\,-\\, uses YDP Piano            & 0.733 & 0.883 & 0.637 & 0.617 & 0.930 & 2.750 \\\\\n$\\Delta\\lvert$Sal.\\,$-$\\,YDP$\\rvert$ $\\downarrow$\n                                & 0.019 & 0.004 & 0.149\n                                & 0.003 & 0.002 & 1.314 \\\\\n\\midrule\n\\textbf{$\\Delta$ (GT $-$ Flat) $\\uparrow$}\n                                & +0.118 & +0.052 & -0.083\n                                & +0.263 & +0.047 & -0.359 \\\\\n\\bottomrule\n\\end{tabular}\n\\end{table}"
+        },
+        {
+          "file": "Chapter_2/Background.tex",
+          "line": 587,
+          "old": "so the gradient signal is dominated by factors unrelated to velocity.",
+          "new": "so renderer mismatch can divert the gradient from velocity-relevant differences."
+        }
+      ],
+      "writerScope": "三个解释段整体替换；N07表格数值强调和N04背景从句必须同步。",
+      "writerReviewSummary": "本轮全文审查新增的局部编辑问题，不冒充新增examiner要求。",
+      "writerAuthorResponseSummary": "未找到对本轮新增措辞的既有批准；真实立场见下方说明。",
+      "statusNote": "v5提案未实施；不继承旧YES。正式送审PDF基线仍待确认。",
+      "candidateSourceLabel": "writer 准确候选（待独立评审）",
+      "decisionNotice": "新 v5 范围尚未写入原决定清单。链接仅供查看历史，旧 YES 不批准本页新稿。",
+      "decisionLinkLabel": "查看原决定清单（历史参考）",
+      "evidenceKind": "editorial",
+      "candidateEvidenceByOption": {},
+      "scopeNote": "一致性组：Ch6 三个解释段＋N07 表格标记＋Ch2 N04 从句。下方能展开全部五个范围；这里没有批准操作。",
+      "keepScope": "保留本组现有三段解释、N07 表格标记和 Ch2 N04 从句；本组新修正均未采用。",
+      "followthroughLabel": "本组其余两处：N07 表格标记、Ch2 N04 从句"
+    },
+    {
+      "id": "T03",
+      "title": "image-like：用具体模型解释",
+      "short": "同时回答二维输入、单通道输出和note-list取舍；保留原引用。",
+      "group": "方法",
+      "why": "同时回答二维输入、单通道输出和note-list取舍；保留原引用。",
+      "stance": "作者真实回复解释二维矩阵和single-channel，接受image-like；未批准此新稿。",
+      "scope": "只替换Ch3 related-work动机段；其余title、引用、O/F/V和参数保留。",
+      "pending": "",
+      "sourceFile": "Chapter_3/chap3.tex",
+      "sourceLine": 26,
+      "originalFull": "This motivates the image-based view adopted in the present chapter. By treating symbolic MIDI as a sparse image and velocity as a colourisation target, the model can exploit local polyphonic structure more directly. U-Net and attention mechanisms are already successful in related music and audio tasks, but the present setting is distinct because it is purely symbolic and does not rely on acoustic input \\cite{he2025filling,kim2024method}. This makes the chapter a natural starting point for the broader thesis.",
+      "originalFocus": "This motivates the image-based view adopted in the present chapter. By treating symbolic MIDI as a sparse image and velocity as a colourisation target, the model can exploit local polyphonic structure more directly. U-Net and attention mechanisms are already successful in related music and audio tasks, but the present setting is distinct because it is purely symbolic and does not rely on acoustic input \\cite{he2025filling,kim2024method}. This makes the chapter a natural starting point for the broader thesis.",
+      "operation": "replacement",
+      "options": [
+        {
+          "id": "V5",
+          "label": "v5 · 推荐短稿",
+          "kind": "replacement",
+          "fullText": "We use piano rolls because the U-Net processes two-dimensional pitch--time neighbourhoods, including simultaneous notes. The input is binary and the output is a single-channel velocity roll, so colourisation is an analogy for adding dynamics to existing notes. A note-list representation would require a different model interface \\cite{he2025filling,kim2024method}.",
+          "focusText": "We use piano rolls because the U-Net processes two-dimensional pitch--time neighbourhoods, including simultaneous notes. The input is binary and the output is a single-channel velocity roll, so colourisation is an analogy for adding dynamics to existing notes. A note-list representation would require a different model interface \\cite{he2025filling,kim2024method}."
+        },
+        {
+          "id": "GRID",
+          "label": "备选 · 只解释grid与single-channel",
+          "kind": "replacement",
+          "fullText": "A piano roll gives the U-Net a regular pitch--time grid, with simultaneous notes aligned along the pitch axis. The binary input represents note structure; the single-channel output adds velocity values. Colourisation describes this missing-layer analogy, rather than RGB prediction. This representation supports the convolutional U-Net and window attention used here \\cite{he2025filling,kim2024method}.",
+          "focusText": "A piano roll gives the U-Net a regular pitch--time grid, with simultaneous notes aligned along the pitch axis. The binary input represents note structure; the single-channel output adds velocity values. Colourisation describes this missing-layer analogy, rather than RGB prediction. This representation supports the convolutional U-Net and window attention used here \\cite{he2025filling,kim2024method}.",
+          "summary": "更少讨论note list，但对representation比较的回应较窄。"
+        },
+        {
+          "id": "KEEP",
+          "label": "KEEP · 保留原文",
+          "kind": "keep",
+          "fullText": "This motivates the image-based view adopted in the present chapter. By treating symbolic MIDI as a sparse image and velocity as a colourisation target, the model can exploit local polyphonic structure more directly. U-Net and attention mechanisms are already successful in related music and audio tasks, but the present setting is distinct because it is purely symbolic and does not rely on acoustic input \\cite{he2025filling,kim2024method}. This makes the chapter a natural starting point for the broader thesis.",
+          "focusText": "This motivates the image-based view adopted in the present chapter. By treating symbolic MIDI as a sparse image and velocity as a colourisation target, the model can exploit local polyphonic structure more directly. U-Net and attention mechanisms are already successful in related music and audio tasks, but the present setting is distinct because it is purely symbolic and does not rely on acoustic input \\cite{he2025filling,kim2024method}. This makes the chapter a natural starting point for the broader thesis."
+        }
+      ],
+      "recommended": "V5",
+      "recommendationLabel": "writer 暂定推荐（待独立评审）",
+      "reviewStatus": "暂定候选 · 外部独立评审待确认",
+      "decisionPath": "revision_blueprint_20261031/DECISIONS.md",
+      "reviewFile": "revision_workshop_20261031_v5/evidence/CRITIQUE_C2.md",
+      "candidateFile": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md",
+      "candidateAnchor": "t03",
+      "commentFile": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "reviewerComment": "Section 3.2 and beyond considers the proposed work as “image-based”. Although there are some related figures with varying colours included in this chapter, I do not see any strong argument for using this term – the methodology does not treat dynamics as a colour channel or similar.",
+      "authorResponse": "> Good question. The idea originally came from image-processing papers, especially the use of U-Net and window attention. We use “image-based” because both the input and output are two-dimensional pitch–time matrices, processed with two-dimensional convolutions.\n>\n> The input is a binary piano roll, and the output is a single-channel velocity roll. We do not predict RGB colours. “Colourisation” is an analogy for adding velocity values to the existing note structure, it's good for general audiance understand, but I agree that the wording needs clarification.\n>\n> I would say the “image-like” is more proper. I will make revision.",
+      "optionNotes": {
+        "V5": "旧DECISIONS仅作历史参考；此v5范围尚未绑定作者批准入口。",
+        "GRID": "旧DECISIONS仅作历史参考；此v5范围尚未绑定作者批准入口。",
+        "KEEP": "旧DECISIONS仅作历史参考；此v5范围尚未绑定作者批准入口。"
+      },
+      "writerScope": "只替换Ch3 related-work动机段；其余title、引用、O/F/V和参数保留。",
+      "writerReviewSummary": "R1-17/18：image-based terminology and piano-roll versus note lists.",
+      "writerAuthorResponseSummary": "未找到对本轮新增措辞的既有批准；真实立场见下方说明。",
+      "statusNote": "v5提案未实施；不继承旧YES。正式送审PDF基线仍待确认。",
+      "candidateSourceLabel": "writer 准确候选（待独立评审）",
+      "decisionNotice": "新 v5 范围尚未写入原决定清单。链接仅供查看历史，旧 YES 不批准本页新稿。",
+      "decisionLinkLabel": "查看旧清单 · 搜索 R1-17（历史参考）",
+      "legacyDecisionId": "R1-17",
+      "evidenceKind": "original",
+      "commentSearchId": "R1-17",
+      "candidateEvidenceByOption": {
+        "GRID": {
+          "path": "revision_workshop_20261031_v5/CANDIDATE_PACKET_BLIND_C1.md#t03",
+          "label": "GRID 备选原来源"
+        }
+      }
+    },
+    {
+      "id": "T01",
+      "title": "两个术语：数据与监督分开说",
+      "short": "把79词旧定义缩成45词；区分数据状态和监督条件，保留重叠和Ch6实例。",
+      "group": "场景",
+      "why": "把79词旧定义缩成45词；区分数据状态和监督条件，保留重叠和Ch6实例。",
+      "stance": "作者真实回复同意补定义；举constant/coarse velocity与missing/unreliable labels。",
+      "scope": "在中心问题之后插入；左侧原问题整段保留，不是替换问题。",
+      "pending": "",
+      "sourceFile": "Chapter_1/Intro.tex",
+      "sourceLine": 114,
+      "originalFull": "The thesis is driven by the following question:\n\\begin{quote}\n\\textbf{How can musically interpretable dynamics labels be recovered from incomplete, weakly expressive, or weakly supervised music data without rewriting note content or note timing?}\n\\end{quote}",
+      "originalFocus": "The thesis is driven by the following question:\n\\begin{quote}\n\\textbf{How can musically interpretable dynamics labels be recovered from incomplete, weakly expressive, or weakly supervised music data without rewriting note content or note timing?}\n\\end{quote}",
+      "operation": "insertion",
+      "options": [
+        {
+          "id": "V5",
+          "label": "v5 · 推荐短稿",
+          "kind": "insertion",
+          "fullText": "Here, weakly expressive data retain note structure but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\\ref{ch:beyondpiano}. These conditions can overlap.",
+          "focusText": "Here, weakly expressive data retain note structure but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\\ref{ch:beyondpiano}. These conditions can overlap."
+        },
+        {
+          "id": "KEEP",
+          "label": "KEEP · 保留原文",
+          "kind": "keep",
+          "fullText": "The thesis is driven by the following question:\n\\begin{quote}\n\\textbf{How can musically interpretable dynamics labels be recovered from incomplete, weakly expressive, or weakly supervised music data without rewriting note content or note timing?}\n\\end{quote}",
+          "focusText": "The thesis is driven by the following question:\n\\begin{quote}\n\\textbf{How can musically interpretable dynamics labels be recovered from incomplete, weakly expressive, or weakly supervised music data without rewriting note content or note timing?}\n\\end{quote}"
+        }
+      ],
+      "recommended": "V5",
+      "recommendationLabel": "writer 暂定推荐（待独立评审）",
+      "reviewStatus": "暂定候选 · 外部独立评审待确认",
+      "decisionPath": "revision_blueprint_20261031/DECISIONS.md",
+      "reviewFile": "revision_workshop_20261031_v5/evidence/CRITIQUE_C2.md",
+      "candidateFile": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md",
+      "candidateAnchor": "t01",
+      "commentFile": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "reviewerComment": "Section 1.5: how do you define weakly expressive and weakly supervised music data?",
+      "authorResponse": "> Oops, Thanks, indeed I should add definition on that part.\n>\n> Weakly expressive is like \"音符和时间信息已经存在，但目标力度层被简化，例如 MIDI velocity 全部设为默认值，无法保留逐音力度变化 (set to 64, or 8-labels scale quantization.)\"\n>\n> Weak supervise is the missing of groundtruth labels, or low quality groundtruth.",
+      "optionNotes": {
+        "V5": "旧DECISIONS仅作历史参考；此v5范围尚未绑定作者批准入口。",
+        "KEEP": "旧DECISIONS仅作历史参考；此v5范围尚未绑定作者批准入口。"
+      },
+      "writerScope": "在中心问题之后插入；左侧原问题整段保留，不是替换问题。",
+      "writerReviewSummary": "R1-05：define weakly expressive and weak supervision.",
+      "writerAuthorResponseSummary": "未找到对本轮新增措辞的既有批准；真实立场见下方说明。",
+      "statusNote": "v5提案未实施；不继承旧YES。正式送审PDF基线仍待确认。",
+      "candidateSourceLabel": "writer 准确候选（待独立评审）",
+      "decisionNotice": "新 v5 范围尚未写入原决定清单。链接仅供查看历史，旧 YES 不批准本页新稿。",
+      "decisionLinkLabel": "查看旧清单 · 搜索 R1-05（历史参考）",
+      "legacyDecisionId": "R1-05",
+      "evidenceKind": "original",
+      "commentSearchId": "R1-05",
+      "candidateEvidenceByOption": {},
+      "navSummary": "新增术语定义，原问题保留。",
+      "baselineNote": "79→45 词比较的是旧 v4 提案；当前 thesis 没有这段定义。"
+    },
+    {
+      "id": "N05a",
+      "title": "结论：删掉替论文辩护的句子",
+      "short": "删除无必要的审查姿态；不改后文实际限制。",
+      "group": "简洁",
+      "why": "删除无必要的审查姿态；不改后文实际限制。",
+      "stance": "编辑语气建议；没有作者对这三处删句的既有立场。",
+      "scope": "只改本段引导句，另同步N05b/c；所有具体限制与future directions保留。",
+      "pending": "",
+      "sourceFile": "Chapter_7/Conclusion.tex",
+      "sourceLine": 109,
+      "originalFull": "The thesis has several boundaries. These boundaries are not artefacts of unfinished implementation; they follow from the problem definition and from the representational choices made throughout the dissertation.",
+      "originalFocus": "The thesis has several boundaries. These boundaries are not artefacts of unfinished implementation; they follow from the problem definition and from the representational choices made throughout the dissertation.",
+      "operation": "replacement",
+      "options": [
+        {
+          "id": "V5",
+          "label": "v5 · 推荐短稿",
+          "kind": "replacement",
+          "fullText": "The thesis has several limitations.",
+          "focusText": "The thesis has several limitations."
+        },
+        {
+          "id": "KEEP",
+          "label": "KEEP · 保留原文",
+          "kind": "keep",
+          "fullText": "The thesis has several boundaries. These boundaries are not artefacts of unfinished implementation; they follow from the problem definition and from the representational choices made throughout the dissertation.",
+          "focusText": "The thesis has several boundaries. These boundaries are not artefacts of unfinished implementation; they follow from the problem definition and from the representational choices made throughout the dissertation."
+        }
+      ],
+      "recommended": "V5",
+      "recommendationLabel": "writer 暂定推荐（待独立评审）",
+      "reviewStatus": "暂定候选 · 外部独立评审待确认",
+      "decisionPath": "revision_blueprint_20261031/DECISIONS.md",
+      "reviewFile": "revision_workshop_20261031_v5/evidence/CRITIQUE_C2.md",
+      "candidateFile": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md",
+      "candidateAnchor": "n05a",
+      "commentFile": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "reviewerComment": "本轮全文审查新增的局部编辑问题，不冒充新增examiner要求。",
+      "authorResponse": "未找到对本轮新增措辞的既有批准；真实立场见下方说明。",
+      "optionNotes": {
+        "V5": "旧DECISIONS仅作历史参考；此v5范围尚未绑定作者批准入口。",
+        "KEEP": "旧DECISIONS仅作历史参考；此v5范围尚未绑定作者批准入口。"
+      },
+      "followthrough": [
+        {
+          "file": "Chapter_7/Conclusion.tex",
+          "line": 124,
+          "old": "The results of the thesis suggest several directions for future research. These directions extend the thesis argument rather than repair it.",
+          "new": "The results suggest several directions for future research."
+        },
+        {
+          "file": "Chapter_7/Conclusion.tex",
+          "line": 117,
+          "old": "These assumptions are not weaknesses of the argument. They are the conditions under which label recovery, rather than unconstrained generation, becomes meaningful.",
+          "new": "These assumptions define the conditions for the label-recovery tasks studied here."
+        }
+      ],
+      "writerScope": "只改本段引导句，另同步N05b/c；所有具体限制与future directions保留。",
+      "writerReviewSummary": "本轮全文审查新增的局部编辑问题，不冒充新增examiner要求。",
+      "writerAuthorResponseSummary": "未找到对本轮新增措辞的既有批准；真实立场见下方说明。",
+      "statusNote": "v5提案未实施；不继承旧YES。正式送审PDF基线仍待确认。",
+      "candidateSourceLabel": "writer 准确候选（待独立评审）",
+      "decisionNotice": "新 v5 范围尚未写入原决定清单。链接仅供查看历史，旧 YES 不批准本页新稿。",
+      "decisionLinkLabel": "查看原决定清单（历史参考）",
+      "evidenceKind": "editorial",
+      "candidateEvidenceByOption": {},
+      "scopeDisplay": "本卡主文本只改结论段引导句；b/c 是下方单独列出的可选小修。具体限制与未来方向保留。",
+      "scopeNote": "这三处小修改可以各自保留。下方列 b/c 供一起阅读，不把对 a 的任何决定扩展给 b/c。",
+      "followthroughLabel": "同类可选小修 b/c · 每处独立审阅",
+      "followthroughIndependent": true
+    },
+    {
+      "id": "KEEP-FIG62",
+      "title": "Fig6.2：原图注已经够清楚",
+      "short": "原caption已说明teacher targets来自SoundFont-rendered audio；长解释没有必要。",
+      "group": "保留",
+      "why": "原caption已说明teacher targets来自SoundFont-rendered audio；长解释没有必要。",
+      "stance": "未找到作者对此条的原回复；v4已推荐KEEP，本轮确认。",
+      "scope": "KEEP原caption/图；不因此确认Fig6.3的GT来源。",
+      "pending": "",
+      "sourceFile": "Chapter_6/chap6.tex",
+      "sourceLine": 204,
+      "originalFull": "An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio.",
+      "originalFocus": "An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio.",
+      "operation": "replacement",
+      "options": [
+        {
+          "id": "KEEP",
+          "label": "KEEP · 保留原图注",
+          "kind": "keep",
+          "fullText": "An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio.",
+          "focusText": "An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio."
+        }
+      ],
+      "recommended": "KEEP",
+      "recommendationLabel": "writer 暂定推荐（待独立评审）",
+      "reviewStatus": "暂定候选 · 外部独立评审待确认",
+      "decisionPath": "revision_blueprint_20261031/DECISIONS.md",
+      "reviewFile": "revision_workshop_20261031_v5/evidence/ALL_43_REAUDIT_INDEPENDENT.md",
+      "candidateFile": "revision_workshop_20261031_v5/EDITORIAL_RECOMMENDATIONS_v5.md",
+      "candidateAnchor": "keep-list",
+      "commentFile": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "reviewerComment": "Figure 6.2: is the data in the right part of the figure rendered audio? If yes, this is not shown in the figure.",
+      "authorResponse": "> zhanhong not response yet",
+      "optionNotes": {
+        "KEEP": "旧DECISIONS仅作历史参考；此v5范围尚未绑定作者批准入口。"
+      },
+      "sourceExact": "\\caption{An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio.}",
+      "writerScope": "KEEP原caption/图；不因此确认Fig6.3的GT来源。",
+      "writerReviewSummary": "R1-35：is the target rendered audio?",
+      "writerAuthorResponseSummary": "未找到对本轮新增措辞的既有批准；真实立场见下方说明。",
+      "statusNote": "v5提案未实施；不继承旧YES。正式送审PDF基线仍待确认。",
+      "candidateSourceLabel": "writer 准确候选（待独立评审）",
+      "decisionNotice": "新 v5 范围尚未写入原决定清单。链接仅供查看历史，旧 YES 不批准本页新稿。",
+      "decisionLinkLabel": "查看旧清单 · 搜索 R1-35（历史参考）",
+      "legacyDecisionId": "R1-35",
+      "evidenceKind": "original",
+      "commentSearchId": "R1-35",
+      "candidateEvidenceByOption": {},
+      "keepScope": "保留 Fig6.2 原图与原图注；不确认 Fig6.3 的 GT 来源。"
+    }
+  ],
+  "provenance": [
+    {
+      "path": "Chapter_1/Intro.tex",
+      "sha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359"
+    },
+    {
+      "path": "Chapter_2/Background.tex",
+      "sha256": "f9f847a8d09557536798e776d60d80de16fb6ba6435afdbcbffaaf938ac7dffb"
+    },
+    {
+      "path": "Chapter_3/chap3.tex",
+      "sha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9"
+    },
+    {
+      "path": "Chapter_6/chap6.tex",
+      "sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf"
+    },
+    {
+      "path": "Chapter_7/Conclusion.tex",
+      "sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f"
+    },
+    {
+      "path": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "sha256": "f8c9f9357f17d1060fb294e31196e3e846411369ede5518bb868fdb194ee7d18"
+    },
+    {
+      "path": "revision_blueprint_20261031/evidence/comment_map.json",
+      "sha256": "6c6f16db0eb4478b80f54fc8846713e1c02650e4c51b5eb99690ff1f86906722"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/CANDIDATE_PACKET_BLIND_C1.md",
+      "sha256": "6cdb230a24da1de3458ea6de17a6698dbc6041d060c2a18910a2b5791c355634"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/EDITORIAL_RECOMMENDATIONS_v5.md",
+      "sha256": "e7fa53e25da38a638b9173f2e8552a2c0590123b4e411adce81ac7228d3adb63"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md",
+      "sha256": "2d9f74991cc03f22d1618b34828dca1ef14f465338878e0d3a47eff95306fc57"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/FINAL_SELECTION.json",
+      "sha256": "ef9eb2c40590daf05b7135f99ca6de39c7b086a113b00279b27a2da85d54d40a"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/N07_TABLE_MARKUP_PROPOSAL.tex",
+      "sha256": "afaf3b3e288a2324db2a3007d8945fe2b83bd2a1e0b1eb5e73b713724b48e0f5"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/WRITER_READER_PACKET.json",
+      "sha256": "e01bc91e4cda147f8b69c83d411fbeec917b3b371efbbd067c01a5e27f260934"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/evidence/ALL_43_REAUDIT_INDEPENDENT.md",
+      "sha256": "9be624b12653bcdc207ce0166778c9c4d95248ce560fa0ea570d3a3e6e2398fa"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/evidence/BLIND_CRITIQUE_C1.md",
+      "sha256": "b462dd2343e46b0de98ecc2404523f826b3e38b7bdf2e0277cc99789e4e3d607"
+    },
+    {
+      "path": "revision_workshop_20261031_v5/evidence/CRITIQUE_C2.md",
+      "sha256": "68accd0d2e1b06e99e24f6af0c4e95be7dddb393538aeef0a97356535bd2995e"
+    }
+  ],
+  "sourcePacketStatus": "writer-c2-reviewed-pending-parent-evaluator",
+  "provisionalNotice": "独立评审尚未确认；默认仅展示六处精选，完整十五组比较按需查阅。",
+  "mastNote": "只读预览 · writer 暂定稿",
+  "overviewGroups": [
+    {
+      "title": "新发现",
+      "items": [
+        {
+          "id": "T11",
+          "label": "Justify Huber versus MAE without overstating what the actual author response established.",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#t11"
+        },
+        {
+          "id": "N01",
+          "label": "Local source-integrity repair found during independent audit, beyond v4. Do the table values establish insensitive cosine?",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#n01"
+        },
+        {
+          "id": "N02",
+          "label": "Does swapping a SoundFont isolate absolute gain?",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#n02"
+        },
+        {
+          "id": "N03",
+          "label": "Keep a positive reason for the chosen headline metric without claiming a validated universal metric ranking.",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#n03"
+        },
+        {
+          "id": "N04",
+          "label": "Avoid a background universal causal claim inconsistent with later conditional DDSP mismatch interpretation.",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#n04"
+        }
+      ]
+    },
+    {
+      "title": "解释更短",
+      "items": [
+        {
+          "id": "T01",
+          "label": "Define weakly expressive and weak supervision.",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#t01"
+        },
+        {
+          "id": "T02",
+          "label": "Would audio-to-MIDI-velocity also be a scenario, particularly Chapter 6?",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#t02"
+        },
+        {
+          "id": "T03",
+          "label": "Explain image-based/colourisation and piano roll versus note lists.",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#t03"
+        },
+        {
+          "id": "T04",
+          "label": "Is separate velocity refinement ecologically valid? Joint modelling may improve notes.",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#t04"
+        },
+        {
+          "id": "T05",
+          "label": "Why an explicit change-point head rather than beat/downbeat level predictions alone?",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#t05"
+        },
+        {
+          "id": "T06",
+          "label": "Do not assert modelling simplicity without evidence; author suggested efficiency but no cost comparison.",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#t06"
+        },
+        {
+          "id": "T07",
+          "label": "Comment on DDSP-Piano/Guitar faithfulness.",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#t07"
+        },
+        {
+          "id": "T08",
+          "label": "Distinguish co-authored paper methods from thesis synthesis.",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#t08"
+        },
+        {
+          "id": "T09",
+          "label": "Clarify which conclusions transfer to guitar, voice, bowed strings, winds.",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#t09"
+        }
+      ]
+    },
+    {
+      "title": "旧稿胜出",
+      "items": [
+        {
+          "id": "T10",
+          "label": "Listening test with 11 experts supports objective results, not definitive perceptual validation.",
+          "path": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md#t10"
+        }
+      ]
+    }
+  ],
+  "overviewSource": "revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md"
+}

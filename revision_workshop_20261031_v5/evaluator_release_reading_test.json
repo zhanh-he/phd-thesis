@@ -1,0 +1,82 @@
+{
+  "stage": "bounded-final-reader-release-reading-test",
+  "passed": true,
+  "verified_utc": "2026-10-31T16:12:53.955072+00:00",
+  "page": "reader/index.html",
+  "page_sha256": "d7fc933840be7049f0d17cc472568b2584a1a01fef7965c0e4f8da5115148f37",
+  "source_packet_sha256": "9496ad5ece7f51e5de642c59fe0d547503e6eb7c77eb2376e34b8bad2f3c4c17",
+  "direct_browser_observation": {
+    "method": "Native Google Chrome through cua_repl; file URL loaded and AX/screenshot state inspected.",
+    "cards_read": [
+      "T11",
+      "N01",
+      "T03",
+      "T01",
+      "N05a",
+      "KEEP-FIG62"
+    ],
+    "interactions": [
+      "T11 KEEP matches original on both sides",
+      "N01 full block and N07/N04 followthrough expanded",
+      "T03 GRID option selected and distinguished from recommendation",
+      "T01 insertion labels and retained question inspected",
+      "T01 combined context distinguishes green v5 from blue v4 and unimplemented assumptions",
+      "N05b/c optional fold inspected; independent IDs and no automatic adoption",
+      "Fig6.2 existing v4 KEEP inspected",
+      "Keyword search filters cards without author action",
+      "Reload clears search and restores T11 recommendation",
+      "T03 after reload restores recommendation instead of earlier GRID choice",
+      "Reset returns six-card default reading entry",
+      "Actual examiner question and verbatim author Huber reply inspected separately from editorial wording"
+    ],
+    "screenshots_observed": [
+      "Native CUA Huber first screen",
+      "Native CUA metrics full group",
+      "Native CUA T01 insertion",
+      "Native CUA N05 independent optional changes",
+      "Native CUA restored default first screen"
+    ],
+    "no_approval_action_taken": true,
+    "no_choice_persisted_on_reload": true
+  },
+  "visual_review_of_integrator_screenshots": [
+    "reader/evidence/final-narrow-top.png",
+    "reader/evidence/final-narrow-text.png"
+  ],
+  "layout_result": "Desktop and inspected narrow screenshots readable; no material clipping/overlap found. Technical LaTeX detail remains collapsed by default.",
+  "network_storage_evidence": {
+    "reader_loaded_as_local_file": true,
+    "template_has_no_fetch_xhr_websocket_beacon_or_storage_apis": true,
+    "csp_connect_src_none": true,
+    "integrator_monitored_external_requests": [],
+    "integrator_runtime_errors": [],
+    "manual_reload_nonpersistence_observed": true
+  },
+  "harness_navigation_note": "Initial native typeText dropped URL punctuation and Chrome searched the malformed local path. Corrected with paste and AX-verified exact file URL. This was not a reader-generated request; no thesis text was entered or uploaded.",
+  "evidence_sha256": {
+    "reader/index.html": "d7fc933840be7049f0d17cc472568b2584a1a01fef7965c0e4f8da5115148f37",
+    "reader/reader_template.html": "8849ed86358b2efedcd2c30188da14f60f7673803de7e3e803df0f7ef4bcf068",
+    "reader/evidence/final_browser_validation.json": "f07201d3f69294066a4d15c853071220a079420e925bad6aa95db49380f39f4c",
+    "reader/evidence/final-narrow-top.png": "82270ffe4bc8ad892ce5beee86c04a8cba3a02cbaa8a9bf779a86041d626dad8",
+    "reader/evidence/final-narrow-text.png": "ac0f387c3063a60ffa36613f642409ee50b6dbb3425589c2a0515ce6b7ef4290",
+    "reader/evidence/final-desktop.png": "4eca4947c27688ad798c6420a95b3706ffc322499a86437e2258580e57ac01d1"
+  },
+  "content_verification": "evaluator_release_content_verification.json",
+  "reader_ui_stage_observed": "jointly-reviewed-v5, final six-card index; no legacy/provisional result used as final pass",
+  "author_approval": false,
+  "source_implementation": false,
+  "run_gt_certification": false,
+  "remaining_release_defects": [],
+  "pending_scientific_items": [
+    "Formal submitted baseline",
+    "R1-13",
+    "R1-21",
+    "R1-26",
+    "R1-30",
+    "run/checkpoint/table provenance",
+    "guitar GT",
+    "final ICASSP version"
+  ],
+  "integrator_regression_tests_passed": 94,
+  "integrator_regression_tests_failed": 0
+}

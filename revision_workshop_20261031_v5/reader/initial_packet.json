@@ -1,0 +1,372 @@
+{
+  "schemaVersion": 1,
+  "edition": "旧轮 v3／v4 · 五处示例",
+  "packetStatus": "reviewed-legacy",
+  "versionNotice": "现在展示旧轮已复核文字。v5 新稿尚未接入，不继承任何旧批准。",
+  "purpose": "只读比较；查看写法不会记录选择。作者决定只写入原 DECISIONS.md。",
+  "cards": [
+    {
+      "id": "R1-15",
+      "title": "把 S1 的信息条件说准",
+      "short": "推荐只改首句，也可比较整段写法。",
+      "group": "场景",
+      "why": "“most controlled”会把信息条件读成难度排序；直接写只有符号输入。",
+      "stance": "你说本意是“less input signal”，并同意换词。",
+      "scope": "Ch3 首段只换第一句；四处相关表述随所选方案同步，见完整范围。",
+      "pending": "",
+      "operation": "replacement",
+      "sourceFile": "Chapter_3/chap3.tex",
+      "sourceLine": 13,
+      "originalFull": "This chapter addresses Scenario~S1, the most controlled setting in the thesis map. Here the symbolic notes and their timing are already known, but the note-level velocity is missing, flattened, or musically uninformative. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?",
+      "originalFocus": "This chapter addresses Scenario~S1, the most controlled setting in the thesis map.",
+      "options": [
+        {
+          "id": "A",
+          "label": "A · 只修首句",
+          "kind": "replacement",
+          "fullText": "This chapter addresses Scenario S1, where only symbolic information is available. Here the symbolic notes and their timing are already known, but the note-level velocity is missing, flattened, or musically uninformative. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?",
+          "focusText": "This chapter addresses Scenario S1, where only symbolic information is available.",
+          "summary": "只改首句，保留后面两句和研究问题。"
+        },
+        {
+          "id": "B",
+          "label": "B · 解释估计歧义",
+          "kind": "replacement",
+          "fullText": "This chapter addresses Scenario S1, where the symbolic notes and their timing are known, but the velocity layer is missing, flattened, or musically uninformative. No performance audio is available to guide the prediction. The fixed note structure limits what the model may change without uniquely determining the velocity profile. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?",
+          "focusText": "This chapter addresses Scenario S1, where the symbolic notes and their timing are known, but the velocity layer is missing, flattened, or musically uninformative. No performance audio is available to guide the prediction. The fixed note structure limits what the model may change without uniquely determining the velocity profile. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?",
+          "originalFocus": "This chapter addresses Scenario~S1, the most controlled setting in the thesis map. Here the symbolic notes and their timing are already known, but the note-level velocity is missing, flattened, or musically uninformative. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?",
+          "summary": "这一版重写整个首段；下方显示完整变化。",
+          "scope": "Ch3 首段整体替换为这一版；四处相关表述随稿同步。不是只改第一句。"
+        },
+        {
+          "id": "C",
+          "label": "C · 压缩整段",
+          "kind": "replacement",
+          "fullText": "In the symbolic-only setting, the notes and their timing are fixed, while velocities may be missing, flattened, or musically uninformative. The model changes only the velocity layer and has no performance audio from which to infer it. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?",
+          "focusText": "In the symbolic-only setting, the notes and their timing are fixed, while velocities may be missing, flattened, or musically uninformative. The model changes only the velocity layer and has no performance audio from which to infer it. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?",
+          "originalFocus": "This chapter addresses Scenario~S1, the most controlled setting in the thesis map. Here the symbolic notes and their timing are already known, but the note-level velocity is missing, flattened, or musically uninformative. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?",
+          "summary": "这一版重写整个首段；下方显示完整变化。",
+          "scope": "Ch3 首段整体替换为这一版；四处相关表述随稿同步。不是只改第一句。"
+        },
+        {
+          "id": "KEEP",
+          "label": "KEEP · 保留原文",
+          "kind": "keep",
+          "fullText": "This chapter addresses Scenario~S1, the most controlled setting in the thesis map. Here the symbolic notes and their timing are already known, but the note-level velocity is missing, flattened, or musically uninformative. The chapter therefore asks a focused question: can useful note-level dynamics be recovered from symbolic structure alone, without changing the original composition?",
+          "focusText": "This chapter addresses Scenario~S1, the most controlled setting in the thesis map."
+        }
+      ],
+      "recommended": "A",
+      "recommendationLabel": "旧轮编辑推荐",
+      "reviewStatus": "旧轮已复核，待作者选择",
+      "reviewFile": "revision_blueprint_20261031/reviewer_final.md",
+      "candidateFile": "revision_blueprint_20261031/writer_round3.md",
+      "candidateAnchor": "r1-15",
+      "reviewerComment": "Section 3.1: This work is mentioned as the “most controlled” in the thesis; however predicting dynamics from a score in the absence of any dynamics markings or velocity info is a more unconstrained problem than dynamics prediction given input audio (where dynamics are present).",
+      "authorResponse": "> Yes my mistake, my intend is to say \"less input signal compared to others\", but indeed less constrained. I will change my term.",
+      "commentFile": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "contextAfter": "This setting matters because it isolates the dynamics problem from the broader transcription problem. It is common in digital audio workstation workflows, step-entered MIDI, quantised MIDI, and corpus curation settings where note content already exists but expression does not. It also provides the cleanest test of the thesis claim that dynamics can be treated as a separate and editable target rather than as a side effect of full expressive performance generation.",
+      "followthrough": [
+        {
+          "file": "Chapter_3/chap3.tex",
+          "old": "This chapter studies the most constrained setting in that map:",
+          "new": "This chapter studies the symbolic-only setting in that map:",
+          "line": 31
+        },
+        {
+          "file": "Chapter_3/chap3.tex",
+          "old": "This chapter studied the most controlled form of expressive-label recovery:",
+          "new": "This chapter studied expressive-label recovery without acoustic input:",
+          "line": 465
+        },
+        {
+          "file": "Chapter_7/Conclusion.tex",
+          "old": "The first method contribution establishes the most controlled setting:",
+          "new": "The first method contribution addresses the symbolic-only setting:",
+          "line": 48
+        },
+        {
+          "file": "Chapter_1/Intro.tex",
+          "old": "By intentionally ordering these environments from the tightly constrained to the ambiguous, they form the core empirical arc of the thesis.",
+          "new": "These settings form the core empirical arc of the thesis by varying both the available evidence and the target representation.",
+          "line": 118
+        }
+      ],
+      "decisionPath": "revision_blueprint_20261031/DECISIONS.md#decision-r1-15"
+    },
+    {
+      "id": "R1-25",
+      "title": "把 loss 的 1:1 说出来",
+      "short": "公式保留，补清平均方式和已有比较。",
+      "group": "方法",
+      "why": "评审问两项怎样平衡；原段没有直接说每项先平均、相对系数各为 1。",
+      "stance": "你写明沿用 Kim，并说自己验证过，准备补引用。",
+      "scope": "只替换 loss 段最后的解释；原引言、公式、变量定义和引用保留。",
+      "pending": "V-04：实际 run 的 theta、整体尺度和验证范围仍需记录对齐。选文字不确认最佳比例。",
+      "operation": "replacement",
+      "sourceFile": "Chapter_4/chap4.tex",
+      "sourceLine": 133,
+      "originalFull": "All models are trained with the hybrid loss adopted in prior score-informed work~\\cite{kim2024method}. It combines frame-wise binary cross-entropy with onset-wise $\\ell_1$ loss:\n\\begin{equation}\n\\mathcal{L}\n= \\frac{1}{|\\mathcal{J}|}\\sum_{(t,p)\\in\\mathcal{J}} \\ell_{\\mathrm{bce}}\\big(V_{t,p},\\hat{V}_{t,p}\\big)\n+ \\frac{1}{|\\mathcal{I}|}\\sum_{(t,p)\\in\\mathcal{I}} \\left|V_{t,p}-\\hat{V}_{t,p}\\right|.\n\\label{eq:scoreinf:loss}\n\\end{equation}\nHere $\\mathbf{V}$ is the ground-truth velocity target and $\\hat{\\mathbf{V}}$ is the predicted velocity output of either the baseline AMT branch or the score-informed system. This hybrid supervision is useful because it constrains both the local onset value and the broader note sustain region, while still keeping note-level precision central to the objective.",
+      "originalFocus": "This hybrid supervision is useful because it constrains both the local onset value and the broader note sustain region, while still keeping note-level precision central to the objective.",
+      "options": [
+        {
+          "id": "A",
+          "label": "A · 最短解释",
+          "kind": "replacement",
+          "fullText": "All models are trained with the hybrid loss adopted in prior score-informed work~\\cite{kim2024method}. It combines frame-wise binary cross-entropy with onset-wise $\\ell_1$ loss:\n\\begin{equation}\n\\mathcal{L}\n= \\frac{1}{|\\mathcal{J}|}\\sum_{(t,p)\\in\\mathcal{J}} \\ell_{\\mathrm{bce}}\\big(V_{t,p},\\hat{V}_{t,p}\\big)\n+ \\frac{1}{|\\mathcal{I}|}\\sum_{(t,p)\\in\\mathcal{I}} \\left|V_{t,p}-\\hat{V}_{t,p}\\right|.\n\\label{eq:scoreinf:loss}\n\\end{equation}\nHere $\\mathbf{V}$ is the ground-truth velocity target and $\\hat{\\mathbf{V}}$ is the predicted velocity output of either the baseline AMT branch or the score-informed system. Each component is averaged over its own mask, and the two means have equal relative coefficients. Equal coefficients do not imply equal numerical loss or gradient magnitudes.",
+          "focusText": "Each component is averaged over its own mask, and the two means have equal relative coefficients. Equal coefficients do not imply equal numerical loss or gradient magnitudes."
+        },
+        {
+          "id": "B",
+          "label": "B · 保留 SMC 初步比较",
+          "kind": "replacement",
+          "fullText": "All models are trained with the hybrid loss adopted in prior score-informed work~\\cite{kim2024method}. It combines frame-wise binary cross-entropy with onset-wise $\\ell_1$ loss:\n\\begin{equation}\n\\mathcal{L}\n= \\frac{1}{|\\mathcal{J}|}\\sum_{(t,p)\\in\\mathcal{J}} \\ell_{\\mathrm{bce}}\\big(V_{t,p},\\hat{V}_{t,p}\\big)\n+ \\frac{1}{|\\mathcal{I}|}\\sum_{(t,p)\\in\\mathcal{I}} \\left|V_{t,p}-\\hat{V}_{t,p}\\right|.\n\\label{eq:scoreinf:loss}\n\\end{equation}\nHere $\\mathbf{V}$ is the ground-truth velocity target and $\\hat{\\mathbf{V}}$ is the predicted velocity output of either the baseline AMT branch or the score-informed system. The frame-wise BCE and onset-wise L1 terms are averaged over their respective active positions and combined with equal relative coefficients. We retain the hybrid objective of Kim et al. (2024), supported by the preliminary comparison with frame-only and onset-only supervision reported in our associated SMC paper. Equal coefficients do not imply equal numerical loss or gradient magnitudes.",
+          "focusText": "The frame-wise BCE and onset-wise L1 terms are averaged over their respective active positions and combined with equal relative coefficients. We retain the hybrid objective of Kim et al. (2024), supported by the preliminary comparison with frame-only and onset-only supervision reported in our associated SMC paper. Equal coefficients do not imply equal numerical loss or gradient magnitudes."
+        },
+        {
+          "id": "C",
+          "label": "C · 解释两项作用",
+          "kind": "replacement",
+          "fullText": "All models are trained with the hybrid loss adopted in prior score-informed work~\\cite{kim2024method}. It combines frame-wise binary cross-entropy with onset-wise $\\ell_1$ loss:\n\\begin{equation}\n\\mathcal{L}\n= \\frac{1}{|\\mathcal{J}|}\\sum_{(t,p)\\in\\mathcal{J}} \\ell_{\\mathrm{bce}}\\big(V_{t,p},\\hat{V}_{t,p}\\big)\n+ \\frac{1}{|\\mathcal{I}|}\\sum_{(t,p)\\in\\mathcal{I}} \\left|V_{t,p}-\\hat{V}_{t,p}\\right|.\n\\label{eq:scoreinf:loss}\n\\end{equation}\nHere $\\mathbf{V}$ is the ground-truth velocity target and $\\hat{\\mathbf{V}}$ is the predicted velocity output of either the baseline AMT branch or the score-informed system. The two terms supervise complementary parts of the note representation: frame-wise BCE covers the active note region, while onset-wise L1 directly penalises the velocity read during post-processing. Each term is averaged over its own active positions, and the two means receive equal relative coefficients. This retains the hybrid formulation used in the prior work and our preliminary verification.",
+          "focusText": "The two terms supervise complementary parts of the note representation: frame-wise BCE covers the active note region, while onset-wise L1 directly penalises the velocity read during post-processing. Each term is averaged over its own active positions, and the two means receive equal relative coefficients. This retains the hybrid formulation used in the prior work and our preliminary verification."
+        },
+        {
+          "id": "KEEP",
+          "label": "KEEP · 保留原文",
+          "kind": "keep",
+          "fullText": "All models are trained with the hybrid loss adopted in prior score-informed work~\\cite{kim2024method}. It combines frame-wise binary cross-entropy with onset-wise $\\ell_1$ loss:\n\\begin{equation}\n\\mathcal{L}\n= \\frac{1}{|\\mathcal{J}|}\\sum_{(t,p)\\in\\mathcal{J}} \\ell_{\\mathrm{bce}}\\big(V_{t,p},\\hat{V}_{t,p}\\big)\n+ \\frac{1}{|\\mathcal{I}|}\\sum_{(t,p)\\in\\mathcal{I}} \\left|V_{t,p}-\\hat{V}_{t,p}\\right|.\n\\label{eq:scoreinf:loss}\n\\end{equation}\nHere $\\mathbf{V}$ is the ground-truth velocity target and $\\hat{\\mathbf{V}}$ is the predicted velocity output of either the baseline AMT branch or the score-informed system. This hybrid supervision is useful because it constrains both the local onset value and the broader note sustain region, while still keeping note-level precision central to the objective.",
+          "focusText": "This hybrid supervision is useful because it constrains both the local onset value and the broader note sustain region, while still keeping note-level precision central to the objective."
+        }
+      ],
+      "recommended": "B",
+      "recommendationLabel": "旧轮编辑推荐",
+      "reviewStatus": "旧轮已复核，待作者选择",
+      "reviewFile": "revision_blueprint_20261031/reviewer_final.md",
+      "candidateFile": "revision_blueprint_20261031/writer_round3.md",
+      "candidateAnchor": "r1-25",
+      "reviewerComment": "Section 4.5.3: Are both loss components balanced? Is there a need to weigh loss components?",
+      "authorResponse": "> This is the following work of a ISMIR2024 paper by Hyon Kim, he found this is the best ratio, and I verfied it. \n>\n> I will directly cite his work to further explain this.",
+      "commentFile": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "contextAfter": "",
+      "followthrough": [],
+      "decisionPath": "revision_blueprint_20261031/DECISIONS.md#decision-r1-25"
+    },
+    {
+      "id": "R1-21",
+      "title": "说明 composition 怎样使用",
+      "short": "原段保留，后面新增应用段。",
+      "group": "用途",
+      "why": "分开说训练标签的来源和实际输入接口，回答 performance MIDI 与 composition 的关系。",
+      "stance": "你明确说试过量化 MIDI，并说 MOS 用量化 score-MIDI；这条原话保留，具体刺激流程待查。",
+      "scope": "只在 Ch3 Discussion 首段后插入所示应用段，不替换 Stimuli；原量化批注不由此改写。",
+      "pending": "V-02：输入和 reference 的 timing preparation、量化步骤仍待生成记录。这里的文字选择不确认听测协议。",
+      "operation": "insertion",
+      "sourceFile": "Chapter_3/chap3.tex",
+      "sourceLine": 453,
+      "originalFull": "This chapter has verified that note-level dynamics can be recovered usefully even when the symbolic notes and timing are held fixed. It turns expressive enhancement into a controllable post-processing stage rather than a full performance-rendering problem, which is exactly the setting encountered in many MIDI-production and corpus-curation workflows.",
+      "originalFocus": "This chapter has verified that note-level dynamics can be recovered usefully even when the symbolic notes and timing are held fixed. It turns expressive enhancement into a controllable post-processing stage rather than a full performance-rendering problem, which is exactly the setting encountered in many MIDI-production and corpus-curation workflows.",
+      "options": [
+        {
+          "id": "A",
+          "label": "A · 两句说明",
+          "kind": "insertion",
+          "fullText": "Performance MIDI supplies captured velocity targets for training, while the completion interface can also accept quantised symbolic input. The composition use case is to add a velocity profile while retaining the notes and timing supplied by the user.",
+          "focusText": "Performance MIDI supplies captured velocity targets for training, while the completion interface can also accept quantised symbolic input. The composition use case is to add a velocity profile while retaining the notes and timing supplied by the user.",
+          "summary": "原段后新增两句应用说明。"
+        },
+        {
+          "id": "B",
+          "label": "B · 分开训练与输入",
+          "kind": "insertion",
+          "fullText": "The supervised experiments use performance MIDI because it provides captured velocity targets. The completion interface itself takes the note events and timing supplied with a MIDI sequence, including quantised symbolic input. Its role in composition is to add a velocity profile without changing that supplied structure.",
+          "focusText": "The supervised experiments use performance MIDI because it provides captured velocity targets. The completion interface itself takes the note events and timing supplied with a MIDI sequence, including quantised symbolic input. Its role in composition is to add a velocity profile without changing that supplied structure.",
+          "summary": "原段后新增三句应用说明。"
+        },
+        {
+          "id": "C",
+          "label": "C · 从创作用途切入",
+          "kind": "insertion",
+          "fullText": "For composition, velocity completion adds an expressive layer to an existing note sequence. Training uses captured velocities from performance MIDI, while deployment can retain the notes and timing of quantised symbolic input. The training target and the timing representation of a new input therefore serve different roles.",
+          "focusText": "For composition, velocity completion adds an expressive layer to an existing note sequence. Training uses captured velocities from performance MIDI, while deployment can retain the notes and timing of quantised symbolic input. The training target and the timing representation of a new input therefore serve different roles.",
+          "summary": "原段后新增三句应用说明。"
+        },
+        {
+          "id": "KEEP",
+          "label": "KEEP · 保留原文",
+          "kind": "keep",
+          "fullText": "This chapter has verified that note-level dynamics can be recovered usefully even when the symbolic notes and timing are held fixed. It turns expressive enhancement into a controllable post-processing stage rather than a full performance-rendering problem, which is exactly the setting encountered in many MIDI-production and corpus-curation workflows.",
+          "focusText": "This chapter has verified that note-level dynamics can be recovered usefully even when the symbolic notes and timing are held fixed. It turns expressive enhancement into a controllable post-processing stage rather than a full performance-rendering problem, which is exactly the setting encountered in many MIDI-production and corpus-curation workflows."
+        }
+      ],
+      "recommended": "A",
+      "recommendationLabel": "旧轮编辑推荐",
+      "reviewStatus": "旧轮已复核，待作者选择",
+      "reviewFile": "revision_blueprint_20261031/reviewer_final.md",
+      "candidateFile": "revision_blueprint_20261031/writer_round3.md",
+      "candidateAnchor": "r1-21",
+      "reviewerComment": "Section 3.6: The data used for experiments is performance MIDI, as opposed to reference (quantised) MIDI. Would that conflict with the main envisaged usecase which is on music composition?",
+      "authorResponse": "> I don't think so. We tried the model inference, and it actually works well in quantised MIDI scores we download from the internet. And our MOS test is based on the score-MIDI, which is quantised, double confirm it can work.\n>\n> Be honestly I understand this can make a further experiment, which make discussion deeper. \n>\n> The true problem is Dolby will not happy for my \"internship finished project\" have further development\" haha. So we keep it as current.",
+      "commentFile": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "contextAfter": "",
+      "followthrough": [],
+      "decisionPath": "revision_blueprint_20261031/DECISIONS.md#decision-r1-21"
+    },
+    {
+      "id": "R1-35",
+      "title": "图注已经说清，可以保留",
+      "short": "当前推荐 KEEP，不为了改而扩写。",
+      "group": "保留",
+      "why": "原图注已写 SoundFont-rendered audio；长解释未必帮助这处阅读。",
+      "stance": "未找到你对此条的既有回复；KEEP 是编辑建议，不是你的批准。",
+      "scope": "KEEP 保留 Fig6.2 原图与原图注。旧 A 另含图内标签修改，尚需副本与视觉核验。",
+      "pending": "",
+      "operation": "replacement",
+      "sourceFile": "Chapter_6/chap6.tex",
+      "sourceLine": 201,
+      "originalFull": "An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio.",
+      "originalFocus": "An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio.",
+      "options": [
+        {
+          "id": "KEEP",
+          "label": "KEEP · 保留原图和原图注",
+          "kind": "keep",
+          "fullText": "An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio.",
+          "focusText": "An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio."
+        },
+        {
+          "id": "A",
+          "label": "旧 A · 扩写图注（需另核图）",
+          "kind": "replacement",
+          "fullText": "Offline training of the differentiable SoundFont proxy. Sampled MIDI notes and velocities are rendered by the SoundFont; PHE and OSF extracted from this rendered audio provide the teacher targets. The Transformer predicts the same parameters from the note sequence. Real performance audio is used later for VeloEst adaptation, not to generate these offline teacher targets.",
+          "focusText": "Offline training of the differentiable SoundFont proxy. Sampled MIDI notes and velocities are rendered by the SoundFont; PHE and OSF extracted from this rendered audio provide the teacher targets. The Transformer predicts the same parameters from the note sequence. Real performance audio is used later for VeloEst adaptation, not to generate these offline teacher targets."
+        }
+      ],
+      "recommended": "KEEP",
+      "recommendationLabel": "v4 复核推荐",
+      "reviewStatus": "旧轮已复核，待作者选择",
+      "reviewFile": "revision_blueprint_20261031/contextual_review_v4.md",
+      "candidateFile": "revision_blueprint_20261031/writer_round3.md",
+      "candidateAnchor": "r1-35",
+      "reviewerComment": "Figure 6.2: is the data in the right part of the figure rendered audio? If yes, this is not shown in the figure.",
+      "authorResponse": "> zhanhong not response yet",
+      "commentFile": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "contextAfter": "",
+      "followthrough": [],
+      "sourceExact": "\\caption{An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio.}",
+      "optionNotes": {
+        "A": "这里只比较旧 A 的图注文字。原提案还涉及图内标签；未制作并核验副本，不能由图注选择视为完成。"
+      },
+      "originalImage": "Chapter_6/figures/p2.jpg",
+      "recommendationSource": "revision_blueprint_20261031/SUPPLEMENTS_v4.md#keep-r1-35",
+      "decisionPath": "revision_blueprint_20261031/DECISIONS.md#decision-r1-35"
+    },
+    {
+      "id": "R2-04",
+      "title": "结果保留，解释更准确",
+      "short": "保留 U-Net 排序，集中交代听测范围。",
+      "group": "结果",
+      "why": "把“clearly outperforms”落到实际的 mean similarity，并保留系统间的已报告排序。",
+      "stance": "未找到你对此条的既有回复；推荐措辞来自编辑与复核。",
+      "scope": "替换 Ch3 Results 段；MOS 表、CI、Participants 与 Stimuli 保留。摘要、引言和结论有四处同步。",
+      "pending": "V-02：timing preparation 仍待记录；此段不补未经确认的处理细节。",
+      "operation": "replacement",
+      "sourceFile": "Chapter_3/chap3.tex",
+      "sourceLine": 444,
+      "originalFull": "\\paragraph{Results.}\nAlthough a substantial gap to human performance remains, the proposed U-Net clearly outperforms the other systems.\nThe Flat model performs worst, consistent with earlier findings that default velocity is musically inadequate \\cite{kuo2021velocity}.\nThe seen, less-seen, and unseen repertoire groups are best interpreted as descriptive groups rather than as a strict complexity-controlled comparison.\nEven so, the relatively narrow 95\\% confidence intervals across groups suggest that participants rated the stimuli with reasonable consistency.",
+      "originalFocus": "\\paragraph{Results.}\nAlthough a substantial gap to human performance remains, the proposed U-Net clearly outperforms the other systems.\nThe Flat model performs worst, consistent with earlier findings that default velocity is musically inadequate \\cite{kuo2021velocity}.\nThe seen, less-seen, and unseen repertoire groups are best interpreted as descriptive groups rather than as a strict complexity-controlled comparison.\nEven so, the relatively narrow 95\\% confidence intervals across groups suggest that participants rated the stimuli with reasonable consistency.",
+      "options": [
+        {
+          "id": "A",
+          "label": "A · 保留排序和引用",
+          "kind": "replacement",
+          "fullText": "U-Net received higher mean similarity ratings than Flat and ConvAE on the selected excerpts, while Flat received the lowest ratings, consistent with earlier findings on default velocity \\cite{kuo2021velocity}. The listening study provides supplementary perceptual evidence from 11 expert listeners, eight selected SMD excerpts, and one PianoTeq rendering configuration. The composer-group scores are descriptive rather than a controlled comparison of stylistic effects.",
+          "focusText": "U-Net received higher mean similarity ratings than Flat and ConvAE on the selected excerpts, while Flat received the lowest ratings, consistent with earlier findings on default velocity \\cite{kuo2021velocity}. The listening study provides supplementary perceptual evidence from 11 expert listeners, eight selected SMD excerpts, and one PianoTeq rendering configuration. The composer-group scores are descriptive rather than a controlled comparison of stylistic effects."
+        },
+        {
+          "id": "B",
+          "label": "B · 直接报告读数",
+          "kind": "replacement",
+          "fullText": "In the listening study, U-Net received higher mean similarity ratings than Flat and ConvAE, while Flat received the lowest ratings. The 11 expert listeners evaluated eight selected SMD excerpts rendered with one PianoTeq configuration. These results provide supplementary perceptual evidence for velocity completion within that setting. The seen, less-seen, and unseen composer groups are descriptive; the selected excerpts were not balanced to isolate stylistic effects.",
+          "focusText": "In the listening study, U-Net received higher mean similarity ratings than Flat and ConvAE, while Flat received the lowest ratings. The 11 expert listeners evaluated eight selected SMD excerpts rendered with one PianoTeq configuration. These results provide supplementary perceptual evidence for velocity completion within that setting. The seen, less-seen, and unseen composer groups are descriptive; the selected excerpts were not balanced to isolate stylistic effects."
+        },
+        {
+          "id": "C",
+          "label": "C · 强调与客观结果互补",
+          "kind": "replacement",
+          "fullText": "The listener ratings favour U-Net over Flat and ConvAE in similarity to the human-performed MIDI rendering used as the reference. They provide complementary evidence alongside the note-wise objective results. This reference-based study involved 11 expert listeners, eight selected SMD excerpts, and one PianoTeq configuration, so its findings are interpreted within that setting. The composer groups describe the selected repertoire and do not isolate a stylistic effect.",
+          "focusText": "The listener ratings favour U-Net over Flat and ConvAE in similarity to the human-performed MIDI rendering used as the reference. They provide complementary evidence alongside the note-wise objective results. This reference-based study involved 11 expert listeners, eight selected SMD excerpts, and one PianoTeq configuration, so its findings are interpreted within that setting. The composer groups describe the selected repertoire and do not isolate a stylistic effect."
+        },
+        {
+          "id": "KEEP",
+          "label": "KEEP · 保留原文",
+          "kind": "keep",
+          "fullText": "\\paragraph{Results.}\nAlthough a substantial gap to human performance remains, the proposed U-Net clearly outperforms the other systems.\nThe Flat model performs worst, consistent with earlier findings that default velocity is musically inadequate \\cite{kuo2021velocity}.\nThe seen, less-seen, and unseen repertoire groups are best interpreted as descriptive groups rather than as a strict complexity-controlled comparison.\nEven so, the relatively narrow 95\\% confidence intervals across groups suggest that participants rated the stimuli with reasonable consistency.",
+          "focusText": "\\paragraph{Results.}\nAlthough a substantial gap to human performance remains, the proposed U-Net clearly outperforms the other systems.\nThe Flat model performs worst, consistent with earlier findings that default velocity is musically inadequate \\cite{kuo2021velocity}.\nThe seen, less-seen, and unseen repertoire groups are best interpreted as descriptive groups rather than as a strict complexity-controlled comparison.\nEven so, the relatively narrow 95\\% confidence intervals across groups suggest that participants rated the stimuli with reasonable consistency."
+        }
+      ],
+      "recommended": "A",
+      "recommendationLabel": "旧轮编辑推荐",
+      "reviewStatus": "旧轮已复核，待作者选择",
+      "reviewFile": "revision_blueprint_20261031/reviewer_final.md",
+      "candidateFile": "revision_blueprint_20261031/writer_round3.md",
+      "candidateAnchor": "r2-04",
+      "reviewerComment": "The perceptual evaluation in Chapter 3 is useful but modest in scale, with 11 expert listeners. This does not invalidate the work, but the thesis should more clearly and explicitly state that the listening test supports the objective results rather than providing deﬁnitive perceptual validation.",
+      "authorResponse": "zhanhong not response yet",
+      "commentFile": "revision_blueprint_20261031/COMMENT_MAP.md",
+      "contextAfter": "\\section{Discussion}\n\\label{sec:velcomp:discussion}\n\nThis chapter has verified that note-level dynamics can be recovered usefully even when the symbolic notes and timing are held fixed. It turns expressive enhancement into a controllable post-processing stage rather than a full performance-rendering problem, which is exactly the setting encountered in many MIDI-production and corpus-curation workflows.",
+      "followthrough": [
+        {
+          "file": "main.tex",
+          "old": "the results are validated through cross-dataset objective metrics and a MUSHRA-inspired listening test.",
+          "new": "the results are assessed through cross-dataset objective metrics and a MUSHRA-inspired listening test.",
+          "line": 138
+        },
+        {
+          "file": "Chapter_3/chap3.tex",
+          "old": "the listening test verifies that the recovered layer changes perceived musical quality.",
+          "new": "the listening study provides complementary evidence of greater perceived similarity to the reference on the selected stimuli.",
+          "line": 457
+        },
+        {
+          "file": "Chapter_1/Intro.tex",
+          "old": "it demonstrates that recovering a decoupled expressive layer on fixed symbolic notes is enough to transform a mechanical MIDI sequence into an expressive performance.",
+          "new": "it shows that velocity completion can improve expressive rendering on fixed symbolic notes, supported by objective evaluation and the listening study.",
+          "line": 181
+        },
+        {
+          "file": "Chapter_7/Conclusion.tex",
+          "old": "yet the listening test shows a clear improvement over flat and sequence-oriented baselines.",
+          "new": "and the listening study supports an improvement over Flat and ConvAE on the selected excerpts.",
+          "line": 50
+        }
+      ],
+      "decisionPath": "revision_blueprint_20261031/DECISIONS.md#decision-r2-04"
+    }
+  ],
+  "provenance": [
+    {
+      "path": "revision_blueprint_20261031/evidence/writer_candidates_round3.json",
+      "sha256": "de9b73e37393623e8b2d1b2361185f8049fcdf4ce735ec62fba55c0d775a2b79"
+    },
+    {
+      "path": "revision_blueprint_20261031/evidence/comment_map.json",
+      "sha256": "6c6f16db0eb4478b80f54fc8846713e1c02650e4c51b5eb99690ff1f86906722"
+    },
+    {
+      "path": "revision_blueprint_20261031/evidence/supplements_v4.json",
+      "sha256": "b808f05eab3db332ef069faa62e2291ad859e9a06545de2fa79b48fb18e9f582"
+    },
+    {
+      "path": "revision_blueprint_20261031/reviewer_final.md",
+      "sha256": "235ffc8a221764e0b28709a064ceecce39e75bb1e4ad1c080bc0e2eeed408a4a"
+    },
+    {
+      "path": "revision_blueprint_20261031/contextual_review_v4.md",
+      "sha256": "61867a500d88131d104cd6f59fa6621dbb9b63cd756540d9dea24122ecc6e298"
+    },
+    {
+      "path": "revision_blueprint_20261031/SUPPLEMENTS_v4.md",
+      "sha256": "91d383210951927a08bdc23cb46900d571a5692b1adf3ac2c8777fc58c25b926"
+    }
+  ]
+}

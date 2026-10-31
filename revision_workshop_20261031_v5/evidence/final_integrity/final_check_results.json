@@ -1,0 +1,469 @@
+{
+  "timestamp_utc": "2026-10-31T13:23:11.454736+00:00",
+  "frozen_file_count": 86,
+  "frozen_changed": [],
+  "files": {
+    "FINAL_SELECTION_REVIEWED_v5.json": true,
+    "DEPENDENCIES_REVIEWED_v5.json": true,
+    "CANDIDATE_PACKET_FINAL_v5.md": true,
+    "READER_PACKET_REVIEWED_v5.json": true,
+    "N07_TABLE_MARKUP_REVIEWED_v5.tex": true
+  },
+  "selected_hashes": [
+    {
+      "id": "T01",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "T02",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "T03",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "T04",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "T05",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "T06",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "T07",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "T08",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "T09",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "T10",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "N01",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "N02",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "T11",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "N03",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "N04",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "N05a",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "N05b",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "N05c",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "N06a",
+      "matches_external_accepted_sha256": true
+    },
+    {
+      "id": "N06b",
+      "matches_external_accepted_sha256": true
+    }
+  ],
+  "selected_ids_match_external": true,
+  "dependencies_exact_evaluator_corrective_artifact_including_metadata": false,
+  "dependencies_source_operations_exact_evaluator_correction": true,
+  "dependency_metadata_changes": [
+    {
+      "id": "V4-velocity-1",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-velocity-2",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-velocity-3",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-velocity-4",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-velocity-5",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-velocity-6",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-velocity-7",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-velocity-8",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-scope-1",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-scope-2",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-motivation",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-S1-opening",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-R1-15-sync-1",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-R1-15-sync-2",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-R1-15-sync-3",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-R1-15-sync-4",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-R2-04-sync-1",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-R2-04-sync-2",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-R2-04-sync-3",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-R2-04-sync-4",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-R1-33-common-1",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-R1-33-common-2",
+      "changed_fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "V4-R1-33-common-3",
+      "changed_fields": [
+        "status"
+      ]
+    }
+  ],
+  "table_exact_evaluator_corrective_artifact": true,
+  "table_numeric_token_count": 58,
+  "table_numeric_sequence_unchanged": true,
+  "gt_flat_shared_up_arrow_removed": true,
+  "operation_count": 44,
+  "changed_operation_ids": [
+    "V4-R2-04-sync-3",
+    "N07"
+  ],
+  "only_two_operations_changed": true,
+  "source_overlaps": [],
+  "virtual_overlay_hashes": [
+    {
+      "file": "Chapter_1/Intro.tex",
+      "actual_sha256": "c597f00804fb7d9467d4129147ec606a0ca4074139877ef5939eb9252ba5aab5",
+      "matches_external_corrected_overlay": true
+    },
+    {
+      "file": "Chapter_2/Background.tex",
+      "actual_sha256": "64d23ec355864dade2fa2c05ad2c9acabf98c3934bddae9613b3dec586f0399c",
+      "matches_external_corrected_overlay": true
+    },
+    {
+      "file": "Chapter_3/chap3.tex",
+      "actual_sha256": "ddbfa73ef870118f0a1663b79da1c0aa3100c8679a1f88bccd36c65bf9f9fbc5",
+      "matches_external_corrected_overlay": true
+    },
+    {
+      "file": "Chapter_4/chap4.tex",
+      "actual_sha256": "41e268333944ab6510a0aff4ebe4d4e5ee83f66fa1f350d106889b5825309d58",
+      "matches_external_corrected_overlay": true
+    },
+    {
+      "file": "Chapter_5/chap5.tex",
+      "actual_sha256": "eb89db957bac31a2e66f258f7c37e7b4b3f295751a2a0e1f95dcec1363eb2c1e",
+      "matches_external_corrected_overlay": true
+    },
+    {
+      "file": "Chapter_6/chap6.tex",
+      "actual_sha256": "c98192e37770457da9e0f80e779c7910dfd1c9d85d337e5823edbe5680591ce6",
+      "matches_external_corrected_overlay": true
+    },
+    {
+      "file": "Chapter_7/Conclusion.tex",
+      "actual_sha256": "f24f83ff47cc162eb478d8a8036dbaaf4a3ce0cbec1e7e2415555f2f433c7526",
+      "matches_external_corrected_overlay": true
+    },
+    {
+      "file": "main.tex",
+      "actual_sha256": "0a8e3765a8ef74a3a3ad02a59dc33434d897a9347f1c47ce625f09eec3fd91b4",
+      "matches_external_corrected_overlay": true
+    }
+  ],
+  "source_hashes": [
+    {
+      "file": "Chapter_1/Intro.tex",
+      "matches_external_reviewed_source": true
+    },
+    {
+      "file": "Chapter_2/Background.tex",
+      "matches_external_reviewed_source": true
+    },
+    {
+      "file": "Chapter_3/chap3.tex",
+      "matches_external_reviewed_source": true
+    },
+    {
+      "file": "Chapter_4/chap4.tex",
+      "matches_external_reviewed_source": true
+    },
+    {
+      "file": "Chapter_5/chap5.tex",
+      "matches_external_reviewed_source": true
+    },
+    {
+      "file": "Chapter_6/chap6.tex",
+      "matches_external_reviewed_source": true
+    },
+    {
+      "file": "Chapter_7/Conclusion.tex",
+      "matches_external_reviewed_source": true
+    },
+    {
+      "file": "main.tex",
+      "matches_external_reviewed_source": true
+    }
+  ],
+  "contexts": [
+    {
+      "id": "T01",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "T02",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "T03",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "T04",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "T05",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "T06",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "T07",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "T08",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "T09",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "T10",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "N01",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "N02",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "T11",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "N03",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "N04",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "N05a",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "N05b",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "N05c",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "N06a",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    },
+    {
+      "id": "N06b",
+      "field": "reinserted_context_final",
+      "contiguous_in_corrected_overlay": true,
+      "starts_on_full_paragraph_boundary": true,
+      "selected_text_present_once_or_exact_deletion": true
+    }
+  ],
+  "problems": [],
+  "status": "CHECKS COMPLETE; manual packet/reader mapping verification still required",
+  "all_programmatic_checks_passed": true
+}

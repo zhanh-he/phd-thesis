@@ -1,0 +1,44 @@
+{
+  "mode": "Precheck exact external repairs independently before writer final files appear; no proposal edited.",
+  "changed_operation_ids": [
+    "V4-R2-04-sync-3",
+    "N07"
+  ],
+  "operation_count": 44,
+  "overlaps": [],
+  "overlay_hash_checks": [
+    {
+      "source": "Chapter_1/Intro.tex",
+      "matches_external_corrected_virtual_overlay": true
+    },
+    {
+      "source": "Chapter_7/Conclusion.tex",
+      "matches_external_corrected_virtual_overlay": true
+    },
+    {
+      "source": "Chapter_4/chap4.tex",
+      "matches_external_corrected_virtual_overlay": true
+    },
+    {
+      "source": "Chapter_3/chap3.tex",
+      "matches_external_corrected_virtual_overlay": true
+    },
+    {
+      "source": "Chapter_5/chap5.tex",
+      "matches_external_corrected_virtual_overlay": true
+    },
+    {
+      "source": "Chapter_2/Background.tex",
+      "matches_external_corrected_virtual_overlay": true
+    },
+    {
+      "source": "main.tex",
+      "matches_external_corrected_virtual_overlay": true
+    },
+    {
+      "source": "Chapter_6/chap6.tex",
+      "matches_external_corrected_virtual_overlay": true
+    }
+  ],
+  "all_pass": true
+}

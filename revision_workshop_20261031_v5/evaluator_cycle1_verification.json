@@ -1,0 +1,351 @@
+{
+  "unchanged_against_baseline": {
+    "source_manifest": true,
+    "previous_proposal_manifest": true
+  },
+  "source_files_verified": 19,
+  "prior_proposal_files_verified": 80,
+  "blind_packet_unchanged": true,
+  "anonymous_candidates_verified": 60,
+  "ranked_passages": 15,
+  "selected_passages": [
+    {
+      "id": "T01",
+      "source": "Chapter_1/Intro.tex",
+      "source_line": 114,
+      "operation": "Insert immediately after the central question, before This question is studied...",
+      "insertion": true,
+      "source_anchor_unique": true,
+      "exact_original_count": null,
+      "selected_code": "T01-L",
+      "selected_provenance": "FRESH_1",
+      "selected_modified_since_blind_slot": false,
+      "evaluator_blind_winner": [
+        "T01-L"
+      ],
+      "selected_sha256": "4f0100780e9a77633522320a16727af641b8b638aae65017b63bb22d48e2774d"
+    },
+    {
+      "id": "T02",
+      "source": "Chapter_1/Intro.tex",
+      "source_line": 114,
+      "operation": "Insert after scenario table; S3 sentence and beyond-piano scope bullet receive separate v4 repairs.",
+      "insertion": true,
+      "source_anchor_unique": true,
+      "exact_original_count": null,
+      "selected_code": "T02-K",
+      "selected_provenance": "FRESH_1",
+      "selected_modified_since_blind_slot": false,
+      "evaluator_blind_winner": [
+        "T02-K"
+      ],
+      "selected_sha256": "b68bc166387a3df91bc952a457a2faa860de57e583f3505c137f97d5a1e18a3f"
+    },
+    {
+      "id": "T03",
+      "source": "Chapter_3/chap3.tex",
+      "source_line": 26,
+      "operation": "Replace this one related-work paragraph; preserve following Problem Setting.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": "T03-M",
+      "selected_provenance": "FRESH_2",
+      "selected_modified_since_blind_slot": false,
+      "evaluator_blind_winner": [
+        "T03-N"
+      ],
+      "selected_sha256": "542e8d282887ff23581715a98cd769f8af23dc31943adc9d4fbc9890521807ba"
+    },
+    {
+      "id": "T04",
+      "source": "Chapter_4/chap4.tex",
+      "source_line": 50,
+      "operation": "Insert after modular-principle paragraph; original material before insertion remains.",
+      "insertion": true,
+      "source_anchor_unique": true,
+      "exact_original_count": null,
+      "selected_code": "T04-K",
+      "selected_provenance": "FRESH_1",
+      "selected_modified_since_blind_slot": true,
+      "evaluator_blind_winner": [
+        "T04-K"
+      ],
+      "selected_sha256": "783d704554fa4ef25a68cc912eccaff2d35810ef8134437507dae35609fd9661"
+    },
+    {
+      "id": "T05",
+      "source": "Chapter_5/chap5.tex",
+      "source_line": 38,
+      "operation": "Append only the selected rationale to the existing target paragraph; preserve all class and grid definitions.",
+      "insertion": true,
+      "source_anchor_unique": true,
+      "exact_original_count": null,
+      "selected_code": "T05-M",
+      "selected_provenance": "FRESH_2",
+      "selected_modified_since_blind_slot": false,
+      "evaluator_blind_winner": [
+        "T05-M"
+      ],
+      "selected_sha256": "f6a47f838f06b71f9821944c19d555cead03a06b15bb5e676a32f1d3b7b8986f"
+    },
+    {
+      "id": "T06",
+      "source": "Chapter_6/chap6.tex",
+      "source_line": 31,
+      "operation": "Replace this paragraph only; preceding synthetic-data transfer paragraph and following Diff-Synth discussion remain.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": "T06-L",
+      "selected_provenance": "FRESH_1",
+      "selected_modified_since_blind_slot": false,
+      "evaluator_blind_winner": [
+        "T06-L"
+      ],
+      "selected_sha256": "121f13c14d56824e6356d4f7268b26af8b69d843a6c0bc581c1700602f5f977b"
+    },
+    {
+      "id": "T07",
+      "source": "Chapter_6/chap6.tex",
+      "source_line": 111,
+      "operation": "Replace discussion paragraph at end Diff-Synth subsection.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": "T07-M",
+      "selected_provenance": "FRESH_1",
+      "selected_modified_since_blind_slot": false,
+      "evaluator_blind_winner": [
+        "T07-M"
+      ],
+      "selected_sha256": "275f74e9f4188cda7f677b3873acae4140f286b16cb11d6eba8a200bff30ea44"
+    },
+    {
+      "id": "T08",
+      "source": "Chapter_1/Intro.tex",
+      "source_line": 177,
+      "operation": "Replace only opening paragraph of Thesis Organisation; retain chapter-by-chapter roadmap.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": "T08-L",
+      "selected_provenance": "FRESH_1",
+      "selected_modified_since_blind_slot": false,
+      "evaluator_blind_winner": [
+        "T08-L"
+      ],
+      "selected_sha256": "206f4d51963bf2813b91aa9ba3d7824007009e79dae4166bc0e423c025553630"
+    },
+    {
+      "id": "T09",
+      "source": "Chapter_7/Conclusion.tex",
+      "source_line": 113,
+      "operation": "Replace this piano-centric limitation paragraph; Ch6 detailed sustained-control limitations remain.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": "T09-L",
+      "selected_provenance": "FRESH_1",
+      "selected_modified_since_blind_slot": true,
+      "evaluator_blind_winner": [
+        "T09-L"
+      ],
+      "selected_sha256": "71b5f3da043d7e32201c185de37dc14a2a2963b26fcc09fcd0520dbd76b3499a"
+    },
+    {
+      "id": "T10",
+      "source": "Chapter_3/chap3.tex",
+      "source_line": 445,
+      "operation": "Replace listening Results paragraph only; MOS/CI table and participant/procedure descriptions remain.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": "T10-L",
+      "selected_provenance": "V4",
+      "selected_modified_since_blind_slot": false,
+      "evaluator_blind_winner": [
+        "T10-N"
+      ],
+      "selected_sha256": "0035ef8fc3ccc93d10d4c04e7b217b759c11e1f66d01e2fbe59a2974b9d513b8"
+    },
+    {
+      "id": "N01",
+      "source": "Chapter_6/chap6.tex",
+      "source_line": 501,
+      "operation": "Replace paragraph interpreting GT-vs-Flat separation; keep table/numbers and next paragraph.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": "N01-L",
+      "selected_provenance": "FRESH_2",
+      "selected_modified_since_blind_slot": true,
+      "evaluator_blind_winner": [
+        "N01-L"
+      ],
+      "selected_sha256": "c76c8ebaed441425ba7412bb158d596088f6e004eaf7c9c06f3a78547f61a18b"
+    },
+    {
+      "id": "N02",
+      "source": "Chapter_6/chap6.tex",
+      "source_line": 503,
+      "operation": "Replace one renderer-robustness paragraph; preserve table and no metric re-computation.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": "N02-M",
+      "selected_provenance": "FRESH_1",
+      "selected_modified_since_blind_slot": false,
+      "evaluator_blind_winner": [
+        "N02-M"
+      ],
+      "selected_sha256": "edad3b60d6a102da790bce87d47070efcf3d16ecfcafe2bcb39bc642863381cc"
+    },
+    {
+      "id": "T11",
+      "source": "Chapter_6/chap6.tex",
+      "source_line": 126,
+      "operation": "Replace only the last rationale sentence after beta=1.0 and 1:1 weighting; preserve equations/settings.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": "T11-L",
+      "selected_provenance": "FRESH_1",
+      "selected_modified_since_blind_slot": false,
+      "evaluator_blind_winner": [
+        "T11-L"
+      ],
+      "selected_sha256": "c534041df413b009bebda9fdd06f910c5bda65f7d07edaf49ed8a244e2c2bb4f"
+    },
+    {
+      "id": "N03",
+      "source": "Chapter_6/chap6.tex",
+      "source_line": 505,
+      "operation": "Replace the concluding metric-choice paragraph after N01/N02; do not leave the original fail/right-trade-off claim behind.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": "N03-L",
+      "selected_provenance": "FRESH_1",
+      "selected_modified_since_blind_slot": true,
+      "evaluator_blind_winner": [
+        "N03-L"
+      ],
+      "selected_sha256": "4f2382ea0710360b4304d20917fdfd01eca6981ca893df74fd3de50454031cf7"
+    },
+    {
+      "id": "N04",
+      "source": "Chapter_2/Background.tex",
+      "source_line": 587,
+      "operation": "Replace only this clause in the existing long paragraph; keep representations, comparison-space distinction and citations.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": "N04-N",
+      "selected_provenance": "FRESH_2",
+      "selected_modified_since_blind_slot": false,
+      "evaluator_blind_winner": [
+        "N04-N"
+      ],
+      "selected_sha256": "4ceccb92217aa153349cad60b2c0bb7124e9213f1d3d40027f9b3a0afb16dfb1"
+    },
+    {
+      "id": "N05a",
+      "source": "Chapter_7/Conclusion.tex",
+      "source_line": 109,
+      "operation": "Replace only this exact text; empty replacement means delete sentence.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": null,
+      "selected_provenance": null,
+      "selected_modified_since_blind_slot": null,
+      "evaluator_blind_winner": [
+        null
+      ],
+      "selected_sha256": "bb374d02d6f3c991329f40126e3653ece9e9f311bb462f95556079ec33bbbf2c"
+    },
+    {
+      "id": "N05b",
+      "source": "Chapter_7/Conclusion.tex",
+      "source_line": 124,
+      "operation": "Replace only this exact text; empty replacement means delete sentence.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": null,
+      "selected_provenance": null,
+      "selected_modified_since_blind_slot": null,
+      "evaluator_blind_winner": [
+        null
+      ],
+      "selected_sha256": "6fad0656bcccc5952f6af41449d9a9e0282a5a88f675c8fd555966e226dd8981"
+    },
+    {
+      "id": "N05c",
+      "source": "Chapter_7/Conclusion.tex",
+      "source_line": 117,
+      "operation": "Replace only this exact text; empty replacement means delete sentence.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": null,
+      "selected_provenance": null,
+      "selected_modified_since_blind_slot": null,
+      "evaluator_blind_winner": [
+        null
+      ],
+      "selected_sha256": "41805b99969988ae09dcadb8bc7742d63417f346de36240cce51d250616614fc"
+    },
+    {
+      "id": "N06a",
+      "source": "Chapter_3/chap3.tex",
+      "source_line": 71,
+      "operation": "Replace only this exact text; empty replacement means delete sentence.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": null,
+      "selected_provenance": null,
+      "selected_modified_since_blind_slot": null,
+      "evaluator_blind_winner": [
+        null
+      ],
+      "selected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "N06b",
+      "source": "Chapter_3/chap3.tex",
+      "source_line": 358,
+      "operation": "Replace only this exact text; empty replacement means delete sentence.",
+      "insertion": false,
+      "source_anchor_unique": true,
+      "exact_original_count": 1,
+      "selected_code": null,
+      "selected_provenance": null,
+      "selected_modified_since_blind_slot": null,
+      "evaluator_blind_winner": [
+        null
+      ],
+      "selected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "table_check": {
+    "numeric_sequence_identical": true,
+    "numeric_tokens": 58,
+    "numeric_wrappers_old": 12,
+    "numeric_wrappers_new": 0,
+    "raw_reported_mae_delta": "0.193",
+    "displayed_endpoint_difference": "0.702 - 0.510 = 0.192",
+    "verdict": "Rounding could explain difference; preserve reported values, do not silently recompute."
+  },
+  "writer_evidence_snapshot": {
+    "FINAL_SELECTION.json": "ef9eb2c40590daf05b7135f99ca6de39c7b086a113b00279b27a2da85d54d40a",
+    "EDITORIAL_RECOMMENDATIONS_v5.md": "e7fa53e25da38a638b9173f2e8552a2c0590123b4e411adce81ac7228d3adb63",
+    "WORKSHOP_METHOD_AND_RESULTS.md": "a0d17e7615c18bca34f3ce303bc7e4e02bebf4aab5573c4143ae58f47ed88c3d",
+    "evidence/provenance_key.json": "0d3cc198b0c74ee2c90f14fd7cc70f0969c90a90a74446eed3dfcbdad0887e52",
+    "evidence/BLIND_CRITIQUE_C1.md": "b462dd2343e46b0de98ecc2404523f826b3e38b7bdf2e0277cc99789e4e3d607",
+    "evidence/CRITIQUE_C2.md": "68accd0d2e1b06e99e24f6af0c4e95be7dddb393538aeef0a97356535bd2995e",
+    "N07_TABLE_MARKUP_PROPOSAL.tex": "afaf3b3e288a2324db2a3007d8945fe2b83bd2a1e0b1eb5e73b713724b48e0f5"
+  }
+}

@@ -1,0 +1,299 @@
+{
+  "recorded_utc": "2026-10-31T12:59:31.364563+00:00",
+  "scope": "All current v5 top-level and evidence files, seven chapter sources, old DECISIONS/SUPPLEMENTS, two baseline PDFs; before R2 rewrite. New filenames may be added, frozen files must not change.",
+  "files": [
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/WORKSHOP_METHOD_AND_RESULTS.md",
+      "sha256": "a0d17e7615c18bca34f3ce303bc7e4e02bebf4aab5573c4143ae58f47ed88c3d",
+      "bytes": 4047
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/build_reader_input.py",
+      "sha256": "f261a6129efda325ec417adf2fe88f17e456d9eca6d862f1366db21b05dd0ec0",
+      "bytes": 7615
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/finalize_workshop.py",
+      "sha256": "e61f94144e3298b5e2c6b38345d0a1b2509754a501f61df751931336e3bf6ebc",
+      "bytes": 5208
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_baseline_checks.py",
+      "sha256": "e2065af8b73987f888d180c19108160bdc7f775c3f9aa481aa16f11890b4d2b9",
+      "bytes": 6760
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/VOICE_CARD_SOURCE_EVIDENCE.md",
+      "sha256": "fdc929942a113b1d9d95acdab669d28f4d486e0260752e195692b56b09b1003a",
+      "bytes": 7645
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/VOICE_CARD_BRIEF.md",
+      "sha256": "d3ed55557f7a8eff00debf8b6e953bbaa1d599d8db363a8a231a82ab2f515548",
+      "bytes": 1176
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/build_packet.py",
+      "sha256": "3ea2193553d5a1150b2488c49f3ce9e3671f8f29ec234e99877d65a26ed96e98",
+      "bytes": 22253
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_independent_baseline.md",
+      "sha256": "b167838eca11664b52ae1bd6e2a0fa6cbc79368a8503b666ad513f5e1f452a8a",
+      "bytes": 15246
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/WRITER_HANDOFF.md",
+      "sha256": "d4d64fcd96c0d3f22a661e9709186f4507a9b8c0496def08642be9c026954fa7",
+      "bytes": 4983
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md",
+      "sha256": "2d9f74991cc03f22d1618b34828dca1ef14f465338878e0d3a47eff95306fc57",
+      "bytes": 53066
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_baseline_diagnostics.json",
+      "sha256": "adb3a17a7e599685402f47ba6d3fa18a38341e77d1ab025bc146ceaa8c491df2",
+      "bytes": 19077
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/extract_candidates.py",
+      "sha256": "82e5347dc74155a4843d3f36722825d49c70a370bc8e8cbd0f31ff5df7cc0453",
+      "bytes": 1510
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/STATUS.md",
+      "sha256": "a6b5fae424667ae2c1a5a4490d94415f9f9f7f3531ed4d978a2bb401005a8314",
+      "bytes": 915
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_build_blind_scores.py",
+      "sha256": "1dcf1710316407f53bdbfb85f4443ff01267d1f2051d527ed53a679ceeff9762",
+      "bytes": 13988
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_cycle1_blind_rankings.json",
+      "sha256": "7d5e87568df007c3e58c4970e211a9d2aae52bac333b44b624d3cad6457c9969",
+      "bytes": 33510
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_cycle1_post_reveal.json",
+      "sha256": "18f39a94ecb201ff61fe161cdd0a59a62cdc14e656dfd7f61b340d5fc7f4c2c2",
+      "bytes": 7307
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_extract.swift",
+      "sha256": "4a8e642c3af880a5131b08bbe349b516be69f336475e69965bca2dca96086fa2",
+      "bytes": 1102
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/CANDIDATE_PACKET_BLIND_C1.md",
+      "sha256": "6cdb230a24da1de3458ea6de17a6698dbc6041d060c2a18910a2b5791c355634",
+      "bytes": 60613
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/EDITORIAL_RECOMMENDATIONS_v5.md",
+      "sha256": "e7fa53e25da38a638b9173f2e8552a2c0590123b4e411adce81ac7228d3adb63",
+      "bytes": 6045
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/CANDIDATE_PACKET_C2_REINSERTED.md",
+      "sha256": "7440f45eb7db2da9bd6a4aa0825afc5d6e0be1de32017bc0424a5c0b72bf1529",
+      "bytes": 52826
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_cycle1_provisional.md",
+      "sha256": "e133751ed1ed0ff2be85b6f2bfd60305a72561c608074c4cb3519a542e63d88a",
+      "bytes": 12949
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_cycle1.md",
+      "sha256": "d7dadb73ba3a9c3485ca3d04bbdb0c30fa8b6a30f1d857df7ab4847432f39933",
+      "bytes": 13627
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/build_table_markup.py",
+      "sha256": "27b68a82487a81b36c55437d65faaf773cc8d0f5393f35678469dcfe6cb9078f",
+      "bytes": 2155
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/build_selection.py",
+      "sha256": "fc924a7a7fcac31e351c4aaf203470bf2e8881cd0e3c3689c1d571c8a4059092",
+      "bytes": 6879
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_cycle1_verification.json",
+      "sha256": "ae017e0d9c697a9557bf3035320edf07829adb038289582566159efc36d5baca",
+      "bytes": 12957
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_cycle1_verify.py",
+      "sha256": "f550714af4f494454a0eb08ce8b9ec08b3952384e5d0535c9edfba702b009dd2",
+      "bytes": 3964
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/N07_TABLE_MARKUP_PROPOSAL.tex",
+      "sha256": "afaf3b3e288a2324db2a3007d8945fe2b83bd2a1e0b1eb5e73b713724b48e0f5",
+      "bytes": 1733
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/FINAL_SELECTION.json",
+      "sha256": "ef9eb2c40590daf05b7135f99ca6de39c7b086a113b00279b27a2da85d54d40a",
+      "bytes": 113606
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/WRITER_READER_PACKET.json",
+      "sha256": "e01bc91e4cda147f8b69c83d411fbeec917b3b371efbbd067c01a5e27f260934",
+      "bytes": 33633
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/prior_candidates.json",
+      "sha256": "eb055b51f1d9624c2dc1318e0e108772ebcdc81f8b96d5917e88f3192d3a655d",
+      "bytes": 62520
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/tournament_source.json",
+      "sha256": "b29cdee3589daa9b8d404fc04d8811543575fb1268f34c88c6fda79ca4e10776",
+      "bytes": 66330
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/selected_quote_diff_checks.json",
+      "sha256": "8fbb4628a8962ab62ce19660d676517a4f471f65a3af094c3f1294fb741f40c6",
+      "bytes": 17329
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/source_hashes_before.json",
+      "sha256": "3513dc5ab0c266836733bf006156237e43cbbddd0ccb92a161e1f06fabd61429",
+      "bytes": 1128
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/BLIND_CRITIQUE_C1.md",
+      "sha256": "b462dd2343e46b0de98ecc2404523f826b3e38b7bdf2e0277cc99789e4e3d607",
+      "bytes": 7882
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/real_pdf_author_annotations.txt",
+      "sha256": "b8e66bd96f956d92d02aad9f0091f6fbff55f35830d5aa38be7acd66476c75c1",
+      "bytes": 15526
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/N07_table_markup_check.json",
+      "sha256": "3ea3239862eab129b9c1ffc800862e6dc1c4db5be031ab9115850e8f06b09a27",
+      "bytes": 3733
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/FINAL_INTEGRITY_CHECK.json",
+      "sha256": "b7d48f9aeaa26a47699d0129632613ba692099049b9f6373c6c9f002510e1650",
+      "bytes": 342
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/tournament_quote_checks.json",
+      "sha256": "885ac80dc405c6dfdcf6190c1bc7c200d4d1b3a9547e287094e55b0ce570b905",
+      "bytes": 2524
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/provenance_key.json",
+      "sha256": "0d3cc198b0c74ee2c90f14fd7cc70f0969c90a90a74446eed3dfcbdad0887e52",
+      "bytes": 1607
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/selected_passages_c2.json",
+      "sha256": "c9778c65fd58bfa431a2ceb961021f0a547f384014f26a03a44b24336b40fe7d",
+      "bytes": 111498
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/CRITIQUE_C2.md",
+      "sha256": "68accd0d2e1b06e99e24f6af0c4e95be7dddb393538aeef0a97356535bd2995e",
+      "bytes": 8024
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/prior_candidates_compact.md",
+      "sha256": "a329b033a4a4dc8f7ca2a915e1d23579c516bbc6283ff2d0a83ca518f437efb6",
+      "bytes": 58365
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/passage_word_counts.json",
+      "sha256": "a513a2bdc71ae5e0aec01145c2b0f642ce564a4e4579eadb15961118d6b9d0d7",
+      "bytes": 792
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/ALL_43_REAUDIT_INDEPENDENT.md",
+      "sha256": "9be624b12653bcdc207ce0166778c9c4d95248ce560fa0ea570d3a3e6e2398fa",
+      "bytes": 15140
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_1/Intro.tex",
+      "sha256": "e49e8d59cfe9872e8b71e1d7be75f04ceda2117a0cfa49bba6b62dfffbc16359",
+      "bytes": 21640
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_2/Background.tex",
+      "sha256": "f9f847a8d09557536798e776d60d80de16fb6ba6435afdbcbffaaf938ac7dffb",
+      "bytes": 91565
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_3/chap3.tex",
+      "sha256": "d8d6034e98d8b62fd91ee51652663aedb417d565bdbcd220518a95fb0e3c49c9",
+      "bytes": 35562
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_4/chap4.tex",
+      "sha256": "d3ba02f332041ea4e6e8c89fe342fdf560bd9edda1caafcd4b7c9fb651226eb8",
+      "bytes": 39804
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_5/chap5.tex",
+      "sha256": "60219fbeac5ebb0d2e70be7de2bbf6028c1e1916bf35c3626f0b5d872432e6fe",
+      "bytes": 51936
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_6/chap6.tex",
+      "sha256": "d871241adb95f5d88099d67a4dd01b584b4b004875b8e425fbbc7550c25e32bf",
+      "bytes": 63049
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_7/Conclusion.tex",
+      "sha256": "3fb5ce3da4a14c797bfb99d9e8a606c3ed9c9e3cb525254ce9551b9383db3b7f",
+      "bytes": 23708
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_blueprint_20261031/DECISIONS.md",
+      "sha256": "f4489e74df68177519e62d3a94504bf01549cc8d42856f68a4644fd7b0cce6b8",
+      "bytes": 29083
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_blueprint_20261031/SUPPLEMENTS_v4.md",
+      "sha256": "91d383210951927a08bdc23cb46900d571a5692b1adf3ac2c8777fc58c25b926",
+      "bytes": 8544
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/main.pdf",
+      "sha256": "8cb8dbe9d560980e003148e442cdeae53e7a97495dcee695b8a58df9a0719bb8",
+      "bytes": 14403753
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Z_He_PhD_Thesis.pdf",
+      "sha256": "cbfcfca09364f85a7f6fcef186114054bfa8c494a87d26271091911a9064de07",
+      "bytes": 14833690
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/main.tex",
+      "sha256": "a55546f7a41c9210f1ecebae71a2167f86e0fb93ddbf96797ba03c1ea270fd39",
+      "bytes": 8145,
+      "added_probe_utc": "2026-10-31T13:00:32.534582+00:00"
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Declaration/author_declaration.tex",
+      "sha256": "9d66129761a6d72b5370a489269dc61ea61d522107e1ec31e24370be32948063",
+      "bytes": 4621,
+      "added_probe_utc": "2026-10-31T13:00:32.535099+00:00"
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_6/figures/p2.jpg",
+      "sha256": "b864871a546f12e6ae0aca29f4a62dc3e7352e34b7f123d7643d4bc029cc3fac",
+      "bytes": 209255,
+      "added_probe_utc": "2026-10-31T13:00:38.034989+00:00"
+    }
+  ]
+}

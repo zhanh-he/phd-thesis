@@ -1,0 +1,68 @@
+[
+  {
+    "id": "T03",
+    "title": "把piano roll的理由说具体",
+    "beforeLabel": "当前论文原段",
+    "before": "This motivates the image-based view adopted in the present chapter. By treating symbolic MIDI as a sparse image and velocity as a colourisation target, the model can exploit local polyphonic structure more directly. U-Net and attention mechanisms are already successful in related music and audio tasks, but the present setting is distinct because it is purely symbolic and does not rely on acoustic input \\cite{he2025filling,kim2024method}. This makes the chapter a natural starting point for the broader thesis.",
+    "after": "We use a piano roll to place simultaneous notes and local pitch--time neighbourhoods on a regular grid for the convolutional U-Net. The input is binary; the single-channel output supplies velocity values, so colourisation is an analogy for adding dynamics to existing notes. A note-list representation would require a different model interface \\cite{he2025filling,kim2024method}.",
+    "why": "先说regular grid保留什么音乐关系，再解释它怎样对应卷积；没有声称所有event models都不如它。",
+    "source": "Chapter_3/chap3.tex",
+    "sourceLine": 26,
+    "fullPassagePath": "revision_workshop_20261031_v5/FINAL_PASSAGES_REVIEWED_v5.md#t03"
+  },
+  {
+    "id": "T11",
+    "title": "不替作者添加实验历史",
+    "beforeLabel": "v4提案末句，不是作者原话",
+    "before": "We did not conduct a dedicated comparison with MAE.",
+    "after": "We chose Huber for its smooth gradients near zero and L1-like penalty for large residuals. We have not established an advantage over MAE.",
+    "why": "保留使用Huber的数学理由；尚未证实优势，不等于从未做过比较。",
+    "source": "Chapter_6/chap6.tex",
+    "sourceLine": 126,
+    "fullPassagePath": "revision_workshop_20261031_v5/FINAL_PASSAGES_REVIEWED_v5.md#t11"
+  },
+  {
+    "id": "N01",
+    "title": "保留结果，收准指标推理",
+    "beforeLabel": "当前论文原段",
+    "before": "To test dynamics sensitivity, $\\Delta(\\mathrm{GT} - \\mathrm{Flat\\,64})$ asks whether a metric can distinguish expressive resynthesis from a flat one. Among the similarity metrics, Pearson $r$ produces the larger separation on both BSSL ($+0.118$) and BSTL ($+0.263$). Cosine similarity also orders GT above flat, but it severely compresses the margin ($+0.052$ on BSSL and $+0.047$ on BSTL), proving \\emph{insensitive} to fine dynamics differences.",
+    "after": "Both similarity metrics score GT above flat velocity in this diagnostic. Their numerical GT--flat gaps do not by themselves establish which metric is more sensitive to dynamics.",
+    "why": "两种similarity都把GT排在flat之上；gap本身不能确立哪个更敏感。",
+    "source": "Chapter_6/chap6.tex",
+    "sourceLine": 501,
+    "fullPassagePath": "revision_workshop_20261031_v5/FINAL_PASSAGES_REVIEWED_v5.md#n01"
+  },
+  {
+    "id": "N02",
+    "title": "换SoundFont不等于只改gain",
+    "beforeLabel": "当前论文原段",
+    "before": "To evaluate renderer robustness, $\\Delta\\lvert\\mathrm{Sal.} - \\mathrm{YDP}\\rvert$ asks whether a metric is stable when the rendering SoundFont is swapped while the underlying note velocities are kept the same. Here, MAE proves \\emph{over-sensitive} to absolute gain: it drifts by $0.193$ on BSSL and $1.723$ on BSTL, substantially more than the corresponding drift on $r$ ($0.034$ and $0.011$). On real recordings, this drift would conflate dynamics differences with renderer choice and make the evaluation unreliable.",
+    "after": "Changing from Salamander to YDP retains the GT notes and velocities but changes their rendered sound. This comparison tests the renderer change as a whole, rather than gain alone.",
+    "why": "写清保持notes和velocities、改变rendered sound；数字留在表里，不重复抄写或重算。",
+    "source": "Chapter_6/chap6.tex",
+    "sourceLine": 503,
+    "fullPassagePath": "revision_workshop_20261031_v5/FINAL_PASSAGES_REVIEWED_v5.md#n02"
+  },
+  {
+    "id": "N05a",
+    "title": "保留范围，删除自我辩护",
+    "beforeLabel": "当前论文原段",
+    "before": "The thesis has several boundaries. These boundaries are not artefacts of unfinished implementation; they follow from the problem definition and from the representational choices made throughout the dissertation.",
+    "after": "The thesis has several boundaries.",
+    "why": "boundaries原首句胜出；不把scope重新分类成缺陷。",
+    "source": "Chapter_7/Conclusion.tex",
+    "sourceLine": 109,
+    "fullPassagePath": "revision_workshop_20261031_v5/FINAL_PASSAGES_REVIEWED_v5.md#n05a"
+  },
+  {
+    "id": "T01",
+    "title": "两个术语，一次讲清楚",
+    "beforeLabel": "v4解释稿",
+    "before": "In this thesis, incomplete data lack the dynamics layer of interest, whereas weakly expressive data contain that layer only in a simplified form, such as constant or coarsely quantised MIDI velocities. Weakly supervised settings lack reliable target labels for direct training; Chapter 6 instead uses real audio and a renderer-based comparison to supervise the velocity estimator indirectly. These terms describe the available information rather than the quality of the musical performance. These conditions can overlap in the same dataset.",
+    "after": "Here, weakly expressive data retain note content and timing but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\\ref{ch:beyondpiano}. These conditions can overlap.",
+    "why": "明确note content and timing；把数据状态与学习监督分开，仍允许重叠。",
+    "source": "Chapter_1/Intro.tex",
+    "sourceLine": 114,
+    "fullPassagePath": "revision_workshop_20261031_v5/FINAL_PASSAGES_REVIEWED_v5.md#t01"
+  }
+]

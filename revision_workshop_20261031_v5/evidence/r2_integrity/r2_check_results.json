@@ -1,0 +1,557 @@
+{
+  "timestamp_utc": "2026-10-31T13:06:25.774577+00:00",
+  "frozen_files": [
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/WORKSHOP_METHOD_AND_RESULTS.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/build_reader_input.py",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/finalize_workshop.py",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_baseline_checks.py",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/VOICE_CARD_SOURCE_EVIDENCE.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/VOICE_CARD_BRIEF.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/build_packet.py",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_independent_baseline.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/WRITER_HANDOFF.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/FINAL_PASSAGES_WITH_ORIGINALS.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_baseline_diagnostics.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/extract_candidates.py",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/STATUS.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_build_blind_scores.py",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_cycle1_blind_rankings.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_cycle1_post_reveal.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_extract.swift",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/CANDIDATE_PACKET_BLIND_C1.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/EDITORIAL_RECOMMENDATIONS_v5.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/CANDIDATE_PACKET_C2_REINSERTED.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_cycle1_provisional.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_cycle1.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/build_table_markup.py",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/build_selection.py",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_cycle1_verification.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evaluator_cycle1_verify.py",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/N07_TABLE_MARKUP_PROPOSAL.tex",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/FINAL_SELECTION.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/WRITER_READER_PACKET.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/prior_candidates.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/tournament_source.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/selected_quote_diff_checks.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/source_hashes_before.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/BLIND_CRITIQUE_C1.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/real_pdf_author_annotations.txt",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/N07_table_markup_check.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/FINAL_INTEGRITY_CHECK.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/tournament_quote_checks.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/provenance_key.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/selected_passages_c2.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/CRITIQUE_C2.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/prior_candidates_compact.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/passage_word_counts.json",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_workshop_20261031_v5/evidence/ALL_43_REAUDIT_INDEPENDENT.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_1/Intro.tex",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_2/Background.tex",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_3/chap3.tex",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_4/chap4.tex",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_5/chap5.tex",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_6/chap6.tex",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_7/Conclusion.tex",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_blueprint_20261031/DECISIONS.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_blueprint_20261031/SUPPLEMENTS_v4.md",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/main.pdf",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Z_He_PhD_Thesis.pdf",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/main.tex",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Declaration/author_declaration.tex",
+      "exists": true,
+      "unchanged": true
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Chapter_6/figures/p2.jpg",
+      "exists": true,
+      "unchanged": true
+    }
+  ],
+  "all_frozen_unchanged": true,
+  "requested_change_ids": [
+    "T01",
+    "T03",
+    "T07",
+    "T11",
+    "N02",
+    "N03",
+    "N05a"
+  ],
+  "source_anchor_checks": [
+    {
+      "id": "T01",
+      "kind": "insertion_anchor",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "T02",
+      "kind": "insertion_anchor",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "T03",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "T04",
+      "kind": "insertion_anchor",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "T05",
+      "kind": "insertion_anchor",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "T06",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "T07",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "T08",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "T09",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "T10",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "N01",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "N02",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "T11",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "N03",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "N04",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "N05a",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "N05b",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "N05c",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "N06a",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    },
+    {
+      "id": "N06b",
+      "kind": "exact_original",
+      "count": 1,
+      "valid": true
+    }
+  ],
+  "source_replacement_overlaps": [],
+  "r2_files": {
+    "FINAL_SELECTION_R2.json": {
+      "local_exists": true,
+      "shared_exists": true,
+      "local_sha256": "f042fce6fa01b3f3be6f0c48979cb9c0558cc95f2f9e48005e3f1791cdc96810",
+      "shared_sha256": "f042fce6fa01b3f3be6f0c48979cb9c0558cc95f2f9e48005e3f1791cdc96810",
+      "local_shared_identical": true
+    },
+    "CANDIDATE_PACKET_R2_FULL_CONTEXT.md": {
+      "local_exists": true,
+      "shared_exists": true,
+      "local_sha256": "f97927db79271972f9fcde1fe569ff93e8908e57be88899a9bb3cceb419798fc",
+      "shared_sha256": "f97927db79271972f9fcde1fe569ff93e8908e57be88899a9bb3cceb419798fc",
+      "local_shared_identical": true
+    },
+    "WRITER_REVISION_RESPONSE_R2.md": {
+      "local_exists": true,
+      "shared_exists": true,
+      "local_sha256": "5c6e0eb1889fe3ef6af10e54f5ba29582f05ee4addc96a40caffcf321cf00e53",
+      "shared_sha256": "5c6e0eb1889fe3ef6af10e54f5ba29582f05ee4addc96a40caffcf321cf00e53",
+      "local_shared_identical": true
+    }
+  },
+  "selected_text_changed_ids": [
+    "T01",
+    "T03",
+    "T07",
+    "N02",
+    "T11",
+    "N03",
+    "N05a"
+  ],
+  "exactly_seven_requested_texts_changed": true,
+  "requested_text_checks": [
+    {
+      "id": "T01",
+      "changed": true,
+      "matches_evaluator_suggestion": true
+    },
+    {
+      "id": "T03",
+      "changed": true,
+      "matches_evaluator_suggestion": true
+    },
+    {
+      "id": "T07",
+      "changed": true,
+      "matches_evaluator_suggestion": true
+    },
+    {
+      "id": "T11",
+      "changed": true,
+      "matches_evaluator_suggestion": true
+    },
+    {
+      "id": "N02",
+      "changed": true,
+      "matches_evaluator_suggestion": false
+    },
+    {
+      "id": "N03",
+      "changed": true,
+      "matches_evaluator_suggestion": false
+    },
+    {
+      "id": "N05a",
+      "changed": true,
+      "matches_evaluator_suggestion": true
+    }
+  ],
+  "accepted_existing_selected_unchanged": [
+    {
+      "id": "T02",
+      "unchanged": true
+    },
+    {
+      "id": "T04",
+      "unchanged": true
+    },
+    {
+      "id": "T05",
+      "unchanged": true
+    },
+    {
+      "id": "T06",
+      "unchanged": true
+    },
+    {
+      "id": "T08",
+      "unchanged": true
+    },
+    {
+      "id": "T09",
+      "unchanged": true
+    },
+    {
+      "id": "T10",
+      "unchanged": true
+    },
+    {
+      "id": "N01",
+      "unchanged": true
+    },
+    {
+      "id": "N04",
+      "unchanged": true
+    },
+    {
+      "id": "N05b",
+      "unchanged": true
+    },
+    {
+      "id": "N05c",
+      "unchanged": true
+    },
+    {
+      "id": "N06a",
+      "unchanged": true
+    },
+    {
+      "id": "N06b",
+      "unchanged": true
+    }
+  ],
+  "t10_v4_unchanged": true,
+  "new_ids": [],
+  "n07_exact_checked_proposal": true,
+  "n07_numeric_tokens_unchanged": true,
+  "status": "R2 selection available; semantic/full-context review must be recorded separately."
+}

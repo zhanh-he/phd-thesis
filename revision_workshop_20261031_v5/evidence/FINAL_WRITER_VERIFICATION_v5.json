@@ -1,0 +1,17 @@
+{
+  "exactly_two_operation_changes": [
+    "V4-R2-04-sync-3",
+    "N07"
+  ],
+  "operation_count": 44,
+  "zero_overlaps": true,
+  "all_20_selected_hashes_match_external_C2": true,
+  "table_numeric_tokens": 58,
+  "table_numeric_sequence_unchanged": true,
+  "all_eight_virtual_hashes_match_external_C2": true,
+  "R2_frozen_hashes_unchanged": true,
+  "source_hashes_match_external_C2": true,
+  "source_writes": false,
+  "old_outputs_overwritten": false,
+  "author_approval": false
+}

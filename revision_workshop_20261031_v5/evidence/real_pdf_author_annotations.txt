@@ -1,0 +1,198 @@
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+Yes, that’s a fair point. I forgot instrument identities and other expressive aspects from this figure. Final thesis, in this figure I will add them.
+
+PAGE 2 TYPE Popup AUTHOR 
+Yes, that’s a fair point. I forgot instrument identities and other expressive aspects from this figure. Final thesis, in this figure I will add them.
+
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+Yes, collecting
+
+PAGE 2 TYPE Popup AUTHOR 
+Yes, collecting
+
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+At current, I am success in Senario 2. We use a score-informed MIDI velocity estimation model because it performs better and provides a stronger pre-train model for adaptation.Normal MIDI velocity estimation, those without music score as prior, for example the hFT Transformer by Toyama ISMIR2023 is about 3 times MAE than our baseline system. So adapt these audio-only (S3) model with DDSP or DIff-SFProxy is good problem to explore, but we have not yet established.Current method is useful, As we demonstrated in Chapter 4, the audio–score misalignments won't affect much. So it works well.So it's good to explore border application. I believe.
+
+PAGE 2 TYPE Popup AUTHOR 
+At current, I am success in Senario 2. We use a score-informed MIDI velocity estimation model because it performs better and provides a stronger pre-train model for adaptation.Normal MIDI velocity estimation, those without music score as prior, for example the hFT Transformer by Toyama ISMIR2023 is about 3 times MAE than our baseline system. So adapt these audio-only (S3) model with DDSP or DIff-SFProxy is good problem to explore, but we have not yet established.Current method is useful, As we demonstrated in Chapter 4, the audio–score misalignments won't affect much. So it works well.So it's good to explore border application. I believe.
+
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+Oops, Thanks, indeed I should add definition on that part.
+
+Weakly expressive is like "音符和时间信息已经存在，但目标力度层被简化，例如 MIDI velocity 全部设为默认值，无法保留逐音力度变化 (set to 64, or 8-labels scale quantization.)"
+
+Weak supervise is the missing of groundtruth labels, or low quality groundtruth.
+
+PAGE 2 TYPE Popup AUTHOR 
+Oops, Thanks, indeed I should add definition on that part.
+
+Weakly expressive is like "音符和时间信息已经存在，但目标力度层被简化，例如 MIDI velocity 全部设为默认值，无法保留逐音力度变化 (set to 64, or 8-labels scale quantization.)"
+
+Weak supervise is the missing of groundtruth labels, or low quality groundtruth.
+
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+Yes a true
+
+PAGE 2 TYPE Popup AUTHOR 
+Yes a true
+
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+Ture, but and False. This correspondence is about the instrument-specific tones, and Performer style. Like two different piano will give different sound with the same finger force. And, about the skill, this could said the piano pedal, and many other factor influence it. So it's false, because too many uncertainty.I would the Katerina Kosta's work, a "piano symbol" performance guidance resulted in sound is not always a soft. Her journal article also analyze this problem, and her ML model is better learn about the performer style instead of some kind of audio-to-loudness correspondence.
+
+Same finding in Kim’s work utilizing LLMs for midi-velocity-to-dynamic  translation
+
+PAGE 2 TYPE Popup AUTHOR 
+Ture, but and False. This correspondence is about the instrument-specific tones, and Performer style. Like two different piano will give different sound with the same finger force. And, about the skill, this could said the piano pedal, and many other factor influence it. So it's false, because too many uncertainty.I would the Katerina Kosta's work, a "piano symbol" performance guidance resulted in sound is not always a soft. Her journal article also analyze this problem, and her ML model is better learn about the performer style instead of some kind of audio-to-loudness correspondence.
+
+Same finding in Kim’s work utilizing LLMs for midi-velocity-to-dynamic  translation
+
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+In my table, MIDI is unquantised real-performance data, and the score is quantised (somehow we call it score-MIDI). So 43% means the ATEPP only have 43% of recording provided the score, but all of them can use a AMT system to obtain MIDI.
+
+PAGE 2 TYPE Popup AUTHOR 
+In my table, MIDI is unquantised real-performance data, and the score is quantised (somehow we call it score-MIDI). So 43% means the ATEPP only have 43% of recording provided the score, but all of them can use a AMT system to obtain MIDI.
+
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+Yes my mistake, my intend is to say "less input signal compared to others", but indeed less constrained. I will change my term.
+
+PAGE 2 TYPE Popup AUTHOR 
+Yes my mistake, my intend is to say "less input signal compared to others", but indeed less constrained. I will change my term.
+
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+That's a great question, During my Dolby internship, we explored using style as a control parameter in a generative system. Composer could also be used as a coarse style label, for example “Chopin style” or “Beethoven style.”
+However, we were facing the data limitation, we don't have enough training data for composer/style control. So we changed our idea from " style control", to make a model can generalize to more data in different style. 
+You can see our human listening test analyse the "most-seen composer / unseen composer style" in train data, it exist a gap, but work well across those scenario.s.
+
+PAGE 2 TYPE Popup AUTHOR 
+That's a great question, During my Dolby internship, we explored using style as a control parameter in a generative system. Composer could also be used as a coarse style label, for example “Chopin style” or “Beethoven style.”
+However, we were facing the data limitation, we don't have enough training data for composer/style control. So we changed our idea from " style control", to make a model can generalize to more data in different style. 
+You can see our human listening test analyse the "most-seen composer / unseen composer style" in train data, it exist a gap, but work well across those scenario.s.
+
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+Good question. The idea originally came from image-processing papers, especially the use of U-Net and window attention. We use “image-based” because both the input and output are two-dimensional pitch–time matrices, processed with two-dimensional convolutions.
+
+The input is a binary piano roll, and the output is a single-channel velocity roll. We do not predict RGB colours. “Colourisation” is an analogy for adding velocity values to the existing note structure, it's good for general audiance understand, but I agree that the wording needs clarification.
+
+I would say the “image-like” is more proper. I will make revision.
+
+PAGE 2 TYPE Popup AUTHOR 
+Good question. The idea originally came from image-processing papers, especially the use of U-Net and window attention. We use “image-based” because both the input and output are two-dimensional pitch–time matrices, processed with two-dimensional convolutions.
+
+The input is a binary piano roll, and the output is a single-channel velocity roll. We do not predict RGB colours. “Colourisation” is an analogy for adding velocity values to the existing note structure, it's good for general audiance understand, but I agree that the wording needs clarification.
+
+I would say the “image-like” is more proper. I will make revision.
+
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+At first is recovery, because it's how we make the training data. We delete those midi velocity from the given MIDI files. But the final task is the estimation, so shown our MAESTRO dataset trained model can perform well in SMD dataset.
+
+PAGE 2 TYPE Popup AUTHOR 
+At first is recovery, because it's how we make the training data. We delete those midi velocity from the given MIDI files. But the final task is the estimation, so shown our MAESTRO dataset trained model can perform well in SMD dataset.
+
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+Could be, but I guess it will be less expressive, as we know about the problem of quantization. We are not always input this model with the "real music score", sometimes, it could be AMT model result,. For example the  guitar-AMT model will not provide the velocity. Using our model in Physcical time, will be a great help.
+
+PAGE 2 TYPE Popup AUTHOR 
+Could be, but I guess it will be less expressive, as we know about the problem of quantization. We are not always input this model with the "real music score", sometimes, it could be AMT model result,. For example the  guitar-AMT model will not provide the velocity. Using our model in Physcical time, will be a great help.
+
+PAGE 2 TYPE Highlight AUTHOR Zhanh He
+I don't think so. We tried the model inference, and it actually works well in quantised MIDI scores we download from the internet. And our MOS test is based on the score-MIDI, which is quantised, double confirm it can work.Be honestly I understand this can make a further experiment, which make discussion deeper. 
+
+The true problem is Dolby will not happy for my "internship finished project" have further development" haha. So we keep it as current.
+
+PAGE 2 TYPE Popup AUTHOR 
+I don't think so. We tried the model inference, and it actually works well in quantised MIDI scores we download from the internet. And our MOS test is based on the score-MIDI, which is quantised, double confirm it can work.Be honestly I understand this can make a further experiment, which make discussion deeper. 
+
+The true problem is Dolby will not happy for my "internship finished project" have further development" haha. So we keep it as current.
+
+PAGE 3 TYPE Highlight AUTHOR Zhanh He
+Possible, but I can image this is taken the longer time. 
+
+I think it will make the model output more "human-prefer", for example in my case, we used the Bark-scale loudness so definatly it sounds more like the real performance. 
+
+But sometimes, it will return lower objective evaluation metrics, which is a deeper issues need to be address.
+
+PAGE 3 TYPE Popup AUTHOR 
+Possible, but I can image this is taken the longer time. 
+
+I think it will make the model output more "human-prefer", for example in my case, we used the Bark-scale loudness so definatly it sounds more like the real performance. 
+
+But sometimes, it will return lower objective evaluation metrics, which is a deeper issues need to be address.
+
+PAGE 3 TYPE Highlight AUTHOR Zhanh He
+Yes I agree, I will make this more detail.
+
+PAGE 3 TYPE Popup AUTHOR 
+Yes I agree, I will make this more detail.
+
+PAGE 3 TYPE Highlight AUTHOR Zhanh He
+yes, great point. Protential problem is design a ddsp model is hard, it need a new data/methodology develpment. But as you said, it's more straightforward.
+
+I will modify this term "simpler route" to "more efficient route".
+
+PAGE 3 TYPE Popup AUTHOR 
+yes, great point. Protential problem is design a ddsp model is hard, it need a new data/methodology develpment. But as you said, it's more straightforward.
+
+I will modify this term "simpler route" to "more efficient route".
+
+PAGE 3 TYPE Highlight AUTHOR Zhanh He
+because we want to use the multi-scale network. Event-based token transformer might have better methodologies, but piano-roll based is easier to build. Actually we tried a "multi-scale transformer" in time series research, which is failed, so I did not goes further.
+
+PAGE 3 TYPE Popup AUTHOR 
+because we want to use the multi-scale network. Event-based token transformer might have better methodologies, but piano-roll based is easier to build. Actually we tried a "multi-scale transformer" in time series research, which is failed, so I did not goes further.
+
+PAGE 3 TYPE Highlight AUTHOR Zhanh He
+This is the following work of a ISMIR2024 paper by Hyon Kim, he found this is the best ratio, and I verfied it. 
+
+I will directly cite his work to further explain this.
+
+PAGE 3 TYPE Popup AUTHOR 
+This is the following work of a ISMIR2024 paper by Hyon Kim, he found this is the best ratio, and I verfied it. 
+
+I will directly cite his work to further explain this.
+
+PAGE 3 TYPE Highlight AUTHOR Zhanh He
+could be, but it is a big field about the instrument similarity, we agree it's future work but hard to do it well at the current.
+
+PAGE 3 TYPE Popup AUTHOR 
+could be, but it is a big field about the instrument similarity, we agree it's future work but hard to do it well at the current.
+
+PAGE 3 TYPE Highlight AUTHOR Zhanh He
+dynamic markings is decode to beat levels,
+
+PAGE 3 TYPE Popup AUTHOR 
+dynamic markings is decode to beat levels,
+
+PAGE 3 TYPE Highlight AUTHOR Zhanh He
+connected them might have benefit, a good point, but our idea is the simply MMoE module, so hard development might damage its performance.
+
+PAGE 3 TYPE Popup AUTHOR 
+connected them might have benefit, a good point, but our idea is the simply MMoE module, so hard development might damage its performance.
+
+PAGE 3 TYPE Highlight AUTHOR Zhanh He
+only the decoding progress has the connection, but thanks for rasing it, this is a good point if we want a further performance improvement.
+
+PAGE 3 TYPE Popup AUTHOR 
+only the decoding progress has the connection, but thanks for rasing it, this is a good point if we want a further performance improvement.
+
+PAGE 3 TYPE Highlight AUTHOR Zhanh He
+That's the reason. So we want to check whether this model can generalised across the composer and performer.
+
+Unfortunaly we cannot make a dataset that has specific balance to discuss this topic, but least we verfied it has a good generalization.
+
+PAGE 3 TYPE Popup AUTHOR 
+That's the reason. So we want to check whether this model can generalised across the composer and performer.
+
+Unfortunaly we cannot make a dataset that has specific balance to discuss this topic, but least we verfied it has a good generalization.
+
+PAGE 3 TYPE Highlight AUTHOR Zhanh He
+We chose Huber because it provides smoother gradients for small PHE/OSF errors while retaining an L1-like penalty for large errors. We use β = 1, but we have not established that it performs better than MAE through a dedicated comparison.We will add more details about this in the thesis, thanks for rasing it.
+
+PAGE 3 TYPE Popup AUTHOR 
+We chose Huber because it provides smoother gradients for small PHE/OSF errors while retaining an L1-like penalty for large errors. We use β = 1, but we have not established that it performs better than MAE through a dedicated comparison.We will add more details about this in the thesis, thanks for rasing it.
+
+PAGE 3 TYPE Highlight AUTHOR Zhanh He
+We use these synthesizers as differentiable approximations, and their fidelity to the target recordings, especially their velocity-to-sound response, is a limitation. The degradation after Diff-Synth adaptation is consistent with acoustic mismatch, although we have not separately measured reconstruction fidelity and velocity-gradient accuracy on our target data.
+
+PAGE 3 TYPE Popup AUTHOR 
+We use these synthesizers as differentiable approximations, and their fidelity to the target recordings, especially their velocity-to-sound response, is a limitation. The degradation after Diff-Synth adaptation is consistent with acoustic mismatch, although we have not separately measured reconstruction fidelity and velocity-gradient accuracy on our target data.
+
