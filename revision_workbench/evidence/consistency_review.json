@@ -1,0 +1,37 @@
+{
+  "change": "metric interpretation consistency reminder and same-page jumps",
+  "staticOnly": true,
+  "browserNavigationAttempted": false,
+  "fileProtocolDenialRetriedOrBypassed": false,
+  "originalCommentsUnchanged": true,
+  "originalSourcesUnchanged": true,
+  "allFiveTargetsPrimaryVisible": true,
+  "choicesAutoBundled": false,
+  "targets": [
+    {
+      "commentId": "R1-33",
+      "locationKey": "N04",
+      "label": "第2章背景说明"
+    },
+    {
+      "commentId": "R2-05",
+      "locationKey": "N01",
+      "label": "第6章解释①"
+    },
+    {
+      "commentId": "R2-05",
+      "locationKey": "N02",
+      "label": "第6章解释②"
+    },
+    {
+      "commentId": "R2-05",
+      "locationKey": "N03",
+      "label": "第6章解释③"
+    },
+    {
+      "commentId": "R2-05",
+      "locationKey": "N07",
+      "label": "第6章表格标记"
+    }
+  ]
+}

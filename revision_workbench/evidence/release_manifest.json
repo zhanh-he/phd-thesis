@@ -1,13 +1,14 @@
 {
-  "generatedUtc": "2026-11-01T05:01:04.235284+00:00",
+  "generatedUtc": "2026-11-01T05:14:07.331801+00:00",
   "baseCommit": "b2995d0aa9ddcb47532a47bcd326f6200fc7b12a",
   "sourceImplementation": false,
   "pushPerformed": false,
   "entry": "START_HERE.html",
-  "entrySha256": "4fe354d48f03741e8130862c85e5722dea3fdcdfeac589f1e9652fd6d00af5be",
+  "entrySha256": "b06abd343a0a4e6a4ac3aeac4c9a23a30fe32001357f15c5261a172e1dcdec0f",
   "tests": {
     "ledger": {
-      "passed": 31
+      "passed": 31,
+      "unchangedSinceBrowserFreeze": true
     },
     "build": {
       "passed": 16
@@ -15,26 +16,65 @@
     "browser": {
       "passed": 426,
       "failed": 0,
-      "testedEntrySha256": "4fe354d48f03741e8130862c85e5722dea3fdcdfeac589f1e9652fd6d00af5be"
+      "testedEntrySha256": "4fe354d48f03741e8130862c85e5722dea3fdcdfeac589f1e9652fd6d00af5be",
+      "snapshotStatus": "Previous freeze; only consistency reminder/jumps changed afterward. No new browser navigation attempted."
     },
     "source": {
       "comments": 43,
       "exactLocations": 192,
       "nativeReplies": 25,
       "protectedFiles": 421
+    },
+    "postFreezeConsistency": {
+      "change": "metric interpretation consistency reminder and same-page jumps",
+      "staticOnly": true,
+      "browserNavigationAttempted": false,
+      "fileProtocolDenialRetriedOrBypassed": false,
+      "originalCommentsUnchanged": true,
+      "originalSourcesUnchanged": true,
+      "allFiveTargetsPrimaryVisible": true,
+      "choicesAutoBundled": false,
+      "targets": [
+        {
+          "commentId": "R1-33",
+          "locationKey": "N04",
+          "label": "第2章背景说明"
+        },
+        {
+          "commentId": "R2-05",
+          "locationKey": "N01",
+          "label": "第6章解释①"
+        },
+        {
+          "commentId": "R2-05",
+          "locationKey": "N02",
+          "label": "第6章解释②"
+        },
+        {
+          "commentId": "R2-05",
+          "locationKey": "N03",
+          "label": "第6章解释③"
+        },
+        {
+          "commentId": "R2-05",
+          "locationKey": "N07",
+          "label": "第6章表格标记"
+        }
+      ]
     }
   },
+  "independentQa": "pending parent verdict",
   "filesSha256": {
     ".gitignore": "c459373fc402ac3b3ba715812994a7f8c533b5159d9b748b7796c4cfcd3d47a9",
     "README.md": "0a007cae93ad708d618deb427e7fa5d25e6df6b7cec836b0f0fe95914ca636cf",
-    "START_HERE.html": "4fe354d48f03741e8130862c85e5722dea3fdcdfeac589f1e9652fd6d00af5be",
-    "revision_workbench/DATA_CONTRACT.md": "e324a7f41e5fe687b97d9d5928234a3d097cb06aecdec5fa44399b0260dbbe6d",
+    "START_HERE.html": "b06abd343a0a4e6a4ac3aeac4c9a23a30fe32001357f15c5261a172e1dcdec0f",
+    "revision_workbench/DATA_CONTRACT.md": "0a67de0fa5ece363082c8b9f4b4e45f84fed049c1c672443af768c6f995876c8",
     "revision_workbench/OPEN_SOURCE_DESIGN.md": "c0369ecb0e1c4f746b06e6da2b009facce9355bf1f0629e50cea705f9f05d38a",
     "revision_workbench/README.md": "6a4658ed6290dbebbba5b327c7529ba87152faf249fcdb7d67c6a99e4f66e619",
-    "revision_workbench/app.js": "33469fa445229c73fe3e3f95089af65abcea41c026ab03abb0739a350681d158",
+    "revision_workbench/app.js": "b527e0c6965f1bf609c6630edb70b82b47a3d3c0df9d2ef8a1f423d00ac4c6eb",
     "revision_workbench/build.py": "7c34a58f3d7fd624b3f7e6b9873e0776162817877702fea2e908c12d11c48c39",
-    "revision_workbench/data.json": "214ae925481bd3a036f90cd24b9293fe4ea20da861f91d24c82d1999bd88940e",
-    "revision_workbench/evidence/QA_REMEDIATIONS.md": "d6478d51ae5a8431210a78d9216984e5274ba7bbdbea718fe66470eaef446ba2",
+    "revision_workbench/data.json": "1aa809aa61e603195df8814947c58d9aa2ffe425ccc074c10b9614376b5699dd",
+    "revision_workbench/evidence/QA_REMEDIATIONS.md": "f3e006874103a0f57ac2bea9dc2cfbed13a12f5416cd7031beaec810c105c1da",
     "revision_workbench/evidence/author_decision_evidence.json": "2377297c61df5baca654d13a3fe79b42871ebecc6c3e53a66e4ac983ad508250",
     "revision_workbench/evidence/author_prefill_recheck_v2.json": "6c108cb89bd19762ff56b076312e333a6d4476afcf147e435c6c0b9d31f605b7",
     "revision_workbench/evidence/author_prefill_recheck_v2.md": "ac22fe6e22a4f2d9d456b1292b475e407f2164416ef089deec06542c93324e73",
@@ -57,12 +97,13 @@
     "revision_workbench/evidence/browser-r1-35.txt": "ddf29bf2216fef7fac2db9429cd15cdbfac2213e01a41b32aa04cbe38e8c4c10",
     "revision_workbench/evidence/browser_backup_transport_diagnostic.json": "44f7e150ff0f7fb59642bc1bc05d23ebd8897e7008eac4d855103879a443af05",
     "revision_workbench/evidence/browser_validation.json": "39672a6f9dbaa3d69a3b15e27b9fb65b408eb664fb66202e6a1b96aa9bd70b8c",
+    "revision_workbench/evidence/consistency_review.json": "3421c11ae498bc212c942fd6ecdb68cff9b275a5710a8b8e6d4f1ed2a08972a8",
     "revision_workbench/evidence/source_location_audit.md": "59ca91d2082b2ee0e9e3c09a1310a817c1a36130c9c3ad370b51e63c12a2b268",
-    "revision_workbench/integrate_audit.py": "7b8a78880ce8cc4d1e4ddd95e4add4408fc9a45093e653af7101a7021f07b719",
+    "revision_workbench/integrate_audit.py": "bbf348a27c05e8de84f3954ad4735d945e7c7d5e77c72e24bbbbc37c4f4b1f8c",
     "revision_workbench/ledger.js": "bea9f5323e86ee82f002e79b68d6f30b4f2bc1f2857f5966871849ffbe8abf92",
     "revision_workbench/reusable.template.json": "3e7ef4c2189962dad7f1c1235788af418433d58c396ed02de5acff05dedd2d06",
     "revision_workbench/source_baseline.json": "9f2d3a42c97db55a4e98bd09cabe321134e061dbc212e21b499ebabcce47bbaf",
-    "revision_workbench/style.css": "febc018b9fbbf313c81390dec24287baf969ebbd9845a381479f2ac1062ba7fc",
+    "revision_workbench/style.css": "5482951e628df1f60c48bda58f3ad4bbf78d7d771993f76d583f1d1ad8060f46",
     "revision_workbench/template.html": "29abec102f2e9fbdadb82cee36d23925ab1c47c690d68831a18d48b3c7bf6bde",
     "revision_workbench/tests/browser.mjs": "a967f604954f7ca8a263a2bc3f9b1a6777f32e214f92ab219b367135ab7f58f9",
     "revision_workbench/tests/ledger.test.cjs": "cd5429d6e0c4074680a061617a24e903f8df85764234c7d094747073738efe6d",

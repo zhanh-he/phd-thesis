@@ -32802,5 +32802,42 @@
       "text": "\\section*{\\Large Authorship Declaration: Co-authored Publications}\n\\vskip 0.4cm\nThis thesis contains work that has been published and/or prepared for publication. \n\\vskip 0.6cm\n\t\n\\begin{tabular}{@{}p{\\dimexpr\\textwidth-2\\tabcolsep\\relax}@{}}\n\\textbf{Details of the work:} \\\\\n\\textbf{Zhanhong He}, David Cooper, Defeng (David) Huang, Roberto Togneri\\\\\n``Filling MIDI Velocity using U-Net Image Colorizer,''\\\\\n\\emph{Proc.\\ 17th Int.\\ Symp.\\ Computer Music Multidisciplinary Research (CMMR)},\\\\\npp.~949--960, 2025.\\\\\n% arXiv:2508.07751. DOI: 10.48550/arXiv.2508.07751.\\\\ %[0.3cm]\n\\textbf{Location in thesis: Chapter 3} \\\\\n\\textbf{Student contribution to work: 80\\%} \\\\\n% {[insert text: describe precisely what you contributed (e.g., problem formulation, model design, implementation, experiments, evaluation, writing, revisions)]}\n%\\\\[0.3cm]\n%\\textbf{Co-author signatures and dates:} \\\\\n%David Cooper:\\ \\rule{6cm}{0.4pt}\\ \\ \\ Date:\\ \\rule{3cm}{0.4pt}\\\\\n%Defeng Huang:\\ \\rule{6cm}{0.4pt}\\ \\ \\ Date:\\ \\rule{3cm}{0.4pt}\\\\\n%Roberto Togneri:\\ \\rule{6cm}{0.4pt}\\ \\ \\ Date:\\ \\rule{3cm}{0.4pt}\n\\end{tabular} \n\t\n\\vskip 0.6cm\n\t\n\\begin{tabular}{@{}p{\\dimexpr\\textwidth-2\\tabcolsep\\relax}@{}}\n\\textbf{Details of the work:} \\\\\n\\textbf{Zhanhong He}, Roberto Togneri, Defeng (David) Huang,\\\\\n``Score-Informed Transformer for Refining MIDI Velocity in Automatic Piano Transcription,''\\\\\n\\emph{Proc. Sound and Music Computing Conference (SMC)}, accepted, 2026.\\\\ % arXiv:2508.07757. \\\\%[0.3cm]\n\\textbf{Location in thesis: Chapter 4} \\\\\n\\textbf{Student contribution to work: 80\\%} \\\\\n% {[insert text: describe your contribution vs.\\ co-authors]}\n%\\\\[0.3cm]\n%\\textbf{Co-author signatures and dates:} \\\\\n%Roberto Togneri:\\ \\rule{6cm}{0.4pt}\\ \\ \\ Date:\\ \\rule{3cm}{0.4pt}\\\\\n%Defeng (David) Huang:\\ \\rule{6cm}{0.4pt}\\ \\ \\ Date:\\ \\rule{3cm}{0.4pt}\n\\end{tabular} \n\t\n\\vskip 0.6cm\n\n\\begin{tabular}{@{}p{\\dimexpr\\textwidth-2\\tabcolsep\\relax}@{}}\n\\textbf{Details of the work:} \\\\\n\\textbf{Zhanhong He}, Hanyu Meng, Defeng (David) Huang, Roberto Togneri,\\\\\n``Joint Estimation of Piano Dynamics and Metrical Structure with a Multi-task Multi-Scale Network,''\\\\\n\\emph{Proc.\\ IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)},\npp.~14607--14611, 2026.\\\\\n% arXiv:2510.18190. DOI: 10.48550/arXiv.2510.18190.\\\\%[0.3cm]\n\\textbf{Location in thesis: Chapter 5} \\\\\n\\textbf{Student contribution to work: 80\\%}\\\\\n% {[insert text: describe your contribution vs.\\ co-authors (methods, data, experiments, writing, etc.)]}\n%\\\\[0.3cm]\n%\\textbf{Co-author signatures and dates:} \\\\\n%Hanyu Meng:\\ \\rule{6cm}{0.4pt}\\ \\ \\ Date:\\ \\rule{3cm}{0.4pt}\\\\\n%David Huang:\\ \\rule{6cm}{0.4pt}\\ \\ \\ Date:\\ \\rule{3cm}{0.4pt}\\\\\n%Roberto Togneri:\\ \\rule{6cm}{0.4pt}\\ \\ \\ Date:\\ \\rule{3cm}{0.4pt}\n\\end{tabular} \n\t\n\\vskip 0.6cm\n\t\n\\begin{tabular}{@{}p{\\dimexpr\\textwidth-2\\tabcolsep\\relax}@{}}\n\\textbf{Details of the work:} \\\\\n\\textbf{Zhanhong He}, Hanyu Meng, Defeng (David) Huang, Roberto Togneri,\\\\\n``Beyond Piano: Cross-Instrument MIDI Velocity Estimation via Differentiable SoundFont Proxies,''\\\\\nUnder review (\\emph{International Society for Music Information Retrieval (ISMIR)} Conference), 2026.\\\\\n% arXiv:2510.18190. DOI: 10.48550/arXiv.2510.18190.\\\\%[0.3cm]\n\\textbf{Location in thesis: Chapter 6} \\\\\n\\textbf{Student contribution to work: 80\\%}\\\\\n% {[insert text: describe your contribution vs.\\ co-authors (methods, data, experiments, writing, etc.)]}\n%\\\\[0.3cm]\n%\\textbf{Co-author signatures and dates:} \\\\\n%Hanyu Meng:\\ \\rule{6cm}{0.4pt}\\ \\ \\ Date:\\ \\rule{3cm}{0.4pt}\\\\\n%David Huang:\\ \\rule{6cm}{0.4pt}\\ \\ \\ Date:\\ \\rule{3cm}{0.4pt}\\\\\n%Roberto Togneri:\\ \\rule{6cm}{0.4pt}\\ \\ \\ Date:\\ \\rule{3cm}{0.4pt}\n\\end{tabular} \n\n\\quad \\\\\n\\quad \\\\\n\\vskip 2cm\n\n\\noindent \\textbf{Student signature:}\n\\vskip 0.3cm\n\n\\noindent Zhanhong He:\n\\vskip 0.5cm\n\\noindent \\rule{0.6\\textwidth}{0.4pt}\n\n\\vskip 0.8cm\n\n\\noindent \\textbf{Co-author signatures:}\n\\vskip 0.3cm\n\n\\noindent Defeng (David) Huang:\n\\vskip 0.8cm\n\\noindent \\rule{0.6\\textwidth}{0.4pt}\n\\vskip 0.3cm\n\n\\noindent Roberto Togneri:\n\\vskip 0.8cm\n\\noindent \\rule{0.6\\textwidth}{0.4pt}\n\\vskip 0.3cm\n\n\\noindent Hanyu Meng:\n\\vskip 0.8cm\n\\noindent \\rule{0.6\\textwidth}{0.4pt}\n\\vskip 0.3cm\n\n\\noindent David Cooper:\n\\vskip 0.8cm\n\\noindent \\rule{0.6\\textwidth}{0.4pt}\n\\vskip 0.8cm\n\n\\noindent I, Defeng (David) Huang, certify that the student statements \\\\\nregarding their contribution to each of the works listed above are correct.\n\\vskip 0.6cm\n\\noindent Coordinating supervisor signature:\n\\vskip 0.8cm\n\\noindent \\rule{0.6\\textwidth}{0.4pt}\n\\vskip 0.3cm\n\\noindent Date:\n\\vskip 0.8cm\n\\noindent \\rule{0.32\\textwidth}{0.4pt}\n",
       "sha256": "9d66129761a6d72b5370a489269dc61ea61d522107e1ec31e24370be32948063"
     }
-  }
+  },
+  "consistencyGroups": [
+    {
+      "id": "metric-interpretation-consistency",
+      "commentIds": [
+        "R1-33",
+        "R2-05"
+      ],
+      "text": "这五处解释同一组指标：第2章的背景说明、第6章三段解释和表格标记需一起核对，避免前后结论矛盾。",
+      "targets": [
+        {
+          "commentId": "R1-33",
+          "locationKey": "N04",
+          "label": "第2章背景说明"
+        },
+        {
+          "commentId": "R2-05",
+          "locationKey": "N01",
+          "label": "第6章解释①"
+        },
+        {
+          "commentId": "R2-05",
+          "locationKey": "N02",
+          "label": "第6章解释②"
+        },
+        {
+          "commentId": "R2-05",
+          "locationKey": "N03",
+          "label": "第6章解释③"
+        },
+        {
+          "commentId": "R2-05",
+          "locationKey": "N07",
+          "label": "第6章表格标记"
+        }
+      ]
+    }
+  ]
 }

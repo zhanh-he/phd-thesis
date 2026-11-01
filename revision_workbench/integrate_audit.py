@@ -188,7 +188,14 @@ def integrate(source: Path) -> dict:
               'sourceBaseline': {'label': 'b2995d0 当前仓库源码；报告 PDF 页码与论文页码分开',
                                  'gitCommit': 'b2995d0aa9ddcb47532a47bcd326f6200fc7b12a',
                                  'auditedEvidenceSha256': digest(raw)},
-              'comments': comments, 'sources': sources}
+              'comments': comments, 'sources': sources,
+              'consistencyGroups': [{'id':'metric-interpretation-consistency','commentIds':['R1-33','R2-05'],
+                  'text':'这五处解释同一组指标：第2章的背景说明、第6章三段解释和表格标记需一起核对，避免前后结论矛盾。',
+                  'targets':[{'commentId':'R1-33','locationKey':'N04','label':'第2章背景说明'},
+                             {'commentId':'R2-05','locationKey':'N01','label':'第6章解释①'},
+                             {'commentId':'R2-05','locationKey':'N02','label':'第6章解释②'},
+                             {'commentId':'R2-05','locationKey':'N03','label':'第6章解释③'},
+                             {'commentId':'R2-05','locationKey':'N07','label':'第6章表格标记'}]}]}
     (HERE / 'evidence' / 'author_decision_evidence.json').write_bytes(raw)
     if recheck:
         assert recheck['audit_status']=='complete'

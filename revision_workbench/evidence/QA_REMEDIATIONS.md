@@ -17,3 +17,7 @@ The independent review found real edge cases in the earlier frozen implementatio
 Author-intent recheck is separate: R1-21 visibly records the scoped “do not expand the current project” decision while its manuscript-text decision remains pending. R1-20/24/29/36 retain their qualified stances. Original PDF reply provenance remains available; no whole-item no-change decision was fabricated.
 
 Supporting files: `browser_validation.json`, `browser-r1-05/21/30/35*.png` and `.txt`, `../tests/ledger.test.cjs`, `../tests/browser.mjs`, and `../tests/test_build.py`. Screenshots/text use the native source-seeded page, with personal note fields empty. All browser tests use isolated temporary profiles.
+
+## Post-freeze consistency reminder
+
+Source QA requested one plain reminder linking the Chapter 2 background, three Chapter 6 interpretations and the table marks. The new optional data group and same-page jumps preserve all existing comment objects, candidates, English text and independent choices byte-for-byte. The browser report/screenshots retain their original tested-entry hash; this small post-freeze update has static source/target validation only while parent independent review is pending. The source QA file-protocol navigation denial was not retried or bypassed.
