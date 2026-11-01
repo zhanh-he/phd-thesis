@@ -21,3 +21,7 @@ Supporting files: `browser_validation.json`, `browser-r1-05/21/30/35*.png` and `
 ## Post-freeze consistency reminder
 
 Source QA requested one plain reminder linking the Chapter 2 background, three Chapter 6 interpretations and the table marks. The new optional data group and same-page jumps preserve all existing comment objects, candidates, English text and independent choices byte-for-byte. The browser report/screenshots retain their original tested-entry hash; this small post-freeze update has static source/target validation only while parent independent review is pending. The source QA file-protocol navigation denial was not retried or bypassed.
+
+## NEW01: atomic draft preflight
+
+The file-input handler now validates the complete known draft container/rows and prepares both draft stores before calling `ledger.importJSON`. A malformed object container, `[null]`, or a later invalid row rejects with zero ledger calls, zero storage writes and unchanged ledger/draft state. Valid unknown fields/extensions and conflicting drafts remain intact. The new `import-preflight.test.cjs` executes the actual helper, file-input handler and export function: 31 targeted Node checks pass. Evidence: `import_preflight.json`. No browser navigation was attempted for this targeted fix; parent bounded independent import checks are pending.

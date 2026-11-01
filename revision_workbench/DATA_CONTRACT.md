@@ -91,3 +91,5 @@
 双方决定的固定颜色规则为：双方 `modify` → 绿色；双方 `keep` → 红色；助手 `keep`/作者 `pending` → 灰色；其余 → 黄色。冲突或旧版本待确认也保持黄色。颜色都有文字，红色表示共同保留，不代表错误；任何颜色都不能单独证明修改已执行。
 
 可选的 `consistencyGroups` 只提供一起核对的提醒：每组含 `id`、`commentIds`、一句 `text` 和 `targets`（`commentId`、`locationKey`、可读 `label`）。跳转使用稳定位置 key；组本身不写决定、不联动勾选，也不意味着整组已实施。
+
+导入的 `uncommittedDrafts` 若存在，必须先完整校验为对象数组：每条的文稿 ID 必须匹配，`recordId`、`field` 是有效非空标识，`value` 是文字；可选 `error` 是文字、`updatedAt` 是 ISO 时间。整个容器、全部条目和待合并草稿先准备完毕，再提交 ledger；任一已知结构无效则整份拒绝且不写入。有效的未知 ID、字段名和扩展属性保留。

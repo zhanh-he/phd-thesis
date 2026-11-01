@@ -1,0 +1,231 @@
+{
+  "startedAt": "2026-11-01T05:21:33.984Z",
+  "scope": "Actual app file-input handler + actual prepareDraftImport in Node VM; synthetic DOM, source data and memory storage only; no browser navigation.",
+  "runtime": "v26.0.0",
+  "sourceHashes": {
+    "app": "e64d0c682516628622e0bfa0ddc25e57f0efa6b62c5428074910dc220bbf9492",
+    "ledger": "bea9f5323e86ee82f002e79b68d6f30b4f2bc1f2857f5966871849ffbe8abf92"
+  },
+  "cases": [
+    {
+      "name": "NEW01 object draft container rejects before ledger import or any writes",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "NEW01 null draft row rejects before ledger import or any writes",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "NEW01 later invalid row cannot partially mutate prepared draft maps",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: null container",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: string container",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: boolean row",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: array row",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: missing document ID",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: foreign document ID",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: numeric document ID",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: empty record ID",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: numeric record ID",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: overlong record ID",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: control in record ID",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: missing field",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: numeric field",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: empty field",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: overlong field",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: control in field",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: numeric value",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: null value",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: object value",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: missing value",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: numeric error",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: null error",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: numeric updatedAt",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: invalid updatedAt",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Malformed known draft structure: non-ISO human date",
+      "pass": true,
+      "importCalls": 0,
+      "persistentAndDraftStateExact": true,
+      "truthfulNotMerged": true
+    },
+    {
+      "name": "Valid drafts preserve multiline text, optional omissions, unknown records/fields and future extensions",
+      "pass": true,
+      "validDraftsExact": true,
+      "unknownIdsFieldsAndKeysPreserved": true,
+      "roundtripExact": true
+    },
+    {
+      "name": "Valid conflicting draft stays as an extra without replacing the existing unsaved text",
+      "pass": true,
+      "bothDraftVersionsRetained": true
+    },
+    {
+      "name": "Ledger-level rejection after valid draft preparation does not commit prepared draft maps",
+      "pass": true,
+      "preparedDraftsNotCommittedAfterLedgerRejection": true
+    }
+  ],
+  "completedAt": "2026-11-01T05:21:34.010Z",
+  "summary": {
+    "passed": 31,
+    "failed": 0,
+    "browserNavigation": false,
+    "realAuthorDataOrStorageTouched": false
+  }
+}
