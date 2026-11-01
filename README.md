@@ -2,6 +2,10 @@
 
 *Recovering Musical Dynamics for Expressive Automatic Music Transcription*
 
+打开根目录的 **[START_HERE.html](START_HERE.html)**，逐条整理两位 reviewer 的 43 条意见、双方决定、修改计划与实际修改文字。下载仓库后可直接双击打开，无需安装或联网。每次工作结束请点“导出 JSON 备份”；换浏览器或电脑时用“合并导入”。[使用与保存说明](revision_workbench/README.md)
+
+工作台只记录你的决定和文字，不会自动改写论文。之前的 [v5 只读 reader](revision_workshop_20261031_v5/reader/index.html) 保留作历史参考。
+
 当前正在重新整理论文修改的 blueprint。旧答辩讲稿、回应草案和修订计划已清理；本仓库暂不指定新的完整修改方案。
 
 - [论文主源码](main.tex)：各章正文和图像仍在原目录。

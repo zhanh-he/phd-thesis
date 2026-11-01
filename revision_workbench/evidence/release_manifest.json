@@ -1,0 +1,72 @@
+{
+  "generatedUtc": "2026-11-01T05:01:04.235284+00:00",
+  "baseCommit": "b2995d0aa9ddcb47532a47bcd326f6200fc7b12a",
+  "sourceImplementation": false,
+  "pushPerformed": false,
+  "entry": "START_HERE.html",
+  "entrySha256": "4fe354d48f03741e8130862c85e5722dea3fdcdfeac589f1e9652fd6d00af5be",
+  "tests": {
+    "ledger": {
+      "passed": 31
+    },
+    "build": {
+      "passed": 16
+    },
+    "browser": {
+      "passed": 426,
+      "failed": 0,
+      "testedEntrySha256": "4fe354d48f03741e8130862c85e5722dea3fdcdfeac589f1e9652fd6d00af5be"
+    },
+    "source": {
+      "comments": 43,
+      "exactLocations": 192,
+      "nativeReplies": 25,
+      "protectedFiles": 421
+    }
+  },
+  "filesSha256": {
+    ".gitignore": "c459373fc402ac3b3ba715812994a7f8c533b5159d9b748b7796c4cfcd3d47a9",
+    "README.md": "0a007cae93ad708d618deb427e7fa5d25e6df6b7cec836b0f0fe95914ca636cf",
+    "START_HERE.html": "4fe354d48f03741e8130862c85e5722dea3fdcdfeac589f1e9652fd6d00af5be",
+    "revision_workbench/DATA_CONTRACT.md": "e324a7f41e5fe687b97d9d5928234a3d097cb06aecdec5fa44399b0260dbbe6d",
+    "revision_workbench/OPEN_SOURCE_DESIGN.md": "c0369ecb0e1c4f746b06e6da2b009facce9355bf1f0629e50cea705f9f05d38a",
+    "revision_workbench/README.md": "6a4658ed6290dbebbba5b327c7529ba87152faf249fcdb7d67c6a99e4f66e619",
+    "revision_workbench/app.js": "33469fa445229c73fe3e3f95089af65abcea41c026ab03abb0739a350681d158",
+    "revision_workbench/build.py": "7c34a58f3d7fd624b3f7e6b9873e0776162817877702fea2e908c12d11c48c39",
+    "revision_workbench/data.json": "214ae925481bd3a036f90cd24b9293fe4ea20da861f91d24c82d1999bd88940e",
+    "revision_workbench/evidence/QA_REMEDIATIONS.md": "d6478d51ae5a8431210a78d9216984e5274ba7bbdbea718fe66470eaef446ba2",
+    "revision_workbench/evidence/author_decision_evidence.json": "2377297c61df5baca654d13a3fe79b42871ebecc6c3e53a66e4ac983ad508250",
+    "revision_workbench/evidence/author_prefill_recheck_v2.json": "6c108cb89bd19762ff56b076312e333a6d4476afcf147e435c6c0b9d31f605b7",
+    "revision_workbench/evidence/author_prefill_recheck_v2.md": "ac22fe6e22a4f2d9d456b1292b475e407f2164416ef089deec06542c93324e73",
+    "revision_workbench/evidence/browser-desktop.png": "0a5982cfff22ef34445255cfd4af341b84719216fe71c0802afa9aac508969d6",
+    "revision_workbench/evidence/browser-narrow-notes.png": "63d5ada7cb863152278f4300446a60fd5caf3949228ca0e1b051d07edfbb73f4",
+    "revision_workbench/evidence/browser-narrow-top.png": "1d1aa94bf8a2a412bbdad89c6e25dab4f40b8bc70890e34798a3349494ce09fe",
+    "revision_workbench/evidence/browser-r1-05-full.png": "3fb7307bec2892d2af4379d4cfeda8ba255fbbddc3e36273660fe69cfa809709",
+    "revision_workbench/evidence/browser-r1-05.png": "dfdec4d94dae2c7b4a3cad2dc6a3bdc32dec9e5f9e6d18b6eb6bd2fb3358ef63",
+    "revision_workbench/evidence/browser-r1-05.txt": "d129f5489bbba3bfb1e5cf8eb35b70d7cfb85f9a4d84ac5a91b7ec8209b21366",
+    "revision_workbench/evidence/browser-r1-13.png": "4790c4c11f824b7fae40f634c0849f8341a3d13fa1043be484716962caacff9f",
+    "revision_workbench/evidence/browser-r1-21-full.png": "83ba907022c7db51ddea163129aad154128bc32f1cedcbbb551b4782029394ff",
+    "revision_workbench/evidence/browser-r1-21.png": "fc6fce4cc36aad738a1a8c48edff9d71145c141ca9eae8962b6100bf4240ec39",
+    "revision_workbench/evidence/browser-r1-21.txt": "99188fdcd987b4b5c3e4a0f725161a9b714f7c41a83806197354529e9f909972",
+    "revision_workbench/evidence/browser-r1-30-full.png": "9749a53b488aef508044bd14b6d3c591a906b57d4807a70b202abb37c5bca952",
+    "revision_workbench/evidence/browser-r1-30.png": "ec143c0172d10eebd8c591caa6cb521dc91bb4a721c4226cd9d01696e569b084",
+    "revision_workbench/evidence/browser-r1-30.txt": "42ada9fe6f59fadce8f6afeebd12e912c7f518610f8dd03c7531c5fc8bcd3639",
+    "revision_workbench/evidence/browser-r1-34.png": "9b4171e3a38b695976110233706a55b0207544db3acf3b7f44b9f98dcdf75610",
+    "revision_workbench/evidence/browser-r1-35-full.png": "cbdff204ead69339700e2e91dc99bf4d305c48a7dee3520a3cd876f478629067",
+    "revision_workbench/evidence/browser-r1-35.png": "0fa74f616df94d055355dd66dbd00e4689b8a1059cae1329059404258fc0dbcb",
+    "revision_workbench/evidence/browser-r1-35.txt": "ddf29bf2216fef7fac2db9429cd15cdbfac2213e01a41b32aa04cbe38e8c4c10",
+    "revision_workbench/evidence/browser_backup_transport_diagnostic.json": "44f7e150ff0f7fb59642bc1bc05d23ebd8897e7008eac4d855103879a443af05",
+    "revision_workbench/evidence/browser_validation.json": "39672a6f9dbaa3d69a3b15e27b9fb65b408eb664fb66202e6a1b96aa9bd70b8c",
+    "revision_workbench/evidence/source_location_audit.md": "59ca91d2082b2ee0e9e3c09a1310a817c1a36130c9c3ad370b51e63c12a2b268",
+    "revision_workbench/integrate_audit.py": "7b8a78880ce8cc4d1e4ddd95e4add4408fc9a45093e653af7101a7021f07b719",
+    "revision_workbench/ledger.js": "bea9f5323e86ee82f002e79b68d6f30b4f2bc1f2857f5966871849ffbe8abf92",
+    "revision_workbench/reusable.template.json": "3e7ef4c2189962dad7f1c1235788af418433d58c396ed02de5acff05dedd2d06",
+    "revision_workbench/source_baseline.json": "9f2d3a42c97db55a4e98bd09cabe321134e061dbc212e21b499ebabcce47bbaf",
+    "revision_workbench/style.css": "febc018b9fbbf313c81390dec24287baf969ebbd9845a381479f2ac1062ba7fc",
+    "revision_workbench/template.html": "29abec102f2e9fbdadb82cee36d23925ab1c47c690d68831a18d48b3c7bf6bde",
+    "revision_workbench/tests/browser.mjs": "a967f604954f7ca8a263a2bc3f9b1a6777f32e214f92ab219b367135ab7f58f9",
+    "revision_workbench/tests/ledger.test.cjs": "cd5429d6e0c4074680a061617a24e903f8df85764234c7d094747073738efe6d",
+    "revision_workbench/tests/test_build.py": "a4229ad9f261c30dd82dc9960e3d06a307ac7c5c79e9b5f3a5aa2a64a28e2d05",
+    "revision_workbench/verify_sources.py": "0794ed6538fe42bcd9f52cad67e44f8795d9d3997999e2231c98b4d804914b28"
+  }
+}

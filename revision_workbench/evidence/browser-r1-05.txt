@@ -1,0 +1,104 @@
+Emmanouil Benetos · 报告 1.3 · R1-05
+
+weakly expressive和weakly supervised是什么意思？
+✓ 双方都改
+助手建议
+历史
+
+可根据下面的建议和原文调整。
+
+助手建议
+改
+不改 · 保留
+待定
+你的决定
+历史
+
+据你的原回复预填；可直接修改。
+
+你的决定
+改
+不改 · 保留
+待定
+
+建议改：在第1章§1.5中心问题后补一小段，分别定义力度被简化的数据与缺少可靠力度标签的学习条件；原问题不动。
+
+第1章 §1.5
+
+Chapter_1/Intro.tex · 第 114–117 行
+
+插入在上述原文之后插入；原文保留。
+
+原文 · 可直接搜索
+The thesis is driven by the following question:
+\begin{quote}
+\textbf{How can musically interpretable dynamics labels be recovered from incomplete, weakly expressive, or weakly supervised music data without rewriting note content or note timing?}
+\end{quote}
+建议插入内容
+Here, weakly expressive data retain note content and timing but have simplified dynamics, such as constant or coarsely quantised velocities. Weak supervision refers to learning without reliable direct dynamics labels, using indirect evidence such as the renderer-based supervision in Chapter~\ref{ch:beyondpiano}. These conditions can overlap.
+复制位置
+复制原句
+复制建议稿
+查看前后文
+打开源文件 ↗
+修改计划 / 留言
+历史 / 恢复
+撤回上次
+实际修改的文字
+历史 / 恢复
+撤回上次
+
+逐字段保存。决定、计划和已执行是三件事；右框只记录你输入的文字。
+
+执行状态
+尚未执行
+已计划
+已修改（作者记录）
+已核验（作者记录）
+核验记录（可选）
+原评审与回复
+
+R1-05 · 报告 1.3 · 报告 PDF 第 2 页
+
+Section 1.5: how do you define weakly expressive and weakly supervised music data?
+你的原回复
+Oops, Thanks, indeed I should add definition on that part.
+
+Weakly expressive is like "音符和时间信息已经存在，但目标力度层被简化，例如 MIDI velocity 全部设为默认值，无法保留逐音力度变化 (set to 64, or 8-labels scale quantization.)"
+
+Weak supervise is the missing of groundtruth labels, or low quality groundtruth.
+
+你同意补定义，并举了默认力度和标签不足的例子。 （据原回复预填）
+
+Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf · PDF 第 2 页 · 批注 A04
+Oops, Thanks, indeed I should add definition on that part. Weakly expressive is like "音符和时间信息已经存在，但目标力度层被简化，例如 MIDI velocity 全部设为默认值，无法保留逐音力度变化 (set to 64, or 8-labels scale quantization.)" Weak supervise is the missing of groundtruth labels, or low quality groundtruth.
+
+原报告 PDF ↗ · 完整定位与证据记录 ↗
+
+相关位置与共用修改
+
+第1章 §1.5 · Chapter_1/Intro.tex:114–117 · 保留相关原文
+The thesis is driven by the following question: \begin{quote} \textbf{How can musically interpretable dynamics labels be recovered from incomplete, weakly expressive, or weakly supervised music data without rewriting note content or note timing?} \end{quote}
+
+当前定位：b2995d0 当前仓库源码；报告 PDF 页码与论文页码分开。PDF 页码若未给出，不代表已核对论文 PDF。
+
+← 上一条
+5 / 43
+下一条 →
+
+=== Exact editor values / placeholders (fresh source-seeded state) ===
+plan
+VALUE: ""
+PLACEHOLDER: 我打算怎么改，或为什么保留……
+
+actualText
+VALUE: ""
+PLACEHOLDER: 在这里粘贴你最终写入论文的内容；LaTeX 和换行会原样保存。
+
+verificationNotes
+VALUE: ""
+PLACEHOLDER: 如：已重新编译，图号与引用均已核对。
+
+=== Checked decisions ===
+assistantDecision: modify
+authorDecision: modify

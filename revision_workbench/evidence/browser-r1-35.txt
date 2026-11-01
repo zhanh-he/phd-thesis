@@ -1,0 +1,97 @@
+Emmanouil Benetos · 报告 6.5 · R1-35
+
+图6.2的目标是否来自合成音频？
+○ 助手保留 · 你待定
+助手建议
+历史
+
+可根据下面的建议和原文调整。
+
+助手建议
+改
+不改 · 保留
+待定
+你的决定
+历史
+
+尚无明确的整体决定，由你勾选。
+
+你的决定
+改
+不改 · 保留
+待定
+
+建议不改：图6.2原图注已写明目标来自SoundFont合成音频，保留原图与原图注即可。
+
+1. 第6章 §6.5.2
+
+Chapter_6/chap6.tex · 第 204–204 行
+
+原文 · 可直接搜索
+\caption{An encoder-only Transformer maps padded note sequences to per-note PHE/OSF targets extracted from SoundFont-rendered audio.}
+复制位置
+复制原句
+查看前后文
+打开源文件 ↗
+2. 第6章 §6.5.2
+
+Chapter_6/chap6.tex · 第 203–203 行
+
+原文 · 可直接搜索
+\includegraphics[width=0.68\columnwidth]{Chapter_6/figures/p2.jpg}
+复制位置
+复制原句
+查看前后文
+打开源文件 ↗
+修改计划 / 留言
+历史 / 恢复
+撤回上次
+实际修改的文字
+历史 / 恢复
+撤回上次
+
+逐字段保存。决定、计划和已执行是三件事；右框只记录你输入的文字。
+
+执行状态
+尚未执行
+已计划
+已修改（作者记录）
+已核验（作者记录）
+核验记录（可选）
+原评审与回复
+
+R1-35 · 报告 6.5 · 报告 PDF 第 3 页
+
+Figure 6.2: is the data in the right part of the figure rendered audio? If yes, this is not shown in the figure.
+
+待核实记录：The reviewer wording refers to right part; current asset teacher branch is left. Confirm submitted version if necessary. This KEEP does not resolve Fig6.3 GT provenance.
+
+你的原回复
+未找到针对这一条的明确回复。
+
+未找到你对这一条的原回复。 （决定保持待定）
+
+原报告 PDF ↗ · 完整定位与证据记录 ↗
+
+当前定位：b2995d0 当前仓库源码；报告 PDF 页码与论文页码分开。PDF 页码若未给出，不代表已核对论文 PDF。
+
+← 上一条
+35 / 43
+下一条 →
+
+=== Exact editor values / placeholders (fresh source-seeded state) ===
+plan
+VALUE: ""
+PLACEHOLDER: 我打算怎么改，或为什么保留……
+
+actualText
+VALUE: ""
+PLACEHOLDER: 在这里粘贴你最终写入论文的内容；LaTeX 和换行会原样保存。
+
+verificationNotes
+VALUE: ""
+PLACEHOLDER: 如：已重新编译，图号与引用均已核对。
+
+=== Checked decisions ===
+assistantDecision: keep
+authorDecision: pending

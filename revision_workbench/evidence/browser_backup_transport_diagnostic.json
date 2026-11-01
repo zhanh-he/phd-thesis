@@ -1,0 +1,20 @@
+{
+  "outcome": "test transport stalled; no product freeze or data loss observed",
+  "action": "CDP Runtime.evaluate returning a complete exportBackup() string",
+  "observedBackupCharacters": 4384059,
+  "observedLedgerCharacters": 3045459,
+  "observedMetadataCharacters": [
+    973614,
+    980714,
+    200
+  ],
+  "rendererResponsive": true,
+  "storageWritable": true,
+  "operations": 10,
+  "metadataRecords": 3,
+  "cleanup": "isolated Chrome closed; test profile deleted",
+  "repair": "bounded128k string transfers plus25s command timeouts in browser.mjs",
+  "finalRunStillRequired": false,
+  "resolvedBy": "128k chunked CDP string transfers; final426browser checks passed",
+  "finalRootSha256": "4fe354d48f03741e8130862c85e5722dea3fdcdfeac589f1e9652fd6d00af5be"
+}

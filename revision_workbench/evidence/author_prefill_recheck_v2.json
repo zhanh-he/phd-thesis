@@ -1,0 +1,2327 @@
+{
+  "schema_version": 2,
+  "audit_status": "complete",
+  "generated_utc": "2026-11-01T04:44:25.914334+00:00",
+  "authority": "Actual native Report1 author annotation contents, cross-checked against root README_Preliminary_Report_1.md. Generated revision artifacts, old automated judgments and technical audit summaries are not author-intent authority.",
+  "recheck_reason": "Challenge previous zero whole-item NO count; independently surface scoped refusals, retention and nonbinary positions rather than forcing a count.",
+  "summary": {
+    "all_comment_items": 43,
+    "actual_reply_items": 24,
+    "distinct_reply_contents": 25,
+    "modify": 9,
+    "whole_item_no_modify": 0,
+    "pending": 34,
+    "explicit_scoped_no_modify_subpart_ids": [
+      "R1-21"
+    ],
+    "nonbinary_stance_ids_to_surface": [
+      "R1-20",
+      "R1-24",
+      "R1-29",
+      "R1-36"
+    ],
+    "literal_will_commitment_items": 7,
+    "accepted_exact_lexical_correction_items": 1,
+    "direct_should_add_intention_items": 1
+  },
+  "conclusion": "Nine explicit manuscript modification intentions remain supported. No unambiguous whole-item manuscript NO is established by these replies. R1-21 nevertheless contains an explicit scoped no-further-development position that should be visible; R1-20/24/29/36 retain separate nonbinary statements.",
+  "change_from_previous_display_recommendation": "Do not show these replies as featureless PENDING: expose the scoped R1-21 no_modify and the nonbinary preference/defence/past-stoppage/deferral statements.",
+  "source_search": {
+    "root_readme1_quote_blocks": 25,
+    "root_readme2_actual_quote_blocks": 0,
+    "all25_root_quote_blocks_match_native": true,
+    "additional_authentic_written_replies_identified_in_current_non_revision_prose_inventory": false,
+    "inventory_note": "Current non-revision prose includes root README/report transcriptions and 02_Ultra technical evidence/readmes. Those technical summaries cite existing author notes and explicitly distinguish tool inference; they do not add independently authenticated reply commitments.",
+    "excluded_as_authority": [
+      "revision_blueprint_20261031 generated proposals and judgments",
+      "revision_workshop_20261031_v5 generated proposals and judgments",
+      "revision_decision_workbench_20261101 generated evidence/UI",
+      "backups/deleted generated answer drafts",
+      "upstream technical source/notebook readmes"
+    ],
+    "not_claimed": "Current nine source PDFs were additionally scanned natively in this v2 audit; see native_pdf_scan_v2. Seven historical response/preparation files were checked separately with fixed commit provenance."
+  },
+  "sources": [
+    {
+      "path": "/Users/jollibear/Documents/Codex/2026-10-31/task-5/evaluator_report1.json",
+      "sha256": "e36447c43a3367dbe78ce7d16e78ce94cd165eb3016bd132814a50c5bc2c20a4"
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf",
+      "sha256": "28ad09550e7a47eff77693476db82d4d4d9a71ad5557871cfb27c72200ed63a4"
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf",
+      "sha256": "c9d8a2a843e3c9cd167e751ed0dec8f7cd7ca757a6a8fabea2abc747b1c61020"
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+      "sha256": "e5916abeffcabf7e863728d9fca7ca2ca1eb76fadc595e7e24c2e4c595c17179"
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_2.md",
+      "sha256": "89b84809d49df248ecc4da8825399fe73ff700edee1f3e9bd56d957e7614cdd3"
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/README.md",
+      "sha256": "31e184cba434a17b4c885f712435756445c973214bb235dd45659a0a7f0a1cc8"
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/02_Ultra_细节/README.md",
+      "sha256": "b1f4802c44954cc94fcc00015c889beaa3485b9620e7992250bab6d9bc5d584e"
+    },
+    {
+      "path": "/Users/jollibear/Documents/tmp/phd thesis/02_Ultra_细节/关键核查与证据.md",
+      "sha256": "471b4b968660078419ef842ffea4556cebc7a8ccf13902885a811be9f0295024"
+    }
+  ],
+  "all43_item_intents": [
+    {
+      "id": "R1-01",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-02",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-03",
+      "overall_manuscript_intent": "modify",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-04",
+      "overall_manuscript_intent": "modify",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-05",
+      "overall_manuscript_intent": "modify",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-06",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-07",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-08",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-09",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-10",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-11",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-12",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-13",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-14",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-15",
+      "overall_manuscript_intent": "modify",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-16",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-17",
+      "overall_manuscript_intent": "modify",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-18",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-19",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-20",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-21",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-22",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-23",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-24",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-25",
+      "overall_manuscript_intent": "modify",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-26",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-27",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-28",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-29",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-30",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-31",
+      "overall_manuscript_intent": "modify",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-32",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-33",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-34",
+      "overall_manuscript_intent": "modify",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-35",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "No actual author annotation for this item."
+    },
+    {
+      "id": "R1-36",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-37",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R1-38",
+      "overall_manuscript_intent": "modify",
+      "has_actual_reply": true,
+      "no_reply_reason": null
+    },
+    {
+      "id": "R2-01",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "Report2 contains no actual author responses."
+    },
+    {
+      "id": "R2-02",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "Report2 contains no actual author responses."
+    },
+    {
+      "id": "R2-03",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "Report2 contains no actual author responses."
+    },
+    {
+      "id": "R2-04",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "Report2 contains no actual author responses."
+    },
+    {
+      "id": "R2-05",
+      "overall_manuscript_intent": "pending",
+      "has_actual_reply": false,
+      "no_reply_reason": "Report2 contains no actual author responses."
+    }
+  ],
+  "actual_reply_item_table": [
+    {
+      "id": "R1-03",
+      "reviewer_comment_exact": "Figure 1.1 is captioned as a “general architecture of an AMT system”, however step 2 of the figure only takes into account dynamics and velocity estimation, and not other aspects of music performance (e.g. instrument identities, expressive playing techniques).",
+      "overall_manuscript_intent": "modify",
+      "intent_basis_type": "explicit_future_change",
+      "relevant_exact_excerpt": "Final thesis, in this figure I will add them.",
+      "assessment_zh": "补Figure1.1中的乐器身份及其他表达因素；不是批准新版图。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A01",
+          "pdf_page": 2,
+          "native_exact_quote": "Yes, that’s a fair point. I forgot instrument identities and other expressive aspects from this figure. Final thesis, in this figure I will add them.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 109
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A01",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 109
+        }
+      ]
+    },
+    {
+      "id": "R1-04",
+      "reviewer_comment_exact": "Section 1.1, final paragraph: the term “recollecting” is ambiguous, perhaps “collecting” is more appropriate?",
+      "overall_manuscript_intent": "modify",
+      "intent_basis_type": "accepted_exact_lexical_correction",
+      "relevant_exact_excerpt": "Yes, collecting",
+      "assessment_zh": "明确接受recollecting→collecting；不是所有动机修订。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A02",
+          "pdf_page": 2,
+          "native_exact_quote": "Yes, collecting",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 117
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A02",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 117
+        }
+      ]
+    },
+    {
+      "id": "R1-05",
+      "reviewer_comment_exact": "Section 1.5: how do you define weakly expressive and weakly supervised music data?",
+      "overall_manuscript_intent": "modify",
+      "intent_basis_type": "direct_should_add_intention",
+      "relevant_exact_excerpt": "Oops, Thanks, indeed I should add definition on that part.",
+      "assessment_zh": "明确说应该补定义；不应把九项都描述成字面will。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A04",
+          "pdf_page": 2,
+          "native_exact_quote": "Oops, Thanks, indeed I should add definition on that part.\n\nWeakly expressive is like \"音符和时间信息已经存在，但目标力度层被简化，例如 MIDI velocity 全部设为默认值，无法保留逐音力度变化 (set to 64, or 8-labels scale quantization.)\"\n\nWeak supervise is the missing of groundtruth labels, or low quality groundtruth.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 125
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A04",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 125
+        }
+      ]
+    },
+    {
+      "id": "R1-06",
+      "reviewer_comment_exact": "Table 1.2: would a scenario of converting performance audio to MIDI velocity also apply, particularly for the work done in chapter 6?",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "current_setup_and_unestablished_extension",
+      "relevant_exact_excerpt": "but we have not yet established.",
+      "assessment_zh": "解释目前采用S2；audio-only适配尚未建立，不是整项NO或承诺改表。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A03",
+          "pdf_page": 2,
+          "native_exact_quote": "At current, I am success in Senario 2. We use a score-informed MIDI velocity estimation model because it performs better and provides a stronger pre-train model for adaptation.\r\rNormal MIDI velocity estimation, those without music score as prior, for example the hFT Transformer by Toyama ISMIR2023 is about 3 times MAE than our baseline system. So adapt these audio-only (S3) model with DDSP or DIff-SFProxy is good problem to explore, but we have not yet established.\r\rCurrent method is useful, As we demonstrated in Chapter 4, the audio–score misalignments won't affect much. So it works well.\r\rSo it's good to explore border application. I believe.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 137
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A03",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 139
+        }
+      ]
+    },
+    {
+      "id": "R1-07",
+      "reviewer_comment_exact": "Figure 2.1: does there need to be always a correspondence between the Perceptual level and the MIDI velocity level? Could there be a direct link between the Perceptual level to the Score Dynamics level?",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "disagreement_with_mapping_claim",
+      "relevant_exact_excerpt": "So it's false, because too many uncertainty.",
+      "assessment_zh": "反驳必然映射命题；没有说Figure2.1或文字一律不改。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A06",
+          "pdf_page": 2,
+          "native_exact_quote": "Ture, but and False. This correspondence is about the instrument-specific tones, and Performer style. Like two different piano will give different sound with the same finger force. And, about the skill, this could said the piano pedal, and many other factor influence it. So it's false, because too many uncertainty.\r\rI would the Katerina Kosta's work, a \"piano symbol\" performance guidance resulted in sound is not always a soft. Her journal article also analyze this problem, and her ML model is better learn about the performer style instead of some kind of audio-to-loudness correspondence.\n\nSame finding in Kim’s work utilizing LLMs for midi-velocity-to-dynamic  translation",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 153
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A06",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 153
+        }
+      ]
+    },
+    {
+      "id": "R1-09",
+      "reviewer_comment_exact": "Section 2.3.2: “MIDI [...] is attached to a note onset”. Does that always hold true for the MIDI protocol?",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "assertion_existing_claim_true",
+      "relevant_exact_excerpt": "Yes a true",
+      "assessment_zh": "肯定技术命题为真；不是明确拒绝修改。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A05",
+          "pdf_page": 2,
+          "native_exact_quote": "Yes a true",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 173
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A05",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 173
+        }
+      ]
+    },
+    {
+      "id": "R1-13",
+      "reviewer_comment_exact": "Table 2.7: should an “audio” column be included for those datasets which include audio recordings? The upper triangular symbol is unclear. Does the MIDI column include both performance (unquantised) MIDI and reference (quantised) MIDI? What does the “43%” refer to? Many of the above can be clarified in the table caption.",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "current_table_definition",
+      "relevant_exact_excerpt": "In my table, MIDI is unquantised real-performance data, and the score is quantised (somehow we call it score-MIDI).",
+      "assessment_zh": "解释现有表列；未承诺改表，也未明确决定保留所有现有呈现。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A07",
+          "pdf_page": 2,
+          "native_exact_quote": "In my table, MIDI is unquantised real-performance data, and the score is quantised (somehow we call it score-MIDI). So 43% means the ATEPP only have 43% of recording provided the score, but all of them can use a AMT system to obtain MIDI.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 205
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A07",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 205
+        }
+      ]
+    },
+    {
+      "id": "R1-15",
+      "reviewer_comment_exact": "Section 3.1: This work is mentioned as the “most controlled” in the thesis; however predicting dynamics from a score in the absence of any dynamics markings or velocity info is a more unconstrained problem than dynamics prediction given input audio (where dynamics are present).",
+      "overall_manuscript_intent": "modify",
+      "intent_basis_type": "explicit_future_change",
+      "relevant_exact_excerpt": "I will change my term.",
+      "assessment_zh": "明确改most controlled术语；未批准整段方案。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A08",
+          "pdf_page": 2,
+          "native_exact_quote": "Yes my mistake, my intend is to say \"less input signal compared to others\", but indeed less constrained. I will change my term.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 223
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A08",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 223
+        }
+      ]
+    },
+    {
+      "id": "R1-16",
+      "reviewer_comment_exact": "Section 3.1 and beyond: to what extent should MIDI Velocity completion be style-specific or composer-specific?",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "past_method_choice",
+      "relevant_exact_excerpt": "So we changed our idea from \" style control\", to make a model can generalize to more data in different style.",
+      "assessment_zh": "过去从style control转向共享泛化模型；不是本次文稿决定。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A09",
+          "pdf_page": 2,
+          "native_exact_quote": "That's a great question, During my Dolby internship, we explored using style as a control parameter in a generative system. Composer could also be used as a coarse style label, for example “Chopin style” or “Beethoven style.”\n\rHowever, we were facing the data limitation, we don't have enough training data for composer/style control. So we changed our idea from \" style control\", to make a model can generalize to more data in different style. \n\rYou can see our human listening test analyse the \"most-seen composer / unseen composer style\" in train data, it exist a gap, but work well across those scenario.s.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 231
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A09",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 233
+        }
+      ]
+    },
+    {
+      "id": "R1-17",
+      "reviewer_comment_exact": "Section 3.2 and beyond considers the proposed work as “image-based”. Although there are some related figures with varying colours included in this chapter, I do not see any strong argument for using this term – the methodology does not treat dynamics as a colour channel or similar.",
+      "overall_manuscript_intent": "modify",
+      "intent_basis_type": "explicit_future_change",
+      "relevant_exact_excerpt": "I would say the “image-like” is more proper. I will make revision.",
+      "assessment_zh": "明确澄清措辞并倾向image-like；未承诺改架构。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A10",
+          "pdf_page": 2,
+          "native_exact_quote": "Good question. The idea originally came from image-processing papers, especially the use of U-Net and window attention. We use “image-based” because both the input and output are two-dimensional pitch–time matrices, processed with two-dimensional convolutions.\n\nThe input is a binary piano roll, and the output is a single-channel velocity roll. We do not predict RGB colours. “Colourisation” is an analogy for adding velocity values to the existing note structure, it's good for general audiance understand, but I agree that the wording needs clarification.\n\nI would say the “image-like” is more proper. I will make revision.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 243
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A10",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 247
+        }
+      ]
+    },
+    {
+      "id": "R1-19",
+      "reviewer_comment_exact": "Section 3.3: is this task about velocity recovery? Or velocity estimation?",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "task_explanation",
+      "relevant_exact_excerpt": "But the final task is the estimation",
+      "assessment_zh": "区分训练数据构造与最终估计任务；没有明确改文或不改。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A11",
+          "pdf_page": 2,
+          "native_exact_quote": "At first is recovery, because it's how we make the training data. We delete those midi velocity from the given MIDI files. But the final task is the estimation, so shown our MAESTRO dataset trained model can perform well in SMD dataset.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 263
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A11",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 263
+        }
+      ]
+    },
+    {
+      "id": "R1-20",
+      "reviewer_comment_exact": "Section 3.4.1: could the input representation be in musical time as opposed to physical time? One might expect that velocity prediction in symbolic music might be more accurate using a beat-aligned representation.",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "physical_time_preference",
+      "relevant_exact_excerpt": "Using our model in Physcical time, will be a great help.",
+      "assessment_zh": "保留physical-time的偏好与理由应展示，但未作整项修改决定。",
+      "scoped_stances": [
+        {
+          "stance": "physical_time_preference",
+          "scope": "Representation choice",
+          "exact_quote": "Using our model in Physcical time, will be a great help.",
+          "whole_item_manuscript_no": false,
+          "current_no_modify_prefill_allowed": false,
+          "expose_to_author": true
+        }
+      ],
+      "reply_sources": [
+        {
+          "annotation_id": "A12",
+          "pdf_page": 2,
+          "native_exact_quote": "Could be, but I guess it will be less expressive, as we know about the problem of quantization. We are not always input this model with the \"real music score\", sometimes, it could be AMT model result,. For example the  guitar-AMT model will not provide the velocity. Using our model in Physcical time, will be a great help.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 271
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A12",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 271
+        }
+      ]
+    },
+    {
+      "id": "R1-21",
+      "reviewer_comment_exact": "Section 3.6: The data used for experiments is performance MIDI, as opposed to reference (quantised) MIDI. Would that conflict with the main envisaged usecase which is on music composition?",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "explicit_scoped_no_further_development",
+      "relevant_exact_excerpt": "So we keep it as current.",
+      "assessment_zh": "明确当前项目不再进一步开发；该no_modify子项应展示，不扩成拒绝论文澄清。",
+      "scoped_stances": [
+        {
+          "decision": "no_modify",
+          "scope": "Further development/experiments of the current internship-finished project",
+          "temporal_scope": "current project development",
+          "exact_quote": "So we keep it as current.",
+          "explicitness": "explicit retention; noun-scope supplied by its immediately preceding project/development sentence",
+          "whole_item_manuscript_no": false,
+          "expose_to_author": true
+        }
+      ],
+      "reply_sources": [
+        {
+          "annotation_id": "A13",
+          "pdf_page": 2,
+          "native_exact_quote": "I don't think so. We tried the model inference, and it actually works well in quantised MIDI scores we download from the internet. And our MOS test is based on the score-MIDI, which is quantised, double confirm it can work.\r\rBe honestly I understand this can make a further experiment, which make discussion deeper. \n\nThe true problem is Dolby will not happy for my \"internship finished project\" have further development\" haha. So we keep it as current.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 279
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A13",
+          "pdf_page": 2,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 283
+        }
+      ]
+    },
+    {
+      "id": "R1-24",
+      "reviewer_comment_exact": "Section 4.5 and Figure 4.2: The use of piano-rolls for the proposed work could be further motivated; why not use event-based representations which are closer to MIDI?",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "past_stoppage",
+      "relevant_exact_excerpt": "so I did not goes further.",
+      "assessment_zh": "过去停止failed Transformer尝试；不是现在拒绝补充piano-roll动机。",
+      "scoped_stances": [
+        {
+          "stance": "past_stoppage",
+          "scope": "Earlier failed multi-scale Transformer attempt",
+          "exact_quote": "so I did not goes further.",
+          "whole_item_manuscript_no": false,
+          "current_no_modify_prefill_allowed": false,
+          "expose_to_author": true
+        }
+      ],
+      "reply_sources": [
+        {
+          "annotation_id": "A17",
+          "pdf_page": 3,
+          "native_exact_quote": "because we want to use the multi-scale network. Event-based token transformer might have better methodologies, but piano-roll based is easier to build. Actually we tried a \"multi-scale transformer\" in time series research, which is failed, so I did not goes further.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 317
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A17",
+          "pdf_page": 3,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 317
+        }
+      ]
+    },
+    {
+      "id": "R1-25",
+      "reviewer_comment_exact": "Section 4.5.3: Are both loss components balanced? Is there a need to weigh loss components?",
+      "overall_manuscript_intent": "modify",
+      "intent_basis_type": "explicit_future_change",
+      "relevant_exact_excerpt": "I will directly cite his work to further explain this.",
+      "assessment_zh": "明确补Kim引用说明；不证明最优比例或实际run。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A18",
+          "pdf_page": 3,
+          "native_exact_quote": "This is the following work of a ISMIR2024 paper by Hyon Kim, he found this is the best ratio, and I verfied it. \n\nI will directly cite his work to further explain this.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 325
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A18",
+          "pdf_page": 3,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 327
+        }
+      ]
+    },
+    {
+      "id": "R1-28",
+      "reviewer_comment_exact": "Section 5.3: It is not clear why there is a need to explictly model changepoints, and not predict dynamics markings at beat/downbeat levels.",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "decoding_fact",
+      "relevant_exact_excerpt": "dynamic markings is decode to beat levels,",
+      "assessment_zh": "陈述beat-level解码事实；未承诺修改change-point理由。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A20",
+          "pdf_page": 3,
+          "native_exact_quote": "dynamic markings is decode to beat levels,",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 353
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A20",
+          "pdf_page": 3,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 353
+        }
+      ]
+    },
+    {
+      "id": "R1-29",
+      "reviewer_comment_exact": "Figure 5.2: Are the beat and downbeat components not connected? The same applies to the loss function of equation 5.2.",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "simple_MMoE_defence_and_conditional_improvement",
+      "relevant_exact_excerpt": "connected them might have benefit, a good point, but our idea is the simply MMoE module, so hard development might damage its performance.",
+      "assessment_zh": "simple MMoE的保留理由与条件性风险应展示；不是明确NO，也不是重做连接承诺。",
+      "scoped_stances": [
+        {
+          "stance": "simple_MMoE_defence",
+          "scope": "Existing architecture; possible connection benefits and conditional performance risk",
+          "exact_quote": "connected them might have benefit, a good point, but our idea is the simply MMoE module, so hard development might damage its performance.",
+          "whole_item_manuscript_no": false,
+          "current_no_modify_prefill_allowed": false,
+          "expose_to_author": true
+        }
+      ],
+      "reply_sources": [
+        {
+          "annotation_id": "A21",
+          "pdf_page": 3,
+          "native_exact_quote": "connected them might have benefit, a good point, but our idea is the simply MMoE module, so hard development might damage its performance.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 363
+        },
+        {
+          "annotation_id": "A22",
+          "pdf_page": 3,
+          "native_exact_quote": "only the decoding progress has the connection, but thanks for rasing it, this is a good point if we want a further performance improvement.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 367
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A21",
+          "pdf_page": 3,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 363
+        }
+      ],
+      "additional_relevant_excerpts": [
+        {
+          "exact_quote": "only the decoding progress has the connection, but thanks for rasing it, this is a good point if we want a further performance improvement.",
+          "annotation_id": "A22",
+          "pdf_page": 3,
+          "root_readme_exact_excerpt_line": 367
+        }
+      ]
+    },
+    {
+      "id": "R1-30",
+      "reviewer_comment_exact": "Section 5.6.1: is cross-dataset evaluation crucial for this specific work? Given that dynamics prediction can be to a large extent composer- and performer-dependent.",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "data_balance_limit",
+      "relevant_exact_excerpt": "Unfortunaly we cannot make a dataset that has specific balance to discuss this topic,",
+      "assessment_zh": "说明当前数据限制及研究目标；不是明确拒绝修改泛化说明。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A23",
+          "pdf_page": 3,
+          "native_exact_quote": "That's the reason. So we want to check whether this model can generalised across the composer and performer.\n\nUnfortunaly we cannot make a dataset that has specific balance to discuss this topic, but least we verfied it has a good generalization.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 375
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A23",
+          "pdf_page": 3,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 377
+        }
+      ]
+    },
+    {
+      "id": "R1-31",
+      "reviewer_comment_exact": "Section 6.2: The author argues that this chapter is taking a “simpler route”. However I would doubt that treating the problem using analysis-by-synthesis methods and DDSP is simpler than a supervised labelling effort. One might argue that the former is more appropriate and accurate, and the latter is less valid and time-consuming, however modelling simplicity might be difficult to argue for the proposed work.",
+      "overall_manuscript_intent": "modify",
+      "intent_basis_type": "explicit_future_change",
+      "relevant_exact_excerpt": "I will modify this term \"simpler route\" to \"more efficient route\".",
+      "assessment_zh": "明确改词并提出efficient；不等于效率主张有实证或新候选获批。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A16",
+          "pdf_page": 3,
+          "native_exact_quote": "yes, great point. Protential problem is design a ddsp model is hard, it need a new data/methodology develpment. But as you said, it's more straightforward.\n\nI will modify this term \"simpler route\" to \"more efficient route\".",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 387
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A16",
+          "pdf_page": 3,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 389
+        }
+      ]
+    },
+    {
+      "id": "R1-33",
+      "reviewer_comment_exact": "Section 6.4.2: Can you comment on the faithfulness of the DDSP-Piano and DDSP-Guitar-Synth synthesizers?",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "method_limit_and_unmeasured_diagnostics",
+      "relevant_exact_excerpt": "although we have not separately measured reconstruction fidelity and velocity-gradient accuracy on our target data.",
+      "assessment_zh": "陈述近似与测量边界；不是承诺补文或拒绝未来测量。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A25",
+          "pdf_page": 3,
+          "native_exact_quote": "We use these synthesizers as differentiable approximations, and their fidelity to the target recordings, especially their velocity-to-sound response, is a limitation. The degradation after Diff-Synth adaptation is consistent with acoustic mismatch, although we have not separately measured reconstruction fidelity and velocity-gradient accuracy on our target data.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 405
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A25",
+          "pdf_page": 3,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 405
+        }
+      ]
+    },
+    {
+      "id": "R1-34",
+      "reviewer_comment_exact": "Section 6.4.3: Can you justify the use of a Huber distance as opposed to a more straightforward MAE loss?",
+      "overall_manuscript_intent": "modify",
+      "intent_basis_type": "explicit_future_change",
+      "relevant_exact_excerpt": "We will add more details about this in the thesis, thanks for rasing it.",
+      "assessment_zh": "明确补Huber理由；未确立优于MAE不等于从未比较。",
+      "scoped_stances": [
+        {
+          "stance": "MAE_superiority_unestablished",
+          "scope": "Evidence for choosing Huber over MAE",
+          "exact_quote": "we have not established that it performs better than MAE through a dedicated comparison.",
+          "does_not_establish_no_comparison_ever_occurred": true,
+          "expose_to_author": true
+        }
+      ],
+      "reply_sources": [
+        {
+          "annotation_id": "A24",
+          "pdf_page": 3,
+          "native_exact_quote": "We chose Huber because it provides smoother gradients for small PHE/OSF errors while retaining an L1-like penalty for large errors. We use β = 1, but we have not established that it performs better than MAE through a dedicated comparison.\r\rWe will add more details about this in the thesis, thanks for rasing it.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 413
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A24",
+          "pdf_page": 3,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 415
+        }
+      ]
+    },
+    {
+      "id": "R1-36",
+      "reviewer_comment_exact": "Section 6.9.4: Could the SoundFont selection not be selected by ear but be automated instead?",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "future_work_deferral",
+      "relevant_exact_excerpt": "we agree it's future work but hard to do it well at the current.",
+      "assessment_zh": "同意自动选SF作为未来工作，体现当前延后；未明确拒绝改limitations/future-work文字。",
+      "scoped_stances": [
+        {
+          "stance": "future_work_deferral",
+          "scope": "Automating SoundFont selection",
+          "exact_quote": "we agree it's future work but hard to do it well at the current.",
+          "whole_item_manuscript_no": false,
+          "current_no_modify_prefill_allowed": false,
+          "expose_to_author": true
+        }
+      ],
+      "reply_sources": [
+        {
+          "annotation_id": "A19",
+          "pdf_page": 3,
+          "native_exact_quote": "could be, but it is a big field about the instrument similarity, we agree it's future work but hard to do it well at the current.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 431
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A19",
+          "pdf_page": 3,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 431
+        }
+      ]
+    },
+    {
+      "id": "R1-37",
+      "reviewer_comment_exact": "Would it be possible to integrate the developed models into AMT models for complete AMT? Would these improve on transcription performance?",
+      "overall_manuscript_intent": "pending",
+      "intent_basis_type": "possible_future_integration",
+      "relevant_exact_excerpt": "Possible, but I can image this is taken the longer time.",
+      "assessment_zh": "讨论完整AMT集成的可能性、成本与指标；未明确承诺或拒绝改文。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A14",
+          "pdf_page": 3,
+          "native_exact_quote": "Possible, but I can image this is taken the longer time. \n\nI think it will make the model output more \"human-prefer\", for example in my case, we used the Bark-scale loudness so definatly it sounds more like the real performance. \n\nBut sometimes, it will return lower objective evaluation metrics, which is a deeper issues need to be address.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 441
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A14",
+          "pdf_page": 3,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 441
+        }
+      ]
+    },
+    {
+      "id": "R1-38",
+      "reviewer_comment_exact": "Section 7.3: A possible limitation of this work is that not all possible dynamics markings (e.g. crescendo) are invetigated; these could be mentioned as future work.",
+      "overall_manuscript_intent": "modify",
+      "intent_basis_type": "explicit_future_change",
+      "relevant_exact_excerpt": "Yes I agree, I will make this more detail.",
+      "assessment_zh": "明确详细说明未覆盖动态记号及future work。",
+      "scoped_stances": [],
+      "reply_sources": [
+        {
+          "annotation_id": "A15",
+          "pdf_page": 3,
+          "native_exact_quote": "Yes I agree, I will make this more detail.",
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_quote_matches_native_after_whitespace_normalisation": true,
+          "root_reply_block_start_line": 453
+        }
+      ],
+      "candidate_wording_or_route_approved": false,
+      "source_implemented": false,
+      "relevant_excerpt_sources": [
+        {
+          "annotation_id": "A15",
+          "pdf_page": 3,
+          "root_readme_path": "/Users/jollibear/Documents/tmp/phd thesis/README_Preliminary_Report_1.md",
+          "root_readme_exact_excerpt_line": 453
+        }
+      ]
+    }
+  ],
+  "table_markdown": "| ID | 整项意向 | 作者相关原话（逐字摘录） | 判定理由与范围 | 来源 |\n| --- | --- | --- | --- | --- |\n| R1-03 | 改 | “Final thesis, in this figure I will add them.” | 补Figure1.1中的乐器身份及其他表达因素；不是批准新版图。 | p2 A01 / L109 |\n| R1-04 | 改 | “Yes, collecting” | 明确接受recollecting→collecting；不是所有动机修订。 | p2 A02 / L117 |\n| R1-05 | 改 | “Oops, Thanks, indeed I should add definition on that part.” | 明确说应该补定义；不应把九项都描述成字面will。 | p2 A04 / L125 |\n| R1-06 | 待定 | “but we have not yet established.” | 解释目前采用S2；audio-only适配尚未建立，不是整项NO或承诺改表。 | p2 A03 / L139 |\n| R1-07 | 待定 | “So it's false, because too many uncertainty.” | 反驳必然映射命题；没有说Figure2.1或文字一律不改。 | p2 A06 / L153 |\n| R1-09 | 待定 | “Yes a true” | 肯定技术命题为真；不是明确拒绝修改。 | p2 A05 / L173 |\n| R1-13 | 待定 | “In my table, MIDI is unquantised real-performance data, and the score is quantised (somehow we call it score-MIDI).” | 解释现有表列；未承诺改表，也未明确决定保留所有现有呈现。 | p2 A07 / L205 |\n| R1-15 | 改 | “I will change my term.” | 明确改most controlled术语；未批准整段方案。 | p2 A08 / L223 |\n| R1-16 | 待定 | “So we changed our idea from \" style control\", to make a model can generalize to more data in different style.” | 过去从style control转向共享泛化模型；不是本次文稿决定。 | p2 A09 / L233 |\n| R1-17 | 改 | “I would say the “image-like” is more proper. I will make revision.” | 明确澄清措辞并倾向image-like；未承诺改架构。 | p2 A10 / L247 |\n| R1-19 | 待定 | “But the final task is the estimation” | 区分训练数据构造与最终估计任务；没有明确改文或不改。 | p2 A11 / L263 |\n| R1-20 | 待定 | “Using our model in Physcical time, will be a great help.” | 保留physical-time的偏好与理由应展示，但未作整项修改决定。 | p2 A12 / L271 |\n| R1-21 | 待定 | “So we keep it as current.” | 明确当前项目不再进一步开发；该no_modify子项应展示，不扩成拒绝论文澄清。 | p2 A13 / L283 |\n| R1-24 | 待定 | “so I did not goes further.” | 过去停止failed Transformer尝试；不是现在拒绝补充piano-roll动机。 | p3 A17 / L317 |\n| R1-25 | 改 | “I will directly cite his work to further explain this.” | 明确补Kim引用说明；不证明最优比例或实际run。 | p3 A18 / L327 |\n| R1-28 | 待定 | “dynamic markings is decode to beat levels,” | 陈述beat-level解码事实；未承诺修改change-point理由。 | p3 A20 / L353 |\n| R1-29 | 待定 | “connected them might have benefit, a good point, but our idea is the simply MMoE module, so hard development might damage its performance.”；“only the decoding progress has the connection” | simple MMoE的保留理由与条件性风险应展示；不是明确NO，也不是重做连接承诺。 | p3 A21 / L363 |\n| R1-30 | 待定 | “Unfortunaly we cannot make a dataset that has specific balance to discuss this topic,” | 说明当前数据限制及研究目标；不是明确拒绝修改泛化说明。 | p3 A23 / L377 |\n| R1-31 | 改 | “I will modify this term \"simpler route\" to \"more efficient route\".” | 明确改词并提出efficient；不等于效率主张有实证或新候选获批。 | p3 A16 / L389 |\n| R1-33 | 待定 | “although we have not separately measured reconstruction fidelity and velocity-gradient accuracy on our target data.” | 陈述近似与测量边界；不是承诺补文或拒绝未来测量。 | p3 A25 / L405 |\n| R1-34 | 改 | “We will add more details about this in the thesis, thanks for rasing it.” | 明确补Huber理由；未确立优于MAE不等于从未比较。 | p3 A24 / L415 |\n| R1-36 | 待定 | “we agree it's future work but hard to do it well at the current.” | 同意自动选SF作为未来工作，体现当前延后；未明确拒绝改limitations/future-work文字。 | p3 A19 / L431 |\n| R1-37 | 待定 | “Possible, but I can image this is taken the longer time.” | 讨论完整AMT集成的可能性、成本与指标；未明确承诺或拒绝改文。 | p3 A14 / L441 |\n| R1-38 | 改 | “Yes I agree, I will make this more detail.” | 明确详细说明未覆盖动态记号及future work。 | p3 A15 / L453 |",
+  "new_candidate_wording_approved": false,
+  "source_implementation": false,
+  "shared_files_modified": false,
+  "source_dataset": {
+    "path": "/Users/jollibear/Documents/tmp/phd thesis/revision_decision_workbench_20261101/author_decision_evidence.json",
+    "sha256": "2377297c61df5baca654d13a3fe79b42871ebecc6c3e53a66e4ac983ad508250",
+    "modified_by_this_recheck": false
+  },
+  "additional_source_search_v2": {
+    "schema_version": 2,
+    "authorized_search_root": "/Users/jollibear/Documents/tmp/phd thesis",
+    "sibling_otherfiles_searched": false,
+    "scope": "current authorized worktree only; hidden ordinary files included, .git excluded",
+    "inventory_file_count": 410,
+    "candidate_source_inventory": [
+      {
+        "relative_path": ".claude/FULL_THESIS_PROOFREAD.md",
+        "sha256": "310f31985dee73c5859c4387f580d2f95afae26f17ef0ef45f98ea87bfb4829a",
+        "bytes": 13068,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": ".claude/REFERENCES_REVIEW.md",
+        "sha256": "e3849bc9c2e70c8a4b60027848cd211d717a19ef2253eff7cdde1c483b96af01",
+        "bytes": 10098,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": ".claude/THESIS_REVIEW.md",
+        "sha256": "35dc65963413a8fe33c0031f305f18469a88c44de0db605bd23310a4b1122d34",
+        "bytes": 13244,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "02_Ultra_细节/Ch5_现有输出汇总/README.md",
+        "sha256": "36156c1a7f6a2851c0a4175bc8b8b2f15c0ca97e9d3b60965228e7269c2845af",
+        "bytes": 2882,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/README.md",
+        "sha256": "594af48bf279b63dba61dcb75dd9287b54a897da2642270ad2b3008a9a7f9a01",
+        "bytes": 9424,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "02_Ultra_细节/Ch5_现有输出汇总/input_snapshot/eval_and_benchmarks/CrossEval_README.md",
+        "sha256": "505bde990f40fc522f6cbc5742f56fc48d4433a9970690730dd273a692f416c2",
+        "bytes": 3859,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "02_Ultra_细节/README.md",
+        "sha256": "b1f4802c44954cc94fcc00015c889beaa3485b9620e7992250bab6d9bc5d584e",
+        "bytes": 2763,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "02_Ultra_细节/关键核查与证据.md",
+        "sha256": "471b4b968660078419ef842ffea4556cebc7a8ccf13902885a811be9f0295024",
+        "bytes": 5486,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "02_Ultra_细节/审计记录/公开源码_Ch4_22b4db68/Readme.md",
+        "sha256": "c57f95d1bc516f84dcc6779c2970d969efe80dd6a6b1cda041beb7d3f970893c",
+        "bytes": 5008,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf",
+        "sha256": "28ad09550e7a47eff77693476db82d4d4d9a71ad5557871cfb27c72200ed63a4",
+        "bytes": 185540,
+        "provenance_classification": "canonical examiner-report PDF; inspect embedded annotations separately"
+      },
+      {
+        "relative_path": "Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf",
+        "sha256": "c9d8a2a843e3c9cd167e751ed0dec8f7cd7ca757a6a8fabea2abc747b1c61020",
+        "bytes": 118876,
+        "provenance_classification": "canonical examiner-report PDF; inspect embedded annotations separately"
+      },
+      {
+        "relative_path": "README.md",
+        "sha256": "31e184cba434a17b4c885f712435756445c973214bb235dd45659a0a7f0a1cc8",
+        "bytes": 1172,
+        "provenance_classification": "repository state/cleanup note; not a signed author-response document"
+      },
+      {
+        "relative_path": "README_Preliminary_Report_1.md",
+        "sha256": "e5916abeffcabf7e863728d9fca7ca2ca1eb76fadc595e7e24c2e4c595c17179",
+        "bytes": 20902,
+        "provenance_classification": "derived transcription of canonical PDF annotations; not independent author-response source"
+      },
+      {
+        "relative_path": "README_Preliminary_Report_2.md",
+        "sha256": "89b84809d49df248ecc4da8825399fe73ff700edee1f3e9bd56d957e7614cdd3",
+        "bytes": 10907,
+        "provenance_classification": "derived examiner report transcription; no author responses"
+      },
+      {
+        "relative_path": "Z_He_PhD_Thesis.pdf",
+        "sha256": "cbfcfca09364f85a7f6fcef186114054bfa8c494a87d26271091911a9064de07",
+        "bytes": 14833690,
+        "provenance_classification": "manuscript PDF; not a response/rebuttal"
+      },
+      {
+        "relative_path": "main.pdf",
+        "sha256": "8cb8dbe9d560980e003148e442cdeae53e7a97495dcee695b8a58df9a0719bb8",
+        "bytes": 14403753,
+        "provenance_classification": "manuscript PDF; not a response/rebuttal"
+      },
+      {
+        "relative_path": "publish_paper/2025_CMMR_MIDI_Velocity_Colorizer.pdf",
+        "sha256": "fdffb60df941a5fd66d6497365d778d4f45d0c15be96a7f30ff8f9e58d838d28",
+        "bytes": 2299556,
+        "provenance_classification": "coauthored academic paper; style/method evidence, not thesis revision decisions"
+      },
+      {
+        "relative_path": "publish_paper/2026_ICASSP_Dynamics_Metrical_Structure.pdf",
+        "sha256": "a93d246b18af61363483697f0135d92ac5611756bf929ae4bc48c46982c516a2",
+        "bytes": 628772,
+        "provenance_classification": "coauthored academic paper; style/method evidence, not thesis revision decisions"
+      },
+      {
+        "relative_path": "publish_paper/2026_ISMIR_Cross_Instrument_Velocity.pdf",
+        "sha256": "2b081d2c1636dc0453c7ab2a69ac23a3d2e570eef0ea93634a9aa9e2751fadf2",
+        "bytes": 660277,
+        "provenance_classification": "coauthored academic paper; style/method evidence, not thesis revision decisions"
+      },
+      {
+        "relative_path": "publish_paper/2026_SMC_Score_Informed_Velocity.pdf",
+        "sha256": "7bafa56d60ff5101712aec687fbd4165b75c7cebec8c8c9173cb64b3afd3fdc7",
+        "bytes": 899656,
+        "provenance_classification": "coauthored academic paper; style/method evidence, not thesis revision decisions"
+      },
+      {
+        "relative_path": "revision_blueprint_20261031/COMMENT_MAP.md",
+        "sha256": "f8c9f9357f17d1060fb294e31196e3e846411369ede5518bb868fdb194ee7d18",
+        "bytes": 49735,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "revision_blueprint_20261031/DECISIONS.md",
+        "sha256": "f4489e74df68177519e62d3a94504bf01549cc8d42856f68a4644fd7b0cce6b8",
+        "bytes": 29083,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "revision_blueprint_20261031/README.md",
+        "sha256": "d7817ac49d65cb2e560f3b349409b325baa56eb78f52a06a5205ea775a4b1592",
+        "bytes": 641,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "revision_blueprint_20261031/evidence/comment_map.json",
+        "sha256": "6c6f16db0eb4478b80f54fc8846713e1c02650e4c51b5eb99690ff1f86906722",
+        "bytes": 27384,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "revision_blueprint_20261031/history/DECISIONS_before_readability_v2.md",
+        "sha256": "34ab3d9f6601f347e0df5a1fb5e06bd921bfcf84fe5c34d2e35406c543e4fe9a",
+        "bytes": 24565,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "revision_blueprint_20261031/history/DECISIONS_before_v4.md",
+        "sha256": "5f777d675875c8956a62fe7c68ed28d8991dcc1842113e74e70950912b7aebfd",
+        "bytes": 26973,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "revision_blueprint_20261031/history/DECISIONS_readability_v2.diff",
+        "sha256": "5d7d43616e0315468314bbcdbd6372968cf2072d8d99ffb26c5f8773c8a5db52",
+        "bytes": 48690,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "revision_blueprint_20261031/history/README_before_v4.md",
+        "sha256": "33bb2207d81e38fb5653799cc9ddd9e04c86fd1bc89095d02d68d08fc715a233",
+        "bytes": 1537,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "revision_decision_workbench_20261101/author_decision_evidence.json",
+        "sha256": "2377297c61df5baca654d13a3fe79b42871ebecc6c3e53a66e4ac983ad508250",
+        "bytes": 1389352,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "revision_workshop_20261031_v5/WRITER_REVISION_RESPONSE_R2.md",
+        "sha256": "5c6e0eb1889fe3ef6af10e54f5ba29582f05ee4addc96a40caffcf321cf00e53",
+        "bytes": 9656,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "revision_workshop_20261031_v5/evidence/R2_authoring_scripts/write_response_documents.py",
+        "sha256": "ea5811ecc4b27586a0d0acad5f3dab79a6234a730b81da3058dbe069955c8032",
+        "bytes": 8360,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "revision_workshop_20261031_v5/evidence/tool_checks/README.md",
+        "sha256": "6c475a475a23acb3a529cd15fdec3e01495d6c5ca18289ba1e8931d0b8e384dc",
+        "bytes": 2923,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      },
+      {
+        "relative_path": "revision_workshop_20261031_v5/reader/README.md",
+        "sha256": "edf31c6b94fe4c4f1fc289440ca7538f01ae59e0833f4b2409df5de0cb8a1826",
+        "bytes": 803,
+        "provenance_classification": "excluded as author-decision authority: generated review/proposal, evidence summary, or manuscript backup"
+      }
+    ],
+    "text_files_searched_outside_generated_or_backup_trees": [
+      "Abbreviations/abbreviation.tex",
+      "Acknowledgments/acknowledgements.tex",
+      "Chapter_1/Intro.tex",
+      "Chapter_2/Background.tex",
+      "Chapter_3/chap3.tex",
+      "Chapter_4/chap4.tex",
+      "Chapter_5/chap5.tex",
+      "Chapter_6/chap6.tex",
+      "Chapter_7/Conclusion.tex",
+      "Declaration/author_declaration.tex",
+      "Declaration/declaration.tex",
+      "README.md",
+      "README_Preliminary_Report_1.md",
+      "README_Preliminary_Report_2.md",
+      "main.tex"
+    ],
+    "explicit_decision_keyword_pattern": "keep.{0,35}(?:current|unchanged|as is)|no (?:change|revision)|not (?:revise|change)|decid.{0,25}not|不改|不修改|不修订|保持原|维持现|保留原",
+    "text_keyword_hits": [
+      {
+        "relative_path": "README_Preliminary_Report_1.md",
+        "line": 283,
+        "quote": "> The true problem is Dolby will not happy for my \"internship finished project\" have further development\" haha. So we keep it as current.",
+        "authority": "derived PDF author annotation",
+        "canonical_comment_id": "R1-21"
+      },
+      {
+        "relative_path": "Chapter_6/chap6.tex",
+        "line": 91,
+        "quote": "VeloEst acts as the shared front-end of the framework, estimating note-wise MIDI velocities $\\hat{V}$ from the performance audio and aligned note events. We use the score-informed HPT model with onset and frame as score-guidance, which is identified as the best VeloEst configuration in Chapter~\\ref{ch:scoreinf}~\\cite{he2026score}. We keep its architecture unchanged and use the publicly available checkpoint trained on MAESTRO with ground-truth velocity supervision $\\mathcal{L}_{\\mathrm{velo}}$. This fixed estimator keeps the cross-instrument experiment focused on the supervision interface rather than on introducing a new velocity-estimation architecture.",
+        "authority": "not an author revision decision; manuscript/method statement",
+        "canonical_comment_id": null
+      },
+      {
+        "relative_path": "Chapter_7/Conclusion.tex",
+        "line": 55,
+        "quote": "The second method contribution introduces performance audio while keeping the note structure fixed through an aligned score. Chapter~\\ref{ch:scoreinf} proposes a modular correction strategy: keep the AMT backbone unchanged, then use score information as a late residual correction signal for note-level velocity. This design is deliberately different from early-fusion score-informed transcription. It treats score information as a structural prior rather than as a replacement for acoustic evidence.",
+        "authority": "not an author revision decision; manuscript/method statement",
+        "canonical_comment_id": null
+      },
+      {
+        "relative_path": "Chapter_4/chap4.tex",
+        "line": 48,
+        "quote": "The interface of the proposed system is intentionally simple. The AMT backbone first predicts a preliminary velocity map from audio. The aligned score is then converted into symbolic features at the same time resolution. A lightweight score-informed module finally corrects the preliminary estimate at note onsets. This design has three practical advantages. First, it keeps the acoustic front end reusable. Second, it allows the correction module to be attached to several AMT backbones with only small engineering changes. Third, it constrains the score-informed stage to a narrow task. The module adjusts \\emph{how loudly} a note is played. It does not decide \\emph{whether} the note exists.",
+        "authority": "not an author revision decision; manuscript/method statement",
+        "canonical_comment_id": null
+      },
+      {
+        "relative_path": "Chapter_4/chap4.tex",
+        "line": 309,
+        "quote": "The main finding of this chapter is that score information is most useful when it is treated as a structural prior rather than as a full replacement for the acoustic model. The AMT backbone still supplies the initial estimate of performance intensity. The score-informed module only performs a targeted correction at onset locations. This division of labour keeps the system lightweight and explains why the gain transfers across backbones. It also clarifies why score information helps cross-dataset behaviour. The score does not change with microphone placement, room acoustics, or recording chain. It regularises a prediction target that is otherwise acoustically fragile.",
+        "authority": "not an author revision decision; manuscript/method statement",
+        "canonical_comment_id": null
+      },
+      {
+        "relative_path": "Chapter_4/chap4.tex",
+        "line": 319,
+        "quote": "This chapter moved from symbolic completion to score-informed audio refinement. The task is still note-level MIDI velocity, but the estimate now starts from an AMT velocity branch and is corrected using aligned score structure. The proposed Transformer correction module deliberately sits late in the pipeline: it does not redesign the acoustic encoder, and it does not decide which notes exist. It only adjusts the velocity attached to known score onsets.",
+        "authority": "not an author revision decision; manuscript/method statement",
+        "canonical_comment_id": null
+      }
+    ],
+    "canonical_pdf_annotation_check": [
+      {
+        "relative_path": "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf",
+        "pages": 4,
+        "raw_annotations_with_contents": 50,
+        "unique_normalized_annotation_contents": 25,
+        "explicit_keep_pattern_hits": [
+          {
+            "physical_page": 2,
+            "annotation_index": 24,
+            "annotation_author": "Zhanh He",
+            "annotation_type": "Highlight",
+            "contents": "I don't think so. We tried the model inference, and it actually works well in quantised MIDI scores we download from the internet. And our MOS test is based on the score-MIDI, which is quantised, double confirm it can work.\r\rBe honestly I understand this can make a further experiment, which make discussion deeper. \n\nThe true problem is Dolby will not happy for my \"internship finished project\" have further development\" haha. So we keep it as current.",
+            "duplicate_annotation_indices": [
+              25
+            ],
+            "canonical_comment_id": "R1-21",
+            "scope_interpretation": "Keep internship-finished research/project development as current; context discusses a further experiment. Does not clearly refuse thesis wording/protocol clarification.",
+            "can_prefill_whole_item_no_modify": false
+          }
+        ]
+      },
+      {
+        "relative_path": "Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf",
+        "pages": 4,
+        "raw_annotations_with_contents": 0,
+        "unique_normalized_annotation_contents": 0,
+        "explicit_keep_pattern_hits": []
+      }
+    ],
+    "published_paper_keyword_check": [
+      {
+        "relative_path": "publish_paper/2025_CMMR_MIDI_Velocity_Colorizer.pdf",
+        "pages": 12,
+        "keyword_hits": [],
+        "authority": "coauthored manuscript content, not a thesis response decision"
+      },
+      {
+        "relative_path": "publish_paper/2026_SMC_Score_Informed_Velocity.pdf",
+        "pages": 8,
+        "keyword_hits": [],
+        "authority": "coauthored manuscript content, not a thesis response decision"
+      },
+      {
+        "relative_path": "publish_paper/2026_ICASSP_Dynamics_Metrical_Structure.pdf",
+        "pages": 6,
+        "keyword_hits": [],
+        "authority": "coauthored manuscript content, not a thesis response decision"
+      },
+      {
+        "relative_path": "publish_paper/2026_ISMIR_Cross_Instrument_Velocity.pdf",
+        "pages": 8,
+        "keyword_hits": [],
+        "authority": "coauthored manuscript content, not a thesis response decision"
+      }
+    ],
+    "relevant_author_response_full_context": {
+      "relative_path": "README_Preliminary_Report_1.md",
+      "source_lines_start": 271,
+      "source_lines_end": 283,
+      "text": "> Could be, but I guess it will be less expressive, as we know about the problem of quantization. We are not always input this model with the \"real music score\", sometimes, it could be AMT model result,. For example the  guitar-AMT model will not provide the velocity. Using our model in Physcical time, will be a great help.\n\n#### 3.7\n\nSection 3.6: The data used for experiments is performance MIDI, as opposed to reference (quantised) MIDI. Would that conflict with the main envisaged usecase which is on music composition?\n\n**Zhanhong’s response:**\n\n> I don't think so. We tried the model inference, and it actually works well in quantised MIDI scores we download from the internet. And our MOS test is based on the score-MIDI, which is quantised, double confirm it can work.\n>\n> Be honestly I understand this can make a further experiment, which make discussion deeper. \n>\n> The true problem is Dolby will not happy for my \"internship finished project\" have further development\" haha. So we keep it as current.",
+      "independent_source": false,
+      "canonical_source": "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf physical page2 annotation24"
+    },
+    "provenance_exclusions": [
+      {
+        "path_prefix": "revision_blueprint_20261031/",
+        "reason": "assistant-generated candidate drafts, recommendations, comment maps and DECISIONS history are not new author choices"
+      },
+      {
+        "path_prefix": "revision_workshop_20261031_v5/",
+        "reason": "writer/evaluator responses and reviewed selections are assistant work, not author rebuttal"
+      },
+      {
+        "path_prefix": "revision_decision_workbench_20261101/",
+        "reason": "current generated workbench/evidence mapping would be circular authority"
+      },
+      {
+        "path_prefix": ".claude/",
+        "reason": "Auto-mode reviews dated2026-05-17 explicitly report automatic edits and pending suggestions; not authentic author response material"
+      },
+      {
+        "path_prefix": "02_Ultra_细节/",
+        "reason": "audit summaries, source snapshots and output records; README explicitly separates report annotations from old tool inferences"
+      },
+      {
+        "path_prefix": "backups/",
+        "reason": "manuscript backup, not independent response/rebuttal"
+      },
+      {
+        "path_prefix": ".git/",
+        "reason": "bounded current-worktree search excludes Git internals/history; removed drafts not recovered"
+      },
+      {
+        "path_prefix": "publish_paper/",
+        "reason": "papers are legitimate academic prose/method evidence but do not establish author choices about thesis reviewer comments"
+      }
+    ],
+    "root_readme_findings": {
+      "relative_path": "README.md",
+      "line5": "旧答辩讲稿、回应草案和修订计划已清理；本仓库暂不指定新的完整修改方案。",
+      "interpretation": "Explains current absence; not proof no such source exists in Git history or elsewhere."
+    },
+    "summary": {
+      "additional_independent_author_response_document_found": false,
+      "canonical_report1_unique_responses": 25,
+      "report2_author_annotations_found": false,
+      "explicit_keep_response_count_deduplicated": 1,
+      "whole_item_no_modify_prefill_supported_by_this_new_search": false,
+      "conclusion": "No new independent author response material beyond canonical PDF annotations located in the bounded current-worktree search. One authentic keep-current response concerns further project/experiment development, not a blanket refusal to clarify the thesis."
+    },
+    "author_decisions_written": false,
+    "shared_or_source_writes": false
+  },
+  "native_pdf_scan_v2": {
+    "files_scanned": 9,
+    "files": [
+      {
+        "content_annotations": [
+          {
+            "author": "Zhanh He",
+            "contents": "Yes, that’s a fair point. I forgot instrument identities and other expressive aspects from this figure. Final thesis, in this figure I will add them.",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "Yes, that’s a fair point. I forgot instrument identities and other expressive aspects from this figure. Final thesis, in this figure I will add them.",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "Yes, collecting",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "Yes, collecting",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "At current, I am success in Senario 2. We use a score-informed MIDI velocity estimation model because it performs better and provides a stronger pre-train model for adaptation.\r\rNormal MIDI velocity estimation, those without music score as prior, for example the hFT Transformer by Toyama ISMIR2023 is about 3 times MAE than our baseline system. So adapt these audio-only (S3) model with DDSP or DIff-SFProxy is good problem to explore, but we have not yet established.\r\rCurrent method is useful, As we demonstrated in Chapter 4, the audio–score misalignments won't affect much. So it works well.\r\rSo it's good to explore border application. I believe.",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "At current, I am success in Senario 2. We use a score-informed MIDI velocity estimation model because it performs better and provides a stronger pre-train model for adaptation.\r\rNormal MIDI velocity estimation, those without music score as prior, for example the hFT Transformer by Toyama ISMIR2023 is about 3 times MAE than our baseline system. So adapt these audio-only (S3) model with DDSP or DIff-SFProxy is good problem to explore, but we have not yet established.\r\rCurrent method is useful, As we demonstrated in Chapter 4, the audio–score misalignments won't affect much. So it works well.\r\rSo it's good to explore border application. I believe.",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "Oops, Thanks, indeed I should add definition on that part.\n\nWeakly expressive is like \"音符和时间信息已经存在，但目标力度层被简化，例如 MIDI velocity 全部设为默认值，无法保留逐音力度变化 (set to 64, or 8-labels scale quantization.)\"\n\nWeak supervise is the missing of groundtruth labels, or low quality groundtruth.",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "Oops, Thanks, indeed I should add definition on that part.\n\nWeakly expressive is like \"音符和时间信息已经存在，但目标力度层被简化，例如 MIDI velocity 全部设为默认值，无法保留逐音力度变化 (set to 64, or 8-labels scale quantization.)\"\n\nWeak supervise is the missing of groundtruth labels, or low quality groundtruth.",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "Yes a true",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "Yes a true",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "Ture, but and False. This correspondence is about the instrument-specific tones, and Performer style. Like two different piano will give different sound with the same finger force. And, about the skill, this could said the piano pedal, and many other factor influence it. So it's false, because too many uncertainty.\r\rI would the Katerina Kosta's work, a \"piano symbol\" performance guidance resulted in sound is not always a soft. Her journal article also analyze this problem, and her ML model is better learn about the performer style instead of some kind of audio-to-loudness correspondence.\n\nSame finding in Kim’s work utilizing LLMs for midi-velocity-to-dynamic  translation",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "Ture, but and False. This correspondence is about the instrument-specific tones, and Performer style. Like two different piano will give different sound with the same finger force. And, about the skill, this could said the piano pedal, and many other factor influence it. So it's false, because too many uncertainty.\r\rI would the Katerina Kosta's work, a \"piano symbol\" performance guidance resulted in sound is not always a soft. Her journal article also analyze this problem, and her ML model is better learn about the performer style instead of some kind of audio-to-loudness correspondence.\n\nSame finding in Kim’s work utilizing LLMs for midi-velocity-to-dynamic  translation",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "In my table, MIDI is unquantised real-performance data, and the score is quantised (somehow we call it score-MIDI). So 43% means the ATEPP only have 43% of recording provided the score, but all of them can use a AMT system to obtain MIDI.",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "In my table, MIDI is unquantised real-performance data, and the score is quantised (somehow we call it score-MIDI). So 43% means the ATEPP only have 43% of recording provided the score, but all of them can use a AMT system to obtain MIDI.",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "Yes my mistake, my intend is to say \"less input signal compared to others\", but indeed less constrained. I will change my term.",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "Yes my mistake, my intend is to say \"less input signal compared to others\", but indeed less constrained. I will change my term.",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "That's a great question, During my Dolby internship, we explored using style as a control parameter in a generative system. Composer could also be used as a coarse style label, for example “Chopin style” or “Beethoven style.”\n\rHowever, we were facing the data limitation, we don't have enough training data for composer/style control. So we changed our idea from \" style control\", to make a model can generalize to more data in different style. \n\rYou can see our human listening test analyse the \"most-seen composer / unseen composer style\" in train data, it exist a gap, but work well across those scenario.s.",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "That's a great question, During my Dolby internship, we explored using style as a control parameter in a generative system. Composer could also be used as a coarse style label, for example “Chopin style” or “Beethoven style.”\n\rHowever, we were facing the data limitation, we don't have enough training data for composer/style control. So we changed our idea from \" style control\", to make a model can generalize to more data in different style. \n\rYou can see our human listening test analyse the \"most-seen composer / unseen composer style\" in train data, it exist a gap, but work well across those scenario.s.",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "Good question. The idea originally came from image-processing papers, especially the use of U-Net and window attention. We use “image-based” because both the input and output are two-dimensional pitch–time matrices, processed with two-dimensional convolutions.\n\nThe input is a binary piano roll, and the output is a single-channel velocity roll. We do not predict RGB colours. “Colourisation” is an analogy for adding velocity values to the existing note structure, it's good for general audiance understand, but I agree that the wording needs clarification.\n\nI would say the “image-like” is more proper. I will make revision.",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "Good question. The idea originally came from image-processing papers, especially the use of U-Net and window attention. We use “image-based” because both the input and output are two-dimensional pitch–time matrices, processed with two-dimensional convolutions.\n\nThe input is a binary piano roll, and the output is a single-channel velocity roll. We do not predict RGB colours. “Colourisation” is an analogy for adding velocity values to the existing note structure, it's good for general audiance understand, but I agree that the wording needs clarification.\n\nI would say the “image-like” is more proper. I will make revision.",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "At first is recovery, because it's how we make the training data. We delete those midi velocity from the given MIDI files. But the final task is the estimation, so shown our MAESTRO dataset trained model can perform well in SMD dataset.",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "At first is recovery, because it's how we make the training data. We delete those midi velocity from the given MIDI files. But the final task is the estimation, so shown our MAESTRO dataset trained model can perform well in SMD dataset.",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "Could be, but I guess it will be less expressive, as we know about the problem of quantization. We are not always input this model with the \"real music score\", sometimes, it could be AMT model result,. For example the  guitar-AMT model will not provide the velocity. Using our model in Physcical time, will be a great help.",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "Could be, but I guess it will be less expressive, as we know about the problem of quantization. We are not always input this model with the \"real music score\", sometimes, it could be AMT model result,. For example the  guitar-AMT model will not provide the velocity. Using our model in Physcical time, will be a great help.",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "I don't think so. We tried the model inference, and it actually works well in quantised MIDI scores we download from the internet. And our MOS test is based on the score-MIDI, which is quantised, double confirm it can work.\r\rBe honestly I understand this can make a further experiment, which make discussion deeper. \n\nThe true problem is Dolby will not happy for my \"internship finished project\" have further development\" haha. So we keep it as current.",
+            "page": 2,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "I don't think so. We tried the model inference, and it actually works well in quantised MIDI scores we download from the internet. And our MOS test is based on the score-MIDI, which is quantised, double confirm it can work.\r\rBe honestly I understand this can make a further experiment, which make discussion deeper. \n\nThe true problem is Dolby will not happy for my \"internship finished project\" have further development\" haha. So we keep it as current.",
+            "page": 2,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "Possible, but I can image this is taken the longer time. \n\nI think it will make the model output more \"human-prefer\", for example in my case, we used the Bark-scale loudness so definatly it sounds more like the real performance. \n\nBut sometimes, it will return lower objective evaluation metrics, which is a deeper issues need to be address.",
+            "page": 3,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "Possible, but I can image this is taken the longer time. \n\nI think it will make the model output more \"human-prefer\", for example in my case, we used the Bark-scale loudness so definatly it sounds more like the real performance. \n\nBut sometimes, it will return lower objective evaluation metrics, which is a deeper issues need to be address.",
+            "page": 3,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "Yes I agree, I will make this more detail.",
+            "page": 3,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "Yes I agree, I will make this more detail.",
+            "page": 3,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "yes, great point. Protential problem is design a ddsp model is hard, it need a new data/methodology develpment. But as you said, it's more straightforward.\n\nI will modify this term \"simpler route\" to \"more efficient route\".",
+            "page": 3,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "yes, great point. Protential problem is design a ddsp model is hard, it need a new data/methodology develpment. But as you said, it's more straightforward.\n\nI will modify this term \"simpler route\" to \"more efficient route\".",
+            "page": 3,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "because we want to use the multi-scale network. Event-based token transformer might have better methodologies, but piano-roll based is easier to build. Actually we tried a \"multi-scale transformer\" in time series research, which is failed, so I did not goes further.",
+            "page": 3,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "because we want to use the multi-scale network. Event-based token transformer might have better methodologies, but piano-roll based is easier to build. Actually we tried a \"multi-scale transformer\" in time series research, which is failed, so I did not goes further.",
+            "page": 3,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "This is the following work of a ISMIR2024 paper by Hyon Kim, he found this is the best ratio, and I verfied it. \n\nI will directly cite his work to further explain this.",
+            "page": 3,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "This is the following work of a ISMIR2024 paper by Hyon Kim, he found this is the best ratio, and I verfied it. \n\nI will directly cite his work to further explain this.",
+            "page": 3,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "could be, but it is a big field about the instrument similarity, we agree it's future work but hard to do it well at the current.",
+            "page": 3,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "could be, but it is a big field about the instrument similarity, we agree it's future work but hard to do it well at the current.",
+            "page": 3,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "dynamic markings is decode to beat levels,",
+            "page": 3,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "dynamic markings is decode to beat levels,",
+            "page": 3,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "connected them might have benefit, a good point, but our idea is the simply MMoE module, so hard development might damage its performance.",
+            "page": 3,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "connected them might have benefit, a good point, but our idea is the simply MMoE module, so hard development might damage its performance.",
+            "page": 3,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "only the decoding progress has the connection, but thanks for rasing it, this is a good point if we want a further performance improvement.",
+            "page": 3,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "only the decoding progress has the connection, but thanks for rasing it, this is a good point if we want a further performance improvement.",
+            "page": 3,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "That's the reason. So we want to check whether this model can generalised across the composer and performer.\n\nUnfortunaly we cannot make a dataset that has specific balance to discuss this topic, but least we verfied it has a good generalization.",
+            "page": 3,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "That's the reason. So we want to check whether this model can generalised across the composer and performer.\n\nUnfortunaly we cannot make a dataset that has specific balance to discuss this topic, but least we verfied it has a good generalization.",
+            "page": 3,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "We chose Huber because it provides smoother gradients for small PHE/OSF errors while retaining an L1-like penalty for large errors. We use β = 1, but we have not established that it performs better than MAE through a dedicated comparison.\r\rWe will add more details about this in the thesis, thanks for rasing it.",
+            "page": 3,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "We chose Huber because it provides smoother gradients for small PHE/OSF errors while retaining an L1-like penalty for large errors. We use β = 1, but we have not established that it performs better than MAE through a dedicated comparison.\r\rWe will add more details about this in the thesis, thanks for rasing it.",
+            "page": 3,
+            "type": "Popup"
+          },
+          {
+            "author": "Zhanh He",
+            "contents": "We use these synthesizers as differentiable approximations, and their fidelity to the target recordings, especially their velocity-to-sound response, is a limitation. The degradation after Diff-Synth adaptation is consistent with acoustic mismatch, although we have not separately measured reconstruction fidelity and velocity-gradient accuracy on our target data.",
+            "page": 3,
+            "type": "Highlight"
+          },
+          {
+            "author": "",
+            "contents": "We use these synthesizers as differentiable approximations, and their fidelity to the target recordings, especially their velocity-to-sound response, is a limitation. The degradation after Diff-Synth adaptation is consistent with acoustic mismatch, although we have not separately measured reconstruction fidelity and velocity-gradient accuracy on our target data.",
+            "page": 3,
+            "type": "Popup"
+          }
+        ],
+        "file": "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf",
+        "page_count": 4,
+        "sha256": "28ad09550e7a47eff77693476db82d4d4d9a71ad5557871cfb27c72200ed63a4",
+        "distinct_content_count": 25
+      },
+      {
+        "content_annotations": [],
+        "file": "Preliminary_Report_PhD_thesis_Zhanhong_He 2.pdf",
+        "page_count": 4,
+        "sha256": "c9d8a2a843e3c9cd167e751ed0dec8f7cd7ca757a6a8fabea2abc747b1c61020",
+        "distinct_content_count": 0
+      },
+      {
+        "content_annotations": [],
+        "file": "Z_He_PhD_Thesis.pdf",
+        "page_count": 154,
+        "sha256": "cbfcfca09364f85a7f6fcef186114054bfa8c494a87d26271091911a9064de07",
+        "distinct_content_count": 0
+      },
+      {
+        "content_annotations": [],
+        "file": "main.pdf",
+        "page_count": 155,
+        "sha256": "8cb8dbe9d560980e003148e442cdeae53e7a97495dcee695b8a58df9a0719bb8",
+        "distinct_content_count": 0
+      },
+      {
+        "content_annotations": [],
+        "file": "backups/before-citation-check-20261031-092317/main.pdf",
+        "page_count": 154,
+        "sha256": "45948164a8396ce9e84adaaa9d66e54d0afbda2f9a81d40823b335046cf379eb",
+        "distinct_content_count": 0
+      },
+      {
+        "content_annotations": [],
+        "file": "publish_paper/2025_CMMR_MIDI_Velocity_Colorizer.pdf",
+        "page_count": 12,
+        "sha256": "fdffb60df941a5fd66d6497365d778d4f45d0c15be96a7f30ff8f9e58d838d28",
+        "distinct_content_count": 0
+      },
+      {
+        "content_annotations": [],
+        "file": "publish_paper/2026_ICASSP_Dynamics_Metrical_Structure.pdf",
+        "page_count": 6,
+        "sha256": "a93d246b18af61363483697f0135d92ac5611756bf929ae4bc48c46982c516a2",
+        "distinct_content_count": 0
+      },
+      {
+        "content_annotations": [],
+        "file": "publish_paper/2026_ISMIR_Cross_Instrument_Velocity.pdf",
+        "page_count": 8,
+        "sha256": "2b081d2c1636dc0453c7ab2a69ac23a3d2e570eef0ea93634a9aa9e2751fadf2",
+        "distinct_content_count": 0
+      },
+      {
+        "content_annotations": [],
+        "file": "publish_paper/2026_SMC_Score_Informed_Velocity.pdf",
+        "page_count": 8,
+        "sha256": "7bafa56d60ff5101712aec687fbd4165b75c7cebec8c8c9173cb64b3afd3fdc7",
+        "distinct_content_count": 0
+      }
+    ],
+    "all_other8_pdfs_without_content_annotations": true
+  },
+  "historical_report1": {
+    "git_commit": "2f035ed",
+    "path": "Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf",
+    "sha256": "8a9412c1401a41a5b4f82865faf759f255a20f03cf7997d92be0278a3a582e78",
+    "native_content_annotation_count": 0,
+    "result": "Original earlier tracked report has no native author annotation contents; no additional response decisions found there."
+  },
+  "proposed_display_correction": {
+    "changes_binary_seed_counts": false,
+    "preserve_all_manual_state": true,
+    "items": [
+      {
+        "id": "R1-21",
+        "author_reply_summary_zh": "你已决定保留当前项目现状、不再扩展开发或实验；是否补写论文说明尚未决定。",
+        "author_subpart_decisions": [
+          {
+            "id": "R1-21-keep-current-project",
+            "decision": "no_modify",
+            "label_zh": "保留当前项目和实验，不再继续扩展",
+            "scope": "Current finished internship project development/experimental expansion only",
+            "exact_quote": "So we keep it as current.",
+            "annotation_id": "A13",
+            "pdf_page": 2,
+            "root_readme_line": 283,
+            "whole_item_manuscript_no": false
+          }
+        ],
+        "author_decision_seed": "pending"
+      },
+      {
+        "id": "R1-20",
+        "author_reply_summary_zh": "你倾向保留物理时间，因为输入可能来自AMT结果；尚未明确决定是否补充论文说明。",
+        "author_decision_seed": "pending"
+      },
+      {
+        "id": "R1-24",
+        "author_reply_summary_zh": "你过去已停止失败的多尺度Transformer尝试；是否补写钢琴卷帘的选择理由尚未决定。",
+        "author_decision_seed": "pending"
+      },
+      {
+        "id": "R1-29",
+        "author_reply_summary_zh": "你倾向保留简单MMoE，并说明现有连接在解码阶段；是否改正文尚未明确。",
+        "author_decision_seed": "pending"
+      },
+      {
+        "id": "R1-36",
+        "author_reply_summary_zh": "你认同自动匹配是未来工作，目前延后；是否把这点写进论文尚未明确。",
+        "author_decision_seed": "pending"
+      }
+    ]
+  },
+  "unanswered_keep_cases": {
+    "ids": [
+      "R1-01",
+      "R1-12",
+      "R1-32",
+      "R1-35",
+      "R2-01"
+    ],
+    "note": "These assistant KEEP recommendations have no actual author reply; no retain-format/already-explained author refusal was found to prefill them."
+  },
+  "historical_source_search_v2": {
+    "schema_version": "historical-author-response-search-v2",
+    "created_utc": "2026-11-01T04:43:58.361282+00:00",
+    "repository": "/Users/jollibear/Documents/tmp/phd thesis",
+    "requested_ref": "dc0b549^",
+    "resolved_commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+    "scope": {
+      "historical_files_checked": 7,
+      "paths": [
+        "02_Ultra_细节/全部评审意见与回应.md",
+        "02_Ultra_细节/blueprint_snapshot/COMBINED_RESPONSE_REVISION_MATRIX.md",
+        "02_Ultra_细节/blueprint_snapshot/R1_COMPLETE_ISSUE_INVENTORY.md",
+        "02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md",
+        "Acknowledgments/PPT_plan.md",
+        "02_Ultra_细节/README.md",
+        "02_Ultra_细节/00_证据与状态索引.md"
+      ],
+      "content_access": "git show only; no checkout or historical-source mutation",
+      "filename_discovery": "git ls-tree metadata restricted to textual response/reply/answer/annotation filenames; not exhaustive repo-content or earlier-commit search",
+      "filename_candidates_found": [
+        "02_Ultra_细节/blueprint_snapshot/COMBINED_RESPONSE_REVISION_MATRIX.md",
+        "02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md",
+        "02_Ultra_细节/全部评审意见与回应.md"
+      ]
+    },
+    "conclusion": {
+      "new_verified_author_decisions_beyond_current_25_annotations": 0,
+      "new_verified_whole_item_no_modify_decisions": 0,
+      "author_prefill_changes_authorized_by_this_search": [],
+      "summary_zh": "在这7份历史材料内，未找到可独立确认、超出当前25条原始PDF批注的作者决定。逐项回应、矩阵和答辩卡均明确是拟稿或计划，不可据其第一人称或保留措辞新增作者勾选。"
+    },
+    "files_checked": [
+      {
+        "path": "02_Ultra_细节/全部评审意见与回应.md",
+        "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+        "sha256_utf8": "5bd69988816f30764860e135b7f8d2037aa83578ec04120969f9e765a2710165",
+        "line_count": 426,
+        "read_method": "git show; entire content fetched and searched; attribution headers and selected matches inspected",
+        "classification": "proposed_response_drafts_not_author_decisions",
+        "provenance_evidence": [
+          {
+            "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+            "path": "02_Ultra_细节/全部评审意见与回应.md",
+            "line_start": 3,
+            "line_end": 3,
+            "quote": "本轮日期：2026-10-22。**本文件完成的是原意见复核、证据定位和英文回应草案；没有修改 thesis、图像、LaTeX 或原始报告。** 所有英文 response 都是建议发送文本，采用拟修改语气；只有实际实施并检查后，才能改成完成时。本文件取代 `blueprint_snapshot/R1_COMPLETE_ISSUE_INVENTORY.md`、`R2_COMPLETE_ISSUE_INVENTORY.md` 和 `COMBINED_RESPONSE_REVISION_MATRIX.md` 作为当前逐项回应入口，历史快照保持原样。",
+            "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/全部评审意见与回应.md:L3"
+          },
+          {
+            "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+            "path": "02_Ultra_细节/全部评审意见与回应.md",
+            "line_start": 19,
+            "line_end": 19,
+            "quote": "- 每条“证据”区分 **已由原文确认**、**已由代码/数据确认**、**合理解释但未验证**、**待作者确认**、**建议新增工作**。已由原文确认表示论文确实这样写，不表示实验已经复现。逐项 response 草案不是新的实验结果。",
+            "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/全部评审意见与回应.md:L19"
+          },
+          {
+            "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+            "path": "02_Ultra_细节/全部评审意见与回应.md",
+            "line_start": 426,
+            "line_end": 426,
+            "quote": "43 个原 ID 均保留且都有原报告定位、真实关切、v0 证据、英文建议回应、修改位置、优先级和状态。原报告中的积极总体评价已保留其“预评审”性质；复合 bullet、重复建议和额外核查已明确映射。这里的英文文本均可作为作者核对后使用的 response 草案，不能直接改称已实施修改。本轮没有承诺自动重训、新听测、完整 AMT 实验或未获得资料的再分析。",
+            "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/全部评审意见与回应.md:L426"
+          }
+        ],
+        "literal_search_matches": [
+          {
+            "line": 18,
+            "quote": "- R1-13 是同一个原始 bullet 中的四个子问，下文保留一个 ID 并逐一处理；R1-23 和 R1-37 的“整合”问题分别有局部设计与全论文两个语境，不能合并漏计。R2-01 来自 p.2 Main strengths 中明确提出的小修；R2-02/03 来自 p.3，R2-04/05 来自 p.4。R2 p.4 总结重复这些要求，不另计为新意见。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 57,
+            "quote": "- **修改位置与行动：** §1.1，p.3 / PDF 30 末段；局部替换，不改研究结果。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 75,
+            "quote": "- **修改位置与行动：** Table 1.2 与 §1.5–1.6 p.6–7 / PDF 33–34；可增加独立 extension 行，保留已有 S1–S3 编号，并与 Table 7.1 对齐。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 134,
+            "quote": "- **原意见定位与性质：** R1 报告 PDF p.2，Chapter 2 第 7 个 bullet；一个复合意见，保留原 ID。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 147,
+            "quote": "- **修改位置与行动：** §2.8 p.36 / PDF 63；增加紧凑导航，保留各章公式，避免重复大段定义。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 173,
+            "quote": "- **建议英文 response：** “I will describe the implementation as sparse two-dimensional piano-roll regression. ‘Colourisation’ is an analogy for assigning a scalar velocity intensity to occupied pitch–time cells, not an assertion that the system models RGB colour channels. I will keep the analogy subordinate to the explicit input, target, and masking definitions.”",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 280,
+            "quote": "- **现有证据：** **已由原文确认**：Fig.5.2、§5.5.1 p.72 / PDF 99 是 shared encoder + shared experts、task-specific gates/heads；Eq.5.2 p.73 / PDF 100 是四项 loss 相加；§5.5.2 p.72–73 / PDF 99–100 没有记载 downbeat-to-beat snapping。**已由代码/数据确认（公开实现）**：`models_audioCNN.py:265–278,318–364` 保留共享 experts 与独立 heads；`losses.py:164–203` 未加 beat/downbeat 一致性项。但 `final_evaluation.py:72,114–120` 固定调用 minimal postprocessor，`post_processor/beat_postproc.py:139–147` 在有 predicted beats 时把 downbeats 移到最近 beat 并去重。无 beat peaks 时跳过；单任务 downbeat 无 beat head 时传零 logits。公开实现存在显式输出处理，不能继续笼统说只有共享表征。[snapping 固定行](https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/pytorch/post_processor/beat_postproc.py#L125-L148)、[metric 调用](https://github.com/zhanh-he/piano-dynamic-estimation/blob/b80be9b355dd28c2a710a3839f63dbbf6d4a9471/pytorch/final_evaluation.py#L68-L120)。**待作者确认**：v0 运行是否正用该 commit／分支。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 409,
+            "quote": "- **建议英文 response：** “I will proofread the final rendered thesis for phrasing, line breaks, table alignment, captions, and notation consistency, checking apparent extraction artifacts against the visible pages before editing. I will keep these presentation corrections separate from the methodological clarifications.”",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 415,
+            "quote": "以下是本轮证据审计或既有规划暴露的核查事项，**不是新增加的 examiner IDs**，不改变 38+5=43 的计数。详证与最小材料见 [关键核查与证据](关键核查与证据.md)。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 426,
+            "quote": "43 个原 ID 均保留且都有原报告定位、真实关切、v0 证据、英文建议回应、修改位置、优先级和状态。原报告中的积极总体评价已保留其“预评审”性质；复合 bullet、重复建议和额外核查已明确映射。这里的英文文本均可作为作者核对后使用的 response 草案，不能直接改称已实施修改。本轮没有承诺自动重训、新听测、完整 AMT 实验或未获得资料的再分析。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          }
+        ],
+        "new_verified_original_author_statement": false
+      },
+      {
+        "path": "02_Ultra_细节/blueprint_snapshot/COMBINED_RESPONSE_REVISION_MATRIX.md",
+        "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+        "sha256_utf8": "1206432e8ef7ece1af7bae8fd55ce4c33e09a9e626896c68aa1da4426cfa3a80",
+        "line_count": 51,
+        "read_method": "git show; entire content fetched and searched; attribution headers and selected matches inspected",
+        "classification": "planned_revision_matrix_not_original_author_responses",
+        "provenance_evidence": [
+          {
+            "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+            "path": "02_Ultra_细节/blueprint_snapshot/COMBINED_RESPONSE_REVISION_MATRIX.md",
+            "line_start": 3,
+            "line_end": 3,
+            "quote": "工作类型：C=口头/定义澄清；W=重写说明；E=补引现有证据/核查来源；F=排版；A=已有输出再分析；X=新实验。A/X注明可选，均未执行，也不是自动承诺。P0=今天优先，P1=备用，P2=答辩后。所有条目状态均为 planned，未修改论文。",
+            "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/blueprint_snapshot/COMBINED_RESPONSE_REVISION_MATRIX.md:L3"
+          }
+        ],
+        "literal_search_matches": [
+          {
+            "line": 14,
+            "quote": "| R1-06 | 2 / 场景建议 | Table1.2 缺 audio→velocity 场景 | Table1.2 p6 / PDF33；§6.3 p88 / PDF115；Table7.1 p106 / PDF133 | 保留三核心场景，另列 Ch6 的 audio+aligned notes、无目标 velocity 标签；不是 audio-only 无结构。 | C/W / A01 |",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 29,
+            "quote": "| R1-21 | 2 / 使用场景批评 | performance MIDI 对量化作曲的迁移 | §3.1 p39 / PDF66；§3.6.1 pp43–44 / PDF70–71 | 承认评估保留演奏时值，不能由该结果证明 quantised score 使用场景；弱化该应用结论；受控量化评估属新增实验。 | C/W；X可选 / A03 |",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          }
+        ],
+        "new_verified_original_author_statement": false
+      },
+      {
+        "path": "02_Ultra_细节/blueprint_snapshot/R1_COMPLETE_ISSUE_INVENTORY.md",
+        "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+        "sha256_utf8": "6758accd915a09aac557e747d8b230d826be57f2a7a68acb03abb33baf10c20a",
+        "line_count": 276,
+        "read_method": "git show; entire content fetched and searched; attribution headers and selected matches inspected",
+        "classification": "planned_issue_inventory_not_original_author_responses",
+        "provenance_evidence": [
+          {
+            "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+            "path": "02_Ultra_细节/blueprint_snapshot/R1_COMPLETE_ISSUE_INVENTORY.md",
+            "line_start": 7,
+            "line_end": 7,
+            "quote": "工作类型：C=口头/定义澄清；W=重写说明；E=补引现有证据/核查来源；F=排版；A=已有输出再分析；X=新实验。A/X注明可选，均未执行，也不是自动承诺。P0=今天优先，P1=备用，P2=答辩后。所有条目状态均为 planned，未修改论文。",
+            "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/blueprint_snapshot/R1_COMPLETE_ISSUE_INVENTORY.md:L7"
+          }
+        ],
+        "literal_search_matches": [
+          {
+            "line": 50,
+            "quote": "- 处理：保留三核心场景，另列 Ch6 的 audio+aligned notes、无目标 velocity 标签；不是 audio-only 无结构。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 155,
+            "quote": "- 处理：承认评估保留演奏时值，不能由该结果证明 quantised score 使用场景；弱化该应用结论；受控量化评估属新增实验。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          }
+        ],
+        "new_verified_original_author_statement": false
+      },
+      {
+        "path": "02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md",
+        "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+        "sha256_utf8": "0f2581e44c0670c71a1dda7b5dd4e2d0a1735a7eb3c4565fc605201d4da3e9f0",
+        "line_count": 259,
+        "read_method": "git show; entire content fetched and searched; attribution headers and selected matches inspected",
+        "classification": "spoken_answer_drafts_not_original_author_responses",
+        "provenance_evidence": [
+          {
+            "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+            "path": "02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md",
+            "line_start": 3,
+            "line_end": 3,
+            "quote": "这是基于手稿的回应草案，不代表已验证训练代码、原始数据或额外实验。每卡先读30秒core；被追问时使用1–2分钟expansion。不要把planned revision说成已完成。所有页码以v0为主；原论文链接见START_HERE。",
+            "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md:L3"
+          }
+        ],
+        "literal_search_matches": [
+          {
+            "line": 171,
+            "quote": "**具体修订**：显著标注protocol；保留原表并补all-fold/source-selected摘要（若已有预测可得）；无预测才提出重跑，先征得用户同意。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 227,
+            "quote": "“The descriptors can be contaminated by overlapping notes and imperfect onset windows. A quadratic loss everywhere could give large residuals excessive influence. Smooth L1 limits that behaviour while keeping a smooth gradient near small residuals. Relative to MAE, the specific motivation is the transition near zero, not a fundamentally different tail behaviour.",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          }
+        ],
+        "new_verified_original_author_statement": false
+      },
+      {
+        "path": "Acknowledgments/PPT_plan.md",
+        "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+        "sha256_utf8": "b71932403f79f1a032ff5cf796a2cd6d52ffd921f738e45a33f1fe466e02e69a",
+        "line_count": 134,
+        "read_method": "git show; entire content fetched and searched; attribution headers and selected matches inspected",
+        "classification": "presentation_generation_prompt_not_examiner_response",
+        "provenance_evidence": [
+          {
+            "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+            "path": "Acknowledgments/PPT_plan.md",
+            "line_start": 6,
+            "line_end": 8,
+            "quote": "## 💡 System Instruction for NotebookLM (Provide this first)\n*Prompt to NotebookLM:*\n\"I am preparing my PhD thesis defense presentation based on the uploaded document 'main.pdf'. The presentation is 40 minutes long. The audience consists of audio and signal processing experts who do NOT have a formal music background. Therefore, all musical concepts (e.g., MIDI velocity, score dynamics, notes) must be clearly mapped to signal processing and acoustic concepts (e.g., attack intensity, perceptual loudness representations, symbolic control variables). I will provide you with a series of prompts, one for each slide. For each slide, generate: 1) The Slide Title. 2) 3-4 concise, highly academic bullet points emphasizing methodology and contributions. 3) Suggestions for visuals/diagrams from the thesis. 4) Detailed Speaker Notes (approx. 150-200 words) that I can read during the defense to sound authoritative and clear.\"",
+            "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:Acknowledgments/PPT_plan.md:L6-L8"
+          }
+        ],
+        "literal_search_matches": [],
+        "new_verified_original_author_statement": false
+      },
+      {
+        "path": "02_Ultra_细节/README.md",
+        "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+        "sha256_utf8": "34a1b0fe48df5f0c7c6225024e4ed5f8287944b707d8a31a7b32b2b0db0ee199",
+        "line_count": 23,
+        "read_method": "git show; entire content fetched and searched; attribution headers and selected matches inspected",
+        "classification": "planning_snapshot_directory_manifest",
+        "provenance_evidence": [
+          {
+            "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+            "path": "02_Ultra_细节/README.md",
+            "line_start": 3,
+            "line_end": 3,
+            "quote": "**当前状态：规划与快照，Ultra未启动，论文未修订。** 本目录没有已经finalise的Ultra成果。",
+            "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/README.md:L3"
+          },
+          {
+            "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+            "path": "02_Ultra_细节/README.md",
+            "line_start": 12,
+            "line_end": 12,
+            "quote": "- [blueprint_snapshot](blueprint_snapshot/START_HERE.md)：上一轮规划包的逐字节快照，15个文件均保持原内容。快照中“未上传Library”等是创建时历史状态，不代表本轮交付状态。它是来源记录，不是未来Ultra输出。",
+            "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/README.md:L12"
+          },
+          {
+            "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+            "path": "02_Ultra_细节/README.md",
+            "line_start": 15,
+            "line_end": 15,
+            "quote": "快照保留了原有MD/TXT及被链接的JSON，以保持引用完整；没有原始PDF、报告全文转写或截图。当前active提示以本目录的ULTRA_PROMPT.md为准；不要绕过它直接执行快照中的旧提示。",
+            "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/README.md:L15"
+          }
+        ],
+        "literal_search_matches": [
+          {
+            "line": 15,
+            "quote": "快照保留了原有MD/TXT及被链接的JSON，以保持引用完整；没有原始PDF、报告全文转写或截图。当前active提示以本目录的ULTRA_PROMPT.md为准；不要绕过它直接执行快照中的旧提示。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          },
+          {
+            "line": 19,
+            "quote": "Ultra以后将证据映射、确认/待确认记录、拟修改英文和change summary写在本细节层。未经明确授权，不改原论文，不自动训练、推送或提交；不覆盖`01_中文导读`。对中文导读的建议只写在`给导读的更新建议.md`，由可读性编辑审阅。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          }
+        ],
+        "new_verified_original_author_statement": false
+      },
+      {
+        "path": "02_Ultra_细节/00_证据与状态索引.md",
+        "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+        "sha256_utf8": "424a9b63c02579bbb0bf4efaa761c366e8aff69df163d5e53a26b604ecb98af1",
+        "line_count": 63,
+        "read_method": "git show; entire content fetched and searched; attribution headers and selected matches inspected",
+        "classification": "source_and_evidence_index_not_original_author_responses",
+        "provenance_evidence": [
+          {
+            "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+            "path": "02_Ultra_细节/00_证据与状态索引.md",
+            "line_start": 9,
+            "line_end": 11,
+            "quote": "主证据：`Zhanhong_He_PhD_Thesis_v0.pdf`，154页，SHA256 `3479394740921480c1325c70cc343eaea9e5d09df174be449415a9c8dacb4798`。正文印刷p.1–112对应PDF28–139；前置页不能统一加偏移。\n\n仓库还含`Z_He_PhD_Thesis.pdf`和`main.pdf`，均154页，但内容/hash有差异。LaTeX源码存在，未编译验证其与v0完全一致；不要默认最新PDF就是拟修订基线。详细差异和全部source hash见[原manifest](blueprint_snapshot/SOURCE_MANIFEST.json)及[版本差异记录](blueprint_snapshot/appendix/PDF_VERSION_DIFFERENCES.json)。",
+            "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/00_证据与状态索引.md:L9-L11"
+          },
+          {
+            "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+            "path": "02_Ultra_细节/00_证据与状态索引.md",
+            "line_start": 19,
+            "line_end": 19,
+            "quote": "两报告已全文和全部8页视觉检查，未见明确保密声明。主论文Ch.1–7正文文本已读，23个关键页面做视觉核对；未逐页视觉校对完整154页、未逐项核验参考文献、未复现实验。详见[实际阅读覆盖](blueprint_snapshot/READING_COVERAGE.md)。",
+            "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/00_证据与状态索引.md:L19"
+          }
+        ],
+        "literal_search_matches": [
+          {
+            "line": 57,
+            "quote": "论文说保留各fold输出；本次尚未取得，未重分析。后续可根据已有输出讨论all-fold/source-selected汇总。是否需重跑待实际资料与保留主张决定，不自动启动实验。",
+            "disposition": "not_author_prefill_evidence; read with document provenance"
+          }
+        ],
+        "new_verified_original_author_statement": false
+      }
+    ],
+    "important_non_author_keep_examples": [
+      {
+        "evidence": {
+          "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+          "path": "02_Ultra_细节/全部评审意见与回应.md",
+          "line_start": 173,
+          "line_end": 173,
+          "quote": "- **建议英文 response：** “I will describe the implementation as sparse two-dimensional piano-roll regression. ‘Colourisation’ is an analogy for assigning a scalar velocity intensity to occupied pitch–time cells, not an assertion that the system models RGB colour channels. I will keep the analogy subordinate to the explicit input, target, and masking definitions.”",
+          "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/全部评审意见与回应.md:L173"
+        },
+        "reason": "I will keep is an analogy-placement suggestion inside a document explicitly labelled proposed English responses; not an author refusal."
+      },
+      {
+        "evidence": {
+          "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+          "path": "02_Ultra_细节/blueprint_snapshot/COMBINED_RESPONSE_REVISION_MATRIX.md",
+          "line_start": 14,
+          "line_end": 14,
+          "quote": "| R1-06 | 2 / 场景建议 | Table1.2 缺 audio→velocity 场景 | Table1.2 p6 / PDF33；§6.3 p88 / PDF115；Table7.1 p106 / PDF133 | 保留三核心场景，另列 Ch6 的 audio+aligned notes、无目标 velocity 标签；不是 audio-only 无结构。 | C/W / A01 |",
+          "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/blueprint_snapshot/COMBINED_RESPONSE_REVISION_MATRIX.md:L14"
+        },
+        "reason": "保留三核心场景 is matrix advice plus proposed extension, not whole-item no-modify."
+      },
+      {
+        "evidence": {
+          "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+          "path": "02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md",
+          "line_start": 171,
+          "line_end": 171,
+          "quote": "**具体修订**：显著标注protocol；保留原表并补all-fold/source-selected摘要（若已有预测可得）；无预测才提出重跑，先征得用户同意。",
+          "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md:L171"
+        },
+        "reason": "保留原表 is draft advice combined with suggested new summaries; not author approval or a no-edit decision."
+      },
+      {
+        "evidence": {
+          "commit": "36e6300d524b0b9d37079523a6b47d2ace8c3539",
+          "path": "02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md",
+          "line_start": 231,
+          "line_end": 231,
+          "quote": "I will revise the explanation to distinguish motivation from experimental evidence and document the actual feature scaling from the implementation. A matched MAE comparison would be a focused sensitivity study, but I will not describe it as completed or necessary to preserve the current conclusions. If requested after the defence, it should use fixed data splits, seeds and model-selection rules.”",
+          "stable_reference": "36e6300d524b0b9d37079523a6b47d2ace8c3539:02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md:L231"
+        },
+        "reason": "I will not describe it as completed or necessary concerns an optional MAE comparison in a spoken-response draft, not an original author refusal to revise the thesis."
+      }
+    ],
+    "existing_annotation_scope_caution": {
+      "item_id": "R1-21",
+      "source_path": "revision_blueprint_20261031/evidence/comment_map.json",
+      "response_exact_from_map": "> I don't think so. We tried the model inference, and it actually works well in quantised MIDI scores we download from the internet. And our MOS test is based on the score-MIDI, which is quantised, double confirm it can work.\n>\n> Be honestly I understand this can make a further experiment, which make discussion deeper. \n>\n> The true problem is Dolby will not happy for my \"internship finished project\" have further development\" haha. So we keep it as current.",
+      "not_new_historical_evidence": true,
+      "explicit_subpart_quote": "The true problem is Dolby will not happy for my \"internship finished project\" have further development\" haha. So we keep it as current.",
+      "interpretation": "Direct author wording already present in the known PDF annotation supports refusing further development/extra experiment in that subpart. It must remain visible. It does not independently settle whether a clarifying manuscript sentence is accepted or refused, nor assert that no relevant experiment exists.",
+      "prefill_action": "No new whole-item no-modify inferred from this historical search; preserve clause-level author NO subpart separately."
+    },
+    "limits": [
+      "Bounded to the seven listed files at this one fixed historical commit; does not claim no original author response exists anywhere in Git history, email, untracked files, or other source material.",
+      "No first-person text was attributed to the user from document title or Git commit author alone.",
+      "Parent reports an earlier historical report1 PDF has zero annotations; that PDF was not independently inspected in this child search and is not used to prove the seven-file conclusion."
+    ],
+    "blocked_actions": [],
+    "mutations": "Only this local diagnostic script and JSON were written; no thesis source, old evidence, author DECISIONS, shared audit, UI, Git index or repository revision was changed.",
+    "independent_child_crosscheck": {
+      "checked_files": [
+        "02_Ultra_细节/blueprint_snapshot/ORAL_ANSWER_CARDS.md",
+        "02_Ultra_细节/blueprint_snapshot/COMBINED_RESPONSE_REVISION_MATRIX.md"
+      ],
+      "scope": "bounded header and targeted clause check, no whole-repo authority claim",
+      "finding": "No additional original-author authority; confirmed matrix line3 and oral-card line3 draft/planned disclaimers; flagged line231 as draft refusal-looking wording."
+    }
+  },
+  "historical_search_limit": "Bounded seven recovered response/preparation files at commit36e6300d524b0b9d37079523a6b47d2ace8c3539; no claim to read every commit.",
+  "cross_checks": {
+    "actual_reply_rows": 24,
+    "distinct_full_native_replies": 25,
+    "raw_current_report1_content_annotation_objects": 50,
+    "source_pdfs_native_scanned": 9,
+    "other_source_pdfs_content_annotations": 0,
+    "historical_preparation_files_checked": 7,
+    "binary_seed_counts_unchanged": true,
+    "whole_manuscript_no_items": 0,
+    "explicit_no_subpart_items": 1,
+    "new_candidate_wording_approved": false,
+    "existing_manual_state_modified": false
+  }
+}

@@ -3,3 +3,10 @@
 .claudeprism/
 __pycache__/
 *.pyc
+
+# Personal workbench feedback is a local backup, never part of a project push.
+thesis-revision-ledger*.json
+thesis-revision-report*.md
+revision_workbench/private_backups/
+manuscript-unsaved-drafts*.json
+original-unmerged-ledger.json

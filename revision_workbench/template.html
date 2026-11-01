@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Thesis · Reviewer revision workbench</title>
+<style>/* WORKBENCH_CSS */</style>
+</head>
+<body>
+<a class="skip-link" href="#workspace">跳到当前意见</a>
+<header class="masthead">
+ <div class="brand"><span class="eyebrow" id="owner-label">MANUSCRIPT REVISION</span><h1>一起整理这轮修改<span>Revision workbench</span></h1><p>逐条对照 reviewer 意见，先决定，再记录改了什么。</p></div>
+ <div class="save-panel"><p id="save-status" role="status" aria-live="polite">正在读取本地记录…</p><p class="save-hint">自动保存到当前浏览器。离开前导出 JSON，作为可携带备份。</p><div class="toolbar"><button id="export-ledger" class="primary">↓ 导出 JSON 备份</button><button id="import-button">↑ 合并导入</button><input id="import-ledger" type="file" accept=".json,application/json" hidden><button id="download-import-source" hidden>下载未合并的原 JSON</button><button id="export-report">导出 revision report 草稿</button><button id="retry-save" hidden>重试浏览器保存</button><button id="rescue-drafts" hidden>救出未保存文字</button></div></div>
+</header>
+<div id="warnings" role="alert" hidden></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<details class="guide"><summary>使用与保存 · 颜色代表共同决定，和执行进度分开</summary><div class="guide-body"><p><strong>绿色：双方都改。</strong> 红色：双方都保留（不是报错）。灰色：助手建议保留、作者尚未决定。其余待定或分歧为黄色。发生保存冲突或提案版本变化时，也先作为待确认处理。</p><p>作者的已有明确回复会标注“据原回复预填”；解释、问题、条件式或未回复均保持待定。勾选只记录决定，不会修改论文，也不会表示已执行。</p><p>建议固定用同一浏览器打开根目录 <code>START_HERE.html</code>。<strong>JSON 是可携带的正式备份</strong>：工作结束时导出；换浏览器、换路径、换电脑或将记录交给我整理 report 时，再合并导入。浏览器存储可能被清理，file:// 的隔离方式也因浏览器而异，不能当作跨设备同步。页面不会上传你的记录。</p><p>每次导出会生成带时间的新备份文件；请确认下载完成，并保留最近几份。导入采取合并，保留不同版本、未知 ID 和冲突，不能用旧文件覆盖新记录。<a href="revision_workbench/README.md" target="_blank" rel="noopener">完整说明</a><span id="reference-links"></span></p></div></details>
+<div class="layout">
+ <aside class="sidebar" aria-label="Reviewer 意见目录" data-expanded="false">
+  <button type="button" id="toggle-directory" aria-expanded="false" aria-controls="comment-list">打开目录与筛选</button>
+  <div class="filters"><label for="search">搜索意见、回复、文件或你的笔记</label><input id="search" type="search" placeholder="如 意见编号 / 关键词 / 文件名"><div class="filter-row"><label>Reviewer<select id="reviewer-filter"><option value="all">全部 · 报告原顺序</option></select></label><label>共同决定<select id="status-filter"><option value="all">全部状态</option><option value="green">双方都改</option><option value="red">双方都保留</option><option value="gray">助手保留 · 作者待定</option><option value="yellow">待定 / 分歧 / 冲突</option></select></label></div><button id="clear-filters" class="text-button">清除筛选</button><p id="list-count" class="small"></p></div>
+  <nav id="comment-list" aria-label="按报告原顺序列出的全部意见"></nav>
+ </aside>
+ <main id="workspace" tabindex="-1"><noscript>此工作台需要 JavaScript；没有联网或账号要求。</noscript></main>
+</div>
+<footer>正文未自动修改。所有原文定位以标注的源码快照为准；编辑论文后，请用原句搜索复核。<span id="edition"></span></footer>
+<dialog id="history-dialog"><div class="dialog-header"><h2>字段历史与恢复</h2><button id="close-history">关闭</button></div><p>恢复会新增一条记录，保留已有历史。遇到并发冲突，请先在卡片中逐项选择或合并。</p><div id="history-content"></div></dialog>
+<script id="workbench-data" type="application/json">/* WORKBENCH_DATA */</script>
+<script>/* WORKBENCH_LEDGER */</script>
+<script>/* WORKBENCH_APP */</script>
+</body>
+</html>

@@ -1,0 +1,1872 @@
+{
+  "entry": "START_HERE.html",
+  "startedAt": "2026-11-01T04:59:55.437Z",
+  "tests": [
+    {
+      "name": "Actual portable backup imports on fresh state without losing configured source/reply context",
+      "passed": true
+    },
+    {
+      "name": "Fresh load has unique comment IDs and config-derived count",
+      "passed": true
+    },
+    {
+      "name": "Primary thesis retains all43 IDs in exact report order",
+      "passed": true
+    },
+    {
+      "name": "Navigation preserves config comment order and reviewer metadata",
+      "passed": true
+    },
+    {
+      "name": "Desktop has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-01 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-01 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-01 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-01 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-01 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-01 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-01 keep recommendation does not present another item's edits as its own proposal",
+      "passed": true
+    },
+    {
+      "name": "R1-01 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-02 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-02 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-02 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-02 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-02 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-02 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-02 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-03 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-03 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-03 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-03 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-03 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-03 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-03 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-04 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-04 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-04 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-04 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-04 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-04 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-04 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-05 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-05 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-05 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-05 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-05 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-05 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-05 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-06 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-06 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-06 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-06 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-06 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-06 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-06 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-07 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-07 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-07 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-07 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-07 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-07 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-07 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-08 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-08 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-08 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-08 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-08 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-08 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-08 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-09 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-09 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-09 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-09 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-09 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-09 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-09 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-10 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-10 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-10 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-10 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-10 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-10 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-10 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-11 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-11 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-11 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-11 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-11 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-11 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-11 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-12 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-12 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-12 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-12 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-12 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-12 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-12 keep recommendation does not present another item's edits as its own proposal",
+      "passed": true
+    },
+    {
+      "name": "R1-12 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-13 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-13 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-13 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-13 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-13 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-13 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-13 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-14 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-14 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-14 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-14 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-14 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-14 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-14 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-15 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-15 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-15 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-15 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-15 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-15 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-15 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-16 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-16 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-16 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-16 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-16 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-16 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-16 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-17 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-17 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-17 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-17 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-17 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-17 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-17 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-18 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-18 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-18 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-18 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-18 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-18 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-18 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-19 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-19 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-19 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-19 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-19 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-19 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-19 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-20 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-20 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-20 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-20 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-20 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-20 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-20 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-21 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-21 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-21 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-21 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-21 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-21 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-21 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-22 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-22 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-22 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-22 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-22 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-22 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-22 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-23 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-23 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-23 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-23 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-23 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-23 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-23 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-24 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-24 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-24 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-24 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-24 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-24 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-24 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-25 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-25 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-25 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-25 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-25 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-25 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-25 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-26 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-26 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-26 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-26 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-26 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-26 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-26 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-27 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-27 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-27 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-27 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-27 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-27 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-27 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-28 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-28 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-28 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-28 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-28 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-28 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-28 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-29 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-29 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-29 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-29 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-29 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-29 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-29 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-30 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-30 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-30 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-30 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-30 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-30 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-30 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-31 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-31 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-31 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-31 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-31 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-31 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-31 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-32 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-32 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-32 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-32 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-32 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-32 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-32 keep recommendation does not present another item's edits as its own proposal",
+      "passed": true
+    },
+    {
+      "name": "R1-32 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-33 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-33 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-33 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-33 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-33 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-33 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-33 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-34 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-34 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-34 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-34 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-34 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-34 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-34 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-35 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-35 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-35 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-35 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-35 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-35 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-35 keep recommendation does not present another item's edits as its own proposal",
+      "passed": true
+    },
+    {
+      "name": "R1-35 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-36 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-36 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-36 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-36 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-36 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-36 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-36 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-37 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-37 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-37 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-37 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-37 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-37 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-37 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-38 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R1-38 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R1-38 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-38 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R1-38 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R1-38 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R1-38 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R2-01 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R2-01 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R2-01 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R2-01 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R2-01 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R2-01 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R2-01 keep recommendation does not present another item's edits as its own proposal",
+      "passed": true
+    },
+    {
+      "name": "R2-01 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R2-02 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R2-02 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R2-02 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R2-02 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R2-02 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R2-02 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R2-02 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R2-03 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R2-03 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R2-03 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R2-03 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R2-03 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R2-03 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R2-03 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R2-04 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R2-04 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R2-04 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R2-04 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R2-04 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R2-04 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R2-04 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R2-05 navigates to an identified subsection",
+      "passed": true
+    },
+    {
+      "name": "R2-05 has two exclusive three-state decisions",
+      "passed": true
+    },
+    {
+      "name": "R2-05 shows exact reviewer original and faithful separate author reply",
+      "passed": true
+    },
+    {
+      "name": "R2-05 author seed follows source decision without inferred choice",
+      "passed": true
+    },
+    {
+      "name": "R2-05 all edit quotes and related retained references are accessible",
+      "passed": true
+    },
+    {
+      "name": "R2-05 visible edit location numbering is sequential despite hidden references",
+      "passed": true
+    },
+    {
+      "name": "R2-05 contextual preview exposes highlighted source lines",
+      "passed": true
+    },
+    {
+      "name": "R1-20 qualified author stance remains visible without blanket decision",
+      "passed": true
+    },
+    {
+      "name": "R1-21 qualified author stance remains visible without blanket decision",
+      "passed": true
+    },
+    {
+      "name": "R1-24 qualified author stance remains visible without blanket decision",
+      "passed": true
+    },
+    {
+      "name": "R1-29 qualified author stance remains visible without blanket decision",
+      "passed": true
+    },
+    {
+      "name": "R1-36 qualified author stance remains visible without blanket decision",
+      "passed": true
+    },
+    {
+      "name": "R1-21 scoped no-expansion stance is checked while main decision remains yellow/pending",
+      "passed": true
+    },
+    {
+      "name": "Scoped override survives reload without modifying plan or main author decision",
+      "passed": true
+    },
+    {
+      "name": "Restored scoped no-expansion choice remains separate from execution",
+      "passed": true
+    },
+    {
+      "name": "Portable export preserves every raw documented author reply",
+      "passed": true
+    },
+    {
+      "name": "R1-03 image asset has a working portable reference and separate LaTeX locator",
+      "passed": true
+    },
+    {
+      "name": "R1-07 image asset has a working portable reference and separate LaTeX locator",
+      "passed": true
+    },
+    {
+      "name": "R1-10 image asset has a working portable reference and separate LaTeX locator",
+      "passed": true
+    },
+    {
+      "name": "R1-13/R1-13-MIDFiLD-row-pending unresolved source evidence does not fabricate replacement/deletion text",
+      "passed": true
+    },
+    {
+      "name": "R1-26/R1-26-onset-only-shape-gap unresolved source evidence does not fabricate replacement/deletion text",
+      "passed": true
+    },
+    {
+      "name": "R1-29/R1-29-fig52-postprocessing-gap unresolved source evidence does not fabricate replacement/deletion text",
+      "passed": true
+    },
+    {
+      "name": "R1-30/R1-30-external-selection-protocol unresolved source evidence does not fabricate replacement/deletion text",
+      "passed": true
+    },
+    {
+      "name": "R1-30/R1-30-earlier-selection-summary unresolved source evidence does not fabricate replacement/deletion text",
+      "passed": true
+    },
+    {
+      "name": "Shared source operation navigates to its canonical reviewer owner",
+      "passed": true
+    },
+    {
+      "name": "Optional source edit uses canonical persistent field and does not claim execution",
+      "passed": true
+    },
+    {
+      "name": "Optional source edit choice survives reload",
+      "passed": true
+    },
+    {
+      "name": "All nine agreement combinations have requested colors",
+      "passed": true
+    },
+    {
+      "name": "Source links are portable relative local references",
+      "passed": true
+    },
+    {
+      "name": "Copy location and exact quote expose portable source anchors",
+      "passed": true
+    },
+    {
+      "name": "Export backup and report actions are available",
+      "passed": true
+    },
+    {
+      "name": "Timestamped export workflow has no connected-file overwrite controls",
+      "passed": true
+    },
+    {
+      "name": "Keyboard Tab moves to an interactive filter",
+      "passed": true
+    },
+    {
+      "name": "Native keyboard decision control stays mutually exclusive",
+      "passed": true
+    },
+    {
+      "name": "Input saves synchronously before blur/navigation",
+      "passed": true
+    },
+    {
+      "name": "Refresh preserves exact English/LaTeX/multiline text",
+      "passed": true
+    },
+    {
+      "name": "Reopen restores existing edits",
+      "passed": true
+    },
+    {
+      "name": "Old and new tabs merge independent fields without replacement",
+      "passed": true
+    },
+    {
+      "name": "Same-field concurrent values are retained as a conflict",
+      "passed": true
+    },
+    {
+      "name": "Conflict is visible in UI with both texts",
+      "passed": true
+    },
+    {
+      "name": "Export/import roundtrip is idempotent and retains conflict",
+      "passed": true
+    },
+    {
+      "name": "Report export preserves raw note text and pending markers",
+      "passed": true
+    },
+    {
+      "name": "Choice on changed candidate is preserved but current agreement becomes pending",
+      "passed": true
+    },
+    {
+      "name": "Explicit current-version reconfirmation clears stale decision marker",
+      "passed": true
+    },
+    {
+      "name": "Compatible schema evolution retains unknown IDs separately and visibly",
+      "passed": true
+    },
+    {
+      "name": "Invalid known decision import is rejected atomically",
+      "passed": true
+    },
+    {
+      "name": "File input imports portable ledger by merge and retains earlier note history",
+      "passed": true
+    },
+    {
+      "name": "History/recovery dialog offers prior exact values",
+      "passed": true
+    },
+    {
+      "name": "Undo creates recoverable history and restores exact previous text",
+      "passed": true
+    },
+    {
+      "name": "Corrupt storage produces a visible recovery warning without losing valid edits",
+      "passed": true
+    },
+    {
+      "name": "Corrupt original bytes remain in portable recovery export",
+      "passed": true
+    },
+    {
+      "name": "390px layout has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-01 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-02 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-03 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-04 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-05 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-06 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-07 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-08 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-09 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-10 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-11 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-12 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-13 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-14 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-15 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-16 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-17 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-18 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-19 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-20 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-21 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-22 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-23 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-24 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-25 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-26 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-27 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-28 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-29 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-30 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-31 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-32 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-33 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-34 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-35 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-36 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-37 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R1-38 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R2-01 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R2-02 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R2-03 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R2-04 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "R2-05 narrow source/decision layout has no overflow",
+      "passed": true
+    },
+    {
+      "name": "Disabled storage warns clearly and keeps export available",
+      "passed": true
+    },
+    {
+      "name": "Disabled storage retains editable notes in portable export",
+      "passed": true
+    },
+    {
+      "name": "Same builder produces independent second manuscript without new dependencies",
+      "passed": true
+    },
+    {
+      "name": "Second manuscript shows generic metadata and exactly two comments in configured order",
+      "passed": true
+    },
+    {
+      "name": "Arbitrary three-reviewer metadata drives filter order and report labels",
+      "passed": true
+    },
+    {
+      "name": "Generic reviewer filter selects the configured author without reordering",
+      "passed": true
+    },
+    {
+      "name": "Generic portable backup contains complete second-manuscript metadata",
+      "passed": true
+    },
+    {
+      "name": "Empty verification proposal is explicitly pending and never displayed as a deletion",
+      "passed": true
+    },
+    {
+      "name": "Explicit empty deletion alone is presented as deletion",
+      "passed": true
+    },
+    {
+      "name": "Distinct document prefix ignores first manuscript operations even with reused record ID",
+      "passed": true
+    },
+    {
+      "name": "Second-manuscript edits do not alter original project records",
+      "passed": true
+    },
+    {
+      "name": "Second manuscript rejects foreign backup without changing its notes",
+      "passed": true
+    },
+    {
+      "name": "Original manuscript rejects second-project backup without changing its notes",
+      "passed": true
+    },
+    {
+      "name": "Plan history preserves literal keep without decision-label substitution",
+      "passed": true
+    },
+    {
+      "name": "Actual-text history preserves literal constructor without inherited property lookup",
+      "passed": true
+    },
+    {
+      "name": "Changing actual text invalidates prior verification without deleting its evidence",
+      "passed": true
+    },
+    {
+      "name": "Changing candidate version also invalidates execution/verification claims",
+      "passed": true
+    },
+    {
+      "name": "Deleted real storage key becomes visibly unsaved while in-memory value survives",
+      "passed": true
+    },
+    {
+      "name": "Explicit retry restores lost operation without replacing its history",
+      "passed": true
+    },
+    {
+      "name": "Retry repairs known corrupted key while retaining exact corrupt bytes for recovery",
+      "passed": true
+    },
+    {
+      "name": "Rejected over-limit input remains exact in memory with rescue warning and no false saved claim",
+      "passed": true
+    },
+    {
+      "name": "Navigating between comments retains the exact rejected draft",
+      "passed": true
+    },
+    {
+      "name": "Portable backup includes exact rejected draft independently of committed operations",
+      "passed": true
+    },
+    {
+      "name": "Import restores rejected draft without overwriting last valid committed notes",
+      "passed": true
+    },
+    {
+      "name": "A subsequent valid edit clears its failed draft while preserving normal persistence",
+      "passed": true
+    },
+    {
+      "name": "No uncaught runtime exceptions",
+      "passed": true
+    },
+    {
+      "name": "No external requests from the local app",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "browser-desktop.png",
+    "browser-r1-05.png",
+    "browser-r1-05-full.png",
+    "browser-r1-13.png",
+    "browser-r1-21.png",
+    "browser-r1-21-full.png",
+    "browser-r1-30.png",
+    "browser-r1-30-full.png",
+    "browser-r1-34.png",
+    "browser-r1-35.png",
+    "browser-r1-35-full.png",
+    "browser-narrow-top.png",
+    "browser-narrow-notes.png"
+  ],
+  "runtimeErrors": [],
+  "externalRequests": [],
+  "dataset": {
+    "documentId": "zhanh-he-phd-thesis-review",
+    "edition": "Reviewer revision workbench · 2026-11-01",
+    "commentCount": 43
+  },
+  "entrySha256": "4fe354d48f03741e8130862c85e5722dea3fdcdfeac589f1e9652fd6d00af5be",
+  "backupMetrics": {
+    "utf8Bytes": 1182507,
+    "operations": 0,
+    "contextRecords": 43,
+    "reviewerCount": 2
+  },
+  "sameFieldBefore": [
+    {
+      "state": {
+        "heads": [],
+        "conflict": false,
+        "corruptGraph": false,
+        "conflicts": [],
+        "alternatives": [],
+        "candidateVersion": null,
+        "stale": false,
+        "updatedAt": null
+      },
+      "active": "plan"
+    },
+    {
+      "state": {
+        "heads": [],
+        "conflict": false,
+        "corruptGraph": false,
+        "conflicts": [],
+        "alternatives": [],
+        "candidateVersion": null,
+        "stale": false,
+        "updatedAt": null
+      },
+      "active": "plan"
+    }
+  ],
+  "sameFieldAfter": [
+    [
+      {
+        "id": "3bf09321-4946-4dcf-8d1a-fa920088fa77:9bf8eed5-19a2-4944-af1e-b08275ed2d23",
+        "documentId": "zhanh-he-phd-thesis-review",
+        "recordId": "R1-02",
+        "field": "plan",
+        "value": "QA simultaneous A",
+        "parents": [],
+        "actor": "3bf09321-4946-4dcf-8d1a-fa920088fa77",
+        "timestamp": "2026-11-01T04:59:58.085Z",
+        "candidateVersion": null
+      },
+      {
+        "id": "0eb7df49-ef7d-4b3f-b34c-f359b90ede19:b03a9051-cf72-4803-ba72-5045fc08cb12",
+        "documentId": "zhanh-he-phd-thesis-review",
+        "recordId": "R1-02",
+        "field": "plan",
+        "value": "QA simultaneous B",
+        "parents": [],
+        "actor": "0eb7df49-ef7d-4b3f-b34c-f359b90ede19",
+        "timestamp": "2026-11-01T04:59:58.087Z",
+        "candidateVersion": null
+      }
+    ],
+    [
+      {
+        "id": "3bf09321-4946-4dcf-8d1a-fa920088fa77:9bf8eed5-19a2-4944-af1e-b08275ed2d23",
+        "documentId": "zhanh-he-phd-thesis-review",
+        "recordId": "R1-02",
+        "field": "plan",
+        "value": "QA simultaneous A",
+        "parents": [],
+        "actor": "3bf09321-4946-4dcf-8d1a-fa920088fa77",
+        "timestamp": "2026-11-01T04:59:58.085Z",
+        "candidateVersion": null
+      },
+      {
+        "id": "0eb7df49-ef7d-4b3f-b34c-f359b90ede19:b03a9051-cf72-4803-ba72-5045fc08cb12",
+        "documentId": "zhanh-he-phd-thesis-review",
+        "recordId": "R1-02",
+        "field": "plan",
+        "value": "QA simultaneous B",
+        "parents": [],
+        "actor": "0eb7df49-ef7d-4b3f-b34c-f359b90ede19",
+        "timestamp": "2026-11-01T04:59:58.087Z",
+        "candidateVersion": null
+      }
+    ]
+  ],
+  "sameFieldTrace": [
+    [
+      {
+        "type": "set",
+        "args": [
+          "R1-02",
+          "plan",
+          "QA simultaneous A",
+          {
+            "baseHeads": []
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "set",
+        "args": [
+          "R1-02",
+          "plan",
+          "QA simultaneous B",
+          {
+            "baseHeads": []
+          }
+        ]
+      }
+    ]
+  ],
+  "secondManuscript": {
+    "documentId": "qa-independent-manuscript-two",
+    "reviewers": [
+      {
+        "id": "Reviewer-C",
+        "displayName": "Reviewer C",
+        "shortName": "C"
+      },
+      {
+        "id": "Reviewer-A",
+        "displayName": "Reviewer A",
+        "shortName": "A"
+      },
+      {
+        "id": "Reviewer-B",
+        "displayName": "Reviewer B",
+        "shortName": "B"
+      }
+    ],
+    "commentIds": [
+      "R1-01",
+      "SECOND-02"
+    ]
+  },
+  "completedAt": "2026-11-01T05:00:02.314Z",
+  "passed": 426,
+  "failed": 0
+}

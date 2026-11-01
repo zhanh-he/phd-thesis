@@ -1,0 +1,132 @@
+Emmanouil Benetos · 报告 5.4 · R1-30
+
+受作曲家和演奏者影响，为何做跨数据集评估？
+◐ 待定 / 分歧
+助手建议
+历史
+
+可根据下面的建议和原文调整。
+
+助手建议
+改
+不改 · 保留
+待定
+你的决定
+历史
+
+尚无明确的整体决定，由你勾选。
+
+你的决定
+改
+不改 · 保留
+待定
+
+建议改：在第5章说明跨数据集测试的是多种变化的共同影响，并先核对记录，再统一两处模型选择与平均规则。
+
+1. 第5章 §5.7.3
+
+Chapter_5/chap5.tex · 第 328–328 行
+
+替换按下方建议替换这里的原文。
+
+原文 · 可直接搜索
+The 5-fold MazurkaBL evaluation already gives a partial test of generalisation, because the folds are piece-disjoint and the model is always evaluated on unseen mazurkas within the same corpus. However, it remains an in-domain setting: performer pool, recording conditions, repertoire family, and annotation conventions are all inherited from MazurkaBL. We therefore add a stricter cross-dataset experiment on Vienna4x22 and Batik-plays-Mozart, using them as test-only corpora after the MazurkaBL training stage.
+建议替换内容
+Piece-disjoint cross-validation tests generalisation to unseen mazurkas within MazurkaBL. Cross-dataset evaluation additionally tests the learned mapping under changes in repertoire, performers, recording conditions, and annotation conventions. These factors vary together in Vienna4x22 and Batik-plays-Mozart, so the experiment diagnoses combined corpus transfer rather than isolating a composer or performer effect.
+复制位置
+复制原句
+复制建议稿
+查看前后文
+打开源文件 ↗
+2. 第5章 §5.7.3
+
+Chapter_5/chap5.tex · 第 330–330 行
+
+先核实这里需先核实原始记录，再填写实际修改文字；目前不提供可直接替换的定稿。
+
+原文 · 可直接搜索
+For each method and input feature, the five checkpoints obtained from MazurkaBL cross-validation are evaluated on each external corpus without fine-tuning. For multitask systems, the transferred fold is selected by the five-class dynamic F1 score because the dynamic label is the primary output of this chapter; the change-point, beat, and downbeat scores are then reported from the same fold. For single-task systems, each task is trained independently, so the best transferred fold is selected separately for the corresponding task. This mirrors the structure of the in-domain experiments, where the single-task baselines are independent models while the multitask system is a single shared model.
+
+需要先取得相关记录并核实；目前没有可直接替换的英文，暂不改动此范围。
+
+复制位置
+复制原句
+查看前后文
+打开源文件 ↗
+3. 第5章 §5.6.1
+
+Chapter_5/chap5.tex · 第 187–187 行
+
+先核实这里需先核实原始记录，再填写实际修改文字；目前不提供可直接替换的定稿。
+
+原文 · 可直接搜索
+Beyond the in-domain MazurkaBL evaluation, Section~\ref{ssec:audiodyn_cross_dataset} reports a test-only cross-dataset evaluation. For each architecture and front-end variant, the five MazurkaBL fold models are all evaluated on Vienna4x22 and Batik-plays-Mozart without fine-tuning. For the multitask variants, the external table selects the fold with the best dynamic F1 on the target corpus and reports the other task scores from the same checkpoint. For the single-task variants, each task has its own fold models, so the best fold is selected separately for the corresponding task. This protocol is intended as a reproducible transfer diagnostic: it asks whether a MazurkaBL-trained fold checkpoint can be reused on an external classical-piano corpus, while the main MazurkaBL table remains the within-corpus benchmark reported as mean and standard deviation over all folds. The per-fold outputs are retained so that the selected fold can be traced.
+
+需要先取得相关记录并核实；目前没有可直接替换的英文，暂不改动此范围。
+
+复制位置
+复制原句
+查看前后文
+打开源文件 ↗
+修改计划 / 留言
+历史 / 恢复
+撤回上次
+实际修改的文字
+历史 / 恢复
+撤回上次
+
+逐字段保存。决定、计划和已执行是三件事；右框只记录你输入的文字。
+
+执行状态
+尚未执行
+已计划
+已修改（作者记录）
+已核验（作者记录）
+核验记录（可选）
+原评审与回复
+
+R1-30 · 报告 5.4 · 报告 PDF 第 3 页
+
+Section 5.6.1: is cross-dataset evaluation crucial for this specific work? Given that dynamics prediction can be to a large extent composer- and performer-dependent.
+
+待核实记录：R1-30/V-05 remains evidence-pending: dynamic-best versus per-task maxima; macro/weighted averaging; actual final table outputs and checkpoints.；核对最终表是按dynamic-F1同一checkpoint还是逐任务取最大值，以及平均规则；确认后用同一规则改写这两处，不预设答案。
+
+你的原回复
+That's the reason. So we want to check whether this model can generalised across the composer and performer.
+
+Unfortunaly we cannot make a dataset that has specific balance to discuss this topic, but least we verfied it has a good generalization.
+
+你解释了泛化动机，也承认数据没有平衡控制；未明确修改决定。 （决定保持待定）
+
+Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf · PDF 第 3 页 · 批注 A23
+That's the reason. So we want to check whether this model can generalised across the composer and performer. Unfortunaly we cannot make a dataset that has specific balance to discuss this topic, but least we verfied it has a good generalization.
+
+原报告 PDF ↗ · 完整定位与证据记录 ↗
+
+相关位置与共用修改
+
+第5章 §5.7.4 · Chapter_5/chap5.tex:392–392 · 保留相关原文
+The cross-dataset results make this distinction more concrete. If score dynamics were merely a continuous loudness variable relabelled into five fixed bins, an out-of-domain corpus with compatible audio quality would mainly cause smooth calibration errors. Instead, Vienna4x22 shows that the symbolic prior itself matters: a passage that is moderate in acoustic intensity may be notated as \textit{p}, \textit{mf}, or \textit{f} depending on the local phrase, edition, and corpus convention. A model trained on MazurkaBL carries a learned expectation about how often each of these labels should occur, and this expectation can become wrong even when the metrical grid remains reasonably stable. The model is therefore learning an acoustic, metrical, and editorial mapping at the same time.
+
+当前定位：b2995d0 当前仓库源码；报告 PDF 页码与论文页码分开。PDF 页码若未给出，不代表已核对论文 PDF。
+
+← 上一条
+30 / 43
+下一条 →
+
+=== Exact editor values / placeholders (fresh source-seeded state) ===
+plan
+VALUE: ""
+PLACEHOLDER: 我打算怎么改，或为什么保留……
+
+actualText
+VALUE: ""
+PLACEHOLDER: 在这里粘贴你最终写入论文的内容；LaTeX 和换行会原样保存。
+
+verificationNotes
+VALUE: ""
+PLACEHOLDER: 如：已重新编译，图号与引用均已核对。
+
+=== Checked decisions ===
+assistantDecision: modify
+authorDecision: pending

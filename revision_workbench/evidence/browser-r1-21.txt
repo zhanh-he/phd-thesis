@@ -1,0 +1,129 @@
+Emmanouil Benetos · 报告 3.7 · R1-21
+
+用演奏MIDI评估是否符合创作用途？
+◐ 待定 / 分歧
+助手建议
+历史
+
+可根据下面的建议和原文调整。
+
+助手建议
+改
+不改 · 保留
+待定
+你的决定
+历史
+
+你已决定保留当前项目现状、不再扩展开发或实验；是否补写论文说明尚未决定。
+
+你的决定
+改
+不改 · 保留
+待定
+ 不扩展当前项目（据原回复预填）
+
+仅指开发和实验；是否补正文说明仍由上方决定。
+
+建议改：在第3章讨论中说明演奏MIDI训练与保留用户音符、时间的用途；听测是否量化另查记录，不先改成定论。
+
+1. 第3章 §3.10
+
+Chapter_3/chap3.tex · 第 453–453 行
+
+插入在上述原文之后插入；原文保留。
+
+原文 · 可直接搜索
+This chapter has verified that note-level dynamics can be recovered usefully even when the symbolic notes and timing are held fixed. It turns expressive enhancement into a controllable post-processing stage rather than a full performance-rendering problem, which is exactly the setting encountered in many MIDI-production and corpus-curation workflows.
+建议插入内容
+Performance MIDI supplies captured velocity targets for training, while the completion interface can also accept quantised symbolic input. The composition use case is to add a velocity profile while retaining the notes and timing supplied by the user.
+复制位置
+复制原句
+复制建议稿
+查看前后文
+打开源文件 ↗
+2. 第3章 §3.9
+
+Chapter_3/chap3.tex · 第 445–448 行
+
+替换按下方建议替换这里的原文。
+
+原文 · 可直接搜索
+Although a substantial gap to human performance remains, the proposed U-Net clearly outperforms the other systems.
+The Flat model performs worst, consistent with earlier findings that default velocity is musically inadequate \cite{kuo2021velocity}.
+The seen, less-seen, and unseen repertoire groups are best interpreted as descriptive groups rather than as a strict complexity-controlled comparison.
+Even so, the relatively narrow 95\% confidence intervals across groups suggest that participants rated the stimuli with reasonable consistency.
+
+这是同一处修改，只改一次。查看 R2-04 的完整建议 →
+
+复制位置
+复制原句
+查看前后文
+打开源文件 ↗
+修改计划 / 留言
+历史 / 恢复
+撤回上次
+实际修改的文字
+历史 / 恢复
+撤回上次
+
+逐字段保存。决定、计划和已执行是三件事；右框只记录你输入的文字。
+
+执行状态
+尚未执行
+已计划
+已修改（作者记录）
+已核验（作者记录）
+核验记录（可选）
+原评审与回复
+
+R1-21 · 报告 3.7 · 报告 PDF 第 2 页
+
+Section 3.6: The data used for experiments is performance MIDI, as opposed to reference (quantised) MIDI. Would that conflict with the main envisaged usecase which is on music composition?
+
+待核实记录：V-02仍待核验。作者当前原批注明确说量化MOS；正文只交代SMD来源与去velocity，缺具体timing preparation。待查字段：输入量化步骤、grid/分辨率、是否改duration、reference采用何种timing、是否各系统共用处理。没有证据前不写任一确定协议，也不默认reference与input做了同样量化。此处不要求新实验。；需要刺激/处理记录明确reference timing，但当前不改Procedure已有评分说明。
+
+你的原回复
+I don't think so. We tried the model inference, and it actually works well in quantised MIDI scores we download from the internet. And our MOS test is based on the score-MIDI, which is quantised, double confirm it can work.
+
+Be honestly I understand this can make a further experiment, which make discussion deeper. 
+
+The true problem is Dolby will not happy for my "internship finished project" have further development" haha. So we keep it as current.
+
+你明确保留当前项目开发现状，但没有明确拒绝修改论文说明。 （决定保持待定）
+
+Preliminary_Report_PhD_thesis_Zhanhong_He 1.pdf · PDF 第 2 页 · 批注 A13
+I don't think so. We tried the model inference, and it actually works well in quantised MIDI scores we download from the internet. And our MOS test is based on the score-MIDI, which is quantised, double confirm it can work. Be honestly I understand this can make a further experiment, which make discussion deeper. The true problem is Dolby will not happy for my "internship finished project" have further development" haha. So we keep it as current.
+
+原报告 PDF ↗ · 完整定位与证据记录 ↗
+
+相关位置与共用修改
+
+第3章 §3.9 · Chapter_3/chap3.tex:375–379 · 保留相关原文
+\paragraph{Stimuli.} The test used eight 10-second MIDI segments, each selected from one of the SMD performances listed in Table~\ref{tab:velcomp_composers}. For each segment, the original human-performed velocities were removed to create a common symbolic input. The Flat, ConvAE, and U-Net outputs were then rendered as stimuli, while the original MIDI with human-performed velocity served as the reference. All stimuli were rendered with the PianoTeq~8 plug-in using the Steinway Model D instrument.
+
+第3章 §3.9 · Chapter_3/chap3.tex:412–416 · 保留相关原文
+\paragraph{Procedure.} Participants were instructed to use headphones because the relevant velocity differences are subtle and are easier to judge at adequate playback quality and level. In each trial, the audio rendered from the human-performed MIDI served as the fixed reference, and the rendered system outputs were judged relative to that reference. Following a MUSHRA-inspired reference-based procedure \cite{series2014mursha}, participants rated each processed stimulus independently on a continuous 0--5 scale, where the labelled intervals corresponded to ``bad'', ``poor'', ``fair'', ``good'', and ``excellent'' similarity. The final scores were averaged across listeners to obtain MOS, and 95\% confidence intervals were computed for reporting.
+
+当前定位：b2995d0 当前仓库源码；报告 PDF 页码与论文页码分开。PDF 页码若未给出，不代表已核对论文 PDF。
+
+← 上一条
+21 / 43
+下一条 →
+
+=== Exact editor values / placeholders (fresh source-seeded state) ===
+plan
+VALUE: ""
+PLACEHOLDER: 我打算怎么改，或为什么保留……
+
+actualText
+VALUE: ""
+PLACEHOLDER: 在这里粘贴你最终写入论文的内容；LaTeX 和换行会原样保存。
+
+verificationNotes
+VALUE: ""
+PLACEHOLDER: 如：已重新编译，图号与引用均已核对。
+
+=== Checked decisions ===
+assistantDecision: modify
+authorDecision: pending
+R1-21-keep-current-project: on

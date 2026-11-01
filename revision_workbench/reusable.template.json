@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "documentId": "REPLACE_WITH_UNIQUE_MANUSCRIPT_ID",
+  "_templateNotice": "仅为结构示例，不是真实reviewer意见或作者决定。构建前必须替换documentId及所有占位内容。",
+  "manuscript": {
+    "title": "REPLACE_WITH_MANUSCRIPT_TITLE",
+    "owner": "REPLACE_WITH_AUTHOR_NAME",
+    "subtitle": "逐条整理 reviewer 意见与 revision 记录"
+  },
+  "reviewers": [
+    {
+      "id": "reviewer-a",
+      "displayName": "REPLACE_WITH_REVIEWER_DISPLAY_NAME",
+      "shortName": "Reviewer A"
+    }
+  ],
+  "edition": "REPLACE_WITH_REVIEW_DATA_EDITION",
+  "sourceBaseline": {
+    "label": "REPLACE_WITH_VERIFIED_SOURCE_SNAPSHOT"
+  },
+  "comments": [
+    {
+      "id": "REV-A-001",
+      "reviewer": "reviewer-a",
+      "reportOrder": 1,
+      "reportLabel": "Review A · Comment 1（结构示例）",
+      "title": "REPLACE_WITH_COMMENT_TITLE",
+      "meaning": "REPLACE_WITH_CONCISE_CHINESE_MEANING",
+      "original": "REPLACE_WITH_COMPLETE_EXACT_REVIEWER_COMMENT",
+      "report": {
+        "path": "reviewer-report.pdf",
+        "page": null,
+        "label": "未核对报告PDF页码"
+      },
+      "authorReply": {
+        "text": "",
+        "sources": [],
+        "decision": "pending",
+        "prefill": false,
+        "reason": "模板没有真实作者回复；不预填修改或保留决定。"
+      },
+      "assistant": {
+        "decision": "pending",
+        "reason": "REPLACE_WITH_SOURCE_GROUNDED_ASSISTANT_RECOMMENDATION"
+      },
+      "recommendation": "REPLACE_WITH_CONCRETE_EDITING_INSTRUCTION",
+      "locations": [
+        {
+          "key": "REV-A-001-main",
+          "file": "manuscript.tex",
+          "lineStart": 2,
+          "lineEnd": 2,
+          "quote": "Replace this placeholder with the exact current source text.",
+          "before": "\\section{Introduction}\n",
+          "after": "",
+          "operation": "replacement",
+          "section": "Introduction（示例位置）",
+          "role": "primary",
+          "baseline": "REPLACE_WITH_VERIFIED_SOURCE_SNAPSHOT",
+          "note": "示例；用实际源码路径、行号、原句与插入/替换范围替换。"
+        }
+      ],
+      "proposals": [],
+      "candidateVersion": "REPLACE_WITH_REVIEW_AND_CANDIDATE_CONTENT_HASH",
+      "evidencePending": [
+        "模板来源尚未核实；填入真实原报告、回复和源码后移除此说明。"
+      ]
+    }
+  ],
+  "sources": {
+    "manuscript.tex": {
+      "text": "\\section{Introduction}\nReplace this placeholder with the exact current source text.\n",
+      "sha256": "48a56e973613e93f7f4d5b942f0ccbd1097076a8ac0bdc3db72617df2960d95e"
+    }
+  }
+}
