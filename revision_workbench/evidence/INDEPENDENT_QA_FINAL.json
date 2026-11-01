@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "sanitized-independent-qa-summary",
+  "verdict": "PASS",
+  "testedSnapshot": {
+    "commit": "cd67b582c16647f127f22aee651d236d5cf905ef",
+    "entrySha256": "da8cfb2d653a802903b770010874ff649bfc13b85be1719b06954f96813ae19e",
+    "appSha256": "e64d0c682516628622e0bfa0ddc25e57f0efa6b62c5428074910dc220bbf9492",
+    "ledgerSha256": "bea9f5323e86ee82f002e79b68d6f30b4f2bc1f2857f5966871849ffbe8abf92"
+  },
+  "finalBoundedRuntime": {
+    "scope": "Actual application file-import handler and preflight plus actual ledger; synthetic DOM and in-memory storage",
+    "passed": 6,
+    "failed": 0,
+    "browserNavigation": false,
+    "fullBrowserRerun": false,
+    "cases": [
+      {
+        "id": "NEW01-object-container",
+        "case": "Malformed uncommittedDrafts object rejects before any import or state change",
+        "pass": true
+      },
+      {
+        "id": "NEW01-null-row",
+        "case": "Null draft row rejects before any import or state change",
+        "pass": true
+      },
+      {
+        "id": "NEW01-valid-then-invalid",
+        "case": "Valid draft followed by invalid row rejects the whole input atomically",
+        "pass": true
+      },
+      {
+        "id": "draft-then-invalid-ledger",
+        "case": "Prepared valid draft stays uncommitted when ledger validation rejects",
+        "pass": true
+      },
+      {
+        "id": "exact-compatible-roundtrip",
+        "case": "Multiline LaTeX, draft conflicts, unknown IDs/fields/extensions survive exact roundtrip",
+        "pass": true
+      },
+      {
+        "id": "preserve-existing-drafts",
+        "case": "Import without draft data preserves existing unsaved drafts",
+        "pass": true
+      }
+    ],
+    "atomicRejection": "Invalid drafts reject before ledger import, storage writes, ledger changes or draft changes; original input remains recoverable",
+    "draftSemantics": "Unsaved drafts remain distinct from durable ledger operations"
+  },
+  "priorIndependentBrowserRegression": {
+    "commit": "e03bbee4d93d5f8493935bee0ddf4a61f5cc9b61",
+    "entrySha256": "4fe354d48f03741e8130862c85e5722dea3fdcdfeac589f1e9652fd6d00af5be",
+    "originalQ01ThroughQ09": "PASS on this earlier snapshot",
+    "cases": 26,
+    "passed": 24,
+    "failed": 2,
+    "failuresWere": "Two NEW01 malformed-draft shapes; fixed and boundedly retested on final testedSnapshot",
+    "realBrowserCoverage": [
+      "Browser close/restart with isolated profile",
+      "Exact multiline LaTeX",
+      "Old and new tabs editing different fields",
+      "Barrier-released simultaneous same-field writes preserving both values",
+      "Old backup import retaining newer records",
+      "Native input immediately followed by page close"
+    ],
+    "realCardReadability": [
+      "R1-05",
+      "R1-21",
+      "R1-30",
+      "R1-35"
+    ],
+    "desktopAndNarrowScreenshotsReviewed": true,
+    "nativeManuscriptOperationsWritten": 0,
+    "rerunOnFinalSnapshot": false
+  },
+  "priorIssueRegression": [
+    {
+      "id": "Q01",
+      "scope": "Missing/corrupt persisted keys, truthful save warning, retry and raw corruption recovery",
+      "pass": true
+    },
+    {
+      "id": "Q02",
+      "scope": "Connected-file write removed; separate JSON downloads preserve earlier backups",
+      "pass": true
+    },
+    {
+      "id": "Q03",
+      "scope": "Changed candidate or actual text invalidates current execution/verification while preserving history",
+      "pass": true
+    },
+    {
+      "id": "Q04",
+      "scope": "Empty verification candidate is waiting for evidence, not a deletion",
+      "pass": true
+    },
+    {
+      "id": "Q05",
+      "scope": "Large self-exported backup imports exactly",
+      "pass": true
+    },
+    {
+      "id": "Q06",
+      "scope": "Literal note values remain exact rather than becoming decision labels",
+      "pass": true
+    },
+    {
+      "id": "Q07",
+      "scope": "Oversized input retained as explicitly unsaved draft with rescue action and backup content",
+      "pass": true
+    },
+    {
+      "id": "Q08",
+      "scope": "Unknown encoding and nested extension fields survive reload and export",
+      "pass": true
+    },
+    {
+      "id": "Q09",
+      "scope": "Different manuscript reviewer identities, order and notes remain isolated; foreign import rejects atomically",
+      "pass": true
+    }
+  ],
+  "sourceContentAudit": {
+    "reviewedCommit": "e03bbee4d93d5f8493935bee0ddf4a61f5cc9b61",
+    "reviewedEntrySha256": "4fe354d48f03741e8130862c85e5722dea3fdcdfeac589f1e9652fd6d00af5be",
+    "method": "Source/data/evidence audit plus review of frozen screenshots; separate from current-commit runtime tests",
+    "comments": 43,
+    "reportOrder": "Benetos first, Auckland University professor second; each report in original order",
+    "authorDecisionSeeds": {
+      "modify": 9,
+      "keepWholeItem": 0,
+      "pending": 34
+    },
+    "scopedDecision": "R1-21 keeps project/experiment expansion closed; manuscript wording remains pending",
+    "preservedStances": [
+      "R1-20",
+      "R1-24",
+      "R1-29",
+      "R1-36"
+    ],
+    "defaultLocations": 192,
+    "sourceLocations": 189,
+    "imageReferences": 3,
+    "alternateSourceLocationsRetainedInEvidence": 5,
+    "verificationCandidatesNotDeletion": true,
+    "freshBrowserNavigationDuringSourceAudit": "Denied by file-protocol policy; no retry or bypass; not counted as successful browser validation"
+  },
+  "staticMetricConsistencyReminder": {
+    "reviewedCommit": "7673cb69492d3de04692fedf6578ce1287d027b2",
+    "confirmedByFinalBoundedStaticReview": true,
+    "linkedLocations": 5,
+    "scope": "Chapter 2 background, three Chapter 6 explanations and table marking must be checked together; each edit remains independently chosen",
+    "changeType": "Plain consistency reminder and navigation; no new ledger write",
+    "browserRerun": false
+  },
+  "finalStaticReview": {
+    "scope": "Final change is import preflight/sequencing; ledger byte-identical to preceding snapshot; embedded app and ledger match their source modules",
+    "remainingSaveSafetyBlockers": 0
+  },
+  "boundaries": {
+    "noNewValidationCycleInThisSummary": true,
+    "finalSixCasesAreSyntheticRuntimeNotBrowserTests": true,
+    "priorBrowserEvidenceRemainsBoundToEarlierSnapshot": true,
+    "noTargetEditsDuringIndependentChecks": true,
+    "noRealAuthorDataOrNormalBrowserStateTouched": true,
+    "noProfilesBackupsOrUnrelatedBrowserDataIncluded": true,
+    "noPushOrPublicationByIndependentQA": true
+  },
+  "provenance": [
+    {
+      "source": "Final independent VERDICT.md and results.json",
+      "use": "Final six-case runtime pass and bounded static conclusion"
+    },
+    {
+      "source": "Earlier independent QA_VERDICT.md and FINAL_STATUS.json",
+      "use": "Q01-Q09 regressions and prior browser snapshot; historical NEW01 failures retained as historical"
+    },
+    {
+      "source": "Frozen release source-content audit",
+      "use": "43-item order, author intent, location coverage and required metric reminder"
+    }
+  ]
+}

@@ -1,8 +1,7 @@
 {
-  "generatedUtc": "2026-11-01T05:22:40.959395+00:00",
+  "generatedUtc": "2026-11-01T05:30:41.279386+00:00",
   "baseCommit": "b2995d0aa9ddcb47532a47bcd326f6200fc7b12a",
   "sourceImplementation": false,
-  "pushPerformed": false,
   "entry": "START_HERE.html",
   "entrySha256": "da8cfb2d653a802903b770010874ff649bfc13b85be1719b06954f96813ae19e",
   "tests": {
@@ -17,7 +16,7 @@
       "passed": 426,
       "failed": 0,
       "testedEntrySha256": "4fe354d48f03741e8130862c85e5722dea3fdcdfeac589f1e9652fd6d00af5be",
-      "snapshotStatus": "Previous freeze. Consistency reminder and atomic draft preflight changed afterward; current actual-handler Node checks pass. Parent bounded independent import checks pending."
+      "snapshotStatus": "Earlier real-browser snapshot retained honestly. Final runtime change has separate six-case independent runtime PASS; no new denied file-protocol navigation attempted."
     },
     "source": {
       "comments": 43,
@@ -66,9 +65,15 @@
       "passed": 31,
       "appSha256": "e64d0c682516628622e0bfa0ddc25e57f0efa6b62c5428074910dc220bbf9492",
       "browserNavigationAttempted": false
+    },
+    "independentFinal": {
+      "passed": 6,
+      "testedRuntimeCommit": "cd67b582c16647f127f22aee651d236d5cf905ef",
+      "testedEntrySha256": "da8cfb2d653a802903b770010874ff649bfc13b85be1719b06954f96813ae19e",
+      "evidence": "revision_workbench/evidence/INDEPENDENT_QA_FINAL.json"
     }
   },
-  "independentQa": "Original Q01-Q09 passed independent QA; NEW01 targeted fix awaits bounded parent recheck.",
+  "independentQa": "PASS: exact cd67b582 runtime and da8cfb2d entry accepted; final six independent import runtime cases passed; original Q01-Q09 independent pass retained.",
   "filesSha256": {
     ".gitignore": "c459373fc402ac3b3ba715812994a7f8c533b5159d9b748b7796c4cfcd3d47a9",
     "README.md": "0a007cae93ad708d618deb427e7fa5d25e6df6b7cec836b0f0fe95914ca636cf",
@@ -79,6 +84,8 @@
     "revision_workbench/app.js": "e64d0c682516628622e0bfa0ddc25e57f0efa6b62c5428074910dc220bbf9492",
     "revision_workbench/build.py": "7c34a58f3d7fd624b3f7e6b9873e0776162817877702fea2e908c12d11c48c39",
     "revision_workbench/data.json": "1aa809aa61e603195df8814947c58d9aa2ffe425ccc074c10b9614376b5699dd",
+    "revision_workbench/evidence/INDEPENDENT_QA_FINAL.json": "26dd05b047e5148eb4f7a13e643c446718d3d8cfcf067cb86eafc897a5ad6983",
+    "revision_workbench/evidence/INDEPENDENT_QA_FINAL.md": "00a8b664428fc3f262c7d5c87b63e02a086ae90fd1c15b21b698379d1b604500",
     "revision_workbench/evidence/QA_REMEDIATIONS.md": "b2fa1f215ba326965e2226628b2cf9c578166ecc86a876350ea2bfa1f985872f",
     "revision_workbench/evidence/author_decision_evidence.json": "2377297c61df5baca654d13a3fe79b42871ebecc6c3e53a66e4ac983ad508250",
     "revision_workbench/evidence/author_prefill_recheck_v2.json": "6c108cb89bd19762ff56b076312e333a6d4476afcf147e435c6c0b9d31f605b7",
@@ -116,5 +123,6 @@
     "revision_workbench/tests/ledger.test.cjs": "cd5429d6e0c4074680a061617a24e903f8df85764234c7d094747073738efe6d",
     "revision_workbench/tests/test_build.py": "a4229ad9f261c30dd82dc9960e3d06a307ac7c5c79e9b5f3a5aa2a64a28e2d05",
     "revision_workbench/verify_sources.py": "0794ed6538fe42bcd9f52cad67e44f8795d9d3997999e2231c98b4d804914b28"
-  }
+  },
+  "publicationStatusAtManifestCreation": "not_pushed; normal push and fresh-clone verification are the next authorized actions"
 }
